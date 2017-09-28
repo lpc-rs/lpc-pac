@@ -1,0 +1,371 @@
+--- LPC82x.svd	2017-07-12 11:55:37.771289656 +0200
++++ LPC82x.fixed.svd	2017-07-14 11:48:04.089491713 +0200
+@@ -116,12 +116,12 @@
+ 							<enumeratedValues>
+ 								<name>ENUM</name>
+ 								<enumeratedValue>
+-									<name>THE_WATCHDOG_TIME_OU</name>
++									<name>UNPROTECTED</name>
+ 									<description>The watchdog time-out value (TC) can be changed at any time.</description>
+ 									<value>0</value>
+ 								</enumeratedValue>
+ 								<enumeratedValue>
+-									<name>THE_WATCHDOG_TIME_OU</name>
++									<name>PROTECTED</name>
+ 									<description>The watchdog time-out value (TC) can be changed only after the counter is below the value of WDWARNINT and WDWINDOW.</description>
+ 									<value>1</value>
+ 								</enumeratedValue>
+@@ -3243,12 +3243,12 @@
+ 						<value>0x1</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>BOTH_EDGES</name>							
++						<name>BOTH_EDGES_1</name>							
+ 						<description>Both edges</description>							
+ 						<value>0x2</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>BOTH_EDGES</name>							
++						<name>BOTH_EDGES_2</name>							
+ 						<description>Both edges</description>							
+ 						<value>0x3</value>							
+ 					</enumeratedValue>								
+@@ -3267,12 +3267,12 @@
+ 				<enumeratedValues>									
+ 				<name>ENUM</name>									
+ 					<enumeratedValue>								
+-						<name>COMPARATOR_OUTPUT_IS</name>							
++						<name>DIRECT</name>							
+ 						<description>Comparator output is used directly.</description>							
+ 						<value>0</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>COMPARATOR_OUTPUT_IS</name>							
++						<name>SYNC</name>							
+ 						<description>Comparator output is synchronized to the bus clock for output to other modules.</description>							
+ 						<value>1</value>							
+ 					</enumeratedValue>								
+@@ -3734,12 +3734,12 @@
+ 									<value>0x1</value>						
+ 								</enumeratedValue>							
+ 								<enumeratedValue>							
+-									<name>RESERVED_</name>						
++									<name>RESERVED_1</name>						
+ 									<description>Reserved.</description>						
+ 									<value>0x2</value>						
+ 								</enumeratedValue>							
+ 								<enumeratedValue>							
+-									<name>RESERVED_</name>						
++									<name>RESERVED_2</name>						
+ 									<description>Reserved.</description>						
+ 									<value>0x3</value>						
+ 								</enumeratedValue>							
+@@ -9740,77 +9740,77 @@
+ 				<enumeratedValues>												
+ 				<name>ENUM</name>												
+ 					<enumeratedValue>											
+-						<name>0</name>										
++						<name>0_6</name>										
+ 						<description>0.6 MHz</description>										
+ 						<value>0x1</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>1</name>										
++						<name>1_05</name>										
+ 						<description>1.05 MHz</description>										
+ 						<value>0x2</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>1</name>										
++						<name>1_4</name>										
+ 						<description>1.4 MHz</description>										
+ 						<value>0x3</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>1</name>										
++						<name>1_75</name>										
+ 						<description>1.75 MHz</description>										
+ 						<value>0x4</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>2</name>										
++						<name>2_1</name>										
+ 						<description>2.1 MHz</description>										
+ 						<value>0x5</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>2</name>										
++						<name>2_4</name>										
+ 						<description>2.4 MHz</description>										
+ 						<value>0x6</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>2</name>										
++						<name>2_7</name>										
+ 						<description>2.7 MHz</description>										
+ 						<value>0x7</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>3</name>										
++						<name>3_0</name>										
+ 						<description>3.0 MHz</description>										
+ 						<value>0x8</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>3</name>										
++						<name>3_25</name>										
+ 						<description>3.25 MHz</description>										
+ 						<value>0x9</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>3</name>										
++						<name>3_5</name>										
+ 						<description>3.5 MHz</description>										
+ 						<value>0xA</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>3</name>										
++						<name>3_75</name>										
+ 						<description>3.75 MHz</description>										
+ 						<value>0xB</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>4</name>										
++						<name>4_0</name>										
+ 						<description>4.0 MHz</description>										
+ 						<value>0xC</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>4</name>										
++						<name>4_2</name>										
+ 						<description>4.2 MHz</description>										
+ 						<value>0xD</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>4</name>										
++						<name>4_4</name>										
+ 						<description>4.4 MHz</description>										
+ 						<value>0xE</value>										
+ 					</enumeratedValue>											
+ 					<enumeratedValue>											
+-						<name>4</name>										
++						<name>4_6</name>										
+ 						<description>4.6 MHz</description>										
+ 						<value>0xF</value>										
+ 					</enumeratedValue>											
+@@ -12382,12 +12382,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_MSTPENDING_INTER</name>											
++						<name>DISABLED</name>											
+ 						<description>The MstPending interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_MSTPENDING_INTER</name>											
++						<name>ENABLED</name>											
+ 						<description>The MstPending interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12406,12 +12406,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_MSTARBLOSS_INTER</name>											
++						<name>DISABLED</name>											
+ 						<description>The MstArbLoss interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_MSTARBLOSS_INTER</name>											
++						<name>ENABLED</name>											
+ 						<description>The MstArbLoss interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12430,12 +12430,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_MSTSTSTPERR_INTE</name>											
++						<name>DISABLED</name>											
+ 						<description>The MstStStpErr interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_MSTSTSTPERR_INTE</name>											
++						<name>ENABLED</name>											
+ 						<description>The MstStStpErr interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12454,12 +12454,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_SLVPENDING_INTER</name>											
++						<name>DISABLED</name>											
+ 						<description>The SlvPending interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_SLVPENDING_INTER</name>											
++						<name>ENABLED</name>											
+ 						<description>The SlvPending interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12478,12 +12478,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_SLVNOTSTR_INTERR</name>											
++						<name>DISABLED</name>											
+ 						<description>The SlvNotStr interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_SLVNOTSTR_INTERR</name>											
++						<name>ENABLED</name>											
+ 						<description>The SlvNotStr interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12502,12 +12502,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_SLVDESEL_INTERRU</name>											
++						<name>DISABLED</name>											
+ 						<description>The SlvDeSel interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_SLVDESEL_INTERRU</name>											
++						<name>ENABLED</name>											
+ 						<description>The SlvDeSel interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12520,12 +12520,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_MONRDY_INTERRUPT</name>											
++						<name>DISABLED</name>											
+ 						<description>The MonRdy interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_MONRDY_INTERRUPT</name>											
++						<name>ENABLED</name>											
+ 						<description>The MonRdy interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12538,12 +12538,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_MONOV_INTERRUPT</name>											
++						<name>DISABLED</name>											
+ 						<description>The MonOv interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_MONOV_INTERRUPT</name>											
++						<name>ENABLED</name>											
+ 						<description>The MonOv interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12562,12 +12562,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_MONIDLE_INTERRUP</name>											
++						<name>DISABLED</name>											
+ 						<description>The MonIdle interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_MONIDLE_INTERRUP</name>											
++						<name>ENABLED</name>											
+ 						<description>The MonIdle interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12586,12 +12586,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_EVENT_TIME_OUT_I</name>											
++						<name>DISABLED</name>											
+ 						<description>The Event time-out interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_EVENT_TIME_OUT_I</name>											
++						<name>ENABLED</name>											
+ 						<description>The Event time-out interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -12604,12 +12604,12 @@
+ 				<enumeratedValues>													
+ 				<name>ENUM</name>													
+ 					<enumeratedValue>												
+-						<name>THE_SCL_TIME_OUT_INT</name>											
++						<name>DISABLED</name>											
+ 						<description>The SCL time-out interrupt is disabled.</description>											
+ 						<value>0</value>											
+ 					</enumeratedValue>												
+ 					<enumeratedValue>												
+-						<name>THE_SCL_TIME_OUT_INT</name>											
++						<name>ENABLED</name>											
+ 						<description>The SCL time-out interrupt is enabled.</description>											
+ 						<value>1</value>											
+ 					</enumeratedValue>												
+@@ -15498,42 +15498,42 @@
+ 				<enumeratedValues>									
+ 				<name>ENUM</name>									
+ 					<enumeratedValue>								
+-						<name>RISING_EDGES_ON_INPU</name>							
++						<name>RISING_EDGES_INPUT_0</name>							
+ 						<description>Rising edges on input 0.</description>							
+ 						<value>0x0</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>FALLING_EDGES_ON_INP</name>							
++						<name>FALLING_EDGES_INPUT_0</name>							
+ 						<description>Falling edges on input 0.</description>							
+ 						<value>0x1</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>RISING_EDGES_ON_INPU</name>							
++						<name>RISING_EDGES_INPUT_1</name>							
+ 						<description>Rising edges on input 1.</description>							
+ 						<value>0x2</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>FALLING_EDGES_ON_INP</name>							
++						<name>FALLING_EDGES_INPUT_1</name>							
+ 						<description>Falling edges on input 1.</description>							
+ 						<value>0x3</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>RISING_EDGES_ON_INPU</name>							
++						<name>RISING_EDGES_INPUT_2</name>							
+ 						<description>Rising edges on input 2.</description>							
+ 						<value>0x4</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>FALLING_EDGES_ON_INP</name>							
++						<name>FALLING_EDGES_INPUT_2</name>							
+ 						<description>Falling edges on input 2.</description>							
+ 						<value>0x5</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>RISING_EDGES_ON_INPU</name>							
++						<name>RISING_EDGES_INPUT_3</name>							
+ 						<description>Rising edges on input 3.</description>							
+ 						<value>0x6</value>							
+ 					</enumeratedValue>								
+ 					<enumeratedValue>								
+-						<name>FALLING_EDGES_ON_INP</name>							
++						<name>FALLING_EDGES_INPUT_3</name>							
+ 						<description>Falling edges on input 3.</description>							
+ 						<value>0x7</value>							
+ 					</enumeratedValue>								
