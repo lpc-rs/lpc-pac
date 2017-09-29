@@ -1,4 +1,4 @@
-# rust-lpc82x
+# rust-lpc82x [![crates.io](https://img.shields.io/crates/v/lpc82x.svg)](https://crates.io/crates/lpc82x) [![Documentation](https://docs.rs/lpc82x/badge.svg)](https://docs.rs/lpc82x) [![Build Status](https://travis-ci.org/braun-robotics/rust-lpc82x.svg?branch=master)](https://travis-ci.org/braun-robotics/rust-lpc82x)
 
 ## Introduction
 
