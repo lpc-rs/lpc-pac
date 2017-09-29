@@ -63,13 +63,13 @@ This crate is complete and actively maintained, but not all parts of it have bee
 
 At this point, there is no guarantee of API stability. This means that we reserve the right to make changes to the API, that might break existing programs when they upgrade.
 
-You need a nightly version of Rust to use this crate. If you installed Rust via [rustup], you can switch to the nightly version like this: `rustup default nightly`.
+You need a nightly version of Rust to use this crate. If you installed Rust via [rustup], you can switch to the nightly version with `rustup default nightly`.
 
 ## Update Procedure
 
 The repository contains an [update script], that can be used to re-generate the source code. This script updates all required tools ([svd2rust] and [rustfmt]), downloads the [SVD file], applies various patches to it, and re-generates the code.
 
-The patches that are applied to the SVD file are relatively minimal, and just intended to fix various problems with the file that otherwise would prevent code generation, or lead to incorrect code to be generated.
+The patches that are applied to the SVD file are relatively minimal, and are just intended to fix various problems with the file that otherwise would prevent code generation, or would lead to incorrect code being generated.
 
 
 ## License
