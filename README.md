@@ -11,14 +11,14 @@ The purpose of this crate is to give embedded programs or libraries written in t
 Add this to the `[dependencies]` section of your `Cargo.toml` to include rust-lpc82x in your Cargo project:
 
 ``` toml
-lpc82x = { git = "https://github.com/braun-robotics/rust-lpc82x" }
+lpc82x = "0.1"
 ```
 
 This crate includes an optional `rt` feature that can be activated by instead adding the following snippet to your `Cargo.toml`:
 
 ``` toml
 [dependencies.lpc82x]
-git      = "https://github.com/braun-robotics/rust-lpc82x"
+version  = "0.1"
 features = ["rt"]
 ```
 
