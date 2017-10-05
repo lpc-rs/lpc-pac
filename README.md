@@ -14,12 +14,10 @@ Add this to the `[dependencies]` section of your `Cargo.toml` to include rust-lp
 lpc82x = "0.1"
 ```
 
-This crate includes an optional `rt` feature that can be activated by instead adding the following snippet to your `Cargo.toml`:
+This crate includes an optional `rt` feature that can be activated adding this instead:
 
 ``` toml
-[dependencies.lpc82x]
-version  = "0.1"
-features = ["rt"]
+lpc82x = { version = "0.1", features = ["rt"] }
 ```
 
 The `rt` feature includes the [cortex-m-rt] crate and provides overridable interrupt handlers. Please refer to the [svd2rust documentation] for further details.
@@ -45,8 +43,12 @@ unsafe {
         // Set pin to HIGH
         (*gpio).set0.modify(|r, w| w.setp().bits(r.setp().bits() | PIN));
 
+        // Sleep here for some time
+
         // Set pin to LOW
         (*gpio).clr0.write(|w| w.clrp().bits(PIN));
+
+        // Sleep here for some time
     }
 }
 ```
@@ -74,9 +76,9 @@ The patches that are applied to the SVD file are relatively minimal, and are jus
 
 ## License
 
-This project is open source software, licensed under the terms of the [0BSD license]. This basically means you do anything with the software, without any restrictions, but you can't hold the authors liable for any problems.
+This project is open source software, licensed under the terms of the [Zero Clause BSD License][Zero Clause BSD License] (0BSD, for short). This basically means you can do anything with the software, without any restrictions, but you can't hold the authors liable for any problems.
 
-Please refer to [LICENSE] for full details.
+See [LICENSE] for full details.
 
 
 **Supported by [Braun Robotics]**
@@ -94,6 +96,6 @@ Please refer to [LICENSE] for full details.
 [rustup]: https://rustup.rs/
 [update script]: https://github.com/braun-robotics/rust-lpc82x/blob/master/scripts/update
 [rustfmt]: https://crates.io/crates/rustfmt
-[0BSD license]: https://opensource.org/licenses/FPL-1.0.0
+[Zero Clause BSD License]: https://opensource.org/licenses/FPL-1.0.0
 [LICENSE]: https://github.com/braun-robotics/rust-lpc82x/blob/master/LICENSE
 [Braun Robotics]: https://braun-robotics.com/
