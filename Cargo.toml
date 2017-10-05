@@ -1,6 +1,6 @@
 [package]
 name    = "lpc82x"
-version = "0.1.1-dev"
+version = "0.1.2-dev"
 authors = ["Hanno Braun <hanno@braun-robotics.com>"]
 
 description   = "Register mappings for the NXP LPC82x series of ARM Cortex-M0+ microcontrollers"
@@ -29,7 +29,7 @@ rt = ["cortex-m-rt"]
 
 
 [package.metadata.release]
-pre-release-commit-message = "chore: Release {{version}}"
+pre-release-commit-message = "chore: Release version {{version}}"
 pro-release-commit-message = "chore: Bump version to {{version}}"
 tag-prefix                 = "v"
 tag-message                = "Version {{version}}"
