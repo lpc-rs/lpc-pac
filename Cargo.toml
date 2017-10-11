@@ -1,6 +1,6 @@
 [package]
 name    = "lpc82x"
-version = "0.1.2-dev"
+version = "0.1.3-dev"
 authors = ["Hanno Braun <hanno@braun-robotics.com>"]
 
 description   = "Register mappings for the NXP LPC82x series of ARM Cortex-M0+ microcontrollers"
