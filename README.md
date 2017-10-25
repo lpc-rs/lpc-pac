@@ -63,7 +63,7 @@ In addition, the [LPC82x user manual] contains extensive documentation on how to
 
 ## Status
 
-This crate is complete and actively maintained, but not all parts of it have been tested. Please [open an issue], if you find any problems. Feel free to check the [list of open issues] for any known problems.
+This crate is complete and actively maintained, but not all parts of it have been tested. The experience so far has shown that the original SVD file has quite a few problems. It's likely there are still undetected bugs. Please [open an issue], if you find any problems. Known issues are tracked [on GitHub][list of open issues].
 
 At this point, there is no guarantee of API stability. This means that we reserve the right to make changes to the API, that might break existing programs when they upgrade.
 
