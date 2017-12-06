@@ -3035,6 +3035,53 @@ pub mod wkt {
                 *self == CLEARCTRR::CLEAR_THE_COUNTER_C
             }
         }
+        #[doc = "Possible values of the field `SEL_EXTCLK`"]
+        #[derive(Clone, Copy, Debug, PartialEq)]
+        pub enum SEL_EXTCLKR {
+            #[doc = "Internal. The clock source is the internal clock selected by the CLKSEL bit."]
+            INTERNAL,
+            #[doc = "External. The self-wake-up timer uses the external WKTCLKIN pin."]
+            EXTERNAL,
+        }
+        impl SEL_EXTCLKR {
+            #[doc = r" Returns `true` if the bit is clear (0)"]
+            #[inline]
+            pub fn bit_is_clear(&self) -> bool {
+                !self.bit()
+            }
+            #[doc = r" Returns `true` if the bit is set (1)"]
+            #[inline]
+            pub fn bit_is_set(&self) -> bool {
+                self.bit()
+            }
+            #[doc = r" Value of the field as raw bits"]
+            #[inline]
+            pub fn bit(&self) -> bool {
+                match *self {
+                    SEL_EXTCLKR::INTERNAL => false,
+                    SEL_EXTCLKR::EXTERNAL => true,
+                }
+            }
+            #[allow(missing_docs)]
+            #[doc(hidden)]
+            #[inline]
+            pub fn _from(value: bool) -> SEL_EXTCLKR {
+                match value {
+                    false => SEL_EXTCLKR::INTERNAL,
+                    true => SEL_EXTCLKR::EXTERNAL,
+                }
+            }
+            #[doc = "Checks if the value of the field is `INTERNAL`"]
+            #[inline]
+            pub fn is_internal(&self) -> bool {
+                *self == SEL_EXTCLKR::INTERNAL
+            }
+            #[doc = "Checks if the value of the field is `EXTERNAL`"]
+            #[inline]
+            pub fn is_external(&self) -> bool {
+                *self == SEL_EXTCLKR::EXTERNAL
+            }
+        }
         #[doc = "Values that can be written to the field `CLKSEL`"]
         pub enum CLKSELW {
             #[doc = "Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. This clock is not available in most low-power modes and must not be selected if the timer is to be used to wake up from one of these modes."]
@@ -3209,6 +3256,64 @@ pub mod wkt {
                 self.w
             }
         }
+        #[doc = "Values that can be written to the field `SEL_EXTCLK`"]
+        pub enum SEL_EXTCLKW {
+            #[doc = "Internal. The clock source is the internal clock selected by the CLKSEL bit."]
+            INTERNAL,
+            #[doc = "External. The self-wake-up timer uses the external WKTCLKIN pin."]
+            EXTERNAL,
+        }
+        impl SEL_EXTCLKW {
+            #[allow(missing_docs)]
+            #[doc(hidden)]
+            #[inline]
+            pub fn _bits(&self) -> bool {
+                match *self {
+                    SEL_EXTCLKW::INTERNAL => false,
+                    SEL_EXTCLKW::EXTERNAL => true,
+                }
+            }
+        }
+        #[doc = r" Proxy"]
+        pub struct _SEL_EXTCLKW<'a> {
+            w: &'a mut W,
+        }
+        impl<'a> _SEL_EXTCLKW<'a> {
+            #[doc = r" Writes `variant` to the field"]
+            #[inline]
+            pub fn variant(self, variant: SEL_EXTCLKW) -> &'a mut W {
+                {
+                    self.bit(variant._bits())
+                }
+            }
+            #[doc = "Internal. The clock source is the internal clock selected by the CLKSEL bit."]
+            #[inline]
+            pub fn internal(self) -> &'a mut W {
+                self.variant(SEL_EXTCLKW::INTERNAL)
+            }
+            #[doc = "External. The self-wake-up timer uses the external WKTCLKIN pin."]
+            #[inline]
+            pub fn external(self) -> &'a mut W {
+                self.variant(SEL_EXTCLKW::EXTERNAL)
+            }
+            #[doc = r" Sets the field bit"]
+            pub fn set_bit(self) -> &'a mut W {
+                self.bit(true)
+            }
+            #[doc = r" Clears the field bit"]
+            pub fn clear_bit(self) -> &'a mut W {
+                self.bit(false)
+            }
+            #[doc = r" Writes raw bits to the field"]
+            #[inline]
+            pub fn bit(self, value: bool) -> &'a mut W {
+                const MASK: bool = true;
+                const OFFSET: u8 = 3;
+                self.w.bits &= !((MASK as u32) << OFFSET);
+                self.w.bits |= ((value & MASK) as u32) << OFFSET;
+                self.w
+            }
+        }
         impl R {
             #[doc = r" Value of the register as raw bits"]
             #[inline]
@@ -3242,6 +3347,15 @@ pub mod wkt {
                     ((self.bits >> OFFSET) & MASK as u32) != 0
                 })
             }
+            #[doc = "Bit 3 - Select external or internal clock source for the self-wake-up timer. The internal clock source is selected by the CLKSEL bit in this register if SET_EXTCLK is set to internal."]
+            #[inline]
+            pub fn sel_extclk(&self) -> SEL_EXTCLKR {
+                SEL_EXTCLKR::_from({
+                    const MASK: bool = true;
+                    const OFFSET: u8 = 3;
+                    ((self.bits >> OFFSET) & MASK as u32) != 0
+                })
+            }
         }
         impl W {
             #[doc = r" Reset value of the register"]
@@ -3269,6 +3383,11 @@ pub mod wkt {
             #[inline]
             pub fn clearctr(&mut self) -> _CLEARCTRW {
                 _CLEARCTRW { w: self }
+            }
+            #[doc = "Bit 3 - Select external or internal clock source for the self-wake-up timer. The internal clock source is selected by the CLKSEL bit in this register if SET_EXTCLK is set to internal."]
+            #[inline]
+            pub fn sel_extclk(&mut self) -> _SEL_EXTCLKW {
+                _SEL_EXTCLKW { w: self }
             }
         }
     }
