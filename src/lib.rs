@@ -1438,7 +1438,7 @@ pub mod mrt {
             #[doc = r" Writes raw bits to the field"]
             #[inline]
             pub unsafe fn bits(self, value: u32) -> &'a mut W {
-                const MASK: u32 = 0x00ff_ffff;
+                const MASK: u32 = 0x7fff_ffff;
                 const OFFSET: u8 = 0;
                 self.w.bits &= !((MASK as u32) << OFFSET);
                 self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -1509,11 +1509,11 @@ pub mod mrt {
             pub fn bits(&self) -> u32 {
                 self.bits
             }
-            #[doc = "Bits 0:23 - Time interval load value. This value is loaded into the TIMERn register and the MRTn starts counting down from IVALUE -1. If the timer is idle, writing a non-zero value to this bit field starts the timer immediately. If the timer is running, writing a zero to this bit field does the following: If LOAD = 1, the timer stops immediately. If LOAD = 0, the timer stops at the end of the time interval."]
+            #[doc = "Bits 0:30 - Time interval load value. This value is loaded into the TIMERn register and the MRTn starts counting down from IVALUE -1. If the timer is idle, writing a non-zero value to this bit field starts the timer immediately. If the timer is running, writing a zero to this bit field does the following: If LOAD = 1, the timer stops immediately. If LOAD = 0, the timer stops at the end of the time interval."]
             #[inline]
             pub fn ivalue(&self) -> IVALUER {
                 let bits = {
-                    const MASK: u32 = 0x00ff_ffff;
+                    const MASK: u32 = 0x7fff_ffff;
                     const OFFSET: u8 = 0;
                     ((self.bits >> OFFSET) & MASK as u32) as u32
                 };
@@ -1541,7 +1541,7 @@ pub mod mrt {
                 self.bits = bits;
                 self
             }
-            #[doc = "Bits 0:23 - Time interval load value. This value is loaded into the TIMERn register and the MRTn starts counting down from IVALUE -1. If the timer is idle, writing a non-zero value to this bit field starts the timer immediately. If the timer is running, writing a zero to this bit field does the following: If LOAD = 1, the timer stops immediately. If LOAD = 0, the timer stops at the end of the time interval."]
+            #[doc = "Bits 0:30 - Time interval load value. This value is loaded into the TIMERn register and the MRTn starts counting down from IVALUE -1. If the timer is idle, writing a non-zero value to this bit field starts the timer immediately. If the timer is running, writing a zero to this bit field does the following: If LOAD = 1, the timer stops immediately. If LOAD = 0, the timer stops at the end of the time interval."]
             #[inline]
             pub fn ivalue(&mut self) -> _IVALUEW {
                 _IVALUEW { w: self }
@@ -1587,11 +1587,11 @@ pub mod mrt {
             pub fn bits(&self) -> u32 {
                 self.bits
             }
-            #[doc = "Bits 0:23 - Holds the current timer value of the down-counter. The initial value is loaded as IVALUE - 1 from the TIME_INTVALn register either at the end of the time interval if the LOAD bit in TIME_INTVALn is 0 and the timer is in repeat mode or immediately if LOAD = 1. When the timer is in idle state, reading this bit fields returns -1 (0x7FFF FFFF)."]
+            #[doc = "Bits 0:30 - Holds the current timer value of the down-counter. The initial value is loaded as IVALUE - 1 from the TIME_INTVALn register either at the end of the time interval if the LOAD bit in TIME_INTVALn is 0 and the timer is in repeat mode or immediately if LOAD = 1. When the timer is in idle state, reading this bit fields returns -1 (0x7FFF FFFF)."]
             #[inline]
             pub fn value(&self) -> VALUER {
                 let bits = {
-                    const MASK: u32 = 0x00ff_ffff;
+                    const MASK: u32 = 0x7fff_ffff;
                     const OFFSET: u8 = 0;
                     ((self.bits >> OFFSET) & MASK as u32) as u32
                 };
