@@ -47360,32 +47360,43 @@ pub mod syscon {
         _reserved9: [u8; 48usize],
         #[doc = "0x134 - Peripheral clock 6 to the IOCON block for programmable glitch filter"]
         pub ioconclkdiv6: IOCONCLKDIV6,
-        _reserved10: [u8; 24usize],
+        #[doc = "0x138 - Peripheral clock 5 to the IOCON block for programmable glitch filter"]
+        pub ioconclkdiv5: IOCONCLKDIV5,
+        #[doc = "0x13c - Peripheral clock 4 to the IOCON block for programmable glitch filter"]
+        pub ioconclkdiv4: IOCONCLKDIV4,
+        #[doc = "0x140 - Peripheral clock 3 to the IOCON block for programmable glitch filter"]
+        pub ioconclkdiv3: IOCONCLKDIV3,
+        #[doc = "0x144 - Peripheral clock 2 to the IOCON block for programmable glitch filter"]
+        pub ioconclkdiv2: IOCONCLKDIV2,
+        #[doc = "0x148 - Peripheral clock 1 to the IOCON block for programmable glitch filter"]
+        pub ioconclkdiv1: IOCONCLKDIV1,
+        #[doc = "0x14c - Peripheral clock 0 to the IOCON block for programmable glitch filter"]
+        pub ioconclkdiv0: IOCONCLKDIV0,
         #[doc = "0x150 - Brown-Out Detect"]
         pub bodctrl: BODCTRL,
         #[doc = "0x154 - System tick counter calibration"]
         pub systckcal: SYSTCKCAL,
-        _reserved11: [u8; 24usize],
+        _reserved10: [u8; 24usize],
         #[doc = "0x170 - IQR delay. Allows trade-off between interrupt latency and determinism."]
         pub irqlatency: IRQLATENCY,
         #[doc = "0x174 - NMI Source Control"]
         pub nmisrc: NMISRC,
         #[doc = "0x178 - GPIO Pin Interrupt Select register 0"]
         pub pintsel: [PINTSEL; 8],
-        _reserved12: [u8; 108usize],
+        _reserved11: [u8; 108usize],
         #[doc = "0x204 - Start logic 0 pin wake-up enable register"]
         pub starterp0: STARTERP0,
-        _reserved13: [u8; 12usize],
+        _reserved12: [u8; 12usize],
         #[doc = "0x214 - Start logic 1 interrupt wake-up enable register"]
         pub starterp1: STARTERP1,
-        _reserved14: [u8; 24usize],
+        _reserved13: [u8; 24usize],
         #[doc = "0x230 - Power-down states in deep-sleep mode"]
         pub pdsleepcfg: PDSLEEPCFG,
         #[doc = "0x234 - Power-down states for wake-up from deep-sleep"]
         pub pdawakecfg: PDAWAKECFG,
         #[doc = "0x238 - Power configuration register"]
         pub pdruncfg: PDRUNCFG,
-        _reserved15: [u8; 444usize],
+        _reserved14: [u8; 444usize],
         #[doc = "0x3f8 - Device ID"]
         pub device_id: DEVICE_ID,
     }
@@ -56454,6 +56465,666 @@ pub mod syscon {
             bits: u32,
         }
         impl super::IOCONCLKDIV6 {
+            #[doc = r" Modifies the contents of the register"]
+            #[inline]
+            pub fn modify<F>(&self, f: F)
+            where
+                for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
+            {
+                let bits = self.register.get();
+                let r = R { bits: bits };
+                let mut w = W { bits: bits };
+                f(&r, &mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Reads the contents of the register"]
+            #[inline]
+            pub fn read(&self) -> R {
+                R { bits: self.register.get() }
+            }
+            #[doc = r" Writes to the register"]
+            #[inline]
+            pub fn write<F>(&self, f: F)
+            where
+                F: FnOnce(&mut W) -> &mut W,
+            {
+                let mut w = W::reset_value();
+                f(&mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Writes the reset value to the register"]
+            #[inline]
+            pub fn reset(&self) {
+                self.write(|w| w)
+            }
+        }
+        #[doc = r" Value of the field"]
+        pub struct DIVR {
+            bits: u8,
+        }
+        impl DIVR {
+            #[doc = r" Value of the field as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u8 {
+                self.bits
+            }
+        }
+        #[doc = r" Proxy"]
+        pub struct _DIVW<'a> {
+            w: &'a mut W,
+        }
+        impl<'a> _DIVW<'a> {
+            #[doc = r" Writes raw bits to the field"]
+            #[inline]
+            pub unsafe fn bits(self, value: u8) -> &'a mut W {
+                const MASK: u8 = 0xff;
+                const OFFSET: u8 = 0;
+                self.w.bits &= !((MASK as u32) << OFFSET);
+                self.w.bits |= ((value & MASK) as u32) << OFFSET;
+                self.w
+            }
+        }
+        impl R {
+            #[doc = r" Value of the register as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u32 {
+                self.bits
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&self) -> DIVR {
+                let bits = {
+                    const MASK: u8 = 0xff;
+                    const OFFSET: u8 = 0;
+                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                };
+                DIVR { bits }
+            }
+        }
+        impl W {
+            #[doc = r" Reset value of the register"]
+            #[inline]
+            pub fn reset_value() -> W {
+                W { bits: 0 }
+            }
+            #[doc = r" Writes raw bits to the register"]
+            #[inline]
+            pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+                self.bits = bits;
+                self
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&mut self) -> _DIVW {
+                _DIVW { w: self }
+            }
+        }
+    }
+    #[doc = "Peripheral clock 5 to the IOCON block for programmable glitch filter"]
+    pub struct IOCONCLKDIV5 {
+        register: VolatileCell<u32>,
+    }
+    #[doc = "Peripheral clock 5 to the IOCON block for programmable glitch filter"]
+    pub mod ioconclkdiv5 {
+        #[doc = r" Value read from the register"]
+        pub struct R {
+            bits: u32,
+        }
+        #[doc = r" Value to write to the register"]
+        pub struct W {
+            bits: u32,
+        }
+        impl super::IOCONCLKDIV5 {
+            #[doc = r" Modifies the contents of the register"]
+            #[inline]
+            pub fn modify<F>(&self, f: F)
+            where
+                for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
+            {
+                let bits = self.register.get();
+                let r = R { bits: bits };
+                let mut w = W { bits: bits };
+                f(&r, &mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Reads the contents of the register"]
+            #[inline]
+            pub fn read(&self) -> R {
+                R { bits: self.register.get() }
+            }
+            #[doc = r" Writes to the register"]
+            #[inline]
+            pub fn write<F>(&self, f: F)
+            where
+                F: FnOnce(&mut W) -> &mut W,
+            {
+                let mut w = W::reset_value();
+                f(&mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Writes the reset value to the register"]
+            #[inline]
+            pub fn reset(&self) {
+                self.write(|w| w)
+            }
+        }
+        #[doc = r" Value of the field"]
+        pub struct DIVR {
+            bits: u8,
+        }
+        impl DIVR {
+            #[doc = r" Value of the field as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u8 {
+                self.bits
+            }
+        }
+        #[doc = r" Proxy"]
+        pub struct _DIVW<'a> {
+            w: &'a mut W,
+        }
+        impl<'a> _DIVW<'a> {
+            #[doc = r" Writes raw bits to the field"]
+            #[inline]
+            pub unsafe fn bits(self, value: u8) -> &'a mut W {
+                const MASK: u8 = 0xff;
+                const OFFSET: u8 = 0;
+                self.w.bits &= !((MASK as u32) << OFFSET);
+                self.w.bits |= ((value & MASK) as u32) << OFFSET;
+                self.w
+            }
+        }
+        impl R {
+            #[doc = r" Value of the register as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u32 {
+                self.bits
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&self) -> DIVR {
+                let bits = {
+                    const MASK: u8 = 0xff;
+                    const OFFSET: u8 = 0;
+                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                };
+                DIVR { bits }
+            }
+        }
+        impl W {
+            #[doc = r" Reset value of the register"]
+            #[inline]
+            pub fn reset_value() -> W {
+                W { bits: 0 }
+            }
+            #[doc = r" Writes raw bits to the register"]
+            #[inline]
+            pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+                self.bits = bits;
+                self
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&mut self) -> _DIVW {
+                _DIVW { w: self }
+            }
+        }
+    }
+    #[doc = "Peripheral clock 4 to the IOCON block for programmable glitch filter"]
+    pub struct IOCONCLKDIV4 {
+        register: VolatileCell<u32>,
+    }
+    #[doc = "Peripheral clock 4 to the IOCON block for programmable glitch filter"]
+    pub mod ioconclkdiv4 {
+        #[doc = r" Value read from the register"]
+        pub struct R {
+            bits: u32,
+        }
+        #[doc = r" Value to write to the register"]
+        pub struct W {
+            bits: u32,
+        }
+        impl super::IOCONCLKDIV4 {
+            #[doc = r" Modifies the contents of the register"]
+            #[inline]
+            pub fn modify<F>(&self, f: F)
+            where
+                for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
+            {
+                let bits = self.register.get();
+                let r = R { bits: bits };
+                let mut w = W { bits: bits };
+                f(&r, &mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Reads the contents of the register"]
+            #[inline]
+            pub fn read(&self) -> R {
+                R { bits: self.register.get() }
+            }
+            #[doc = r" Writes to the register"]
+            #[inline]
+            pub fn write<F>(&self, f: F)
+            where
+                F: FnOnce(&mut W) -> &mut W,
+            {
+                let mut w = W::reset_value();
+                f(&mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Writes the reset value to the register"]
+            #[inline]
+            pub fn reset(&self) {
+                self.write(|w| w)
+            }
+        }
+        #[doc = r" Value of the field"]
+        pub struct DIVR {
+            bits: u8,
+        }
+        impl DIVR {
+            #[doc = r" Value of the field as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u8 {
+                self.bits
+            }
+        }
+        #[doc = r" Proxy"]
+        pub struct _DIVW<'a> {
+            w: &'a mut W,
+        }
+        impl<'a> _DIVW<'a> {
+            #[doc = r" Writes raw bits to the field"]
+            #[inline]
+            pub unsafe fn bits(self, value: u8) -> &'a mut W {
+                const MASK: u8 = 0xff;
+                const OFFSET: u8 = 0;
+                self.w.bits &= !((MASK as u32) << OFFSET);
+                self.w.bits |= ((value & MASK) as u32) << OFFSET;
+                self.w
+            }
+        }
+        impl R {
+            #[doc = r" Value of the register as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u32 {
+                self.bits
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&self) -> DIVR {
+                let bits = {
+                    const MASK: u8 = 0xff;
+                    const OFFSET: u8 = 0;
+                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                };
+                DIVR { bits }
+            }
+        }
+        impl W {
+            #[doc = r" Reset value of the register"]
+            #[inline]
+            pub fn reset_value() -> W {
+                W { bits: 0 }
+            }
+            #[doc = r" Writes raw bits to the register"]
+            #[inline]
+            pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+                self.bits = bits;
+                self
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&mut self) -> _DIVW {
+                _DIVW { w: self }
+            }
+        }
+    }
+    #[doc = "Peripheral clock 3 to the IOCON block for programmable glitch filter"]
+    pub struct IOCONCLKDIV3 {
+        register: VolatileCell<u32>,
+    }
+    #[doc = "Peripheral clock 3 to the IOCON block for programmable glitch filter"]
+    pub mod ioconclkdiv3 {
+        #[doc = r" Value read from the register"]
+        pub struct R {
+            bits: u32,
+        }
+        #[doc = r" Value to write to the register"]
+        pub struct W {
+            bits: u32,
+        }
+        impl super::IOCONCLKDIV3 {
+            #[doc = r" Modifies the contents of the register"]
+            #[inline]
+            pub fn modify<F>(&self, f: F)
+            where
+                for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
+            {
+                let bits = self.register.get();
+                let r = R { bits: bits };
+                let mut w = W { bits: bits };
+                f(&r, &mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Reads the contents of the register"]
+            #[inline]
+            pub fn read(&self) -> R {
+                R { bits: self.register.get() }
+            }
+            #[doc = r" Writes to the register"]
+            #[inline]
+            pub fn write<F>(&self, f: F)
+            where
+                F: FnOnce(&mut W) -> &mut W,
+            {
+                let mut w = W::reset_value();
+                f(&mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Writes the reset value to the register"]
+            #[inline]
+            pub fn reset(&self) {
+                self.write(|w| w)
+            }
+        }
+        #[doc = r" Value of the field"]
+        pub struct DIVR {
+            bits: u8,
+        }
+        impl DIVR {
+            #[doc = r" Value of the field as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u8 {
+                self.bits
+            }
+        }
+        #[doc = r" Proxy"]
+        pub struct _DIVW<'a> {
+            w: &'a mut W,
+        }
+        impl<'a> _DIVW<'a> {
+            #[doc = r" Writes raw bits to the field"]
+            #[inline]
+            pub unsafe fn bits(self, value: u8) -> &'a mut W {
+                const MASK: u8 = 0xff;
+                const OFFSET: u8 = 0;
+                self.w.bits &= !((MASK as u32) << OFFSET);
+                self.w.bits |= ((value & MASK) as u32) << OFFSET;
+                self.w
+            }
+        }
+        impl R {
+            #[doc = r" Value of the register as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u32 {
+                self.bits
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&self) -> DIVR {
+                let bits = {
+                    const MASK: u8 = 0xff;
+                    const OFFSET: u8 = 0;
+                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                };
+                DIVR { bits }
+            }
+        }
+        impl W {
+            #[doc = r" Reset value of the register"]
+            #[inline]
+            pub fn reset_value() -> W {
+                W { bits: 0 }
+            }
+            #[doc = r" Writes raw bits to the register"]
+            #[inline]
+            pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+                self.bits = bits;
+                self
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&mut self) -> _DIVW {
+                _DIVW { w: self }
+            }
+        }
+    }
+    #[doc = "Peripheral clock 2 to the IOCON block for programmable glitch filter"]
+    pub struct IOCONCLKDIV2 {
+        register: VolatileCell<u32>,
+    }
+    #[doc = "Peripheral clock 2 to the IOCON block for programmable glitch filter"]
+    pub mod ioconclkdiv2 {
+        #[doc = r" Value read from the register"]
+        pub struct R {
+            bits: u32,
+        }
+        #[doc = r" Value to write to the register"]
+        pub struct W {
+            bits: u32,
+        }
+        impl super::IOCONCLKDIV2 {
+            #[doc = r" Modifies the contents of the register"]
+            #[inline]
+            pub fn modify<F>(&self, f: F)
+            where
+                for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
+            {
+                let bits = self.register.get();
+                let r = R { bits: bits };
+                let mut w = W { bits: bits };
+                f(&r, &mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Reads the contents of the register"]
+            #[inline]
+            pub fn read(&self) -> R {
+                R { bits: self.register.get() }
+            }
+            #[doc = r" Writes to the register"]
+            #[inline]
+            pub fn write<F>(&self, f: F)
+            where
+                F: FnOnce(&mut W) -> &mut W,
+            {
+                let mut w = W::reset_value();
+                f(&mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Writes the reset value to the register"]
+            #[inline]
+            pub fn reset(&self) {
+                self.write(|w| w)
+            }
+        }
+        #[doc = r" Value of the field"]
+        pub struct DIVR {
+            bits: u8,
+        }
+        impl DIVR {
+            #[doc = r" Value of the field as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u8 {
+                self.bits
+            }
+        }
+        #[doc = r" Proxy"]
+        pub struct _DIVW<'a> {
+            w: &'a mut W,
+        }
+        impl<'a> _DIVW<'a> {
+            #[doc = r" Writes raw bits to the field"]
+            #[inline]
+            pub unsafe fn bits(self, value: u8) -> &'a mut W {
+                const MASK: u8 = 0xff;
+                const OFFSET: u8 = 0;
+                self.w.bits &= !((MASK as u32) << OFFSET);
+                self.w.bits |= ((value & MASK) as u32) << OFFSET;
+                self.w
+            }
+        }
+        impl R {
+            #[doc = r" Value of the register as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u32 {
+                self.bits
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&self) -> DIVR {
+                let bits = {
+                    const MASK: u8 = 0xff;
+                    const OFFSET: u8 = 0;
+                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                };
+                DIVR { bits }
+            }
+        }
+        impl W {
+            #[doc = r" Reset value of the register"]
+            #[inline]
+            pub fn reset_value() -> W {
+                W { bits: 0 }
+            }
+            #[doc = r" Writes raw bits to the register"]
+            #[inline]
+            pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+                self.bits = bits;
+                self
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&mut self) -> _DIVW {
+                _DIVW { w: self }
+            }
+        }
+    }
+    #[doc = "Peripheral clock 1 to the IOCON block for programmable glitch filter"]
+    pub struct IOCONCLKDIV1 {
+        register: VolatileCell<u32>,
+    }
+    #[doc = "Peripheral clock 1 to the IOCON block for programmable glitch filter"]
+    pub mod ioconclkdiv1 {
+        #[doc = r" Value read from the register"]
+        pub struct R {
+            bits: u32,
+        }
+        #[doc = r" Value to write to the register"]
+        pub struct W {
+            bits: u32,
+        }
+        impl super::IOCONCLKDIV1 {
+            #[doc = r" Modifies the contents of the register"]
+            #[inline]
+            pub fn modify<F>(&self, f: F)
+            where
+                for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
+            {
+                let bits = self.register.get();
+                let r = R { bits: bits };
+                let mut w = W { bits: bits };
+                f(&r, &mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Reads the contents of the register"]
+            #[inline]
+            pub fn read(&self) -> R {
+                R { bits: self.register.get() }
+            }
+            #[doc = r" Writes to the register"]
+            #[inline]
+            pub fn write<F>(&self, f: F)
+            where
+                F: FnOnce(&mut W) -> &mut W,
+            {
+                let mut w = W::reset_value();
+                f(&mut w);
+                self.register.set(w.bits);
+            }
+            #[doc = r" Writes the reset value to the register"]
+            #[inline]
+            pub fn reset(&self) {
+                self.write(|w| w)
+            }
+        }
+        #[doc = r" Value of the field"]
+        pub struct DIVR {
+            bits: u8,
+        }
+        impl DIVR {
+            #[doc = r" Value of the field as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u8 {
+                self.bits
+            }
+        }
+        #[doc = r" Proxy"]
+        pub struct _DIVW<'a> {
+            w: &'a mut W,
+        }
+        impl<'a> _DIVW<'a> {
+            #[doc = r" Writes raw bits to the field"]
+            #[inline]
+            pub unsafe fn bits(self, value: u8) -> &'a mut W {
+                const MASK: u8 = 0xff;
+                const OFFSET: u8 = 0;
+                self.w.bits &= !((MASK as u32) << OFFSET);
+                self.w.bits |= ((value & MASK) as u32) << OFFSET;
+                self.w
+            }
+        }
+        impl R {
+            #[doc = r" Value of the register as raw bits"]
+            #[inline]
+            pub fn bits(&self) -> u32 {
+                self.bits
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&self) -> DIVR {
+                let bits = {
+                    const MASK: u8 = 0xff;
+                    const OFFSET: u8 = 0;
+                    ((self.bits >> OFFSET) & MASK as u32) as u8
+                };
+                DIVR { bits }
+            }
+        }
+        impl W {
+            #[doc = r" Reset value of the register"]
+            #[inline]
+            pub fn reset_value() -> W {
+                W { bits: 0 }
+            }
+            #[doc = r" Writes raw bits to the register"]
+            #[inline]
+            pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+                self.bits = bits;
+                self
+            }
+            #[doc = "Bits 0:7 - IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK. 1: Divide by 1. to 255: Divide by 255."]
+            #[inline]
+            pub fn div(&mut self) -> _DIVW {
+                _DIVW { w: self }
+            }
+        }
+    }
+    #[doc = "Peripheral clock 0 to the IOCON block for programmable glitch filter"]
+    pub struct IOCONCLKDIV0 {
+        register: VolatileCell<u32>,
+    }
+    #[doc = "Peripheral clock 0 to the IOCON block for programmable glitch filter"]
+    pub mod ioconclkdiv0 {
+        #[doc = r" Value read from the register"]
+        pub struct R {
+            bits: u32,
+        }
+        #[doc = r" Value to write to the register"]
+        pub struct W {
+            bits: u32,
+        }
+        impl super::IOCONCLKDIV0 {
             #[doc = r" Modifies the contents of the register"]
             #[inline]
             pub fn modify<F>(&self, f: F)

@@ -1,0 +1,129 @@
+--- LPC82x.svd.orig	2017-12-06 06:18:27.308463418 +0100
++++ LPC82x.svd	2017-12-06 06:47:16.016517186 +0100
+@@ -10839,6 +10839,126 @@
+ 			</field>													
+ 		</fields>														
+ 	</register>															
++	<register>
++		<name>IOCONCLKDIV5</name>
++		<description>Peripheral clock 5 to the IOCON block for programmable glitch filter</description>
++		<addressOffset>0x138</addressOffset>
++		<access>read-write</access>
++		<resetValue>0x00000000</resetValue>
++		<resetMask>0xFFFFFFFF</resetMask>
++		<fields>
++			<field>
++				<name>DIV</name>
++				<description>IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK.  1: Divide by 1. to 255: Divide by 255.</description>
++				<bitRange>[7:0]</bitRange>
++			</field>
++			<field>
++				<name>RESERVED</name>
++				<description>Reserved</description>
++				<bitRange>[31:8]</bitRange>
++			</field>
++		</fields>
++	</register>
++	<register>
++		<name>IOCONCLKDIV4</name>
++		<description>Peripheral clock 4 to the IOCON block for programmable glitch filter</description>
++		<addressOffset>0x13C</addressOffset>
++		<access>read-write</access>
++		<resetValue>0x00000000</resetValue>
++		<resetMask>0xFFFFFFFF</resetMask>
++		<fields>
++			<field>
++				<name>DIV</name>
++				<description>IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK.  1: Divide by 1. to 255: Divide by 255.</description>
++				<bitRange>[7:0]</bitRange>
++			</field>
++			<field>
++				<name>RESERVED</name>
++				<description>Reserved</description>
++				<bitRange>[31:8]</bitRange>
++			</field>
++		</fields>
++	</register>
++	<register>
++		<name>IOCONCLKDIV3</name>
++		<description>Peripheral clock 3 to the IOCON block for programmable glitch filter</description>
++		<addressOffset>0x140</addressOffset>
++		<access>read-write</access>
++		<resetValue>0x00000000</resetValue>
++		<resetMask>0xFFFFFFFF</resetMask>
++		<fields>
++			<field>
++				<name>DIV</name>
++				<description>IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK.  1: Divide by 1. to 255: Divide by 255.</description>
++				<bitRange>[7:0]</bitRange>
++			</field>
++			<field>
++				<name>RESERVED</name>
++				<description>Reserved</description>
++				<bitRange>[31:8]</bitRange>
++			</field>
++		</fields>
++	</register>
++	<register>
++		<name>IOCONCLKDIV2</name>
++		<description>Peripheral clock 2 to the IOCON block for programmable glitch filter</description>
++		<addressOffset>0x144</addressOffset>
++		<access>read-write</access>
++		<resetValue>0x00000000</resetValue>
++		<resetMask>0xFFFFFFFF</resetMask>
++		<fields>
++			<field>
++				<name>DIV</name>
++				<description>IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK.  1: Divide by 1. to 255: Divide by 255.</description>
++				<bitRange>[7:0]</bitRange>
++			</field>
++			<field>
++				<name>RESERVED</name>
++				<description>Reserved</description>
++				<bitRange>[31:8]</bitRange>
++			</field>
++		</fields>
++	</register>
++	<register>
++		<name>IOCONCLKDIV1</name>
++		<description>Peripheral clock 1 to the IOCON block for programmable glitch filter</description>
++		<addressOffset>0x148</addressOffset>
++		<access>read-write</access>
++		<resetValue>0x00000000</resetValue>
++		<resetMask>0xFFFFFFFF</resetMask>
++		<fields>
++			<field>
++				<name>DIV</name>
++				<description>IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK.  1: Divide by 1. to 255: Divide by 255.</description>
++				<bitRange>[7:0]</bitRange>
++			</field>
++			<field>
++				<name>RESERVED</name>
++				<description>Reserved</description>
++				<bitRange>[31:8]</bitRange>
++			</field>
++		</fields>
++	</register>
++	<register>
++		<name>IOCONCLKDIV0</name>
++		<description>Peripheral clock 0 to the IOCON block for programmable glitch filter</description>
++		<addressOffset>0x14C</addressOffset>
++		<access>read-write</access>
++		<resetValue>0x00000000</resetValue>
++		<resetMask>0xFFFFFFFF</resetMask>
++		<fields>
++			<field>
++				<name>DIV</name>
++				<description>IOCON glitch filter clock divider values 0: Disable IOCONFILTR_PCLK.  1: Divide by 1. to 255: Divide by 255.</description>
++				<bitRange>[7:0]</bitRange>
++			</field>
++			<field>
++				<name>RESERVED</name>
++				<description>Reserved</description>
++				<bitRange>[31:8]</bitRange>
++			</field>
++		</fields>
++	</register>
+ 	<register>															
+ 		<name>BODCTRL</name>														
+ 		<description>Brown-Out Detect</description>														
