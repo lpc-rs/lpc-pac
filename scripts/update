@@ -13,7 +13,7 @@ patch \
 	--silent \
 	--force \
 	--reject-file=- \
-	LPC82x.svd LPC82x.svd.duplicate-names.patch || true &&
+	LPC82x.svd patches/LPC82x.svd.duplicate-names.patch || true &&
 
 # Some names in the SVD file have multiple underscores, which leads to names in
 # the generated code that are not valid snake case names. This causes build
@@ -22,7 +22,7 @@ patch \
 	--silent \
 	--force \
 	--reject-file=- \
-	LPC82x.svd LPC82x.svd.snake-case-warnings.patch || true &&
+	LPC82x.svd patches/LPC82x.svd.snake-case-warnings.patch || true &&
 
 # One of the registers has a `<size>` field, which is specified as the register
 # width in bits, but the value is the width in bytes. This causes svd2rust to
@@ -31,7 +31,7 @@ patch \
 	--silent \
 	--force \
 	--reject-file=- \
-	LPC82x.svd LPC82x.svd.size-in-bytes.patch || true &&
+	LPC82x.svd patches/LPC82x.svd.size-in-bytes.patch || true &&
 
 mkdir -p src &&
 svd2rust -i LPC82x.svd | rustfmt > src/lib.rs
