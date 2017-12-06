@@ -48389,6 +48389,100 @@ pub mod syscon {
                 *self == I2C3_RST_NR::CLEAR_THE_I2C3_RESET
             }
         }
+        #[doc = "Possible values of the field `ADC_RST_N`"]
+        #[derive(Clone, Copy, Debug, PartialEq)]
+        pub enum ADC_RST_NR {
+            #[doc = "Assert the ADC reset."]
+            ASSERT_THE_ADC_RESET,
+            #[doc = "Clear the ADC reset."]
+            CLEAR_THE_ADC_RESET,
+        }
+        impl ADC_RST_NR {
+            #[doc = r" Returns `true` if the bit is clear (0)"]
+            #[inline]
+            pub fn bit_is_clear(&self) -> bool {
+                !self.bit()
+            }
+            #[doc = r" Returns `true` if the bit is set (1)"]
+            #[inline]
+            pub fn bit_is_set(&self) -> bool {
+                self.bit()
+            }
+            #[doc = r" Value of the field as raw bits"]
+            #[inline]
+            pub fn bit(&self) -> bool {
+                match *self {
+                    ADC_RST_NR::ASSERT_THE_ADC_RESET => false,
+                    ADC_RST_NR::CLEAR_THE_ADC_RESET => true,
+                }
+            }
+            #[allow(missing_docs)]
+            #[doc(hidden)]
+            #[inline]
+            pub fn _from(value: bool) -> ADC_RST_NR {
+                match value {
+                    false => ADC_RST_NR::ASSERT_THE_ADC_RESET,
+                    true => ADC_RST_NR::CLEAR_THE_ADC_RESET,
+                }
+            }
+            #[doc = "Checks if the value of the field is `ASSERT_THE_ADC_RESET`"]
+            #[inline]
+            pub fn is_assert_the_adc_reset(&self) -> bool {
+                *self == ADC_RST_NR::ASSERT_THE_ADC_RESET
+            }
+            #[doc = "Checks if the value of the field is `CLEAR_THE_ADC_RESET`"]
+            #[inline]
+            pub fn is_clear_the_adc_reset(&self) -> bool {
+                *self == ADC_RST_NR::CLEAR_THE_ADC_RESET
+            }
+        }
+        #[doc = "Possible values of the field `DMA_RST_N`"]
+        #[derive(Clone, Copy, Debug, PartialEq)]
+        pub enum DMA_RST_NR {
+            #[doc = "Assert the DMA reset."]
+            ASSERT_THE_DMA_RESET,
+            #[doc = "Clear the DMA reset."]
+            CLEAR_THE_DMA_RESET,
+        }
+        impl DMA_RST_NR {
+            #[doc = r" Returns `true` if the bit is clear (0)"]
+            #[inline]
+            pub fn bit_is_clear(&self) -> bool {
+                !self.bit()
+            }
+            #[doc = r" Returns `true` if the bit is set (1)"]
+            #[inline]
+            pub fn bit_is_set(&self) -> bool {
+                self.bit()
+            }
+            #[doc = r" Value of the field as raw bits"]
+            #[inline]
+            pub fn bit(&self) -> bool {
+                match *self {
+                    DMA_RST_NR::ASSERT_THE_DMA_RESET => false,
+                    DMA_RST_NR::CLEAR_THE_DMA_RESET => true,
+                }
+            }
+            #[allow(missing_docs)]
+            #[doc(hidden)]
+            #[inline]
+            pub fn _from(value: bool) -> DMA_RST_NR {
+                match value {
+                    false => DMA_RST_NR::ASSERT_THE_DMA_RESET,
+                    true => DMA_RST_NR::CLEAR_THE_DMA_RESET,
+                }
+            }
+            #[doc = "Checks if the value of the field is `ASSERT_THE_DMA_RESET`"]
+            #[inline]
+            pub fn is_assert_the_dma_reset(&self) -> bool {
+                *self == DMA_RST_NR::ASSERT_THE_DMA_RESET
+            }
+            #[doc = "Checks if the value of the field is `CLEAR_THE_DMA_RESET`"]
+            #[inline]
+            pub fn is_clear_the_dma_reset(&self) -> bool {
+                *self == DMA_RST_NR::CLEAR_THE_DMA_RESET
+            }
+        }
         #[doc = "Values that can be written to the field `SPI0_RST_N`"]
         pub enum SPI0_RST_NW {
             #[doc = "Assert the SPI0 reset."]
@@ -49317,6 +49411,122 @@ pub mod syscon {
                 self.w
             }
         }
+        #[doc = "Values that can be written to the field `ADC_RST_N`"]
+        pub enum ADC_RST_NW {
+            #[doc = "Assert the ADC reset."]
+            ASSERT_THE_ADC_RESET,
+            #[doc = "Clear the ADC reset."]
+            CLEAR_THE_ADC_RESET,
+        }
+        impl ADC_RST_NW {
+            #[allow(missing_docs)]
+            #[doc(hidden)]
+            #[inline]
+            pub fn _bits(&self) -> bool {
+                match *self {
+                    ADC_RST_NW::ASSERT_THE_ADC_RESET => false,
+                    ADC_RST_NW::CLEAR_THE_ADC_RESET => true,
+                }
+            }
+        }
+        #[doc = r" Proxy"]
+        pub struct _ADC_RST_NW<'a> {
+            w: &'a mut W,
+        }
+        impl<'a> _ADC_RST_NW<'a> {
+            #[doc = r" Writes `variant` to the field"]
+            #[inline]
+            pub fn variant(self, variant: ADC_RST_NW) -> &'a mut W {
+                {
+                    self.bit(variant._bits())
+                }
+            }
+            #[doc = "Assert the ADC reset."]
+            #[inline]
+            pub fn assert_the_adc_reset(self) -> &'a mut W {
+                self.variant(ADC_RST_NW::ASSERT_THE_ADC_RESET)
+            }
+            #[doc = "Clear the ADC reset."]
+            #[inline]
+            pub fn clear_the_adc_reset(self) -> &'a mut W {
+                self.variant(ADC_RST_NW::CLEAR_THE_ADC_RESET)
+            }
+            #[doc = r" Sets the field bit"]
+            pub fn set_bit(self) -> &'a mut W {
+                self.bit(true)
+            }
+            #[doc = r" Clears the field bit"]
+            pub fn clear_bit(self) -> &'a mut W {
+                self.bit(false)
+            }
+            #[doc = r" Writes raw bits to the field"]
+            #[inline]
+            pub fn bit(self, value: bool) -> &'a mut W {
+                const MASK: bool = true;
+                const OFFSET: u8 = 24;
+                self.w.bits &= !((MASK as u32) << OFFSET);
+                self.w.bits |= ((value & MASK) as u32) << OFFSET;
+                self.w
+            }
+        }
+        #[doc = "Values that can be written to the field `DMA_RST_N`"]
+        pub enum DMA_RST_NW {
+            #[doc = "Assert the DMA reset."]
+            ASSERT_THE_DMA_RESET,
+            #[doc = "Clear the DMA reset."]
+            CLEAR_THE_DMA_RESET,
+        }
+        impl DMA_RST_NW {
+            #[allow(missing_docs)]
+            #[doc(hidden)]
+            #[inline]
+            pub fn _bits(&self) -> bool {
+                match *self {
+                    DMA_RST_NW::ASSERT_THE_DMA_RESET => false,
+                    DMA_RST_NW::CLEAR_THE_DMA_RESET => true,
+                }
+            }
+        }
+        #[doc = r" Proxy"]
+        pub struct _DMA_RST_NW<'a> {
+            w: &'a mut W,
+        }
+        impl<'a> _DMA_RST_NW<'a> {
+            #[doc = r" Writes `variant` to the field"]
+            #[inline]
+            pub fn variant(self, variant: DMA_RST_NW) -> &'a mut W {
+                {
+                    self.bit(variant._bits())
+                }
+            }
+            #[doc = "Assert the DMA reset."]
+            #[inline]
+            pub fn assert_the_dma_reset(self) -> &'a mut W {
+                self.variant(DMA_RST_NW::ASSERT_THE_DMA_RESET)
+            }
+            #[doc = "Clear the DMA reset."]
+            #[inline]
+            pub fn clear_the_dma_reset(self) -> &'a mut W {
+                self.variant(DMA_RST_NW::CLEAR_THE_DMA_RESET)
+            }
+            #[doc = r" Sets the field bit"]
+            pub fn set_bit(self) -> &'a mut W {
+                self.bit(true)
+            }
+            #[doc = r" Clears the field bit"]
+            pub fn clear_bit(self) -> &'a mut W {
+                self.bit(false)
+            }
+            #[doc = r" Writes raw bits to the field"]
+            #[inline]
+            pub fn bit(self, value: bool) -> &'a mut W {
+                const MASK: bool = true;
+                const OFFSET: u8 = 29;
+                self.w.bits &= !((MASK as u32) << OFFSET);
+                self.w.bits |= ((value & MASK) as u32) << OFFSET;
+                self.w
+            }
+        }
         impl R {
             #[doc = r" Value of the register as raw bits"]
             #[inline]
@@ -49467,6 +49677,24 @@ pub mod syscon {
                     ((self.bits >> OFFSET) & MASK as u32) != 0
                 })
             }
+            #[doc = "Bit 24 - ADC reset control"]
+            #[inline]
+            pub fn adc_rst_n(&self) -> ADC_RST_NR {
+                ADC_RST_NR::_from({
+                    const MASK: bool = true;
+                    const OFFSET: u8 = 24;
+                    ((self.bits >> OFFSET) & MASK as u32) != 0
+                })
+            }
+            #[doc = "Bit 29 - DMA reset control"]
+            #[inline]
+            pub fn dma_rst_n(&self) -> DMA_RST_NR {
+                DMA_RST_NR::_from({
+                    const MASK: bool = true;
+                    const OFFSET: u8 = 29;
+                    ((self.bits >> OFFSET) & MASK as u32) != 0
+                })
+            }
         }
         impl W {
             #[doc = r" Reset value of the register"]
@@ -49559,6 +49787,16 @@ pub mod syscon {
             #[inline]
             pub fn i2c3_rst_n(&mut self) -> _I2C3_RST_NW {
                 _I2C3_RST_NW { w: self }
+            }
+            #[doc = "Bit 24 - ADC reset control"]
+            #[inline]
+            pub fn adc_rst_n(&mut self) -> _ADC_RST_NW {
+                _ADC_RST_NW { w: self }
+            }
+            #[doc = "Bit 29 - DMA reset control"]
+            #[inline]
+            pub fn dma_rst_n(&mut self) -> _DMA_RST_NW {
+                _DMA_RST_NW { w: self }
             }
         }
     }
