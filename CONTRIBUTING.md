@@ -84,7 +84,7 @@ $ clog --from-latest-tag -o CHANGELOG.md --major|--minor|--patch
 
 5. Do cargo-release dry run, review its actions
 ```
-$ cargo release --dry-run --level major|minor|patch
+$ cargo release --level major|minor|patch --dry-run
 ```
 
 6. Run cargo-release
