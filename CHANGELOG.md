@@ -1,3 +1,13 @@
+<a name="v0.2.1"></a>
+### v0.2.1 (2017-12-07)
+
+
+#### Bug Fixes
+
+*   Fix incorrect version in README.md ([b175ee40](b175ee40))
+
+
+
 <a name="v0.2.0"></a>
 ## v0.2.0 (2017-12-07)
 
