@@ -1,3 +1,16 @@
+<a name="v0.2.0"></a>
+## v0.2.0 (2017-12-07)
+
+
+#### Bug Fixes
+
+*   Add missing SEL_EXTCLK bit ([0aada345](0aada345))
+*   Add missing bits to PRESETCTRL ([e0a08762](e0a08762))
+*   Fix MRT resolution ([81698779](81698779))
+*   Add missing IOCONCLKDIV registers ([1aa6ea80](1aa6ea80))
+
+
+
 <a name="v0.1.5"></a>
 ## v0.1.5 (2017-11-21)
 
