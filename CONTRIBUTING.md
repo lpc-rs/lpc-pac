@@ -80,19 +80,21 @@ $ git push -u origin release-x.y.z
 $ clog --from-latest-tag -o CHANGELOG.md --major|--minor|--patch
 ```
 
-4. Do cargo-release dry run, review its actions
+4. Update versions in README.md, if version bump is major or minor
+
+5. Do cargo-release dry run, review its actions
 ```
 $ cargo release --dry-run --level major|minor|patch
 ```
 
-5. Run cargo-release
+6. Run cargo-release
 ```
 $ cargo release --level major|minor|patch
 ```
 
-6. Open pull request, review it, merge it
+7. Open pull request, review it, merge it
 
-7. Push the tag that cargo-release created to `upstream`
+8. Push the tag that cargo-release created to `upstream`
 ```
 git checkout master
 git pull upstream master
