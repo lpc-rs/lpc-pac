@@ -65,6 +65,8 @@ In addition, the [LPC82x user manual] contains extensive documentation on how to
 
 This crate is complete and actively maintained, but not all parts of it have been tested. The experience so far has shown that the original SVD file has quite a few problems. It's likely there are still undetected bugs. Please [open an issue], if you find any problems. Known issues are tracked [on GitHub][list of open issues].
 
+Another problem that we inherit from the SVD file is that some register and field names are very weird. Those seem to be generated from human-readable documentation, meaning they sometimes read like cut-off sentences.
+
 At this point, there is no guarantee of API stability. This means that we reserve the right to make changes to the API, that might break existing programs when they upgrade.
 
 You need a nightly version of Rust to use this crate. If you installed Rust via [rustup], you can switch to the nightly version with `rustup default nightly`.
