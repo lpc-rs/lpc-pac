@@ -61,6 +61,45 @@ The following rules apply to the message body:
 
 That's it! If anything about this document is unclear, feel free to open an issue. If you have questions regarding a pull request that you're working on, just open the pull request and ask your questions there.
 
+## Release Procedure
+
+This section is intended for project maintainers only. It assumes that you can push to the repository (here called `upstream`, but primarily work on your own fork (`origin`),
+
+1. Check out feature branch for the release (replace x.y.z with actual version)
+```
+$ git checkout -b release-x.y.z
+```
+
+2. Push feature branch to your fork (required for the next steps to work)
+```
+$ git push -u origin release-x.y.z
+```
+
+3. Update changelog (make manual changes as required)
+```
+$ clog --from-latest-tag -o CHANGELOG.md --major|--minor|--patch
+```
+
+4. Do cargo-release dry run, review its actions
+```
+$ cargo release --dry-run --level major|minor|patch
+```
+
+5. Run cargo-release
+```
+$ cargo release --level major|minor|patch
+```
+
+6. Open pull request, review it, merge it
+
+7. Push the tag that cargo-release created to `upstream`
+```
+git checkout master
+git pull upstream master
+git push --tag upstream master
+```
+
+
 [GitHub repository]: https://github.com/braun-robotics/rust-lpc82x
 [SVD file]: http://ds.arm.com/media/resources/db/chip/nxp/lpc824m201jdh20/LPC82x.svd
 [svd2rust]: https://crates.io/crates/svd2rust
