@@ -1,6 +1,8 @@
 [package]
+authors = ["Raphael Nestler <raphael.nestler@gmail.com>"]
 name = "lpc11uxx"
 version = "0.1.0"
-authors = ["Raphael Nestler <raphael.nestler@gmail.com>"]
-
 [dependencies]
+bare-metal = "*"
+cortex-m = "*"
+vcell = "*"
