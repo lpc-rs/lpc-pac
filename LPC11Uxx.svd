@@ -2118,12 +2118,12 @@ v7 updates:
 							<enumeratedValues>
 								<name>ENUM</name>
 								<enumeratedValue>
-									<name>AUTO_ADDRESS_DETECT_</name>
+									<name>AUTO_ADDRESS_DETECT_DISABLE</name>
 									<description>Auto Address Detect (AAD) is disabled.</description>
 									<value>0</value>
 								</enumeratedValue>
 								<enumeratedValue>
-									<name>AUTO_ADDRESS_DETECT_</name>
+									<name>AUTO_ADDRESS_DETECT_ENABLE</name>
 									<description>Auto Address Detect (AAD) is enabled.</description>
 									<value>1</value>
 								</enumeratedValue>
@@ -3161,17 +3161,17 @@ v7 updates:
 						<value>0x0</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>COUNTER_MODE_TC_IS_</name>
+						<name>COUNTER_MODE_TC_IS_RISING</name>
 						<description>Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2.</description>
 						<value>0x1</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>COUNTER_MODE_TC_IS_</name>
+						<name>COUNTER_MODE_TC_IS_FALLING</name>
 						<description>Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2.</description>
 						<value>0x2</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>COUNTER_MODE_TC_IS_</name>
+						<name>COUNTER_MODE_TC_IS_BOTH</name>
 						<description>Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2.</description>
 						<value>0x3</value>
 					</enumeratedValue>	
@@ -3189,7 +3189,7 @@ v7 updates:
 						<value>0x0</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>RESERVED_</name>
+						<name>RESERVED_1</name>
 						<description>Reserved.</description>
 						<value>0x1</value>
 					</enumeratedValue>	
@@ -3213,32 +3213,32 @@ v7 updates:
 				<enumeratedValues>		
 				<name>ENUM</name>		
 					<enumeratedValue>	
-						<name>RISING_EDGE_OF_CT16B</name>
+						<name>RISING_EDGE_OF_CT16B_CAP0</name>
 						<description>Rising Edge of CT16B0_CAP0 clears the timer (if bit 4 is set).</description>
 						<value>0x0</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>FALLING_EDGE_OF_CT16</name>
-						<description>Falling Edge of CT16B0_CCAP0 clears the timer (if bit 4 is set).</description>
+						<name>FALLING_EDGE_OF_CT16_CAP0</name>
+						<description>Falling Edge of CT16B0_CAP0 clears the timer (if bit 4 is set).</description>
 						<value>0x1</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>RESERVED_</name>
+						<name>RESERVED_2</name>
 						<description>Reserved.</description>
 						<value>0x2</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>RESERVED_</name>
+						<name>RESERVED_3</name>
 						<description>Reserved.</description>
 						<value>0x3</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>RISING_EDGE_OF_CT16B</name>
+						<name>RISING_EDGE_OF_CT16B_CAP1</name>
 						<description>Rising Edge of CT16B0_CAP1 clears the timer (if bit 4 is set).</description>
 						<value>0x4</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>FALLING_EDGE_OF_CT16</name>
+						<name>FALLING_EDGE_OF_CT16_CAP1</name>
 						<description>Falling Edge of CT16B0_CAP1 clears the timer (if bit 4 is set).</description>
 						<value>0x5</value>
 					</enumeratedValue>	
@@ -4111,17 +4111,17 @@ v7 updates:
 						<value>0x0</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>COUNTER_MODE_TC_IS_</name>
+						<name>COUNTER_MODE_TC_IS_RISING</name>
 						<description>Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2.</description>
 						<value>0x1</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>COUNTER_MODE_TC_IS_</name>
+						<name>COUNTER_MODE_TC_IS_FALLING</name>
 						<description>Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2.</description>
 						<value>0x2</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>COUNTER_MODE_TC_IS_</name>
+						<name>COUNTER_MODE_TC_IS_BOTH</name>
 						<description>Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2.</description>
 						<value>0x3</value>
 					</enumeratedValue>	
@@ -4158,32 +4158,32 @@ v7 updates:
 				<enumeratedValues>		
 				<name>ENUM</name>		
 					<enumeratedValue>	
-						<name>RISING_EDGE_OF_CT16B</name>
+						<name>RISING_EDGE_OF_CT16B_CAP0</name>
 						<description>Rising Edge of CT16B1_CAP0 clears the timer (if bit 4 is set).</description>
 						<value>0x0</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>FALLING_EDGE_OF_CT16</name>
+						<name>FALLING_EDGE_OF_CT16_CAP0</name>
 						<description>Falling Edge of CT16B1_CAP0 clears the timer (if bit 4 is set).</description>
 						<value>0x1</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>RISING_EDGE_OF_CT16B</name>
+						<name>RISING_EDGE_OF_CT16B_CAP1</name>
 						<description>Rising Edge of CT16B1_CAP1 clears the timer (if bit 4 is set).</description>
 						<value>0x2</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>FALLING_EDGE_OF_CT16</name>
+						<name>FALLING_EDGE_OF_CT16_CAP1</name>
 						<description>Falling Edge of CT16B1_CAP1 clears the timer (if bit 4 is set).</description>
 						<value>0x3</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>RESERVED_</name>
+						<name>RESERVED_4</name>
 						<description>Reserved.</description>
 						<value>0x4</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>RESERVED_</name>
+						<name>RESERVED_5</name>
 						<description>Reserved.</description>
 						<value>0x5</value>
 					</enumeratedValue>	
@@ -5035,17 +5035,17 @@ v7 updates:
 						<value>0x0</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>COUNTER_MODE_TC_IS_</name>																	
+						<name>COUNTER_MODE_TC_IS_RISING</name>
 						<description>Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2.</description>																	
 						<value>0x1</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>COUNTER_MODE_TC_IS_</name>																	
+						<name>COUNTER_MODE_TC_IS_FALLING</name>
 						<description>Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2.</description>																	
 						<value>0x2</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>COUNTER_MODE_TC_IS_</name>																	
+						<name>COUNTER_MODE_TC_IS_BOTH</name>
 						<description>Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2.</description>																	
 						<value>0x3</value>																	
 					</enumeratedValue>																		
@@ -5063,7 +5063,7 @@ v7 updates:
 						<value>0x0</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>RESERVED_</name>																	
+						<name>RESERVED_1</name>
 						<description>Reserved.</description>																	
 						<value>0x1</value>																	
 					</enumeratedValue>																		
@@ -5087,32 +5087,32 @@ v7 updates:
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>RISING_EDGE_OF_CT32B</name>																	
+						<name>RISING_EDGE_OF_CT32B_CAP0</name>
 						<description>Rising Edge of CT32B0_CAP0 clears the timer (if bit 4 is set)</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>FALLING_EDGE_OF_CT32</name>																	
+						<name>FALLING_EDGE_OF_CT32_CAP0</name>
 						<description>Falling Edge of CT32B0_CAP0 clears the timer (if bit 4 is set)</description>																	
 						<value>0x1</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>RESERVED</name>																	
+						<name>RESERVED_2</name>
 						<description>Reserved,</description>																	
 						<value>0x2</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>RESERVED_</name>																	
+						<name>RESERVED_3</name>
 						<description>Reserved.</description>																	
 						<value>0x3</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>RISING_EDGE_OF_CT32B</name>																	
+						<name>RISING_EDGE_OF_CT32B_CAP1</name>
 						<description>Rising Edge of CT32B0_CAP1 clears the timer (if bit 4 is set)</description>																	
 						<value>0x4</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>FALLING_EDGE_OF_CT32</name>																	
+						<name>FALLING_EDGE_OF_CT32_CAP1</name>
 						<description>Falling Edge of CT32B0_CAP1 clears the timer (if bit 4 is set)</description>																	
 						<value>0x5</value>																	
 					</enumeratedValue>																		
@@ -5954,17 +5954,17 @@ v7 updates:
 						<value>0x0</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>COUNTER_MODE_TC_IS_</name>																	
+						<name>COUNTER_MODE_TC_IS_RISING</name>
 						<description>Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2.</description>																	
 						<value>0x1</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>COUNTER_MODE_TC_IS_</name>																	
+						<name>COUNTER_MODE_TC_IS_FALLING</name>
 						<description>Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2.</description>																	
 						<value>0x2</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>COUNTER_MODE_TC_IS_</name>																	
+						<name>COUNTER_MODE_TC_IS_BOTH</name>
 						<description>Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2.</description>																	
 						<value>0x3</value>																	
 					</enumeratedValue>																		
@@ -6001,22 +6001,22 @@ v7 updates:
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>RISING_EDGE_OF_CT32B</name>																	
+						<name>RISING_EDGE_OF_CT32B_CAP0</name>																	
 						<description>Rising Edge of CT32B1_CAP0 clears the timer (if bit 4 is set)</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>FALLING_EDGE_OF_CT32</name>																	
+						<name>FALLING_EDGE_OF_CT32_CAP0</name>																	
 						<description>Falling Edge of CT32B1_CAP0 clears the timer (if bit 4 is set)</description>																	
 						<value>0x1</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>RISING_EDGE_OF_CT32B</name>																	
+						<name>RISING_EDGE_OF_CT32B_CAP1</name>																	
 						<description>Rising Edge of CT32B1_CAP1 clears the timer (if bit 4 is set)</description>																	
 						<value>0x2</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>FALLING_EDGE_OF_CT32</name>																	
+						<name>FALLING_EDGE_OF_CT32_CAP1</name>																	
 						<description>Falling Edge of CT32B1_CAP1 clears the timer (if bit 4 is set)</description>																	
 						<value>0x3</value>																	
 					</enumeratedValue>																		
@@ -7941,7 +7941,7 @@ controller </description>
 						<value>0x2</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>RESERVED_</name>																	
+						<name>RESERVED_3</name>
 						<description>Reserved.</description>																	
 						<value>0x3</value>																	
 					</enumeratedValue>																		
@@ -8009,7 +8009,7 @@ controller </description>
 						<value>0x2</value>																	
 					</enumeratedValue>																		
 					<enumeratedValue>																		
-						<name>RESERVED_</name>																	
+						<name>RESERVED_3</name>
 						<description>Reserved.</description>																	
 						<value>0x3</value>																	
 					</enumeratedValue>																		
@@ -17209,37 +17209,37 @@ controller </description>
 				<enumeratedValues>		
 				<name>ENUM</name>		
 					<enumeratedValue>	
-						<name>USB_TRANSCEIVER_POWE</name>
+						<name>USB_TRANSCEIVER_POWERED</name>
 						<description>USB transceiver powered</description>
 						<value>0</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>USB_TRANSCEIVER_POWE</name>
+						<name>USB_TRANSCEIVER_POWERED_DOWN</name>
 						<description>USB transceiver powered down</description>
 						<value>1</value>
 					</enumeratedValue>	
 				</enumeratedValues>		
 			</field>			
 			<field>			
-				<name>RESERVED</name>		
+				<name>RESERVED_11</name>
 				<description>Reserved. Always write this bit as 1.</description>		
 				<bitRange>[11:11]</bitRange>		
 
 			</field>			
 			<field>			
-				<name>RESERVED</name>		
+				<name>RESERVED_12</name>
 				<description>Reserved. Always write this bit as 0.</description>		
 				<bitRange>[12:12]</bitRange>		
 
 			</field>			
 			<field>			
-				<name>RESERVED</name>		
+				<name>RESERVED_13_15</name>
 				<description>Reserved. Always write these bits as 111.</description>		
 				<bitRange>[15:13]</bitRange>		
 
 			</field>			
 			<field>			
-				<name>RESERVED</name>		
+				<name>RESERVED_16_31</name>
 				<description>Reserved</description>		
 				<bitRange>[31:16]</bitRange>		
 
@@ -17429,12 +17429,12 @@ controller </description>
 				<enumeratedValues>		
 				<name>ENUM</name>		
 					<enumeratedValue>	
-						<name>USB_TRANSCEIVER_POWE</name>
+						<name>USB_TRANSCEIVER_POWEERED</name>
 						<description>USB transceiver powered</description>
 						<value>0</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>USB_TRANSCEIVER_POWE</name>
+						<name>USB_TRANSCEIVER_POWEERED_DOWN</name>
 						<description>USB transceiver powered down (suspend mode)</description>
 						<value>1</value>
 					</enumeratedValue>	
@@ -19274,7 +19274,7 @@ controller </description>
 					<dim>32</dim>
 					<dimIncrement>0x4</dimIncrement>
 					<dimIndex>0-31</dimIndex>
-					<name>W%s</name>
+					<name>W_0%s</name>
 					<description>Word pin registers port 0</description>
 					<addressOffset>0x1000</addressOffset>
 					<access>read-write</access>
@@ -19292,7 +19292,7 @@ controller </description>
 					<dim>32</dim>
 					<dimIncrement>0x4</dimIncrement>
 					<dimIndex>32-63</dimIndex>
-					<name>W%s</name>
+					<name>W_1%s</name>
 					<description>Word pin registers port 1</description>
 					<addressOffset>0x1080</addressOffset>
 					<access>read-write</access>
