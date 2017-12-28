@@ -3,6 +3,6 @@ authors = ["Raphael Nestler <raphael.nestler@gmail.com>"]
 name = "lpc11uxx"
 version = "0.1.0"
 [dependencies]
-bare-metal = "*"
-cortex-m = "*"
-vcell = "*"
+bare-metal = "0.1"
+cortex-m = "0.3"
+vcell = "0.1"
