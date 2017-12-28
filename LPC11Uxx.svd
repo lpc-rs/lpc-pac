@@ -929,12 +929,12 @@ v7 updates:
 									<value>0x3</value>
 								</enumeratedValue>
 								<enumeratedValue>
-									<name>2A__RECEIVE_DATA_AV</name>
+									<name>2A_RECEIVE_DATA_AV</name>
 									<description>2a - Receive Data Available (RDA).</description>
 									<value>0x2</value>
 								</enumeratedValue>
 								<enumeratedValue>
-									<name>2B__CHARACTER_TIME_</name>
+									<name>2B_CHARACTER_TIME_</name>
 									<description>2b - Character Time-out Indicator (CTI).</description>
 									<value>0x6</value>
 								</enumeratedValue>
@@ -15231,12 +15231,12 @@ controller </description>
 				<enumeratedValues>		
 				<name>ENUM</name>		
 					<enumeratedValue>	
-						<name>1__20_MHZ_FREQUENCY</name>
+						<name>1_20_MHZ_FREQUENCY</name>
 						<description>1 - 20 MHz frequency range.</description>
 						<value>0</value>
 					</enumeratedValue>	
 					<enumeratedValue>	
-						<name>15__25_MHZ_FREQUENC</name>
+						<name>15_25_MHZ_FREQUENC</name>
 						<description>15 - 25 MHz frequency range</description>
 						<value>1</value>
 					</enumeratedValue>	
