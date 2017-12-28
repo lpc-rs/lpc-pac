@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/coredump-ch/lpc11uxx-rs.svg?branch=add-travis-ci)](https://travis-ci.org/coredump-ch/lpc11uxx-rs)
 # lpc11uxx-rs
 
 Rust register mappings for the NXP LPC11Uxx family of ARM Cortex-M0+
