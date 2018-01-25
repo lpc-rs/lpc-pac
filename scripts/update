@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-cargo install -f svd2rust &&
-cargo install -f rustfmt &&
+cargo install --force svd2rust &&
+cargo install --force rustfmt &&
 
 wget \
 	-O LPC82x.svd \
