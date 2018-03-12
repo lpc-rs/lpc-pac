@@ -1,11 +1,21 @@
-# ! [ cfg_attr ( feature = "rt" , feature ( global_asm ) ) ] # ! [ cfg_attr ( feature = "rt" , feature ( macro_reexport ) ) ] # ! [ cfg_attr ( feature = "rt" , feature ( used ) ) ] # ! [ doc = "Peripheral access API for LPC82X microcontrollers (generated using svd2rust v0.11.4)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.11.4/svd2rust/#peripheral-api" ] # ! [ deny ( missing_docs ) ] # ! [ deny ( warnings ) ] # ! [ allow ( non_camel_case_types ) ] # ! [ feature ( const_fn ) ] # ! [ no_std ]extern crate cortex_m ;
+#![cfg_attr(feature = "rt", feature(global_asm))]
+#![cfg_attr(feature = "rt", feature(macro_reexport))]
+#![cfg_attr(feature = "rt", feature(used))]
+#![doc = "Peripheral access API for LPC82X microcontrollers (generated using svd2rust v0.12.0)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.12.0/svd2rust/#peripheral-api"]
+#![allow(private_no_mangle_statics)]
+#![deny(missing_docs)]
+#![deny(warnings)]
+#![allow(non_camel_case_types)]
+#![feature(const_fn)]
+#![no_std]
+extern crate bare_metal;
+extern crate cortex_m;
 #[macro_reexport(default_handler, exception)]
 #[cfg(feature = "rt")]
-extern crate cortex_m_rt ;
-extern crate bare_metal ;
-extern crate vcell ;
+extern crate cortex_m_rt;
+extern crate vcell;
+use core::marker::PhantomData;
 use core::ops::Deref;
-use bare_metal::Peripheral;
 #[doc = r" Number available in the NVIC for configuring priority"]
 pub const NVIC_PRIO_BITS: u8 = 2;
 pub use interrupt::Interrupt;
@@ -23,9 +33,7 @@ pub mod interrupt {
         DEFAULT_HANDLER();
     }
     #[cfg(feature = "rt")]
-    global_asm!(
-        "\n.weak SPI0\nSPI0 = DH_TRAMPOLINE\n.weak SPI1\nSPI1 = DH_TRAMPOLINE\n.weak UART0\nUART0 = DH_TRAMPOLINE\n.weak UART1\nUART1 = DH_TRAMPOLINE\n.weak UART2\nUART2 = DH_TRAMPOLINE\n.weak I2C1\nI2C1 = DH_TRAMPOLINE\n.weak I2C0\nI2C0 = DH_TRAMPOLINE\n.weak SCT\nSCT = DH_TRAMPOLINE\n.weak MRT\nMRT = DH_TRAMPOLINE\n.weak CMP\nCMP = DH_TRAMPOLINE\n.weak WDT\nWDT = DH_TRAMPOLINE\n.weak BOD\nBOD = DH_TRAMPOLINE\n.weak FLASH\nFLASH = DH_TRAMPOLINE\n.weak WKT\nWKT = DH_TRAMPOLINE\n.weak ADC_SEQA\nADC_SEQA = DH_TRAMPOLINE\n.weak ADC_SEQB\nADC_SEQB = DH_TRAMPOLINE\n.weak ADC_THCMP\nADC_THCMP = DH_TRAMPOLINE\n.weak ADC_OVR\nADC_OVR = DH_TRAMPOLINE\n.weak DMA\nDMA = DH_TRAMPOLINE\n.weak I2C2\nI2C2 = DH_TRAMPOLINE\n.weak I2C3\nI2C3 = DH_TRAMPOLINE\n.weak PIN_INT0\nPIN_INT0 = DH_TRAMPOLINE\n.weak PIN_INT1\nPIN_INT1 = DH_TRAMPOLINE\n.weak PIN_INT2\nPIN_INT2 = DH_TRAMPOLINE\n.weak PIN_INT3\nPIN_INT3 = DH_TRAMPOLINE\n.weak PIN_INT4\nPIN_INT4 = DH_TRAMPOLINE\n.weak PIN_INT5\nPIN_INT5 = DH_TRAMPOLINE\n.weak PIN_INT6\nPIN_INT6 = DH_TRAMPOLINE\n.weak PIN_INT7\nPIN_INT7 = DH_TRAMPOLINE"
-    );
+    global_asm ! ( "\n.weak SPI0\nSPI0 = DH_TRAMPOLINE\n.weak SPI1\nSPI1 = DH_TRAMPOLINE\n.weak UART0\nUART0 = DH_TRAMPOLINE\n.weak UART1\nUART1 = DH_TRAMPOLINE\n.weak UART2\nUART2 = DH_TRAMPOLINE\n.weak I2C1\nI2C1 = DH_TRAMPOLINE\n.weak I2C0\nI2C0 = DH_TRAMPOLINE\n.weak SCT\nSCT = DH_TRAMPOLINE\n.weak MRT\nMRT = DH_TRAMPOLINE\n.weak CMP\nCMP = DH_TRAMPOLINE\n.weak WDT\nWDT = DH_TRAMPOLINE\n.weak BOD\nBOD = DH_TRAMPOLINE\n.weak FLASH\nFLASH = DH_TRAMPOLINE\n.weak WKT\nWKT = DH_TRAMPOLINE\n.weak ADC_SEQA\nADC_SEQA = DH_TRAMPOLINE\n.weak ADC_SEQB\nADC_SEQB = DH_TRAMPOLINE\n.weak ADC_THCMP\nADC_THCMP = DH_TRAMPOLINE\n.weak ADC_OVR\nADC_OVR = DH_TRAMPOLINE\n.weak DMA\nDMA = DH_TRAMPOLINE\n.weak I2C2\nI2C2 = DH_TRAMPOLINE\n.weak I2C3\nI2C3 = DH_TRAMPOLINE\n.weak PIN_INT0\nPIN_INT0 = DH_TRAMPOLINE\n.weak PIN_INT1\nPIN_INT1 = DH_TRAMPOLINE\n.weak PIN_INT2\nPIN_INT2 = DH_TRAMPOLINE\n.weak PIN_INT3\nPIN_INT3 = DH_TRAMPOLINE\n.weak PIN_INT4\nPIN_INT4 = DH_TRAMPOLINE\n.weak PIN_INT5\nPIN_INT5 = DH_TRAMPOLINE\n.weak PIN_INT6\nPIN_INT6 = DH_TRAMPOLINE\n.weak PIN_INT7\nPIN_INT7 = DH_TRAMPOLINE" ) ;
     #[cfg(feature = "rt")]
     extern "C" {
         fn SPI0();
@@ -199,19 +207,31 @@ pub mod interrupt {
     #[macro_export]
     macro_rules ! interrupt { ( $ NAME : ident , $ path : path , locals : { $ ( $ lvar : ident : $ lty : ty = $ lval : expr ; ) * } ) => { # [ allow ( non_snake_case ) ] mod $ NAME { pub struct Locals { $ ( pub $ lvar : $ lty , ) * } } # [ allow ( non_snake_case ) ] # [ no_mangle ] pub extern "C" fn $ NAME ( ) { let _ = $ crate :: interrupt :: Interrupt :: $ NAME ; static mut LOCALS : self :: $ NAME :: Locals = self :: $ NAME :: Locals { $ ( $ lvar : $ lval , ) * } ; let f : fn ( & mut self :: $ NAME :: Locals ) = $ path ; f ( unsafe { & mut LOCALS } ) ; } } ; ( $ NAME : ident , $ path : path ) => { # [ allow ( non_snake_case ) ] # [ no_mangle ] pub extern "C" fn $ NAME ( ) { let _ = $ crate :: interrupt :: Interrupt :: $ NAME ; let f : fn ( ) = $ path ; f ( ) ; } } }
 }
+pub use cortex_m::peripheral::Peripherals as CorePeripherals;
 pub use cortex_m::peripheral::CPUID;
 pub use cortex_m::peripheral::DCB;
 pub use cortex_m::peripheral::DWT;
-pub use cortex_m::peripheral::FPB;
-pub use cortex_m::peripheral::FPU;
-pub use cortex_m::peripheral::ITM;
 pub use cortex_m::peripheral::MPU;
 pub use cortex_m::peripheral::NVIC;
 pub use cortex_m::peripheral::SCB;
 pub use cortex_m::peripheral::SYST;
-pub use cortex_m::peripheral::TPIU;
 #[doc = "Windowed Watchdog Timer (WWDT)"]
-pub const WWDT: Peripheral<WWDT> = unsafe { Peripheral::new(0x4000_0000) };
+pub struct WWDT {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for WWDT {}
+impl WWDT {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const wwdt::RegisterBlock {
+        0x4000_0000 as *const _
+    }
+}
+impl Deref for WWDT {
+    type Target = wwdt::RegisterBlock;
+    fn deref(&self) -> &wwdt::RegisterBlock {
+        unsafe { &*WWDT::ptr() }
+    }
+}
 #[doc = "Windowed Watchdog Timer (WWDT)"]
 pub mod wwdt {
     use vcell::VolatileCell;
@@ -262,7 +282,9 @@ pub mod wwdt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -865,7 +887,9 @@ pub mod wwdt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -1015,7 +1039,9 @@ pub mod wwdt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -1077,7 +1103,9 @@ pub mod wwdt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -1187,7 +1215,9 @@ pub mod wwdt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -1268,18 +1298,23 @@ pub mod wwdt {
         }
     }
 }
-#[doc = "Windowed Watchdog Timer (WWDT)"]
-pub struct WWDT {
-    register_block: wwdt::RegisterBlock,
+#[doc = "Multi-Rate Timer (MRT)"]
+pub struct MRT {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for WWDT {
-    type Target = wwdt::RegisterBlock;
-    fn deref(&self) -> &wwdt::RegisterBlock {
-        &self.register_block
+unsafe impl Send for MRT {}
+impl MRT {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const mrt::RegisterBlock {
+        0x4000_4000 as *const _
     }
 }
-#[doc = "Multi-Rate Timer (MRT)"]
-pub const MRT: Peripheral<MRT> = unsafe { Peripheral::new(0x4000_4000) };
+impl Deref for MRT {
+    type Target = mrt::RegisterBlock;
+    fn deref(&self) -> &mrt::RegisterBlock {
+        unsafe { &*MRT::ptr() }
+    }
+}
 #[doc = "Multi-Rate Timer (MRT)"]
 pub mod mrt {
     use vcell::VolatileCell;
@@ -1354,7 +1389,9 @@ pub mod mrt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -1567,7 +1604,9 @@ pub mod mrt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -1629,7 +1668,9 @@ pub mod mrt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -1953,7 +1994,9 @@ pub mod mrt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -2244,7 +2287,9 @@ pub mod mrt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -2306,7 +2351,9 @@ pub mod mrt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -2822,18 +2869,23 @@ pub mod mrt {
         }
     }
 }
-#[doc = "Multi-Rate Timer (MRT)"]
-pub struct MRT {
-    register_block: mrt::RegisterBlock,
+#[doc = "Self wake-up timer (WKT)"]
+pub struct WKT {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for MRT {
-    type Target = mrt::RegisterBlock;
-    fn deref(&self) -> &mrt::RegisterBlock {
-        &self.register_block
+unsafe impl Send for WKT {}
+impl WKT {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const wkt::RegisterBlock {
+        0x4000_8000 as *const _
     }
 }
-#[doc = "Self wake-up timer (WKT)"]
-pub const WKT: Peripheral<WKT> = unsafe { Peripheral::new(0x4000_8000) };
+impl Deref for WKT {
+    type Target = wkt::RegisterBlock;
+    fn deref(&self) -> &wkt::RegisterBlock {
+        unsafe { &*WKT::ptr() }
+    }
+}
 #[doc = "Self wake-up timer (WKT)"]
 pub mod wkt {
     use vcell::VolatileCell;
@@ -2876,7 +2928,9 @@ pub mod wkt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -3421,7 +3475,9 @@ pub mod wkt {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -3502,18 +3558,23 @@ pub mod wkt {
         }
     }
 }
-#[doc = "Self wake-up timer (WKT)"]
-pub struct WKT {
-    register_block: wkt::RegisterBlock,
+#[doc = "Switch matrix (SWM)"]
+pub struct SWM {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for WKT {
-    type Target = wkt::RegisterBlock;
-    fn deref(&self) -> &wkt::RegisterBlock {
-        &self.register_block
+unsafe impl Send for SWM {}
+impl SWM {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const swm::RegisterBlock {
+        0x4000_c000 as *const _
     }
 }
-#[doc = "Switch matrix (SWM)"]
-pub const SWM: Peripheral<SWM> = unsafe { Peripheral::new(0x4000_c000) };
+impl Deref for SWM {
+    type Target = swm::RegisterBlock;
+    fn deref(&self) -> &swm::RegisterBlock {
+        unsafe { &*SWM::ptr() }
+    }
+}
 #[doc = "Switch matrix (SWM)"]
 pub mod swm {
     use vcell::VolatileCell;
@@ -3578,7 +3639,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -3811,7 +3874,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -4044,7 +4109,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -4277,7 +4344,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -4510,7 +4579,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -4743,7 +4814,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -4976,7 +5049,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -5209,7 +5284,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -5442,7 +5519,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -5675,7 +5754,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -5908,7 +5989,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -6141,7 +6224,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -6374,7 +6459,9 @@ pub mod swm {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -9389,18 +9476,23 @@ pub mod swm {
         }
     }
 }
-#[doc = "Switch matrix (SWM)"]
-pub struct SWM {
-    register_block: swm::RegisterBlock,
+#[doc = "12-bit Analog-to-Digital Converter (ADC)"]
+pub struct ADC {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for SWM {
-    type Target = swm::RegisterBlock;
-    fn deref(&self) -> &swm::RegisterBlock {
-        &self.register_block
+unsafe impl Send for ADC {}
+impl ADC {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const adc::RegisterBlock {
+        0x4001_c000 as *const _
     }
 }
-#[doc = "12-bit Analog-to-Digital Converter (ADC)"]
-pub const ADC: Peripheral<ADC> = unsafe { Peripheral::new(0x4001_c000) };
+impl Deref for ADC {
+    type Target = adc::RegisterBlock;
+    fn deref(&self) -> &adc::RegisterBlock {
+        unsafe { &*ADC::ptr() }
+    }
+}
 #[doc = "12-bit Analog-to-Digital Converter (ADC)"]
 pub mod adc {
     use vcell::VolatileCell;
@@ -9468,7 +9560,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -9756,7 +9850,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -10679,7 +10775,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -11483,7 +11581,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -11834,7 +11934,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -12169,7 +12271,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -12356,7 +12460,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -12466,7 +12572,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -12576,7 +12684,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -12686,7 +12796,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -12796,7 +12908,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -14293,7 +14407,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -16123,7 +16239,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -17962,7 +18080,9 @@ pub mod adc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -18121,18 +18241,23 @@ pub mod adc {
         }
     }
 }
-#[doc = "12-bit Analog-to-Digital Converter (ADC)"]
-pub struct ADC {
-    register_block: adc::RegisterBlock,
+#[doc = "Power Management Unit (PMU)"]
+pub struct PMU {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for ADC {
-    type Target = adc::RegisterBlock;
-    fn deref(&self) -> &adc::RegisterBlock {
-        &self.register_block
+unsafe impl Send for PMU {}
+impl PMU {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const pmu::RegisterBlock {
+        0x4002_0000 as *const _
     }
 }
-#[doc = "Power Management Unit (PMU)"]
-pub const PMU: Peripheral<PMU> = unsafe { Peripheral::new(0x4002_0000) };
+impl Deref for PMU {
+    type Target = pmu::RegisterBlock;
+    fn deref(&self) -> &pmu::RegisterBlock {
+        unsafe { &*PMU::ptr() }
+    }
+}
 #[doc = "Power Management Unit (PMU)"]
 pub mod pmu {
     use vcell::VolatileCell;
@@ -18176,7 +18301,9 @@ pub mod pmu {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -18679,7 +18806,9 @@ pub mod pmu {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -18789,7 +18918,9 @@ pub mod pmu {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -19543,18 +19674,23 @@ pub mod pmu {
         }
     }
 }
-#[doc = "Power Management Unit (PMU)"]
-pub struct PMU {
-    register_block: pmu::RegisterBlock,
+#[doc = "Analog comparator"]
+pub struct CMP {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for PMU {
-    type Target = pmu::RegisterBlock;
-    fn deref(&self) -> &pmu::RegisterBlock {
-        &self.register_block
+unsafe impl Send for CMP {}
+impl CMP {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const cmp::RegisterBlock {
+        0x4002_4000 as *const _
     }
 }
-#[doc = "Analog comparator"]
-pub const CMP: Peripheral<CMP> = unsafe { Peripheral::new(0x4002_4000) };
+impl Deref for CMP {
+    type Target = cmp::RegisterBlock;
+    fn deref(&self) -> &cmp::RegisterBlock {
+        unsafe { &*CMP::ptr() }
+    }
+}
 #[doc = "Analog comparator"]
 pub mod cmp {
     use vcell::VolatileCell;
@@ -19596,7 +19732,9 @@ pub mod cmp {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -20603,7 +20741,9 @@ pub mod cmp {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -20862,18 +21002,23 @@ pub mod cmp {
         }
     }
 }
-#[doc = "Analog comparator"]
-pub struct CMP {
-    register_block: cmp::RegisterBlock,
+#[doc = "DMA trigger mux"]
+pub struct DMATRIGMUX {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for CMP {
-    type Target = cmp::RegisterBlock;
-    fn deref(&self) -> &cmp::RegisterBlock {
-        &self.register_block
+unsafe impl Send for DMATRIGMUX {}
+impl DMATRIGMUX {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const dmatrigmux::RegisterBlock {
+        0x4002_8000 as *const _
     }
 }
-#[doc = "DMA trigger mux"]
-pub const DMATRIGMUX: Peripheral<DMATRIGMUX> = unsafe { Peripheral::new(0x4002_8000) };
+impl Deref for DMATRIGMUX {
+    type Target = dmatrigmux::RegisterBlock;
+    fn deref(&self) -> &dmatrigmux::RegisterBlock {
+        unsafe { &*DMATRIGMUX::ptr() }
+    }
+}
 #[doc = "DMA trigger mux"]
 pub mod dmatrigmux {
     use vcell::VolatileCell;
@@ -20913,7 +21058,9 @@ pub mod dmatrigmux {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -21175,18 +21322,23 @@ pub mod dmatrigmux {
         }
     }
 }
-#[doc = "DMA trigger mux"]
-pub struct DMATRIGMUX {
-    register_block: dmatrigmux::RegisterBlock,
+#[doc = "Input multiplexing"]
+pub struct INPUTMUX {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for DMATRIGMUX {
-    type Target = dmatrigmux::RegisterBlock;
-    fn deref(&self) -> &dmatrigmux::RegisterBlock {
-        &self.register_block
+unsafe impl Send for INPUTMUX {}
+impl INPUTMUX {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const inputmux::RegisterBlock {
+        0x4002_c000 as *const _
     }
 }
-#[doc = "Input multiplexing"]
-pub const INPUTMUX: Peripheral<INPUTMUX> = unsafe { Peripheral::new(0x4002_c000) };
+impl Deref for INPUTMUX {
+    type Target = inputmux::RegisterBlock;
+    fn deref(&self) -> &inputmux::RegisterBlock {
+        unsafe { &*INPUTMUX::ptr() }
+    }
+}
 #[doc = "Input multiplexing"]
 pub mod inputmux {
     use vcell::VolatileCell;
@@ -21229,7 +21381,9 @@ pub mod inputmux {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -21339,7 +21493,9 @@ pub mod inputmux {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -21584,18 +21740,23 @@ pub mod inputmux {
         }
     }
 }
-#[doc = "Input multiplexing"]
-pub struct INPUTMUX {
-    register_block: inputmux::RegisterBlock,
+#[doc = "Flash controller"]
+pub struct FLASHCTRL {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for INPUTMUX {
-    type Target = inputmux::RegisterBlock;
-    fn deref(&self) -> &inputmux::RegisterBlock {
-        &self.register_block
+unsafe impl Send for FLASHCTRL {}
+impl FLASHCTRL {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const flashctrl::RegisterBlock {
+        0x4004_0000 as *const _
     }
 }
-#[doc = "Flash controller"]
-pub const FLASHCTRL: Peripheral<FLASHCTRL> = unsafe { Peripheral::new(0x4004_0000) };
+impl Deref for FLASHCTRL {
+    type Target = flashctrl::RegisterBlock;
+    fn deref(&self) -> &flashctrl::RegisterBlock {
+        unsafe { &*FLASHCTRL::ptr() }
+    }
+}
 #[doc = "Flash controller"]
 pub mod flashctrl {
     use vcell::VolatileCell;
@@ -21644,7 +21805,9 @@ pub mod flashctrl {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -21849,7 +22012,9 @@ pub mod flashctrl {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -21959,7 +22124,9 @@ pub mod flashctrl {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -22112,7 +22279,9 @@ pub mod flashctrl {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -22145,18 +22314,23 @@ pub mod flashctrl {
         }
     }
 }
-#[doc = "Flash controller"]
-pub struct FLASHCTRL {
-    register_block: flashctrl::RegisterBlock,
+#[doc = "I/O configuration (IOCON)"]
+pub struct IOCON {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for FLASHCTRL {
-    type Target = flashctrl::RegisterBlock;
-    fn deref(&self) -> &flashctrl::RegisterBlock {
-        &self.register_block
+unsafe impl Send for IOCON {}
+impl IOCON {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const iocon::RegisterBlock {
+        0x4004_4000 as *const _
     }
 }
-#[doc = "I/O configuration (IOCON)"]
-pub const IOCON: Peripheral<IOCON> = unsafe { Peripheral::new(0x4004_4000) };
+impl Deref for IOCON {
+    type Target = iocon::RegisterBlock;
+    fn deref(&self) -> &iocon::RegisterBlock {
+        unsafe { &*IOCON::ptr() }
+    }
+}
 #[doc = "I/O configuration (IOCON)"]
 pub mod iocon {
     use vcell::VolatileCell;
@@ -22254,7 +22428,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -23140,7 +23316,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -24026,7 +24204,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -24912,7 +25092,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -25798,7 +25980,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -26684,7 +26868,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -27570,7 +27756,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -28456,7 +28644,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -29085,7 +29275,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -29714,7 +29906,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -30600,7 +30794,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -31486,7 +31682,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -32372,7 +32570,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -33258,7 +33458,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -34144,7 +34346,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -35030,7 +35234,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -35916,7 +36122,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -36802,7 +37010,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -37688,7 +37898,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -38574,7 +38786,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -39460,7 +39674,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -40346,7 +40562,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -41232,7 +41450,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -42118,7 +42338,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -43004,7 +43226,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -43890,7 +44114,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -44776,7 +45002,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -45662,7 +45890,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -46548,7 +46778,9 @@ pub mod iocon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -47405,18 +47637,23 @@ pub mod iocon {
         }
     }
 }
-#[doc = "I/O configuration (IOCON)"]
-pub struct IOCON {
-    register_block: iocon::RegisterBlock,
+#[doc = "System configuration (SYSCON)"]
+pub struct SYSCON {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for IOCON {
-    type Target = iocon::RegisterBlock;
-    fn deref(&self) -> &iocon::RegisterBlock {
-        &self.register_block
+unsafe impl Send for SYSCON {}
+impl SYSCON {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const syscon::RegisterBlock {
+        0x4004_8000 as *const _
     }
 }
-#[doc = "System configuration (SYSCON)"]
-pub const SYSCON: Peripheral<SYSCON> = unsafe { Peripheral::new(0x4004_8000) };
+impl Deref for SYSCON {
+    type Target = syscon::RegisterBlock;
+    fn deref(&self) -> &syscon::RegisterBlock {
+        unsafe { &*SYSCON::ptr() }
+    }
+}
 #[doc = "System configuration (SYSCON)"]
 pub mod syscon {
     use vcell::VolatileCell;
@@ -47549,7 +47786,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -47738,7 +47977,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -49949,7 +50190,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -50179,7 +50422,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = "Possible values of the field `LOCK`"]
@@ -50276,7 +50521,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -50583,7 +50830,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -51017,7 +51266,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -51127,7 +51378,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -51791,7 +52044,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -51977,7 +52232,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -52165,7 +52422,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -52370,7 +52629,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -52558,7 +52819,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -52668,7 +52931,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -55771,7 +56036,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -55881,7 +56148,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -56086,7 +56355,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -56274,7 +56545,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -56384,7 +56657,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -56494,7 +56769,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -56604,7 +56881,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -56775,7 +57054,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -56837,7 +57118,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -56947,7 +57230,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -57057,7 +57342,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -57167,7 +57454,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -57277,7 +57566,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -57387,7 +57678,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -57497,7 +57790,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -57607,7 +57902,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -58029,7 +58326,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -58139,7 +58438,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -58249,7 +58550,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -58418,7 +58721,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -58528,7 +58833,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -59549,7 +59856,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -61046,7 +61355,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -61353,7 +61664,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -62493,7 +62806,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -63617,7 +63932,9 @@ pub mod syscon {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -63650,18 +63967,23 @@ pub mod syscon {
         }
     }
 }
-#[doc = "System configuration (SYSCON)"]
-pub struct SYSCON {
-    register_block: syscon::RegisterBlock,
+#[doc = "I2C0-bus interface"]
+pub struct I2C0 {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for SYSCON {
-    type Target = syscon::RegisterBlock;
-    fn deref(&self) -> &syscon::RegisterBlock {
-        &self.register_block
+unsafe impl Send for I2C0 {}
+impl I2C0 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const i2c0::RegisterBlock {
+        0x4005_0000 as *const _
     }
 }
-#[doc = "I2C0-bus interface"]
-pub const I2C0: Peripheral<I2C0> = unsafe { Peripheral::new(0x4005_0000) };
+impl Deref for I2C0 {
+    type Target = i2c0::RegisterBlock;
+    fn deref(&self) -> &i2c0::RegisterBlock {
+        unsafe { &*I2C0::ptr() }
+    }
+}
 #[doc = "I2C0-bus interface"]
 pub mod i2c0 {
     use vcell::VolatileCell;
@@ -63732,7 +64054,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -64396,7 +64720,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -66419,7 +66745,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -68141,7 +68469,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -68292,7 +68622,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -68386,7 +68718,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -68768,7 +69102,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -69313,7 +69649,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -69790,7 +70128,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -69900,7 +70240,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -70326,7 +70668,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -70436,7 +70780,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -70665,7 +71011,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -70878,7 +71226,9 @@ pub mod i2c0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -71079,30 +71429,40 @@ pub mod i2c0 {
         }
     }
 }
-#[doc = "I2C0-bus interface"]
-pub struct I2C0 {
-    register_block: i2c0::RegisterBlock,
-}
-impl Deref for I2C0 {
-    type Target = i2c0::RegisterBlock;
-    fn deref(&self) -> &i2c0::RegisterBlock {
-        &self.register_block
-    }
-}
 #[doc = "I2C1"]
-pub const I2C1: Peripheral<I2C1> = unsafe { Peripheral::new(0x4005_4000) };
-#[doc = r" Register block"]
 pub struct I2C1 {
-    register_block: i2c0::RegisterBlock,
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for I2C1 {}
+impl I2C1 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const i2c0::RegisterBlock {
+        0x4005_4000 as *const _
+    }
 }
 impl Deref for I2C1 {
     type Target = i2c0::RegisterBlock;
     fn deref(&self) -> &i2c0::RegisterBlock {
-        &self.register_block
+        unsafe { &*I2C1::ptr() }
     }
 }
 #[doc = "SPI0"]
-pub const SPI0: Peripheral<SPI0> = unsafe { Peripheral::new(0x4005_8000) };
+pub struct SPI0 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for SPI0 {}
+impl SPI0 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const spi0::RegisterBlock {
+        0x4005_8000 as *const _
+    }
+}
+impl Deref for SPI0 {
+    type Target = spi0::RegisterBlock;
+    fn deref(&self) -> &spi0::RegisterBlock {
+        unsafe { &*SPI0::ptr() }
+    }
+}
 #[doc = "SPI0"]
 pub mod spi0 {
     use vcell::VolatileCell;
@@ -71162,7 +71522,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -72421,7 +72783,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -72654,7 +73018,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -73254,7 +73620,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -74225,7 +74593,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -74442,7 +74812,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -75426,7 +75798,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -75536,7 +75910,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -76059,7 +76435,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -76153,7 +76531,9 @@ pub mod spi0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -76351,30 +76731,40 @@ pub mod spi0 {
         }
     }
 }
-#[doc = "SPI0"]
-pub struct SPI0 {
-    register_block: spi0::RegisterBlock,
-}
-impl Deref for SPI0 {
-    type Target = spi0::RegisterBlock;
-    fn deref(&self) -> &spi0::RegisterBlock {
-        &self.register_block
-    }
-}
 #[doc = "SPI1"]
-pub const SPI1: Peripheral<SPI1> = unsafe { Peripheral::new(0x4005_c000) };
-#[doc = r" Register block"]
 pub struct SPI1 {
-    register_block: spi0::RegisterBlock,
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for SPI1 {}
+impl SPI1 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const spi0::RegisterBlock {
+        0x4005_c000 as *const _
+    }
 }
 impl Deref for SPI1 {
     type Target = spi0::RegisterBlock;
     fn deref(&self) -> &spi0::RegisterBlock {
-        &self.register_block
+        unsafe { &*SPI1::ptr() }
     }
 }
 #[doc = "USART0"]
-pub const USART0: Peripheral<USART0> = unsafe { Peripheral::new(0x4006_4000) };
+pub struct USART0 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for USART0 {}
+impl USART0 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const usart0::RegisterBlock {
+        0x4006_4000 as *const _
+    }
+}
+impl Deref for USART0 {
+    type Target = usart0::RegisterBlock;
+    fn deref(&self) -> &usart0::RegisterBlock {
+        unsafe { &*USART0::ptr() }
+    }
+}
 #[doc = "USART0"]
 pub mod usart0 {
     use vcell::VolatileCell;
@@ -76436,7 +76826,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -78286,7 +78678,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -79069,7 +79463,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -80023,7 +80419,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -81156,7 +81554,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -81202,7 +81602,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -81357,7 +81759,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -81467,7 +81871,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -81561,7 +81967,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -81974,7 +82382,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -82084,7 +82494,9 @@ pub mod usart0 {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -82165,66 +82577,91 @@ pub mod usart0 {
         }
     }
 }
-#[doc = "USART0"]
-pub struct USART0 {
-    register_block: usart0::RegisterBlock,
-}
-impl Deref for USART0 {
-    type Target = usart0::RegisterBlock;
-    fn deref(&self) -> &usart0::RegisterBlock {
-        &self.register_block
-    }
-}
 #[doc = "USART1"]
-pub const USART1: Peripheral<USART1> = unsafe { Peripheral::new(0x4006_8000) };
-#[doc = r" Register block"]
 pub struct USART1 {
-    register_block: usart0::RegisterBlock,
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for USART1 {}
+impl USART1 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const usart0::RegisterBlock {
+        0x4006_8000 as *const _
+    }
 }
 impl Deref for USART1 {
     type Target = usart0::RegisterBlock;
     fn deref(&self) -> &usart0::RegisterBlock {
-        &self.register_block
+        unsafe { &*USART1::ptr() }
     }
 }
 #[doc = "USART2"]
-pub const USART2: Peripheral<USART2> = unsafe { Peripheral::new(0x4006_c000) };
-#[doc = r" Register block"]
 pub struct USART2 {
-    register_block: usart0::RegisterBlock,
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for USART2 {}
+impl USART2 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const usart0::RegisterBlock {
+        0x4006_c000 as *const _
+    }
 }
 impl Deref for USART2 {
     type Target = usart0::RegisterBlock;
     fn deref(&self) -> &usart0::RegisterBlock {
-        &self.register_block
+        unsafe { &*USART2::ptr() }
     }
 }
 #[doc = "I2C2"]
-pub const I2C2: Peripheral<I2C2> = unsafe { Peripheral::new(0x4007_0000) };
-#[doc = r" Register block"]
 pub struct I2C2 {
-    register_block: i2c0::RegisterBlock,
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for I2C2 {}
+impl I2C2 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const i2c0::RegisterBlock {
+        0x4007_0000 as *const _
+    }
 }
 impl Deref for I2C2 {
     type Target = i2c0::RegisterBlock;
     fn deref(&self) -> &i2c0::RegisterBlock {
-        &self.register_block
+        unsafe { &*I2C2::ptr() }
     }
 }
 #[doc = "I2C3"]
-pub const I2C3: Peripheral<I2C3> = unsafe { Peripheral::new(0x4007_4000) };
-#[doc = r" Register block"]
 pub struct I2C3 {
-    register_block: i2c0::RegisterBlock,
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for I2C3 {}
+impl I2C3 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const i2c0::RegisterBlock {
+        0x4007_4000 as *const _
+    }
 }
 impl Deref for I2C3 {
     type Target = i2c0::RegisterBlock;
     fn deref(&self) -> &i2c0::RegisterBlock {
-        &self.register_block
+        unsafe { &*I2C3::ptr() }
     }
 }
 #[doc = "Cyclic Redundancy Check (CRC) engine"]
-pub const CRC: Peripheral<CRC> = unsafe { Peripheral::new(0x5000_0000) };
+pub struct CRC {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for CRC {}
+impl CRC {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const crc::RegisterBlock {
+        0x5000_0000 as *const _
+    }
+}
+impl Deref for CRC {
+    type Target = crc::RegisterBlock;
+    fn deref(&self) -> &crc::RegisterBlock {
+        unsafe { &*CRC::ptr() }
+    }
+}
 #[doc = "Cyclic Redundancy Check (CRC) engine"]
 pub mod crc {
     use vcell::VolatileCell;
@@ -82268,7 +82705,9 @@ pub mod crc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -82614,7 +83053,9 @@ pub mod crc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -82708,7 +83149,9 @@ pub mod crc {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -82797,18 +83240,23 @@ pub mod crc {
         }
     }
 }
-#[doc = "Cyclic Redundancy Check (CRC) engine"]
-pub struct CRC {
-    register_block: crc::RegisterBlock,
+#[doc = "State Configurable Timer (SCT)"]
+pub struct SCT {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for CRC {
-    type Target = crc::RegisterBlock;
-    fn deref(&self) -> &crc::RegisterBlock {
-        &self.register_block
+unsafe impl Send for SCT {}
+impl SCT {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const sct::RegisterBlock {
+        0x5000_4000 as *const _
     }
 }
-#[doc = "State Configurable Timer (SCT)"]
-pub const SCT: Peripheral<SCT> = unsafe { Peripheral::new(0x5000_4000) };
+impl Deref for SCT {
+    type Target = sct::RegisterBlock;
+    fn deref(&self) -> &sct::RegisterBlock {
+        unsafe { &*SCT::ptr() }
+    }
+}
 #[doc = "State Configurable Timer (SCT)"]
 pub mod sct {
     use vcell::VolatileCell;
@@ -82949,7 +83397,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -83755,7 +84205,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -84616,7 +85068,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -84767,7 +85221,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -84918,7 +85374,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -85069,7 +85527,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -85220,7 +85680,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -85371,7 +85833,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -85506,7 +85970,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -85795,7 +86261,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -85946,7 +86414,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -86056,7 +86526,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -86845,7 +87317,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -87730,7 +88204,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -87958,7 +88434,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -88186,7 +88664,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -88296,7 +88776,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -88406,7 +88888,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -88516,7 +89000,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -88744,7 +89230,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -88895,7 +89383,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -89046,7 +89536,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -89197,7 +89689,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -89348,7 +89842,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -89458,7 +89954,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -90458,7 +90956,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -90568,7 +91068,9 @@ pub mod sct {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -90649,18 +91151,23 @@ pub mod sct {
         }
     }
 }
-#[doc = "State Configurable Timer (SCT)"]
-pub struct SCT {
-    register_block: sct::RegisterBlock,
+#[doc = "DMA controller"]
+pub struct DMA {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for SCT {
-    type Target = sct::RegisterBlock;
-    fn deref(&self) -> &sct::RegisterBlock {
-        &self.register_block
+unsafe impl Send for DMA {}
+impl DMA {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const dma::RegisterBlock {
+        0x5000_8000 as *const _
     }
 }
-#[doc = "DMA controller"]
-pub const DMA: Peripheral<DMA> = unsafe { Peripheral::new(0x5000_8000) };
+impl Deref for DMA {
+    type Target = dma::RegisterBlock;
+    fn deref(&self) -> &dma::RegisterBlock {
+        unsafe { &*DMA::ptr() }
+    }
+}
 #[doc = "DMA controller"]
 pub mod dma {
     use vcell::VolatileCell;
@@ -90866,7 +91373,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -91038,7 +91547,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = "Possible values of the field `ACTIVEINT`"]
@@ -91191,7 +91702,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -91301,7 +91814,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -91451,7 +91966,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -91497,7 +92014,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = r" Value of the field"]
@@ -91559,7 +92078,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -91669,7 +92190,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -91835,7 +92358,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -91945,7 +92470,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -92223,7 +92750,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -93191,7 +93720,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
         }
         #[doc = "Possible values of the field `VALIDPENDING`"]
@@ -93344,7 +93875,9 @@ pub mod dma {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -94547,18 +95080,23 @@ pub mod dma {
         }
     }
 }
-#[doc = "DMA controller"]
-pub struct DMA {
-    register_block: dma::RegisterBlock,
+#[doc = "General Purpose I/O port (GPIO)"]
+pub struct GPIO_PORT {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for DMA {
-    type Target = dma::RegisterBlock;
-    fn deref(&self) -> &dma::RegisterBlock {
-        &self.register_block
+unsafe impl Send for GPIO_PORT {}
+impl GPIO_PORT {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const gpio_port::RegisterBlock {
+        0xa000_0000 as *const _
     }
 }
-#[doc = "General Purpose I/O port (GPIO)"]
-pub const GPIO_PORT: Peripheral<GPIO_PORT> = unsafe { Peripheral::new(0xa000_0000) };
+impl Deref for GPIO_PORT {
+    type Target = gpio_port::RegisterBlock;
+    fn deref(&self) -> &gpio_port::RegisterBlock {
+        unsafe { &*GPIO_PORT::ptr() }
+    }
+}
 #[doc = "General Purpose I/O port (GPIO)"]
 pub mod gpio_port {
     use vcell::VolatileCell;
@@ -94631,7 +95169,9 @@ pub mod gpio_port {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -94759,7 +95299,9 @@ pub mod gpio_port {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -94869,7 +95411,9 @@ pub mod gpio_port {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -94979,7 +95523,9 @@ pub mod gpio_port {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -95089,7 +95635,9 @@ pub mod gpio_port {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -95199,7 +95747,9 @@ pub mod gpio_port {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -95309,7 +95859,9 @@ pub mod gpio_port {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -95670,18 +96222,23 @@ pub mod gpio_port {
         }
     }
 }
-#[doc = "General Purpose I/O port (GPIO)"]
-pub struct GPIO_PORT {
-    register_block: gpio_port::RegisterBlock,
+#[doc = "Pin interrupt and pattern match engine"]
+pub struct PIN_INT {
+    _marker: PhantomData<*const ()>,
 }
-impl Deref for GPIO_PORT {
-    type Target = gpio_port::RegisterBlock;
-    fn deref(&self) -> &gpio_port::RegisterBlock {
-        &self.register_block
+unsafe impl Send for PIN_INT {}
+impl PIN_INT {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const pin_int::RegisterBlock {
+        0xa000_4000 as *const _
     }
 }
-#[doc = "Pin interrupt and pattern match engine"]
-pub const PIN_INT: Peripheral<PIN_INT> = unsafe { Peripheral::new(0xa000_4000) };
+impl Deref for PIN_INT {
+    type Target = pin_int::RegisterBlock;
+    fn deref(&self) -> &pin_int::RegisterBlock {
+        unsafe { &*PIN_INT::ptr() }
+    }
+}
 #[doc = "Pin interrupt and pattern match engine"]
 pub mod pin_int {
     use vcell::VolatileCell;
@@ -95745,7 +96302,9 @@ pub mod pin_int {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -95855,7 +96414,9 @@ pub mod pin_int {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -96077,7 +96638,9 @@ pub mod pin_int {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -96299,7 +96862,9 @@ pub mod pin_int {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -96409,7 +96974,9 @@ pub mod pin_int {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -96519,7 +97086,9 @@ pub mod pin_int {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -96629,7 +97198,9 @@ pub mod pin_int {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -96977,7 +97548,9 @@ pub mod pin_int {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -98678,7 +99251,9 @@ pub mod pin_int {
             #[doc = r" Reads the contents of the register"]
             #[inline]
             pub fn read(&self) -> R {
-                R { bits: self.register.get() }
+                R {
+                    bits: self.register.get(),
+                }
             }
             #[doc = r" Writes to the register"]
             #[inline]
@@ -100391,135 +100966,159 @@ pub mod pin_int {
         }
     }
 }
-#[doc = "Pin interrupt and pattern match engine"]
-pub struct PIN_INT {
-    register_block: pin_int::RegisterBlock,
-}
-impl Deref for PIN_INT {
-    type Target = pin_int::RegisterBlock;
-    fn deref(&self) -> &pin_int::RegisterBlock {
-        &self.register_block
-    }
-}
+#[no_mangle]
+static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r" All the peripherals"]
 #[allow(non_snake_case)]
-pub struct Peripherals<'a> {
-    #[doc = "CPUID"]
-    pub CPUID: &'a CPUID,
-    #[doc = "DCB"]
-    pub DCB: &'a DCB,
-    #[doc = "DWT"]
-    pub DWT: &'a DWT,
-    #[doc = "FPB"]
-    pub FPB: &'a FPB,
-    #[doc = "FPU"]
-    pub FPU: &'a FPU,
-    #[doc = "ITM"]
-    pub ITM: &'a ITM,
-    #[doc = "MPU"]
-    pub MPU: &'a MPU,
-    #[doc = "NVIC"]
-    pub NVIC: &'a NVIC,
-    #[doc = "SCB"]
-    pub SCB: &'a SCB,
-    #[doc = "SYST"]
-    pub SYST: &'a SYST,
-    #[doc = "TPIU"]
-    pub TPIU: &'a TPIU,
+pub struct Peripherals {
     #[doc = "WWDT"]
-    pub WWDT: &'a WWDT,
+    pub WWDT: WWDT,
     #[doc = "MRT"]
-    pub MRT: &'a MRT,
+    pub MRT: MRT,
     #[doc = "WKT"]
-    pub WKT: &'a WKT,
+    pub WKT: WKT,
     #[doc = "SWM"]
-    pub SWM: &'a SWM,
+    pub SWM: SWM,
     #[doc = "ADC"]
-    pub ADC: &'a ADC,
+    pub ADC: ADC,
     #[doc = "PMU"]
-    pub PMU: &'a PMU,
+    pub PMU: PMU,
     #[doc = "CMP"]
-    pub CMP: &'a CMP,
+    pub CMP: CMP,
     #[doc = "DMATRIGMUX"]
-    pub DMATRIGMUX: &'a DMATRIGMUX,
+    pub DMATRIGMUX: DMATRIGMUX,
     #[doc = "INPUTMUX"]
-    pub INPUTMUX: &'a INPUTMUX,
+    pub INPUTMUX: INPUTMUX,
     #[doc = "FLASHCTRL"]
-    pub FLASHCTRL: &'a FLASHCTRL,
+    pub FLASHCTRL: FLASHCTRL,
     #[doc = "IOCON"]
-    pub IOCON: &'a IOCON,
+    pub IOCON: IOCON,
     #[doc = "SYSCON"]
-    pub SYSCON: &'a SYSCON,
+    pub SYSCON: SYSCON,
     #[doc = "I2C0"]
-    pub I2C0: &'a I2C0,
+    pub I2C0: I2C0,
     #[doc = "I2C1"]
-    pub I2C1: &'a I2C1,
+    pub I2C1: I2C1,
     #[doc = "SPI0"]
-    pub SPI0: &'a SPI0,
+    pub SPI0: SPI0,
     #[doc = "SPI1"]
-    pub SPI1: &'a SPI1,
+    pub SPI1: SPI1,
     #[doc = "USART0"]
-    pub USART0: &'a USART0,
+    pub USART0: USART0,
     #[doc = "USART1"]
-    pub USART1: &'a USART1,
+    pub USART1: USART1,
     #[doc = "USART2"]
-    pub USART2: &'a USART2,
+    pub USART2: USART2,
     #[doc = "I2C2"]
-    pub I2C2: &'a I2C2,
+    pub I2C2: I2C2,
     #[doc = "I2C3"]
-    pub I2C3: &'a I2C3,
+    pub I2C3: I2C3,
     #[doc = "CRC"]
-    pub CRC: &'a CRC,
+    pub CRC: CRC,
     #[doc = "SCT"]
-    pub SCT: &'a SCT,
+    pub SCT: SCT,
     #[doc = "DMA"]
-    pub DMA: &'a DMA,
+    pub DMA: DMA,
     #[doc = "GPIO_PORT"]
-    pub GPIO_PORT: &'a GPIO_PORT,
+    pub GPIO_PORT: GPIO_PORT,
     #[doc = "PIN_INT"]
-    pub PIN_INT: &'a PIN_INT,
+    pub PIN_INT: PIN_INT,
 }
-impl<'a> Peripherals<'a> {
-    #[doc = r" Grants access to all the peripherals"]
-    pub unsafe fn all() -> Self {
+impl Peripherals {
+    #[doc = r" Returns all the peripherals *once*"]
+    #[inline]
+    pub fn take() -> Option<Self> {
+        cortex_m::interrupt::free(|_| {
+            if unsafe { DEVICE_PERIPHERALS } {
+                None
+            } else {
+                Some(unsafe { Peripherals::steal() })
+            }
+        })
+    }
+    #[doc = r" Unchecked version of `Peripherals::take`"]
+    pub unsafe fn steal() -> Self {
+        debug_assert!(!DEVICE_PERIPHERALS);
+        DEVICE_PERIPHERALS = true;
         Peripherals {
-            CPUID: &*CPUID.get(),
-            DCB: &*DCB.get(),
-            DWT: &*DWT.get(),
-            FPB: &*FPB.get(),
-            FPU: &*FPU.get(),
-            ITM: &*ITM.get(),
-            MPU: &*MPU.get(),
-            NVIC: &*NVIC.get(),
-            SCB: &*SCB.get(),
-            SYST: &*SYST.get(),
-            TPIU: &*TPIU.get(),
-            WWDT: &*WWDT.get(),
-            MRT: &*MRT.get(),
-            WKT: &*WKT.get(),
-            SWM: &*SWM.get(),
-            ADC: &*ADC.get(),
-            PMU: &*PMU.get(),
-            CMP: &*CMP.get(),
-            DMATRIGMUX: &*DMATRIGMUX.get(),
-            INPUTMUX: &*INPUTMUX.get(),
-            FLASHCTRL: &*FLASHCTRL.get(),
-            IOCON: &*IOCON.get(),
-            SYSCON: &*SYSCON.get(),
-            I2C0: &*I2C0.get(),
-            I2C1: &*I2C1.get(),
-            SPI0: &*SPI0.get(),
-            SPI1: &*SPI1.get(),
-            USART0: &*USART0.get(),
-            USART1: &*USART1.get(),
-            USART2: &*USART2.get(),
-            I2C2: &*I2C2.get(),
-            I2C3: &*I2C3.get(),
-            CRC: &*CRC.get(),
-            SCT: &*SCT.get(),
-            DMA: &*DMA.get(),
-            GPIO_PORT: &*GPIO_PORT.get(),
-            PIN_INT: &*PIN_INT.get(),
+            WWDT: WWDT {
+                _marker: PhantomData,
+            },
+            MRT: MRT {
+                _marker: PhantomData,
+            },
+            WKT: WKT {
+                _marker: PhantomData,
+            },
+            SWM: SWM {
+                _marker: PhantomData,
+            },
+            ADC: ADC {
+                _marker: PhantomData,
+            },
+            PMU: PMU {
+                _marker: PhantomData,
+            },
+            CMP: CMP {
+                _marker: PhantomData,
+            },
+            DMATRIGMUX: DMATRIGMUX {
+                _marker: PhantomData,
+            },
+            INPUTMUX: INPUTMUX {
+                _marker: PhantomData,
+            },
+            FLASHCTRL: FLASHCTRL {
+                _marker: PhantomData,
+            },
+            IOCON: IOCON {
+                _marker: PhantomData,
+            },
+            SYSCON: SYSCON {
+                _marker: PhantomData,
+            },
+            I2C0: I2C0 {
+                _marker: PhantomData,
+            },
+            I2C1: I2C1 {
+                _marker: PhantomData,
+            },
+            SPI0: SPI0 {
+                _marker: PhantomData,
+            },
+            SPI1: SPI1 {
+                _marker: PhantomData,
+            },
+            USART0: USART0 {
+                _marker: PhantomData,
+            },
+            USART1: USART1 {
+                _marker: PhantomData,
+            },
+            USART2: USART2 {
+                _marker: PhantomData,
+            },
+            I2C2: I2C2 {
+                _marker: PhantomData,
+            },
+            I2C3: I2C3 {
+                _marker: PhantomData,
+            },
+            CRC: CRC {
+                _marker: PhantomData,
+            },
+            SCT: SCT {
+                _marker: PhantomData,
+            },
+            DMA: DMA {
+                _marker: PhantomData,
+            },
+            GPIO_PORT: GPIO_PORT {
+                _marker: PhantomData,
+            },
+            PIN_INT: PIN_INT {
+                _marker: PhantomData,
+            },
         }
     }
 }
