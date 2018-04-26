@@ -1,3 +1,13 @@
+<a name="v0.3.0"></a>
+## v0.3.0 (2018-04-26)
+
+
+#### Features
+
+*   Re-generate code with svd2rust 0.12.0 ([9688cfae](9688cfae))
+
+
+
 <a name="v0.2.1"></a>
 ### v0.2.1 (2017-12-07)
 
