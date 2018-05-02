@@ -3,7 +3,7 @@ name    = "lpc82x"
 version = "0.3.1-dev"
 authors = ["Hanno Braun <hanno@braun-robotics.com>"]
 
-description   = "Register mappings for the NXP LPC82x series of ARM Cortex-M0+ microcontrollers"
+description   = "Low-level register mappings for the NXP LPC82x series of ARM Cortex-M0+ microcontrollers"
 documentation = "https://docs.rs/lpc82x"
 repository    = "https://github.com/braun-robotics/rust-lpc82x"
 license       = "0BSD"
