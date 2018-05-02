@@ -1,3 +1,9 @@
+<a name="v0.3.1"></a>
+### v0.3.1 (2018-05-02)
+
+* Make some tweaks to crate description and README.
+
+
 <a name="v0.3.0"></a>
 ## v0.3.0 (2018-04-26)
 
