@@ -1,18 +1,20 @@
 #![cfg_attr(feature = "rt", feature(global_asm))]
-#![cfg_attr(feature = "rt", feature(macro_reexport))]
+#![cfg_attr(feature = "rt", feature(use_extern_macros))]
 #![cfg_attr(feature = "rt", feature(used))]
-#![doc = "Peripheral access API for LPC82X microcontrollers (generated using svd2rust v0.12.0)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.12.0/svd2rust/#peripheral-api"]
+#![doc = "Peripheral access API for LPC82X microcontrollers (generated using svd2rust v0.12.1)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.12.1/svd2rust/#peripheral-api"]
 #![allow(private_no_mangle_statics)]
 #![deny(missing_docs)]
 #![deny(warnings)]
 #![allow(non_camel_case_types)]
 #![feature(const_fn)]
+#![feature(try_from)]
 #![no_std]
-extern crate bare_metal;
 extern crate cortex_m;
-#[macro_reexport(default_handler, exception)]
 #[cfg(feature = "rt")]
 extern crate cortex_m_rt;
+#[cfg(feature = "rt")]
+pub use cortex_m_rt::{default_handler, exception};
+extern crate bare_metal;
 extern crate vcell;
 use core::marker::PhantomData;
 use core::ops::Deref;
@@ -203,6 +205,47 @@ pub mod interrupt {
             }
         }
     }
+    use core::convert::TryFrom;
+    #[derive(Debug, Copy, Clone)]
+    pub struct TryFromInterruptError(());
+    impl TryFrom<u8> for Interrupt {
+        type Error = TryFromInterruptError;
+        #[inline]
+        fn try_from(value: u8) -> Result<Self, Self::Error> {
+            match value {
+                0 => Ok(Interrupt::SPI0),
+                1 => Ok(Interrupt::SPI1),
+                3 => Ok(Interrupt::UART0),
+                4 => Ok(Interrupt::UART1),
+                5 => Ok(Interrupt::UART2),
+                7 => Ok(Interrupt::I2C1),
+                8 => Ok(Interrupt::I2C0),
+                9 => Ok(Interrupt::SCT),
+                10 => Ok(Interrupt::MRT),
+                11 => Ok(Interrupt::CMP),
+                12 => Ok(Interrupt::WDT),
+                13 => Ok(Interrupt::BOD),
+                14 => Ok(Interrupt::FLASH),
+                15 => Ok(Interrupt::WKT),
+                16 => Ok(Interrupt::ADC_SEQA),
+                17 => Ok(Interrupt::ADC_SEQB),
+                18 => Ok(Interrupt::ADC_THCMP),
+                19 => Ok(Interrupt::ADC_OVR),
+                20 => Ok(Interrupt::DMA),
+                21 => Ok(Interrupt::I2C2),
+                22 => Ok(Interrupt::I2C3),
+                24 => Ok(Interrupt::PIN_INT0),
+                25 => Ok(Interrupt::PIN_INT1),
+                26 => Ok(Interrupt::PIN_INT2),
+                27 => Ok(Interrupt::PIN_INT3),
+                28 => Ok(Interrupt::PIN_INT4),
+                29 => Ok(Interrupt::PIN_INT5),
+                30 => Ok(Interrupt::PIN_INT6),
+                31 => Ok(Interrupt::PIN_INT7),
+                _ => Err(TryFromInterruptError(())),
+            }
+        }
+    }
     #[cfg(feature = "rt")]
     #[macro_export]
     macro_rules ! interrupt { ( $ NAME : ident , $ path : path , locals : { $ ( $ lvar : ident : $ lty : ty = $ lval : expr ; ) * } ) => { # [ allow ( non_snake_case ) ] mod $ NAME { pub struct Locals { $ ( pub $ lvar : $ lty , ) * } } # [ allow ( non_snake_case ) ] # [ no_mangle ] pub extern "C" fn $ NAME ( ) { let _ = $ crate :: interrupt :: Interrupt :: $ NAME ; static mut LOCALS : self :: $ NAME :: Locals = self :: $ NAME :: Locals { $ ( $ lvar : $ lval , ) * } ; let f : fn ( & mut self :: $ NAME :: Locals ) = $ path ; f ( unsafe { & mut LOCALS } ) ; } } ; ( $ NAME : ident , $ path : path ) => { # [ allow ( non_snake_case ) ] # [ no_mangle ] pub extern "C" fn $ NAME ( ) { let _ = $ crate :: interrupt :: Interrupt :: $ NAME ; let f : fn ( ) = $ path ; f ( ) ; } } }
@@ -234,7 +277,6 @@ impl Deref for WWDT {
 }
 #[doc = "Windowed Watchdog Timer (WWDT)"]
 pub mod wwdt {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -254,7 +296,7 @@ pub mod wwdt {
     }
     #[doc = "Watchdog mode register. This register contains the basic mode and status of the Watchdog Timer."]
     pub struct MOD {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Watchdog mode register. This register contains the basic mode and status of the Watchdog Timer."]
     pub mod mod_ {
@@ -859,7 +901,7 @@ pub mod wwdt {
     }
     #[doc = "Watchdog timer constant register. This 24-bit register determines the time-out value."]
     pub struct TC {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Watchdog timer constant register. This 24-bit register determines the time-out value."]
     pub mod tc {
@@ -971,7 +1013,7 @@ pub mod wwdt {
     }
     #[doc = "Watchdog feed sequence register. Writing 0xAA followed by 0x55 to this register reloads the Watchdog timer with the value contained in WDTC."]
     pub struct FEED {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Watchdog feed sequence register. Writing 0xAA followed by 0x55 to this register reloads the Watchdog timer with the value contained in WDTC."]
     pub mod feed {
@@ -1027,7 +1069,7 @@ pub mod wwdt {
     }
     #[doc = "Watchdog timer value register. This 24-bit register reads out the current value of the Watchdog timer."]
     pub struct TV {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Watchdog timer value register. This 24-bit register reads out the current value of the Watchdog timer."]
     pub mod tv {
@@ -1075,7 +1117,7 @@ pub mod wwdt {
     }
     #[doc = "Watchdog Warning Interrupt compare value."]
     pub struct WARNINT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Watchdog Warning Interrupt compare value."]
     pub mod warnint {
@@ -1187,7 +1229,7 @@ pub mod wwdt {
     }
     #[doc = "Watchdog Window compare value."]
     pub struct WINDOW {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Watchdog Window compare value."]
     pub mod window {
@@ -1317,7 +1359,6 @@ impl Deref for MRT {
 }
 #[doc = "Multi-Rate Timer (MRT)"]
 pub mod mrt {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -1361,7 +1402,7 @@ pub mod mrt {
     }
     #[doc = "MRT0 Time interval value register. This value is loaded into the TIMER0 register."]
     pub struct INTVAL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "MRT0 Time interval value register. This value is loaded into the TIMER0 register."]
     pub mod intval {
@@ -1592,7 +1633,7 @@ pub mod mrt {
     }
     #[doc = "MRT0 Timer register. This register reads the value of the down-counter."]
     pub struct TIMER {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "MRT0 Timer register. This register reads the value of the down-counter."]
     pub mod timer {
@@ -1640,7 +1681,7 @@ pub mod mrt {
     }
     #[doc = "MRT0 Control register. This register controls the MRT0 modes."]
     pub struct CTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "MRT0 Control register. This register controls the MRT0 modes."]
     pub mod ctrl {
@@ -1966,7 +2007,7 @@ pub mod mrt {
     }
     #[doc = "MRT0 Status register."]
     pub struct STAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "MRT0 Status register."]
     pub mod stat {
@@ -2275,7 +2316,7 @@ pub mod mrt {
     }
     #[doc = "Idle channel register. This register returns the number of the first idle channel."]
     pub struct IDLE_CH {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Idle channel register. This register returns the number of the first idle channel."]
     pub mod idle_ch {
@@ -2323,7 +2364,7 @@ pub mod mrt {
     }
     #[doc = "Global interrupt flag register"]
     pub struct IRQ_FLAG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Global interrupt flag register"]
     pub mod irq_flag {
@@ -2888,7 +2929,6 @@ impl Deref for WKT {
 }
 #[doc = "Self wake-up timer (WKT)"]
 pub mod wkt {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -2900,7 +2940,7 @@ pub mod wkt {
     }
     #[doc = "Self wake-up timer control register."]
     pub struct CTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Self wake-up timer control register."]
     pub mod ctrl {
@@ -3447,7 +3487,7 @@ pub mod wkt {
     }
     #[doc = "Counter register."]
     pub struct COUNT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Counter register."]
     pub mod count {
@@ -3577,7 +3617,6 @@ impl Deref for SWM {
 }
 #[doc = "Switch matrix (SWM)"]
 pub mod swm {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -3611,7 +3650,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 0. Assign movable functions U0_TXD, U0_RXD, U0_RTS, U0_CTS."]
     pub struct PINASSIGN0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 0. Assign movable functions U0_TXD, U0_RXD, U0_RTS, U0_CTS."]
     pub mod pinassign0 {
@@ -3846,7 +3885,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 1. Assign movable functions U0_SCLK, U1_TXD, U1_RXD, U1_RTS."]
     pub struct PINASSIGN1 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 1. Assign movable functions U0_SCLK, U1_TXD, U1_RXD, U1_RTS."]
     pub mod pinassign1 {
@@ -4081,7 +4120,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 2. Assign movable functions U1_CTS, U1_SCLK, U2_TXD, U2_RXD."]
     pub struct PINASSIGN2 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 2. Assign movable functions U1_CTS, U1_SCLK, U2_TXD, U2_RXD."]
     pub mod pinassign2 {
@@ -4316,7 +4355,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 3. Assign movable function U2_RTS, U2_CTS, U2_SCLK, SPI0_SCK."]
     pub struct PINASSIGN3 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 3. Assign movable function U2_RTS, U2_CTS, U2_SCLK, SPI0_SCK."]
     pub mod pinassign3 {
@@ -4551,7 +4590,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 4. Assign movable functions SPI0_MOSI, SPI0_MISO, SPI0_SSEL0, SPI0_SSEL1."]
     pub struct PINASSIGN4 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 4. Assign movable functions SPI0_MOSI, SPI0_MISO, SPI0_SSEL0, SPI0_SSEL1."]
     pub mod pinassign4 {
@@ -4786,7 +4825,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 5. Assign movable functions SPI0_SSEL2, SPI0_SSEL3, SPI1_SCK, SPI1_MOSI"]
     pub struct PINASSIGN5 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 5. Assign movable functions SPI0_SSEL2, SPI0_SSEL3, SPI1_SCK, SPI1_MOSI"]
     pub mod pinassign5 {
@@ -5021,7 +5060,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 6. Assign movable functions SPI1_MISO, SPI1_SSEL0, SPI1_SSEL1, SCT0_IN0."]
     pub struct PINASSIGN6 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 6. Assign movable functions SPI1_MISO, SPI1_SSEL0, SPI1_SSEL1, SCT0_IN0."]
     pub mod pinassign6 {
@@ -5256,7 +5295,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 7. Assign movable functions SCT_IN1, SCT_IN2, SCT_IN3, SCT_OUT0."]
     pub struct PINASSIGN7 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 7. Assign movable functions SCT_IN1, SCT_IN2, SCT_IN3, SCT_OUT0."]
     pub mod pinassign7 {
@@ -5491,7 +5530,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 8. Assign movable functions SCT_OUT1, SCT_OUT2, SCT_OUT3, SCT_OUT4."]
     pub struct PINASSIGN8 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 8. Assign movable functions SCT_OUT1, SCT_OUT2, SCT_OUT3, SCT_OUT4."]
     pub mod pinassign8 {
@@ -5726,7 +5765,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 9. Assign movable functions SCT_OUT5, I2C1_SDA, I2C1_SCL, I2C2_SDA."]
     pub struct PINASSIGN9 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 9. Assign movable functions SCT_OUT5, I2C1_SDA, I2C1_SCL, I2C2_SDA."]
     pub mod pinassign9 {
@@ -5961,7 +6000,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 10. Assign movable functions I2C2_SCL, I2C3_SDA, I2C3_SCL, ADC_PINTRIG0."]
     pub struct PINASSIGN10 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 10. Assign movable functions I2C2_SCL, I2C3_SDA, I2C3_SCL, ADC_PINTRIG0."]
     pub mod pinassign10 {
@@ -6196,7 +6235,7 @@ pub mod swm {
     }
     #[doc = "Pin assign register 11. Assign movable functions ADC_PINTRIG1, ACMP_O, CLKOUT, GPIO_INT_BMAT"]
     pub struct PINASSIGN11 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin assign register 11. Assign movable functions ADC_PINTRIG1, ACMP_O, CLKOUT, GPIO_INT_BMAT"]
     pub mod pinassign11 {
@@ -6431,7 +6470,7 @@ pub mod swm {
     }
     #[doc = "Pin enable register 0. Enables fixed-pin functions ACMP_I0, ACMP_I1, SWCLK, SWDIO, XTALIN, XTALOUT, RESET, CLKIN, VDDCMP."]
     pub struct PINENABLE0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin enable register 0. Enables fixed-pin functions ACMP_I0, ACMP_I1, SWCLK, SWDIO, XTALIN, XTALOUT, RESET, CLKIN, VDDCMP."]
     pub mod pinenable0 {
@@ -9495,7 +9534,6 @@ impl Deref for ADC {
 }
 #[doc = "12-bit Analog-to-Digital Converter (ADC)"]
 pub mod adc {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -9532,7 +9570,7 @@ pub mod adc {
     }
     #[doc = "A/D Control Register. Contains the clock divide value, enable bits for each sequence and the A/D power-down bit."]
     pub struct CTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Control Register. Contains the clock divide value, enable bits for each sequence and the A/D power-down bit."]
     pub mod ctrl {
@@ -9822,7 +9860,7 @@ pub mod adc {
     }
     #[doc = "A/D Conversion Sequence-A control Register: Controls triggering and channel selection for conversion sequence-A. Also specifies interrupt mode for sequence-A."]
     pub struct SEQA_CTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Conversion Sequence-A control Register: Controls triggering and channel selection for conversion sequence-A. Also specifies interrupt mode for sequence-A."]
     pub mod seqa_ctrl {
@@ -10747,7 +10785,7 @@ pub mod adc {
     }
     #[doc = "A/D Conversion Sequence-B Control Register: Controls triggering and channel selection for conversion sequence-B. Also specifies interrupt mode for sequence-B."]
     pub struct SEQB_CTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Conversion Sequence-B Control Register: Controls triggering and channel selection for conversion sequence-B. Also specifies interrupt mode for sequence-B."]
     pub mod seqb_ctrl {
@@ -11553,7 +11591,7 @@ pub mod adc {
     }
     #[doc = "A/D Sequence-A Global Data Register. This register contains the result of the most recent A/D conversion performed under sequence-A"]
     pub struct SEQA_GDAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Sequence-A Global Data Register. This register contains the result of the most recent A/D conversion performed under sequence-A"]
     pub mod seqa_gdat {
@@ -11906,7 +11944,7 @@ pub mod adc {
     }
     #[doc = "A/D Sequence-B Global Data Register. This register contains the result of the most recent A/D conversion performed under sequence-B"]
     pub struct SEQB_GDAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Sequence-B Global Data Register. This register contains the result of the most recent A/D conversion performed under sequence-B"]
     pub mod seqb_gdat {
@@ -12259,7 +12297,7 @@ pub mod adc {
     }
     #[doc = "A/D Channel 0 Data Register. This register contains the result of the most recent conversion completed on channel 0."]
     pub struct DAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Channel 0 Data Register. This register contains the result of the most recent conversion completed on channel 0."]
     pub mod dat {
@@ -12432,7 +12470,7 @@ pub mod adc {
     }
     #[doc = "A/D Low Compare Threshold Register 0 : Contains the lower threshold level for automatic threshold comparison for any channels linked to threshold pair 0."]
     pub struct THR0_LOW {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Low Compare Threshold Register 0 : Contains the lower threshold level for automatic threshold comparison for any channels linked to threshold pair 0."]
     pub mod thr0_low {
@@ -12544,7 +12582,7 @@ pub mod adc {
     }
     #[doc = "A/D Low Compare Threshold Register 1: Contains the lower threshold level for automatic threshold comparison for any channels linked to threshold pair 1."]
     pub struct THR1_LOW {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Low Compare Threshold Register 1: Contains the lower threshold level for automatic threshold comparison for any channels linked to threshold pair 1."]
     pub mod thr1_low {
@@ -12656,7 +12694,7 @@ pub mod adc {
     }
     #[doc = "A/D High Compare Threshold Register 0: Contains the upper threshold level for automatic threshold comparison for any channels linked to threshold pair 0."]
     pub struct THR0_HIGH {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D High Compare Threshold Register 0: Contains the upper threshold level for automatic threshold comparison for any channels linked to threshold pair 0."]
     pub mod thr0_high {
@@ -12768,7 +12806,7 @@ pub mod adc {
     }
     #[doc = "A/D High Compare Threshold Register 1: Contains the upper threshold level for automatic threshold comparison for any channels linked to threshold pair 1."]
     pub struct THR1_HIGH {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D High Compare Threshold Register 1: Contains the upper threshold level for automatic threshold comparison for any channels linked to threshold pair 1."]
     pub mod thr1_high {
@@ -12880,7 +12918,7 @@ pub mod adc {
     }
     #[doc = "A/D Channel-Threshold Select Register. Specifies which set of threshold compare registers are to be used for each channel"]
     pub struct CHAN_THRSEL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Channel-Threshold Select Register. Specifies which set of threshold compare registers are to be used for each channel"]
     pub mod chan_thrsel {
@@ -14379,7 +14417,7 @@ pub mod adc {
     }
     #[doc = "A/D Interrupt Enable Register. This register contains enable bits that enable the sequence-A, sequence-B, threshold compare and data overrun interrupts to be generated."]
     pub struct INTEN {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Interrupt Enable Register. This register contains enable bits that enable the sequence-A, sequence-B, threshold compare and data overrun interrupts to be generated."]
     pub mod inten {
@@ -16211,7 +16249,7 @@ pub mod adc {
     }
     #[doc = "A/D Flags Register. Contains the four interrupt request flags and the individual component overrun and threshold-compare flags. (The overrun bits replicate information stored in the result registers)."]
     pub struct FLAGS {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "A/D Flags Register. Contains the four interrupt request flags and the individual component overrun and threshold-compare flags. (The overrun bits replicate information stored in the result registers)."]
     pub mod flags {
@@ -18052,7 +18090,7 @@ pub mod adc {
     }
     #[doc = "ADC trim register."]
     pub struct TRM {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "ADC trim register."]
     pub mod trm {
@@ -18260,7 +18298,6 @@ impl Deref for PMU {
 }
 #[doc = "Power Management Unit (PMU)"]
 pub mod pmu {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -18273,7 +18310,7 @@ pub mod pmu {
     }
     #[doc = "Power control register"]
     pub struct PCON {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Power control register"]
     pub mod pcon {
@@ -18778,7 +18815,7 @@ pub mod pmu {
     }
     #[doc = "General purpose register 0"]
     pub struct GPREG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "General purpose register 0"]
     pub mod gpreg {
@@ -18890,7 +18927,7 @@ pub mod pmu {
     }
     #[doc = "Deep power-down control register. Also includes bits for general purpose storage."]
     pub struct DPDCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Deep power-down control register. Also includes bits for general purpose storage."]
     pub mod dpdctrl {
@@ -19693,7 +19730,6 @@ impl Deref for CMP {
 }
 #[doc = "Analog comparator"]
 pub mod cmp {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -19704,7 +19740,7 @@ pub mod cmp {
     }
     #[doc = "Comparator control register"]
     pub struct CTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Comparator control register"]
     pub mod ctrl {
@@ -20713,7 +20749,7 @@ pub mod cmp {
     }
     #[doc = "Voltage ladder register"]
     pub struct LAD {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Voltage ladder register"]
     pub mod lad {
@@ -21021,7 +21057,6 @@ impl Deref for DMATRIGMUX {
 }
 #[doc = "DMA trigger mux"]
 pub mod dmatrigmux {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -21030,7 +21065,7 @@ pub mod dmatrigmux {
     }
     #[doc = "Input mux register for trigger inputs 0 to 23 connected to DMA channel 0. Selects from ADC, SCT, ACMP, pin interrupts, and DMA requests."]
     pub struct DMA_ITRIG_INMUX {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Input mux register for trigger inputs 0 to 23 connected to DMA channel 0. Selects from ADC, SCT, ACMP, pin interrupts, and DMA requests."]
     pub mod dma_itrig_inmux {
@@ -21341,7 +21376,6 @@ impl Deref for INPUTMUX {
 }
 #[doc = "Input multiplexing"]
 pub mod inputmux {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -21353,7 +21387,7 @@ pub mod inputmux {
     }
     #[doc = "Input mux register for DMA trigger input 20. Selects from 18 DMA trigger outputs."]
     pub struct DMA_INMUX_INMUX {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Input mux register for DMA trigger input 20. Selects from 18 DMA trigger outputs."]
     pub mod dma_inmux_inmux {
@@ -21465,7 +21499,7 @@ pub mod inputmux {
     }
     #[doc = "Input mux register for SCT input 0"]
     pub struct SCT0_INMUX {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Input mux register for SCT input 0"]
     pub mod sct0_inmux {
@@ -21759,7 +21793,6 @@ impl Deref for FLASHCTRL {
 }
 #[doc = "Flash controller"]
 pub mod flashctrl {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -21777,7 +21810,7 @@ pub mod flashctrl {
     }
     #[doc = "Flash configuration register"]
     pub struct FLASHCFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Flash configuration register"]
     pub mod flashcfg {
@@ -21984,7 +22017,7 @@ pub mod flashctrl {
     }
     #[doc = "Signature start address register"]
     pub struct FMSSTART {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Signature start address register"]
     pub mod fmsstart {
@@ -22096,7 +22129,7 @@ pub mod flashctrl {
     }
     #[doc = "Signature stop-address register"]
     pub struct FMSSTOP {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Signature stop-address register"]
     pub mod fmsstop {
@@ -22267,7 +22300,7 @@ pub mod flashctrl {
     }
     #[doc = "Signature Word"]
     pub struct FMSW0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Signature Word"]
     pub mod fmsw0 {
@@ -22333,7 +22366,6 @@ impl Deref for IOCON {
 }
 #[doc = "I/O configuration (IOCON)"]
 pub mod iocon {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -22400,7 +22432,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_17"]
     pub struct PIO0_17 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_17"]
     pub mod pio0_17 {
@@ -23288,7 +23320,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_13"]
     pub struct PIO0_13 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_13"]
     pub mod pio0_13 {
@@ -24176,7 +24208,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_12"]
     pub struct PIO0_12 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_12"]
     pub mod pio0_12 {
@@ -25064,7 +25096,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_5/RESET"]
     pub struct PIO0_5 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_5/RESET"]
     pub mod pio0_5 {
@@ -25952,7 +25984,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_4"]
     pub struct PIO0_4 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_4"]
     pub mod pio0_4 {
@@ -26840,7 +26872,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_3/SWCLK"]
     pub struct PIO0_3 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_3/SWCLK"]
     pub mod pio0_3 {
@@ -27728,7 +27760,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_2/SWDIO"]
     pub struct PIO0_2 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_2/SWDIO"]
     pub mod pio0_2 {
@@ -28616,7 +28648,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_11. This is the pin configuration for the true open-drain pin."]
     pub struct PIO0_11 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_11. This is the pin configuration for the true open-drain pin."]
     pub mod pio0_11 {
@@ -29247,7 +29279,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_10. This is the pin configuration for the true open-drain pin."]
     pub struct PIO0_10 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_10. This is the pin configuration for the true open-drain pin."]
     pub mod pio0_10 {
@@ -29878,7 +29910,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_16"]
     pub struct PIO0_16 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_16"]
     pub mod pio0_16 {
@@ -30766,7 +30798,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_15"]
     pub struct PIO0_15 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_15"]
     pub mod pio0_15 {
@@ -31654,7 +31686,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_17"]
     pub struct PIO0_1 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_17"]
     pub mod pio0_1 {
@@ -32542,7 +32574,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_9/XTALOUT"]
     pub struct PIO0_9 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_9/XTALOUT"]
     pub mod pio0_9 {
@@ -33430,7 +33462,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_8/XTALIN"]
     pub struct PIO0_8 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_8/XTALIN"]
     pub mod pio0_8 {
@@ -34318,7 +34350,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_7"]
     pub struct PIO0_7 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_7"]
     pub mod pio0_7 {
@@ -35206,7 +35238,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_6/VDDCMP"]
     pub struct PIO0_6 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_6/VDDCMP"]
     pub mod pio0_6 {
@@ -36094,7 +36126,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_0/ACMP_I0"]
     pub struct PIO0_0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_0/ACMP_I0"]
     pub mod pio0_0 {
@@ -36982,7 +37014,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_14"]
     pub struct PIO0_14 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_14"]
     pub mod pio0_14 {
@@ -37870,7 +37902,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_28"]
     pub struct PIO0_28 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_28"]
     pub mod pio0_28 {
@@ -38758,7 +38790,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_27"]
     pub struct PIO0_27 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_27"]
     pub mod pio0_27 {
@@ -39646,7 +39678,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_26"]
     pub struct PIO0_26 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_26"]
     pub mod pio0_26 {
@@ -40534,7 +40566,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_25"]
     pub struct PIO0_25 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_25"]
     pub mod pio0_25 {
@@ -41422,7 +41454,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_24"]
     pub struct PIO0_24 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_24"]
     pub mod pio0_24 {
@@ -42310,7 +42342,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_23/ADC_3"]
     pub struct PIO0_23 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_23/ADC_3"]
     pub mod pio0_23 {
@@ -43198,7 +43230,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_22/ADC_4"]
     pub struct PIO0_22 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_22/ADC_4"]
     pub mod pio0_22 {
@@ -44086,7 +44118,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_21/ACMP_I4/ADC_5"]
     pub struct PIO0_21 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_21/ACMP_I4/ADC_5"]
     pub mod pio0_21 {
@@ -44974,7 +45006,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_20/ADC_6"]
     pub struct PIO0_20 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_20/ADC_6"]
     pub mod pio0_20 {
@@ -45862,7 +45894,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_19/ADC_7"]
     pub struct PIO0_19 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_19/ADC_7"]
     pub mod pio0_19 {
@@ -46750,7 +46782,7 @@ pub mod iocon {
     }
     #[doc = "I/O configuration for pin PIO0_18/ADC_8"]
     pub struct PIO0_18 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "I/O configuration for pin PIO0_18/ADC_8"]
     pub mod pio0_18 {
@@ -47656,7 +47688,6 @@ impl Deref for SYSCON {
 }
 #[doc = "System configuration (SYSCON)"]
 pub mod syscon {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -47758,7 +47789,7 @@ pub mod syscon {
     }
     #[doc = "System memory remap"]
     pub struct SYSMEMREMAP {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System memory remap"]
     pub mod sysmemremap {
@@ -47949,7 +47980,7 @@ pub mod syscon {
     }
     #[doc = "Peripheral reset control"]
     pub struct PRESETCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Peripheral reset control"]
     pub mod presetctrl {
@@ -50162,7 +50193,7 @@ pub mod syscon {
     }
     #[doc = "System PLL control"]
     pub struct SYSPLLCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System PLL control"]
     pub mod syspllctrl {
@@ -50410,7 +50441,7 @@ pub mod syscon {
     }
     #[doc = "System PLL status"]
     pub struct SYSPLLSTAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System PLL status"]
     pub mod syspllstat {
@@ -50493,7 +50524,7 @@ pub mod syscon {
     }
     #[doc = "System oscillator control"]
     pub struct SYSOSCCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System oscillator control"]
     pub mod sysoscctrl {
@@ -50802,7 +50833,7 @@ pub mod syscon {
     }
     #[doc = "Watchdog oscillator control"]
     pub struct WDTOSCCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Watchdog oscillator control"]
     pub mod wdtoscctrl {
@@ -51238,7 +51269,7 @@ pub mod syscon {
     }
     #[doc = "IRC control"]
     pub struct IRCCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "IRC control"]
     pub mod ircctrl {
@@ -51350,7 +51381,7 @@ pub mod syscon {
     }
     #[doc = "System reset status register"]
     pub struct SYSRSTSTAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System reset status register"]
     pub mod sysrststat {
@@ -52016,7 +52047,7 @@ pub mod syscon {
     }
     #[doc = "System PLL clock source select"]
     pub struct SYSPLLCLKSEL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System PLL clock source select"]
     pub mod syspllclksel {
@@ -52204,7 +52235,7 @@ pub mod syscon {
     }
     #[doc = "System PLL clock source update enable"]
     pub struct SYSPLLCLKUEN {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System PLL clock source update enable"]
     pub mod syspllclkuen {
@@ -52394,7 +52425,7 @@ pub mod syscon {
     }
     #[doc = "Main clock source select"]
     pub struct MAINCLKSEL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Main clock source select"]
     pub mod mainclksel {
@@ -52601,7 +52632,7 @@ pub mod syscon {
     }
     #[doc = "Main clock source update enable"]
     pub struct MAINCLKUEN {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Main clock source update enable"]
     pub mod mainclkuen {
@@ -52791,7 +52822,7 @@ pub mod syscon {
     }
     #[doc = "System clock divider"]
     pub struct SYSAHBCLKDIV {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System clock divider"]
     pub mod sysahbclkdiv {
@@ -52903,7 +52934,7 @@ pub mod syscon {
     }
     #[doc = "System clock control"]
     pub struct SYSAHBCLKCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System clock control"]
     pub mod sysahbclkctrl {
@@ -56008,7 +56039,7 @@ pub mod syscon {
     }
     #[doc = "USART clock divider"]
     pub struct UARTCLKDIV {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "USART clock divider"]
     pub mod uartclkdiv {
@@ -56120,7 +56151,7 @@ pub mod syscon {
     }
     #[doc = "CLKOUT clock source select"]
     pub struct CLKOUTSEL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "CLKOUT clock source select"]
     pub mod clkoutsel {
@@ -56327,7 +56358,7 @@ pub mod syscon {
     }
     #[doc = "CLKOUT clock source update enable"]
     pub struct CLKOUTUEN {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "CLKOUT clock source update enable"]
     pub mod clkoutuen {
@@ -56517,7 +56548,7 @@ pub mod syscon {
     }
     #[doc = "CLKOUT clock divider"]
     pub struct CLKOUTDIV {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "CLKOUT clock divider"]
     pub mod clkoutdiv {
@@ -56629,7 +56660,7 @@ pub mod syscon {
     }
     #[doc = "USART1 to USART4 common fractional generator divider value"]
     pub struct UARTFRGDIV {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "USART1 to USART4 common fractional generator divider value"]
     pub mod uartfrgdiv {
@@ -56741,7 +56772,7 @@ pub mod syscon {
     }
     #[doc = "USART1 to USART4 common fractional generator multiplier value"]
     pub struct UARTFRGMULT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "USART1 to USART4 common fractional generator multiplier value"]
     pub mod uartfrgmult {
@@ -56853,7 +56884,7 @@ pub mod syscon {
     }
     #[doc = "External trace buffer command register"]
     pub struct EXTTRACECMD {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "External trace buffer command register"]
     pub mod exttracecmd {
@@ -57042,7 +57073,7 @@ pub mod syscon {
     }
     #[doc = "POR captured PIO status 0"]
     pub struct PIOPORCAP0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "POR captured PIO status 0"]
     pub mod pioporcap0 {
@@ -57090,7 +57121,7 @@ pub mod syscon {
     }
     #[doc = "Peripheral clock 6 to the IOCON block for programmable glitch filter"]
     pub struct IOCONCLKDIV6 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Peripheral clock 6 to the IOCON block for programmable glitch filter"]
     pub mod ioconclkdiv6 {
@@ -57202,7 +57233,7 @@ pub mod syscon {
     }
     #[doc = "Peripheral clock 5 to the IOCON block for programmable glitch filter"]
     pub struct IOCONCLKDIV5 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Peripheral clock 5 to the IOCON block for programmable glitch filter"]
     pub mod ioconclkdiv5 {
@@ -57314,7 +57345,7 @@ pub mod syscon {
     }
     #[doc = "Peripheral clock 4 to the IOCON block for programmable glitch filter"]
     pub struct IOCONCLKDIV4 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Peripheral clock 4 to the IOCON block for programmable glitch filter"]
     pub mod ioconclkdiv4 {
@@ -57426,7 +57457,7 @@ pub mod syscon {
     }
     #[doc = "Peripheral clock 3 to the IOCON block for programmable glitch filter"]
     pub struct IOCONCLKDIV3 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Peripheral clock 3 to the IOCON block for programmable glitch filter"]
     pub mod ioconclkdiv3 {
@@ -57538,7 +57569,7 @@ pub mod syscon {
     }
     #[doc = "Peripheral clock 2 to the IOCON block for programmable glitch filter"]
     pub struct IOCONCLKDIV2 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Peripheral clock 2 to the IOCON block for programmable glitch filter"]
     pub mod ioconclkdiv2 {
@@ -57650,7 +57681,7 @@ pub mod syscon {
     }
     #[doc = "Peripheral clock 1 to the IOCON block for programmable glitch filter"]
     pub struct IOCONCLKDIV1 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Peripheral clock 1 to the IOCON block for programmable glitch filter"]
     pub mod ioconclkdiv1 {
@@ -57762,7 +57793,7 @@ pub mod syscon {
     }
     #[doc = "Peripheral clock 0 to the IOCON block for programmable glitch filter"]
     pub struct IOCONCLKDIV0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Peripheral clock 0 to the IOCON block for programmable glitch filter"]
     pub mod ioconclkdiv0 {
@@ -57874,7 +57905,7 @@ pub mod syscon {
     }
     #[doc = "Brown-Out Detect"]
     pub struct BODCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Brown-Out Detect"]
     pub mod bodctrl {
@@ -58298,7 +58329,7 @@ pub mod syscon {
     }
     #[doc = "System tick counter calibration"]
     pub struct SYSTCKCAL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "System tick counter calibration"]
     pub mod systckcal {
@@ -58410,7 +58441,7 @@ pub mod syscon {
     }
     #[doc = "IQR delay. Allows trade-off between interrupt latency and determinism."]
     pub struct IRQLATENCY {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "IQR delay. Allows trade-off between interrupt latency and determinism."]
     pub mod irqlatency {
@@ -58522,7 +58553,7 @@ pub mod syscon {
     }
     #[doc = "NMI Source Control"]
     pub struct NMISRC {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "NMI Source Control"]
     pub mod nmisrc {
@@ -58693,7 +58724,7 @@ pub mod syscon {
     }
     #[doc = "GPIO Pin Interrupt Select register 0"]
     pub struct PINTSEL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "GPIO Pin Interrupt Select register 0"]
     pub mod pintsel {
@@ -58805,7 +58836,7 @@ pub mod syscon {
     }
     #[doc = "Start logic 0 pin wake-up enable register"]
     pub struct STARTERP0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Start logic 0 pin wake-up enable register"]
     pub mod starterp0 {
@@ -59828,7 +59859,7 @@ pub mod syscon {
     }
     #[doc = "Start logic 1 interrupt wake-up enable register"]
     pub struct STARTERP1 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Start logic 1 interrupt wake-up enable register"]
     pub mod starterp1 {
@@ -61327,7 +61358,7 @@ pub mod syscon {
     }
     #[doc = "Power-down states in deep-sleep mode"]
     pub struct PDSLEEPCFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Power-down states in deep-sleep mode"]
     pub mod pdsleepcfg {
@@ -61636,7 +61667,7 @@ pub mod syscon {
     }
     #[doc = "Power-down states for wake-up from deep-sleep"]
     pub struct PDAWAKECFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Power-down states for wake-up from deep-sleep"]
     pub mod pdawakecfg {
@@ -62778,7 +62809,7 @@ pub mod syscon {
     }
     #[doc = "Power configuration register"]
     pub struct PDRUNCFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Power configuration register"]
     pub mod pdruncfg {
@@ -63920,7 +63951,7 @@ pub mod syscon {
     }
     #[doc = "Device ID"]
     pub struct DEVICE_ID {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Device ID"]
     pub mod device_id {
@@ -63986,7 +64017,6 @@ impl Deref for I2C0 {
 }
 #[doc = "I2C0-bus interface"]
 pub mod i2c0 {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -64026,7 +64056,7 @@ pub mod i2c0 {
     }
     #[doc = "Configuration for shared functions."]
     pub struct CFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Configuration for shared functions."]
     pub mod cfg {
@@ -64692,7 +64722,7 @@ pub mod i2c0 {
     }
     #[doc = "Status register for Master, Slave, and Monitor functions."]
     pub struct STAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Status register for Master, Slave, and Monitor functions."]
     pub mod stat {
@@ -66717,7 +66747,7 @@ pub mod i2c0 {
     }
     #[doc = "Interrupt Enable Set and read register."]
     pub struct INTENSET {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt Enable Set and read register."]
     pub mod intenset {
@@ -68097,7 +68127,7 @@ pub mod i2c0 {
     }
     #[doc = "Interrupt Enable Clear register."]
     pub struct INTENCLR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt Enable Clear register."]
     pub mod intenclr {
@@ -68441,7 +68471,7 @@ pub mod i2c0 {
     }
     #[doc = "Time-out value register."]
     pub struct TIMEOUT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Time-out value register."]
     pub mod timeout {
@@ -68594,7 +68624,7 @@ pub mod i2c0 {
     }
     #[doc = "Clock pre-divider for the entire I2C block. This determines what time increments are used for the MSTTIME and SLVTIME registers."]
     pub struct CLKDIV {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Clock pre-divider for the entire I2C block. This determines what time increments are used for the MSTTIME and SLVTIME registers."]
     pub mod clkdiv {
@@ -68706,7 +68736,7 @@ pub mod i2c0 {
     }
     #[doc = "Interrupt Status register for Master, Slave, and Monitor functions."]
     pub struct INTSTAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt Status register for Master, Slave, and Monitor functions."]
     pub mod intstat {
@@ -69074,7 +69104,7 @@ pub mod i2c0 {
     }
     #[doc = "Master control register."]
     pub struct MSTCTL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Master control register."]
     pub mod mstctl {
@@ -69621,7 +69651,7 @@ pub mod i2c0 {
     }
     #[doc = "Master timing configuration."]
     pub struct MSTTIME {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Master timing configuration."]
     pub mod msttime {
@@ -70100,7 +70130,7 @@ pub mod i2c0 {
     }
     #[doc = "Combined Master receiver and transmitter data register."]
     pub struct MSTDAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Combined Master receiver and transmitter data register."]
     pub mod mstdat {
@@ -70212,7 +70242,7 @@ pub mod i2c0 {
     }
     #[doc = "Slave control register."]
     pub struct SLVCTL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Slave control register."]
     pub mod slvctl {
@@ -70640,7 +70670,7 @@ pub mod i2c0 {
     }
     #[doc = "Combined Slave receiver and transmitter data register."]
     pub struct SLVDAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Combined Slave receiver and transmitter data register."]
     pub mod slvdat {
@@ -70752,7 +70782,7 @@ pub mod i2c0 {
     }
     #[doc = "Slave address 0."]
     pub struct SLVADR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Slave address 0."]
     pub mod slvadr {
@@ -70983,7 +71013,7 @@ pub mod i2c0 {
     }
     #[doc = "Slave Qualification for address 0."]
     pub struct SLVQUAL0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Slave Qualification for address 0."]
     pub mod slvqual0 {
@@ -71214,7 +71244,7 @@ pub mod i2c0 {
     }
     #[doc = "Monitor receiver data register."]
     pub struct MONRXDAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Monitor receiver data register."]
     pub mod monrxdat {
@@ -71465,7 +71495,6 @@ impl Deref for SPI0 {
 }
 #[doc = "SPI0"]
 pub mod spi0 {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -71494,7 +71523,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Configuration register"]
     pub struct CFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Configuration register"]
     pub mod cfg {
@@ -72755,7 +72784,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Delay register"]
     pub struct DLY {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Delay register"]
     pub mod dly {
@@ -72990,7 +73019,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Status. Some status flags can be cleared by writing a 1 to that bit position"]
     pub struct STAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Status. Some status flags can be cleared by writing a 1 to that bit position"]
     pub mod stat {
@@ -73592,7 +73621,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Interrupt Enable read and Set. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set."]
     pub struct INTENSET {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Interrupt Enable read and Set. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set."]
     pub mod intenset {
@@ -74377,7 +74406,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Interrupt Enable Clear. Writing a 1 to any implemented bit position causes the corresponding bit in INTENSET to be cleared."]
     pub struct INTENCLR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Interrupt Enable Clear. Writing a 1 to any implemented bit position causes the corresponding bit in INTENSET to be cleared."]
     pub mod intenclr {
@@ -74581,7 +74610,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Receive Data"]
     pub struct RXDAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Receive Data"]
     pub mod rxdat {
@@ -74784,7 +74813,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Transmit Data with Control"]
     pub struct TXDATCTL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Transmit Data with Control"]
     pub mod txdatctl {
@@ -75770,7 +75799,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Transmit Data"]
     pub struct TXDAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Transmit Data"]
     pub mod txdat {
@@ -75882,7 +75911,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Transmit Control"]
     pub struct TXCTL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Transmit Control"]
     pub mod txctl {
@@ -76407,7 +76436,7 @@ pub mod spi0 {
     }
     #[doc = "SPI clock Divider"]
     pub struct DIV {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI clock Divider"]
     pub mod div {
@@ -76519,7 +76548,7 @@ pub mod spi0 {
     }
     #[doc = "SPI Interrupt Status"]
     pub struct INTSTAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SPI Interrupt Status"]
     pub mod intstat {
@@ -76767,7 +76796,6 @@ impl Deref for USART0 {
 }
 #[doc = "USART0"]
 pub mod usart0 {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -76798,7 +76826,7 @@ pub mod usart0 {
     }
     #[doc = "USART Configuration register. Basic USART configuration settings that typically are not changed during operation."]
     pub struct CFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "USART Configuration register. Basic USART configuration settings that typically are not changed during operation."]
     pub mod cfg {
@@ -78650,7 +78678,7 @@ pub mod usart0 {
     }
     #[doc = "USART Control register. USART control settings that are more likely to change during operation."]
     pub struct CTL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "USART Control register. USART control settings that are more likely to change during operation."]
     pub mod ctl {
@@ -79435,7 +79463,7 @@ pub mod usart0 {
     }
     #[doc = "USART Status register. The complete status value can be read here. Writing ones clears some bits in the register. Some bits can be cleared by writing a 1 to them."]
     pub struct STAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "USART Status register. The complete status value can be read here. Writing ones clears some bits in the register. Some bits can be cleared by writing a 1 to them."]
     pub mod stat {
@@ -80391,7 +80419,7 @@ pub mod usart0 {
     }
     #[doc = "Interrupt Enable read and Set register. Contains an individual interrupt enable bit for each potential USART interrupt. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set."]
     pub struct INTENSET {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt Enable read and Set register. Contains an individual interrupt enable bit for each potential USART interrupt. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set."]
     pub mod intenset {
@@ -81170,7 +81198,7 @@ pub mod usart0 {
     }
     #[doc = "Interrupt Enable Clear register. Allows clearing any combination of bits in the INTENSET register. Writing a 1 to any implemented bit position causes the corresponding bit to be cleared."]
     pub struct INTENCLR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt Enable Clear register. Allows clearing any combination of bits in the INTENSET register. Writing a 1 to any implemented bit position causes the corresponding bit to be cleared."]
     pub mod intenclr {
@@ -81542,7 +81570,7 @@ pub mod usart0 {
     }
     #[doc = "Receiver Data register. Contains the last character received."]
     pub struct RXDAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Receiver Data register. Contains the last character received."]
     pub mod rxdat {
@@ -81590,7 +81618,7 @@ pub mod usart0 {
     }
     #[doc = "Receiver Data with Status register. Combines the last character received with the current USART receive status. Allows DMA or software to recover incoming data and status together."]
     pub struct RXDATSTAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Receiver Data with Status register. Combines the last character received with the current USART receive status. Allows DMA or software to recover incoming data and status together."]
     pub mod rxdatstat {
@@ -81731,7 +81759,7 @@ pub mod usart0 {
     }
     #[doc = "Transmit Data register. Data to be transmitted is written here."]
     pub struct TXDAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Transmit Data register. Data to be transmitted is written here."]
     pub mod txdat {
@@ -81843,7 +81871,7 @@ pub mod usart0 {
     }
     #[doc = "Baud Rate Generator register. 16-bit integer baud rate divisor value."]
     pub struct BRG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Baud Rate Generator register. 16-bit integer baud rate divisor value."]
     pub mod brg {
@@ -81955,7 +81983,7 @@ pub mod usart0 {
     }
     #[doc = "Interrupt status register. Reflects interrupts that are currently enabled."]
     pub struct INTSTAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt status register. Reflects interrupts that are currently enabled."]
     pub mod intstat {
@@ -82354,7 +82382,7 @@ pub mod usart0 {
     }
     #[doc = "Oversample selection register for asynchronous communication."]
     pub struct OSR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Oversample selection register for asynchronous communication."]
     pub mod osr {
@@ -82466,7 +82494,7 @@ pub mod usart0 {
     }
     #[doc = "Address register for automatic address matching."]
     pub struct ADDR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Address register for automatic address matching."]
     pub mod addr {
@@ -82664,7 +82692,6 @@ impl Deref for CRC {
 }
 #[doc = "Cyclic Redundancy Check (CRC) engine"]
 pub mod crc {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -82677,7 +82704,7 @@ pub mod crc {
     }
     #[doc = "CRC mode register"]
     pub struct MODE {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "CRC mode register"]
     pub mod mode {
@@ -83025,7 +83052,7 @@ pub mod crc {
     }
     #[doc = "CRC seed register"]
     pub struct SEED {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "CRC seed register"]
     pub mod seed {
@@ -83137,7 +83164,7 @@ pub mod crc {
     }
     #[doc = "CRC checksum register"]
     pub struct SUM {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "CRC checksum register"]
     pub mod sum {
@@ -83185,7 +83212,7 @@ pub mod crc {
     }
     #[doc = "CRC data register"]
     pub struct WR_DATA {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "CRC data register"]
     pub mod wr_data {
@@ -83259,7 +83286,6 @@ impl Deref for SCT {
 }
 #[doc = "State Configurable Timer (SCT)"]
 pub mod sct {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -83369,7 +83395,7 @@ pub mod sct {
     }
     #[doc = "SCT configuration register"]
     pub struct CONFIG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT configuration register"]
     pub mod config {
@@ -84177,7 +84203,7 @@ pub mod sct {
     }
     #[doc = "SCT control register"]
     pub struct CTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT control register"]
     pub mod ctrl {
@@ -85040,7 +85066,7 @@ pub mod sct {
     }
     #[doc = "SCT limit register"]
     pub struct LIMIT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT limit register"]
     pub mod limit {
@@ -85193,7 +85219,7 @@ pub mod sct {
     }
     #[doc = "SCT halt condition register"]
     pub struct HALT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT halt condition register"]
     pub mod halt {
@@ -85346,7 +85372,7 @@ pub mod sct {
     }
     #[doc = "SCT stop condition register"]
     pub struct STOP {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT stop condition register"]
     pub mod stop {
@@ -85499,7 +85525,7 @@ pub mod sct {
     }
     #[doc = "SCT start condition register"]
     pub struct START {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT start condition register"]
     pub mod start {
@@ -85652,7 +85678,7 @@ pub mod sct {
     }
     #[doc = "SCT counter register"]
     pub struct COUNT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT counter register"]
     pub mod count {
@@ -85805,7 +85831,7 @@ pub mod sct {
     }
     #[doc = "SCT state register"]
     pub struct STATE {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT state register"]
     pub mod state {
@@ -85958,7 +85984,7 @@ pub mod sct {
     }
     #[doc = "SCT input register"]
     pub struct INPUT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT input register"]
     pub mod input {
@@ -86233,7 +86259,7 @@ pub mod sct {
     }
     #[doc = "SCT match/capture registers mode register"]
     pub struct REGMODE {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT match/capture registers mode register"]
     pub mod regmode {
@@ -86386,7 +86412,7 @@ pub mod sct {
     }
     #[doc = "SCT output register"]
     pub struct OUTPUT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT output register"]
     pub mod output {
@@ -86498,7 +86524,7 @@ pub mod sct {
     }
     #[doc = "SCT output counter direction control register"]
     pub struct OUTPUTDIRCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT output counter direction control register"]
     pub mod outputdirctrl {
@@ -87289,7 +87315,7 @@ pub mod sct {
     }
     #[doc = "SCT conflict resolution register"]
     pub struct RES {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT conflict resolution register"]
     pub mod res {
@@ -88176,7 +88202,7 @@ pub mod sct {
     }
     #[doc = "SCT DMA request 0 register"]
     pub struct DMAREQ0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT DMA request 0 register"]
     pub mod dmareq0 {
@@ -88406,7 +88432,7 @@ pub mod sct {
     }
     #[doc = "SCT DMA request 1 register"]
     pub struct DMAREQ1 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT DMA request 1 register"]
     pub mod dmareq1 {
@@ -88636,7 +88662,7 @@ pub mod sct {
     }
     #[doc = "SCT event enable register"]
     pub struct EVEN {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT event enable register"]
     pub mod even {
@@ -88748,7 +88774,7 @@ pub mod sct {
     }
     #[doc = "SCT event flag register"]
     pub struct EVFLAG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT event flag register"]
     pub mod evflag {
@@ -88860,7 +88886,7 @@ pub mod sct {
     }
     #[doc = "SCT conflict enable register"]
     pub struct CONEN {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT conflict enable register"]
     pub mod conen {
@@ -88972,7 +88998,7 @@ pub mod sct {
     }
     #[doc = "SCT conflict flag register"]
     pub struct CONFLAG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT conflict flag register"]
     pub mod conflag {
@@ -89202,7 +89228,7 @@ pub mod sct {
     }
     #[doc = "SCT match value register of match channels 0 to 7; REGMOD0 to REGMODE7 = 0"]
     pub struct MATCH {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT match value register of match channels 0 to 7; REGMOD0 to REGMODE7 = 0"]
     pub mod match_ {
@@ -89355,7 +89381,7 @@ pub mod sct {
     }
     #[doc = "SCT capture register of capture channel 0 to 7; REGMOD0 to REGMODE7 = 1"]
     pub struct CAP {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT capture register of capture channel 0 to 7; REGMOD0 to REGMODE7 = 1"]
     pub mod cap {
@@ -89508,7 +89534,7 @@ pub mod sct {
     }
     #[doc = "SCT match reload value register 0 to 7; REGMOD0 = 0 to REGMODE7 = 0"]
     pub struct MATCHREL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT match reload value register 0 to 7; REGMOD0 = 0 to REGMODE7 = 0"]
     pub mod matchrel {
@@ -89661,7 +89687,7 @@ pub mod sct {
     }
     #[doc = "SCT capture control register 0 to 7; REGMOD0 = 1 to REGMODE7 = 1"]
     pub struct CAPCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT capture control register 0 to 7; REGMOD0 = 1 to REGMODE7 = 1"]
     pub mod capctrl {
@@ -89814,7 +89840,7 @@ pub mod sct {
     }
     #[doc = "SCT event state register 0"]
     pub struct EV_STATE {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT event state register 0"]
     pub mod ev_state {
@@ -89926,7 +89952,7 @@ pub mod sct {
     }
     #[doc = "SCT event control register 0"]
     pub struct EV_CTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT event control register 0"]
     pub mod ev_ctrl {
@@ -90928,7 +90954,7 @@ pub mod sct {
     }
     #[doc = "SCT output 0 set register"]
     pub struct OUT_SET {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT output 0 set register"]
     pub mod out_set {
@@ -91040,7 +91066,7 @@ pub mod sct {
     }
     #[doc = "SCT output 0 clear register"]
     pub struct OUT_CLR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SCT output 0 clear register"]
     pub mod out_clr {
@@ -91170,7 +91196,6 @@ impl Deref for DMA {
 }
 #[doc = "DMA controller"]
 pub mod dma {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -91345,7 +91370,7 @@ pub mod dma {
     }
     #[doc = "DMA control."]
     pub struct CTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "DMA control."]
     pub mod ctrl {
@@ -91535,7 +91560,7 @@ pub mod dma {
     }
     #[doc = "Interrupt status."]
     pub struct INTSTAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt status."]
     pub mod intstat {
@@ -91674,7 +91699,7 @@ pub mod dma {
     }
     #[doc = "SRAM address of the channel configuration table."]
     pub struct SRAMBASE {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "SRAM address of the channel configuration table."]
     pub mod srambase {
@@ -91786,7 +91811,7 @@ pub mod dma {
     }
     #[doc = "Channel Enable read and Set for all DMA channels."]
     pub struct ENABLESET0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Channel Enable read and Set for all DMA channels."]
     pub mod enableset0 {
@@ -91898,7 +91923,7 @@ pub mod dma {
     }
     #[doc = "Channel Enable Clear for all DMA channels."]
     pub struct ENABLECLR0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Channel Enable Clear for all DMA channels."]
     pub mod enableclr0 {
@@ -91954,7 +91979,7 @@ pub mod dma {
     }
     #[doc = "Channel Active status for all DMA channels."]
     pub struct ACTIVE0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Channel Active status for all DMA channels."]
     pub mod active0 {
@@ -92002,7 +92027,7 @@ pub mod dma {
     }
     #[doc = "Channel Busy status for all DMA channels."]
     pub struct BUSY0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Channel Busy status for all DMA channels."]
     pub mod busy0 {
@@ -92050,7 +92075,7 @@ pub mod dma {
     }
     #[doc = "Error Interrupt status for all DMA channels."]
     pub struct ERRINT0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Error Interrupt status for all DMA channels."]
     pub mod errint0 {
@@ -92162,7 +92187,7 @@ pub mod dma {
     }
     #[doc = "Interrupt Enable read and Set for all DMA channels."]
     pub struct INTENSET0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt Enable read and Set for all DMA channels."]
     pub mod intenset0 {
@@ -92274,7 +92299,7 @@ pub mod dma {
     }
     #[doc = "Interrupt Enable Clear for all DMA channels."]
     pub struct INTENCLR0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt Enable Clear for all DMA channels."]
     pub mod intenclr0 {
@@ -92330,7 +92355,7 @@ pub mod dma {
     }
     #[doc = "Interrupt A status for all DMA channels."]
     pub struct INTA0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt A status for all DMA channels."]
     pub mod inta0 {
@@ -92442,7 +92467,7 @@ pub mod dma {
     }
     #[doc = "Interrupt B status for all DMA channels."]
     pub struct INTB0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Interrupt B status for all DMA channels."]
     pub mod intb0 {
@@ -92554,7 +92579,7 @@ pub mod dma {
     }
     #[doc = "Set ValidPending control bits for all DMA channels."]
     pub struct SETVALID0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Set ValidPending control bits for all DMA channels."]
     pub mod setvalid0 {
@@ -92610,7 +92635,7 @@ pub mod dma {
     }
     #[doc = "Set Trigger control bits for all DMA channels."]
     pub struct SETTRIG0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Set Trigger control bits for all DMA channels."]
     pub mod settrig0 {
@@ -92666,7 +92691,7 @@ pub mod dma {
     }
     #[doc = "Channel Abort control for all DMA channels."]
     pub struct ABORT0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Channel Abort control for all DMA channels."]
     pub mod abort0 {
@@ -92722,7 +92747,7 @@ pub mod dma {
     }
     #[doc = "Configuration register for DMA channel 0."]
     pub struct CFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Configuration register for DMA channel 0."]
     pub mod cfg {
@@ -93708,7 +93733,7 @@ pub mod dma {
     }
     #[doc = "Control and status register for DMA channel 0."]
     pub struct CTLSTAT {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Control and status register for DMA channel 0."]
     pub mod ctlstat {
@@ -93847,7 +93872,7 @@ pub mod dma {
     }
     #[doc = "Transfer configuration register for DMA channel 0."]
     pub struct XFERCFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Transfer configuration register for DMA channel 0."]
     pub mod xfercfg {
@@ -95099,7 +95124,6 @@ impl Deref for GPIO_PORT {
 }
 #[doc = "General Purpose I/O port (GPIO)"]
 pub mod gpio_port {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -95141,7 +95165,7 @@ pub mod gpio_port {
     }
     #[doc = "Byte pin registers port 0; pins PIO0_0 to PIO0_28"]
     pub struct B {
-        register: VolatileCell<u8>,
+        register: ::vcell::VolatileCell<u8>,
     }
     #[doc = "Byte pin registers port 0; pins PIO0_0 to PIO0_28"]
     pub mod b {
@@ -95271,7 +95295,7 @@ pub mod gpio_port {
     }
     #[doc = "Word pin registers port 0"]
     pub struct W {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Word pin registers port 0"]
     pub mod w {
@@ -95383,7 +95407,7 @@ pub mod gpio_port {
     }
     #[doc = "Direction registers port 0"]
     pub struct DIR0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Direction registers port 0"]
     pub mod dir0 {
@@ -95495,7 +95519,7 @@ pub mod gpio_port {
     }
     #[doc = "Mask register port 0"]
     pub struct MASK0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Mask register port 0"]
     pub mod mask0 {
@@ -95607,7 +95631,7 @@ pub mod gpio_port {
     }
     #[doc = "Port pin register port 0"]
     pub struct PIN0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Port pin register port 0"]
     pub mod pin0 {
@@ -95719,7 +95743,7 @@ pub mod gpio_port {
     }
     #[doc = "Masked port register port 0"]
     pub struct MPIN0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Masked port register port 0"]
     pub mod mpin0 {
@@ -95831,7 +95855,7 @@ pub mod gpio_port {
     }
     #[doc = "Write: Set register for port 0 Read: output bits for port 0"]
     pub struct SET0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Write: Set register for port 0 Read: output bits for port 0"]
     pub mod set0 {
@@ -95943,7 +95967,7 @@ pub mod gpio_port {
     }
     #[doc = "Clear port 0"]
     pub struct CLR0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Clear port 0"]
     pub mod clr0 {
@@ -95999,7 +96023,7 @@ pub mod gpio_port {
     }
     #[doc = "Toggle port 0"]
     pub struct NOT0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Toggle port 0"]
     pub mod not0 {
@@ -96055,7 +96079,7 @@ pub mod gpio_port {
     }
     #[doc = "Set pin direction bits for port 0."]
     pub struct DIRSET0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Set pin direction bits for port 0."]
     pub mod dirset0 {
@@ -96111,7 +96135,7 @@ pub mod gpio_port {
     }
     #[doc = "Clear pin direction bits for port 0."]
     pub struct DIRCLR0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Clear pin direction bits for port 0."]
     pub mod dirclr0 {
@@ -96167,7 +96191,7 @@ pub mod gpio_port {
     }
     #[doc = "Toggle pin direction bits for port 0."]
     pub struct DIRNOT0 {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Toggle pin direction bits for port 0."]
     pub mod dirnot0 {
@@ -96241,7 +96265,6 @@ impl Deref for PIN_INT {
 }
 #[doc = "Pin interrupt and pattern match engine"]
 pub mod pin_int {
-    use vcell::VolatileCell;
     #[doc = r" Register block"]
     #[repr(C)]
     pub struct RegisterBlock {
@@ -96274,7 +96297,7 @@ pub mod pin_int {
     }
     #[doc = "Pin Interrupt Mode register"]
     pub struct ISEL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin Interrupt Mode register"]
     pub mod isel {
@@ -96386,7 +96409,7 @@ pub mod pin_int {
     }
     #[doc = "Pin interrupt level or rising edge interrupt enable register"]
     pub struct IENR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin interrupt level or rising edge interrupt enable register"]
     pub mod ienr {
@@ -96498,7 +96521,7 @@ pub mod pin_int {
     }
     #[doc = "Pin interrupt level (rising edge) interrupt set register"]
     pub struct SIENR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin interrupt level (rising edge) interrupt set register"]
     pub mod sienr {
@@ -96554,7 +96577,7 @@ pub mod pin_int {
     }
     #[doc = "Pin interrupt level or rising edge interrupt clear register"]
     pub struct CIENR {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin interrupt level or rising edge interrupt clear register"]
     pub mod cienr {
@@ -96610,7 +96633,7 @@ pub mod pin_int {
     }
     #[doc = "Pin interrupt active level or falling edge interrupt enable register"]
     pub struct IENF {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin interrupt active level or falling edge interrupt enable register"]
     pub mod ienf {
@@ -96722,7 +96745,7 @@ pub mod pin_int {
     }
     #[doc = "Pin interrupt active level or falling edge interrupt set register"]
     pub struct SIENF {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin interrupt active level or falling edge interrupt set register"]
     pub mod sienf {
@@ -96778,7 +96801,7 @@ pub mod pin_int {
     }
     #[doc = "Pin interrupt active level (falling edge) interrupt clear register"]
     pub struct CIENF {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin interrupt active level (falling edge) interrupt clear register"]
     pub mod cienf {
@@ -96834,7 +96857,7 @@ pub mod pin_int {
     }
     #[doc = "Pin interrupt rising edge register"]
     pub struct RISE {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin interrupt rising edge register"]
     pub mod rise {
@@ -96946,7 +96969,7 @@ pub mod pin_int {
     }
     #[doc = "Pin interrupt falling edge register"]
     pub struct FALL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin interrupt falling edge register"]
     pub mod fall {
@@ -97058,7 +97081,7 @@ pub mod pin_int {
     }
     #[doc = "Pin interrupt status register"]
     pub struct IST {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "Pin interrupt status register"]
     pub mod ist {
@@ -97170,7 +97193,7 @@ pub mod pin_int {
     }
     #[doc = "GPIO pattern match interrupt control register"]
     pub struct PMCTRL {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "GPIO pattern match interrupt control register"]
     pub mod pmctrl {
@@ -97520,7 +97543,7 @@ pub mod pin_int {
     }
     #[doc = "GPIO pattern match interrupt bit-slice source register"]
     pub struct PMSRC {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "GPIO pattern match interrupt bit-slice source register"]
     pub mod pmsrc {
@@ -99223,7 +99246,7 @@ pub mod pin_int {
     }
     #[doc = "GPIO pattern match interrupt bit slice configuration register"]
     pub struct PMCFG {
-        register: VolatileCell<u32>,
+        register: ::vcell::VolatileCell<u32>,
     }
     #[doc = "GPIO pattern match interrupt bit slice configuration register"]
     pub mod pmcfg {
