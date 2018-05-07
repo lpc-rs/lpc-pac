@@ -1,3 +1,13 @@
+<a name="v0.3.2"></a>
+### v0.3.2 (2018-05-07)
+
+
+#### Bug Fixes
+
+*   Fix build for latest nightly ([87b505d7](87b505d7))
+
+
+
 <a name="v0.3.1"></a>
 ### v0.3.1 (2018-05-02)
 
