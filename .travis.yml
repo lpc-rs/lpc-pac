@@ -4,6 +4,7 @@ rust:
   - nightly
 
 script:
-  - cargo build --verbose
+  - rustup target add thumbv6m-none-eabi
+  - cargo build --verbose --target=thumbv6m-none-eabi --features="rt"
 
 cache: cargo
