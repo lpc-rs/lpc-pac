@@ -18,5 +18,5 @@ done
 
 mkdir -p src &&
 svd2rust -i LPC82x.svd &&
-cat lib.rs | rustfmt > src/lib.rs &&
-rm lib.rs
+cat lib.rs | rustfmt > src/lib.rs && rm lib.rs &&
+rustfmt build.rs
