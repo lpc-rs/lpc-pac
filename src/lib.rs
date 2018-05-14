@@ -1,263 +1,242 @@
-#![cfg_attr(feature = "rt", feature(global_asm))]
-#![cfg_attr(feature = "rt", feature(use_extern_macros))]
-#![cfg_attr(feature = "rt", feature(used))]
-#![doc = "Peripheral access API for LPC82X microcontrollers (generated using svd2rust v0.12.1)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.12.1/svd2rust/#peripheral-api"]
-#![allow(private_no_mangle_statics)]
+#![doc = "Peripheral access API for LPC82X microcontrollers (generated using svd2rust v0.13.0)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.13.0/svd2rust/#peripheral-api"]
 #![deny(missing_docs)]
 #![deny(warnings)]
 #![allow(non_camel_case_types)]
-#![feature(const_fn)]
-#![feature(try_from)]
 #![no_std]
+extern crate bare_metal;
 extern crate cortex_m;
 #[cfg(feature = "rt")]
 extern crate cortex_m_rt;
-#[cfg(feature = "rt")]
-pub use cortex_m_rt::{default_handler, exception};
-extern crate bare_metal;
 extern crate vcell;
 use core::marker::PhantomData;
 use core::ops::Deref;
 #[doc = r" Number available in the NVIC for configuring priority"]
 pub const NVIC_PRIO_BITS: u8 = 2;
-pub use interrupt::Interrupt;
-#[doc(hidden)]
-pub mod interrupt {
-    use bare_metal::Nr;
-    #[cfg(feature = "rt")]
-    extern "C" {
-        fn DEFAULT_HANDLER();
-    }
-    #[cfg(feature = "rt")]
-    #[allow(non_snake_case)]
-    #[no_mangle]
-    pub unsafe extern "C" fn DH_TRAMPOLINE() {
-        DEFAULT_HANDLER();
-    }
-    #[cfg(feature = "rt")]
-    global_asm ! ( "\n.weak SPI0\nSPI0 = DH_TRAMPOLINE\n.weak SPI1\nSPI1 = DH_TRAMPOLINE\n.weak UART0\nUART0 = DH_TRAMPOLINE\n.weak UART1\nUART1 = DH_TRAMPOLINE\n.weak UART2\nUART2 = DH_TRAMPOLINE\n.weak I2C1\nI2C1 = DH_TRAMPOLINE\n.weak I2C0\nI2C0 = DH_TRAMPOLINE\n.weak SCT\nSCT = DH_TRAMPOLINE\n.weak MRT\nMRT = DH_TRAMPOLINE\n.weak CMP\nCMP = DH_TRAMPOLINE\n.weak WDT\nWDT = DH_TRAMPOLINE\n.weak BOD\nBOD = DH_TRAMPOLINE\n.weak FLASH\nFLASH = DH_TRAMPOLINE\n.weak WKT\nWKT = DH_TRAMPOLINE\n.weak ADC_SEQA\nADC_SEQA = DH_TRAMPOLINE\n.weak ADC_SEQB\nADC_SEQB = DH_TRAMPOLINE\n.weak ADC_THCMP\nADC_THCMP = DH_TRAMPOLINE\n.weak ADC_OVR\nADC_OVR = DH_TRAMPOLINE\n.weak DMA\nDMA = DH_TRAMPOLINE\n.weak I2C2\nI2C2 = DH_TRAMPOLINE\n.weak I2C3\nI2C3 = DH_TRAMPOLINE\n.weak PIN_INT0\nPIN_INT0 = DH_TRAMPOLINE\n.weak PIN_INT1\nPIN_INT1 = DH_TRAMPOLINE\n.weak PIN_INT2\nPIN_INT2 = DH_TRAMPOLINE\n.weak PIN_INT3\nPIN_INT3 = DH_TRAMPOLINE\n.weak PIN_INT4\nPIN_INT4 = DH_TRAMPOLINE\n.weak PIN_INT5\nPIN_INT5 = DH_TRAMPOLINE\n.weak PIN_INT6\nPIN_INT6 = DH_TRAMPOLINE\n.weak PIN_INT7\nPIN_INT7 = DH_TRAMPOLINE" ) ;
-    #[cfg(feature = "rt")]
-    extern "C" {
-        fn SPI0();
-        fn SPI1();
-        fn UART0();
-        fn UART1();
-        fn UART2();
-        fn I2C1();
-        fn I2C0();
-        fn SCT();
-        fn MRT();
-        fn CMP();
-        fn WDT();
-        fn BOD();
-        fn FLASH();
-        fn WKT();
-        fn ADC_SEQA();
-        fn ADC_SEQB();
-        fn ADC_THCMP();
-        fn ADC_OVR();
-        fn DMA();
-        fn I2C2();
-        fn I2C3();
-        fn PIN_INT0();
-        fn PIN_INT1();
-        fn PIN_INT2();
-        fn PIN_INT3();
-        fn PIN_INT4();
-        fn PIN_INT5();
-        fn PIN_INT6();
-        fn PIN_INT7();
-    }
-    #[allow(private_no_mangle_statics)]
-    #[cfg(feature = "rt")]
-    #[doc(hidden)]
-    #[link_section = ".vector_table.interrupts"]
-    #[no_mangle]
-    #[used]
-    pub static INTERRUPTS: [Option<unsafe extern "C" fn()>; 32] = [
-        Some(SPI0),
-        Some(SPI1),
-        None,
-        Some(UART0),
-        Some(UART1),
-        Some(UART2),
-        None,
-        Some(I2C1),
-        Some(I2C0),
-        Some(SCT),
-        Some(MRT),
-        Some(CMP),
-        Some(WDT),
-        Some(BOD),
-        Some(FLASH),
-        Some(WKT),
-        Some(ADC_SEQA),
-        Some(ADC_SEQB),
-        Some(ADC_THCMP),
-        Some(ADC_OVR),
-        Some(DMA),
-        Some(I2C2),
-        Some(I2C3),
-        None,
-        Some(PIN_INT0),
-        Some(PIN_INT1),
-        Some(PIN_INT2),
-        Some(PIN_INT3),
-        Some(PIN_INT4),
-        Some(PIN_INT5),
-        Some(PIN_INT6),
-        Some(PIN_INT7),
-    ];
-    #[doc = r" Enumeration of all the interrupts"]
-    pub enum Interrupt {
-        #[doc = "0 - SPI0"]
-        SPI0,
-        #[doc = "1 - SPI1"]
-        SPI1,
-        #[doc = "3 - UART0"]
-        UART0,
-        #[doc = "4 - UART1"]
-        UART1,
-        #[doc = "5 - UART2"]
-        UART2,
-        #[doc = "7 - I2C1"]
-        I2C1,
-        #[doc = "8 - I2C0"]
-        I2C0,
-        #[doc = "9 - SCT"]
-        SCT,
-        #[doc = "10 - MRT"]
-        MRT,
-        #[doc = "11 - CMP"]
-        CMP,
-        #[doc = "12 - WDT"]
-        WDT,
-        #[doc = "13 - BOD"]
-        BOD,
-        #[doc = "14 - FLASH"]
-        FLASH,
-        #[doc = "15 - WKT"]
-        WKT,
-        #[doc = "16 - ADC_SEQA"]
-        ADC_SEQA,
-        #[doc = "17 - ADC_SEQB"]
-        ADC_SEQB,
-        #[doc = "18 - ADC_THCMP"]
-        ADC_THCMP,
-        #[doc = "19 - ADC_OVR"]
-        ADC_OVR,
-        #[doc = "20 - DMA"]
-        DMA,
-        #[doc = "21 - I2C2"]
-        I2C2,
-        #[doc = "22 - I2C3"]
-        I2C3,
-        #[doc = "24 - PIN_INT0"]
-        PIN_INT0,
-        #[doc = "25 - PIN_INT1"]
-        PIN_INT1,
-        #[doc = "26 - PIN_INT2"]
-        PIN_INT2,
-        #[doc = "27 - PIN_INT3"]
-        PIN_INT3,
-        #[doc = "28 - PIN_INT4"]
-        PIN_INT4,
-        #[doc = "29 - PIN_INT5"]
-        PIN_INT5,
-        #[doc = "30 - PIN_INT6"]
-        PIN_INT6,
-        #[doc = "31 - PIN_INT7"]
-        PIN_INT7,
-    }
-    unsafe impl Nr for Interrupt {
-        #[inline]
-        fn nr(&self) -> u8 {
-            match *self {
-                Interrupt::SPI0 => 0,
-                Interrupt::SPI1 => 1,
-                Interrupt::UART0 => 3,
-                Interrupt::UART1 => 4,
-                Interrupt::UART2 => 5,
-                Interrupt::I2C1 => 7,
-                Interrupt::I2C0 => 8,
-                Interrupt::SCT => 9,
-                Interrupt::MRT => 10,
-                Interrupt::CMP => 11,
-                Interrupt::WDT => 12,
-                Interrupt::BOD => 13,
-                Interrupt::FLASH => 14,
-                Interrupt::WKT => 15,
-                Interrupt::ADC_SEQA => 16,
-                Interrupt::ADC_SEQB => 17,
-                Interrupt::ADC_THCMP => 18,
-                Interrupt::ADC_OVR => 19,
-                Interrupt::DMA => 20,
-                Interrupt::I2C2 => 21,
-                Interrupt::I2C3 => 22,
-                Interrupt::PIN_INT0 => 24,
-                Interrupt::PIN_INT1 => 25,
-                Interrupt::PIN_INT2 => 26,
-                Interrupt::PIN_INT3 => 27,
-                Interrupt::PIN_INT4 => 28,
-                Interrupt::PIN_INT5 => 29,
-                Interrupt::PIN_INT6 => 30,
-                Interrupt::PIN_INT7 => 31,
-            }
-        }
-    }
-    use core::convert::TryFrom;
-    #[derive(Debug, Copy, Clone)]
-    pub struct TryFromInterruptError(());
-    impl TryFrom<u8> for Interrupt {
-        type Error = TryFromInterruptError;
-        #[inline]
-        fn try_from(value: u8) -> Result<Self, Self::Error> {
-            match value {
-                0 => Ok(Interrupt::SPI0),
-                1 => Ok(Interrupt::SPI1),
-                3 => Ok(Interrupt::UART0),
-                4 => Ok(Interrupt::UART1),
-                5 => Ok(Interrupt::UART2),
-                7 => Ok(Interrupt::I2C1),
-                8 => Ok(Interrupt::I2C0),
-                9 => Ok(Interrupt::SCT),
-                10 => Ok(Interrupt::MRT),
-                11 => Ok(Interrupt::CMP),
-                12 => Ok(Interrupt::WDT),
-                13 => Ok(Interrupt::BOD),
-                14 => Ok(Interrupt::FLASH),
-                15 => Ok(Interrupt::WKT),
-                16 => Ok(Interrupt::ADC_SEQA),
-                17 => Ok(Interrupt::ADC_SEQB),
-                18 => Ok(Interrupt::ADC_THCMP),
-                19 => Ok(Interrupt::ADC_OVR),
-                20 => Ok(Interrupt::DMA),
-                21 => Ok(Interrupt::I2C2),
-                22 => Ok(Interrupt::I2C3),
-                24 => Ok(Interrupt::PIN_INT0),
-                25 => Ok(Interrupt::PIN_INT1),
-                26 => Ok(Interrupt::PIN_INT2),
-                27 => Ok(Interrupt::PIN_INT3),
-                28 => Ok(Interrupt::PIN_INT4),
-                29 => Ok(Interrupt::PIN_INT5),
-                30 => Ok(Interrupt::PIN_INT6),
-                31 => Ok(Interrupt::PIN_INT7),
-                _ => Err(TryFromInterruptError(())),
-            }
-        }
-    }
-    #[cfg(feature = "rt")]
-    #[macro_export]
-    macro_rules ! interrupt { ( $ NAME : ident , $ path : path , locals : { $ ( $ lvar : ident : $ lty : ty = $ lval : expr ; ) * } ) => { # [ allow ( non_snake_case ) ] mod $ NAME { pub struct Locals { $ ( pub $ lvar : $ lty , ) * } } # [ allow ( non_snake_case ) ] # [ no_mangle ] pub extern "C" fn $ NAME ( ) { let _ = $ crate :: interrupt :: Interrupt :: $ NAME ; static mut LOCALS : self :: $ NAME :: Locals = self :: $ NAME :: Locals { $ ( $ lvar : $ lval , ) * } ; let f : fn ( & mut self :: $ NAME :: Locals ) = $ path ; f ( unsafe { & mut LOCALS } ) ; } } ; ( $ NAME : ident , $ path : path ) => { # [ allow ( non_snake_case ) ] # [ no_mangle ] pub extern "C" fn $ NAME ( ) { let _ = $ crate :: interrupt :: Interrupt :: $ NAME ; let f : fn ( ) = $ path ; f ( ) ; } } }
+#[cfg(feature = "rt")]
+extern "C" {
+    fn SPI0();
+    fn SPI1();
+    fn UART0();
+    fn UART1();
+    fn UART2();
+    fn I2C1();
+    fn I2C0();
+    fn SCT();
+    fn MRT();
+    fn CMP();
+    fn WDT();
+    fn BOD();
+    fn FLASH();
+    fn WKT();
+    fn ADC_SEQA();
+    fn ADC_SEQB();
+    fn ADC_THCMP();
+    fn ADC_OVR();
+    fn DMA();
+    fn I2C2();
+    fn I2C3();
+    fn PIN_INT0();
+    fn PIN_INT1();
+    fn PIN_INT2();
+    fn PIN_INT3();
+    fn PIN_INT4();
+    fn PIN_INT5();
+    fn PIN_INT6();
+    fn PIN_INT7();
 }
+#[doc(hidden)]
+pub union Vector {
+    _handler: unsafe extern "C" fn(),
+    _reserved: u32,
+}
+#[cfg(feature = "rt")]
+#[doc(hidden)]
+#[link_section = ".vector_table.interrupts"]
+#[no_mangle]
+pub static __INTERRUPTS: [Vector; 32] = [
+    Vector { _handler: SPI0 },
+    Vector { _handler: SPI1 },
+    Vector { _reserved: 0 },
+    Vector { _handler: UART0 },
+    Vector { _handler: UART1 },
+    Vector { _handler: UART2 },
+    Vector { _reserved: 0 },
+    Vector { _handler: I2C1 },
+    Vector { _handler: I2C0 },
+    Vector { _handler: SCT },
+    Vector { _handler: MRT },
+    Vector { _handler: CMP },
+    Vector { _handler: WDT },
+    Vector { _handler: BOD },
+    Vector { _handler: FLASH },
+    Vector { _handler: WKT },
+    Vector { _handler: ADC_SEQA },
+    Vector { _handler: ADC_SEQB },
+    Vector {
+        _handler: ADC_THCMP,
+    },
+    Vector { _handler: ADC_OVR },
+    Vector { _handler: DMA },
+    Vector { _handler: I2C2 },
+    Vector { _handler: I2C3 },
+    Vector { _reserved: 0 },
+    Vector { _handler: PIN_INT0 },
+    Vector { _handler: PIN_INT1 },
+    Vector { _handler: PIN_INT2 },
+    Vector { _handler: PIN_INT3 },
+    Vector { _handler: PIN_INT4 },
+    Vector { _handler: PIN_INT5 },
+    Vector { _handler: PIN_INT6 },
+    Vector { _handler: PIN_INT7 },
+];
+#[doc = r" Macro to override a device specific interrupt handler"]
+#[doc = r""]
+#[doc = r" # Syntax"]
+#[doc = r""]
+#[doc = r" ``` ignore"]
+#[doc = r" interrupt!("]
+#[doc = r"     // Name of the interrupt"]
+#[doc = r"     $Name:ident,"]
+#[doc = r""]
+#[doc = r"     // Path to the interrupt handler (a function)"]
+#[doc = r"     $handler:path,"]
+#[doc = r""]
+#[doc = r"     // Optional, state preserved across invocations of the handler"]
+#[doc = r"     state: $State:ty = $initial_state:expr,"]
+#[doc = r" );"]
+#[doc = r" ```"]
+#[doc = r""]
+#[doc = r" Where `$Name` must match the name of one of the variants of the `Interrupt`"]
+#[doc = r" enum."]
+#[doc = r""]
+#[doc = r" The handler must have signature `fn()` is no state was associated to it;"]
+#[doc = r" otherwise its signature must be `fn(&mut $State)`."]
+#[cfg(feature = "rt")]
+#[macro_export]
+macro_rules! interrupt {
+    ($Name:ident, $handler:path,state: $State:ty = $initial_state:expr) => {
+        #[allow(unsafe_code)]
+        #[deny(private_no_mangle_fns)]
+        #[no_mangle]
+        pub unsafe extern "C" fn $Name() {
+            static mut STATE: $State = $initial_state;
+            let _ = $crate::Interrupt::$Name;
+            let f: fn(&mut $State) = $handler;
+            f(&mut STATE)
+        }
+    };
+    ($Name:ident, $handler:path) => {
+        #[allow(unsafe_code)]
+        #[deny(private_no_mangle_fns)]
+        #[no_mangle]
+        pub unsafe extern "C" fn $Name() {
+            let _ = $crate::Interrupt::$Name;
+            let f: fn() = $handler;
+            f()
+        }
+    };
+}
+#[doc = r" Enumeration of all the interrupts"]
+pub enum Interrupt {
+    #[doc = "0 - SPI0"]
+    SPI0,
+    #[doc = "1 - SPI1"]
+    SPI1,
+    #[doc = "3 - UART0"]
+    UART0,
+    #[doc = "4 - UART1"]
+    UART1,
+    #[doc = "5 - UART2"]
+    UART2,
+    #[doc = "7 - I2C1"]
+    I2C1,
+    #[doc = "8 - I2C0"]
+    I2C0,
+    #[doc = "9 - SCT"]
+    SCT,
+    #[doc = "10 - MRT"]
+    MRT,
+    #[doc = "11 - CMP"]
+    CMP,
+    #[doc = "12 - WDT"]
+    WDT,
+    #[doc = "13 - BOD"]
+    BOD,
+    #[doc = "14 - FLASH"]
+    FLASH,
+    #[doc = "15 - WKT"]
+    WKT,
+    #[doc = "16 - ADC_SEQA"]
+    ADC_SEQA,
+    #[doc = "17 - ADC_SEQB"]
+    ADC_SEQB,
+    #[doc = "18 - ADC_THCMP"]
+    ADC_THCMP,
+    #[doc = "19 - ADC_OVR"]
+    ADC_OVR,
+    #[doc = "20 - DMA"]
+    DMA,
+    #[doc = "21 - I2C2"]
+    I2C2,
+    #[doc = "22 - I2C3"]
+    I2C3,
+    #[doc = "24 - PIN_INT0"]
+    PIN_INT0,
+    #[doc = "25 - PIN_INT1"]
+    PIN_INT1,
+    #[doc = "26 - PIN_INT2"]
+    PIN_INT2,
+    #[doc = "27 - PIN_INT3"]
+    PIN_INT3,
+    #[doc = "28 - PIN_INT4"]
+    PIN_INT4,
+    #[doc = "29 - PIN_INT5"]
+    PIN_INT5,
+    #[doc = "30 - PIN_INT6"]
+    PIN_INT6,
+    #[doc = "31 - PIN_INT7"]
+    PIN_INT7,
+}
+unsafe impl ::bare_metal::Nr for Interrupt {
+    #[inline]
+    fn nr(&self) -> u8 {
+        match *self {
+            Interrupt::SPI0 => 0,
+            Interrupt::SPI1 => 1,
+            Interrupt::UART0 => 3,
+            Interrupt::UART1 => 4,
+            Interrupt::UART2 => 5,
+            Interrupt::I2C1 => 7,
+            Interrupt::I2C0 => 8,
+            Interrupt::SCT => 9,
+            Interrupt::MRT => 10,
+            Interrupt::CMP => 11,
+            Interrupt::WDT => 12,
+            Interrupt::BOD => 13,
+            Interrupt::FLASH => 14,
+            Interrupt::WKT => 15,
+            Interrupt::ADC_SEQA => 16,
+            Interrupt::ADC_SEQB => 17,
+            Interrupt::ADC_THCMP => 18,
+            Interrupt::ADC_OVR => 19,
+            Interrupt::DMA => 20,
+            Interrupt::I2C2 => 21,
+            Interrupt::I2C3 => 22,
+            Interrupt::PIN_INT0 => 24,
+            Interrupt::PIN_INT1 => 25,
+            Interrupt::PIN_INT2 => 26,
+            Interrupt::PIN_INT3 => 27,
+            Interrupt::PIN_INT4 => 28,
+            Interrupt::PIN_INT5 => 29,
+            Interrupt::PIN_INT6 => 30,
+            Interrupt::PIN_INT7 => 31,
+        }
+    }
+}
+#[doc(hidden)]
+pub mod interrupt {}
 pub use cortex_m::peripheral::Peripherals as CorePeripherals;
-pub use cortex_m::peripheral::CPUID;
-pub use cortex_m::peripheral::DCB;
-pub use cortex_m::peripheral::DWT;
-pub use cortex_m::peripheral::MPU;
-pub use cortex_m::peripheral::NVIC;
-pub use cortex_m::peripheral::SCB;
-pub use cortex_m::peripheral::SYST;
+pub use cortex_m::peripheral::{CBP, CPUID, DCB, DWT, FPB, FPU, ITM, MPU, NVIC, SCB, SYST, TPIU};
 #[doc = "Windowed Watchdog Timer (WWDT)"]
 pub struct WWDT {
     _marker: PhantomData<*const ()>,
@@ -100989,6 +100968,7 @@ pub mod pin_int {
         }
     }
 }
+#[allow(private_no_mangle_statics)]
 #[no_mangle]
 static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r" All the peripherals"]
