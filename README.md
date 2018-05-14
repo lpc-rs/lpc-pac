@@ -14,13 +14,13 @@ Please also check out [LPC82x HAL], a higher-level crate for interfacing with th
 Add this to the `[dependencies]` section of your `Cargo.toml` to include rust-lpc82x in your Cargo project:
 
 ``` toml
-lpc82x = "0.3"
+lpc82x = "0.4"
 ```
 
 This crate includes an optional `rt` feature that can be activated by adding this instead:
 
 ``` toml
-lpc82x = { version = "0.3", features = ["rt"] }
+lpc82x = { version = "0.4", features = ["rt"] }
 ```
 
 The `rt` feature includes the [cortex-m-rt] crate and provides overridable interrupt handlers. Please refer to the [svd2rust documentation] for further details.
@@ -97,7 +97,7 @@ See [LICENSE] for full details.
 [svd2rust]: https://crates.io/crates/svd2rust
 [LPC82x HAL]: https://crates.io/crates/lpc82x-hal
 [cortex-m-rt]: https://crates.io/crates/cortex-m-rt
-[svd2rust documentation]: https://docs.rs/svd2rust/0.11.4/svd2rust/
+[svd2rust documentation]: https://docs.rs/svd2rust
 [API reference]: https://docs.rs/lpc82x
 [LPC82x user manual]: https://www.nxp.com/docs/en/user-guide/UM10800.pdf
 [open an issue]: https://github.com/braun-robotics/rust-lpc82x/issues/new
