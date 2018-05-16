@@ -2,11 +2,13 @@
 
 ## Introduction
 
+**This is a very low-level library. Most users should use [lpc82x-hal] instead.**
+
 Low-level register mappings for the [NXP LPC82x] family of ARM Cortex-M0+ microcontrollers, written in [Rust]. The code is generated automatically from the [SVD file] available from ARM, using [svd2rust].
 
 The purpose of this crate is to give embedded programs or libraries written Rust access to the complete functionality of LPC82x MCUs.
 
-Please also check out [LPC82x HAL], a higher-level crate for interfacing with the LPC82x.
+Please also check out [lpc82x-hal], a higher-level crate for interfacing with LPC82x microcontrollers.
 
 
 ## Usage
@@ -64,7 +66,7 @@ See [LICENSE] for full details.
 [NXP LPC82x]: http://www.nxp.com/products/microcontrollers-and-processors/arm-based-processors-and-mcus/lpc-cortex-m-mcus/lpc800-series-cortex-m0-plus-mcus/low-cost-microcontrollers-mcus-based-on-arm-cortex-m0-plus-cores:LPC82X
 [SVD file]: http://ds.arm.com/media/resources/db/chip/nxp/lpc824m201jdh20/LPC82x.svd
 [svd2rust]: https://crates.io/crates/svd2rust
-[LPC82x HAL]: https://crates.io/crates/lpc82x-hal
+[lpc82x-hal]: https://crates.io/crates/lpc82x-hal
 [cortex-m-rt]: https://crates.io/crates/cortex-m-rt
 [svd2rust documentation]: https://docs.rs/svd2rust
 [API reference]: https://docs.rs/lpc82x
