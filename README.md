@@ -25,37 +25,6 @@ lpc82x = { version = "0.4", features = ["rt"] }
 
 The `rt` feature includes the [cortex-m-rt] crate and provides overridable interrupt handlers. Please refer to the [svd2rust documentation] for further details.
 
-## Example
-
-Here's a simple example that could be extended into an embedded program that blinks an LED.
-
-``` rust
-extern crate lpc82x;
-
-// This bit represents the PIO0_3 pin. We could connect an LED there.
-const PIN: u32 = 0x1 << 3;
-
-// Get a reference to the GPIO_PORT peripheral
-let gpio = lpc82x::GPIO_PORT.get();
-
-unsafe {
-    // Set pin direction to "output"
-    (*gpio).dir0.modify(|r, w| w.dirp().bits(r.dirp().bits() | PIN));
-
-    loop {
-        // Set pin to HIGH
-        (*gpio).set0.modify(|r, w| w.setp().bits(r.setp().bits() | PIN));
-
-        // Sleep here for some time
-
-        // Set pin to LOW
-        (*gpio).clr0.write(|w| w.clrp().bits(PIN));
-
-        // Sleep here for some time
-    }
-}
-```
-
 ## Documentation
 
 For specific information on the API, check out the **[API reference]**.
