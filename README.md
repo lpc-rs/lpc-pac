@@ -2,11 +2,13 @@
 
 ## Introduction
 
+**This is a very low-level library. Most users should use [lpc82x-hal] instead.**
+
 Low-level register mappings for the [NXP LPC82x] family of ARM Cortex-M0+ microcontrollers, written in [Rust]. The code is generated automatically from the [SVD file] available from ARM, using [svd2rust].
 
 The purpose of this crate is to give embedded programs or libraries written Rust access to the complete functionality of LPC82x MCUs.
 
-Please also check out [LPC82x HAL], a higher-level crate for interfacing with the LPC82x.
+Please also check out [lpc82x-hal], a higher-level crate for interfacing with LPC82x microcontrollers.
 
 
 ## Usage
@@ -24,37 +26,6 @@ lpc82x = { version = "0.4", features = ["rt"] }
 ```
 
 The `rt` feature includes the [cortex-m-rt] crate and provides overridable interrupt handlers. Please refer to the [svd2rust documentation] for further details.
-
-## Example
-
-Here's a simple example that could be extended into an embedded program that blinks an LED.
-
-``` rust
-extern crate lpc82x;
-
-// This bit represents the PIO0_3 pin. We could connect an LED there.
-const PIN: u32 = 0x1 << 3;
-
-// Get a reference to the GPIO_PORT peripheral
-let gpio = lpc82x::GPIO_PORT.get();
-
-unsafe {
-    // Set pin direction to "output"
-    (*gpio).dir0.modify(|r, w| w.dirp().bits(r.dirp().bits() | PIN));
-
-    loop {
-        // Set pin to HIGH
-        (*gpio).set0.modify(|r, w| w.setp().bits(r.setp().bits() | PIN));
-
-        // Sleep here for some time
-
-        // Set pin to LOW
-        (*gpio).clr0.write(|w| w.clrp().bits(PIN));
-
-        // Sleep here for some time
-    }
-}
-```
 
 ## Documentation
 
@@ -95,7 +66,7 @@ See [LICENSE] for full details.
 [NXP LPC82x]: http://www.nxp.com/products/microcontrollers-and-processors/arm-based-processors-and-mcus/lpc-cortex-m-mcus/lpc800-series-cortex-m0-plus-mcus/low-cost-microcontrollers-mcus-based-on-arm-cortex-m0-plus-cores:LPC82X
 [SVD file]: http://ds.arm.com/media/resources/db/chip/nxp/lpc824m201jdh20/LPC82x.svd
 [svd2rust]: https://crates.io/crates/svd2rust
-[LPC82x HAL]: https://crates.io/crates/lpc82x-hal
+[lpc82x-hal]: https://crates.io/crates/lpc82x-hal
 [cortex-m-rt]: https://crates.io/crates/cortex-m-rt
 [svd2rust documentation]: https://docs.rs/svd2rust
 [API reference]: https://docs.rs/lpc82x
