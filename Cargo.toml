@@ -14,6 +14,6 @@ keywords = ["arm", "cortex-m", "nxp", "lpc", "svd2rust"]
 travis-ci = { repository = "coredump-ch/lpc11uxx-rs" }
 
 [dependencies]
-bare-metal = "0.1"
-cortex-m = "0.3"
+bare-metal = "0.2"
+cortex-m = "0.5"
 vcell = "0.1"

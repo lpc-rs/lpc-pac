@@ -1,0 +1,26 @@
+PROVIDE(PIN_INT0 = DefaultHandler);
+PROVIDE(PIN_INT1 = DefaultHandler);
+PROVIDE(PIN_INT2 = DefaultHandler);
+PROVIDE(PIN_INT3 = DefaultHandler);
+PROVIDE(PIN_INT4 = DefaultHandler);
+PROVIDE(PIN_INT5 = DefaultHandler);
+PROVIDE(PIN_INT6 = DefaultHandler);
+PROVIDE(PIN_INT7 = DefaultHandler);
+PROVIDE(GINT0 = DefaultHandler);
+PROVIDE(GINT1 = DefaultHandler);
+PROVIDE(SSP1 = DefaultHandler);
+PROVIDE(I2C = DefaultHandler);
+PROVIDE(CT16B0 = DefaultHandler);
+PROVIDE(CT16B1 = DefaultHandler);
+PROVIDE(CT32B0 = DefaultHandler);
+PROVIDE(CT32B1 = DefaultHandler);
+PROVIDE(SSP0 = DefaultHandler);
+PROVIDE(USART = DefaultHandler);
+PROVIDE(USB_IRQ = DefaultHandler);
+PROVIDE(USB_FIQ = DefaultHandler);
+PROVIDE(ADC = DefaultHandler);
+PROVIDE(WDT = DefaultHandler);
+PROVIDE(BOD_IRQ = DefaultHandler);
+PROVIDE(FLASH_IRQ = DefaultHandler);
+PROVIDE(USBWAKEUP = DefaultHandler);
+

@@ -12,5 +12,7 @@ The SVD file contained some duplicate definitions and some other errors which
 needed to be fixed.
 
 ```Bash
-svd2rust -i LPC11Uxx.svd|rustfmt > src/lib.rs
+svd2rust -i LPC11Uxx.svd
+mv lib.rs src/lib.rs
+cargo fmt
 ```
