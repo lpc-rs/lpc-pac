@@ -43,8 +43,6 @@ Another problem that we inherit from the SVD file is that some register and fiel
 
 At this point, there is no guarantee of API stability. This means that we reserve the right to make changes to the API, that might break existing programs when they upgrade.
 
-You need a nightly version of Rust to use this crate. If you installed Rust via [rustup], you can switch to the nightly version with `rustup default nightly`.
-
 ## Update Procedure
 
 The repository contains an [update script], that can be used to re-generate the source code. This script updates all required tools ([svd2rust] and [rustfmt]), downloads the [SVD file], applies various patches to it, and then re-generates the code.
