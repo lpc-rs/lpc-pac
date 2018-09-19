@@ -10,8 +10,8 @@ addons:
     packages:
       - gcc-arm-none-eabi
 
-script:
+install:
   - rustup target add thumbv6m-none-eabi
-  - cargo build --verbose --target=thumbv6m-none-eabi --features="rt"
 
-cache: cargo
+script:
+  - ./scripts/build.sh
