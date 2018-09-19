@@ -1,4 +1,13 @@
 <a name="v0.4.0"></a>
+## v0.5.0 (2018-09-19)
+
+#### Features
+
+* Re-generate crate with svd2rust 0.13.1
+* Update build dependencies
+
+
+<a name="v0.4.0"></a>
 ## v0.4.0 (2018-05-14)
 
 
