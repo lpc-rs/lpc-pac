@@ -15,5 +15,3 @@ install:
 
 script:
   - ./scripts/build.sh
-
-cache: cargo
