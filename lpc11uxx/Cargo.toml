@@ -1,0 +1,19 @@
+[package]
+authors = ["Raphael Nestler <raphael.nestler@gmail.com>"]
+name = "lpc11uxx"
+version = "0.2.0"
+description = "Register mappings for the NXP LPC11Uxx family of ARM Cortex-M0+ microcontrollers"
+documentation = "https://docs.rs/lpc11uxx"
+repository = "https://github.com/coredump-ch/lpc11uxx-rs"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+categories = ["embedded", "hardware-support", "no-std"]
+keywords = ["arm", "cortex-m", "nxp", "lpc", "svd2rust"]
+
+[badges]
+travis-ci = { repository = "coredump-ch/lpc11uxx-rs" }
+
+[dependencies]
+bare-metal = "0.2"
+cortex-m = "0.5"
+vcell = "0.1"
