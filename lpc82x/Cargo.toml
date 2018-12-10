@@ -1,0 +1,36 @@
+[package]
+name    = "lpc82x"
+version = "0.5.1-dev"
+authors = ["Hanno Braun <hanno@braun-robotics.com>"]
+
+description   = "Low-level register mappings for the NXP LPC82x series of ARM Cortex-M0+ microcontrollers"
+documentation = "https://docs.rs/lpc82x"
+repository    = "https://github.com/braun-robotics/rust-lpc82x"
+license       = "0BSD"
+readme        = "README.md"
+categories    = ["embedded", "hardware-support", "no-std"]
+keywords      = ["arm", "cortex-m", "nxp", "lpc", "svd2rust"]
+
+
+[badges]
+maintenance = { status = "actively-developed" }
+travis-ci   = { repository = "braun-robotics/rust-lpc82x" }
+
+
+[dependencies]
+bare-metal  = "0.2"
+cortex-m    = "0.5"
+cortex-m-rt = { version = "0.6.3", optional = true }
+vcell       = "0.1"
+
+
+[features]
+rt = ["cortex-m-rt", "cortex-m-rt/device"]
+
+
+[package.metadata.release]
+pre-release-commit-message = "Release version {{version}}"
+pro-release-commit-message = "Bump version to {{version}}"
+tag-prefix                 = "v"
+tag-message                = "Version {{version}}"
+dev-version-ext            = "dev"
