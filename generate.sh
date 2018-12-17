@@ -40,15 +40,26 @@ command_exists() {
 }
 
 require_command() {
+    # Params:
+    # - 1: Command name
+    # - 2: Version string (optional)
     if ! command_exists $1; then
         fail 1 "Command $1 not found."
     fi
+    set +u  # Optional parameter
+    if [ ! -z "$2" ]; then
+        out=$($1 --version); parts=($out); version=${parts[1]}
+        if [ "$version" != "$2" ]; then
+            fail 1 "Command $1 version $2 was expected, but $version is installed"
+        fi
+    fi
+    set -u
 }
 
 
 ### Main
 
-require_command svd2rust
+require_command svd2rust 0.14.0
 require_command cargo-fmt
 
 generate_pac() {
@@ -59,7 +70,6 @@ generate_pac() {
     cargo fmt
 }
 
-echo "Using $(svd2rust --version)"
 for PAC in ${PACS[*]}; do
     cecho $BOLDGREEN "\nEntering $PAC/"
     pushd "$PAC" >/dev/null
