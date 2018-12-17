@@ -61,11 +61,13 @@ require_command() {
 
 require_command svd2rust 0.14.0
 require_command cargo-fmt
+require_command form  # TODO: Add version check as soon as https://github.com/djmcgill/form/pull/9 is in
 
 generate_pac() {
     cecho $CYAN "Running svd2rust..."
+    rm -r src
     svd2rust -i "${1}.svd" 2> >(tee svd2rust-warnings.log >&2)
-    mv lib.rs src/lib.rs
+    form -i lib.rs -o src
     cecho $CYAN "Formatting generated code..."
     cargo fmt
 }
