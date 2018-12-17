@@ -67,7 +67,7 @@ generate_pac() {
     cecho $CYAN "Running svd2rust..."
     rm -r src
     svd2rust -i "${1}.svd" 2> >(tee svd2rust-warnings.log >&2)
-    form -i lib.rs -o src
+    RUST_LOG=form=warn form -i lib.rs -o src
     cecho $CYAN "Formatting generated code..."
     cargo fmt
 }
