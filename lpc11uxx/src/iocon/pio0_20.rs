@@ -46,9 +46,9 @@ impl super::PIO0_20 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FUNCR {
     #[doc = "PIO0_20."]
-    PIO0_20_,
+    PIO0_20,
     #[doc = "CT16B1_CAP0."]
-    CT16B1_CAP0_,
+    CT16B1_CAP0,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -57,8 +57,8 @@ impl FUNCR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            FUNCR::PIO0_20_ => 0,
-            FUNCR::CT16B1_CAP0_ => 1,
+            FUNCR::PIO0_20 => 0,
+            FUNCR::CT16B1_CAP0 => 1,
             FUNCR::_Reserved(bits) => bits,
         }
     }
@@ -67,43 +67,43 @@ impl FUNCR {
     #[inline]
     pub fn _from(value: u8) -> FUNCR {
         match value {
-            0 => FUNCR::PIO0_20_,
-            1 => FUNCR::CT16B1_CAP0_,
+            0 => FUNCR::PIO0_20,
+            1 => FUNCR::CT16B1_CAP0,
             i => FUNCR::_Reserved(i),
         }
     }
-    #[doc = "Checks if the value of the field is `PIO0_20_`"]
+    #[doc = "Checks if the value of the field is `PIO0_20`"]
     #[inline]
-    pub fn is_pio0_20_(&self) -> bool {
-        *self == FUNCR::PIO0_20_
+    pub fn is_pio0_20(&self) -> bool {
+        *self == FUNCR::PIO0_20
     }
-    #[doc = "Checks if the value of the field is `CT16B1_CAP0_`"]
+    #[doc = "Checks if the value of the field is `CT16B1_CAP0`"]
     #[inline]
-    pub fn is_ct16b1_cap0_(&self) -> bool {
-        *self == FUNCR::CT16B1_CAP0_
+    pub fn is_ct16b1_cap0(&self) -> bool {
+        *self == FUNCR::CT16B1_CAP0
     }
 }
 #[doc = "Possible values of the field `MODE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODER {
     #[doc = "Inactive (no pull-down/pull-up resistor enabled)."]
-    INACTIVE_NO_PULL_DO,
+    INACTIVE,
     #[doc = "Pull-down resistor enabled."]
-    PULL_DOWN_RESISTOR_E,
+    PULL_DOWN,
     #[doc = "Pull-up resistor enabled."]
-    PULL_UP_RESISTOR_ENA,
+    PULL_UP,
     #[doc = "Repeater mode."]
-    REPEATER_MODE_,
+    REPEATER,
 }
 impl MODER {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            MODER::INACTIVE_NO_PULL_DO => 0,
-            MODER::PULL_DOWN_RESISTOR_E => 1,
-            MODER::PULL_UP_RESISTOR_ENA => 2,
-            MODER::REPEATER_MODE_ => 3,
+            MODER::INACTIVE => 0,
+            MODER::PULL_DOWN => 1,
+            MODER::PULL_UP => 2,
+            MODER::REPEATER => 3,
         }
     }
     #[allow(missing_docs)]
@@ -111,41 +111,41 @@ impl MODER {
     #[inline]
     pub fn _from(value: u8) -> MODER {
         match value {
-            0 => MODER::INACTIVE_NO_PULL_DO,
-            1 => MODER::PULL_DOWN_RESISTOR_E,
-            2 => MODER::PULL_UP_RESISTOR_ENA,
-            3 => MODER::REPEATER_MODE_,
+            0 => MODER::INACTIVE,
+            1 => MODER::PULL_DOWN,
+            2 => MODER::PULL_UP,
+            3 => MODER::REPEATER,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `INACTIVE_NO_PULL_DO`"]
+    #[doc = "Checks if the value of the field is `INACTIVE`"]
     #[inline]
-    pub fn is_inactive_no_pull_do(&self) -> bool {
-        *self == MODER::INACTIVE_NO_PULL_DO
+    pub fn is_inactive(&self) -> bool {
+        *self == MODER::INACTIVE
     }
-    #[doc = "Checks if the value of the field is `PULL_DOWN_RESISTOR_E`"]
+    #[doc = "Checks if the value of the field is `PULL_DOWN`"]
     #[inline]
-    pub fn is_pull_down_resistor_e(&self) -> bool {
-        *self == MODER::PULL_DOWN_RESISTOR_E
+    pub fn is_pull_down(&self) -> bool {
+        *self == MODER::PULL_DOWN
     }
-    #[doc = "Checks if the value of the field is `PULL_UP_RESISTOR_ENA`"]
+    #[doc = "Checks if the value of the field is `PULL_UP`"]
     #[inline]
-    pub fn is_pull_up_resistor_ena(&self) -> bool {
-        *self == MODER::PULL_UP_RESISTOR_ENA
+    pub fn is_pull_up(&self) -> bool {
+        *self == MODER::PULL_UP
     }
-    #[doc = "Checks if the value of the field is `REPEATER_MODE_`"]
+    #[doc = "Checks if the value of the field is `REPEATER`"]
     #[inline]
-    pub fn is_repeater_mode_(&self) -> bool {
-        *self == MODER::REPEATER_MODE_
+    pub fn is_repeater(&self) -> bool {
+        *self == MODER::REPEATER
     }
 }
 #[doc = "Possible values of the field `HYS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HYSR {
     #[doc = "Disable."]
-    DISABLE_,
+    DISABLED,
     #[doc = "Enable."]
-    ENABLE_,
+    ENABLED,
 }
 impl HYSR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -162,8 +162,8 @@ impl HYSR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            HYSR::DISABLE_ => false,
-            HYSR::ENABLE_ => true,
+            HYSR::DISABLED => false,
+            HYSR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -171,28 +171,28 @@ impl HYSR {
     #[inline]
     pub fn _from(value: bool) -> HYSR {
         match value {
-            false => HYSR::DISABLE_,
-            true => HYSR::ENABLE_,
+            false => HYSR::DISABLED,
+            true => HYSR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable_(&self) -> bool {
-        *self == HYSR::DISABLE_
+    pub fn is_disabled(&self) -> bool {
+        *self == HYSR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable_(&self) -> bool {
-        *self == HYSR::ENABLE_
+    pub fn is_enabled(&self) -> bool {
+        *self == HYSR::ENABLED
     }
 }
 #[doc = "Possible values of the field `INV`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INVR {
     #[doc = "Input not inverted (HIGH on pin reads as 1, LOW on pin reads as 0)."]
-    INPUT_NOT_INVERTED_,
+    NOT_INVERTED,
     #[doc = "Input inverted (HIGH on pin reads as 0, LOW on pin reads as 1)."]
-    INPUT_INVERTED_HIGH,
+    INVERTED,
 }
 impl INVR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -209,8 +209,8 @@ impl INVR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            INVR::INPUT_NOT_INVERTED_ => false,
-            INVR::INPUT_INVERTED_HIGH => true,
+            INVR::NOT_INVERTED => false,
+            INVR::INVERTED => true,
         }
     }
     #[allow(missing_docs)]
@@ -218,28 +218,28 @@ impl INVR {
     #[inline]
     pub fn _from(value: bool) -> INVR {
         match value {
-            false => INVR::INPUT_NOT_INVERTED_,
-            true => INVR::INPUT_INVERTED_HIGH,
+            false => INVR::NOT_INVERTED,
+            true => INVR::INVERTED,
         }
     }
-    #[doc = "Checks if the value of the field is `INPUT_NOT_INVERTED_`"]
+    #[doc = "Checks if the value of the field is `NOT_INVERTED`"]
     #[inline]
-    pub fn is_input_not_inverted_(&self) -> bool {
-        *self == INVR::INPUT_NOT_INVERTED_
+    pub fn is_not_inverted(&self) -> bool {
+        *self == INVR::NOT_INVERTED
     }
-    #[doc = "Checks if the value of the field is `INPUT_INVERTED_HIGH`"]
+    #[doc = "Checks if the value of the field is `INVERTED`"]
     #[inline]
-    pub fn is_input_inverted_high(&self) -> bool {
-        *self == INVR::INPUT_INVERTED_HIGH
+    pub fn is_inverted(&self) -> bool {
+        *self == INVR::INVERTED
     }
 }
 #[doc = "Possible values of the field `OD`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ODR {
     #[doc = "Disable."]
-    DISABLE_,
+    DISABLED,
     #[doc = "Open-drain mode enabled.  This is not a true open-drain mode."]
-    OPEN_DRAIN_MODE_ENAB,
+    OPEN_DRAIN,
 }
 impl ODR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -256,8 +256,8 @@ impl ODR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            ODR::DISABLE_ => false,
-            ODR::OPEN_DRAIN_MODE_ENAB => true,
+            ODR::DISABLED => false,
+            ODR::OPEN_DRAIN => true,
         }
     }
     #[allow(missing_docs)]
@@ -265,27 +265,27 @@ impl ODR {
     #[inline]
     pub fn _from(value: bool) -> ODR {
         match value {
-            false => ODR::DISABLE_,
-            true => ODR::OPEN_DRAIN_MODE_ENAB,
+            false => ODR::DISABLED,
+            true => ODR::OPEN_DRAIN,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable_(&self) -> bool {
-        *self == ODR::DISABLE_
+    pub fn is_disabled(&self) -> bool {
+        *self == ODR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `OPEN_DRAIN_MODE_ENAB`"]
+    #[doc = "Checks if the value of the field is `OPEN_DRAIN`"]
     #[inline]
-    pub fn is_open_drain_mode_enab(&self) -> bool {
-        *self == ODR::OPEN_DRAIN_MODE_ENAB
+    pub fn is_open_drain(&self) -> bool {
+        *self == ODR::OPEN_DRAIN
     }
 }
 #[doc = "Values that can be written to the field `FUNC`"]
 pub enum FUNCW {
     #[doc = "PIO0_20."]
-    PIO0_20_,
+    PIO0_20,
     #[doc = "CT16B1_CAP0."]
-    CT16B1_CAP0_,
+    CT16B1_CAP0,
 }
 impl FUNCW {
     #[allow(missing_docs)]
@@ -293,8 +293,8 @@ impl FUNCW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            FUNCW::PIO0_20_ => 0,
-            FUNCW::CT16B1_CAP0_ => 1,
+            FUNCW::PIO0_20 => 0,
+            FUNCW::CT16B1_CAP0 => 1,
         }
     }
 }
@@ -310,13 +310,13 @@ impl<'a> _FUNCW<'a> {
     }
     #[doc = "PIO0_20."]
     #[inline]
-    pub fn pio0_20_(self) -> &'a mut W {
-        self.variant(FUNCW::PIO0_20_)
+    pub fn pio0_20(self) -> &'a mut W {
+        self.variant(FUNCW::PIO0_20)
     }
     #[doc = "CT16B1_CAP0."]
     #[inline]
-    pub fn ct16b1_cap0_(self) -> &'a mut W {
-        self.variant(FUNCW::CT16B1_CAP0_)
+    pub fn ct16b1_cap0(self) -> &'a mut W {
+        self.variant(FUNCW::CT16B1_CAP0)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -331,13 +331,13 @@ impl<'a> _FUNCW<'a> {
 #[doc = "Values that can be written to the field `MODE`"]
 pub enum MODEW {
     #[doc = "Inactive (no pull-down/pull-up resistor enabled)."]
-    INACTIVE_NO_PULL_DO,
+    INACTIVE,
     #[doc = "Pull-down resistor enabled."]
-    PULL_DOWN_RESISTOR_E,
+    PULL_DOWN,
     #[doc = "Pull-up resistor enabled."]
-    PULL_UP_RESISTOR_ENA,
+    PULL_UP,
     #[doc = "Repeater mode."]
-    REPEATER_MODE_,
+    REPEATER,
 }
 impl MODEW {
     #[allow(missing_docs)]
@@ -345,10 +345,10 @@ impl MODEW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            MODEW::INACTIVE_NO_PULL_DO => 0,
-            MODEW::PULL_DOWN_RESISTOR_E => 1,
-            MODEW::PULL_UP_RESISTOR_ENA => 2,
-            MODEW::REPEATER_MODE_ => 3,
+            MODEW::INACTIVE => 0,
+            MODEW::PULL_DOWN => 1,
+            MODEW::PULL_UP => 2,
+            MODEW::REPEATER => 3,
         }
     }
 }
@@ -366,23 +366,23 @@ impl<'a> _MODEW<'a> {
     }
     #[doc = "Inactive (no pull-down/pull-up resistor enabled)."]
     #[inline]
-    pub fn inactive_no_pull_do(self) -> &'a mut W {
-        self.variant(MODEW::INACTIVE_NO_PULL_DO)
+    pub fn inactive(self) -> &'a mut W {
+        self.variant(MODEW::INACTIVE)
     }
     #[doc = "Pull-down resistor enabled."]
     #[inline]
-    pub fn pull_down_resistor_e(self) -> &'a mut W {
-        self.variant(MODEW::PULL_DOWN_RESISTOR_E)
+    pub fn pull_down(self) -> &'a mut W {
+        self.variant(MODEW::PULL_DOWN)
     }
     #[doc = "Pull-up resistor enabled."]
     #[inline]
-    pub fn pull_up_resistor_ena(self) -> &'a mut W {
-        self.variant(MODEW::PULL_UP_RESISTOR_ENA)
+    pub fn pull_up(self) -> &'a mut W {
+        self.variant(MODEW::PULL_UP)
     }
     #[doc = "Repeater mode."]
     #[inline]
-    pub fn repeater_mode_(self) -> &'a mut W {
-        self.variant(MODEW::REPEATER_MODE_)
+    pub fn repeater(self) -> &'a mut W {
+        self.variant(MODEW::REPEATER)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -397,9 +397,9 @@ impl<'a> _MODEW<'a> {
 #[doc = "Values that can be written to the field `HYS`"]
 pub enum HYSW {
     #[doc = "Disable."]
-    DISABLE_,
+    DISABLED,
     #[doc = "Enable."]
-    ENABLE_,
+    ENABLED,
 }
 impl HYSW {
     #[allow(missing_docs)]
@@ -407,8 +407,8 @@ impl HYSW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            HYSW::DISABLE_ => false,
-            HYSW::ENABLE_ => true,
+            HYSW::DISABLED => false,
+            HYSW::ENABLED => true,
         }
     }
 }
@@ -426,13 +426,13 @@ impl<'a> _HYSW<'a> {
     }
     #[doc = "Disable."]
     #[inline]
-    pub fn disable_(self) -> &'a mut W {
-        self.variant(HYSW::DISABLE_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(HYSW::DISABLED)
     }
     #[doc = "Enable."]
     #[inline]
-    pub fn enable_(self) -> &'a mut W {
-        self.variant(HYSW::ENABLE_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(HYSW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -455,9 +455,9 @@ impl<'a> _HYSW<'a> {
 #[doc = "Values that can be written to the field `INV`"]
 pub enum INVW {
     #[doc = "Input not inverted (HIGH on pin reads as 1, LOW on pin reads as 0)."]
-    INPUT_NOT_INVERTED_,
+    NOT_INVERTED,
     #[doc = "Input inverted (HIGH on pin reads as 0, LOW on pin reads as 1)."]
-    INPUT_INVERTED_HIGH,
+    INVERTED,
 }
 impl INVW {
     #[allow(missing_docs)]
@@ -465,8 +465,8 @@ impl INVW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            INVW::INPUT_NOT_INVERTED_ => false,
-            INVW::INPUT_INVERTED_HIGH => true,
+            INVW::NOT_INVERTED => false,
+            INVW::INVERTED => true,
         }
     }
 }
@@ -484,13 +484,13 @@ impl<'a> _INVW<'a> {
     }
     #[doc = "Input not inverted (HIGH on pin reads as 1, LOW on pin reads as 0)."]
     #[inline]
-    pub fn input_not_inverted_(self) -> &'a mut W {
-        self.variant(INVW::INPUT_NOT_INVERTED_)
+    pub fn not_inverted(self) -> &'a mut W {
+        self.variant(INVW::NOT_INVERTED)
     }
     #[doc = "Input inverted (HIGH on pin reads as 0, LOW on pin reads as 1)."]
     #[inline]
-    pub fn input_inverted_high(self) -> &'a mut W {
-        self.variant(INVW::INPUT_INVERTED_HIGH)
+    pub fn inverted(self) -> &'a mut W {
+        self.variant(INVW::INVERTED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -513,9 +513,9 @@ impl<'a> _INVW<'a> {
 #[doc = "Values that can be written to the field `OD`"]
 pub enum ODW {
     #[doc = "Disable."]
-    DISABLE_,
+    DISABLED,
     #[doc = "Open-drain mode enabled.  This is not a true open-drain mode."]
-    OPEN_DRAIN_MODE_ENAB,
+    OPEN_DRAIN,
 }
 impl ODW {
     #[allow(missing_docs)]
@@ -523,8 +523,8 @@ impl ODW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            ODW::DISABLE_ => false,
-            ODW::OPEN_DRAIN_MODE_ENAB => true,
+            ODW::DISABLED => false,
+            ODW::OPEN_DRAIN => true,
         }
     }
 }
@@ -542,13 +542,13 @@ impl<'a> _ODW<'a> {
     }
     #[doc = "Disable."]
     #[inline]
-    pub fn disable_(self) -> &'a mut W {
-        self.variant(ODW::DISABLE_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(ODW::DISABLED)
     }
     #[doc = "Open-drain mode enabled. This is not a true open-drain mode."]
     #[inline]
-    pub fn open_drain_mode_enab(self) -> &'a mut W {
-        self.variant(ODW::OPEN_DRAIN_MODE_ENAB)
+    pub fn open_drain(self) -> &'a mut W {
+        self.variant(ODW::OPEN_DRAIN)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

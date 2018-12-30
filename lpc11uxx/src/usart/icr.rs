@@ -46,9 +46,9 @@ impl super::ICR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IRDAENR {
     #[doc = "IrDA mode is disabled, USARTn acts as a standard USART."]
-    IRDA_MODE_IS_DISABLE,
+    DISABLED,
     #[doc = "IrDA mode is enabled."]
-    IRDA_MODE_IS_ENABLED,
+    ENABLED,
 }
 impl IRDAENR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl IRDAENR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            IRDAENR::IRDA_MODE_IS_DISABLE => false,
-            IRDAENR::IRDA_MODE_IS_ENABLED => true,
+            IRDAENR::DISABLED => false,
+            IRDAENR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -74,19 +74,19 @@ impl IRDAENR {
     #[inline]
     pub fn _from(value: bool) -> IRDAENR {
         match value {
-            false => IRDAENR::IRDA_MODE_IS_DISABLE,
-            true => IRDAENR::IRDA_MODE_IS_ENABLED,
+            false => IRDAENR::DISABLED,
+            true => IRDAENR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `IRDA_MODE_IS_DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_irda_mode_is_disable(&self) -> bool {
-        *self == IRDAENR::IRDA_MODE_IS_DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == IRDAENR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `IRDA_MODE_IS_ENABLED`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_irda_mode_is_enabled(&self) -> bool {
-        *self == IRDAENR::IRDA_MODE_IS_ENABLED
+    pub fn is_enabled(&self) -> bool {
+        *self == IRDAENR::ENABLED
     }
 }
 #[doc = "Possible values of the field `IRDAINV`"]
@@ -278,9 +278,9 @@ impl PULSEDIVR {
 #[doc = "Values that can be written to the field `IRDAEN`"]
 pub enum IRDAENW {
     #[doc = "IrDA mode is disabled, USARTn acts as a standard USART."]
-    IRDA_MODE_IS_DISABLE,
+    DISABLED,
     #[doc = "IrDA mode is enabled."]
-    IRDA_MODE_IS_ENABLED,
+    ENABLED,
 }
 impl IRDAENW {
     #[allow(missing_docs)]
@@ -288,8 +288,8 @@ impl IRDAENW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            IRDAENW::IRDA_MODE_IS_DISABLE => false,
-            IRDAENW::IRDA_MODE_IS_ENABLED => true,
+            IRDAENW::DISABLED => false,
+            IRDAENW::ENABLED => true,
         }
     }
 }
@@ -307,13 +307,13 @@ impl<'a> _IRDAENW<'a> {
     }
     #[doc = "IrDA mode is disabled, USARTn acts as a standard USART."]
     #[inline]
-    pub fn irda_mode_is_disable(self) -> &'a mut W {
-        self.variant(IRDAENW::IRDA_MODE_IS_DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(IRDAENW::DISABLED)
     }
     #[doc = "IrDA mode is enabled."]
     #[inline]
-    pub fn irda_mode_is_enabled(self) -> &'a mut W {
-        self.variant(IRDAENW::IRDA_MODE_IS_ENABLED)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(IRDAENW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

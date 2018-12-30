@@ -140,9 +140,9 @@ impl EXTRSTR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WDTR {
     #[doc = "No WDT reset detected"]
-    NO_WDT_RESET_DETECTE,
+    NO_RESET,
     #[doc = "WDT reset detected. Writing a one clears this reset."]
-    WDT_RESET_DETECTED_,
+    RESET_CLEAR,
 }
 impl WDTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -159,8 +159,8 @@ impl WDTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            WDTR::NO_WDT_RESET_DETECTE => false,
-            WDTR::WDT_RESET_DETECTED_ => true,
+            WDTR::NO_RESET => false,
+            WDTR::RESET_CLEAR => true,
         }
     }
     #[allow(missing_docs)]
@@ -168,28 +168,28 @@ impl WDTR {
     #[inline]
     pub fn _from(value: bool) -> WDTR {
         match value {
-            false => WDTR::NO_WDT_RESET_DETECTE,
-            true => WDTR::WDT_RESET_DETECTED_,
+            false => WDTR::NO_RESET,
+            true => WDTR::RESET_CLEAR,
         }
     }
-    #[doc = "Checks if the value of the field is `NO_WDT_RESET_DETECTE`"]
+    #[doc = "Checks if the value of the field is `NO_RESET`"]
     #[inline]
-    pub fn is_no_wdt_reset_detecte(&self) -> bool {
-        *self == WDTR::NO_WDT_RESET_DETECTE
+    pub fn is_no_reset(&self) -> bool {
+        *self == WDTR::NO_RESET
     }
-    #[doc = "Checks if the value of the field is `WDT_RESET_DETECTED_`"]
+    #[doc = "Checks if the value of the field is `RESET_CLEAR`"]
     #[inline]
-    pub fn is_wdt_reset_detected_(&self) -> bool {
-        *self == WDTR::WDT_RESET_DETECTED_
+    pub fn is_reset_clear(&self) -> bool {
+        *self == WDTR::RESET_CLEAR
     }
 }
 #[doc = "Possible values of the field `BOD`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BODR {
     #[doc = "No BOD reset detected"]
-    NO_BOD_RESET_DETECTE,
+    NO_RESET,
     #[doc = "BOD reset detected. Writing a one clears this reset."]
-    BOD_RESET_DETECTED_,
+    RESET_CLEAR,
 }
 impl BODR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -206,8 +206,8 @@ impl BODR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            BODR::NO_BOD_RESET_DETECTE => false,
-            BODR::BOD_RESET_DETECTED_ => true,
+            BODR::NO_RESET => false,
+            BODR::RESET_CLEAR => true,
         }
     }
     #[allow(missing_docs)]
@@ -215,19 +215,19 @@ impl BODR {
     #[inline]
     pub fn _from(value: bool) -> BODR {
         match value {
-            false => BODR::NO_BOD_RESET_DETECTE,
-            true => BODR::BOD_RESET_DETECTED_,
+            false => BODR::NO_RESET,
+            true => BODR::RESET_CLEAR,
         }
     }
-    #[doc = "Checks if the value of the field is `NO_BOD_RESET_DETECTE`"]
+    #[doc = "Checks if the value of the field is `NO_RESET`"]
     #[inline]
-    pub fn is_no_bod_reset_detecte(&self) -> bool {
-        *self == BODR::NO_BOD_RESET_DETECTE
+    pub fn is_no_reset(&self) -> bool {
+        *self == BODR::NO_RESET
     }
-    #[doc = "Checks if the value of the field is `BOD_RESET_DETECTED_`"]
+    #[doc = "Checks if the value of the field is `RESET_CLEAR`"]
     #[inline]
-    pub fn is_bod_reset_detected_(&self) -> bool {
-        *self == BODR::BOD_RESET_DETECTED_
+    pub fn is_reset_clear(&self) -> bool {
+        *self == BODR::RESET_CLEAR
     }
 }
 #[doc = "Possible values of the field `SYSRST`"]
@@ -396,9 +396,9 @@ impl<'a> _EXTRSTW<'a> {
 #[doc = "Values that can be written to the field `WDT`"]
 pub enum WDTW {
     #[doc = "No WDT reset detected"]
-    NO_WDT_RESET_DETECTE,
+    NO_RESET,
     #[doc = "WDT reset detected. Writing a one clears this reset."]
-    WDT_RESET_DETECTED_,
+    RESET_CLEAR,
 }
 impl WDTW {
     #[allow(missing_docs)]
@@ -406,8 +406,8 @@ impl WDTW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            WDTW::NO_WDT_RESET_DETECTE => false,
-            WDTW::WDT_RESET_DETECTED_ => true,
+            WDTW::NO_RESET => false,
+            WDTW::RESET_CLEAR => true,
         }
     }
 }
@@ -425,13 +425,13 @@ impl<'a> _WDTW<'a> {
     }
     #[doc = "No WDT reset detected"]
     #[inline]
-    pub fn no_wdt_reset_detecte(self) -> &'a mut W {
-        self.variant(WDTW::NO_WDT_RESET_DETECTE)
+    pub fn no_reset(self) -> &'a mut W {
+        self.variant(WDTW::NO_RESET)
     }
     #[doc = "WDT reset detected. Writing a one clears this reset."]
     #[inline]
-    pub fn wdt_reset_detected_(self) -> &'a mut W {
-        self.variant(WDTW::WDT_RESET_DETECTED_)
+    pub fn reset_clear(self) -> &'a mut W {
+        self.variant(WDTW::RESET_CLEAR)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -454,9 +454,9 @@ impl<'a> _WDTW<'a> {
 #[doc = "Values that can be written to the field `BOD`"]
 pub enum BODW {
     #[doc = "No BOD reset detected"]
-    NO_BOD_RESET_DETECTE,
+    NO_RESET,
     #[doc = "BOD reset detected. Writing a one clears this reset."]
-    BOD_RESET_DETECTED_,
+    RESET_CLEAR,
 }
 impl BODW {
     #[allow(missing_docs)]
@@ -464,8 +464,8 @@ impl BODW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            BODW::NO_BOD_RESET_DETECTE => false,
-            BODW::BOD_RESET_DETECTED_ => true,
+            BODW::NO_RESET => false,
+            BODW::RESET_CLEAR => true,
         }
     }
 }
@@ -483,13 +483,13 @@ impl<'a> _BODW<'a> {
     }
     #[doc = "No BOD reset detected"]
     #[inline]
-    pub fn no_bod_reset_detecte(self) -> &'a mut W {
-        self.variant(BODW::NO_BOD_RESET_DETECTE)
+    pub fn no_reset(self) -> &'a mut W {
+        self.variant(BODW::NO_RESET)
     }
     #[doc = "BOD reset detected. Writing a one clears this reset."]
     #[inline]
-    pub fn bod_reset_detected_(self) -> &'a mut W {
-        self.variant(BODW::BOD_RESET_DETECTED_)
+    pub fn reset_clear(self) -> &'a mut W {
+        self.variant(BODW::RESET_CLEAR)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

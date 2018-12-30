@@ -48,7 +48,7 @@ pub enum SELR {
     #[doc = "IRC oscillator"]
     IRC_OSCILLATOR,
     #[doc = "Crystal oscillator (SYSOSC)"]
-    CRYSTAL_OSCILLATOR_,
+    CRYSTAL_OSCILLATOR,
     #[doc = "LF oscillator (watchdog oscillator)"]
     LF_OSCILLATOR_WATCH,
     #[doc = "Main clock"]
@@ -60,7 +60,7 @@ impl SELR {
     pub fn bits(&self) -> u8 {
         match *self {
             SELR::IRC_OSCILLATOR => 0,
-            SELR::CRYSTAL_OSCILLATOR_ => 1,
+            SELR::CRYSTAL_OSCILLATOR => 1,
             SELR::LF_OSCILLATOR_WATCH => 2,
             SELR::MAIN_CLOCK => 3,
         }
@@ -71,7 +71,7 @@ impl SELR {
     pub fn _from(value: u8) -> SELR {
         match value {
             0 => SELR::IRC_OSCILLATOR,
-            1 => SELR::CRYSTAL_OSCILLATOR_,
+            1 => SELR::CRYSTAL_OSCILLATOR,
             2 => SELR::LF_OSCILLATOR_WATCH,
             3 => SELR::MAIN_CLOCK,
             _ => unreachable!(),
@@ -82,10 +82,10 @@ impl SELR {
     pub fn is_irc_oscillator(&self) -> bool {
         *self == SELR::IRC_OSCILLATOR
     }
-    #[doc = "Checks if the value of the field is `CRYSTAL_OSCILLATOR_`"]
+    #[doc = "Checks if the value of the field is `CRYSTAL_OSCILLATOR`"]
     #[inline]
-    pub fn is_crystal_oscillator_(&self) -> bool {
-        *self == SELR::CRYSTAL_OSCILLATOR_
+    pub fn is_crystal_oscillator(&self) -> bool {
+        *self == SELR::CRYSTAL_OSCILLATOR
     }
     #[doc = "Checks if the value of the field is `LF_OSCILLATOR_WATCH`"]
     #[inline]
@@ -103,7 +103,7 @@ pub enum SELW {
     #[doc = "IRC oscillator"]
     IRC_OSCILLATOR,
     #[doc = "Crystal oscillator (SYSOSC)"]
-    CRYSTAL_OSCILLATOR_,
+    CRYSTAL_OSCILLATOR,
     #[doc = "LF oscillator (watchdog oscillator)"]
     LF_OSCILLATOR_WATCH,
     #[doc = "Main clock"]
@@ -116,7 +116,7 @@ impl SELW {
     pub fn _bits(&self) -> u8 {
         match *self {
             SELW::IRC_OSCILLATOR => 0,
-            SELW::CRYSTAL_OSCILLATOR_ => 1,
+            SELW::CRYSTAL_OSCILLATOR => 1,
             SELW::LF_OSCILLATOR_WATCH => 2,
             SELW::MAIN_CLOCK => 3,
         }
@@ -141,8 +141,8 @@ impl<'a> _SELW<'a> {
     }
     #[doc = "Crystal oscillator (SYSOSC)"]
     #[inline]
-    pub fn crystal_oscillator_(self) -> &'a mut W {
-        self.variant(SELW::CRYSTAL_OSCILLATOR_)
+    pub fn crystal_oscillator(self) -> &'a mut W {
+        self.variant(SELW::CRYSTAL_OSCILLATOR)
     }
     #[doc = "LF oscillator (watchdog oscillator)"]
     #[inline]

@@ -93,9 +93,9 @@ impl NMMENR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RXDISR {
     #[doc = "The receiver is enabled."]
-    THE_RECEIVER_IS_ENAB,
+    ENABLED,
     #[doc = "The receiver is disabled."]
-    THE_RECEIVER_IS_DISA,
+    DISABLED,
 }
 impl RXDISR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -112,8 +112,8 @@ impl RXDISR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            RXDISR::THE_RECEIVER_IS_ENAB => false,
-            RXDISR::THE_RECEIVER_IS_DISA => true,
+            RXDISR::ENABLED => false,
+            RXDISR::DISABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -121,28 +121,28 @@ impl RXDISR {
     #[inline]
     pub fn _from(value: bool) -> RXDISR {
         match value {
-            false => RXDISR::THE_RECEIVER_IS_ENAB,
-            true => RXDISR::THE_RECEIVER_IS_DISA,
+            false => RXDISR::ENABLED,
+            true => RXDISR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `THE_RECEIVER_IS_ENAB`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_the_receiver_is_enab(&self) -> bool {
-        *self == RXDISR::THE_RECEIVER_IS_ENAB
+    pub fn is_enabled(&self) -> bool {
+        *self == RXDISR::ENABLED
     }
-    #[doc = "Checks if the value of the field is `THE_RECEIVER_IS_DISA`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_the_receiver_is_disa(&self) -> bool {
-        *self == RXDISR::THE_RECEIVER_IS_DISA
+    pub fn is_disabled(&self) -> bool {
+        *self == RXDISR::DISABLED
     }
 }
 #[doc = "Possible values of the field `AADEN`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AADENR {
     #[doc = "Auto Address Detect (AAD) is disabled."]
-    AUTO_ADDRESS_DETECT_DISABLE,
+    DISABLED,
     #[doc = "Auto Address Detect (AAD) is enabled."]
-    AUTO_ADDRESS_DETECT_ENABLE,
+    ENABLED,
 }
 impl AADENR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -159,8 +159,8 @@ impl AADENR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            AADENR::AUTO_ADDRESS_DETECT_DISABLE => false,
-            AADENR::AUTO_ADDRESS_DETECT_ENABLE => true,
+            AADENR::DISABLED => false,
+            AADENR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -168,19 +168,19 @@ impl AADENR {
     #[inline]
     pub fn _from(value: bool) -> AADENR {
         match value {
-            false => AADENR::AUTO_ADDRESS_DETECT_DISABLE,
-            true => AADENR::AUTO_ADDRESS_DETECT_ENABLE,
+            false => AADENR::DISABLED,
+            true => AADENR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `AUTO_ADDRESS_DETECT_DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_auto_address_detect_disable(&self) -> bool {
-        *self == AADENR::AUTO_ADDRESS_DETECT_DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == AADENR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `AUTO_ADDRESS_DETECT_ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_auto_address_detect_enable(&self) -> bool {
-        *self == AADENR::AUTO_ADDRESS_DETECT_ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == AADENR::ENABLED
     }
 }
 #[doc = "Possible values of the field `SEL`"]
@@ -385,9 +385,9 @@ impl<'a> _NMMENW<'a> {
 #[doc = "Values that can be written to the field `RXDIS`"]
 pub enum RXDISW {
     #[doc = "The receiver is enabled."]
-    THE_RECEIVER_IS_ENAB,
+    ENABLED,
     #[doc = "The receiver is disabled."]
-    THE_RECEIVER_IS_DISA,
+    DISABLED,
 }
 impl RXDISW {
     #[allow(missing_docs)]
@@ -395,8 +395,8 @@ impl RXDISW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            RXDISW::THE_RECEIVER_IS_ENAB => false,
-            RXDISW::THE_RECEIVER_IS_DISA => true,
+            RXDISW::ENABLED => false,
+            RXDISW::DISABLED => true,
         }
     }
 }
@@ -414,13 +414,13 @@ impl<'a> _RXDISW<'a> {
     }
     #[doc = "The receiver is enabled."]
     #[inline]
-    pub fn the_receiver_is_enab(self) -> &'a mut W {
-        self.variant(RXDISW::THE_RECEIVER_IS_ENAB)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(RXDISW::ENABLED)
     }
     #[doc = "The receiver is disabled."]
     #[inline]
-    pub fn the_receiver_is_disa(self) -> &'a mut W {
-        self.variant(RXDISW::THE_RECEIVER_IS_DISA)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(RXDISW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -443,9 +443,9 @@ impl<'a> _RXDISW<'a> {
 #[doc = "Values that can be written to the field `AADEN`"]
 pub enum AADENW {
     #[doc = "Auto Address Detect (AAD) is disabled."]
-    AUTO_ADDRESS_DETECT_DISABLE,
+    DISABLED,
     #[doc = "Auto Address Detect (AAD) is enabled."]
-    AUTO_ADDRESS_DETECT_ENABLE,
+    ENABLED,
 }
 impl AADENW {
     #[allow(missing_docs)]
@@ -453,8 +453,8 @@ impl AADENW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            AADENW::AUTO_ADDRESS_DETECT_DISABLE => false,
-            AADENW::AUTO_ADDRESS_DETECT_ENABLE => true,
+            AADENW::DISABLED => false,
+            AADENW::ENABLED => true,
         }
     }
 }
@@ -472,13 +472,13 @@ impl<'a> _AADENW<'a> {
     }
     #[doc = "Auto Address Detect (AAD) is disabled."]
     #[inline]
-    pub fn auto_address_detect_disable(self) -> &'a mut W {
-        self.variant(AADENW::AUTO_ADDRESS_DETECT_DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(AADENW::DISABLED)
     }
     #[doc = "Auto Address Detect (AAD) is enabled."]
     #[inline]
-    pub fn auto_address_detect_enable(self) -> &'a mut W {
-        self.variant(AADENW::AUTO_ADDRESS_DETECT_ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(AADENW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

@@ -48,11 +48,11 @@ pub enum CTMR {
     #[doc = "Timer Mode: every rising PCLK edge"]
     TIMER_MODE_EVERY_RI,
     #[doc = "Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2."]
-    COUNTER_MODE_TC_IS_RISING,
+    RISING,
     #[doc = "Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2."]
-    COUNTER_MODE_TC_IS_FALLING,
+    FALLING,
     #[doc = "Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2."]
-    COUNTER_MODE_TC_IS_BOTH,
+    BOTH,
 }
 impl CTMR {
     #[doc = r" Value of the field as raw bits"]
@@ -60,9 +60,9 @@ impl CTMR {
     pub fn bits(&self) -> u8 {
         match *self {
             CTMR::TIMER_MODE_EVERY_RI => 0,
-            CTMR::COUNTER_MODE_TC_IS_RISING => 1,
-            CTMR::COUNTER_MODE_TC_IS_FALLING => 2,
-            CTMR::COUNTER_MODE_TC_IS_BOTH => 3,
+            CTMR::RISING => 1,
+            CTMR::FALLING => 2,
+            CTMR::BOTH => 3,
         }
     }
     #[allow(missing_docs)]
@@ -71,9 +71,9 @@ impl CTMR {
     pub fn _from(value: u8) -> CTMR {
         match value {
             0 => CTMR::TIMER_MODE_EVERY_RI,
-            1 => CTMR::COUNTER_MODE_TC_IS_RISING,
-            2 => CTMR::COUNTER_MODE_TC_IS_FALLING,
-            3 => CTMR::COUNTER_MODE_TC_IS_BOTH,
+            1 => CTMR::RISING,
+            2 => CTMR::FALLING,
+            3 => CTMR::BOTH,
             _ => unreachable!(),
         }
     }
@@ -82,29 +82,29 @@ impl CTMR {
     pub fn is_timer_mode_every_ri(&self) -> bool {
         *self == CTMR::TIMER_MODE_EVERY_RI
     }
-    #[doc = "Checks if the value of the field is `COUNTER_MODE_TC_IS_RISING`"]
+    #[doc = "Checks if the value of the field is `RISING`"]
     #[inline]
-    pub fn is_counter_mode_tc_is_rising(&self) -> bool {
-        *self == CTMR::COUNTER_MODE_TC_IS_RISING
+    pub fn is_rising(&self) -> bool {
+        *self == CTMR::RISING
     }
-    #[doc = "Checks if the value of the field is `COUNTER_MODE_TC_IS_FALLING`"]
+    #[doc = "Checks if the value of the field is `FALLING`"]
     #[inline]
-    pub fn is_counter_mode_tc_is_falling(&self) -> bool {
-        *self == CTMR::COUNTER_MODE_TC_IS_FALLING
+    pub fn is_falling(&self) -> bool {
+        *self == CTMR::FALLING
     }
-    #[doc = "Checks if the value of the field is `COUNTER_MODE_TC_IS_BOTH`"]
+    #[doc = "Checks if the value of the field is `BOTH`"]
     #[inline]
-    pub fn is_counter_mode_tc_is_both(&self) -> bool {
-        *self == CTMR::COUNTER_MODE_TC_IS_BOTH
+    pub fn is_both(&self) -> bool {
+        *self == CTMR::BOTH
     }
 }
 #[doc = "Possible values of the field `CIS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CISR {
     #[doc = "CT16B1_CAP0."]
-    CT16B1_CAP0_,
+    CT16B1_CAP0,
     #[doc = "CT16B1_CAP1."]
-    CT16B1_CAP1_,
+    CT16B1_CAP1,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -113,8 +113,8 @@ impl CISR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            CISR::CT16B1_CAP0_ => 0,
-            CISR::CT16B1_CAP1_ => 1,
+            CISR::CT16B1_CAP0 => 0,
+            CISR::CT16B1_CAP1 => 1,
             CISR::_Reserved(bits) => bits,
         }
     }
@@ -123,20 +123,20 @@ impl CISR {
     #[inline]
     pub fn _from(value: u8) -> CISR {
         match value {
-            0 => CISR::CT16B1_CAP0_,
-            1 => CISR::CT16B1_CAP1_,
+            0 => CISR::CT16B1_CAP0,
+            1 => CISR::CT16B1_CAP1,
             i => CISR::_Reserved(i),
         }
     }
-    #[doc = "Checks if the value of the field is `CT16B1_CAP0_`"]
+    #[doc = "Checks if the value of the field is `CT16B1_CAP0`"]
     #[inline]
-    pub fn is_ct16b1_cap0_(&self) -> bool {
-        *self == CISR::CT16B1_CAP0_
+    pub fn is_ct16b1_cap0(&self) -> bool {
+        *self == CISR::CT16B1_CAP0
     }
-    #[doc = "Checks if the value of the field is `CT16B1_CAP1_`"]
+    #[doc = "Checks if the value of the field is `CT16B1_CAP1`"]
     #[inline]
-    pub fn is_ct16b1_cap1_(&self) -> bool {
-        *self == CISR::CT16B1_CAP1_
+    pub fn is_ct16b1_cap1(&self) -> bool {
+        *self == CISR::CT16B1_CAP1
     }
 }
 #[doc = r" Value of the field"]
@@ -242,11 +242,11 @@ pub enum CTMW {
     #[doc = "Timer Mode: every rising PCLK edge"]
     TIMER_MODE_EVERY_RI,
     #[doc = "Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2."]
-    COUNTER_MODE_TC_IS_RISING,
+    RISING,
     #[doc = "Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2."]
-    COUNTER_MODE_TC_IS_FALLING,
+    FALLING,
     #[doc = "Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2."]
-    COUNTER_MODE_TC_IS_BOTH,
+    BOTH,
 }
 impl CTMW {
     #[allow(missing_docs)]
@@ -255,9 +255,9 @@ impl CTMW {
     pub fn _bits(&self) -> u8 {
         match *self {
             CTMW::TIMER_MODE_EVERY_RI => 0,
-            CTMW::COUNTER_MODE_TC_IS_RISING => 1,
-            CTMW::COUNTER_MODE_TC_IS_FALLING => 2,
-            CTMW::COUNTER_MODE_TC_IS_BOTH => 3,
+            CTMW::RISING => 1,
+            CTMW::FALLING => 2,
+            CTMW::BOTH => 3,
         }
     }
 }
@@ -280,18 +280,18 @@ impl<'a> _CTMW<'a> {
     }
     #[doc = "Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2."]
     #[inline]
-    pub fn counter_mode_tc_is_rising(self) -> &'a mut W {
-        self.variant(CTMW::COUNTER_MODE_TC_IS_RISING)
+    pub fn rising(self) -> &'a mut W {
+        self.variant(CTMW::RISING)
     }
     #[doc = "Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2."]
     #[inline]
-    pub fn counter_mode_tc_is_falling(self) -> &'a mut W {
-        self.variant(CTMW::COUNTER_MODE_TC_IS_FALLING)
+    pub fn falling(self) -> &'a mut W {
+        self.variant(CTMW::FALLING)
     }
     #[doc = "Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2."]
     #[inline]
-    pub fn counter_mode_tc_is_both(self) -> &'a mut W {
-        self.variant(CTMW::COUNTER_MODE_TC_IS_BOTH)
+    pub fn both(self) -> &'a mut W {
+        self.variant(CTMW::BOTH)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -306,9 +306,9 @@ impl<'a> _CTMW<'a> {
 #[doc = "Values that can be written to the field `CIS`"]
 pub enum CISW {
     #[doc = "CT16B1_CAP0."]
-    CT16B1_CAP0_,
+    CT16B1_CAP0,
     #[doc = "CT16B1_CAP1."]
-    CT16B1_CAP1_,
+    CT16B1_CAP1,
 }
 impl CISW {
     #[allow(missing_docs)]
@@ -316,8 +316,8 @@ impl CISW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            CISW::CT16B1_CAP0_ => 0,
-            CISW::CT16B1_CAP1_ => 1,
+            CISW::CT16B1_CAP0 => 0,
+            CISW::CT16B1_CAP1 => 1,
         }
     }
 }
@@ -333,13 +333,13 @@ impl<'a> _CISW<'a> {
     }
     #[doc = "CT16B1_CAP0."]
     #[inline]
-    pub fn ct16b1_cap0_(self) -> &'a mut W {
-        self.variant(CISW::CT16B1_CAP0_)
+    pub fn ct16b1_cap0(self) -> &'a mut W {
+        self.variant(CISW::CT16B1_CAP0)
     }
     #[doc = "CT16B1_CAP1."]
     #[inline]
-    pub fn ct16b1_cap1_(self) -> &'a mut W {
-        self.variant(CISW::CT16B1_CAP1_)
+    pub fn ct16b1_cap1(self) -> &'a mut W {
+        self.variant(CISW::CT16B1_CAP1)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

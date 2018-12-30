@@ -102,9 +102,9 @@ impl WLSR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SBSR {
     #[doc = "1 stop bit."]
-    _1_STOP_BIT_,
+    _1_STOP_BIT,
     #[doc = "2 stop bits (1.5 if LCR\\[1:0\\]=00)."]
-    _2_STOP_BITS_1_5_IF_,
+    _2_STOP_BITS_1_5_IF,
 }
 impl SBSR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -121,8 +121,8 @@ impl SBSR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            SBSR::_1_STOP_BIT_ => false,
-            SBSR::_2_STOP_BITS_1_5_IF_ => true,
+            SBSR::_1_STOP_BIT => false,
+            SBSR::_2_STOP_BITS_1_5_IF => true,
         }
     }
     #[allow(missing_docs)]
@@ -130,28 +130,28 @@ impl SBSR {
     #[inline]
     pub fn _from(value: bool) -> SBSR {
         match value {
-            false => SBSR::_1_STOP_BIT_,
-            true => SBSR::_2_STOP_BITS_1_5_IF_,
+            false => SBSR::_1_STOP_BIT,
+            true => SBSR::_2_STOP_BITS_1_5_IF,
         }
     }
-    #[doc = "Checks if the value of the field is `_1_STOP_BIT_`"]
+    #[doc = "Checks if the value of the field is `_1_STOP_BIT`"]
     #[inline]
-    pub fn is_1_stop_bit_(&self) -> bool {
-        *self == SBSR::_1_STOP_BIT_
+    pub fn is_1_stop_bit(&self) -> bool {
+        *self == SBSR::_1_STOP_BIT
     }
-    #[doc = "Checks if the value of the field is `_2_STOP_BITS_1_5_IF_`"]
+    #[doc = "Checks if the value of the field is `_2_STOP_BITS_1_5_IF`"]
     #[inline]
-    pub fn is_2_stop_bits_1_5_if_(&self) -> bool {
-        *self == SBSR::_2_STOP_BITS_1_5_IF_
+    pub fn is_2_stop_bits_1_5_if(&self) -> bool {
+        *self == SBSR::_2_STOP_BITS_1_5_IF
     }
 }
 #[doc = "Possible values of the field `PE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PER {
     #[doc = "Disable parity generation and checking."]
-    DISABLE_PARITY_GENER,
+    DISABLED,
     #[doc = "Enable parity generation and checking."]
-    ENABLE_PARITY_GENERA,
+    ENABLED,
 }
 impl PER {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -168,8 +168,8 @@ impl PER {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            PER::DISABLE_PARITY_GENER => false,
-            PER::ENABLE_PARITY_GENERA => true,
+            PER::DISABLED => false,
+            PER::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -177,42 +177,42 @@ impl PER {
     #[inline]
     pub fn _from(value: bool) -> PER {
         match value {
-            false => PER::DISABLE_PARITY_GENER,
-            true => PER::ENABLE_PARITY_GENERA,
+            false => PER::DISABLED,
+            true => PER::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE_PARITY_GENER`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable_parity_gener(&self) -> bool {
-        *self == PER::DISABLE_PARITY_GENER
+    pub fn is_disabled(&self) -> bool {
+        *self == PER::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE_PARITY_GENERA`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable_parity_genera(&self) -> bool {
-        *self == PER::ENABLE_PARITY_GENERA
+    pub fn is_enabled(&self) -> bool {
+        *self == PER::ENABLED
     }
 }
 #[doc = "Possible values of the field `PS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PSR {
     #[doc = "Odd parity. Number of 1s in the transmitted character and the attached parity bit will be odd."]
-    ODD_PARITY_NUMBER_O,
+    ODD,
     #[doc = "Even Parity. Number of 1s in the transmitted character and the attached parity bit will be even."]
-    EVEN_PARITY_NUMBER_,
+    EVEN,
     #[doc = "Forced 1 stick parity."]
-    FORCED_1_STICK_PARIT,
+    FORCED_1_STICK,
     #[doc = "Forced 0 stick parity."]
-    FORCED_0_STICK_PARIT,
+    FORCED_0_STICK,
 }
 impl PSR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            PSR::ODD_PARITY_NUMBER_O => 0,
-            PSR::EVEN_PARITY_NUMBER_ => 1,
-            PSR::FORCED_1_STICK_PARIT => 2,
-            PSR::FORCED_0_STICK_PARIT => 3,
+            PSR::ODD => 0,
+            PSR::EVEN => 1,
+            PSR::FORCED_1_STICK => 2,
+            PSR::FORCED_0_STICK => 3,
         }
     }
     #[allow(missing_docs)]
@@ -220,32 +220,32 @@ impl PSR {
     #[inline]
     pub fn _from(value: u8) -> PSR {
         match value {
-            0 => PSR::ODD_PARITY_NUMBER_O,
-            1 => PSR::EVEN_PARITY_NUMBER_,
-            2 => PSR::FORCED_1_STICK_PARIT,
-            3 => PSR::FORCED_0_STICK_PARIT,
+            0 => PSR::ODD,
+            1 => PSR::EVEN,
+            2 => PSR::FORCED_1_STICK,
+            3 => PSR::FORCED_0_STICK,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `ODD_PARITY_NUMBER_O`"]
+    #[doc = "Checks if the value of the field is `ODD`"]
     #[inline]
-    pub fn is_odd_parity_number_o(&self) -> bool {
-        *self == PSR::ODD_PARITY_NUMBER_O
+    pub fn is_odd(&self) -> bool {
+        *self == PSR::ODD
     }
-    #[doc = "Checks if the value of the field is `EVEN_PARITY_NUMBER_`"]
+    #[doc = "Checks if the value of the field is `EVEN`"]
     #[inline]
-    pub fn is_even_parity_number_(&self) -> bool {
-        *self == PSR::EVEN_PARITY_NUMBER_
+    pub fn is_even(&self) -> bool {
+        *self == PSR::EVEN
     }
-    #[doc = "Checks if the value of the field is `FORCED_1_STICK_PARIT`"]
+    #[doc = "Checks if the value of the field is `FORCED_1_STICK`"]
     #[inline]
-    pub fn is_forced_1_stick_parit(&self) -> bool {
-        *self == PSR::FORCED_1_STICK_PARIT
+    pub fn is_forced_1_stick(&self) -> bool {
+        *self == PSR::FORCED_1_STICK
     }
-    #[doc = "Checks if the value of the field is `FORCED_0_STICK_PARIT`"]
+    #[doc = "Checks if the value of the field is `FORCED_0_STICK`"]
     #[inline]
-    pub fn is_forced_0_stick_parit(&self) -> bool {
-        *self == PSR::FORCED_0_STICK_PARIT
+    pub fn is_forced_0_stick(&self) -> bool {
+        *self == PSR::FORCED_0_STICK
     }
 }
 #[doc = "Possible values of the field `BC`"]
@@ -411,9 +411,9 @@ impl<'a> _WLSW<'a> {
 #[doc = "Values that can be written to the field `SBS`"]
 pub enum SBSW {
     #[doc = "1 stop bit."]
-    _1_STOP_BIT_,
+    _1_STOP_BIT,
     #[doc = "2 stop bits (1.5 if LCR\\[1:0\\]=00)."]
-    _2_STOP_BITS_1_5_IF_,
+    _2_STOP_BITS_1_5_IF,
 }
 impl SBSW {
     #[allow(missing_docs)]
@@ -421,8 +421,8 @@ impl SBSW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            SBSW::_1_STOP_BIT_ => false,
-            SBSW::_2_STOP_BITS_1_5_IF_ => true,
+            SBSW::_1_STOP_BIT => false,
+            SBSW::_2_STOP_BITS_1_5_IF => true,
         }
     }
 }
@@ -440,13 +440,13 @@ impl<'a> _SBSW<'a> {
     }
     #[doc = "1 stop bit."]
     #[inline]
-    pub fn _1_stop_bit_(self) -> &'a mut W {
-        self.variant(SBSW::_1_STOP_BIT_)
+    pub fn _1_stop_bit(self) -> &'a mut W {
+        self.variant(SBSW::_1_STOP_BIT)
     }
     #[doc = "2 stop bits (1.5 if LCR\\[1:0\\]=00)."]
     #[inline]
-    pub fn _2_stop_bits_1_5_if_(self) -> &'a mut W {
-        self.variant(SBSW::_2_STOP_BITS_1_5_IF_)
+    pub fn _2_stop_bits_1_5_if(self) -> &'a mut W {
+        self.variant(SBSW::_2_STOP_BITS_1_5_IF)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -469,9 +469,9 @@ impl<'a> _SBSW<'a> {
 #[doc = "Values that can be written to the field `PE`"]
 pub enum PEW {
     #[doc = "Disable parity generation and checking."]
-    DISABLE_PARITY_GENER,
+    DISABLED,
     #[doc = "Enable parity generation and checking."]
-    ENABLE_PARITY_GENERA,
+    ENABLED,
 }
 impl PEW {
     #[allow(missing_docs)]
@@ -479,8 +479,8 @@ impl PEW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            PEW::DISABLE_PARITY_GENER => false,
-            PEW::ENABLE_PARITY_GENERA => true,
+            PEW::DISABLED => false,
+            PEW::ENABLED => true,
         }
     }
 }
@@ -498,13 +498,13 @@ impl<'a> _PEW<'a> {
     }
     #[doc = "Disable parity generation and checking."]
     #[inline]
-    pub fn disable_parity_gener(self) -> &'a mut W {
-        self.variant(PEW::DISABLE_PARITY_GENER)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(PEW::DISABLED)
     }
     #[doc = "Enable parity generation and checking."]
     #[inline]
-    pub fn enable_parity_genera(self) -> &'a mut W {
-        self.variant(PEW::ENABLE_PARITY_GENERA)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(PEW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -527,13 +527,13 @@ impl<'a> _PEW<'a> {
 #[doc = "Values that can be written to the field `PS`"]
 pub enum PSW {
     #[doc = "Odd parity. Number of 1s in the transmitted character and the attached parity bit will be odd."]
-    ODD_PARITY_NUMBER_O,
+    ODD,
     #[doc = "Even Parity. Number of 1s in the transmitted character and the attached parity bit will be even."]
-    EVEN_PARITY_NUMBER_,
+    EVEN,
     #[doc = "Forced 1 stick parity."]
-    FORCED_1_STICK_PARIT,
+    FORCED_1_STICK,
     #[doc = "Forced 0 stick parity."]
-    FORCED_0_STICK_PARIT,
+    FORCED_0_STICK,
 }
 impl PSW {
     #[allow(missing_docs)]
@@ -541,10 +541,10 @@ impl PSW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            PSW::ODD_PARITY_NUMBER_O => 0,
-            PSW::EVEN_PARITY_NUMBER_ => 1,
-            PSW::FORCED_1_STICK_PARIT => 2,
-            PSW::FORCED_0_STICK_PARIT => 3,
+            PSW::ODD => 0,
+            PSW::EVEN => 1,
+            PSW::FORCED_1_STICK => 2,
+            PSW::FORCED_0_STICK => 3,
         }
     }
 }
@@ -562,23 +562,23 @@ impl<'a> _PSW<'a> {
     }
     #[doc = "Odd parity. Number of 1s in the transmitted character and the attached parity bit will be odd."]
     #[inline]
-    pub fn odd_parity_number_o(self) -> &'a mut W {
-        self.variant(PSW::ODD_PARITY_NUMBER_O)
+    pub fn odd(self) -> &'a mut W {
+        self.variant(PSW::ODD)
     }
     #[doc = "Even Parity. Number of 1s in the transmitted character and the attached parity bit will be even."]
     #[inline]
-    pub fn even_parity_number_(self) -> &'a mut W {
-        self.variant(PSW::EVEN_PARITY_NUMBER_)
+    pub fn even(self) -> &'a mut W {
+        self.variant(PSW::EVEN)
     }
     #[doc = "Forced 1 stick parity."]
     #[inline]
-    pub fn forced_1_stick_parit(self) -> &'a mut W {
-        self.variant(PSW::FORCED_1_STICK_PARIT)
+    pub fn forced_1_stick(self) -> &'a mut W {
+        self.variant(PSW::FORCED_1_STICK)
     }
     #[doc = "Forced 0 stick parity."]
     #[inline]
-    pub fn forced_0_stick_parit(self) -> &'a mut W {
-        self.variant(PSW::FORCED_0_STICK_PARIT)
+    pub fn forced_0_stick(self) -> &'a mut W {
+        self.variant(PSW::FORCED_0_STICK)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

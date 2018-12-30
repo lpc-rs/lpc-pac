@@ -46,9 +46,9 @@ impl super::CCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP0RER {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP0RER {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl CAP0RER {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CAP0RER::ENABLED_ => true,
-            CAP0RER::DISABLED_ => false,
+            CAP0RER::ENABLED => true,
+            CAP0RER::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -74,28 +74,28 @@ impl CAP0RER {
     #[inline]
     pub fn _from(value: bool) -> CAP0RER {
         match value {
-            true => CAP0RER::ENABLED_,
-            false => CAP0RER::DISABLED_,
+            true => CAP0RER::ENABLED,
+            false => CAP0RER::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enabled_(&self) -> bool {
-        *self == CAP0RER::ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == CAP0RER::ENABLED
     }
-    #[doc = "Checks if the value of the field is `DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disabled_(&self) -> bool {
-        *self == CAP0RER::DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == CAP0RER::DISABLED
     }
 }
 #[doc = "Possible values of the field `CAP0FE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP0FER {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP0FER {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -112,8 +112,8 @@ impl CAP0FER {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CAP0FER::ENABLED_ => true,
-            CAP0FER::DISABLED_ => false,
+            CAP0FER::ENABLED => true,
+            CAP0FER::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -121,28 +121,28 @@ impl CAP0FER {
     #[inline]
     pub fn _from(value: bool) -> CAP0FER {
         match value {
-            true => CAP0FER::ENABLED_,
-            false => CAP0FER::DISABLED_,
+            true => CAP0FER::ENABLED,
+            false => CAP0FER::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enabled_(&self) -> bool {
-        *self == CAP0FER::ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == CAP0FER::ENABLED
     }
-    #[doc = "Checks if the value of the field is `DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disabled_(&self) -> bool {
-        *self == CAP0FER::DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == CAP0FER::DISABLED
     }
 }
 #[doc = "Possible values of the field `CAP0I`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP0IR {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP0IR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -159,8 +159,8 @@ impl CAP0IR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CAP0IR::ENABLED_ => true,
-            CAP0IR::DISABLED_ => false,
+            CAP0IR::ENABLED => true,
+            CAP0IR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -168,28 +168,28 @@ impl CAP0IR {
     #[inline]
     pub fn _from(value: bool) -> CAP0IR {
         match value {
-            true => CAP0IR::ENABLED_,
-            false => CAP0IR::DISABLED_,
+            true => CAP0IR::ENABLED,
+            false => CAP0IR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enabled_(&self) -> bool {
-        *self == CAP0IR::ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == CAP0IR::ENABLED
     }
-    #[doc = "Checks if the value of the field is `DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disabled_(&self) -> bool {
-        *self == CAP0IR::DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == CAP0IR::DISABLED
     }
 }
 #[doc = "Possible values of the field `CAP1RE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP1RER {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP1RER {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -206,8 +206,8 @@ impl CAP1RER {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CAP1RER::ENABLED_ => true,
-            CAP1RER::DISABLED_ => false,
+            CAP1RER::ENABLED => true,
+            CAP1RER::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -215,28 +215,28 @@ impl CAP1RER {
     #[inline]
     pub fn _from(value: bool) -> CAP1RER {
         match value {
-            true => CAP1RER::ENABLED_,
-            false => CAP1RER::DISABLED_,
+            true => CAP1RER::ENABLED,
+            false => CAP1RER::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enabled_(&self) -> bool {
-        *self == CAP1RER::ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == CAP1RER::ENABLED
     }
-    #[doc = "Checks if the value of the field is `DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disabled_(&self) -> bool {
-        *self == CAP1RER::DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == CAP1RER::DISABLED
     }
 }
 #[doc = "Possible values of the field `CAP1FE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP1FER {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP1FER {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -253,8 +253,8 @@ impl CAP1FER {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CAP1FER::ENABLED_ => true,
-            CAP1FER::DISABLED_ => false,
+            CAP1FER::ENABLED => true,
+            CAP1FER::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -262,28 +262,28 @@ impl CAP1FER {
     #[inline]
     pub fn _from(value: bool) -> CAP1FER {
         match value {
-            true => CAP1FER::ENABLED_,
-            false => CAP1FER::DISABLED_,
+            true => CAP1FER::ENABLED,
+            false => CAP1FER::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enabled_(&self) -> bool {
-        *self == CAP1FER::ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == CAP1FER::ENABLED
     }
-    #[doc = "Checks if the value of the field is `DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disabled_(&self) -> bool {
-        *self == CAP1FER::DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == CAP1FER::DISABLED
     }
 }
 #[doc = "Possible values of the field `CAP1I`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP1IR {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP1IR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -300,8 +300,8 @@ impl CAP1IR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CAP1IR::ENABLED_ => true,
-            CAP1IR::DISABLED_ => false,
+            CAP1IR::ENABLED => true,
+            CAP1IR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -309,27 +309,27 @@ impl CAP1IR {
     #[inline]
     pub fn _from(value: bool) -> CAP1IR {
         match value {
-            true => CAP1IR::ENABLED_,
-            false => CAP1IR::DISABLED_,
+            true => CAP1IR::ENABLED,
+            false => CAP1IR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enabled_(&self) -> bool {
-        *self == CAP1IR::ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == CAP1IR::ENABLED
     }
-    #[doc = "Checks if the value of the field is `DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disabled_(&self) -> bool {
-        *self == CAP1IR::DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == CAP1IR::DISABLED
     }
 }
 #[doc = "Values that can be written to the field `CAP0RE`"]
 pub enum CAP0REW {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP0REW {
     #[allow(missing_docs)]
@@ -337,8 +337,8 @@ impl CAP0REW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CAP0REW::ENABLED_ => true,
-            CAP0REW::DISABLED_ => false,
+            CAP0REW::ENABLED => true,
+            CAP0REW::DISABLED => false,
         }
     }
 }
@@ -356,13 +356,13 @@ impl<'a> _CAP0REW<'a> {
     }
     #[doc = "Enabled."]
     #[inline]
-    pub fn enabled_(self) -> &'a mut W {
-        self.variant(CAP0REW::ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CAP0REW::ENABLED)
     }
     #[doc = "Disabled."]
     #[inline]
-    pub fn disabled_(self) -> &'a mut W {
-        self.variant(CAP0REW::DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CAP0REW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -385,9 +385,9 @@ impl<'a> _CAP0REW<'a> {
 #[doc = "Values that can be written to the field `CAP0FE`"]
 pub enum CAP0FEW {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP0FEW {
     #[allow(missing_docs)]
@@ -395,8 +395,8 @@ impl CAP0FEW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CAP0FEW::ENABLED_ => true,
-            CAP0FEW::DISABLED_ => false,
+            CAP0FEW::ENABLED => true,
+            CAP0FEW::DISABLED => false,
         }
     }
 }
@@ -414,13 +414,13 @@ impl<'a> _CAP0FEW<'a> {
     }
     #[doc = "Enabled."]
     #[inline]
-    pub fn enabled_(self) -> &'a mut W {
-        self.variant(CAP0FEW::ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CAP0FEW::ENABLED)
     }
     #[doc = "Disabled."]
     #[inline]
-    pub fn disabled_(self) -> &'a mut W {
-        self.variant(CAP0FEW::DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CAP0FEW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -443,9 +443,9 @@ impl<'a> _CAP0FEW<'a> {
 #[doc = "Values that can be written to the field `CAP0I`"]
 pub enum CAP0IW {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP0IW {
     #[allow(missing_docs)]
@@ -453,8 +453,8 @@ impl CAP0IW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CAP0IW::ENABLED_ => true,
-            CAP0IW::DISABLED_ => false,
+            CAP0IW::ENABLED => true,
+            CAP0IW::DISABLED => false,
         }
     }
 }
@@ -472,13 +472,13 @@ impl<'a> _CAP0IW<'a> {
     }
     #[doc = "Enabled."]
     #[inline]
-    pub fn enabled_(self) -> &'a mut W {
-        self.variant(CAP0IW::ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CAP0IW::ENABLED)
     }
     #[doc = "Disabled."]
     #[inline]
-    pub fn disabled_(self) -> &'a mut W {
-        self.variant(CAP0IW::DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CAP0IW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -501,9 +501,9 @@ impl<'a> _CAP0IW<'a> {
 #[doc = "Values that can be written to the field `CAP1RE`"]
 pub enum CAP1REW {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP1REW {
     #[allow(missing_docs)]
@@ -511,8 +511,8 @@ impl CAP1REW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CAP1REW::ENABLED_ => true,
-            CAP1REW::DISABLED_ => false,
+            CAP1REW::ENABLED => true,
+            CAP1REW::DISABLED => false,
         }
     }
 }
@@ -530,13 +530,13 @@ impl<'a> _CAP1REW<'a> {
     }
     #[doc = "Enabled."]
     #[inline]
-    pub fn enabled_(self) -> &'a mut W {
-        self.variant(CAP1REW::ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CAP1REW::ENABLED)
     }
     #[doc = "Disabled."]
     #[inline]
-    pub fn disabled_(self) -> &'a mut W {
-        self.variant(CAP1REW::DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CAP1REW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -559,9 +559,9 @@ impl<'a> _CAP1REW<'a> {
 #[doc = "Values that can be written to the field `CAP1FE`"]
 pub enum CAP1FEW {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP1FEW {
     #[allow(missing_docs)]
@@ -569,8 +569,8 @@ impl CAP1FEW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CAP1FEW::ENABLED_ => true,
-            CAP1FEW::DISABLED_ => false,
+            CAP1FEW::ENABLED => true,
+            CAP1FEW::DISABLED => false,
         }
     }
 }
@@ -588,13 +588,13 @@ impl<'a> _CAP1FEW<'a> {
     }
     #[doc = "Enabled."]
     #[inline]
-    pub fn enabled_(self) -> &'a mut W {
-        self.variant(CAP1FEW::ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CAP1FEW::ENABLED)
     }
     #[doc = "Disabled."]
     #[inline]
-    pub fn disabled_(self) -> &'a mut W {
-        self.variant(CAP1FEW::DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CAP1FEW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -617,9 +617,9 @@ impl<'a> _CAP1FEW<'a> {
 #[doc = "Values that can be written to the field `CAP1I`"]
 pub enum CAP1IW {
     #[doc = "Enabled."]
-    ENABLED_,
+    ENABLED,
     #[doc = "Disabled."]
-    DISABLED_,
+    DISABLED,
 }
 impl CAP1IW {
     #[allow(missing_docs)]
@@ -627,8 +627,8 @@ impl CAP1IW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CAP1IW::ENABLED_ => true,
-            CAP1IW::DISABLED_ => false,
+            CAP1IW::ENABLED => true,
+            CAP1IW::DISABLED => false,
         }
     }
 }
@@ -646,13 +646,13 @@ impl<'a> _CAP1IW<'a> {
     }
     #[doc = "Enabled."]
     #[inline]
-    pub fn enabled_(self) -> &'a mut W {
-        self.variant(CAP1IW::ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CAP1IW::ENABLED)
     }
     #[doc = "Disabled."]
     #[inline]
-    pub fn disabled_(self) -> &'a mut W {
-        self.variant(CAP1IW::DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CAP1IW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

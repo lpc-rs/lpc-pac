@@ -48,7 +48,7 @@ pub enum SELR {
     #[doc = "IRC"]
     IRC,
     #[doc = "Crystal Oscillator (SYSOSC)"]
-    CRYSTAL_OSCILLATOR_,
+    CRYSTAL_OSCILLATOR,
 }
 impl SELR {
     #[doc = r" Value of the field as raw bits"]
@@ -56,7 +56,7 @@ impl SELR {
     pub fn bits(&self) -> u8 {
         match *self {
             SELR::IRC => 0,
-            SELR::CRYSTAL_OSCILLATOR_ => 1,
+            SELR::CRYSTAL_OSCILLATOR => 1,
         }
     }
     #[allow(missing_docs)]
@@ -65,7 +65,7 @@ impl SELR {
     pub fn _from(value: u8) -> SELR {
         match value {
             0 => SELR::IRC,
-            1 => SELR::CRYSTAL_OSCILLATOR_,
+            1 => SELR::CRYSTAL_OSCILLATOR,
             _ => unreachable!(),
         }
     }
@@ -74,10 +74,10 @@ impl SELR {
     pub fn is_irc(&self) -> bool {
         *self == SELR::IRC
     }
-    #[doc = "Checks if the value of the field is `CRYSTAL_OSCILLATOR_`"]
+    #[doc = "Checks if the value of the field is `CRYSTAL_OSCILLATOR`"]
     #[inline]
-    pub fn is_crystal_oscillator_(&self) -> bool {
-        *self == SELR::CRYSTAL_OSCILLATOR_
+    pub fn is_crystal_oscillator(&self) -> bool {
+        *self == SELR::CRYSTAL_OSCILLATOR
     }
 }
 #[doc = "Values that can be written to the field `SEL`"]
@@ -85,7 +85,7 @@ pub enum SELW {
     #[doc = "IRC"]
     IRC,
     #[doc = "Crystal Oscillator (SYSOSC)"]
-    CRYSTAL_OSCILLATOR_,
+    CRYSTAL_OSCILLATOR,
 }
 impl SELW {
     #[allow(missing_docs)]
@@ -94,7 +94,7 @@ impl SELW {
     pub fn _bits(&self) -> u8 {
         match *self {
             SELW::IRC => 0,
-            SELW::CRYSTAL_OSCILLATOR_ => 1,
+            SELW::CRYSTAL_OSCILLATOR => 1,
         }
     }
 }
@@ -115,8 +115,8 @@ impl<'a> _SELW<'a> {
     }
     #[doc = "Crystal Oscillator (SYSOSC)"]
     #[inline]
-    pub fn crystal_oscillator_(self) -> &'a mut W {
-        self.variant(SELW::CRYSTAL_OSCILLATOR_)
+    pub fn crystal_oscillator(self) -> &'a mut W {
+        self.variant(SELW::CRYSTAL_OSCILLATOR)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

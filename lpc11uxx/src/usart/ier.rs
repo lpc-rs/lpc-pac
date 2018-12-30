@@ -234,9 +234,9 @@ impl MSINTENR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABEOINTENR {
     #[doc = "Disable end of auto-baud Interrupt."]
-    DISABLE_END_OF_AUTO_,
+    DISABLED,
     #[doc = "Enable end of auto-baud Interrupt."]
-    ENABLE_END_OF_AUTO_B,
+    ENABLED,
 }
 impl ABEOINTENR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -253,8 +253,8 @@ impl ABEOINTENR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            ABEOINTENR::DISABLE_END_OF_AUTO_ => false,
-            ABEOINTENR::ENABLE_END_OF_AUTO_B => true,
+            ABEOINTENR::DISABLED => false,
+            ABEOINTENR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -262,28 +262,28 @@ impl ABEOINTENR {
     #[inline]
     pub fn _from(value: bool) -> ABEOINTENR {
         match value {
-            false => ABEOINTENR::DISABLE_END_OF_AUTO_,
-            true => ABEOINTENR::ENABLE_END_OF_AUTO_B,
+            false => ABEOINTENR::DISABLED,
+            true => ABEOINTENR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE_END_OF_AUTO_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable_end_of_auto_(&self) -> bool {
-        *self == ABEOINTENR::DISABLE_END_OF_AUTO_
+    pub fn is_disabled(&self) -> bool {
+        *self == ABEOINTENR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE_END_OF_AUTO_B`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable_end_of_auto_b(&self) -> bool {
-        *self == ABEOINTENR::ENABLE_END_OF_AUTO_B
+    pub fn is_enabled(&self) -> bool {
+        *self == ABEOINTENR::ENABLED
     }
 }
 #[doc = "Possible values of the field `ABTOINTEN`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABTOINTENR {
     #[doc = "Disable auto-baud time-out Interrupt."]
-    DISABLE_AUTO_BAUD_TI,
+    DISABLED,
     #[doc = "Enable auto-baud time-out Interrupt."]
-    ENABLE_AUTO_BAUD_TIM,
+    ENABLED,
 }
 impl ABTOINTENR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -300,8 +300,8 @@ impl ABTOINTENR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            ABTOINTENR::DISABLE_AUTO_BAUD_TI => false,
-            ABTOINTENR::ENABLE_AUTO_BAUD_TIM => true,
+            ABTOINTENR::DISABLED => false,
+            ABTOINTENR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -309,19 +309,19 @@ impl ABTOINTENR {
     #[inline]
     pub fn _from(value: bool) -> ABTOINTENR {
         match value {
-            false => ABTOINTENR::DISABLE_AUTO_BAUD_TI,
-            true => ABTOINTENR::ENABLE_AUTO_BAUD_TIM,
+            false => ABTOINTENR::DISABLED,
+            true => ABTOINTENR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE_AUTO_BAUD_TI`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable_auto_baud_ti(&self) -> bool {
-        *self == ABTOINTENR::DISABLE_AUTO_BAUD_TI
+    pub fn is_disabled(&self) -> bool {
+        *self == ABTOINTENR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE_AUTO_BAUD_TIM`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable_auto_baud_tim(&self) -> bool {
-        *self == ABTOINTENR::ENABLE_AUTO_BAUD_TIM
+    pub fn is_enabled(&self) -> bool {
+        *self == ABTOINTENR::ENABLED
     }
 }
 #[doc = "Values that can be written to the field `RBRINTEN`"]
@@ -559,9 +559,9 @@ impl<'a> _MSINTENW<'a> {
 #[doc = "Values that can be written to the field `ABEOINTEN`"]
 pub enum ABEOINTENW {
     #[doc = "Disable end of auto-baud Interrupt."]
-    DISABLE_END_OF_AUTO_,
+    DISABLED,
     #[doc = "Enable end of auto-baud Interrupt."]
-    ENABLE_END_OF_AUTO_B,
+    ENABLED,
 }
 impl ABEOINTENW {
     #[allow(missing_docs)]
@@ -569,8 +569,8 @@ impl ABEOINTENW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            ABEOINTENW::DISABLE_END_OF_AUTO_ => false,
-            ABEOINTENW::ENABLE_END_OF_AUTO_B => true,
+            ABEOINTENW::DISABLED => false,
+            ABEOINTENW::ENABLED => true,
         }
     }
 }
@@ -588,13 +588,13 @@ impl<'a> _ABEOINTENW<'a> {
     }
     #[doc = "Disable end of auto-baud Interrupt."]
     #[inline]
-    pub fn disable_end_of_auto_(self) -> &'a mut W {
-        self.variant(ABEOINTENW::DISABLE_END_OF_AUTO_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(ABEOINTENW::DISABLED)
     }
     #[doc = "Enable end of auto-baud Interrupt."]
     #[inline]
-    pub fn enable_end_of_auto_b(self) -> &'a mut W {
-        self.variant(ABEOINTENW::ENABLE_END_OF_AUTO_B)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(ABEOINTENW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -617,9 +617,9 @@ impl<'a> _ABEOINTENW<'a> {
 #[doc = "Values that can be written to the field `ABTOINTEN`"]
 pub enum ABTOINTENW {
     #[doc = "Disable auto-baud time-out Interrupt."]
-    DISABLE_AUTO_BAUD_TI,
+    DISABLED,
     #[doc = "Enable auto-baud time-out Interrupt."]
-    ENABLE_AUTO_BAUD_TIM,
+    ENABLED,
 }
 impl ABTOINTENW {
     #[allow(missing_docs)]
@@ -627,8 +627,8 @@ impl ABTOINTENW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            ABTOINTENW::DISABLE_AUTO_BAUD_TI => false,
-            ABTOINTENW::ENABLE_AUTO_BAUD_TIM => true,
+            ABTOINTENW::DISABLED => false,
+            ABTOINTENW::ENABLED => true,
         }
     }
 }
@@ -646,13 +646,13 @@ impl<'a> _ABTOINTENW<'a> {
     }
     #[doc = "Disable auto-baud time-out Interrupt."]
     #[inline]
-    pub fn disable_auto_baud_ti(self) -> &'a mut W {
-        self.variant(ABTOINTENW::DISABLE_AUTO_BAUD_TI)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(ABTOINTENW::DISABLED)
     }
     #[doc = "Enable auto-baud time-out Interrupt."]
     #[inline]
-    pub fn enable_auto_baud_tim(self) -> &'a mut W {
-        self.variant(ABTOINTENW::ENABLE_AUTO_BAUD_TIM)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(ABTOINTENW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

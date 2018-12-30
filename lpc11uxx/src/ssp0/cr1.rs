@@ -46,9 +46,9 @@ impl super::CR1 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LBMR {
     #[doc = "During normal operation."]
-    DURING_NORMAL_OPERAT,
+    NORMAL_OPERATION,
     #[doc = "Serial input is taken from the serial output (MOSI or MISO) rather than the serial input pin (MISO or MOSI respectively)."]
-    SERIAL_INPUT_IS_TAKE,
+    SERIAL_OUTPUT,
 }
 impl LBMR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl LBMR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            LBMR::DURING_NORMAL_OPERAT => false,
-            LBMR::SERIAL_INPUT_IS_TAKE => true,
+            LBMR::NORMAL_OPERATION => false,
+            LBMR::SERIAL_OUTPUT => true,
         }
     }
     #[allow(missing_docs)]
@@ -74,19 +74,19 @@ impl LBMR {
     #[inline]
     pub fn _from(value: bool) -> LBMR {
         match value {
-            false => LBMR::DURING_NORMAL_OPERAT,
-            true => LBMR::SERIAL_INPUT_IS_TAKE,
+            false => LBMR::NORMAL_OPERATION,
+            true => LBMR::SERIAL_OUTPUT,
         }
     }
-    #[doc = "Checks if the value of the field is `DURING_NORMAL_OPERAT`"]
+    #[doc = "Checks if the value of the field is `NORMAL_OPERATION`"]
     #[inline]
-    pub fn is_during_normal_operat(&self) -> bool {
-        *self == LBMR::DURING_NORMAL_OPERAT
+    pub fn is_normal_operation(&self) -> bool {
+        *self == LBMR::NORMAL_OPERATION
     }
-    #[doc = "Checks if the value of the field is `SERIAL_INPUT_IS_TAKE`"]
+    #[doc = "Checks if the value of the field is `SERIAL_OUTPUT`"]
     #[inline]
-    pub fn is_serial_input_is_take(&self) -> bool {
-        *self == LBMR::SERIAL_INPUT_IS_TAKE
+    pub fn is_serial_output(&self) -> bool {
+        *self == LBMR::SERIAL_OUTPUT
     }
 }
 #[doc = "Possible values of the field `SSE`"]
@@ -207,9 +207,9 @@ impl SODR {
 #[doc = "Values that can be written to the field `LBM`"]
 pub enum LBMW {
     #[doc = "During normal operation."]
-    DURING_NORMAL_OPERAT,
+    NORMAL_OPERATION,
     #[doc = "Serial input is taken from the serial output (MOSI or MISO) rather than the serial input pin (MISO or MOSI respectively)."]
-    SERIAL_INPUT_IS_TAKE,
+    SERIAL_OUTPUT,
 }
 impl LBMW {
     #[allow(missing_docs)]
@@ -217,8 +217,8 @@ impl LBMW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            LBMW::DURING_NORMAL_OPERAT => false,
-            LBMW::SERIAL_INPUT_IS_TAKE => true,
+            LBMW::NORMAL_OPERATION => false,
+            LBMW::SERIAL_OUTPUT => true,
         }
     }
 }
@@ -236,13 +236,13 @@ impl<'a> _LBMW<'a> {
     }
     #[doc = "During normal operation."]
     #[inline]
-    pub fn during_normal_operat(self) -> &'a mut W {
-        self.variant(LBMW::DURING_NORMAL_OPERAT)
+    pub fn normal_operation(self) -> &'a mut W {
+        self.variant(LBMW::NORMAL_OPERATION)
     }
     #[doc = "Serial input is taken from the serial output (MOSI or MISO) rather than the serial input pin (MISO or MOSI respectively)."]
     #[inline]
-    pub fn serial_input_is_take(self) -> &'a mut W {
-        self.variant(LBMW::SERIAL_INPUT_IS_TAKE)
+    pub fn serial_output(self) -> &'a mut W {
+        self.variant(LBMW::SERIAL_OUTPUT)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

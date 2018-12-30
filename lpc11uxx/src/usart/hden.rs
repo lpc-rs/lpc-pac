@@ -46,9 +46,9 @@ impl super::HDEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HDENR {
     #[doc = "Disable half-duplex mode."]
-    DISABLE_HALF_DUPLEX_,
+    DISABLED,
     #[doc = "Enable half-duplex mode."]
-    ENABLE_HALF_DUPLEX_M,
+    ENABLED,
 }
 impl HDENR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl HDENR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            HDENR::DISABLE_HALF_DUPLEX_ => false,
-            HDENR::ENABLE_HALF_DUPLEX_M => true,
+            HDENR::DISABLED => false,
+            HDENR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -74,27 +74,27 @@ impl HDENR {
     #[inline]
     pub fn _from(value: bool) -> HDENR {
         match value {
-            false => HDENR::DISABLE_HALF_DUPLEX_,
-            true => HDENR::ENABLE_HALF_DUPLEX_M,
+            false => HDENR::DISABLED,
+            true => HDENR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE_HALF_DUPLEX_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable_half_duplex_(&self) -> bool {
-        *self == HDENR::DISABLE_HALF_DUPLEX_
+    pub fn is_disabled(&self) -> bool {
+        *self == HDENR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE_HALF_DUPLEX_M`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable_half_duplex_m(&self) -> bool {
-        *self == HDENR::ENABLE_HALF_DUPLEX_M
+    pub fn is_enabled(&self) -> bool {
+        *self == HDENR::ENABLED
     }
 }
 #[doc = "Values that can be written to the field `HDEN`"]
 pub enum HDENW {
     #[doc = "Disable half-duplex mode."]
-    DISABLE_HALF_DUPLEX_,
+    DISABLED,
     #[doc = "Enable half-duplex mode."]
-    ENABLE_HALF_DUPLEX_M,
+    ENABLED,
 }
 impl HDENW {
     #[allow(missing_docs)]
@@ -102,8 +102,8 @@ impl HDENW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            HDENW::DISABLE_HALF_DUPLEX_ => false,
-            HDENW::ENABLE_HALF_DUPLEX_M => true,
+            HDENW::DISABLED => false,
+            HDENW::ENABLED => true,
         }
     }
 }
@@ -121,13 +121,13 @@ impl<'a> _HDENW<'a> {
     }
     #[doc = "Disable half-duplex mode."]
     #[inline]
-    pub fn disable_half_duplex_(self) -> &'a mut W {
-        self.variant(HDENW::DISABLE_HALF_DUPLEX_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(HDENW::DISABLED)
     }
     #[doc = "Enable half-duplex mode."]
     #[inline]
-    pub fn enable_half_duplex_m(self) -> &'a mut W {
-        self.variant(HDENW::ENABLE_HALF_DUPLEX_M)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(HDENW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

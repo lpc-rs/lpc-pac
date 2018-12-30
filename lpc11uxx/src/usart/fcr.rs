@@ -191,13 +191,13 @@ impl<'a> _TXFIFORESW<'a> {
 #[doc = "Values that can be written to the field `RXTL`"]
 pub enum RXTLW {
     #[doc = "Trigger level 0 (1 character or 0x01)."]
-    TRIGGER_LEVEL_0_1_C,
+    LEVEL0,
     #[doc = "Trigger level 1 (4 characters or 0x04)."]
-    TRIGGER_LEVEL_1_4_C,
+    LEVEL1,
     #[doc = "Trigger level 2 (8 characters or 0x08)."]
-    TRIGGER_LEVEL_2_8_C,
+    LEVEL2,
     #[doc = "Trigger level 3 (14 characters or 0x0E)."]
-    TRIGGER_LEVEL_3_14_,
+    LEVEL3,
 }
 impl RXTLW {
     #[allow(missing_docs)]
@@ -205,10 +205,10 @@ impl RXTLW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            RXTLW::TRIGGER_LEVEL_0_1_C => 0,
-            RXTLW::TRIGGER_LEVEL_1_4_C => 1,
-            RXTLW::TRIGGER_LEVEL_2_8_C => 2,
-            RXTLW::TRIGGER_LEVEL_3_14_ => 3,
+            RXTLW::LEVEL0 => 0,
+            RXTLW::LEVEL1 => 1,
+            RXTLW::LEVEL2 => 2,
+            RXTLW::LEVEL3 => 3,
         }
     }
 }
@@ -226,23 +226,23 @@ impl<'a> _RXTLW<'a> {
     }
     #[doc = "Trigger level 0 (1 character or 0x01)."]
     #[inline]
-    pub fn trigger_level_0_1_c(self) -> &'a mut W {
-        self.variant(RXTLW::TRIGGER_LEVEL_0_1_C)
+    pub fn level0(self) -> &'a mut W {
+        self.variant(RXTLW::LEVEL0)
     }
     #[doc = "Trigger level 1 (4 characters or 0x04)."]
     #[inline]
-    pub fn trigger_level_1_4_c(self) -> &'a mut W {
-        self.variant(RXTLW::TRIGGER_LEVEL_1_4_C)
+    pub fn level1(self) -> &'a mut W {
+        self.variant(RXTLW::LEVEL1)
     }
     #[doc = "Trigger level 2 (8 characters or 0x08)."]
     #[inline]
-    pub fn trigger_level_2_8_c(self) -> &'a mut W {
-        self.variant(RXTLW::TRIGGER_LEVEL_2_8_C)
+    pub fn level2(self) -> &'a mut W {
+        self.variant(RXTLW::LEVEL2)
     }
     #[doc = "Trigger level 3 (14 characters or 0x0E)."]
     #[inline]
-    pub fn trigger_level_3_14_(self) -> &'a mut W {
-        self.variant(RXTLW::TRIGGER_LEVEL_3_14_)
+    pub fn level3(self) -> &'a mut W {
+        self.variant(RXTLW::LEVEL3)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

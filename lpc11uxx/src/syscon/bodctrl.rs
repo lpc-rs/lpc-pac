@@ -102,7 +102,7 @@ impl BODRSTLEVR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BODINTVALR {
     #[doc = "Level 0: Reserved."]
-    LEVEL_0_RESERVED_,
+    LEVEL_0_RESERVED,
     #[doc = "Level 1:The interrupt assertion threshold voltage is 2.22 V; the interrupt de-assertion threshold voltage is 2.35 V."]
     LEVEL_1THE_INTERRUP,
     #[doc = "Level 2: The interrupt assertion threshold voltage is 2.52 V; the interrupt de-assertion threshold voltage is 2.66 V."]
@@ -115,7 +115,7 @@ impl BODINTVALR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            BODINTVALR::LEVEL_0_RESERVED_ => 0,
+            BODINTVALR::LEVEL_0_RESERVED => 0,
             BODINTVALR::LEVEL_1THE_INTERRUP => 1,
             BODINTVALR::LEVEL_2_THE_INTERRU => 2,
             BODINTVALR::LEVEL_3_THE_INTERRU => 3,
@@ -126,17 +126,17 @@ impl BODINTVALR {
     #[inline]
     pub fn _from(value: u8) -> BODINTVALR {
         match value {
-            0 => BODINTVALR::LEVEL_0_RESERVED_,
+            0 => BODINTVALR::LEVEL_0_RESERVED,
             1 => BODINTVALR::LEVEL_1THE_INTERRUP,
             2 => BODINTVALR::LEVEL_2_THE_INTERRU,
             3 => BODINTVALR::LEVEL_3_THE_INTERRU,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `LEVEL_0_RESERVED_`"]
+    #[doc = "Checks if the value of the field is `LEVEL_0_RESERVED`"]
     #[inline]
-    pub fn is_level_0_reserved_(&self) -> bool {
-        *self == BODINTVALR::LEVEL_0_RESERVED_
+    pub fn is_level_0_reserved(&self) -> bool {
+        *self == BODINTVALR::LEVEL_0_RESERVED
     }
     #[doc = "Checks if the value of the field is `LEVEL_1THE_INTERRUP`"]
     #[inline]
@@ -270,7 +270,7 @@ impl<'a> _BODRSTLEVW<'a> {
 #[doc = "Values that can be written to the field `BODINTVAL`"]
 pub enum BODINTVALW {
     #[doc = "Level 0: Reserved."]
-    LEVEL_0_RESERVED_,
+    LEVEL_0_RESERVED,
     #[doc = "Level 1:The interrupt assertion threshold voltage is 2.22 V; the interrupt de-assertion threshold voltage is 2.35 V."]
     LEVEL_1THE_INTERRUP,
     #[doc = "Level 2: The interrupt assertion threshold voltage is 2.52 V; the interrupt de-assertion threshold voltage is 2.66 V."]
@@ -284,7 +284,7 @@ impl BODINTVALW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            BODINTVALW::LEVEL_0_RESERVED_ => 0,
+            BODINTVALW::LEVEL_0_RESERVED => 0,
             BODINTVALW::LEVEL_1THE_INTERRUP => 1,
             BODINTVALW::LEVEL_2_THE_INTERRU => 2,
             BODINTVALW::LEVEL_3_THE_INTERRU => 3,
@@ -305,8 +305,8 @@ impl<'a> _BODINTVALW<'a> {
     }
     #[doc = "Level 0: Reserved."]
     #[inline]
-    pub fn level_0_reserved_(self) -> &'a mut W {
-        self.variant(BODINTVALW::LEVEL_0_RESERVED_)
+    pub fn level_0_reserved(self) -> &'a mut W {
+        self.variant(BODINTVALW::LEVEL_0_RESERVED)
     }
     #[doc = "Level 1:The interrupt assertion threshold voltage is 2.22 V; the interrupt de-assertion threshold voltage is 2.35 V."]
     #[inline]
