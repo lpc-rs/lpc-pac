@@ -543,9 +543,9 @@ impl ERRBIT4_0R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ERRDIRR {
     #[doc = "Error occurred during transmitting."]
-    ERROR_OCCURRED_DURIN,
+    TX,
     #[doc = "Error occurred during receiving."]
-    ERROR_OCCURRED_DURIN,
+    RX,
 }
 impl ERRDIRR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -562,8 +562,8 @@ impl ERRDIRR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            ERRDIRR::ERROR_OCCURRED_DURIN => false,
-            ERRDIRR::ERROR_OCCURRED_DURIN => true,
+            ERRDIRR::TX => false,
+            ERRDIRR::RX => true,
         }
     }
     #[allow(missing_docs)]
@@ -571,19 +571,19 @@ impl ERRDIRR {
     #[inline]
     pub fn _from(value: bool) -> ERRDIRR {
         match value {
-            false => ERRDIRR::ERROR_OCCURRED_DURIN,
-            true => ERRDIRR::ERROR_OCCURRED_DURIN,
+            false => ERRDIRR::TX,
+            true => ERRDIRR::RX,
         }
     }
-    #[doc = "Checks if the value of the field is `ERROR_OCCURRED_DURIN`"]
+    #[doc = "Checks if the value of the field is `TX`"]
     #[inline]
-    pub fn is_error_occurred_durin(&self) -> bool {
-        *self == ERRDIRR::ERROR_OCCURRED_DURIN
+    pub fn is_tx(&self) -> bool {
+        *self == ERRDIRR::TX
     }
-    #[doc = "Checks if the value of the field is `ERROR_OCCURRED_DURIN`"]
+    #[doc = "Checks if the value of the field is `RX`"]
     #[inline]
-    pub fn is_error_occurred_durin(&self) -> bool {
-        *self == ERRDIRR::ERROR_OCCURRED_DURIN
+    pub fn is_rx(&self) -> bool {
+        *self == ERRDIRR::RX
     }
 }
 #[doc = "Possible values of the field `ERRC1_0`"]

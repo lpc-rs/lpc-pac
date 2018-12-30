@@ -46,9 +46,9 @@ impl super::CCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CLKENR {
     #[doc = "The time counters are enabled."]
-    THE_TIME_COUNTERS_AR,
+    ENABLED,
     #[doc = "The time counters are disabled so that they may be initialized."]
-    THE_TIME_COUNTERS_AR,
+    DISABLED,
 }
 impl CLKENR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl CLKENR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CLKENR::THE_TIME_COUNTERS_AR => true,
-            CLKENR::THE_TIME_COUNTERS_AR => false,
+            CLKENR::ENABLED => true,
+            CLKENR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -74,19 +74,19 @@ impl CLKENR {
     #[inline]
     pub fn _from(value: bool) -> CLKENR {
         match value {
-            true => CLKENR::THE_TIME_COUNTERS_AR,
-            false => CLKENR::THE_TIME_COUNTERS_AR,
+            true => CLKENR::ENABLED,
+            false => CLKENR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `THE_TIME_COUNTERS_AR`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_the_time_counters_ar(&self) -> bool {
-        *self == CLKENR::THE_TIME_COUNTERS_AR
+    pub fn is_enabled(&self) -> bool {
+        *self == CLKENR::ENABLED
     }
-    #[doc = "Checks if the value of the field is `THE_TIME_COUNTERS_AR`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_the_time_counters_ar(&self) -> bool {
-        *self == CLKENR::THE_TIME_COUNTERS_AR
+    pub fn is_disabled(&self) -> bool {
+        *self == CLKENR::DISABLED
     }
 }
 #[doc = "Possible values of the field `CTCRST`"]
@@ -140,9 +140,9 @@ impl CTCRSTR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCALENR {
     #[doc = "The calibration counter is disabled and reset to zero."]
-    THE_CALIBRATION_COUN,
+    DISABLED,
     #[doc = "The calibration counter is enabled and counting, using the 1 Hz clock. When the calibration counter is equal to the value of the CALIBRATION register, the counter resets and repeats counting up to the value of the CALIBRATION register. See Section 30.6.4.2 and  Section 30.6.5."]
-    THE_CALIBRATION_COUN,
+    ENABLED,
 }
 impl CCALENR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -159,8 +159,8 @@ impl CCALENR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CCALENR::THE_CALIBRATION_COUN => true,
-            CCALENR::THE_CALIBRATION_COUN => false,
+            CCALENR::DISABLED => true,
+            CCALENR::ENABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -168,27 +168,27 @@ impl CCALENR {
     #[inline]
     pub fn _from(value: bool) -> CCALENR {
         match value {
-            true => CCALENR::THE_CALIBRATION_COUN,
-            false => CCALENR::THE_CALIBRATION_COUN,
+            true => CCALENR::DISABLED,
+            false => CCALENR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `THE_CALIBRATION_COUN`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_the_calibration_coun(&self) -> bool {
-        *self == CCALENR::THE_CALIBRATION_COUN
+    pub fn is_disabled(&self) -> bool {
+        *self == CCALENR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `THE_CALIBRATION_COUN`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_the_calibration_coun(&self) -> bool {
-        *self == CCALENR::THE_CALIBRATION_COUN
+    pub fn is_enabled(&self) -> bool {
+        *self == CCALENR::ENABLED
     }
 }
 #[doc = "Values that can be written to the field `CLKEN`"]
 pub enum CLKENW {
     #[doc = "The time counters are enabled."]
-    THE_TIME_COUNTERS_AR,
+    ENABLED,
     #[doc = "The time counters are disabled so that they may be initialized."]
-    THE_TIME_COUNTERS_AR,
+    DISABLED,
 }
 impl CLKENW {
     #[allow(missing_docs)]
@@ -196,8 +196,8 @@ impl CLKENW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CLKENW::THE_TIME_COUNTERS_AR => true,
-            CLKENW::THE_TIME_COUNTERS_AR => false,
+            CLKENW::ENABLED => true,
+            CLKENW::DISABLED => false,
         }
     }
 }
@@ -215,13 +215,13 @@ impl<'a> _CLKENW<'a> {
     }
     #[doc = "The time counters are enabled."]
     #[inline]
-    pub fn the_time_counters_ar(self) -> &'a mut W {
-        self.variant(CLKENW::THE_TIME_COUNTERS_AR)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CLKENW::ENABLED)
     }
     #[doc = "The time counters are disabled so that they may be initialized."]
     #[inline]
-    pub fn the_time_counters_ar(self) -> &'a mut W {
-        self.variant(CLKENW::THE_TIME_COUNTERS_AR)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CLKENW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -302,9 +302,9 @@ impl<'a> _CTCRSTW<'a> {
 #[doc = "Values that can be written to the field `CCALEN`"]
 pub enum CCALENW {
     #[doc = "The calibration counter is disabled and reset to zero."]
-    THE_CALIBRATION_COUN,
+    DISABLED,
     #[doc = "The calibration counter is enabled and counting, using the 1 Hz clock. When the calibration counter is equal to the value of the CALIBRATION register, the counter resets and repeats counting up to the value of the CALIBRATION register. See Section 30.6.4.2 and  Section 30.6.5."]
-    THE_CALIBRATION_COUN,
+    ENABLED,
 }
 impl CCALENW {
     #[allow(missing_docs)]
@@ -312,8 +312,8 @@ impl CCALENW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CCALENW::THE_CALIBRATION_COUN => true,
-            CCALENW::THE_CALIBRATION_COUN => false,
+            CCALENW::DISABLED => true,
+            CCALENW::ENABLED => false,
         }
     }
 }
@@ -331,13 +331,13 @@ impl<'a> _CCALENW<'a> {
     }
     #[doc = "The calibration counter is disabled and reset to zero."]
     #[inline]
-    pub fn the_calibration_coun(self) -> &'a mut W {
-        self.variant(CCALENW::THE_CALIBRATION_COUN)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CCALENW::DISABLED)
     }
     #[doc = "The calibration counter is enabled and counting, using the 1 Hz clock. When the calibration counter is equal to the value of the CALIBRATION register, the counter resets and repeats counting up to the value of the CALIBRATION register. See Section 30.6.4.2 and Section 30.6.5."]
     #[inline]
-    pub fn the_calibration_coun(self) -> &'a mut W {
-        self.variant(CCALENW::THE_CALIBRATION_COUN)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CCALENW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

@@ -46,9 +46,9 @@ impl super::MCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR0IR {
     #[doc = "Interrupt is generated when MR0 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT,
     #[doc = "Interrupt is disabled"]
-    INTERRUPT_IS_DISABLE,
+    DISABLED,
 }
 impl MR0IR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl MR0IR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR0IR::INTERRUPT_IS_GENERAT => true,
-            MR0IR::INTERRUPT_IS_DISABLE => false,
+            MR0IR::INTERRUPT => true,
+            MR0IR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -74,28 +74,28 @@ impl MR0IR {
     #[inline]
     pub fn _from(value: bool) -> MR0IR {
         match value {
-            true => MR0IR::INTERRUPT_IS_GENERAT,
-            false => MR0IR::INTERRUPT_IS_DISABLE,
+            true => MR0IR::INTERRUPT,
+            false => MR0IR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `INTERRUPT_IS_GENERAT`"]
+    #[doc = "Checks if the value of the field is `INTERRUPT`"]
     #[inline]
-    pub fn is_interrupt_is_generat(&self) -> bool {
-        *self == MR0IR::INTERRUPT_IS_GENERAT
+    pub fn is_interrupt(&self) -> bool {
+        *self == MR0IR::INTERRUPT
     }
-    #[doc = "Checks if the value of the field is `INTERRUPT_IS_DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_interrupt_is_disable(&self) -> bool {
-        *self == MR0IR::INTERRUPT_IS_DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == MR0IR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR0R`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR0RR {
     #[doc = "TC will be reset if MR0 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    RESET,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR0RR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -112,8 +112,8 @@ impl MR0RR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR0RR::TC_WILL_BE_RESET_IF_ => true,
-            MR0RR::FEATURE_DISABLED_ => false,
+            MR0RR::RESET => true,
+            MR0RR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -121,28 +121,28 @@ impl MR0RR {
     #[inline]
     pub fn _from(value: bool) -> MR0RR {
         match value {
-            true => MR0RR::TC_WILL_BE_RESET_IF_,
-            false => MR0RR::FEATURE_DISABLED_,
+            true => MR0RR::RESET,
+            false => MR0RR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `TC_WILL_BE_RESET_IF_`"]
+    #[doc = "Checks if the value of the field is `RESET`"]
     #[inline]
-    pub fn is_tc_will_be_reset_if_(&self) -> bool {
-        *self == MR0RR::TC_WILL_BE_RESET_IF_
+    pub fn is_reset(&self) -> bool {
+        *self == MR0RR::RESET
     }
-    #[doc = "Checks if the value of the field is `FEATURE_DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_feature_disabled_(&self) -> bool {
-        *self == MR0RR::FEATURE_DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == MR0RR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR0S`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR0SR {
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC."]
-    TC_AND_PC_WILL_BE_ST,
+    STOP,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR0SR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -159,8 +159,8 @@ impl MR0SR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR0SR::TC_AND_PC_WILL_BE_ST => true,
-            MR0SR::FEATURE_DISABLED_ => false,
+            MR0SR::STOP => true,
+            MR0SR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -168,28 +168,28 @@ impl MR0SR {
     #[inline]
     pub fn _from(value: bool) -> MR0SR {
         match value {
-            true => MR0SR::TC_AND_PC_WILL_BE_ST,
-            false => MR0SR::FEATURE_DISABLED_,
+            true => MR0SR::STOP,
+            false => MR0SR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `TC_AND_PC_WILL_BE_ST`"]
+    #[doc = "Checks if the value of the field is `STOP`"]
     #[inline]
-    pub fn is_tc_and_pc_will_be_st(&self) -> bool {
-        *self == MR0SR::TC_AND_PC_WILL_BE_ST
+    pub fn is_stop(&self) -> bool {
+        *self == MR0SR::STOP
     }
-    #[doc = "Checks if the value of the field is `FEATURE_DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_feature_disabled_(&self) -> bool {
-        *self == MR0SR::FEATURE_DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == MR0SR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR1I`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR1IR {
     #[doc = "Interrupt is generated when MR1 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT,
     #[doc = "Interrupt is disabled."]
-    INTERRUPT_IS_DISABLE,
+    DISABLED,
 }
 impl MR1IR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -206,8 +206,8 @@ impl MR1IR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR1IR::INTERRUPT_IS_GENERAT => true,
-            MR1IR::INTERRUPT_IS_DISABLE => false,
+            MR1IR::INTERRUPT => true,
+            MR1IR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -215,28 +215,28 @@ impl MR1IR {
     #[inline]
     pub fn _from(value: bool) -> MR1IR {
         match value {
-            true => MR1IR::INTERRUPT_IS_GENERAT,
-            false => MR1IR::INTERRUPT_IS_DISABLE,
+            true => MR1IR::INTERRUPT,
+            false => MR1IR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `INTERRUPT_IS_GENERAT`"]
+    #[doc = "Checks if the value of the field is `INTERRUPT`"]
     #[inline]
-    pub fn is_interrupt_is_generat(&self) -> bool {
-        *self == MR1IR::INTERRUPT_IS_GENERAT
+    pub fn is_interrupt(&self) -> bool {
+        *self == MR1IR::INTERRUPT
     }
-    #[doc = "Checks if the value of the field is `INTERRUPT_IS_DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_interrupt_is_disable(&self) -> bool {
-        *self == MR1IR::INTERRUPT_IS_DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == MR1IR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR1R`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR1RR {
     #[doc = "TC will be reset if MR1 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    RESET,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR1RR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -253,8 +253,8 @@ impl MR1RR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR1RR::TC_WILL_BE_RESET_IF_ => true,
-            MR1RR::FEATURE_DISABLED_ => false,
+            MR1RR::RESET => true,
+            MR1RR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -262,28 +262,28 @@ impl MR1RR {
     #[inline]
     pub fn _from(value: bool) -> MR1RR {
         match value {
-            true => MR1RR::TC_WILL_BE_RESET_IF_,
-            false => MR1RR::FEATURE_DISABLED_,
+            true => MR1RR::RESET,
+            false => MR1RR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `TC_WILL_BE_RESET_IF_`"]
+    #[doc = "Checks if the value of the field is `RESET`"]
     #[inline]
-    pub fn is_tc_will_be_reset_if_(&self) -> bool {
-        *self == MR1RR::TC_WILL_BE_RESET_IF_
+    pub fn is_reset(&self) -> bool {
+        *self == MR1RR::RESET
     }
-    #[doc = "Checks if the value of the field is `FEATURE_DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_feature_disabled_(&self) -> bool {
-        *self == MR1RR::FEATURE_DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == MR1RR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR1S`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR1SR {
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC."]
-    TC_AND_PC_WILL_BE_ST,
+    STOP,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR1SR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -300,8 +300,8 @@ impl MR1SR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR1SR::TC_AND_PC_WILL_BE_ST => true,
-            MR1SR::FEATURE_DISABLED_ => false,
+            MR1SR::STOP => true,
+            MR1SR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -309,28 +309,28 @@ impl MR1SR {
     #[inline]
     pub fn _from(value: bool) -> MR1SR {
         match value {
-            true => MR1SR::TC_AND_PC_WILL_BE_ST,
-            false => MR1SR::FEATURE_DISABLED_,
+            true => MR1SR::STOP,
+            false => MR1SR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `TC_AND_PC_WILL_BE_ST`"]
+    #[doc = "Checks if the value of the field is `STOP`"]
     #[inline]
-    pub fn is_tc_and_pc_will_be_st(&self) -> bool {
-        *self == MR1SR::TC_AND_PC_WILL_BE_ST
+    pub fn is_stop(&self) -> bool {
+        *self == MR1SR::STOP
     }
-    #[doc = "Checks if the value of the field is `FEATURE_DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_feature_disabled_(&self) -> bool {
-        *self == MR1SR::FEATURE_DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == MR1SR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR2I`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR2IR {
     #[doc = "Interrupt is generated when MR2 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT,
     #[doc = "Interrupt is disabled"]
-    INTERRUPT_IS_DISABLE,
+    DISABLED,
 }
 impl MR2IR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -347,8 +347,8 @@ impl MR2IR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR2IR::INTERRUPT_IS_GENERAT => true,
-            MR2IR::INTERRUPT_IS_DISABLE => false,
+            MR2IR::INTERRUPT => true,
+            MR2IR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -356,28 +356,28 @@ impl MR2IR {
     #[inline]
     pub fn _from(value: bool) -> MR2IR {
         match value {
-            true => MR2IR::INTERRUPT_IS_GENERAT,
-            false => MR2IR::INTERRUPT_IS_DISABLE,
+            true => MR2IR::INTERRUPT,
+            false => MR2IR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `INTERRUPT_IS_GENERAT`"]
+    #[doc = "Checks if the value of the field is `INTERRUPT`"]
     #[inline]
-    pub fn is_interrupt_is_generat(&self) -> bool {
-        *self == MR2IR::INTERRUPT_IS_GENERAT
+    pub fn is_interrupt(&self) -> bool {
+        *self == MR2IR::INTERRUPT
     }
-    #[doc = "Checks if the value of the field is `INTERRUPT_IS_DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_interrupt_is_disable(&self) -> bool {
-        *self == MR2IR::INTERRUPT_IS_DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == MR2IR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR2R`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR2RR {
     #[doc = "TC will be reset if MR2 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    RESET,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR2RR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -394,8 +394,8 @@ impl MR2RR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR2RR::TC_WILL_BE_RESET_IF_ => true,
-            MR2RR::FEATURE_DISABLED_ => false,
+            MR2RR::RESET => true,
+            MR2RR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -403,28 +403,28 @@ impl MR2RR {
     #[inline]
     pub fn _from(value: bool) -> MR2RR {
         match value {
-            true => MR2RR::TC_WILL_BE_RESET_IF_,
-            false => MR2RR::FEATURE_DISABLED_,
+            true => MR2RR::RESET,
+            false => MR2RR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `TC_WILL_BE_RESET_IF_`"]
+    #[doc = "Checks if the value of the field is `RESET`"]
     #[inline]
-    pub fn is_tc_will_be_reset_if_(&self) -> bool {
-        *self == MR2RR::TC_WILL_BE_RESET_IF_
+    pub fn is_reset(&self) -> bool {
+        *self == MR2RR::RESET
     }
-    #[doc = "Checks if the value of the field is `FEATURE_DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_feature_disabled_(&self) -> bool {
-        *self == MR2RR::FEATURE_DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == MR2RR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR2S`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR2SR {
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC"]
-    TC_AND_PC_WILL_BE_ST,
+    STOP,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR2SR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -441,8 +441,8 @@ impl MR2SR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR2SR::TC_AND_PC_WILL_BE_ST => true,
-            MR2SR::FEATURE_DISABLED_ => false,
+            MR2SR::STOP => true,
+            MR2SR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -450,28 +450,28 @@ impl MR2SR {
     #[inline]
     pub fn _from(value: bool) -> MR2SR {
         match value {
-            true => MR2SR::TC_AND_PC_WILL_BE_ST,
-            false => MR2SR::FEATURE_DISABLED_,
+            true => MR2SR::STOP,
+            false => MR2SR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `TC_AND_PC_WILL_BE_ST`"]
+    #[doc = "Checks if the value of the field is `STOP`"]
     #[inline]
-    pub fn is_tc_and_pc_will_be_st(&self) -> bool {
-        *self == MR2SR::TC_AND_PC_WILL_BE_ST
+    pub fn is_stop(&self) -> bool {
+        *self == MR2SR::STOP
     }
-    #[doc = "Checks if the value of the field is `FEATURE_DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_feature_disabled_(&self) -> bool {
-        *self == MR2SR::FEATURE_DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == MR2SR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR3I`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR3IR {
     #[doc = "Interrupt is generated when MR3 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT,
     #[doc = "This interrupt is disabled"]
-    THIS_INTERRUPT_IS_DI,
+    DISABLED,
 }
 impl MR3IR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -488,8 +488,8 @@ impl MR3IR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR3IR::INTERRUPT_IS_GENERAT => true,
-            MR3IR::THIS_INTERRUPT_IS_DI => false,
+            MR3IR::INTERRUPT => true,
+            MR3IR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -497,28 +497,28 @@ impl MR3IR {
     #[inline]
     pub fn _from(value: bool) -> MR3IR {
         match value {
-            true => MR3IR::INTERRUPT_IS_GENERAT,
-            false => MR3IR::THIS_INTERRUPT_IS_DI,
+            true => MR3IR::INTERRUPT,
+            false => MR3IR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `INTERRUPT_IS_GENERAT`"]
+    #[doc = "Checks if the value of the field is `INTERRUPT`"]
     #[inline]
-    pub fn is_interrupt_is_generat(&self) -> bool {
-        *self == MR3IR::INTERRUPT_IS_GENERAT
+    pub fn is_interrupt(&self) -> bool {
+        *self == MR3IR::INTERRUPT
     }
-    #[doc = "Checks if the value of the field is `THIS_INTERRUPT_IS_DI`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_this_interrupt_is_di(&self) -> bool {
-        *self == MR3IR::THIS_INTERRUPT_IS_DI
+    pub fn is_disabled(&self) -> bool {
+        *self == MR3IR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR3R`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR3RR {
     #[doc = "TC will be reset if MR3 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    RESET,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR3RR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -535,8 +535,8 @@ impl MR3RR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR3RR::TC_WILL_BE_RESET_IF_ => true,
-            MR3RR::FEATURE_DISABLED_ => false,
+            MR3RR::RESET => true,
+            MR3RR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -544,28 +544,28 @@ impl MR3RR {
     #[inline]
     pub fn _from(value: bool) -> MR3RR {
         match value {
-            true => MR3RR::TC_WILL_BE_RESET_IF_,
-            false => MR3RR::FEATURE_DISABLED_,
+            true => MR3RR::RESET,
+            false => MR3RR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `TC_WILL_BE_RESET_IF_`"]
+    #[doc = "Checks if the value of the field is `RESET`"]
     #[inline]
-    pub fn is_tc_will_be_reset_if_(&self) -> bool {
-        *self == MR3RR::TC_WILL_BE_RESET_IF_
+    pub fn is_reset(&self) -> bool {
+        *self == MR3RR::RESET
     }
-    #[doc = "Checks if the value of the field is `FEATURE_DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_feature_disabled_(&self) -> bool {
-        *self == MR3RR::FEATURE_DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == MR3RR::DISABLED
     }
 }
 #[doc = "Possible values of the field `MR3S`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR3SR {
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC."]
-    TC_AND_PC_WILL_BE_ST,
+    STOP,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR3SR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -582,8 +582,8 @@ impl MR3SR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MR3SR::TC_AND_PC_WILL_BE_ST => true,
-            MR3SR::FEATURE_DISABLED_ => false,
+            MR3SR::STOP => true,
+            MR3SR::DISABLED => false,
         }
     }
     #[allow(missing_docs)]
@@ -591,27 +591,27 @@ impl MR3SR {
     #[inline]
     pub fn _from(value: bool) -> MR3SR {
         match value {
-            true => MR3SR::TC_AND_PC_WILL_BE_ST,
-            false => MR3SR::FEATURE_DISABLED_,
+            true => MR3SR::STOP,
+            false => MR3SR::DISABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `TC_AND_PC_WILL_BE_ST`"]
+    #[doc = "Checks if the value of the field is `STOP`"]
     #[inline]
-    pub fn is_tc_and_pc_will_be_st(&self) -> bool {
-        *self == MR3SR::TC_AND_PC_WILL_BE_ST
+    pub fn is_stop(&self) -> bool {
+        *self == MR3SR::STOP
     }
-    #[doc = "Checks if the value of the field is `FEATURE_DISABLED_`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_feature_disabled_(&self) -> bool {
-        *self == MR3SR::FEATURE_DISABLED_
+    pub fn is_disabled(&self) -> bool {
+        *self == MR3SR::DISABLED
     }
 }
 #[doc = "Values that can be written to the field `MR0I`"]
 pub enum MR0IW {
     #[doc = "Interrupt is generated when MR0 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT,
     #[doc = "Interrupt is disabled"]
-    INTERRUPT_IS_DISABLE,
+    DISABLED,
 }
 impl MR0IW {
     #[allow(missing_docs)]
@@ -619,8 +619,8 @@ impl MR0IW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR0IW::INTERRUPT_IS_GENERAT => true,
-            MR0IW::INTERRUPT_IS_DISABLE => false,
+            MR0IW::INTERRUPT => true,
+            MR0IW::DISABLED => false,
         }
     }
 }
@@ -638,13 +638,13 @@ impl<'a> _MR0IW<'a> {
     }
     #[doc = "Interrupt is generated when MR0 matches the value in the TC."]
     #[inline]
-    pub fn interrupt_is_generat(self) -> &'a mut W {
-        self.variant(MR0IW::INTERRUPT_IS_GENERAT)
+    pub fn interrupt(self) -> &'a mut W {
+        self.variant(MR0IW::INTERRUPT)
     }
     #[doc = "Interrupt is disabled"]
     #[inline]
-    pub fn interrupt_is_disable(self) -> &'a mut W {
-        self.variant(MR0IW::INTERRUPT_IS_DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR0IW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -667,9 +667,9 @@ impl<'a> _MR0IW<'a> {
 #[doc = "Values that can be written to the field `MR0R`"]
 pub enum MR0RW {
     #[doc = "TC will be reset if MR0 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    RESET,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR0RW {
     #[allow(missing_docs)]
@@ -677,8 +677,8 @@ impl MR0RW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR0RW::TC_WILL_BE_RESET_IF_ => true,
-            MR0RW::FEATURE_DISABLED_ => false,
+            MR0RW::RESET => true,
+            MR0RW::DISABLED => false,
         }
     }
 }
@@ -696,13 +696,13 @@ impl<'a> _MR0RW<'a> {
     }
     #[doc = "TC will be reset if MR0 matches it."]
     #[inline]
-    pub fn tc_will_be_reset_if_(self) -> &'a mut W {
-        self.variant(MR0RW::TC_WILL_BE_RESET_IF_)
+    pub fn reset(self) -> &'a mut W {
+        self.variant(MR0RW::RESET)
     }
     #[doc = "Feature disabled."]
     #[inline]
-    pub fn feature_disabled_(self) -> &'a mut W {
-        self.variant(MR0RW::FEATURE_DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR0RW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -725,9 +725,9 @@ impl<'a> _MR0RW<'a> {
 #[doc = "Values that can be written to the field `MR0S`"]
 pub enum MR0SW {
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC."]
-    TC_AND_PC_WILL_BE_ST,
+    STOP,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR0SW {
     #[allow(missing_docs)]
@@ -735,8 +735,8 @@ impl MR0SW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR0SW::TC_AND_PC_WILL_BE_ST => true,
-            MR0SW::FEATURE_DISABLED_ => false,
+            MR0SW::STOP => true,
+            MR0SW::DISABLED => false,
         }
     }
 }
@@ -754,13 +754,13 @@ impl<'a> _MR0SW<'a> {
     }
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC."]
     #[inline]
-    pub fn tc_and_pc_will_be_st(self) -> &'a mut W {
-        self.variant(MR0SW::TC_AND_PC_WILL_BE_ST)
+    pub fn stop(self) -> &'a mut W {
+        self.variant(MR0SW::STOP)
     }
     #[doc = "Feature disabled."]
     #[inline]
-    pub fn feature_disabled_(self) -> &'a mut W {
-        self.variant(MR0SW::FEATURE_DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR0SW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -783,9 +783,9 @@ impl<'a> _MR0SW<'a> {
 #[doc = "Values that can be written to the field `MR1I`"]
 pub enum MR1IW {
     #[doc = "Interrupt is generated when MR1 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT,
     #[doc = "Interrupt is disabled."]
-    INTERRUPT_IS_DISABLE,
+    DISABLED,
 }
 impl MR1IW {
     #[allow(missing_docs)]
@@ -793,8 +793,8 @@ impl MR1IW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR1IW::INTERRUPT_IS_GENERAT => true,
-            MR1IW::INTERRUPT_IS_DISABLE => false,
+            MR1IW::INTERRUPT => true,
+            MR1IW::DISABLED => false,
         }
     }
 }
@@ -812,13 +812,13 @@ impl<'a> _MR1IW<'a> {
     }
     #[doc = "Interrupt is generated when MR1 matches the value in the TC."]
     #[inline]
-    pub fn interrupt_is_generat(self) -> &'a mut W {
-        self.variant(MR1IW::INTERRUPT_IS_GENERAT)
+    pub fn interrupt(self) -> &'a mut W {
+        self.variant(MR1IW::INTERRUPT)
     }
     #[doc = "Interrupt is disabled."]
     #[inline]
-    pub fn interrupt_is_disable(self) -> &'a mut W {
-        self.variant(MR1IW::INTERRUPT_IS_DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR1IW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -841,9 +841,9 @@ impl<'a> _MR1IW<'a> {
 #[doc = "Values that can be written to the field `MR1R`"]
 pub enum MR1RW {
     #[doc = "TC will be reset if MR1 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    RESET,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR1RW {
     #[allow(missing_docs)]
@@ -851,8 +851,8 @@ impl MR1RW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR1RW::TC_WILL_BE_RESET_IF_ => true,
-            MR1RW::FEATURE_DISABLED_ => false,
+            MR1RW::RESET => true,
+            MR1RW::DISABLED => false,
         }
     }
 }
@@ -870,13 +870,13 @@ impl<'a> _MR1RW<'a> {
     }
     #[doc = "TC will be reset if MR1 matches it."]
     #[inline]
-    pub fn tc_will_be_reset_if_(self) -> &'a mut W {
-        self.variant(MR1RW::TC_WILL_BE_RESET_IF_)
+    pub fn reset(self) -> &'a mut W {
+        self.variant(MR1RW::RESET)
     }
     #[doc = "Feature disabled."]
     #[inline]
-    pub fn feature_disabled_(self) -> &'a mut W {
-        self.variant(MR1RW::FEATURE_DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR1RW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -899,9 +899,9 @@ impl<'a> _MR1RW<'a> {
 #[doc = "Values that can be written to the field `MR1S`"]
 pub enum MR1SW {
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC."]
-    TC_AND_PC_WILL_BE_ST,
+    STOP,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR1SW {
     #[allow(missing_docs)]
@@ -909,8 +909,8 @@ impl MR1SW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR1SW::TC_AND_PC_WILL_BE_ST => true,
-            MR1SW::FEATURE_DISABLED_ => false,
+            MR1SW::STOP => true,
+            MR1SW::DISABLED => false,
         }
     }
 }
@@ -928,13 +928,13 @@ impl<'a> _MR1SW<'a> {
     }
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC."]
     #[inline]
-    pub fn tc_and_pc_will_be_st(self) -> &'a mut W {
-        self.variant(MR1SW::TC_AND_PC_WILL_BE_ST)
+    pub fn stop(self) -> &'a mut W {
+        self.variant(MR1SW::STOP)
     }
     #[doc = "Feature disabled."]
     #[inline]
-    pub fn feature_disabled_(self) -> &'a mut W {
-        self.variant(MR1SW::FEATURE_DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR1SW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -957,9 +957,9 @@ impl<'a> _MR1SW<'a> {
 #[doc = "Values that can be written to the field `MR2I`"]
 pub enum MR2IW {
     #[doc = "Interrupt is generated when MR2 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT,
     #[doc = "Interrupt is disabled"]
-    INTERRUPT_IS_DISABLE,
+    DISABLED,
 }
 impl MR2IW {
     #[allow(missing_docs)]
@@ -967,8 +967,8 @@ impl MR2IW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR2IW::INTERRUPT_IS_GENERAT => true,
-            MR2IW::INTERRUPT_IS_DISABLE => false,
+            MR2IW::INTERRUPT => true,
+            MR2IW::DISABLED => false,
         }
     }
 }
@@ -986,13 +986,13 @@ impl<'a> _MR2IW<'a> {
     }
     #[doc = "Interrupt is generated when MR2 matches the value in the TC."]
     #[inline]
-    pub fn interrupt_is_generat(self) -> &'a mut W {
-        self.variant(MR2IW::INTERRUPT_IS_GENERAT)
+    pub fn interrupt(self) -> &'a mut W {
+        self.variant(MR2IW::INTERRUPT)
     }
     #[doc = "Interrupt is disabled"]
     #[inline]
-    pub fn interrupt_is_disable(self) -> &'a mut W {
-        self.variant(MR2IW::INTERRUPT_IS_DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR2IW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1015,9 +1015,9 @@ impl<'a> _MR2IW<'a> {
 #[doc = "Values that can be written to the field `MR2R`"]
 pub enum MR2RW {
     #[doc = "TC will be reset if MR2 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    RESET,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR2RW {
     #[allow(missing_docs)]
@@ -1025,8 +1025,8 @@ impl MR2RW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR2RW::TC_WILL_BE_RESET_IF_ => true,
-            MR2RW::FEATURE_DISABLED_ => false,
+            MR2RW::RESET => true,
+            MR2RW::DISABLED => false,
         }
     }
 }
@@ -1044,13 +1044,13 @@ impl<'a> _MR2RW<'a> {
     }
     #[doc = "TC will be reset if MR2 matches it."]
     #[inline]
-    pub fn tc_will_be_reset_if_(self) -> &'a mut W {
-        self.variant(MR2RW::TC_WILL_BE_RESET_IF_)
+    pub fn reset(self) -> &'a mut W {
+        self.variant(MR2RW::RESET)
     }
     #[doc = "Feature disabled."]
     #[inline]
-    pub fn feature_disabled_(self) -> &'a mut W {
-        self.variant(MR2RW::FEATURE_DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR2RW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1073,9 +1073,9 @@ impl<'a> _MR2RW<'a> {
 #[doc = "Values that can be written to the field `MR2S`"]
 pub enum MR2SW {
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC"]
-    TC_AND_PC_WILL_BE_ST,
+    STOP,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR2SW {
     #[allow(missing_docs)]
@@ -1083,8 +1083,8 @@ impl MR2SW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR2SW::TC_AND_PC_WILL_BE_ST => true,
-            MR2SW::FEATURE_DISABLED_ => false,
+            MR2SW::STOP => true,
+            MR2SW::DISABLED => false,
         }
     }
 }
@@ -1102,13 +1102,13 @@ impl<'a> _MR2SW<'a> {
     }
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC"]
     #[inline]
-    pub fn tc_and_pc_will_be_st(self) -> &'a mut W {
-        self.variant(MR2SW::TC_AND_PC_WILL_BE_ST)
+    pub fn stop(self) -> &'a mut W {
+        self.variant(MR2SW::STOP)
     }
     #[doc = "Feature disabled."]
     #[inline]
-    pub fn feature_disabled_(self) -> &'a mut W {
-        self.variant(MR2SW::FEATURE_DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR2SW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1131,9 +1131,9 @@ impl<'a> _MR2SW<'a> {
 #[doc = "Values that can be written to the field `MR3I`"]
 pub enum MR3IW {
     #[doc = "Interrupt is generated when MR3 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT,
     #[doc = "This interrupt is disabled"]
-    THIS_INTERRUPT_IS_DI,
+    DISABLED,
 }
 impl MR3IW {
     #[allow(missing_docs)]
@@ -1141,8 +1141,8 @@ impl MR3IW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR3IW::INTERRUPT_IS_GENERAT => true,
-            MR3IW::THIS_INTERRUPT_IS_DI => false,
+            MR3IW::INTERRUPT => true,
+            MR3IW::DISABLED => false,
         }
     }
 }
@@ -1160,13 +1160,13 @@ impl<'a> _MR3IW<'a> {
     }
     #[doc = "Interrupt is generated when MR3 matches the value in the TC."]
     #[inline]
-    pub fn interrupt_is_generat(self) -> &'a mut W {
-        self.variant(MR3IW::INTERRUPT_IS_GENERAT)
+    pub fn interrupt(self) -> &'a mut W {
+        self.variant(MR3IW::INTERRUPT)
     }
     #[doc = "This interrupt is disabled"]
     #[inline]
-    pub fn this_interrupt_is_di(self) -> &'a mut W {
-        self.variant(MR3IW::THIS_INTERRUPT_IS_DI)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR3IW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1189,9 +1189,9 @@ impl<'a> _MR3IW<'a> {
 #[doc = "Values that can be written to the field `MR3R`"]
 pub enum MR3RW {
     #[doc = "TC will be reset if MR3 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    RESET,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR3RW {
     #[allow(missing_docs)]
@@ -1199,8 +1199,8 @@ impl MR3RW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR3RW::TC_WILL_BE_RESET_IF_ => true,
-            MR3RW::FEATURE_DISABLED_ => false,
+            MR3RW::RESET => true,
+            MR3RW::DISABLED => false,
         }
     }
 }
@@ -1218,13 +1218,13 @@ impl<'a> _MR3RW<'a> {
     }
     #[doc = "TC will be reset if MR3 matches it."]
     #[inline]
-    pub fn tc_will_be_reset_if_(self) -> &'a mut W {
-        self.variant(MR3RW::TC_WILL_BE_RESET_IF_)
+    pub fn reset(self) -> &'a mut W {
+        self.variant(MR3RW::RESET)
     }
     #[doc = "Feature disabled."]
     #[inline]
-    pub fn feature_disabled_(self) -> &'a mut W {
-        self.variant(MR3RW::FEATURE_DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR3RW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1247,9 +1247,9 @@ impl<'a> _MR3RW<'a> {
 #[doc = "Values that can be written to the field `MR3S`"]
 pub enum MR3SW {
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC."]
-    TC_AND_PC_WILL_BE_ST,
+    STOP,
     #[doc = "Feature disabled."]
-    FEATURE_DISABLED_,
+    DISABLED,
 }
 impl MR3SW {
     #[allow(missing_docs)]
@@ -1257,8 +1257,8 @@ impl MR3SW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MR3SW::TC_AND_PC_WILL_BE_ST => true,
-            MR3SW::FEATURE_DISABLED_ => false,
+            MR3SW::STOP => true,
+            MR3SW::DISABLED => false,
         }
     }
 }
@@ -1276,13 +1276,13 @@ impl<'a> _MR3SW<'a> {
     }
     #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC."]
     #[inline]
-    pub fn tc_and_pc_will_be_st(self) -> &'a mut W {
-        self.variant(MR3SW::TC_AND_PC_WILL_BE_ST)
+    pub fn stop(self) -> &'a mut W {
+        self.variant(MR3SW::STOP)
     }
     #[doc = "Feature disabled."]
     #[inline]
-    pub fn feature_disabled_(self) -> &'a mut W {
-        self.variant(MR3SW::FEATURE_DISABLED_)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MR3SW::DISABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

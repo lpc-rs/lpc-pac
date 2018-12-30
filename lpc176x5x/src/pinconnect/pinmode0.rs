@@ -384,7 +384,7 @@ pub enum P0_06MODER {
     #[doc = "Pull-up. P0.6 pin has a pull-up resistor enabled."]
     PULL_UP,
     #[doc = "Disabled. Repeater. P0.6 pin has repeater mode enabled."]
-    DISABLED,
+    REPEATER,
     #[doc = "Disabled. P0.6 pin has neither pull-up nor pull-down."]
     DISABLED,
     #[doc = "Pull-down. P0.6 has a pull-down resistor enabled."]
@@ -396,7 +396,7 @@ impl P0_06MODER {
     pub fn bits(&self) -> u8 {
         match *self {
             P0_06MODER::PULL_UP => 0,
-            P0_06MODER::DISABLED => 1,
+            P0_06MODER::REPEATER => 1,
             P0_06MODER::DISABLED => 2,
             P0_06MODER::PULL_DOWN => 3,
         }
@@ -407,7 +407,7 @@ impl P0_06MODER {
     pub fn _from(value: u8) -> P0_06MODER {
         match value {
             0 => P0_06MODER::PULL_UP,
-            1 => P0_06MODER::DISABLED,
+            1 => P0_06MODER::REPEATER,
             2 => P0_06MODER::DISABLED,
             3 => P0_06MODER::PULL_DOWN,
             _ => unreachable!(),
@@ -418,10 +418,10 @@ impl P0_06MODER {
     pub fn is_pull_up(&self) -> bool {
         *self == P0_06MODER::PULL_UP
     }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[doc = "Checks if the value of the field is `REPEATER`"]
     #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == P0_06MODER::DISABLED
+    pub fn is_repeater(&self) -> bool {
+        *self == P0_06MODER::REPEATER
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
@@ -1171,7 +1171,7 @@ pub enum P0_06MODEW {
     #[doc = "Pull-up. P0.6 pin has a pull-up resistor enabled."]
     PULL_UP,
     #[doc = "Disabled. Repeater. P0.6 pin has repeater mode enabled."]
-    DISABLED,
+    REPEATER,
     #[doc = "Disabled. P0.6 pin has neither pull-up nor pull-down."]
     DISABLED,
     #[doc = "Pull-down. P0.6 has a pull-down resistor enabled."]
@@ -1184,7 +1184,7 @@ impl P0_06MODEW {
     pub fn _bits(&self) -> u8 {
         match *self {
             P0_06MODEW::PULL_UP => 0,
-            P0_06MODEW::DISABLED => 1,
+            P0_06MODEW::REPEATER => 1,
             P0_06MODEW::DISABLED => 2,
             P0_06MODEW::PULL_DOWN => 3,
         }
@@ -1209,8 +1209,8 @@ impl<'a> _P0_06MODEW<'a> {
     }
     #[doc = "Disabled. Repeater. P0.6 pin has repeater mode enabled."]
     #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(P0_06MODEW::DISABLED)
+    pub fn repeater(self) -> &'a mut W {
+        self.variant(P0_06MODEW::REPEATER)
     }
     #[doc = "Disabled. P0.6 pin has neither pull-up nor pull-down."]
     #[inline]

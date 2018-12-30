@@ -381,12 +381,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>INTERRUPT_IS_GENERAT</name>
+							<name>INTERRUPT</name>
 							<description>Interrupt is generated when MR0 matches the value in the TC.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>INTERRUPT_IS_DISABLE</name>
+							<name>DISABLED</name>
 							<description>Interrupt is disabled</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -399,12 +399,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>TC_WILL_BE_RESET_IF_</name>
+							<name>RESET</name>
 							<description>TC will be reset if MR0 matches it.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>FEATURE_DISABLED_</name>
+							<name>DISABLED</name>
 							<description>Feature disabled.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -417,12 +417,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>TC_AND_PC_WILL_BE_ST</name>
+							<name>STOP</name>
 							<description>TC and PC will be stopped and TCR[0] will be set to 0 if MR0 matches the TC.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>FEATURE_DISABLED_</name>
+							<name>DISABLED</name>
 							<description>Feature disabled.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -435,12 +435,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>INTERRUPT_IS_GENERAT</name>
+							<name>INTERRUPT</name>
 							<description>Interrupt is generated when MR1 matches the value in the TC.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>INTERRUPT_IS_DISABLE</name>
+							<name>DISABLED</name>
 							<description>Interrupt is disabled.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -453,12 +453,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>TC_WILL_BE_RESET_IF_</name>
+							<name>RESET</name>
 							<description>TC will be reset if MR1 matches it.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>FEATURE_DISABLED_</name>
+							<name>DISABLED</name>
 							<description>Feature disabled.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -471,12 +471,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>TC_AND_PC_WILL_BE_ST</name>
+							<name>STOP</name>
 							<description>TC and PC will be stopped and TCR[0] will be set to 0 if MR1 matches the TC.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>FEATURE_DISABLED_</name>
+							<name>DISABLED</name>
 							<description>Feature disabled.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -489,12 +489,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>INTERRUPT_IS_GENERAT</name>
+							<name>INTERRUPT</name>
 							<description>Interrupt is generated when MR2 matches the value in the TC.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>INTERRUPT_IS_DISABLE</name>
+							<name>DISABLED</name>
 							<description>Interrupt is disabled</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -507,12 +507,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>TC_WILL_BE_RESET_IF_</name>
+							<name>RESET</name>
 							<description>TC will be reset if MR2 matches it.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>FEATURE_DISABLED_</name>
+							<name>DISABLED</name>
 							<description>Feature disabled.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -525,12 +525,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>TC_AND_PC_WILL_BE_ST</name>
+							<name>STOP</name>
 							<description>TC and PC will be stopped and TCR[0] will be set to 0 if MR2 matches the TC</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>FEATURE_DISABLED_</name>
+							<name>DISABLED</name>
 							<description>Feature disabled.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -543,12 +543,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>INTERRUPT_IS_GENERAT</name>
+                            <name>INTERRUPT</name>
 							<description>Interrupt is generated when MR3 matches the value in the TC.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>THIS_INTERRUPT_IS_DI</name>
+							<name>DISABLED</name>
 							<description>This interrupt is disabled</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -561,12 +561,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>TC_WILL_BE_RESET_IF_</name>
+							<name>RESET</name>
 							<description>TC will be reset if MR3 matches it.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>FEATURE_DISABLED_</name>
+							<name>DISABLED</name>
 							<description>Feature disabled.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -579,12 +579,12 @@
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>TC_AND_PC_WILL_BE_ST</name>
+							<name>STOP</name>
 							<description>TC and PC will be stopped and TCR[0] will be set to 0 if MR3 matches the TC.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>FEATURE_DISABLED_</name>
+							<name>DISABLED</name>
 							<description>Feature disabled.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -594,7 +594,6 @@
 					<name>RESERVED</name>
 					<description>Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
 					<bitRange>[31:12]</bitRange>
-
 				</field>
 			</fields>
 		</register>
@@ -5476,12 +5475,12 @@ output edges.</description>
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>THE_TIME_COUNTERS_AR</name>
+							<name>ENABLED</name>
 							<description>The time counters are enabled.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>THE_TIME_COUNTERS_AR</name>
+							<name>DISABLED</name>
 							<description>The time counters are disabled so that they may be initialized.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -5518,12 +5517,12 @@ output edges.</description>
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>THE_CALIBRATION_COUN</name>
+							<name>DISABLED</name>
 							<description>The calibration counter is disabled and reset to zero.</description>
 							<value>1</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>THE_CALIBRATION_COUN</name>
+							<name>ENABLED</name>
 							<description>The calibration counter is enabled and counting, using the 1 Hz clock. When the calibration counter is equal to the value of the CALIBRATION register, the counter resets and repeats counting up to the value of the CALIBRATION register. See Section 30.6.4.2 and  Section 30.6.5.</description>
 							<value>0</value>
 						</enumeratedValue>
@@ -9969,7 +9968,7 @@ output edges.</description>
 						<value>0x0</value>													
 					</enumeratedValue>														
 					<enumeratedValue>														
-						<name>DISABLED</name>													
+						<name>REPEATER</name>													
 						<description>Disabled. Repeater. P0.6 pin has repeater mode enabled.</description>													
 						<value>0x1</value>													
 					</enumeratedValue>														
@@ -15662,12 +15661,12 @@ output edges.</description>
 					<enumeratedValues>
 					<name>ENUM</name>
 						<enumeratedValue>
-							<name>ERROR_OCCURRED_DURIN</name>
+							<name>TX</name>
 							<description>Error occurred during transmitting.</description>
 							<value>0</value>
 						</enumeratedValue>
 						<enumeratedValue>
-							<name>ERROR_OCCURRED_DURIN</name>
+                            <name>RX</name>
 							<description>Error occurred during receiving.</description>
 							<value>1</value>
 						</enumeratedValue>
