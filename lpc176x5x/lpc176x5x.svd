@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?> 
-
-<device schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<device xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="1.1" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
 	<name>LPC176x5x</name>
 	<version>0.2</version>
 	<description>LPC176x/LPC175x M3</description>
@@ -16205,22 +16204,22 @@ output edges.</description>
 			<fields>
 				<field>
 					<name>DATA1</name>
-					<description>Data 1. If the DLC field in CANRFS >= 0001, this contains the first Data byte of the current received message.</description>
+					<description>Data 1. If the DLC field in CANRFS &gt;= 0001, this contains the first Data byte of the current received message.</description>
 					<bitRange>[7:0]</bitRange>
 				</field>
 				<field>
 					<name>DATA2</name>
-					<description>Data 2. If the DLC field in CANRFS >= 0010, this contains the first Data byte of the current received message.</description>
+					<description>Data 2. If the DLC field in CANRFS &gt;= 0010, this contains the first Data byte of the current received message.</description>
 					<bitRange>[15:8]</bitRange>
 				</field>
 				<field>
 					<name>DATA3</name>
-					<description>Data 3. If the DLC field in CANRFS >= 0011, this contains the first Data byte of the current received message.</description>
+					<description>Data 3. If the DLC field in CANRFS &gt;= 0011, this contains the first Data byte of the current received message.</description>
 					<bitRange>[23:16]</bitRange>
 				</field>
 				<field>
 					<name>DATA4</name>
-					<description>Data 4. If the DLC field in CANRFS >= 0100, this contains the first Data byte of the current received message.</description>
+					<description>Data 4. If the DLC field in CANRFS &gt;= 0100, this contains the first Data byte of the current received message.</description>
 					<bitRange>[31:24]</bitRange>
 				</field>
 			</fields>
@@ -16235,22 +16234,22 @@ output edges.</description>
 			<fields>
 				<field>
 					<name>DATA5</name>
-					<description>Data 5. If the DLC field in CANRFS >= 0101, this contains the first Data byte of the current received message.</description>
+					<description>Data 5. If the DLC field in CANRFS &gt;= 0101, this contains the first Data byte of the current received message.</description>
 					<bitRange>[7:0]</bitRange>
 				</field>
 				<field>
 					<name>DATA6</name>
-					<description>Data 6. If the DLC field in CANRFS >= 0110, this contains the first Data byte of the current received message.</description>
+					<description>Data 6. If the DLC field in CANRFS &gt;= 0110, this contains the first Data byte of the current received message.</description>
 					<bitRange>[15:8]</bitRange>
 				</field>
 				<field>
 					<name>DATA7</name>
-					<description>Data 7. If the DLC field in CANRFS >= 0111, this contains the first Data byte of the current received message.</description>
+					<description>Data 7. If the DLC field in CANRFS &gt;= 0111, this contains the first Data byte of the current received message.</description>
 					<bitRange>[23:16]</bitRange>
 				</field>
 				<field>
 					<name>DATA8</name>
-					<description>Data 8. If the DLC field in CANRFS >= 1000, this contains the first Data byte of the current received message.</description>
+					<description>Data 8. If the DLC field in CANRFS &gt;= 1000, this contains the first Data byte of the current received message.</description>
 					<bitRange>[31:24]</bitRange>
 				</field>
 			</fields>
@@ -16337,22 +16336,22 @@ data bytes 1-4 (Tx Buffer)</description>
 			<fields>
 				<field>
 					<name>DATA1</name>
-					<description>Data 1. If RTR = 0 and DLC >= 0001 in the corresponding CANxTFI, this byte is sent as the first Data byte of the next transmit message.</description>
+					<description>Data 1. If RTR = 0 and DLC &gt;= 0001 in the corresponding CANxTFI, this byte is sent as the first Data byte of the next transmit message.</description>
 					<bitRange>[7:0]</bitRange>
 				</field>
 				<field>
 					<name>DATA2</name>
-					<description>Data 2. If RTR = 0 and DLC >= 0010 in the corresponding CANxTFI, this byte is sent as the 2nd Data byte of the next transmit message.</description>
+					<description>Data 2. If RTR = 0 and DLC &gt;= 0010 in the corresponding CANxTFI, this byte is sent as the 2nd Data byte of the next transmit message.</description>
 					<bitRange>[15:8]</bitRange>
 				</field>
 				<field>
 					<name>DATA3</name>
-					<description>Data 3. If RTR = 0 and DLC >= 0011 in the corresponding CANxTFI, this byte is sent as the 3rd Data byte of the next transmit message.</description>
+					<description>Data 3. If RTR = 0 and DLC &gt;= 0011 in the corresponding CANxTFI, this byte is sent as the 3rd Data byte of the next transmit message.</description>
 					<bitRange>[23:16]</bitRange>
 				</field>
 				<field>
 					<name>DATA4</name>
-					<description>Data 4. If RTR = 0 and DLC >= 0100 in the corresponding CANxTFI, this byte is sent as the 4th Data byte of the next transmit message.</description>
+					<description>Data 4. If RTR = 0 and DLC &gt;= 0100 in the corresponding CANxTFI, this byte is sent as the 4th Data byte of the next transmit message.</description>
 					<bitRange>[31:24]</bitRange>
 				</field>
 			</fields>
@@ -16371,22 +16370,22 @@ data bytes 5-8 (Tx Buffer )</description>
 			<fields>
 				<field>
 					<name>DATA5</name>
-					<description>Data 5. If RTR = 0 and DLC >= 0101 in the corresponding CANTFI, this byte is sent as the 5th Data byte of the next transmit message.</description>
+					<description>Data 5. If RTR = 0 and DLC &gt;= 0101 in the corresponding CANTFI, this byte is sent as the 5th Data byte of the next transmit message.</description>
 					<bitRange>[7:0]</bitRange>
 				</field>
 				<field>
 					<name>DATA6</name>
-					<description>Data 6. If RTR = 0 and DLC >= 0110 in the corresponding CANTFI, this byte is sent as the 6th Data byte of the next transmit message.</description>
+					<description>Data 6. If RTR = 0 and DLC &gt;= 0110 in the corresponding CANTFI, this byte is sent as the 6th Data byte of the next transmit message.</description>
 					<bitRange>[15:8]</bitRange>
 				</field>
 				<field>
 					<name>DATA7</name>
-					<description>Data 7. If RTR = 0 and DLC >= 0111 in the corresponding CANTFI, this byte is sent as the 7th Data byte of the next transmit message.</description>
+					<description>Data 7. If RTR = 0 and DLC &gt;= 0111 in the corresponding CANTFI, this byte is sent as the 7th Data byte of the next transmit message.</description>
 					<bitRange>[23:16]</bitRange>
 				</field>
 				<field>
 					<name>DATA8</name>
-					<description>Data 8. If RTR = 0 and DLC >= 1000 in the corresponding CANTFI, this byte is sent as the 8th Data byte of the next transmit message.</description>
+					<description>Data 8. If RTR = 0 and DLC &gt;= 1000 in the corresponding CANTFI, this byte is sent as the 8th Data byte of the next transmit message.</description>
 					<bitRange>[31:24]</bitRange>
 				</field>
 			</fields>
@@ -16739,7 +16738,7 @@ data bytes 5-8 (Tx Buffer )</description>
 						</field>
 						<field>
 							<name>WS_HALFPERIOD</name>
-							<description>Word select half period minus 1, i.e. WS 64clk period -> ws_halfperiod = 31.</description>
+							<description>Word select half period minus 1, i.e. WS 64clk period -&gt; ws_halfperiod = 31.</description>
 							<bitRange>[14:6]</bitRange>
 							
 						</field>
@@ -16815,7 +16814,7 @@ data bytes 5-8 (Tx Buffer )</description>
 						</field>
 						<field>
 							<name>WS_HALFPERIOD</name>
-							<description>Word select half period minus 1, i.e. WS 64clk period -> ws_halfperiod = 31.</description>
+							<description>Word select half period minus 1, i.e. WS 64clk period -&gt; ws_halfperiod = 31.</description>
 							<bitRange>[14:6]</bitRange>
 							
 						</field>
@@ -21533,7 +21532,7 @@ data bytes 5-8 (Tx Buffer )</description>
 					</enumeratedValue>														
 					<enumeratedValue>														
 						<name>SELECTS_THE_MAIN_OSC</name>													
-						<description>Selects the main oscillator as the PLL0 clock source.  Select the main oscillator as PLL0 clock source if the PLL0 clock output is used for USB or for CAN with baudrates > 100 kBit/s.</description>													
+						<description>Selects the main oscillator as the PLL0 clock source.  Select the main oscillator as PLL0 clock source if the PLL0 clock output is used for USB or for CAN with baudrates &gt; 100 kBit/s.</description>													
 						<value>0x1</value>													
 					</enumeratedValue>														
 					<enumeratedValue>														
