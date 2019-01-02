@@ -80,7 +80,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 1 - Device clock on. The usbclk input to the device controller is active ."]
+    #[doc = "Bit 1 - Device clock on. The usbclk input to the device controller is active."]
     #[inline]
     pub fn dev_clk_on(&self) -> DEV_CLK_ONR {
         let bits = {

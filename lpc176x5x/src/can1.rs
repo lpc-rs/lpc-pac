@@ -25,29 +25,29 @@ pub struct RegisterBlock {
     pub rda: RDA,
     #[doc = "0x2c - Received data bytes 5-8. Can only be written when RM in CANMOD is 1."]
     pub rdb: RDB,
-    #[doc = "0x30 - Transmit frame info (Tx Buffer )"]
+    #[doc = "0x30 - Transmit frame info (Tx Buffer)"]
     pub tfi1: TFI,
     #[doc = "0x34 - Transmit Identifier (Tx Buffer)"]
     pub tid1: TID,
     #[doc = "0x38 - Transmit data bytes 1-4 (Tx Buffer)"]
     pub tda1: TDA,
-    #[doc = "0x3c - Transmit data bytes 5-8 (Tx Buffer )"]
+    #[doc = "0x3c - Transmit data bytes 5-8 (Tx Buffer)"]
     pub tdb1: TDB,
-    #[doc = "0x40 - Transmit frame info (Tx Buffer )"]
+    #[doc = "0x40 - Transmit frame info (Tx Buffer)"]
     pub tfi2: TFI,
     #[doc = "0x44 - Transmit Identifier (Tx Buffer)"]
     pub tid2: TID,
     #[doc = "0x48 - Transmit data bytes 1-4 (Tx Buffer)"]
     pub tda2: TDA,
-    #[doc = "0x4c - Transmit data bytes 5-8 (Tx Buffer )"]
+    #[doc = "0x4c - Transmit data bytes 5-8 (Tx Buffer)"]
     pub tdb2: TDB,
-    #[doc = "0x50 - Transmit frame info (Tx Buffer )"]
+    #[doc = "0x50 - Transmit frame info (Tx Buffer)"]
     pub tfi3: TFI,
     #[doc = "0x54 - Transmit Identifier (Tx Buffer)"]
     pub tid3: TID,
     #[doc = "0x58 - Transmit data bytes 1-4 (Tx Buffer)"]
     pub tda3: TDA,
-    #[doc = "0x5c - Transmit data bytes 5-8 (Tx Buffer )"]
+    #[doc = "0x5c - Transmit data bytes 5-8 (Tx Buffer)"]
     pub tdb3: TDB,
 }
 #[doc = "Controls the operating mode of the CAN Controller."]
@@ -122,11 +122,11 @@ pub struct RDB {
 }
 #[doc = "Received data bytes 5-8. Can only be written when RM in CANMOD is 1."]
 pub mod rdb;
-#[doc = "Transmit frame info (Tx Buffer )"]
+#[doc = "Transmit frame info (Tx Buffer)"]
 pub struct TFI {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Transmit frame info (Tx Buffer )"]
+#[doc = "Transmit frame info (Tx Buffer)"]
 pub mod tfi;
 #[doc = "Transmit Identifier (Tx Buffer)"]
 pub struct TID {
@@ -140,9 +140,9 @@ pub struct TDA {
 }
 #[doc = "Transmit data bytes 1-4 (Tx Buffer)"]
 pub mod tda;
-#[doc = "Transmit data bytes 5-8 (Tx Buffer )"]
+#[doc = "Transmit data bytes 5-8 (Tx Buffer)"]
 pub struct TDB {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Transmit data bytes 5-8 (Tx Buffer )"]
+#[doc = "Transmit data bytes 5-8 (Tx Buffer)"]
 pub mod tdb;

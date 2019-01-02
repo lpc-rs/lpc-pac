@@ -94,7 +94,7 @@ impl CLKSELR {
 pub enum LOCKR {
     #[doc = "This bit is set to 0 on any reset. It cannot be cleared by software."]
     UNLOCKED,
-    #[doc = "Software can set this bit to 1 at any time. Once WDLOCK is set, the bits of this register\n\t\t\t\t\t\t\t\t\t\tcannot be modified."]
+    #[doc = "Software can set this bit to 1 at any time. Once WDLOCK is set, the bits of this register cannot be modified."]
     LOCKED,
 }
 impl LOCKR {
@@ -196,7 +196,7 @@ impl<'a> _CLKSELW<'a> {
 pub enum LOCKW {
     #[doc = "This bit is set to 0 on any reset. It cannot be cleared by software."]
     UNLOCKED,
-    #[doc = "Software can set this bit to 1 at any time. Once WDLOCK is set, the bits of this register\n\t\t\t\t\t\t\t\t\t\tcannot be modified."]
+    #[doc = "Software can set this bit to 1 at any time. Once WDLOCK is set, the bits of this register cannot be modified."]
     LOCKED,
 }
 impl LOCKW {
