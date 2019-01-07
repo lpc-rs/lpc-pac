@@ -1,6 +1,6 @@
 [package]
 name = "lpc11uxx"
-version = "0.2.0"
+version = "0.3.0"
 authors = [
     "Raphael Nestler <raphael.nestler@gmail.com>",
     "Danilo Bargen <mail@dbrgn.ch>",
