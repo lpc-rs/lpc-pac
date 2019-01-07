@@ -281,9 +281,9 @@ impl CSCENR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SSDISR {
     #[doc = "Send start and stop bits as in other modes."]
-    SEND_START_AND_STOP_,
+    SEND_START_STOP,
     #[doc = "Do not send start/stop bits."]
-    DO_NOT_SEND_STARTSTOP,
+    DONT_SEND_START_STOP,
 }
 impl SSDISR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -300,8 +300,8 @@ impl SSDISR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            SSDISR::SEND_START_AND_STOP_ => false,
-            SSDISR::DO_NOT_SEND_STARTSTOP => true,
+            SSDISR::SEND_START_STOP => false,
+            SSDISR::DONT_SEND_START_STOP => true,
         }
     }
     #[allow(missing_docs)]
@@ -309,28 +309,28 @@ impl SSDISR {
     #[inline]
     pub fn _from(value: bool) -> SSDISR {
         match value {
-            false => SSDISR::SEND_START_AND_STOP_,
-            true => SSDISR::DO_NOT_SEND_STARTSTOP,
+            false => SSDISR::SEND_START_STOP,
+            true => SSDISR::DONT_SEND_START_STOP,
         }
     }
-    #[doc = "Checks if the value of the field is `SEND_START_AND_STOP_`"]
+    #[doc = "Checks if the value of the field is `SEND_START_STOP`"]
     #[inline]
-    pub fn is_send_start_and_stop_(&self) -> bool {
-        *self == SSDISR::SEND_START_AND_STOP_
+    pub fn is_send_start_stop(&self) -> bool {
+        *self == SSDISR::SEND_START_STOP
     }
-    #[doc = "Checks if the value of the field is `DO_NOT_SEND_STARTSTOP`"]
+    #[doc = "Checks if the value of the field is `DONT_SEND_START_STOP`"]
     #[inline]
-    pub fn is_do_not_send_startstop(&self) -> bool {
-        *self == SSDISR::DO_NOT_SEND_STARTSTOP
+    pub fn is_dont_send_start_stop(&self) -> bool {
+        *self == SSDISR::DONT_SEND_START_STOP
     }
 }
 #[doc = "Possible values of the field `CCCLR`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCCLRR {
     #[doc = "CSCEN is under software control."]
-    CSCEN_IS_UNDER_SOFTW,
+    SOFTWARE,
     #[doc = "Hardware clears CSCEN after each character is received."]
-    HARDWARE_CLEARS_CSCE,
+    HARDWARE,
 }
 impl CCCLRR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -347,8 +347,8 @@ impl CCCLRR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CCCLRR::CSCEN_IS_UNDER_SOFTW => false,
-            CCCLRR::HARDWARE_CLEARS_CSCE => true,
+            CCCLRR::SOFTWARE => false,
+            CCCLRR::HARDWARE => true,
         }
     }
     #[allow(missing_docs)]
@@ -356,19 +356,19 @@ impl CCCLRR {
     #[inline]
     pub fn _from(value: bool) -> CCCLRR {
         match value {
-            false => CCCLRR::CSCEN_IS_UNDER_SOFTW,
-            true => CCCLRR::HARDWARE_CLEARS_CSCE,
+            false => CCCLRR::SOFTWARE,
+            true => CCCLRR::HARDWARE,
         }
     }
-    #[doc = "Checks if the value of the field is `CSCEN_IS_UNDER_SOFTW`"]
+    #[doc = "Checks if the value of the field is `SOFTWARE`"]
     #[inline]
-    pub fn is_cscen_is_under_softw(&self) -> bool {
-        *self == CCCLRR::CSCEN_IS_UNDER_SOFTW
+    pub fn is_software(&self) -> bool {
+        *self == CCCLRR::SOFTWARE
     }
-    #[doc = "Checks if the value of the field is `HARDWARE_CLEARS_CSCE`"]
+    #[doc = "Checks if the value of the field is `HARDWARE`"]
     #[inline]
-    pub fn is_hardware_clears_csce(&self) -> bool {
-        *self == CCCLRR::HARDWARE_CLEARS_CSCE
+    pub fn is_hardware(&self) -> bool {
+        *self == CCCLRR::HARDWARE
     }
 }
 #[doc = "Values that can be written to the field `SYNC`"]
@@ -664,9 +664,9 @@ impl<'a> _CSCENW<'a> {
 #[doc = "Values that can be written to the field `SSDIS`"]
 pub enum SSDISW {
     #[doc = "Send start and stop bits as in other modes."]
-    SEND_START_AND_STOP_,
+    SEND_START_STOP,
     #[doc = "Do not send start/stop bits."]
-    DO_NOT_SEND_STARTSTOP,
+    DONT_SEND_START_STOP,
 }
 impl SSDISW {
     #[allow(missing_docs)]
@@ -674,8 +674,8 @@ impl SSDISW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            SSDISW::SEND_START_AND_STOP_ => false,
-            SSDISW::DO_NOT_SEND_STARTSTOP => true,
+            SSDISW::SEND_START_STOP => false,
+            SSDISW::DONT_SEND_START_STOP => true,
         }
     }
 }
@@ -693,13 +693,13 @@ impl<'a> _SSDISW<'a> {
     }
     #[doc = "Send start and stop bits as in other modes."]
     #[inline]
-    pub fn send_start_and_stop_(self) -> &'a mut W {
-        self.variant(SSDISW::SEND_START_AND_STOP_)
+    pub fn send_start_stop(self) -> &'a mut W {
+        self.variant(SSDISW::SEND_START_STOP)
     }
     #[doc = "Do not send start/stop bits."]
     #[inline]
-    pub fn do_not_send_startstop(self) -> &'a mut W {
-        self.variant(SSDISW::DO_NOT_SEND_STARTSTOP)
+    pub fn dont_send_start_stop(self) -> &'a mut W {
+        self.variant(SSDISW::DONT_SEND_START_STOP)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -722,9 +722,9 @@ impl<'a> _SSDISW<'a> {
 #[doc = "Values that can be written to the field `CCCLR`"]
 pub enum CCCLRW {
     #[doc = "CSCEN is under software control."]
-    CSCEN_IS_UNDER_SOFTW,
+    SOFTWARE,
     #[doc = "Hardware clears CSCEN after each character is received."]
-    HARDWARE_CLEARS_CSCE,
+    HARDWARE,
 }
 impl CCCLRW {
     #[allow(missing_docs)]
@@ -732,8 +732,8 @@ impl CCCLRW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CCCLRW::CSCEN_IS_UNDER_SOFTW => false,
-            CCCLRW::HARDWARE_CLEARS_CSCE => true,
+            CCCLRW::SOFTWARE => false,
+            CCCLRW::HARDWARE => true,
         }
     }
 }
@@ -751,13 +751,13 @@ impl<'a> _CCCLRW<'a> {
     }
     #[doc = "CSCEN is under software control."]
     #[inline]
-    pub fn cscen_is_under_softw(self) -> &'a mut W {
-        self.variant(CCCLRW::CSCEN_IS_UNDER_SOFTW)
+    pub fn software(self) -> &'a mut W {
+        self.variant(CCCLRW::SOFTWARE)
     }
     #[doc = "Hardware clears CSCEN after each character is received."]
     #[inline]
-    pub fn hardware_clears_csce(self) -> &'a mut W {
-        self.variant(CCCLRW::HARDWARE_CLEARS_CSCE)
+    pub fn hardware(self) -> &'a mut W {
+        self.variant(CCCLRW::HARDWARE)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

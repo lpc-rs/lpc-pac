@@ -46,9 +46,9 @@ impl super::PIO0_4 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FUNCR {
     #[doc = "PIO0_4 (open-drain pin)."]
-    PIO0_4_OPEN_DRAIN_P,
+    PIO0_4,
     #[doc = "I2C SCL (open-drain pin)."]
-    I2C_SCL_OPEN_DRAIN_,
+    I2C_SCL,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -57,8 +57,8 @@ impl FUNCR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            FUNCR::PIO0_4_OPEN_DRAIN_P => 0,
-            FUNCR::I2C_SCL_OPEN_DRAIN_ => 1,
+            FUNCR::PIO0_4 => 0,
+            FUNCR::I2C_SCL => 1,
             FUNCR::_Reserved(bits) => bits,
         }
     }
@@ -67,43 +67,40 @@ impl FUNCR {
     #[inline]
     pub fn _from(value: u8) -> FUNCR {
         match value {
-            0 => FUNCR::PIO0_4_OPEN_DRAIN_P,
-            1 => FUNCR::I2C_SCL_OPEN_DRAIN_,
+            0 => FUNCR::PIO0_4,
+            1 => FUNCR::I2C_SCL,
             i => FUNCR::_Reserved(i),
         }
     }
-    #[doc = "Checks if the value of the field is `PIO0_4_OPEN_DRAIN_P`"]
+    #[doc = "Checks if the value of the field is `PIO0_4`"]
     #[inline]
-    pub fn is_pio0_4_open_drain_p(&self) -> bool {
-        *self == FUNCR::PIO0_4_OPEN_DRAIN_P
+    pub fn is_pio0_4(&self) -> bool {
+        *self == FUNCR::PIO0_4
     }
-    #[doc = "Checks if the value of the field is `I2C_SCL_OPEN_DRAIN_`"]
+    #[doc = "Checks if the value of the field is `I2C_SCL`"]
     #[inline]
-    pub fn is_i2c_scl_open_drain_(&self) -> bool {
-        *self == FUNCR::I2C_SCL_OPEN_DRAIN_
+    pub fn is_i2c_scl(&self) -> bool {
+        *self == FUNCR::I2C_SCL
     }
 }
 #[doc = "Possible values of the field `I2CMODE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2CMODER {
     #[doc = "Standard mode/ Fast-mode I2C."]
-    STANDARD_MODE_FAST_,
+    STANDARD_MODE,
     #[doc = "Standard I/O functionality"]
-    STANDARD_IO_FUNCTIO,
+    STANDARD_IO,
     #[doc = "Fast-mode Plus I2C"]
-    FAST_MODE_PLUS_I2C,
-    #[doc = "Reserved."]
-    RESERVED_3,
+    FAST_MODE_PLUS,
 }
 impl I2CMODER {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            I2CMODER::STANDARD_MODE_FAST_ => 0,
-            I2CMODER::STANDARD_IO_FUNCTIO => 1,
-            I2CMODER::FAST_MODE_PLUS_I2C => 2,
-            I2CMODER::RESERVED_3 => 3,
+            I2CMODER::STANDARD_MODE => 0,
+            I2CMODER::STANDARD_IO => 1,
+            I2CMODER::FAST_MODE_PLUS => 2,
         }
     }
     #[allow(missing_docs)]
@@ -111,40 +108,34 @@ impl I2CMODER {
     #[inline]
     pub fn _from(value: u8) -> I2CMODER {
         match value {
-            0 => I2CMODER::STANDARD_MODE_FAST_,
-            1 => I2CMODER::STANDARD_IO_FUNCTIO,
-            2 => I2CMODER::FAST_MODE_PLUS_I2C,
-            3 => I2CMODER::RESERVED_3,
+            0 => I2CMODER::STANDARD_MODE,
+            1 => I2CMODER::STANDARD_IO,
+            2 => I2CMODER::FAST_MODE_PLUS,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `STANDARD_MODE_FAST_`"]
+    #[doc = "Checks if the value of the field is `STANDARD_MODE`"]
     #[inline]
-    pub fn is_standard_mode_fast_(&self) -> bool {
-        *self == I2CMODER::STANDARD_MODE_FAST_
+    pub fn is_standard_mode(&self) -> bool {
+        *self == I2CMODER::STANDARD_MODE
     }
-    #[doc = "Checks if the value of the field is `STANDARD_IO_FUNCTIO`"]
+    #[doc = "Checks if the value of the field is `STANDARD_IO`"]
     #[inline]
-    pub fn is_standard_io_functio(&self) -> bool {
-        *self == I2CMODER::STANDARD_IO_FUNCTIO
+    pub fn is_standard_io(&self) -> bool {
+        *self == I2CMODER::STANDARD_IO
     }
-    #[doc = "Checks if the value of the field is `FAST_MODE_PLUS_I2C`"]
+    #[doc = "Checks if the value of the field is `FAST_MODE_PLUS`"]
     #[inline]
-    pub fn is_fast_mode_plus_i2c(&self) -> bool {
-        *self == I2CMODER::FAST_MODE_PLUS_I2C
-    }
-    #[doc = "Checks if the value of the field is `RESERVED_3`"]
-    #[inline]
-    pub fn is_reserved_3(&self) -> bool {
-        *self == I2CMODER::RESERVED_3
+    pub fn is_fast_mode_plus(&self) -> bool {
+        *self == I2CMODER::FAST_MODE_PLUS
     }
 }
 #[doc = "Values that can be written to the field `FUNC`"]
 pub enum FUNCW {
     #[doc = "PIO0_4 (open-drain pin)."]
-    PIO0_4_OPEN_DRAIN_P,
+    PIO0_4,
     #[doc = "I2C SCL (open-drain pin)."]
-    I2C_SCL_OPEN_DRAIN_,
+    I2C_SCL,
 }
 impl FUNCW {
     #[allow(missing_docs)]
@@ -152,8 +143,8 @@ impl FUNCW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            FUNCW::PIO0_4_OPEN_DRAIN_P => 0,
-            FUNCW::I2C_SCL_OPEN_DRAIN_ => 1,
+            FUNCW::PIO0_4 => 0,
+            FUNCW::I2C_SCL => 1,
         }
     }
 }
@@ -169,13 +160,13 @@ impl<'a> _FUNCW<'a> {
     }
     #[doc = "PIO0_4 (open-drain pin)."]
     #[inline]
-    pub fn pio0_4_open_drain_p(self) -> &'a mut W {
-        self.variant(FUNCW::PIO0_4_OPEN_DRAIN_P)
+    pub fn pio0_4(self) -> &'a mut W {
+        self.variant(FUNCW::PIO0_4)
     }
     #[doc = "I2C SCL (open-drain pin)."]
     #[inline]
-    pub fn i2c_scl_open_drain_(self) -> &'a mut W {
-        self.variant(FUNCW::I2C_SCL_OPEN_DRAIN_)
+    pub fn i2c_scl(self) -> &'a mut W {
+        self.variant(FUNCW::I2C_SCL)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -190,13 +181,11 @@ impl<'a> _FUNCW<'a> {
 #[doc = "Values that can be written to the field `I2CMODE`"]
 pub enum I2CMODEW {
     #[doc = "Standard mode/ Fast-mode I2C."]
-    STANDARD_MODE_FAST_,
+    STANDARD_MODE,
     #[doc = "Standard I/O functionality"]
-    STANDARD_IO_FUNCTIO,
+    STANDARD_IO,
     #[doc = "Fast-mode Plus I2C"]
-    FAST_MODE_PLUS_I2C,
-    #[doc = "Reserved."]
-    RESERVED_3,
+    FAST_MODE_PLUS,
 }
 impl I2CMODEW {
     #[allow(missing_docs)]
@@ -204,10 +193,9 @@ impl I2CMODEW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            I2CMODEW::STANDARD_MODE_FAST_ => 0,
-            I2CMODEW::STANDARD_IO_FUNCTIO => 1,
-            I2CMODEW::FAST_MODE_PLUS_I2C => 2,
-            I2CMODEW::RESERVED_3 => 3,
+            I2CMODEW::STANDARD_MODE => 0,
+            I2CMODEW::STANDARD_IO => 1,
+            I2CMODEW::FAST_MODE_PLUS => 2,
         }
     }
 }
@@ -219,33 +207,26 @@ impl<'a> _I2CMODEW<'a> {
     #[doc = r" Writes `variant` to the field"]
     #[inline]
     pub fn variant(self, variant: I2CMODEW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
+        unsafe { self.bits(variant._bits()) }
     }
     #[doc = "Standard mode/ Fast-mode I2C."]
     #[inline]
-    pub fn standard_mode_fast_(self) -> &'a mut W {
-        self.variant(I2CMODEW::STANDARD_MODE_FAST_)
+    pub fn standard_mode(self) -> &'a mut W {
+        self.variant(I2CMODEW::STANDARD_MODE)
     }
     #[doc = "Standard I/O functionality"]
     #[inline]
-    pub fn standard_io_functio(self) -> &'a mut W {
-        self.variant(I2CMODEW::STANDARD_IO_FUNCTIO)
+    pub fn standard_io(self) -> &'a mut W {
+        self.variant(I2CMODEW::STANDARD_IO)
     }
     #[doc = "Fast-mode Plus I2C"]
     #[inline]
-    pub fn fast_mode_plus_i2c(self) -> &'a mut W {
-        self.variant(I2CMODEW::FAST_MODE_PLUS_I2C)
-    }
-    #[doc = "Reserved."]
-    #[inline]
-    pub fn reserved_3(self) -> &'a mut W {
-        self.variant(I2CMODEW::RESERVED_3)
+    pub fn fast_mode_plus(self) -> &'a mut W {
+        self.variant(I2CMODEW::FAST_MODE_PLUS)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
         const MASK: u8 = 3;
         const OFFSET: u8 = 8;
         self.w.bits &= !((MASK as u32) << OFFSET);

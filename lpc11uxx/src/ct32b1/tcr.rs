@@ -93,9 +93,9 @@ impl CENR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CRSTR {
     #[doc = "Do nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
-    THE_TIMER_COUNTER_AN,
+    RESET,
 }
 impl CRSTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -112,8 +112,8 @@ impl CRSTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CRSTR::DO_NOTHING_ => false,
-            CRSTR::THE_TIMER_COUNTER_AN => true,
+            CRSTR::DO_NOTHING => false,
+            CRSTR::RESET => true,
         }
     }
     #[allow(missing_docs)]
@@ -121,19 +121,19 @@ impl CRSTR {
     #[inline]
     pub fn _from(value: bool) -> CRSTR {
         match value {
-            false => CRSTR::DO_NOTHING_,
-            true => CRSTR::THE_TIMER_COUNTER_AN,
+            false => CRSTR::DO_NOTHING,
+            true => CRSTR::RESET,
         }
     }
-    #[doc = "Checks if the value of the field is `DO_NOTHING_`"]
+    #[doc = "Checks if the value of the field is `DO_NOTHING`"]
     #[inline]
-    pub fn is_do_nothing_(&self) -> bool {
-        *self == CRSTR::DO_NOTHING_
+    pub fn is_do_nothing(&self) -> bool {
+        *self == CRSTR::DO_NOTHING
     }
-    #[doc = "Checks if the value of the field is `THE_TIMER_COUNTER_AN`"]
+    #[doc = "Checks if the value of the field is `RESET`"]
     #[inline]
-    pub fn is_the_timer_counter_an(&self) -> bool {
-        *self == CRSTR::THE_TIMER_COUNTER_AN
+    pub fn is_reset(&self) -> bool {
+        *self == CRSTR::RESET
     }
 }
 #[doc = "Values that can be written to the field `CEN`"]
@@ -197,9 +197,9 @@ impl<'a> _CENW<'a> {
 #[doc = "Values that can be written to the field `CRST`"]
 pub enum CRSTW {
     #[doc = "Do nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
-    THE_TIMER_COUNTER_AN,
+    RESET,
 }
 impl CRSTW {
     #[allow(missing_docs)]
@@ -207,8 +207,8 @@ impl CRSTW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CRSTW::DO_NOTHING_ => false,
-            CRSTW::THE_TIMER_COUNTER_AN => true,
+            CRSTW::DO_NOTHING => false,
+            CRSTW::RESET => true,
         }
     }
 }
@@ -226,13 +226,13 @@ impl<'a> _CRSTW<'a> {
     }
     #[doc = "Do nothing."]
     #[inline]
-    pub fn do_nothing_(self) -> &'a mut W {
-        self.variant(CRSTW::DO_NOTHING_)
+    pub fn do_nothing(self) -> &'a mut W {
+        self.variant(CRSTW::DO_NOTHING)
     }
     #[doc = "The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
     #[inline]
-    pub fn the_timer_counter_an(self) -> &'a mut W {
-        self.variant(CRSTW::THE_TIMER_COUNTER_AN)
+    pub fn reset(self) -> &'a mut W {
+        self.variant(CRSTW::RESET)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

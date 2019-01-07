@@ -93,9 +93,9 @@ impl STARTR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODER {
     #[doc = "Mode 0."]
-    MODE_0_,
+    MODE0,
     #[doc = "Mode 1."]
-    MODE_1_,
+    MODE1,
 }
 impl MODER {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -112,8 +112,8 @@ impl MODER {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MODER::MODE_0_ => false,
-            MODER::MODE_1_ => true,
+            MODER::MODE0 => false,
+            MODER::MODE1 => true,
         }
     }
     #[allow(missing_docs)]
@@ -121,19 +121,19 @@ impl MODER {
     #[inline]
     pub fn _from(value: bool) -> MODER {
         match value {
-            false => MODER::MODE_0_,
-            true => MODER::MODE_1_,
+            false => MODER::MODE0,
+            true => MODER::MODE1,
         }
     }
-    #[doc = "Checks if the value of the field is `MODE_0_`"]
+    #[doc = "Checks if the value of the field is `MODE0`"]
     #[inline]
-    pub fn is_mode_0_(&self) -> bool {
-        *self == MODER::MODE_0_
+    pub fn is_mode0(&self) -> bool {
+        *self == MODER::MODE0
     }
-    #[doc = "Checks if the value of the field is `MODE_1_`"]
+    #[doc = "Checks if the value of the field is `MODE1`"]
     #[inline]
-    pub fn is_mode_1_(&self) -> bool {
-        *self == MODER::MODE_1_
+    pub fn is_mode1(&self) -> bool {
+        *self == MODER::MODE1
     }
 }
 #[doc = "Possible values of the field `AUTORESTART`"]
@@ -338,9 +338,9 @@ impl<'a> _STARTW<'a> {
 #[doc = "Values that can be written to the field `MODE`"]
 pub enum MODEW {
     #[doc = "Mode 0."]
-    MODE_0_,
+    MODE0,
     #[doc = "Mode 1."]
-    MODE_1_,
+    MODE1,
 }
 impl MODEW {
     #[allow(missing_docs)]
@@ -348,8 +348,8 @@ impl MODEW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MODEW::MODE_0_ => false,
-            MODEW::MODE_1_ => true,
+            MODEW::MODE0 => false,
+            MODEW::MODE1 => true,
         }
     }
 }
@@ -367,13 +367,13 @@ impl<'a> _MODEW<'a> {
     }
     #[doc = "Mode 0."]
     #[inline]
-    pub fn mode_0_(self) -> &'a mut W {
-        self.variant(MODEW::MODE_0_)
+    pub fn mode0(self) -> &'a mut W {
+        self.variant(MODEW::MODE0)
     }
     #[doc = "Mode 1."]
     #[inline]
-    pub fn mode_1_(self) -> &'a mut W {
-        self.variant(MODEW::MODE_1_)
+    pub fn mode1(self) -> &'a mut W {
+        self.variant(MODEW::MODE1)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

@@ -46,9 +46,9 @@ impl super::USBCLKCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AP_CLKR {
     #[doc = "Under hardware control."]
-    UNDER_HARDWARE_CONTR,
+    UNDER_HARDWARE_CONTROL,
     #[doc = "Forced HIGH."]
-    FORCED_HIGH_,
+    FORCED_HIGH,
 }
 impl AP_CLKR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl AP_CLKR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            AP_CLKR::UNDER_HARDWARE_CONTR => false,
-            AP_CLKR::FORCED_HIGH_ => true,
+            AP_CLKR::UNDER_HARDWARE_CONTROL => false,
+            AP_CLKR::FORCED_HIGH => true,
         }
     }
     #[allow(missing_docs)]
@@ -74,28 +74,28 @@ impl AP_CLKR {
     #[inline]
     pub fn _from(value: bool) -> AP_CLKR {
         match value {
-            false => AP_CLKR::UNDER_HARDWARE_CONTR,
-            true => AP_CLKR::FORCED_HIGH_,
+            false => AP_CLKR::UNDER_HARDWARE_CONTROL,
+            true => AP_CLKR::FORCED_HIGH,
         }
     }
-    #[doc = "Checks if the value of the field is `UNDER_HARDWARE_CONTR`"]
+    #[doc = "Checks if the value of the field is `UNDER_HARDWARE_CONTROL`"]
     #[inline]
-    pub fn is_under_hardware_contr(&self) -> bool {
-        *self == AP_CLKR::UNDER_HARDWARE_CONTR
+    pub fn is_under_hardware_control(&self) -> bool {
+        *self == AP_CLKR::UNDER_HARDWARE_CONTROL
     }
-    #[doc = "Checks if the value of the field is `FORCED_HIGH_`"]
+    #[doc = "Checks if the value of the field is `FORCED_HIGH`"]
     #[inline]
-    pub fn is_forced_high_(&self) -> bool {
-        *self == AP_CLKR::FORCED_HIGH_
+    pub fn is_forced_high(&self) -> bool {
+        *self == AP_CLKR::FORCED_HIGH
     }
 }
 #[doc = "Possible values of the field `POL_CLK`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POL_CLKR {
     #[doc = "Falling edge of the USB need_clock triggers the USB wake-up (default)."]
-    FALLING_EDGE_OF_THE_,
+    FALLING_EDGE,
     #[doc = "Rising edge of the USB need_clock triggers the USB wake-up."]
-    RISING_EDGE_OF_THE_U,
+    RISING_EDGE,
 }
 impl POL_CLKR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -112,8 +112,8 @@ impl POL_CLKR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            POL_CLKR::FALLING_EDGE_OF_THE_ => false,
-            POL_CLKR::RISING_EDGE_OF_THE_U => true,
+            POL_CLKR::FALLING_EDGE => false,
+            POL_CLKR::RISING_EDGE => true,
         }
     }
     #[allow(missing_docs)]
@@ -121,27 +121,27 @@ impl POL_CLKR {
     #[inline]
     pub fn _from(value: bool) -> POL_CLKR {
         match value {
-            false => POL_CLKR::FALLING_EDGE_OF_THE_,
-            true => POL_CLKR::RISING_EDGE_OF_THE_U,
+            false => POL_CLKR::FALLING_EDGE,
+            true => POL_CLKR::RISING_EDGE,
         }
     }
-    #[doc = "Checks if the value of the field is `FALLING_EDGE_OF_THE_`"]
+    #[doc = "Checks if the value of the field is `FALLING_EDGE`"]
     #[inline]
-    pub fn is_falling_edge_of_the_(&self) -> bool {
-        *self == POL_CLKR::FALLING_EDGE_OF_THE_
+    pub fn is_falling_edge(&self) -> bool {
+        *self == POL_CLKR::FALLING_EDGE
     }
-    #[doc = "Checks if the value of the field is `RISING_EDGE_OF_THE_U`"]
+    #[doc = "Checks if the value of the field is `RISING_EDGE`"]
     #[inline]
-    pub fn is_rising_edge_of_the_u(&self) -> bool {
-        *self == POL_CLKR::RISING_EDGE_OF_THE_U
+    pub fn is_rising_edge(&self) -> bool {
+        *self == POL_CLKR::RISING_EDGE
     }
 }
 #[doc = "Values that can be written to the field `AP_CLK`"]
 pub enum AP_CLKW {
     #[doc = "Under hardware control."]
-    UNDER_HARDWARE_CONTR,
+    UNDER_HARDWARE_CONTROL,
     #[doc = "Forced HIGH."]
-    FORCED_HIGH_,
+    FORCED_HIGH,
 }
 impl AP_CLKW {
     #[allow(missing_docs)]
@@ -149,8 +149,8 @@ impl AP_CLKW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            AP_CLKW::UNDER_HARDWARE_CONTR => false,
-            AP_CLKW::FORCED_HIGH_ => true,
+            AP_CLKW::UNDER_HARDWARE_CONTROL => false,
+            AP_CLKW::FORCED_HIGH => true,
         }
     }
 }
@@ -168,13 +168,13 @@ impl<'a> _AP_CLKW<'a> {
     }
     #[doc = "Under hardware control."]
     #[inline]
-    pub fn under_hardware_contr(self) -> &'a mut W {
-        self.variant(AP_CLKW::UNDER_HARDWARE_CONTR)
+    pub fn under_hardware_control(self) -> &'a mut W {
+        self.variant(AP_CLKW::UNDER_HARDWARE_CONTROL)
     }
     #[doc = "Forced HIGH."]
     #[inline]
-    pub fn forced_high_(self) -> &'a mut W {
-        self.variant(AP_CLKW::FORCED_HIGH_)
+    pub fn forced_high(self) -> &'a mut W {
+        self.variant(AP_CLKW::FORCED_HIGH)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -197,9 +197,9 @@ impl<'a> _AP_CLKW<'a> {
 #[doc = "Values that can be written to the field `POL_CLK`"]
 pub enum POL_CLKW {
     #[doc = "Falling edge of the USB need_clock triggers the USB wake-up (default)."]
-    FALLING_EDGE_OF_THE_,
+    FALLING_EDGE,
     #[doc = "Rising edge of the USB need_clock triggers the USB wake-up."]
-    RISING_EDGE_OF_THE_U,
+    RISING_EDGE,
 }
 impl POL_CLKW {
     #[allow(missing_docs)]
@@ -207,8 +207,8 @@ impl POL_CLKW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            POL_CLKW::FALLING_EDGE_OF_THE_ => false,
-            POL_CLKW::RISING_EDGE_OF_THE_U => true,
+            POL_CLKW::FALLING_EDGE => false,
+            POL_CLKW::RISING_EDGE => true,
         }
     }
 }
@@ -226,13 +226,13 @@ impl<'a> _POL_CLKW<'a> {
     }
     #[doc = "Falling edge of the USB need_clock triggers the USB wake-up (default)."]
     #[inline]
-    pub fn falling_edge_of_the_(self) -> &'a mut W {
-        self.variant(POL_CLKW::FALLING_EDGE_OF_THE_)
+    pub fn falling_edge(self) -> &'a mut W {
+        self.variant(POL_CLKW::FALLING_EDGE)
     }
     #[doc = "Rising edge of the USB need_clock triggers the USB wake-up."]
     #[inline]
-    pub fn rising_edge_of_the_u(self) -> &'a mut W {
-        self.variant(POL_CLKW::RISING_EDGE_OF_THE_U)
+    pub fn rising_edge(self) -> &'a mut W {
+        self.variant(POL_CLKW::RISING_EDGE)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

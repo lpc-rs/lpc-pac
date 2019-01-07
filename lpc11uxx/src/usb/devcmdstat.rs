@@ -146,9 +146,9 @@ impl PLL_ONR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LPM_SUPR {
     #[doc = "LPM not supported."]
-    LPM_NOT_SUPPORTED_,
+    NOT_SUPPORTED,
     #[doc = "LPM supported."]
-    LPM_SUPPORTED_,
+    SUPPORTED,
 }
 impl LPM_SUPR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -165,8 +165,8 @@ impl LPM_SUPR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            LPM_SUPR::LPM_NOT_SUPPORTED_ => false,
-            LPM_SUPR::LPM_SUPPORTED_ => true,
+            LPM_SUPR::NOT_SUPPORTED => false,
+            LPM_SUPR::SUPPORTED => true,
         }
     }
     #[allow(missing_docs)]
@@ -174,19 +174,19 @@ impl LPM_SUPR {
     #[inline]
     pub fn _from(value: bool) -> LPM_SUPR {
         match value {
-            false => LPM_SUPR::LPM_NOT_SUPPORTED_,
-            true => LPM_SUPR::LPM_SUPPORTED_,
+            false => LPM_SUPR::NOT_SUPPORTED,
+            true => LPM_SUPR::SUPPORTED,
         }
     }
-    #[doc = "Checks if the value of the field is `LPM_NOT_SUPPORTED_`"]
+    #[doc = "Checks if the value of the field is `NOT_SUPPORTED`"]
     #[inline]
-    pub fn is_lpm_not_supported_(&self) -> bool {
-        *self == LPM_SUPR::LPM_NOT_SUPPORTED_
+    pub fn is_not_supported(&self) -> bool {
+        *self == LPM_SUPR::NOT_SUPPORTED
     }
-    #[doc = "Checks if the value of the field is `LPM_SUPPORTED_`"]
+    #[doc = "Checks if the value of the field is `SUPPORTED`"]
     #[inline]
-    pub fn is_lpm_supported_(&self) -> bool {
-        *self == LPM_SUPR::LPM_SUPPORTED_
+    pub fn is_supported(&self) -> bool {
+        *self == LPM_SUPR::SUPPORTED
     }
 }
 #[doc = "Possible values of the field `INTONNAK_AO`"]
@@ -667,9 +667,9 @@ impl<'a> _PLL_ONW<'a> {
 #[doc = "Values that can be written to the field `LPM_SUP`"]
 pub enum LPM_SUPW {
     #[doc = "LPM not supported."]
-    LPM_NOT_SUPPORTED_,
+    NOT_SUPPORTED,
     #[doc = "LPM supported."]
-    LPM_SUPPORTED_,
+    SUPPORTED,
 }
 impl LPM_SUPW {
     #[allow(missing_docs)]
@@ -677,8 +677,8 @@ impl LPM_SUPW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            LPM_SUPW::LPM_NOT_SUPPORTED_ => false,
-            LPM_SUPW::LPM_SUPPORTED_ => true,
+            LPM_SUPW::NOT_SUPPORTED => false,
+            LPM_SUPW::SUPPORTED => true,
         }
     }
 }
@@ -696,13 +696,13 @@ impl<'a> _LPM_SUPW<'a> {
     }
     #[doc = "LPM not supported."]
     #[inline]
-    pub fn lpm_not_supported_(self) -> &'a mut W {
-        self.variant(LPM_SUPW::LPM_NOT_SUPPORTED_)
+    pub fn not_supported(self) -> &'a mut W {
+        self.variant(LPM_SUPW::NOT_SUPPORTED)
     }
     #[doc = "LPM supported."]
     #[inline]
-    pub fn lpm_supported_(self) -> &'a mut W {
-        self.variant(LPM_SUPW::LPM_SUPPORTED_)
+    pub fn supported(self) -> &'a mut W {
+        self.variant(LPM_SUPW::SUPPORTED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

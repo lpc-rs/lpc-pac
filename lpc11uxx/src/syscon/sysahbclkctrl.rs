@@ -46,7 +46,7 @@ impl super::SYSAHBCLKCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SYSR {
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl SYSR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -63,7 +63,7 @@ impl SYSR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            SYSR::ENABLE => true,
+            SYSR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -71,23 +71,23 @@ impl SYSR {
     #[inline]
     pub fn _from(value: bool) -> SYSR {
         match value {
-            true => SYSR::ENABLE,
+            true => SYSR::ENABLED,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == SYSR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == SYSR::ENABLED
     }
 }
 #[doc = "Possible values of the field `ROM`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ROMR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl ROMR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -104,8 +104,8 @@ impl ROMR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            ROMR::DISABLE => false,
-            ROMR::ENABLE => true,
+            ROMR::DISABLED => false,
+            ROMR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -113,28 +113,28 @@ impl ROMR {
     #[inline]
     pub fn _from(value: bool) -> ROMR {
         match value {
-            false => ROMR::DISABLE,
-            true => ROMR::ENABLE,
+            false => ROMR::DISABLED,
+            true => ROMR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == ROMR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == ROMR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == ROMR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == ROMR::ENABLED
     }
 }
 #[doc = "Possible values of the field `RAM0`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RAM0R {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl RAM0R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -151,8 +151,8 @@ impl RAM0R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            RAM0R::DISABLE => false,
-            RAM0R::ENABLE => true,
+            RAM0R::DISABLED => false,
+            RAM0R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -160,28 +160,28 @@ impl RAM0R {
     #[inline]
     pub fn _from(value: bool) -> RAM0R {
         match value {
-            false => RAM0R::DISABLE,
-            true => RAM0R::ENABLE,
+            false => RAM0R::DISABLED,
+            true => RAM0R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == RAM0R::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == RAM0R::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == RAM0R::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == RAM0R::ENABLED
     }
 }
 #[doc = "Possible values of the field `FLASHREG`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FLASHREGR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl FLASHREGR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -198,8 +198,8 @@ impl FLASHREGR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            FLASHREGR::DISABLE => false,
-            FLASHREGR::ENABLE => true,
+            FLASHREGR::DISABLED => false,
+            FLASHREGR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -207,28 +207,28 @@ impl FLASHREGR {
     #[inline]
     pub fn _from(value: bool) -> FLASHREGR {
         match value {
-            false => FLASHREGR::DISABLE,
-            true => FLASHREGR::ENABLE,
+            false => FLASHREGR::DISABLED,
+            true => FLASHREGR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == FLASHREGR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == FLASHREGR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == FLASHREGR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == FLASHREGR::ENABLED
     }
 }
 #[doc = "Possible values of the field `FLASHARRAY`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FLASHARRAYR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl FLASHARRAYR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -245,8 +245,8 @@ impl FLASHARRAYR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            FLASHARRAYR::DISABLE => false,
-            FLASHARRAYR::ENABLE => true,
+            FLASHARRAYR::DISABLED => false,
+            FLASHARRAYR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -254,28 +254,28 @@ impl FLASHARRAYR {
     #[inline]
     pub fn _from(value: bool) -> FLASHARRAYR {
         match value {
-            false => FLASHARRAYR::DISABLE,
-            true => FLASHARRAYR::ENABLE,
+            false => FLASHARRAYR::DISABLED,
+            true => FLASHARRAYR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == FLASHARRAYR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == FLASHARRAYR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == FLASHARRAYR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == FLASHARRAYR::ENABLED
     }
 }
 #[doc = "Possible values of the field `I2C`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2CR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl I2CR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -292,8 +292,8 @@ impl I2CR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            I2CR::DISABLE => false,
-            I2CR::ENABLE => true,
+            I2CR::DISABLED => false,
+            I2CR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -301,28 +301,28 @@ impl I2CR {
     #[inline]
     pub fn _from(value: bool) -> I2CR {
         match value {
-            false => I2CR::DISABLE,
-            true => I2CR::ENABLE,
+            false => I2CR::DISABLED,
+            true => I2CR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == I2CR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == I2CR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == I2CR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == I2CR::ENABLED
     }
 }
 #[doc = "Possible values of the field `GPIO`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GPIOR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl GPIOR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -339,8 +339,8 @@ impl GPIOR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            GPIOR::DISABLE => false,
-            GPIOR::ENABLE => true,
+            GPIOR::DISABLED => false,
+            GPIOR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -348,28 +348,28 @@ impl GPIOR {
     #[inline]
     pub fn _from(value: bool) -> GPIOR {
         match value {
-            false => GPIOR::DISABLE,
-            true => GPIOR::ENABLE,
+            false => GPIOR::DISABLED,
+            true => GPIOR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == GPIOR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == GPIOR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == GPIOR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == GPIOR::ENABLED
     }
 }
 #[doc = "Possible values of the field `CT16B0`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CT16B0R {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl CT16B0R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -386,8 +386,8 @@ impl CT16B0R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CT16B0R::DISABLE => false,
-            CT16B0R::ENABLE => true,
+            CT16B0R::DISABLED => false,
+            CT16B0R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -395,28 +395,28 @@ impl CT16B0R {
     #[inline]
     pub fn _from(value: bool) -> CT16B0R {
         match value {
-            false => CT16B0R::DISABLE,
-            true => CT16B0R::ENABLE,
+            false => CT16B0R::DISABLED,
+            true => CT16B0R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == CT16B0R::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == CT16B0R::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == CT16B0R::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == CT16B0R::ENABLED
     }
 }
 #[doc = "Possible values of the field `CT16B1`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CT16B1R {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl CT16B1R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -433,8 +433,8 @@ impl CT16B1R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CT16B1R::DISABLE => false,
-            CT16B1R::ENABLE => true,
+            CT16B1R::DISABLED => false,
+            CT16B1R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -442,28 +442,28 @@ impl CT16B1R {
     #[inline]
     pub fn _from(value: bool) -> CT16B1R {
         match value {
-            false => CT16B1R::DISABLE,
-            true => CT16B1R::ENABLE,
+            false => CT16B1R::DISABLED,
+            true => CT16B1R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == CT16B1R::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == CT16B1R::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == CT16B1R::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == CT16B1R::ENABLED
     }
 }
 #[doc = "Possible values of the field `CT32B0`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CT32B0R {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl CT32B0R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -480,8 +480,8 @@ impl CT32B0R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CT32B0R::DISABLE => false,
-            CT32B0R::ENABLE => true,
+            CT32B0R::DISABLED => false,
+            CT32B0R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -489,28 +489,28 @@ impl CT32B0R {
     #[inline]
     pub fn _from(value: bool) -> CT32B0R {
         match value {
-            false => CT32B0R::DISABLE,
-            true => CT32B0R::ENABLE,
+            false => CT32B0R::DISABLED,
+            true => CT32B0R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == CT32B0R::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == CT32B0R::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == CT32B0R::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == CT32B0R::ENABLED
     }
 }
 #[doc = "Possible values of the field `CT32B1`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CT32B1R {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl CT32B1R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -527,8 +527,8 @@ impl CT32B1R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            CT32B1R::DISABLE => false,
-            CT32B1R::ENABLE => true,
+            CT32B1R::DISABLED => false,
+            CT32B1R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -536,28 +536,28 @@ impl CT32B1R {
     #[inline]
     pub fn _from(value: bool) -> CT32B1R {
         match value {
-            false => CT32B1R::DISABLE,
-            true => CT32B1R::ENABLE,
+            false => CT32B1R::DISABLED,
+            true => CT32B1R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == CT32B1R::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == CT32B1R::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == CT32B1R::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == CT32B1R::ENABLED
     }
 }
 #[doc = "Possible values of the field `SSP0`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SSP0R {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl SSP0R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -574,8 +574,8 @@ impl SSP0R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            SSP0R::DISABLE => false,
-            SSP0R::ENABLE => true,
+            SSP0R::DISABLED => false,
+            SSP0R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -583,28 +583,28 @@ impl SSP0R {
     #[inline]
     pub fn _from(value: bool) -> SSP0R {
         match value {
-            false => SSP0R::DISABLE,
-            true => SSP0R::ENABLE,
+            false => SSP0R::DISABLED,
+            true => SSP0R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == SSP0R::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == SSP0R::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == SSP0R::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == SSP0R::ENABLED
     }
 }
 #[doc = "Possible values of the field `USART`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USARTR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl USARTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -621,8 +621,8 @@ impl USARTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            USARTR::DISABLE => false,
-            USARTR::ENABLE => true,
+            USARTR::DISABLED => false,
+            USARTR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -630,28 +630,28 @@ impl USARTR {
     #[inline]
     pub fn _from(value: bool) -> USARTR {
         match value {
-            false => USARTR::DISABLE,
-            true => USARTR::ENABLE,
+            false => USARTR::DISABLED,
+            true => USARTR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == USARTR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == USARTR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == USARTR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == USARTR::ENABLED
     }
 }
 #[doc = "Possible values of the field `ADC`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADCR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl ADCR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -668,8 +668,8 @@ impl ADCR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            ADCR::DISABLE => false,
-            ADCR::ENABLE => true,
+            ADCR::DISABLED => false,
+            ADCR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -677,28 +677,28 @@ impl ADCR {
     #[inline]
     pub fn _from(value: bool) -> ADCR {
         match value {
-            false => ADCR::DISABLE,
-            true => ADCR::ENABLE,
+            false => ADCR::DISABLED,
+            true => ADCR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == ADCR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == ADCR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == ADCR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == ADCR::ENABLED
     }
 }
 #[doc = "Possible values of the field `USB`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl USBR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -715,8 +715,8 @@ impl USBR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            USBR::DISABLE => false,
-            USBR::ENABLE => true,
+            USBR::DISABLED => false,
+            USBR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -724,28 +724,28 @@ impl USBR {
     #[inline]
     pub fn _from(value: bool) -> USBR {
         match value {
-            false => USBR::DISABLE,
-            true => USBR::ENABLE,
+            false => USBR::DISABLED,
+            true => USBR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == USBR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == USBR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == USBR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == USBR::ENABLED
     }
 }
 #[doc = "Possible values of the field `WWDT`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WWDTR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl WWDTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -762,8 +762,8 @@ impl WWDTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            WWDTR::DISABLE => false,
-            WWDTR::ENABLE => true,
+            WWDTR::DISABLED => false,
+            WWDTR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -771,28 +771,28 @@ impl WWDTR {
     #[inline]
     pub fn _from(value: bool) -> WWDTR {
         match value {
-            false => WWDTR::DISABLE,
-            true => WWDTR::ENABLE,
+            false => WWDTR::DISABLED,
+            true => WWDTR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == WWDTR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == WWDTR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == WWDTR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == WWDTR::ENABLED
     }
 }
 #[doc = "Possible values of the field `IOCON`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IOCONR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl IOCONR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -809,8 +809,8 @@ impl IOCONR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            IOCONR::DISABLE => false,
-            IOCONR::ENABLE => true,
+            IOCONR::DISABLED => false,
+            IOCONR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -818,28 +818,28 @@ impl IOCONR {
     #[inline]
     pub fn _from(value: bool) -> IOCONR {
         match value {
-            false => IOCONR::DISABLE,
-            true => IOCONR::ENABLE,
+            false => IOCONR::DISABLED,
+            true => IOCONR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == IOCONR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == IOCONR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == IOCONR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == IOCONR::ENABLED
     }
 }
 #[doc = "Possible values of the field `SSP1`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SSP1R {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl SSP1R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -856,8 +856,8 @@ impl SSP1R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            SSP1R::DISABLE => false,
-            SSP1R::ENABLE => true,
+            SSP1R::DISABLED => false,
+            SSP1R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -865,28 +865,28 @@ impl SSP1R {
     #[inline]
     pub fn _from(value: bool) -> SSP1R {
         match value {
-            false => SSP1R::DISABLE,
-            true => SSP1R::ENABLE,
+            false => SSP1R::DISABLED,
+            true => SSP1R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == SSP1R::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == SSP1R::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == SSP1R::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == SSP1R::ENABLED
     }
 }
 #[doc = "Possible values of the field `PINT`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PINTR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl PINTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -903,8 +903,8 @@ impl PINTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            PINTR::DISABLE => false,
-            PINTR::ENABLE => true,
+            PINTR::DISABLED => false,
+            PINTR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -912,28 +912,28 @@ impl PINTR {
     #[inline]
     pub fn _from(value: bool) -> PINTR {
         match value {
-            false => PINTR::DISABLE,
-            true => PINTR::ENABLE,
+            false => PINTR::DISABLED,
+            true => PINTR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == PINTR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == PINTR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == PINTR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == PINTR::ENABLED
     }
 }
 #[doc = "Possible values of the field `GROUP0INT`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GROUP0INTR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl GROUP0INTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -950,8 +950,8 @@ impl GROUP0INTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            GROUP0INTR::DISABLE => false,
-            GROUP0INTR::ENABLE => true,
+            GROUP0INTR::DISABLED => false,
+            GROUP0INTR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -959,28 +959,28 @@ impl GROUP0INTR {
     #[inline]
     pub fn _from(value: bool) -> GROUP0INTR {
         match value {
-            false => GROUP0INTR::DISABLE,
-            true => GROUP0INTR::ENABLE,
+            false => GROUP0INTR::DISABLED,
+            true => GROUP0INTR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == GROUP0INTR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == GROUP0INTR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == GROUP0INTR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == GROUP0INTR::ENABLED
     }
 }
 #[doc = "Possible values of the field `GROUP1INT`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GROUP1INTR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl GROUP1INTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -997,8 +997,8 @@ impl GROUP1INTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            GROUP1INTR::DISABLE => false,
-            GROUP1INTR::ENABLE => true,
+            GROUP1INTR::DISABLED => false,
+            GROUP1INTR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -1006,28 +1006,28 @@ impl GROUP1INTR {
     #[inline]
     pub fn _from(value: bool) -> GROUP1INTR {
         match value {
-            false => GROUP1INTR::DISABLE,
-            true => GROUP1INTR::ENABLE,
+            false => GROUP1INTR::DISABLED,
+            true => GROUP1INTR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == GROUP1INTR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == GROUP1INTR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == GROUP1INTR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == GROUP1INTR::ENABLED
     }
 }
 #[doc = "Possible values of the field `RAM1`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RAM1R {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl RAM1R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -1044,8 +1044,8 @@ impl RAM1R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            RAM1R::DISABLE => false,
-            RAM1R::ENABLE => true,
+            RAM1R::DISABLED => false,
+            RAM1R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -1053,28 +1053,28 @@ impl RAM1R {
     #[inline]
     pub fn _from(value: bool) -> RAM1R {
         match value {
-            false => RAM1R::DISABLE,
-            true => RAM1R::ENABLE,
+            false => RAM1R::DISABLED,
+            true => RAM1R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == RAM1R::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == RAM1R::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == RAM1R::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == RAM1R::ENABLED
     }
 }
 #[doc = "Possible values of the field `USBRAM`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBRAMR {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl USBRAMR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -1091,8 +1091,8 @@ impl USBRAMR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            USBRAMR::DISABLE => false,
-            USBRAMR::ENABLE => true,
+            USBRAMR::DISABLED => false,
+            USBRAMR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -1100,25 +1100,25 @@ impl USBRAMR {
     #[inline]
     pub fn _from(value: bool) -> USBRAMR {
         match value {
-            false => USBRAMR::DISABLE,
-            true => USBRAMR::ENABLE,
+            false => USBRAMR::DISABLED,
+            true => USBRAMR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == USBRAMR::DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == USBRAMR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == USBRAMR::ENABLE
+    pub fn is_enabled(&self) -> bool {
+        *self == USBRAMR::ENABLED
     }
 }
 #[doc = "Values that can be written to the field `SYS`"]
 pub enum SYSW {
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl SYSW {
     #[allow(missing_docs)]
@@ -1126,7 +1126,7 @@ impl SYSW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            SYSW::ENABLE => true,
+            SYSW::ENABLED => true,
         }
     }
 }
@@ -1144,8 +1144,8 @@ impl<'a> _SYSW<'a> {
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SYSW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(SYSW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1168,9 +1168,9 @@ impl<'a> _SYSW<'a> {
 #[doc = "Values that can be written to the field `ROM`"]
 pub enum ROMW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl ROMW {
     #[allow(missing_docs)]
@@ -1178,8 +1178,8 @@ impl ROMW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            ROMW::DISABLE => false,
-            ROMW::ENABLE => true,
+            ROMW::DISABLED => false,
+            ROMW::ENABLED => true,
         }
     }
 }
@@ -1197,13 +1197,13 @@ impl<'a> _ROMW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ROMW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(ROMW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ROMW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(ROMW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1226,9 +1226,9 @@ impl<'a> _ROMW<'a> {
 #[doc = "Values that can be written to the field `RAM0`"]
 pub enum RAM0W {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl RAM0W {
     #[allow(missing_docs)]
@@ -1236,8 +1236,8 @@ impl RAM0W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            RAM0W::DISABLE => false,
-            RAM0W::ENABLE => true,
+            RAM0W::DISABLED => false,
+            RAM0W::ENABLED => true,
         }
     }
 }
@@ -1255,13 +1255,13 @@ impl<'a> _RAM0W<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(RAM0W::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(RAM0W::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(RAM0W::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(RAM0W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1284,9 +1284,9 @@ impl<'a> _RAM0W<'a> {
 #[doc = "Values that can be written to the field `FLASHREG`"]
 pub enum FLASHREGW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl FLASHREGW {
     #[allow(missing_docs)]
@@ -1294,8 +1294,8 @@ impl FLASHREGW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            FLASHREGW::DISABLE => false,
-            FLASHREGW::ENABLE => true,
+            FLASHREGW::DISABLED => false,
+            FLASHREGW::ENABLED => true,
         }
     }
 }
@@ -1313,13 +1313,13 @@ impl<'a> _FLASHREGW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(FLASHREGW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(FLASHREGW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(FLASHREGW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(FLASHREGW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1342,9 +1342,9 @@ impl<'a> _FLASHREGW<'a> {
 #[doc = "Values that can be written to the field `FLASHARRAY`"]
 pub enum FLASHARRAYW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl FLASHARRAYW {
     #[allow(missing_docs)]
@@ -1352,8 +1352,8 @@ impl FLASHARRAYW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            FLASHARRAYW::DISABLE => false,
-            FLASHARRAYW::ENABLE => true,
+            FLASHARRAYW::DISABLED => false,
+            FLASHARRAYW::ENABLED => true,
         }
     }
 }
@@ -1371,13 +1371,13 @@ impl<'a> _FLASHARRAYW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(FLASHARRAYW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(FLASHARRAYW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(FLASHARRAYW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(FLASHARRAYW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1400,9 +1400,9 @@ impl<'a> _FLASHARRAYW<'a> {
 #[doc = "Values that can be written to the field `I2C`"]
 pub enum I2CW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl I2CW {
     #[allow(missing_docs)]
@@ -1410,8 +1410,8 @@ impl I2CW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            I2CW::DISABLE => false,
-            I2CW::ENABLE => true,
+            I2CW::DISABLED => false,
+            I2CW::ENABLED => true,
         }
     }
 }
@@ -1429,13 +1429,13 @@ impl<'a> _I2CW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(I2CW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(I2CW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(I2CW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(I2CW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1458,9 +1458,9 @@ impl<'a> _I2CW<'a> {
 #[doc = "Values that can be written to the field `GPIO`"]
 pub enum GPIOW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl GPIOW {
     #[allow(missing_docs)]
@@ -1468,8 +1468,8 @@ impl GPIOW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            GPIOW::DISABLE => false,
-            GPIOW::ENABLE => true,
+            GPIOW::DISABLED => false,
+            GPIOW::ENABLED => true,
         }
     }
 }
@@ -1487,13 +1487,13 @@ impl<'a> _GPIOW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(GPIOW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(GPIOW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(GPIOW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(GPIOW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1516,9 +1516,9 @@ impl<'a> _GPIOW<'a> {
 #[doc = "Values that can be written to the field `CT16B0`"]
 pub enum CT16B0W {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl CT16B0W {
     #[allow(missing_docs)]
@@ -1526,8 +1526,8 @@ impl CT16B0W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CT16B0W::DISABLE => false,
-            CT16B0W::ENABLE => true,
+            CT16B0W::DISABLED => false,
+            CT16B0W::ENABLED => true,
         }
     }
 }
@@ -1545,13 +1545,13 @@ impl<'a> _CT16B0W<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(CT16B0W::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CT16B0W::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(CT16B0W::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CT16B0W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1574,9 +1574,9 @@ impl<'a> _CT16B0W<'a> {
 #[doc = "Values that can be written to the field `CT16B1`"]
 pub enum CT16B1W {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl CT16B1W {
     #[allow(missing_docs)]
@@ -1584,8 +1584,8 @@ impl CT16B1W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CT16B1W::DISABLE => false,
-            CT16B1W::ENABLE => true,
+            CT16B1W::DISABLED => false,
+            CT16B1W::ENABLED => true,
         }
     }
 }
@@ -1603,13 +1603,13 @@ impl<'a> _CT16B1W<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(CT16B1W::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CT16B1W::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(CT16B1W::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CT16B1W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1632,9 +1632,9 @@ impl<'a> _CT16B1W<'a> {
 #[doc = "Values that can be written to the field `CT32B0`"]
 pub enum CT32B0W {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl CT32B0W {
     #[allow(missing_docs)]
@@ -1642,8 +1642,8 @@ impl CT32B0W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CT32B0W::DISABLE => false,
-            CT32B0W::ENABLE => true,
+            CT32B0W::DISABLED => false,
+            CT32B0W::ENABLED => true,
         }
     }
 }
@@ -1661,13 +1661,13 @@ impl<'a> _CT32B0W<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(CT32B0W::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CT32B0W::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(CT32B0W::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CT32B0W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1690,9 +1690,9 @@ impl<'a> _CT32B0W<'a> {
 #[doc = "Values that can be written to the field `CT32B1`"]
 pub enum CT32B1W {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl CT32B1W {
     #[allow(missing_docs)]
@@ -1700,8 +1700,8 @@ impl CT32B1W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            CT32B1W::DISABLE => false,
-            CT32B1W::ENABLE => true,
+            CT32B1W::DISABLED => false,
+            CT32B1W::ENABLED => true,
         }
     }
 }
@@ -1719,13 +1719,13 @@ impl<'a> _CT32B1W<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(CT32B1W::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(CT32B1W::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(CT32B1W::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(CT32B1W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1748,9 +1748,9 @@ impl<'a> _CT32B1W<'a> {
 #[doc = "Values that can be written to the field `SSP0`"]
 pub enum SSP0W {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl SSP0W {
     #[allow(missing_docs)]
@@ -1758,8 +1758,8 @@ impl SSP0W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            SSP0W::DISABLE => false,
-            SSP0W::ENABLE => true,
+            SSP0W::DISABLED => false,
+            SSP0W::ENABLED => true,
         }
     }
 }
@@ -1777,13 +1777,13 @@ impl<'a> _SSP0W<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(SSP0W::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(SSP0W::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SSP0W::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(SSP0W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1806,9 +1806,9 @@ impl<'a> _SSP0W<'a> {
 #[doc = "Values that can be written to the field `USART`"]
 pub enum USARTW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl USARTW {
     #[allow(missing_docs)]
@@ -1816,8 +1816,8 @@ impl USARTW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            USARTW::DISABLE => false,
-            USARTW::ENABLE => true,
+            USARTW::DISABLED => false,
+            USARTW::ENABLED => true,
         }
     }
 }
@@ -1835,13 +1835,13 @@ impl<'a> _USARTW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(USARTW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(USARTW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(USARTW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(USARTW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1864,9 +1864,9 @@ impl<'a> _USARTW<'a> {
 #[doc = "Values that can be written to the field `ADC`"]
 pub enum ADCW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl ADCW {
     #[allow(missing_docs)]
@@ -1874,8 +1874,8 @@ impl ADCW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            ADCW::DISABLE => false,
-            ADCW::ENABLE => true,
+            ADCW::DISABLED => false,
+            ADCW::ENABLED => true,
         }
     }
 }
@@ -1893,13 +1893,13 @@ impl<'a> _ADCW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ADCW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(ADCW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ADCW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(ADCW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1922,9 +1922,9 @@ impl<'a> _ADCW<'a> {
 #[doc = "Values that can be written to the field `USB`"]
 pub enum USBW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl USBW {
     #[allow(missing_docs)]
@@ -1932,8 +1932,8 @@ impl USBW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            USBW::DISABLE => false,
-            USBW::ENABLE => true,
+            USBW::DISABLED => false,
+            USBW::ENABLED => true,
         }
     }
 }
@@ -1951,13 +1951,13 @@ impl<'a> _USBW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(USBW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(USBW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(USBW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(USBW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -1980,9 +1980,9 @@ impl<'a> _USBW<'a> {
 #[doc = "Values that can be written to the field `WWDT`"]
 pub enum WWDTW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl WWDTW {
     #[allow(missing_docs)]
@@ -1990,8 +1990,8 @@ impl WWDTW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            WWDTW::DISABLE => false,
-            WWDTW::ENABLE => true,
+            WWDTW::DISABLED => false,
+            WWDTW::ENABLED => true,
         }
     }
 }
@@ -2009,13 +2009,13 @@ impl<'a> _WWDTW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(WWDTW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(WWDTW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(WWDTW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(WWDTW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -2038,9 +2038,9 @@ impl<'a> _WWDTW<'a> {
 #[doc = "Values that can be written to the field `IOCON`"]
 pub enum IOCONW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl IOCONW {
     #[allow(missing_docs)]
@@ -2048,8 +2048,8 @@ impl IOCONW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            IOCONW::DISABLE => false,
-            IOCONW::ENABLE => true,
+            IOCONW::DISABLED => false,
+            IOCONW::ENABLED => true,
         }
     }
 }
@@ -2067,13 +2067,13 @@ impl<'a> _IOCONW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(IOCONW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(IOCONW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(IOCONW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(IOCONW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -2096,9 +2096,9 @@ impl<'a> _IOCONW<'a> {
 #[doc = "Values that can be written to the field `SSP1`"]
 pub enum SSP1W {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl SSP1W {
     #[allow(missing_docs)]
@@ -2106,8 +2106,8 @@ impl SSP1W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            SSP1W::DISABLE => false,
-            SSP1W::ENABLE => true,
+            SSP1W::DISABLED => false,
+            SSP1W::ENABLED => true,
         }
     }
 }
@@ -2125,13 +2125,13 @@ impl<'a> _SSP1W<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(SSP1W::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(SSP1W::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(SSP1W::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(SSP1W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -2154,9 +2154,9 @@ impl<'a> _SSP1W<'a> {
 #[doc = "Values that can be written to the field `PINT`"]
 pub enum PINTW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl PINTW {
     #[allow(missing_docs)]
@@ -2164,8 +2164,8 @@ impl PINTW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            PINTW::DISABLE => false,
-            PINTW::ENABLE => true,
+            PINTW::DISABLED => false,
+            PINTW::ENABLED => true,
         }
     }
 }
@@ -2183,13 +2183,13 @@ impl<'a> _PINTW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(PINTW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(PINTW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(PINTW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(PINTW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -2212,9 +2212,9 @@ impl<'a> _PINTW<'a> {
 #[doc = "Values that can be written to the field `GROUP0INT`"]
 pub enum GROUP0INTW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl GROUP0INTW {
     #[allow(missing_docs)]
@@ -2222,8 +2222,8 @@ impl GROUP0INTW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            GROUP0INTW::DISABLE => false,
-            GROUP0INTW::ENABLE => true,
+            GROUP0INTW::DISABLED => false,
+            GROUP0INTW::ENABLED => true,
         }
     }
 }
@@ -2241,13 +2241,13 @@ impl<'a> _GROUP0INTW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(GROUP0INTW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(GROUP0INTW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(GROUP0INTW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(GROUP0INTW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -2270,9 +2270,9 @@ impl<'a> _GROUP0INTW<'a> {
 #[doc = "Values that can be written to the field `GROUP1INT`"]
 pub enum GROUP1INTW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl GROUP1INTW {
     #[allow(missing_docs)]
@@ -2280,8 +2280,8 @@ impl GROUP1INTW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            GROUP1INTW::DISABLE => false,
-            GROUP1INTW::ENABLE => true,
+            GROUP1INTW::DISABLED => false,
+            GROUP1INTW::ENABLED => true,
         }
     }
 }
@@ -2299,13 +2299,13 @@ impl<'a> _GROUP1INTW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(GROUP1INTW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(GROUP1INTW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(GROUP1INTW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(GROUP1INTW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -2328,9 +2328,9 @@ impl<'a> _GROUP1INTW<'a> {
 #[doc = "Values that can be written to the field `RAM1`"]
 pub enum RAM1W {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl RAM1W {
     #[allow(missing_docs)]
@@ -2338,8 +2338,8 @@ impl RAM1W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            RAM1W::DISABLE => false,
-            RAM1W::ENABLE => true,
+            RAM1W::DISABLED => false,
+            RAM1W::ENABLED => true,
         }
     }
 }
@@ -2357,13 +2357,13 @@ impl<'a> _RAM1W<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(RAM1W::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(RAM1W::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(RAM1W::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(RAM1W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -2386,9 +2386,9 @@ impl<'a> _RAM1W<'a> {
 #[doc = "Values that can be written to the field `USBRAM`"]
 pub enum USBRAMW {
     #[doc = "Disable"]
-    DISABLE,
+    DISABLED,
     #[doc = "Enable"]
-    ENABLE,
+    ENABLED,
 }
 impl USBRAMW {
     #[allow(missing_docs)]
@@ -2396,8 +2396,8 @@ impl USBRAMW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            USBRAMW::DISABLE => false,
-            USBRAMW::ENABLE => true,
+            USBRAMW::DISABLED => false,
+            USBRAMW::ENABLED => true,
         }
     }
 }
@@ -2415,13 +2415,13 @@ impl<'a> _USBRAMW<'a> {
     }
     #[doc = "Disable"]
     #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(USBRAMW::DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(USBRAMW::DISABLED)
     }
     #[doc = "Enable"]
     #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(USBRAMW::ENABLE)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(USBRAMW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

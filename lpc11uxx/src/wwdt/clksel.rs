@@ -48,7 +48,7 @@ pub enum CLKSELR {
     #[doc = "IRC"]
     IRC,
     #[doc = "Watchdog oscillator (WDOSC)"]
-    WATCHDOG_OSCILLATOR_,
+    WATCHDOG_OSCILLATOR,
 }
 impl CLKSELR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -66,7 +66,7 @@ impl CLKSELR {
     pub fn bit(&self) -> bool {
         match *self {
             CLKSELR::IRC => false,
-            CLKSELR::WATCHDOG_OSCILLATOR_ => true,
+            CLKSELR::WATCHDOG_OSCILLATOR => true,
         }
     }
     #[allow(missing_docs)]
@@ -75,7 +75,7 @@ impl CLKSELR {
     pub fn _from(value: bool) -> CLKSELR {
         match value {
             false => CLKSELR::IRC,
-            true => CLKSELR::WATCHDOG_OSCILLATOR_,
+            true => CLKSELR::WATCHDOG_OSCILLATOR,
         }
     }
     #[doc = "Checks if the value of the field is `IRC`"]
@@ -83,10 +83,10 @@ impl CLKSELR {
     pub fn is_irc(&self) -> bool {
         *self == CLKSELR::IRC
     }
-    #[doc = "Checks if the value of the field is `WATCHDOG_OSCILLATOR_`"]
+    #[doc = "Checks if the value of the field is `WATCHDOG_OSCILLATOR`"]
     #[inline]
-    pub fn is_watchdog_oscillator_(&self) -> bool {
-        *self == CLKSELR::WATCHDOG_OSCILLATOR_
+    pub fn is_watchdog_oscillator(&self) -> bool {
+        *self == CLKSELR::WATCHDOG_OSCILLATOR
     }
 }
 #[doc = r" Value of the field"]
@@ -115,7 +115,7 @@ pub enum CLKSELW {
     #[doc = "IRC"]
     IRC,
     #[doc = "Watchdog oscillator (WDOSC)"]
-    WATCHDOG_OSCILLATOR_,
+    WATCHDOG_OSCILLATOR,
 }
 impl CLKSELW {
     #[allow(missing_docs)]
@@ -124,7 +124,7 @@ impl CLKSELW {
     pub fn _bits(&self) -> bool {
         match *self {
             CLKSELW::IRC => false,
-            CLKSELW::WATCHDOG_OSCILLATOR_ => true,
+            CLKSELW::WATCHDOG_OSCILLATOR => true,
         }
     }
 }
@@ -147,8 +147,8 @@ impl<'a> _CLKSELW<'a> {
     }
     #[doc = "Watchdog oscillator (WDOSC)"]
     #[inline]
-    pub fn watchdog_oscillator_(self) -> &'a mut W {
-        self.variant(CLKSELW::WATCHDOG_OSCILLATOR_)
+    pub fn watchdog_oscillator(self) -> &'a mut W {
+        self.variant(CLKSELW::WATCHDOG_OSCILLATOR)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

@@ -15,9 +15,9 @@ impl super::LSR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RDRR {
     #[doc = "RBR is empty."]
-    RBR_IS_EMPTY_,
+    EMPTY,
     #[doc = "RBR contains valid data."]
-    RBR_CONTAINS_VALID_D,
+    VALID,
 }
 impl RDRR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -34,8 +34,8 @@ impl RDRR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            RDRR::RBR_IS_EMPTY_ => false,
-            RDRR::RBR_CONTAINS_VALID_D => true,
+            RDRR::EMPTY => false,
+            RDRR::VALID => true,
         }
     }
     #[allow(missing_docs)]
@@ -43,19 +43,19 @@ impl RDRR {
     #[inline]
     pub fn _from(value: bool) -> RDRR {
         match value {
-            false => RDRR::RBR_IS_EMPTY_,
-            true => RDRR::RBR_CONTAINS_VALID_D,
+            false => RDRR::EMPTY,
+            true => RDRR::VALID,
         }
     }
-    #[doc = "Checks if the value of the field is `RBR_IS_EMPTY_`"]
+    #[doc = "Checks if the value of the field is `EMPTY`"]
     #[inline]
-    pub fn is_rbr_is_empty_(&self) -> bool {
-        *self == RDRR::RBR_IS_EMPTY_
+    pub fn is_empty(&self) -> bool {
+        *self == RDRR::EMPTY
     }
-    #[doc = "Checks if the value of the field is `RBR_CONTAINS_VALID_D`"]
+    #[doc = "Checks if the value of the field is `VALID`"]
     #[inline]
-    pub fn is_rbr_contains_valid_d(&self) -> bool {
-        *self == RDRR::RBR_CONTAINS_VALID_D
+    pub fn is_valid(&self) -> bool {
+        *self == RDRR::VALID
     }
 }
 #[doc = "Possible values of the field `OE`"]
@@ -250,9 +250,9 @@ impl BIR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum THRER {
     #[doc = "THR contains valid data."]
-    THR_CONTAINS_VALID_D,
+    VALID,
     #[doc = "THR is empty."]
-    THR_IS_EMPTY_,
+    EMPTY,
 }
 impl THRER {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -269,8 +269,8 @@ impl THRER {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            THRER::THR_CONTAINS_VALID_D => false,
-            THRER::THR_IS_EMPTY_ => true,
+            THRER::VALID => false,
+            THRER::EMPTY => true,
         }
     }
     #[allow(missing_docs)]
@@ -278,26 +278,26 @@ impl THRER {
     #[inline]
     pub fn _from(value: bool) -> THRER {
         match value {
-            false => THRER::THR_CONTAINS_VALID_D,
-            true => THRER::THR_IS_EMPTY_,
+            false => THRER::VALID,
+            true => THRER::EMPTY,
         }
     }
-    #[doc = "Checks if the value of the field is `THR_CONTAINS_VALID_D`"]
+    #[doc = "Checks if the value of the field is `VALID`"]
     #[inline]
-    pub fn is_thr_contains_valid_d(&self) -> bool {
-        *self == THRER::THR_CONTAINS_VALID_D
+    pub fn is_valid(&self) -> bool {
+        *self == THRER::VALID
     }
-    #[doc = "Checks if the value of the field is `THR_IS_EMPTY_`"]
+    #[doc = "Checks if the value of the field is `EMPTY`"]
     #[inline]
-    pub fn is_thr_is_empty_(&self) -> bool {
-        *self == THRER::THR_IS_EMPTY_
+    pub fn is_empty(&self) -> bool {
+        *self == THRER::EMPTY
     }
 }
 #[doc = "Possible values of the field `TEMT`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TEMTR {
     #[doc = "THR and/or the TSR contains valid data."]
-    VALID_D,
+    VALID,
     #[doc = "THR and the TSR are empty."]
     EMPTY,
 }
@@ -316,7 +316,7 @@ impl TEMTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            TEMTR::VALID_D => false,
+            TEMTR::VALID => false,
             TEMTR::EMPTY => true,
         }
     }
@@ -325,14 +325,14 @@ impl TEMTR {
     #[inline]
     pub fn _from(value: bool) -> TEMTR {
         match value {
-            false => TEMTR::VALID_D,
+            false => TEMTR::VALID,
             true => TEMTR::EMPTY,
         }
     }
-    #[doc = "Checks if the value of the field is `VALID_D`"]
+    #[doc = "Checks if the value of the field is `VALID`"]
     #[inline]
-    pub fn is_valid_d(&self) -> bool {
-        *self == TEMTR::VALID_D
+    pub fn is_valid(&self) -> bool {
+        *self == TEMTR::VALID
     }
     #[doc = "Checks if the value of the field is `EMPTY`"]
     #[inline]

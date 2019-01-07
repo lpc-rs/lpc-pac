@@ -46,9 +46,9 @@ impl super::PWMC {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN0R {
     #[doc = "CT32Bn_MAT0 is controlled by EM0."]
-    CT32BN_MAT0_IS_CONTR,
+    EM0,
     #[doc = "PWM mode is enabled for CT32Bn_MAT0."]
-    PWM_MODE_IS_ENABLED_,
+    ENABLED,
 }
 impl PWMEN0R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl PWMEN0R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            PWMEN0R::CT32BN_MAT0_IS_CONTR => false,
-            PWMEN0R::PWM_MODE_IS_ENABLED_ => true,
+            PWMEN0R::EM0 => false,
+            PWMEN0R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -74,28 +74,28 @@ impl PWMEN0R {
     #[inline]
     pub fn _from(value: bool) -> PWMEN0R {
         match value {
-            false => PWMEN0R::CT32BN_MAT0_IS_CONTR,
-            true => PWMEN0R::PWM_MODE_IS_ENABLED_,
+            false => PWMEN0R::EM0,
+            true => PWMEN0R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `CT32BN_MAT0_IS_CONTR`"]
+    #[doc = "Checks if the value of the field is `EM0`"]
     #[inline]
-    pub fn is_ct32bn_mat0_is_contr(&self) -> bool {
-        *self == PWMEN0R::CT32BN_MAT0_IS_CONTR
+    pub fn is_em0(&self) -> bool {
+        *self == PWMEN0R::EM0
     }
-    #[doc = "Checks if the value of the field is `PWM_MODE_IS_ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_pwm_mode_is_enabled_(&self) -> bool {
-        *self == PWMEN0R::PWM_MODE_IS_ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == PWMEN0R::ENABLED
     }
 }
 #[doc = "Possible values of the field `PWMEN1`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN1R {
     #[doc = "CT32Bn_MAT01 is controlled by EM1."]
-    CT32BN_MAT01_IS_CONT,
+    EM1,
     #[doc = "PWM mode is enabled for CT32Bn_MAT1."]
-    PWM_MODE_IS_ENABLED_,
+    ENABLED,
 }
 impl PWMEN1R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -112,8 +112,8 @@ impl PWMEN1R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            PWMEN1R::CT32BN_MAT01_IS_CONT => false,
-            PWMEN1R::PWM_MODE_IS_ENABLED_ => true,
+            PWMEN1R::EM1 => false,
+            PWMEN1R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -121,28 +121,28 @@ impl PWMEN1R {
     #[inline]
     pub fn _from(value: bool) -> PWMEN1R {
         match value {
-            false => PWMEN1R::CT32BN_MAT01_IS_CONT,
-            true => PWMEN1R::PWM_MODE_IS_ENABLED_,
+            false => PWMEN1R::EM1,
+            true => PWMEN1R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `CT32BN_MAT01_IS_CONT`"]
+    #[doc = "Checks if the value of the field is `EM1`"]
     #[inline]
-    pub fn is_ct32bn_mat01_is_cont(&self) -> bool {
-        *self == PWMEN1R::CT32BN_MAT01_IS_CONT
+    pub fn is_em1(&self) -> bool {
+        *self == PWMEN1R::EM1
     }
-    #[doc = "Checks if the value of the field is `PWM_MODE_IS_ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_pwm_mode_is_enabled_(&self) -> bool {
-        *self == PWMEN1R::PWM_MODE_IS_ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == PWMEN1R::ENABLED
     }
 }
 #[doc = "Possible values of the field `PWMEN2`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN2R {
     #[doc = "CT32Bn_MAT2 is controlled by EM2."]
-    CT32BN_MAT2_IS_CONTR,
+    EM2,
     #[doc = "PWM mode is enabled for CT32Bn_MAT2."]
-    PWM_MODE_IS_ENABLED_,
+    ENABLED,
 }
 impl PWMEN2R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -159,8 +159,8 @@ impl PWMEN2R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            PWMEN2R::CT32BN_MAT2_IS_CONTR => false,
-            PWMEN2R::PWM_MODE_IS_ENABLED_ => true,
+            PWMEN2R::EM2 => false,
+            PWMEN2R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -168,28 +168,28 @@ impl PWMEN2R {
     #[inline]
     pub fn _from(value: bool) -> PWMEN2R {
         match value {
-            false => PWMEN2R::CT32BN_MAT2_IS_CONTR,
-            true => PWMEN2R::PWM_MODE_IS_ENABLED_,
+            false => PWMEN2R::EM2,
+            true => PWMEN2R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `CT32BN_MAT2_IS_CONTR`"]
+    #[doc = "Checks if the value of the field is `EM2`"]
     #[inline]
-    pub fn is_ct32bn_mat2_is_contr(&self) -> bool {
-        *self == PWMEN2R::CT32BN_MAT2_IS_CONTR
+    pub fn is_em2(&self) -> bool {
+        *self == PWMEN2R::EM2
     }
-    #[doc = "Checks if the value of the field is `PWM_MODE_IS_ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_pwm_mode_is_enabled_(&self) -> bool {
-        *self == PWMEN2R::PWM_MODE_IS_ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == PWMEN2R::ENABLED
     }
 }
 #[doc = "Possible values of the field `PWMEN3`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN3R {
     #[doc = "CT32Bn_MAT3 is controlled by EM3."]
-    CT32BN_MAT3_IS_CONTR,
+    EM3,
     #[doc = "PWM mode is enabled for CT132Bn_MAT3."]
-    PWM_MODE_IS_ENABLED_,
+    ENABLED,
 }
 impl PWMEN3R {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -206,8 +206,8 @@ impl PWMEN3R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            PWMEN3R::CT32BN_MAT3_IS_CONTR => false,
-            PWMEN3R::PWM_MODE_IS_ENABLED_ => true,
+            PWMEN3R::EM3 => false,
+            PWMEN3R::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -215,27 +215,27 @@ impl PWMEN3R {
     #[inline]
     pub fn _from(value: bool) -> PWMEN3R {
         match value {
-            false => PWMEN3R::CT32BN_MAT3_IS_CONTR,
-            true => PWMEN3R::PWM_MODE_IS_ENABLED_,
+            false => PWMEN3R::EM3,
+            true => PWMEN3R::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `CT32BN_MAT3_IS_CONTR`"]
+    #[doc = "Checks if the value of the field is `EM3`"]
     #[inline]
-    pub fn is_ct32bn_mat3_is_contr(&self) -> bool {
-        *self == PWMEN3R::CT32BN_MAT3_IS_CONTR
+    pub fn is_em3(&self) -> bool {
+        *self == PWMEN3R::EM3
     }
-    #[doc = "Checks if the value of the field is `PWM_MODE_IS_ENABLED_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_pwm_mode_is_enabled_(&self) -> bool {
-        *self == PWMEN3R::PWM_MODE_IS_ENABLED_
+    pub fn is_enabled(&self) -> bool {
+        *self == PWMEN3R::ENABLED
     }
 }
 #[doc = "Values that can be written to the field `PWMEN0`"]
 pub enum PWMEN0W {
     #[doc = "CT32Bn_MAT0 is controlled by EM0."]
-    CT32BN_MAT0_IS_CONTR,
+    EM0,
     #[doc = "PWM mode is enabled for CT32Bn_MAT0."]
-    PWM_MODE_IS_ENABLED_,
+    ENABLED,
 }
 impl PWMEN0W {
     #[allow(missing_docs)]
@@ -243,8 +243,8 @@ impl PWMEN0W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            PWMEN0W::CT32BN_MAT0_IS_CONTR => false,
-            PWMEN0W::PWM_MODE_IS_ENABLED_ => true,
+            PWMEN0W::EM0 => false,
+            PWMEN0W::ENABLED => true,
         }
     }
 }
@@ -262,13 +262,13 @@ impl<'a> _PWMEN0W<'a> {
     }
     #[doc = "CT32Bn_MAT0 is controlled by EM0."]
     #[inline]
-    pub fn ct32bn_mat0_is_contr(self) -> &'a mut W {
-        self.variant(PWMEN0W::CT32BN_MAT0_IS_CONTR)
+    pub fn em0(self) -> &'a mut W {
+        self.variant(PWMEN0W::EM0)
     }
     #[doc = "PWM mode is enabled for CT32Bn_MAT0."]
     #[inline]
-    pub fn pwm_mode_is_enabled_(self) -> &'a mut W {
-        self.variant(PWMEN0W::PWM_MODE_IS_ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(PWMEN0W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -291,9 +291,9 @@ impl<'a> _PWMEN0W<'a> {
 #[doc = "Values that can be written to the field `PWMEN1`"]
 pub enum PWMEN1W {
     #[doc = "CT32Bn_MAT01 is controlled by EM1."]
-    CT32BN_MAT01_IS_CONT,
+    EM1,
     #[doc = "PWM mode is enabled for CT32Bn_MAT1."]
-    PWM_MODE_IS_ENABLED_,
+    ENABLED,
 }
 impl PWMEN1W {
     #[allow(missing_docs)]
@@ -301,8 +301,8 @@ impl PWMEN1W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            PWMEN1W::CT32BN_MAT01_IS_CONT => false,
-            PWMEN1W::PWM_MODE_IS_ENABLED_ => true,
+            PWMEN1W::EM1 => false,
+            PWMEN1W::ENABLED => true,
         }
     }
 }
@@ -320,13 +320,13 @@ impl<'a> _PWMEN1W<'a> {
     }
     #[doc = "CT32Bn_MAT01 is controlled by EM1."]
     #[inline]
-    pub fn ct32bn_mat01_is_cont(self) -> &'a mut W {
-        self.variant(PWMEN1W::CT32BN_MAT01_IS_CONT)
+    pub fn em1(self) -> &'a mut W {
+        self.variant(PWMEN1W::EM1)
     }
     #[doc = "PWM mode is enabled for CT32Bn_MAT1."]
     #[inline]
-    pub fn pwm_mode_is_enabled_(self) -> &'a mut W {
-        self.variant(PWMEN1W::PWM_MODE_IS_ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(PWMEN1W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -349,9 +349,9 @@ impl<'a> _PWMEN1W<'a> {
 #[doc = "Values that can be written to the field `PWMEN2`"]
 pub enum PWMEN2W {
     #[doc = "CT32Bn_MAT2 is controlled by EM2."]
-    CT32BN_MAT2_IS_CONTR,
+    EM2,
     #[doc = "PWM mode is enabled for CT32Bn_MAT2."]
-    PWM_MODE_IS_ENABLED_,
+    ENABLED,
 }
 impl PWMEN2W {
     #[allow(missing_docs)]
@@ -359,8 +359,8 @@ impl PWMEN2W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            PWMEN2W::CT32BN_MAT2_IS_CONTR => false,
-            PWMEN2W::PWM_MODE_IS_ENABLED_ => true,
+            PWMEN2W::EM2 => false,
+            PWMEN2W::ENABLED => true,
         }
     }
 }
@@ -378,13 +378,13 @@ impl<'a> _PWMEN2W<'a> {
     }
     #[doc = "CT32Bn_MAT2 is controlled by EM2."]
     #[inline]
-    pub fn ct32bn_mat2_is_contr(self) -> &'a mut W {
-        self.variant(PWMEN2W::CT32BN_MAT2_IS_CONTR)
+    pub fn em2(self) -> &'a mut W {
+        self.variant(PWMEN2W::EM2)
     }
     #[doc = "PWM mode is enabled for CT32Bn_MAT2."]
     #[inline]
-    pub fn pwm_mode_is_enabled_(self) -> &'a mut W {
-        self.variant(PWMEN2W::PWM_MODE_IS_ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(PWMEN2W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -407,9 +407,9 @@ impl<'a> _PWMEN2W<'a> {
 #[doc = "Values that can be written to the field `PWMEN3`"]
 pub enum PWMEN3W {
     #[doc = "CT32Bn_MAT3 is controlled by EM3."]
-    CT32BN_MAT3_IS_CONTR,
+    EM3,
     #[doc = "PWM mode is enabled for CT132Bn_MAT3."]
-    PWM_MODE_IS_ENABLED_,
+    ENABLED,
 }
 impl PWMEN3W {
     #[allow(missing_docs)]
@@ -417,8 +417,8 @@ impl PWMEN3W {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            PWMEN3W::CT32BN_MAT3_IS_CONTR => false,
-            PWMEN3W::PWM_MODE_IS_ENABLED_ => true,
+            PWMEN3W::EM3 => false,
+            PWMEN3W::ENABLED => true,
         }
     }
 }
@@ -436,13 +436,13 @@ impl<'a> _PWMEN3W<'a> {
     }
     #[doc = "CT32Bn_MAT3 is controlled by EM3."]
     #[inline]
-    pub fn ct32bn_mat3_is_contr(self) -> &'a mut W {
-        self.variant(PWMEN3W::CT32BN_MAT3_IS_CONTR)
+    pub fn em3(self) -> &'a mut W {
+        self.variant(PWMEN3W::EM3)
     }
     #[doc = "PWM mode is enabled for CT132Bn_MAT3."]
     #[inline]
-    pub fn pwm_mode_is_enabled_(self) -> &'a mut W {
-        self.variant(PWMEN3W::PWM_MODE_IS_ENABLED_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(PWMEN3W::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

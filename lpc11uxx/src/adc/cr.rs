@@ -68,9 +68,9 @@ impl CLKDIVR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BURSTR {
     #[doc = "Software-controlled mode: Conversions are software-controlled and require 11 clocks."]
-    SOFTWARE_CONTROLLED_,
+    SOFTWARE_CONTROLLED,
     #[doc = "Hardware scan mode: The AD converter does repeated conversions at the rate selected by the CLKS field, scanning (if necessary) through the pins selected by 1s in the SEL field. The first conversion after the start corresponds to the least-significant bit set to 1 in the SEL field, then the next higher  bits (pins) set to 1 are scanned if applicable. Repeated conversions can be terminated by clearing this bit, but the conversion in progress when this bit is cleared will be completed. Important: START bits must be 000 when BURST = 1 or conversions will not start."]
-    HARDWARE_SCAN_MODE_,
+    HARDWARE_SCAN,
 }
 impl BURSTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -87,8 +87,8 @@ impl BURSTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            BURSTR::SOFTWARE_CONTROLLED_ => false,
-            BURSTR::HARDWARE_SCAN_MODE_ => true,
+            BURSTR::SOFTWARE_CONTROLLED => false,
+            BURSTR::HARDWARE_SCAN => true,
         }
     }
     #[allow(missing_docs)]
@@ -96,54 +96,54 @@ impl BURSTR {
     #[inline]
     pub fn _from(value: bool) -> BURSTR {
         match value {
-            false => BURSTR::SOFTWARE_CONTROLLED_,
-            true => BURSTR::HARDWARE_SCAN_MODE_,
+            false => BURSTR::SOFTWARE_CONTROLLED,
+            true => BURSTR::HARDWARE_SCAN,
         }
     }
-    #[doc = "Checks if the value of the field is `SOFTWARE_CONTROLLED_`"]
+    #[doc = "Checks if the value of the field is `SOFTWARE_CONTROLLED`"]
     #[inline]
-    pub fn is_software_controlled_(&self) -> bool {
-        *self == BURSTR::SOFTWARE_CONTROLLED_
+    pub fn is_software_controlled(&self) -> bool {
+        *self == BURSTR::SOFTWARE_CONTROLLED
     }
-    #[doc = "Checks if the value of the field is `HARDWARE_SCAN_MODE_`"]
+    #[doc = "Checks if the value of the field is `HARDWARE_SCAN`"]
     #[inline]
-    pub fn is_hardware_scan_mode_(&self) -> bool {
-        *self == BURSTR::HARDWARE_SCAN_MODE_
+    pub fn is_hardware_scan(&self) -> bool {
+        *self == BURSTR::HARDWARE_SCAN
     }
 }
 #[doc = "Possible values of the field `CLKS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CLKSR {
     #[doc = "11 clocks / 10 bits"]
-    _11_CLOCKS,
+    _11_CLOCKS_10_BITS,
     #[doc = "10 clocks / 9 bits"]
-    _10_CLOCKS,
+    _10_CLOCKS_9_BITS,
     #[doc = "9 clocks / 8 bits"]
-    _9_CLOCKS,
+    _9_CLOCKS_8_BITS,
     #[doc = "8 clocks / 7 bits"]
-    _8_CLOCKS,
+    _8_CLOCKS_7_BITS,
     #[doc = "7 clocks / 6 bits"]
-    _7_CLOCKS,
+    _7_CLOCKS_6_BITS,
     #[doc = "6 clocks / 5 bits"]
-    _6_CLOCKS,
+    _6_CLOCKS_5_BITS,
     #[doc = "5 clocks / 4 bits"]
-    _5_CLOCKS,
+    _5_CLOCKS_4_BITS,
     #[doc = "4 clocks / 3 bits"]
-    _4_CLOCKS,
+    _4_CLOCKS_3_BITS,
 }
 impl CLKSR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            CLKSR::_11_CLOCKS => 0,
-            CLKSR::_10_CLOCKS => 1,
-            CLKSR::_9_CLOCKS => 2,
-            CLKSR::_8_CLOCKS => 3,
-            CLKSR::_7_CLOCKS => 4,
-            CLKSR::_6_CLOCKS => 5,
-            CLKSR::_5_CLOCKS => 6,
-            CLKSR::_4_CLOCKS => 7,
+            CLKSR::_11_CLOCKS_10_BITS => 0,
+            CLKSR::_10_CLOCKS_9_BITS => 1,
+            CLKSR::_9_CLOCKS_8_BITS => 2,
+            CLKSR::_8_CLOCKS_7_BITS => 3,
+            CLKSR::_7_CLOCKS_6_BITS => 4,
+            CLKSR::_6_CLOCKS_5_BITS => 5,
+            CLKSR::_5_CLOCKS_4_BITS => 6,
+            CLKSR::_4_CLOCKS_3_BITS => 7,
         }
     }
     #[allow(missing_docs)]
@@ -151,56 +151,56 @@ impl CLKSR {
     #[inline]
     pub fn _from(value: u8) -> CLKSR {
         match value {
-            0 => CLKSR::_11_CLOCKS,
-            1 => CLKSR::_10_CLOCKS,
-            2 => CLKSR::_9_CLOCKS,
-            3 => CLKSR::_8_CLOCKS,
-            4 => CLKSR::_7_CLOCKS,
-            5 => CLKSR::_6_CLOCKS,
-            6 => CLKSR::_5_CLOCKS,
-            7 => CLKSR::_4_CLOCKS,
+            0 => CLKSR::_11_CLOCKS_10_BITS,
+            1 => CLKSR::_10_CLOCKS_9_BITS,
+            2 => CLKSR::_9_CLOCKS_8_BITS,
+            3 => CLKSR::_8_CLOCKS_7_BITS,
+            4 => CLKSR::_7_CLOCKS_6_BITS,
+            5 => CLKSR::_6_CLOCKS_5_BITS,
+            6 => CLKSR::_5_CLOCKS_4_BITS,
+            7 => CLKSR::_4_CLOCKS_3_BITS,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `_11_CLOCKS`"]
+    #[doc = "Checks if the value of the field is `_11_CLOCKS_10_BITS`"]
     #[inline]
-    pub fn is_11_clocks(&self) -> bool {
-        *self == CLKSR::_11_CLOCKS
+    pub fn is_11_clocks_10_bits(&self) -> bool {
+        *self == CLKSR::_11_CLOCKS_10_BITS
     }
-    #[doc = "Checks if the value of the field is `_10_CLOCKS`"]
+    #[doc = "Checks if the value of the field is `_10_CLOCKS_9_BITS`"]
     #[inline]
-    pub fn is_10_clocks(&self) -> bool {
-        *self == CLKSR::_10_CLOCKS
+    pub fn is_10_clocks_9_bits(&self) -> bool {
+        *self == CLKSR::_10_CLOCKS_9_BITS
     }
-    #[doc = "Checks if the value of the field is `_9_CLOCKS`"]
+    #[doc = "Checks if the value of the field is `_9_CLOCKS_8_BITS`"]
     #[inline]
-    pub fn is_9_clocks(&self) -> bool {
-        *self == CLKSR::_9_CLOCKS
+    pub fn is_9_clocks_8_bits(&self) -> bool {
+        *self == CLKSR::_9_CLOCKS_8_BITS
     }
-    #[doc = "Checks if the value of the field is `_8_CLOCKS`"]
+    #[doc = "Checks if the value of the field is `_8_CLOCKS_7_BITS`"]
     #[inline]
-    pub fn is_8_clocks(&self) -> bool {
-        *self == CLKSR::_8_CLOCKS
+    pub fn is_8_clocks_7_bits(&self) -> bool {
+        *self == CLKSR::_8_CLOCKS_7_BITS
     }
-    #[doc = "Checks if the value of the field is `_7_CLOCKS`"]
+    #[doc = "Checks if the value of the field is `_7_CLOCKS_6_BITS`"]
     #[inline]
-    pub fn is_7_clocks(&self) -> bool {
-        *self == CLKSR::_7_CLOCKS
+    pub fn is_7_clocks_6_bits(&self) -> bool {
+        *self == CLKSR::_7_CLOCKS_6_BITS
     }
-    #[doc = "Checks if the value of the field is `_6_CLOCKS`"]
+    #[doc = "Checks if the value of the field is `_6_CLOCKS_5_BITS`"]
     #[inline]
-    pub fn is_6_clocks(&self) -> bool {
-        *self == CLKSR::_6_CLOCKS
+    pub fn is_6_clocks_5_bits(&self) -> bool {
+        *self == CLKSR::_6_CLOCKS_5_BITS
     }
-    #[doc = "Checks if the value of the field is `_5_CLOCKS`"]
+    #[doc = "Checks if the value of the field is `_5_CLOCKS_4_BITS`"]
     #[inline]
-    pub fn is_5_clocks(&self) -> bool {
-        *self == CLKSR::_5_CLOCKS
+    pub fn is_5_clocks_4_bits(&self) -> bool {
+        *self == CLKSR::_5_CLOCKS_4_BITS
     }
-    #[doc = "Checks if the value of the field is `_4_CLOCKS`"]
+    #[doc = "Checks if the value of the field is `_4_CLOCKS_3_BITS`"]
     #[inline]
-    pub fn is_4_clocks(&self) -> bool {
-        *self == CLKSR::_4_CLOCKS
+    pub fn is_4_clocks_3_bits(&self) -> bool {
+        *self == CLKSR::_4_CLOCKS_3_BITS
     }
 }
 #[doc = "Possible values of the field `START`"]
@@ -375,9 +375,9 @@ impl<'a> _CLKDIVW<'a> {
 #[doc = "Values that can be written to the field `BURST`"]
 pub enum BURSTW {
     #[doc = "Software-controlled mode: Conversions are software-controlled and require 11 clocks."]
-    SOFTWARE_CONTROLLED_,
+    SOFTWARE_CONTROLLED,
     #[doc = "Hardware scan mode: The AD converter does repeated conversions at the rate selected by the CLKS field, scanning (if necessary) through the pins selected by 1s in the SEL field. The first conversion after the start corresponds to the least-significant bit set to 1 in the SEL field, then the next higher  bits (pins) set to 1 are scanned if applicable. Repeated conversions can be terminated by clearing this bit, but the conversion in progress when this bit is cleared will be completed. Important: START bits must be 000 when BURST = 1 or conversions will not start."]
-    HARDWARE_SCAN_MODE_,
+    HARDWARE_SCAN,
 }
 impl BURSTW {
     #[allow(missing_docs)]
@@ -385,8 +385,8 @@ impl BURSTW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            BURSTW::SOFTWARE_CONTROLLED_ => false,
-            BURSTW::HARDWARE_SCAN_MODE_ => true,
+            BURSTW::SOFTWARE_CONTROLLED => false,
+            BURSTW::HARDWARE_SCAN => true,
         }
     }
 }
@@ -404,13 +404,13 @@ impl<'a> _BURSTW<'a> {
     }
     #[doc = "Software-controlled mode: Conversions are software-controlled and require 11 clocks."]
     #[inline]
-    pub fn software_controlled_(self) -> &'a mut W {
-        self.variant(BURSTW::SOFTWARE_CONTROLLED_)
+    pub fn software_controlled(self) -> &'a mut W {
+        self.variant(BURSTW::SOFTWARE_CONTROLLED)
     }
     #[doc = "Hardware scan mode: The AD converter does repeated conversions at the rate selected by the CLKS field, scanning (if necessary) through the pins selected by 1s in the SEL field. The first conversion after the start corresponds to the least-significant bit set to 1 in the SEL field, then the next higher bits (pins) set to 1 are scanned if applicable. Repeated conversions can be terminated by clearing this bit, but the conversion in progress when this bit is cleared will be completed. Important: START bits must be 000 when BURST = 1 or conversions will not start."]
     #[inline]
-    pub fn hardware_scan_mode_(self) -> &'a mut W {
-        self.variant(BURSTW::HARDWARE_SCAN_MODE_)
+    pub fn hardware_scan(self) -> &'a mut W {
+        self.variant(BURSTW::HARDWARE_SCAN)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -433,21 +433,21 @@ impl<'a> _BURSTW<'a> {
 #[doc = "Values that can be written to the field `CLKS`"]
 pub enum CLKSW {
     #[doc = "11 clocks / 10 bits"]
-    _11_CLOCKS,
+    _11_CLOCKS_10_BITS,
     #[doc = "10 clocks / 9 bits"]
-    _10_CLOCKS,
+    _10_CLOCKS_9_BITS,
     #[doc = "9 clocks / 8 bits"]
-    _9_CLOCKS,
+    _9_CLOCKS_8_BITS,
     #[doc = "8 clocks / 7 bits"]
-    _8_CLOCKS,
+    _8_CLOCKS_7_BITS,
     #[doc = "7 clocks / 6 bits"]
-    _7_CLOCKS,
+    _7_CLOCKS_6_BITS,
     #[doc = "6 clocks / 5 bits"]
-    _6_CLOCKS,
+    _6_CLOCKS_5_BITS,
     #[doc = "5 clocks / 4 bits"]
-    _5_CLOCKS,
+    _5_CLOCKS_4_BITS,
     #[doc = "4 clocks / 3 bits"]
-    _4_CLOCKS,
+    _4_CLOCKS_3_BITS,
 }
 impl CLKSW {
     #[allow(missing_docs)]
@@ -455,14 +455,14 @@ impl CLKSW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            CLKSW::_11_CLOCKS => 0,
-            CLKSW::_10_CLOCKS => 1,
-            CLKSW::_9_CLOCKS => 2,
-            CLKSW::_8_CLOCKS => 3,
-            CLKSW::_7_CLOCKS => 4,
-            CLKSW::_6_CLOCKS => 5,
-            CLKSW::_5_CLOCKS => 6,
-            CLKSW::_4_CLOCKS => 7,
+            CLKSW::_11_CLOCKS_10_BITS => 0,
+            CLKSW::_10_CLOCKS_9_BITS => 1,
+            CLKSW::_9_CLOCKS_8_BITS => 2,
+            CLKSW::_8_CLOCKS_7_BITS => 3,
+            CLKSW::_7_CLOCKS_6_BITS => 4,
+            CLKSW::_6_CLOCKS_5_BITS => 5,
+            CLKSW::_5_CLOCKS_4_BITS => 6,
+            CLKSW::_4_CLOCKS_3_BITS => 7,
         }
     }
 }
@@ -480,43 +480,43 @@ impl<'a> _CLKSW<'a> {
     }
     #[doc = "11 clocks / 10 bits"]
     #[inline]
-    pub fn _11_clocks(self) -> &'a mut W {
-        self.variant(CLKSW::_11_CLOCKS)
+    pub fn _11_clocks_10_bits(self) -> &'a mut W {
+        self.variant(CLKSW::_11_CLOCKS_10_BITS)
     }
     #[doc = "10 clocks / 9 bits"]
     #[inline]
-    pub fn _10_clocks(self) -> &'a mut W {
-        self.variant(CLKSW::_10_CLOCKS)
+    pub fn _10_clocks_9_bits(self) -> &'a mut W {
+        self.variant(CLKSW::_10_CLOCKS_9_BITS)
     }
     #[doc = "9 clocks / 8 bits"]
     #[inline]
-    pub fn _9_clocks(self) -> &'a mut W {
-        self.variant(CLKSW::_9_CLOCKS)
+    pub fn _9_clocks_8_bits(self) -> &'a mut W {
+        self.variant(CLKSW::_9_CLOCKS_8_BITS)
     }
     #[doc = "8 clocks / 7 bits"]
     #[inline]
-    pub fn _8_clocks(self) -> &'a mut W {
-        self.variant(CLKSW::_8_CLOCKS)
+    pub fn _8_clocks_7_bits(self) -> &'a mut W {
+        self.variant(CLKSW::_8_CLOCKS_7_BITS)
     }
     #[doc = "7 clocks / 6 bits"]
     #[inline]
-    pub fn _7_clocks(self) -> &'a mut W {
-        self.variant(CLKSW::_7_CLOCKS)
+    pub fn _7_clocks_6_bits(self) -> &'a mut W {
+        self.variant(CLKSW::_7_CLOCKS_6_BITS)
     }
     #[doc = "6 clocks / 5 bits"]
     #[inline]
-    pub fn _6_clocks(self) -> &'a mut W {
-        self.variant(CLKSW::_6_CLOCKS)
+    pub fn _6_clocks_5_bits(self) -> &'a mut W {
+        self.variant(CLKSW::_6_CLOCKS_5_BITS)
     }
     #[doc = "5 clocks / 4 bits"]
     #[inline]
-    pub fn _5_clocks(self) -> &'a mut W {
-        self.variant(CLKSW::_5_CLOCKS)
+    pub fn _5_clocks_4_bits(self) -> &'a mut W {
+        self.variant(CLKSW::_5_CLOCKS_4_BITS)
     }
     #[doc = "4 clocks / 3 bits"]
     #[inline]
-    pub fn _4_clocks(self) -> &'a mut W {
-        self.variant(CLKSW::_4_CLOCKS)
+    pub fn _4_clocks_3_bits(self) -> &'a mut W {
+        self.variant(CLKSW::_4_CLOCKS_3_BITS)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

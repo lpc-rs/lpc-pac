@@ -46,9 +46,9 @@ impl super::SYSOSCCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BYPASSR {
     #[doc = "Oscillator is not bypassed."]
-    OSCILLATOR_IS_NOT_BY,
+    DISABLED,
     #[doc = "Bypass enabled. PLL input (sys_osc_clk) is fed directly from the XTALIN pin bypassing the oscillator. Use this mode when using an external clock source instead of the crystal oscillator."]
-    BYPASS_ENABLED_PLL_,
+    ENABLED,
 }
 impl BYPASSR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl BYPASSR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            BYPASSR::OSCILLATOR_IS_NOT_BY => false,
-            BYPASSR::BYPASS_ENABLED_PLL_ => true,
+            BYPASSR::DISABLED => false,
+            BYPASSR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -74,19 +74,19 @@ impl BYPASSR {
     #[inline]
     pub fn _from(value: bool) -> BYPASSR {
         match value {
-            false => BYPASSR::OSCILLATOR_IS_NOT_BY,
-            true => BYPASSR::BYPASS_ENABLED_PLL_,
+            false => BYPASSR::DISABLED,
+            true => BYPASSR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `OSCILLATOR_IS_NOT_BY`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_oscillator_is_not_by(&self) -> bool {
-        *self == BYPASSR::OSCILLATOR_IS_NOT_BY
+    pub fn is_disabled(&self) -> bool {
+        *self == BYPASSR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `BYPASS_ENABLED_PLL_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_bypass_enabled_pll_(&self) -> bool {
-        *self == BYPASSR::BYPASS_ENABLED_PLL_
+    pub fn is_enabled(&self) -> bool {
+        *self == BYPASSR::ENABLED
     }
 }
 #[doc = "Possible values of the field `FREQRANGE`"]
@@ -139,9 +139,9 @@ impl FREQRANGER {
 #[doc = "Values that can be written to the field `BYPASS`"]
 pub enum BYPASSW {
     #[doc = "Oscillator is not bypassed."]
-    OSCILLATOR_IS_NOT_BY,
+    DISABLED,
     #[doc = "Bypass enabled. PLL input (sys_osc_clk) is fed directly from the XTALIN pin bypassing the oscillator. Use this mode when using an external clock source instead of the crystal oscillator."]
-    BYPASS_ENABLED_PLL_,
+    ENABLED,
 }
 impl BYPASSW {
     #[allow(missing_docs)]
@@ -149,8 +149,8 @@ impl BYPASSW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            BYPASSW::OSCILLATOR_IS_NOT_BY => false,
-            BYPASSW::BYPASS_ENABLED_PLL_ => true,
+            BYPASSW::DISABLED => false,
+            BYPASSW::ENABLED => true,
         }
     }
 }
@@ -168,13 +168,13 @@ impl<'a> _BYPASSW<'a> {
     }
     #[doc = "Oscillator is not bypassed."]
     #[inline]
-    pub fn oscillator_is_not_by(self) -> &'a mut W {
-        self.variant(BYPASSW::OSCILLATOR_IS_NOT_BY)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(BYPASSW::DISABLED)
     }
     #[doc = "Bypass enabled. PLL input (sys_osc_clk) is fed directly from the XTALIN pin bypassing the oscillator. Use this mode when using an external clock source instead of the crystal oscillator."]
     #[inline]
-    pub fn bypass_enabled_pll_(self) -> &'a mut W {
-        self.variant(BYPASSW::BYPASS_ENABLED_PLL_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(BYPASSW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

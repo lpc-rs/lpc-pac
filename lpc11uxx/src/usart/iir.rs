@@ -15,9 +15,9 @@ impl super::IIR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INTSTATUSR {
     #[doc = "At least one interrupt is pending."]
-    AT_LEAST_ONE_INTERRU,
+    PENDING,
     #[doc = "No interrupt is pending."]
-    NO_INTERRUPT_IS_PEND,
+    NONE,
 }
 impl INTSTATUSR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -34,8 +34,8 @@ impl INTSTATUSR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            INTSTATUSR::AT_LEAST_ONE_INTERRU => false,
-            INTSTATUSR::NO_INTERRUPT_IS_PEND => true,
+            INTSTATUSR::PENDING => false,
+            INTSTATUSR::NONE => true,
         }
     }
     #[allow(missing_docs)]
@@ -43,34 +43,34 @@ impl INTSTATUSR {
     #[inline]
     pub fn _from(value: bool) -> INTSTATUSR {
         match value {
-            false => INTSTATUSR::AT_LEAST_ONE_INTERRU,
-            true => INTSTATUSR::NO_INTERRUPT_IS_PEND,
+            false => INTSTATUSR::PENDING,
+            true => INTSTATUSR::NONE,
         }
     }
-    #[doc = "Checks if the value of the field is `AT_LEAST_ONE_INTERRU`"]
+    #[doc = "Checks if the value of the field is `PENDING`"]
     #[inline]
-    pub fn is_at_least_one_interru(&self) -> bool {
-        *self == INTSTATUSR::AT_LEAST_ONE_INTERRU
+    pub fn is_pending(&self) -> bool {
+        *self == INTSTATUSR::PENDING
     }
-    #[doc = "Checks if the value of the field is `NO_INTERRUPT_IS_PEND`"]
+    #[doc = "Checks if the value of the field is `NONE`"]
     #[inline]
-    pub fn is_no_interrupt_is_pend(&self) -> bool {
-        *self == INTSTATUSR::NO_INTERRUPT_IS_PEND
+    pub fn is_none(&self) -> bool {
+        *self == INTSTATUSR::NONE
     }
 }
 #[doc = "Possible values of the field `INTID`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INTIDR {
     #[doc = "1   - Receive Line Status (RLS)."]
-    _1_RECEIVE_LINE_S,
+    RECEIVE_LINE_STATUS,
     #[doc = "2a - Receive Data Available (RDA)."]
-    _2A_RECEIVE_DATA_AV,
+    RECEIVE_DATA_AVAILABLE,
     #[doc = "2b - Character Time-out Indicator (CTI)."]
-    _2B_CHARACTER_TIME_,
+    CHARACTER_TIMEOUT_INDICATOR,
     #[doc = "3   - THRE Interrupt."]
-    _3_THRE_INTERRUPT,
+    THRE_INTERRUPT,
     #[doc = "4   - Modem status"]
-    _4_MODEM_STATUS,
+    MODEM_STATUS,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -79,11 +79,11 @@ impl INTIDR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            INTIDR::_1_RECEIVE_LINE_S => 3,
-            INTIDR::_2A_RECEIVE_DATA_AV => 2,
-            INTIDR::_2B_CHARACTER_TIME_ => 6,
-            INTIDR::_3_THRE_INTERRUPT => 1,
-            INTIDR::_4_MODEM_STATUS => 0,
+            INTIDR::RECEIVE_LINE_STATUS => 3,
+            INTIDR::RECEIVE_DATA_AVAILABLE => 2,
+            INTIDR::CHARACTER_TIMEOUT_INDICATOR => 6,
+            INTIDR::THRE_INTERRUPT => 1,
+            INTIDR::MODEM_STATUS => 0,
             INTIDR::_Reserved(bits) => bits,
         }
     }
@@ -92,38 +92,38 @@ impl INTIDR {
     #[inline]
     pub fn _from(value: u8) -> INTIDR {
         match value {
-            3 => INTIDR::_1_RECEIVE_LINE_S,
-            2 => INTIDR::_2A_RECEIVE_DATA_AV,
-            6 => INTIDR::_2B_CHARACTER_TIME_,
-            1 => INTIDR::_3_THRE_INTERRUPT,
-            0 => INTIDR::_4_MODEM_STATUS,
+            3 => INTIDR::RECEIVE_LINE_STATUS,
+            2 => INTIDR::RECEIVE_DATA_AVAILABLE,
+            6 => INTIDR::CHARACTER_TIMEOUT_INDICATOR,
+            1 => INTIDR::THRE_INTERRUPT,
+            0 => INTIDR::MODEM_STATUS,
             i => INTIDR::_Reserved(i),
         }
     }
-    #[doc = "Checks if the value of the field is `_1_RECEIVE_LINE_S`"]
+    #[doc = "Checks if the value of the field is `RECEIVE_LINE_STATUS`"]
     #[inline]
-    pub fn is_1_receive_line_s(&self) -> bool {
-        *self == INTIDR::_1_RECEIVE_LINE_S
+    pub fn is_receive_line_status(&self) -> bool {
+        *self == INTIDR::RECEIVE_LINE_STATUS
     }
-    #[doc = "Checks if the value of the field is `_2A_RECEIVE_DATA_AV`"]
+    #[doc = "Checks if the value of the field is `RECEIVE_DATA_AVAILABLE`"]
     #[inline]
-    pub fn is_2a_receive_data_av(&self) -> bool {
-        *self == INTIDR::_2A_RECEIVE_DATA_AV
+    pub fn is_receive_data_available(&self) -> bool {
+        *self == INTIDR::RECEIVE_DATA_AVAILABLE
     }
-    #[doc = "Checks if the value of the field is `_2B_CHARACTER_TIME_`"]
+    #[doc = "Checks if the value of the field is `CHARACTER_TIMEOUT_INDICATOR`"]
     #[inline]
-    pub fn is_2b_character_time_(&self) -> bool {
-        *self == INTIDR::_2B_CHARACTER_TIME_
+    pub fn is_character_timeout_indicator(&self) -> bool {
+        *self == INTIDR::CHARACTER_TIMEOUT_INDICATOR
     }
-    #[doc = "Checks if the value of the field is `_3_THRE_INTERRUPT`"]
+    #[doc = "Checks if the value of the field is `THRE_INTERRUPT`"]
     #[inline]
-    pub fn is_3_thre_interrupt(&self) -> bool {
-        *self == INTIDR::_3_THRE_INTERRUPT
+    pub fn is_thre_interrupt(&self) -> bool {
+        *self == INTIDR::THRE_INTERRUPT
     }
-    #[doc = "Checks if the value of the field is `_4_MODEM_STATUS`"]
+    #[doc = "Checks if the value of the field is `MODEM_STATUS`"]
     #[inline]
-    pub fn is_4_modem_status(&self) -> bool {
-        *self == INTIDR::_4_MODEM_STATUS
+    pub fn is_modem_status(&self) -> bool {
+        *self == INTIDR::MODEM_STATUS
     }
 }
 #[doc = r" Value of the field"]

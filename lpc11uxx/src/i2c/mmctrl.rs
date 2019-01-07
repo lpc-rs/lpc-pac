@@ -46,9 +46,9 @@ impl super::MMCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MM_ENAR {
     #[doc = "Monitor mode disabled."]
-    MONITOR_MODE_DISABLE,
+    DISABLED,
     #[doc = "The I2C module will enter monitor mode. In this mode the SDA output will be forced high. This will prevent the I2C module from outputting data of any kind (including ACK) onto the I 2C data bus. Depending on the state of the ENA_SCL bit, the output may be also forced high, preventing the module from having control over the I2C clock line."]
-    THE_I2C_MODULE_WILL_,
+    ENABLED,
 }
 impl MM_ENAR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl MM_ENAR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            MM_ENAR::MONITOR_MODE_DISABLE => false,
-            MM_ENAR::THE_I2C_MODULE_WILL_ => true,
+            MM_ENAR::DISABLED => false,
+            MM_ENAR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -74,19 +74,19 @@ impl MM_ENAR {
     #[inline]
     pub fn _from(value: bool) -> MM_ENAR {
         match value {
-            false => MM_ENAR::MONITOR_MODE_DISABLE,
-            true => MM_ENAR::THE_I2C_MODULE_WILL_,
+            false => MM_ENAR::DISABLED,
+            true => MM_ENAR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `MONITOR_MODE_DISABLE`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_monitor_mode_disable(&self) -> bool {
-        *self == MM_ENAR::MONITOR_MODE_DISABLE
+    pub fn is_disabled(&self) -> bool {
+        *self == MM_ENAR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `THE_I2C_MODULE_WILL_`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_the_i2c_module_will_(&self) -> bool {
-        *self == MM_ENAR::THE_I2C_MODULE_WILL_
+    pub fn is_enabled(&self) -> bool {
+        *self == MM_ENAR::ENABLED
     }
 }
 #[doc = "Possible values of the field `ENA_SCL`"]
@@ -186,9 +186,9 @@ impl MATCH_ALLR {
 #[doc = "Values that can be written to the field `MM_ENA`"]
 pub enum MM_ENAW {
     #[doc = "Monitor mode disabled."]
-    MONITOR_MODE_DISABLE,
+    DISABLED,
     #[doc = "The I2C module will enter monitor mode. In this mode the SDA output will be forced high. This will prevent the I2C module from outputting data of any kind (including ACK) onto the I 2C data bus. Depending on the state of the ENA_SCL bit, the output may be also forced high, preventing the module from having control over the I2C clock line."]
-    THE_I2C_MODULE_WILL_,
+    ENABLED,
 }
 impl MM_ENAW {
     #[allow(missing_docs)]
@@ -196,8 +196,8 @@ impl MM_ENAW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            MM_ENAW::MONITOR_MODE_DISABLE => false,
-            MM_ENAW::THE_I2C_MODULE_WILL_ => true,
+            MM_ENAW::DISABLED => false,
+            MM_ENAW::ENABLED => true,
         }
     }
 }
@@ -215,13 +215,13 @@ impl<'a> _MM_ENAW<'a> {
     }
     #[doc = "Monitor mode disabled."]
     #[inline]
-    pub fn monitor_mode_disable(self) -> &'a mut W {
-        self.variant(MM_ENAW::MONITOR_MODE_DISABLE)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(MM_ENAW::DISABLED)
     }
     #[doc = "The I2C module will enter monitor mode. In this mode the SDA output will be forced high. This will prevent the I2C module from outputting data of any kind (including ACK) onto the I 2C data bus. Depending on the state of the ENA_SCL bit, the output may be also forced high, preventing the module from having control over the I2C clock line."]
     #[inline]
-    pub fn the_i2c_module_will_(self) -> &'a mut W {
-        self.variant(MM_ENAW::THE_I2C_MODULE_WILL_)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(MM_ENAW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

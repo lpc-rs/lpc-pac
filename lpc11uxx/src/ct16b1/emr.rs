@@ -130,23 +130,23 @@ impl EM3R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EMC0R {
     #[doc = "Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT0 pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR,
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT0 pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET,
     #[doc = "Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE,
 }
 impl EMC0R {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            EMC0R::DO_NOTHING_ => 0,
-            EMC0R::CLEAR_THE_CORRESPOND => 1,
-            EMC0R::SET_THE_CORRESPONDIN => 2,
-            EMC0R::TOGGLE_THE_CORRESPON => 3,
+            EMC0R::DO_NOTHING => 0,
+            EMC0R::CLEAR => 1,
+            EMC0R::SET => 2,
+            EMC0R::TOGGLE => 3,
         }
     }
     #[allow(missing_docs)]
@@ -154,55 +154,55 @@ impl EMC0R {
     #[inline]
     pub fn _from(value: u8) -> EMC0R {
         match value {
-            0 => EMC0R::DO_NOTHING_,
-            1 => EMC0R::CLEAR_THE_CORRESPOND,
-            2 => EMC0R::SET_THE_CORRESPONDIN,
-            3 => EMC0R::TOGGLE_THE_CORRESPON,
+            0 => EMC0R::DO_NOTHING,
+            1 => EMC0R::CLEAR,
+            2 => EMC0R::SET,
+            3 => EMC0R::TOGGLE,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `DO_NOTHING_`"]
+    #[doc = "Checks if the value of the field is `DO_NOTHING`"]
     #[inline]
-    pub fn is_do_nothing_(&self) -> bool {
-        *self == EMC0R::DO_NOTHING_
+    pub fn is_do_nothing(&self) -> bool {
+        *self == EMC0R::DO_NOTHING
     }
-    #[doc = "Checks if the value of the field is `CLEAR_THE_CORRESPOND`"]
+    #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline]
-    pub fn is_clear_the_correspond(&self) -> bool {
-        *self == EMC0R::CLEAR_THE_CORRESPOND
+    pub fn is_clear(&self) -> bool {
+        *self == EMC0R::CLEAR
     }
-    #[doc = "Checks if the value of the field is `SET_THE_CORRESPONDIN`"]
+    #[doc = "Checks if the value of the field is `SET`"]
     #[inline]
-    pub fn is_set_the_correspondin(&self) -> bool {
-        *self == EMC0R::SET_THE_CORRESPONDIN
+    pub fn is_set(&self) -> bool {
+        *self == EMC0R::SET
     }
-    #[doc = "Checks if the value of the field is `TOGGLE_THE_CORRESPON`"]
+    #[doc = "Checks if the value of the field is `TOGGLE`"]
     #[inline]
-    pub fn is_toggle_the_correspon(&self) -> bool {
-        *self == EMC0R::TOGGLE_THE_CORRESPON
+    pub fn is_toggle(&self) -> bool {
+        *self == EMC0R::TOGGLE
     }
 }
 #[doc = "Possible values of the field `EMC1`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EMC1R {
     #[doc = "Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT1 pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR,
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT1 pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET,
     #[doc = "Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE,
 }
 impl EMC1R {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            EMC1R::DO_NOTHING_ => 0,
-            EMC1R::CLEAR_THE_CORRESPOND => 1,
-            EMC1R::SET_THE_CORRESPONDIN => 2,
-            EMC1R::TOGGLE_THE_CORRESPON => 3,
+            EMC1R::DO_NOTHING => 0,
+            EMC1R::CLEAR => 1,
+            EMC1R::SET => 2,
+            EMC1R::TOGGLE => 3,
         }
     }
     #[allow(missing_docs)]
@@ -210,55 +210,55 @@ impl EMC1R {
     #[inline]
     pub fn _from(value: u8) -> EMC1R {
         match value {
-            0 => EMC1R::DO_NOTHING_,
-            1 => EMC1R::CLEAR_THE_CORRESPOND,
-            2 => EMC1R::SET_THE_CORRESPONDIN,
-            3 => EMC1R::TOGGLE_THE_CORRESPON,
+            0 => EMC1R::DO_NOTHING,
+            1 => EMC1R::CLEAR,
+            2 => EMC1R::SET,
+            3 => EMC1R::TOGGLE,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `DO_NOTHING_`"]
+    #[doc = "Checks if the value of the field is `DO_NOTHING`"]
     #[inline]
-    pub fn is_do_nothing_(&self) -> bool {
-        *self == EMC1R::DO_NOTHING_
+    pub fn is_do_nothing(&self) -> bool {
+        *self == EMC1R::DO_NOTHING
     }
-    #[doc = "Checks if the value of the field is `CLEAR_THE_CORRESPOND`"]
+    #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline]
-    pub fn is_clear_the_correspond(&self) -> bool {
-        *self == EMC1R::CLEAR_THE_CORRESPOND
+    pub fn is_clear(&self) -> bool {
+        *self == EMC1R::CLEAR
     }
-    #[doc = "Checks if the value of the field is `SET_THE_CORRESPONDIN`"]
+    #[doc = "Checks if the value of the field is `SET`"]
     #[inline]
-    pub fn is_set_the_correspondin(&self) -> bool {
-        *self == EMC1R::SET_THE_CORRESPONDIN
+    pub fn is_set(&self) -> bool {
+        *self == EMC1R::SET
     }
-    #[doc = "Checks if the value of the field is `TOGGLE_THE_CORRESPON`"]
+    #[doc = "Checks if the value of the field is `TOGGLE`"]
     #[inline]
-    pub fn is_toggle_the_correspon(&self) -> bool {
-        *self == EMC1R::TOGGLE_THE_CORRESPON
+    pub fn is_toggle(&self) -> bool {
+        *self == EMC1R::TOGGLE
     }
 }
 #[doc = "Possible values of the field `EMC2`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EMC2R {
     #[doc = "Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT2 pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR,
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT2 pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET,
     #[doc = "Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE,
 }
 impl EMC2R {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            EMC2R::DO_NOTHING_ => 0,
-            EMC2R::CLEAR_THE_CORRESPOND => 1,
-            EMC2R::SET_THE_CORRESPONDIN => 2,
-            EMC2R::TOGGLE_THE_CORRESPON => 3,
+            EMC2R::DO_NOTHING => 0,
+            EMC2R::CLEAR => 1,
+            EMC2R::SET => 2,
+            EMC2R::TOGGLE => 3,
         }
     }
     #[allow(missing_docs)]
@@ -266,55 +266,55 @@ impl EMC2R {
     #[inline]
     pub fn _from(value: u8) -> EMC2R {
         match value {
-            0 => EMC2R::DO_NOTHING_,
-            1 => EMC2R::CLEAR_THE_CORRESPOND,
-            2 => EMC2R::SET_THE_CORRESPONDIN,
-            3 => EMC2R::TOGGLE_THE_CORRESPON,
+            0 => EMC2R::DO_NOTHING,
+            1 => EMC2R::CLEAR,
+            2 => EMC2R::SET,
+            3 => EMC2R::TOGGLE,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `DO_NOTHING_`"]
+    #[doc = "Checks if the value of the field is `DO_NOTHING`"]
     #[inline]
-    pub fn is_do_nothing_(&self) -> bool {
-        *self == EMC2R::DO_NOTHING_
+    pub fn is_do_nothing(&self) -> bool {
+        *self == EMC2R::DO_NOTHING
     }
-    #[doc = "Checks if the value of the field is `CLEAR_THE_CORRESPOND`"]
+    #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline]
-    pub fn is_clear_the_correspond(&self) -> bool {
-        *self == EMC2R::CLEAR_THE_CORRESPOND
+    pub fn is_clear(&self) -> bool {
+        *self == EMC2R::CLEAR
     }
-    #[doc = "Checks if the value of the field is `SET_THE_CORRESPONDIN`"]
+    #[doc = "Checks if the value of the field is `SET`"]
     #[inline]
-    pub fn is_set_the_correspondin(&self) -> bool {
-        *self == EMC2R::SET_THE_CORRESPONDIN
+    pub fn is_set(&self) -> bool {
+        *self == EMC2R::SET
     }
-    #[doc = "Checks if the value of the field is `TOGGLE_THE_CORRESPON`"]
+    #[doc = "Checks if the value of the field is `TOGGLE`"]
     #[inline]
-    pub fn is_toggle_the_correspon(&self) -> bool {
-        *self == EMC2R::TOGGLE_THE_CORRESPON
+    pub fn is_toggle(&self) -> bool {
+        *self == EMC2R::TOGGLE
     }
 }
 #[doc = "Possible values of the field `EMC3`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EMC3R {
     #[doc = "Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT3 pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR,
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT3 pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET,
     #[doc = "Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE,
 }
 impl EMC3R {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            EMC3R::DO_NOTHING_ => 0,
-            EMC3R::CLEAR_THE_CORRESPOND => 1,
-            EMC3R::SET_THE_CORRESPONDIN => 2,
-            EMC3R::TOGGLE_THE_CORRESPON => 3,
+            EMC3R::DO_NOTHING => 0,
+            EMC3R::CLEAR => 1,
+            EMC3R::SET => 2,
+            EMC3R::TOGGLE => 3,
         }
     }
     #[allow(missing_docs)]
@@ -322,32 +322,32 @@ impl EMC3R {
     #[inline]
     pub fn _from(value: u8) -> EMC3R {
         match value {
-            0 => EMC3R::DO_NOTHING_,
-            1 => EMC3R::CLEAR_THE_CORRESPOND,
-            2 => EMC3R::SET_THE_CORRESPONDIN,
-            3 => EMC3R::TOGGLE_THE_CORRESPON,
+            0 => EMC3R::DO_NOTHING,
+            1 => EMC3R::CLEAR,
+            2 => EMC3R::SET,
+            3 => EMC3R::TOGGLE,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `DO_NOTHING_`"]
+    #[doc = "Checks if the value of the field is `DO_NOTHING`"]
     #[inline]
-    pub fn is_do_nothing_(&self) -> bool {
-        *self == EMC3R::DO_NOTHING_
+    pub fn is_do_nothing(&self) -> bool {
+        *self == EMC3R::DO_NOTHING
     }
-    #[doc = "Checks if the value of the field is `CLEAR_THE_CORRESPOND`"]
+    #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline]
-    pub fn is_clear_the_correspond(&self) -> bool {
-        *self == EMC3R::CLEAR_THE_CORRESPOND
+    pub fn is_clear(&self) -> bool {
+        *self == EMC3R::CLEAR
     }
-    #[doc = "Checks if the value of the field is `SET_THE_CORRESPONDIN`"]
+    #[doc = "Checks if the value of the field is `SET`"]
     #[inline]
-    pub fn is_set_the_correspondin(&self) -> bool {
-        *self == EMC3R::SET_THE_CORRESPONDIN
+    pub fn is_set(&self) -> bool {
+        *self == EMC3R::SET
     }
-    #[doc = "Checks if the value of the field is `TOGGLE_THE_CORRESPON`"]
+    #[doc = "Checks if the value of the field is `TOGGLE`"]
     #[inline]
-    pub fn is_toggle_the_correspon(&self) -> bool {
-        *self == EMC3R::TOGGLE_THE_CORRESPON
+    pub fn is_toggle(&self) -> bool {
+        *self == EMC3R::TOGGLE
     }
 }
 #[doc = r" Proxy"]
@@ -445,13 +445,13 @@ impl<'a> _EM3W<'a> {
 #[doc = "Values that can be written to the field `EMC0`"]
 pub enum EMC0W {
     #[doc = "Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT0 pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR,
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT0 pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET,
     #[doc = "Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE,
 }
 impl EMC0W {
     #[allow(missing_docs)]
@@ -459,10 +459,10 @@ impl EMC0W {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            EMC0W::DO_NOTHING_ => 0,
-            EMC0W::CLEAR_THE_CORRESPOND => 1,
-            EMC0W::SET_THE_CORRESPONDIN => 2,
-            EMC0W::TOGGLE_THE_CORRESPON => 3,
+            EMC0W::DO_NOTHING => 0,
+            EMC0W::CLEAR => 1,
+            EMC0W::SET => 2,
+            EMC0W::TOGGLE => 3,
         }
     }
 }
@@ -480,23 +480,23 @@ impl<'a> _EMC0W<'a> {
     }
     #[doc = "Do Nothing."]
     #[inline]
-    pub fn do_nothing_(self) -> &'a mut W {
-        self.variant(EMC0W::DO_NOTHING_)
+    pub fn do_nothing(self) -> &'a mut W {
+        self.variant(EMC0W::DO_NOTHING)
     }
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT0 pin is LOW if pinned out)."]
     #[inline]
-    pub fn clear_the_correspond(self) -> &'a mut W {
-        self.variant(EMC0W::CLEAR_THE_CORRESPOND)
+    pub fn clear(self) -> &'a mut W {
+        self.variant(EMC0W::CLEAR)
     }
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT0 pin is HIGH if pinned out)."]
     #[inline]
-    pub fn set_the_correspondin(self) -> &'a mut W {
-        self.variant(EMC0W::SET_THE_CORRESPONDIN)
+    pub fn set(self) -> &'a mut W {
+        self.variant(EMC0W::SET)
     }
     #[doc = "Toggle the corresponding External Match bit/output."]
     #[inline]
-    pub fn toggle_the_correspon(self) -> &'a mut W {
-        self.variant(EMC0W::TOGGLE_THE_CORRESPON)
+    pub fn toggle(self) -> &'a mut W {
+        self.variant(EMC0W::TOGGLE)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -511,13 +511,13 @@ impl<'a> _EMC0W<'a> {
 #[doc = "Values that can be written to the field `EMC1`"]
 pub enum EMC1W {
     #[doc = "Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT1 pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR,
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT1 pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET,
     #[doc = "Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE,
 }
 impl EMC1W {
     #[allow(missing_docs)]
@@ -525,10 +525,10 @@ impl EMC1W {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            EMC1W::DO_NOTHING_ => 0,
-            EMC1W::CLEAR_THE_CORRESPOND => 1,
-            EMC1W::SET_THE_CORRESPONDIN => 2,
-            EMC1W::TOGGLE_THE_CORRESPON => 3,
+            EMC1W::DO_NOTHING => 0,
+            EMC1W::CLEAR => 1,
+            EMC1W::SET => 2,
+            EMC1W::TOGGLE => 3,
         }
     }
 }
@@ -546,23 +546,23 @@ impl<'a> _EMC1W<'a> {
     }
     #[doc = "Do Nothing."]
     #[inline]
-    pub fn do_nothing_(self) -> &'a mut W {
-        self.variant(EMC1W::DO_NOTHING_)
+    pub fn do_nothing(self) -> &'a mut W {
+        self.variant(EMC1W::DO_NOTHING)
     }
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT1 pin is LOW if pinned out)."]
     #[inline]
-    pub fn clear_the_correspond(self) -> &'a mut W {
-        self.variant(EMC1W::CLEAR_THE_CORRESPOND)
+    pub fn clear(self) -> &'a mut W {
+        self.variant(EMC1W::CLEAR)
     }
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT1 pin is HIGH if pinned out)."]
     #[inline]
-    pub fn set_the_correspondin(self) -> &'a mut W {
-        self.variant(EMC1W::SET_THE_CORRESPONDIN)
+    pub fn set(self) -> &'a mut W {
+        self.variant(EMC1W::SET)
     }
     #[doc = "Toggle the corresponding External Match bit/output."]
     #[inline]
-    pub fn toggle_the_correspon(self) -> &'a mut W {
-        self.variant(EMC1W::TOGGLE_THE_CORRESPON)
+    pub fn toggle(self) -> &'a mut W {
+        self.variant(EMC1W::TOGGLE)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -577,13 +577,13 @@ impl<'a> _EMC1W<'a> {
 #[doc = "Values that can be written to the field `EMC2`"]
 pub enum EMC2W {
     #[doc = "Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT2 pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR,
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT2 pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET,
     #[doc = "Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE,
 }
 impl EMC2W {
     #[allow(missing_docs)]
@@ -591,10 +591,10 @@ impl EMC2W {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            EMC2W::DO_NOTHING_ => 0,
-            EMC2W::CLEAR_THE_CORRESPOND => 1,
-            EMC2W::SET_THE_CORRESPONDIN => 2,
-            EMC2W::TOGGLE_THE_CORRESPON => 3,
+            EMC2W::DO_NOTHING => 0,
+            EMC2W::CLEAR => 1,
+            EMC2W::SET => 2,
+            EMC2W::TOGGLE => 3,
         }
     }
 }
@@ -612,23 +612,23 @@ impl<'a> _EMC2W<'a> {
     }
     #[doc = "Do Nothing."]
     #[inline]
-    pub fn do_nothing_(self) -> &'a mut W {
-        self.variant(EMC2W::DO_NOTHING_)
+    pub fn do_nothing(self) -> &'a mut W {
+        self.variant(EMC2W::DO_NOTHING)
     }
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT2 pin is LOW if pinned out)."]
     #[inline]
-    pub fn clear_the_correspond(self) -> &'a mut W {
-        self.variant(EMC2W::CLEAR_THE_CORRESPOND)
+    pub fn clear(self) -> &'a mut W {
+        self.variant(EMC2W::CLEAR)
     }
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT2 pin is HIGH if pinned out)."]
     #[inline]
-    pub fn set_the_correspondin(self) -> &'a mut W {
-        self.variant(EMC2W::SET_THE_CORRESPONDIN)
+    pub fn set(self) -> &'a mut W {
+        self.variant(EMC2W::SET)
     }
     #[doc = "Toggle the corresponding External Match bit/output."]
     #[inline]
-    pub fn toggle_the_correspon(self) -> &'a mut W {
-        self.variant(EMC2W::TOGGLE_THE_CORRESPON)
+    pub fn toggle(self) -> &'a mut W {
+        self.variant(EMC2W::TOGGLE)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -643,13 +643,13 @@ impl<'a> _EMC2W<'a> {
 #[doc = "Values that can be written to the field `EMC3`"]
 pub enum EMC3W {
     #[doc = "Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING,
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT3 pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR,
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT3 pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET,
     #[doc = "Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE,
 }
 impl EMC3W {
     #[allow(missing_docs)]
@@ -657,10 +657,10 @@ impl EMC3W {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            EMC3W::DO_NOTHING_ => 0,
-            EMC3W::CLEAR_THE_CORRESPOND => 1,
-            EMC3W::SET_THE_CORRESPONDIN => 2,
-            EMC3W::TOGGLE_THE_CORRESPON => 3,
+            EMC3W::DO_NOTHING => 0,
+            EMC3W::CLEAR => 1,
+            EMC3W::SET => 2,
+            EMC3W::TOGGLE => 3,
         }
     }
 }
@@ -678,23 +678,23 @@ impl<'a> _EMC3W<'a> {
     }
     #[doc = "Do Nothing."]
     #[inline]
-    pub fn do_nothing_(self) -> &'a mut W {
-        self.variant(EMC3W::DO_NOTHING_)
+    pub fn do_nothing(self) -> &'a mut W {
+        self.variant(EMC3W::DO_NOTHING)
     }
     #[doc = "Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT3 pin is LOW if pinned out)."]
     #[inline]
-    pub fn clear_the_correspond(self) -> &'a mut W {
-        self.variant(EMC3W::CLEAR_THE_CORRESPOND)
+    pub fn clear(self) -> &'a mut W {
+        self.variant(EMC3W::CLEAR)
     }
     #[doc = "Set the corresponding External Match bit/output to 1 (CT16Bn_MAT3 pin is HIGH if pinned out)."]
     #[inline]
-    pub fn set_the_correspondin(self) -> &'a mut W {
-        self.variant(EMC3W::SET_THE_CORRESPONDIN)
+    pub fn set(self) -> &'a mut W {
+        self.variant(EMC3W::SET)
     }
     #[doc = "Toggle the corresponding External Match bit/output."]
     #[inline]
-    pub fn toggle_the_correspon(self) -> &'a mut W {
-        self.variant(EMC3W::TOGGLE_THE_CORRESPON)
+    pub fn toggle(self) -> &'a mut W {
+        self.variant(EMC3W::TOGGLE)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
