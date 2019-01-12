@@ -7417,7 +7417,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -7549,7 +7549,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -7676,7 +7676,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -7798,7 +7798,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -8061,7 +8061,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -8183,7 +8183,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -8310,7 +8310,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -8437,7 +8437,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -8569,7 +8569,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -8701,7 +8701,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -8869,7 +8869,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -9037,7 +9037,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -9205,7 +9205,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -9373,7 +9373,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -9536,7 +9536,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -9704,7 +9704,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -9831,7 +9831,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -9958,7 +9958,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -10080,7 +10080,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -10207,7 +10207,7 @@ controller </description>
 				<enumeratedValues>																			
 				<name>ENUM</name>																			
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -10343,7 +10343,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -10517,7 +10517,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -10691,7 +10691,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -10825,7 +10825,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -10959,7 +10959,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -11093,7 +11093,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -11227,7 +11227,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -11361,7 +11361,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -11490,7 +11490,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -11619,7 +11619,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -11748,7 +11748,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -11877,7 +11877,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -12006,7 +12006,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -12135,7 +12135,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -12264,7 +12264,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -12408,7 +12408,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -12552,7 +12552,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -12696,7 +12696,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -12835,7 +12835,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -12974,7 +12974,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -13113,7 +13113,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -13252,7 +13252,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -13391,7 +13391,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -13530,7 +13530,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -13669,7 +13669,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -13808,7 +13808,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -13942,7 +13942,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -14076,7 +14076,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -14215,7 +14215,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -14354,7 +14354,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -14493,7 +14493,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -14632,7 +14632,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
@@ -14761,7 +14761,7 @@ controller </description>
 				<name>ENUM</name>																			
 																							
 					<enumeratedValue>																		
-						<name>INACTIVE</name>																	
+						<name>FLOATING</name>																	
 						<description>Inactive (no pull-down/pull-up resistor enabled).</description>																	
 						<value>0x0</value>																	
 					</enumeratedValue>																		
