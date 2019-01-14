@@ -105,7 +105,7 @@ impl FUNCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODER {
     #[doc = "Inactive (no pull-down/pull-up resistor enabled)."]
-    INACTIVE,
+    FLOATING,
     #[doc = "Pull-down resistor enabled."]
     PULL_DOWN,
     #[doc = "Pull-up resistor enabled."]
@@ -118,7 +118,7 @@ impl MODER {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            MODER::INACTIVE => 0,
+            MODER::FLOATING => 0,
             MODER::PULL_DOWN => 1,
             MODER::PULL_UP => 2,
             MODER::REPEATER => 3,
@@ -129,17 +129,17 @@ impl MODER {
     #[inline]
     pub fn _from(value: u8) -> MODER {
         match value {
-            0 => MODER::INACTIVE,
+            0 => MODER::FLOATING,
             1 => MODER::PULL_DOWN,
             2 => MODER::PULL_UP,
             3 => MODER::REPEATER,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `INACTIVE`"]
+    #[doc = "Checks if the value of the field is `FLOATING`"]
     #[inline]
-    pub fn is_inactive(&self) -> bool {
-        *self == MODER::INACTIVE
+    pub fn is_floating(&self) -> bool {
+        *self == MODER::FLOATING
     }
     #[doc = "Checks if the value of the field is `PULL_DOWN`"]
     #[inline]
@@ -459,7 +459,7 @@ impl<'a> _FUNCW<'a> {
 #[doc = "Values that can be written to the field `MODE`"]
 pub enum MODEW {
     #[doc = "Inactive (no pull-down/pull-up resistor enabled)."]
-    INACTIVE,
+    FLOATING,
     #[doc = "Pull-down resistor enabled."]
     PULL_DOWN,
     #[doc = "Pull-up resistor enabled."]
@@ -473,7 +473,7 @@ impl MODEW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            MODEW::INACTIVE => 0,
+            MODEW::FLOATING => 0,
             MODEW::PULL_DOWN => 1,
             MODEW::PULL_UP => 2,
             MODEW::REPEATER => 3,
@@ -494,8 +494,8 @@ impl<'a> _MODEW<'a> {
     }
     #[doc = "Inactive (no pull-down/pull-up resistor enabled)."]
     #[inline]
-    pub fn inactive(self) -> &'a mut W {
-        self.variant(MODEW::INACTIVE)
+    pub fn floating(self) -> &'a mut W {
+        self.variant(MODEW::FLOATING)
     }
     #[doc = "Pull-down resistor enabled."]
     #[inline]

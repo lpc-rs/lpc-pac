@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+ * Rename `INACTIVE` field in pull-up/down mode enums (and associated methods)
+   to `FLOATING` (#9)
+
 ## 0.3.0
 
  * Use svd2rust 0.14.0 to generate code
