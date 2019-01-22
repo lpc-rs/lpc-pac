@@ -29,14 +29,14 @@ pub struct RegisterBlock {
     pub mrdd: MRDD,
     #[doc = "0x34 - MII Mgmt Indicators register."]
     pub mind: MIND,
-    _reserved0: [u8; 8usize],
+    _reserved14: [u8; 8usize],
     #[doc = "0x40 - Station Address 0 register."]
     pub sa0: SA0,
     #[doc = "0x44 - Station Address 1 register."]
     pub sa1: SA1,
     #[doc = "0x48 - Station Address 2 register."]
     pub sa2: SA2,
-    _reserved1: [u8; 180usize],
+    _reserved17: [u8; 180usize],
     #[doc = "0x100 - Command register."]
     pub command: COMMAND,
     #[doc = "0x104 - Status register."]
@@ -61,31 +61,31 @@ pub struct RegisterBlock {
     pub txproduceindex: TXPRODUCEINDEX,
     #[doc = "0x12c - Transmit consume index register."]
     pub txconsumeindex: TXCONSUMEINDEX,
-    _reserved2: [u8; 40usize],
+    _reserved29: [u8; 40usize],
     #[doc = "0x158 - Transmit status vector 0 register."]
     pub tsv0: TSV0,
     #[doc = "0x15c - Transmit status vector 1 register."]
     pub tsv1: TSV1,
     #[doc = "0x160 - Receive status vector register."]
     pub rsv: RSV,
-    _reserved3: [u8; 12usize],
+    _reserved32: [u8; 12usize],
     #[doc = "0x170 - Flow control counter register."]
     pub flowcontrolcounter: FLOWCONTROLCOUNTER,
     #[doc = "0x174 - Flow control status register."]
     pub flowcontrolstatus: FLOWCONTROLSTATUS,
-    _reserved4: [u8; 136usize],
+    _reserved34: [u8; 136usize],
     #[doc = "0x200 - Receive filter control register."]
     pub rxfilterctrl: RXFILTERCTRL,
     #[doc = "0x204 - Receive filter WoL status register."]
     pub rxfilterwolstatus: RXFILTERWOLSTATUS,
     #[doc = "0x208 - Receive filter WoL clear register."]
     pub rxfilterwolclear: RXFILTERWOLCLEAR,
-    _reserved5: [u8; 4usize],
+    _reserved37: [u8; 4usize],
     #[doc = "0x210 - Hash filter table LSBs register."]
     pub hashfilterl: HASHFILTERL,
     #[doc = "0x214 - Hash filter table MSBs register."]
     pub hashfilterh: HASHFILTERH,
-    _reserved6: [u8; 3528usize],
+    _reserved39: [u8; 3528usize],
     #[doc = "0xfe0 - Interrupt status register."]
     pub intstatus: INTSTATUS,
     #[doc = "0xfe4 - Interrupt enable register."]
@@ -94,7 +94,7 @@ pub struct RegisterBlock {
     pub intclear: INTCLEAR,
     #[doc = "0xfec - Interrupt set register."]
     pub intset: INTSET,
-    _reserved7: [u8; 4usize],
+    _reserved43: [u8; 4usize],
     #[doc = "0xff4 - Power-down register."]
     pub powerdown: POWERDOWN,
 }

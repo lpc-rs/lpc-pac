@@ -25,7 +25,7 @@ pub struct RegisterBlock {
     pub intsetstat: INTSETSTAT,
     #[doc = "0x2c - USB interrupt routing register"]
     pub introuting: INTROUTING,
-    _reserved0: [u8; 4usize],
+    _reserved12: [u8; 4usize],
     #[doc = "0x34 - USB Endpoint toggle register"]
     pub eptoggle: EPTOGGLE,
 }

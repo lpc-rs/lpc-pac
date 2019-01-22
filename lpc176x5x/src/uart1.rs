@@ -1,12 +1,12 @@
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00 - DLAB =0 Receiver Buffer Register. Contains the next received character to be read."]
-    pub rbr: RBR,
-    #[doc = "0x04 - DLAB =1. Divisor Latch MSB. Most significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider."]
-    pub dlm: DLM,
-    #[doc = "0x08 - Interrupt ID Register. Identifies which interrupt(s) are pending."]
-    pub iir: IIR,
+    #[doc = "DLAB =1. Divisor Latch LSB. Least significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider. DLAB =0. Transmit Holding Register. The next character to be transmitted is written here. DLAB =0 Receiver Buffer Register. Contains the next received character to be read."]
+    pub dll: DLL_UNION,
+    #[doc = "DLAB =0. Interrupt Enable Register. Contains individual interrupt enable bits for the 7 potential UART1 interrupts. DLAB =1. Divisor Latch MSB. Most significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider."]
+    pub dlm: DLM_UNION,
+    #[doc = "FIFO Control Register. Controls UART1 FIFO usage and modes. Interrupt ID Register. Identifies which interrupt(s) are pending."]
+    pub fcr: FCR_UNION,
     #[doc = "0x0c - Line Control Register. Contains controls for frame formatting and break generation."]
     pub lcr: LCR,
     #[doc = "0x10 - Modem Control Register. Contains controls for flow control handshaking and loopback mode."]
@@ -19,19 +19,45 @@ pub struct RegisterBlock {
     pub scr: SCR,
     #[doc = "0x20 - Auto-baud Control Register. Contains controls for the auto-baud feature."]
     pub acr: ACR,
-    _reserved0: [u8; 4usize],
+    _reserved9: [u8; 4usize],
     #[doc = "0x28 - Fractional Divider Register. Generates a clock input for the baud rate divider."]
     pub fdr: FDR,
-    _reserved1: [u8; 4usize],
+    _reserved10: [u8; 4usize],
     #[doc = "0x30 - Transmit Enable Register. Turns off UART transmitter for use with software flow control."]
     pub ter: TER,
-    _reserved2: [u8; 24usize],
+    _reserved11: [u8; 24usize],
     #[doc = "0x4c - RS-485/EIA-485 Control. Contains controls to configure various aspects of RS-485/EIA-485 modes."]
     pub rs485ctrl: RS485CTRL,
     #[doc = "0x50 - RS-485/EIA-485 address match. Contains the address match value for RS-485/EIA-485 mode."]
     pub rs485adrmatch: RS485ADRMATCH,
     #[doc = "0x54 - RS-485/EIA-485 direction control delay."]
     pub rs485dly: RS485DLY,
+}
+#[doc = "DLAB =1. Divisor Latch LSB. Least significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider. DLAB =0. Transmit Holding Register. The next character to be transmitted is written here. DLAB =0 Receiver Buffer Register. Contains the next received character to be read."]
+#[repr(C)]
+pub union DLL_UNION {
+    #[doc = "0x00 - DLAB =1. Divisor Latch LSB. Least significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider."]
+    pub dll: DLL,
+    #[doc = "0x00 - DLAB =0. Transmit Holding Register. The next character to be transmitted is written here."]
+    pub thr: THR,
+    #[doc = "0x00 - DLAB =0 Receiver Buffer Register. Contains the next received character to be read."]
+    pub rbr: RBR,
+}
+#[doc = "DLAB =0. Interrupt Enable Register. Contains individual interrupt enable bits for the 7 potential UART1 interrupts. DLAB =1. Divisor Latch MSB. Most significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider."]
+#[repr(C)]
+pub union DLM_UNION {
+    #[doc = "0x04 - DLAB =0. Interrupt Enable Register. Contains individual interrupt enable bits for the 7 potential UART1 interrupts."]
+    pub ier: IER,
+    #[doc = "0x04 - DLAB =1. Divisor Latch MSB. Most significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider."]
+    pub dlm: DLM,
+}
+#[doc = "FIFO Control Register. Controls UART1 FIFO usage and modes. Interrupt ID Register. Identifies which interrupt(s) are pending."]
+#[repr(C)]
+pub union FCR_UNION {
+    #[doc = "0x08 - FIFO Control Register. Controls UART1 FIFO usage and modes."]
+    pub fcr: FCR,
+    #[doc = "0x08 - Interrupt ID Register. Identifies which interrupt(s) are pending."]
+    pub iir: IIR,
 }
 #[doc = "DLAB =0 Receiver Buffer Register. Contains the next received character to be read."]
 pub struct RBR {

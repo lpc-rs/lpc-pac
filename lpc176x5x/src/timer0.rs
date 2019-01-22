@@ -19,10 +19,10 @@ pub struct RegisterBlock {
     pub ccr: CCR,
     #[doc = "0x2c - Capture Register 0. CR0 is loaded with the value of TC when there is an event on the CAPn.0 input."]
     pub cr: [CR; 2],
-    _reserved0: [u8; 8usize],
+    _reserved9: [u8; 8usize],
     #[doc = "0x3c - External Match Register. The EMR controls the external match pins."]
     pub emr: EMR,
-    _reserved1: [u8; 48usize],
+    _reserved10: [u8; 48usize],
     #[doc = "0x70 - Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting."]
     pub ctcr: CTCR,
 }

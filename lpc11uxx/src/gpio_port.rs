@@ -67,7 +67,7 @@ pub struct RegisterBlock {
     pub b162: B1,
     #[doc = "0x3f - Byte pin registers port 1"]
     pub b163: B1,
-    _reserved0: [u8; 4032usize],
+    _reserved33: [u8; 4032usize],
     #[doc = "0x1000 - Word pin registers port 0"]
     pub w_0: [W_0; 32],
     #[doc = "0x1080 - Word pin registers port 1"]
@@ -134,25 +134,25 @@ pub struct RegisterBlock {
     pub w_162: W_1,
     #[doc = "0x10fc - Word pin registers port 1"]
     pub w_163: W_1,
-    _reserved1: [u8; 3840usize],
+    _reserved66: [u8; 3840usize],
     #[doc = "0x2000 - Direction registers port 0/1"]
     pub dir: [DIR; 2],
-    _reserved2: [u8; 120usize],
+    _reserved67: [u8; 120usize],
     #[doc = "0x2080 - Mask register port 0/1"]
     pub mask: [MASK; 2],
-    _reserved3: [u8; 120usize],
+    _reserved68: [u8; 120usize],
     #[doc = "0x2100 - Portpin register port 0"]
     pub pin: [PIN; 2],
-    _reserved4: [u8; 120usize],
+    _reserved69: [u8; 120usize],
     #[doc = "0x2180 - Masked port register port 0/1"]
     pub mpin: [MPIN; 2],
-    _reserved5: [u8; 120usize],
+    _reserved70: [u8; 120usize],
     #[doc = "0x2200 - Write: Set register for port 0/1 Read: output bits for port 0/1"]
     pub set: [SET; 2],
-    _reserved6: [u8; 120usize],
+    _reserved71: [u8; 120usize],
     #[doc = "0x2280 - Clear port 0/1"]
     pub clr: [CLR; 2],
-    _reserved7: [u8; 120usize],
+    _reserved72: [u8; 120usize],
     #[doc = "0x2300 - Toggle port 0/1"]
     pub not: [NOT; 2],
 }

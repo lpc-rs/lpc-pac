@@ -11,15 +11,15 @@ pub struct RegisterBlock {
     pub pinsel3: PINSEL3,
     #[doc = "0x10 - Pin function select register 4"]
     pub pinsel4: PINSEL4,
-    _reserved0: [u8; 8usize],
+    _reserved5: [u8; 8usize],
     #[doc = "0x1c - Pin function select register 7"]
     pub pinsel7: PINSEL7,
-    _reserved1: [u8; 4usize],
+    _reserved6: [u8; 4usize],
     #[doc = "0x24 - Pin function select register 9"]
     pub pinsel9: PINSEL9,
     #[doc = "0x28 - Pin function select register 10"]
     pub pinsel10: PINSEL10,
-    _reserved2: [u8; 20usize],
+    _reserved8: [u8; 20usize],
     #[doc = "0x40 - Pin mode select register 0"]
     pub pinmode0: PINMODE0,
     #[doc = "0x44 - Pin mode select register 1"]
@@ -30,10 +30,10 @@ pub struct RegisterBlock {
     pub pinmode3: PINMODE3,
     #[doc = "0x50 - Pin mode select register 4"]
     pub pinmode4: PINMODE4,
-    _reserved3: [u8; 8usize],
+    _reserved13: [u8; 8usize],
     #[doc = "0x5c - Pin mode select register 7"]
     pub pinmode7: PINMODE7,
-    _reserved4: [u8; 4usize],
+    _reserved14: [u8; 4usize],
     #[doc = "0x64 - Pin mode select register 9"]
     pub pinmode9: PINMODE9,
     #[doc = "0x68 - Open drain mode control register 0"]

@@ -13,7 +13,7 @@ pub struct RegisterBlock {
     pub enr0: ENR0,
     #[doc = "0x14 - GPIO Interrupt Enable for Falling edge for Port 0."]
     pub enf0: ENF0,
-    _reserved0: [u8; 12usize],
+    _reserved6: [u8; 12usize],
     #[doc = "0x24 - GPIO Interrupt Status for Rising edge for Port 0."]
     pub statr2: STATR2,
     #[doc = "0x28 - GPIO Interrupt Status for Falling edge for Port 0."]

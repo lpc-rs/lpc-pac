@@ -19,7 +19,7 @@ pub struct RegisterBlock {
     pub ccr: CCR,
     #[doc = "0x2c - PWM Control Register. Enables PWM outputs and selects either single edge or double edge controlled PWM outputs."]
     pub cr: [CR; 2],
-    _reserved0: [u8; 12usize],
+    _reserved9: [u8; 12usize],
     #[doc = "0x40 - Match Register. Match registers are continuously compared to the PWM counter in order to control PWM output edges."]
     pub mr4: MR,
     #[doc = "0x44 - Match Register. Match registers are continuously compared to the PWM counter in order to control PWM output edges."]
@@ -30,7 +30,7 @@ pub struct RegisterBlock {
     pub pcr: PCR,
     #[doc = "0x50 - Load Enable Register. Enables use of updated PWM match values."]
     pub ler: LER,
-    _reserved1: [u8; 28usize],
+    _reserved14: [u8; 28usize],
     #[doc = "0x70 - Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting."]
     pub ctcr: CTCR,
 }

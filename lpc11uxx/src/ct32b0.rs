@@ -19,13 +19,13 @@ pub struct RegisterBlock {
     pub ccr: CCR,
     #[doc = "0x2c - Capture Register 0. CR0 is loaded with the value of TC when there is an event on the CT32B0_CAP0 input."]
     pub cr0: CR0,
-    _reserved0: [u8; 4usize],
+    _reserved9: [u8; 4usize],
     #[doc = "0x34 - Capture Register 1. CR1 is loaded with the value of TC when there is an event on the CT32B0_CAP1 input."]
     pub cr1: CR1,
-    _reserved1: [u8; 4usize],
+    _reserved10: [u8; 4usize],
     #[doc = "0x3c - External Match Register. The EMR controls the match function and the external match pins CT32Bn_MAT\\[3:0\\]."]
     pub emr: EMR,
-    _reserved2: [u8; 48usize],
+    _reserved11: [u8; 48usize],
     #[doc = "0x70 - Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting."]
     pub ctcr: CTCR,
     #[doc = "0x74 - PWM Control Register. The PWMCON enables PWM mode for the external match pins CT32Bn_MAT\\[3:0\\]."]
