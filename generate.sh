@@ -76,6 +76,12 @@ generate_pac() {
     cargo fmt
 }
 
+if (( $# == 1 )); then
+    cd "$1"
+    generate_pac "$1"
+    exit 0
+fi
+
 for PAC in ${PACS[*]}; do
     cecho $BOLDGREEN "\nEntering $PAC/"
     pushd "$PAC" >/dev/null
