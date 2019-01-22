@@ -17,6 +17,9 @@ PACS=(
     lpc176x5x
 )
 
+# everything is relativ to the generate script
+cd $(dirname $0)
+
 
 ### Helper functions
 
