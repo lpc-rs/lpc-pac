@@ -26,11 +26,3 @@ vcell       = "0.1"
 
 [features]
 rt = ["cortex-m-rt", "cortex-m-rt/device"]
-
-
-[package.metadata.release]
-pre-release-commit-message = "Release version {{version}}"
-pro-release-commit-message = "Bump version to {{version}}"
-tag-prefix                 = "v"
-tag-message                = "Version {{version}}"
-dev-version-ext            = "dev"
