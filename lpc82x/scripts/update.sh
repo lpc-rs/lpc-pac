@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-cargo install --force --version 0.13.1 svd2rust &&
-cargo install --force --version 0.3.0 form &&
-cargo install --force --version 0.99.4 rustfmt-nightly &&
+cargo install --force --version 0.14.0 svd2rust &&
+cargo install --force --version 0.6.0 form &&
+cargo install --force --version 1.0.3 rustfmt-nightly &&
 
 wget \
 	-O LPC82x.svd \
