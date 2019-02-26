@@ -1,0 +1,10 @@
+language: rust
+
+rust:
+  - stable
+  - beta
+  - nightly
+
+script:
+  - cargo build --verbose --manifest-path lpc11uxx/Cargo.toml
+  - cargo build --verbose --manifest-path lpc82x/Cargo.toml
