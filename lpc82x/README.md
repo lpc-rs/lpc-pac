@@ -1,4 +1,4 @@
-# rust-lpc82x [![crates.io](https://img.shields.io/crates/v/lpc82x-pac.svg)](https://crates.io/crates/lpc82x-pac) [![Documentation](https://docs.rs/lpc82x-pac/badge.svg)](https://docs.rs/lpc82x-pac) [![Build Status](https://travis-ci.org/lpc-rs/lpc-pac.svg?branch=master)](https://travis-ci.org/lpc-rs/lpc-pac)
+# LPC82x PAC [![crates.io](https://img.shields.io/crates/v/lpc82x-pac.svg)](https://crates.io/crates/lpc82x-pac) [![Documentation](https://docs.rs/lpc82x-pac/badge.svg)](https://docs.rs/lpc82x-pac) [![Build Status](https://travis-ci.org/lpc-rs/lpc-pac.svg?branch=master)](https://travis-ci.org/lpc-rs/lpc-pac)
 
 ## Introduction
 
