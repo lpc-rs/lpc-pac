@@ -1,4 +1,4 @@
-# rust-lpc82x [![crates.io](https://img.shields.io/crates/v/lpc82x.svg)](https://crates.io/crates/lpc82x) [![Documentation](https://docs.rs/lpc82x/badge.svg)](https://docs.rs/lpc82x) [![Build Status](https://travis-ci.org/braun-robotics/rust-lpc82x.svg?branch=master)](https://travis-ci.org/braun-robotics/rust-lpc82x)
+# rust-lpc82x [![crates.io](https://img.shields.io/crates/v/lpc82x-pac.svg)](https://crates.io/crates/lpc82x-pac) [![Documentation](https://docs.rs/lpc82x-pac/badge.svg)](https://docs.rs/lpc82x-pac) [![Build Status](https://travis-ci.org/lpc-rs/lpc-pac.svg?branch=master)](https://travis-ci.org/lpc-rs/lpc-pac)
 
 ## Introduction
 
@@ -16,13 +16,13 @@ Please also check out [lpc82x-hal], a higher-level crate for interfacing with LP
 Add this to the `[dependencies]` section of your `Cargo.toml` to include rust-lpc82x in your Cargo project:
 
 ``` toml
-lpc82x = "0.5"
+lpc82x = "0.6"
 ```
 
 This crate includes an optional `rt` feature that can be activated by adding this instead:
 
 ``` toml
-lpc82x = { version = "0.5", features = ["rt"] }
+lpc82x = { version = "0.6", features = ["rt"] }
 ```
 
 The `rt` feature includes the [cortex-m-rt] crate and provides overridable interrupt handlers. Please refer to the [svd2rust documentation] for further details.
