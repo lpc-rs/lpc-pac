@@ -1,5 +1,5 @@
 [package]
-name    = "lpc82x"
+name    = "lpc82x-pac"
 version = "0.5.1-dev"
 authors = ["Hanno Braun <hanno@braun-robotics.com>"]
 
