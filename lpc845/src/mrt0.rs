@@ -3,9 +3,7 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - no description available"]
     pub channel: [CHANNEL; 4],
-    _reserved0: [u8; 176usize],
-    #[doc = "0xf0 - Module Configuration register. This register provides information about this particular MRT instance."]
-    pub modcfg: MODCFG,
+    _reserved0: [u8; 180usize],
     #[doc = "0xf4 - Idle channel register. This register returns the number of the first idle channel."]
     pub idle_ch: IDLE_CH,
     #[doc = "0xf8 - Global interrupt flag register"]
@@ -26,12 +24,6 @@ pub struct CHANNEL {
 #[doc = r" Register block"]
 #[doc = "no description available"]
 pub mod channel;
-#[doc = "Module Configuration register. This register provides information about this particular MRT instance."]
-pub struct MODCFG {
-    register: ::vcell::VolatileCell<u32>,
-}
-#[doc = "Module Configuration register. This register provides information about this particular MRT instance."]
-pub mod modcfg;
 #[doc = "Idle channel register. This register returns the number of the first idle channel."]
 pub struct IDLE_CH {
     register: ::vcell::VolatileCell<u32>,

@@ -1,0 +1,35 @@
+--- LPC845.svd.orig	2019-03-06 12:54:45.388365090 +0100
++++ LPC845.svd	2019-03-06 13:46:25.408568816 +0100
+@@ -2763,10 +2763,6 @@
+         <size>0xC</size>
+         <usage>registers</usage>
+       </addressBlock>
+-      <interrupt>
+-        <name>PIN_INT5_DAC1</name>
+-        <value>29</value>
+-      </interrupt>
+     </peripheral>
+     <peripheral>
+       <name>ADC0</name>
+@@ -22068,10 +22064,6 @@
+         <size>0x30</size>
+         <usage>registers</usage>
+       </addressBlock>
+-      <interrupt>
+-        <name>PIN_INT6_USART3</name>
+-        <value>30</value>
+-      </interrupt>
+     </peripheral>
+     <peripheral derivedFrom="USART0">
+       <name>USART4</name>
+@@ -22083,10 +22075,6 @@
+         <size>0x30</size>
+         <usage>registers</usage>
+       </addressBlock>
+-      <interrupt>
+-        <name>PIN_INT7_USART4</name>
+-        <value>31</value>
+-      </interrupt>
+     </peripheral>
+     <peripheral>
+       <name>CRC</name>

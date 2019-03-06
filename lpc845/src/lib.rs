@@ -26,6 +26,7 @@ extern "C" {
     fn MRT();
     fn CMP_CAPT();
     fn WDT();
+    fn BOD();
     fn FLASH();
     fn WKT();
     fn ADC0_SEQA();
@@ -68,7 +69,7 @@ pub static __INTERRUPTS: [Vector; 32] = [
     Vector { _handler: MRT },
     Vector { _handler: CMP_CAPT },
     Vector { _handler: WDT },
-    Vector { _reserved: 0 },
+    Vector { _handler: BOD },
     Vector { _handler: FLASH },
     Vector { _handler: WKT },
     Vector {
@@ -126,6 +127,8 @@ pub enum Interrupt {
     CMP_CAPT,
     #[doc = "12 - WDT"]
     WDT,
+    #[doc = "13 - BOD"]
+    BOD,
     #[doc = "14 - FLASH"]
     FLASH,
     #[doc = "15 - WKT"]
@@ -179,6 +182,7 @@ unsafe impl ::bare_metal::Nr for Interrupt {
             Interrupt::MRT => 10,
             Interrupt::CMP_CAPT => 11,
             Interrupt::WDT => 12,
+            Interrupt::BOD => 13,
             Interrupt::FLASH => 14,
             Interrupt::WKT => 15,
             Interrupt::ADC0_SEQA => 16,

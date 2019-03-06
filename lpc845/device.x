@@ -10,6 +10,7 @@ PROVIDE(SCT0 = DefaultHandler);
 PROVIDE(MRT = DefaultHandler);
 PROVIDE(CMP_CAPT = DefaultHandler);
 PROVIDE(WDT = DefaultHandler);
+PROVIDE(BOD = DefaultHandler);
 PROVIDE(FLASH = DefaultHandler);
 PROVIDE(WKT = DefaultHandler);
 PROVIDE(ADC0_SEQA = DefaultHandler);

@@ -1,0 +1,83 @@
+--- LPC845.svd.orig	2019-03-06 13:55:41.567307913 +0100
++++ LPC845.svd	2019-03-06 14:13:13.346919361 +0100
+@@ -1810,7 +1810,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0xFFFFFD9F</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFFFFFF9F</resetMask>
+           <fields>
+             <field>
+               <name>ACMP_I1</name>
+@@ -2983,7 +2983,7 @@
+           <size>32</size>
+           <access>read-only</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFC0FFFF0</resetMask>
++          <resetMask>0xC0000000</resetMask>
+           <fields>
+             <field>
+               <name>RESULT</name>
+@@ -3038,7 +3038,7 @@
+           <size>32</size>
+           <access>read-only</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFC0FFFF0</resetMask>
++          <resetMask>0x00000000</resetMask>
+           <fields>
+             <field>
+               <name>RESULT</name>
+@@ -3660,7 +3660,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0x3</resetMask>
++          <resetMask>0x20</resetMask>
+           <fields>
+             <field>
+               <name>VRANGE</name>
+@@ -17927,7 +17927,7 @@
+           <size>32</size>
+           <access>read-only</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0</resetMask>
+           <fields>
+             <field>
+               <name>DEVICEID</name>
+@@ -17963,7 +17963,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0x3F</resetMask>
++          <resetMask>0x1F</resetMask>
+           <fields>
+             <field>
+               <name>MSTEN</name>
+@@ -18765,7 +18765,7 @@
+           <size>32</size>
+           <access>read-only</access>
+           <resetValue>0x801</resetValue>
+-          <resetMask>0x30FFF5F</resetMask>
++          <resetMask>0x30B8951</resetMask>
+           <fields>
+             <field>
+               <name>MSTPENDING</name>
+@@ -19681,7 +19681,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0x13F</resetMask>
++          <resetMask>0x03F</resetMask>
+           <fields>
+             <field>
+               <name>RXRDYEN</name>
+@@ -20281,7 +20255,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0x2</resetValue>
+-          <resetMask>0x1FF</resetMask>
++          <resetMask>0x3F</resetMask>
+           <fields>
+             <field>
+               <name>RXRDY</name>

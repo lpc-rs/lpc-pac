@@ -324,53 +324,6 @@ impl SSDENR {
         *self == SSDENR::SSDEN_1
     }
 }
-#[doc = "Possible values of the field `MSTIDLEEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MSTIDLEENR {
-    #[doc = "No interrupt will be generated when MSTIDLE enabled."]
-    MSTIDLEEN_0,
-    #[doc = "An interrupt will be generated when MSTIDLE enabled."]
-    MSTIDLEEN_1,
-}
-impl MSTIDLEENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MSTIDLEENR::MSTIDLEEN_0 => false,
-            MSTIDLEENR::MSTIDLEEN_1 => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MSTIDLEENR {
-        match value {
-            false => MSTIDLEENR::MSTIDLEEN_0,
-            true => MSTIDLEENR::MSTIDLEEN_1,
-        }
-    }
-    #[doc = "Checks if the value of the field is `MSTIDLEEN_0`"]
-    #[inline]
-    pub fn is_mstidleen_0(&self) -> bool {
-        *self == MSTIDLEENR::MSTIDLEEN_0
-    }
-    #[doc = "Checks if the value of the field is `MSTIDLEEN_1`"]
-    #[inline]
-    pub fn is_mstidleen_1(&self) -> bool {
-        *self == MSTIDLEENR::MSTIDLEEN_1
-    }
-}
 #[doc = "Values that can be written to the field `RXRDYEN`"]
 pub enum RXRDYENW {
     #[doc = "No interrupt will be generated when receiver data is available."]
@@ -719,64 +672,6 @@ impl<'a> _SSDENW<'a> {
         self.w
     }
 }
-#[doc = "Values that can be written to the field `MSTIDLEEN`"]
-pub enum MSTIDLEENW {
-    #[doc = "No interrupt will be generated when MSTIDLE enabled."]
-    MSTIDLEEN_0,
-    #[doc = "An interrupt will be generated when MSTIDLE enabled."]
-    MSTIDLEEN_1,
-}
-impl MSTIDLEENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            MSTIDLEENW::MSTIDLEEN_0 => false,
-            MSTIDLEENW::MSTIDLEEN_1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _MSTIDLEENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _MSTIDLEENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: MSTIDLEENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No interrupt will be generated when MSTIDLE enabled."]
-    #[inline]
-    pub fn mstidleen_0(self) -> &'a mut W {
-        self.variant(MSTIDLEENW::MSTIDLEEN_0)
-    }
-    #[doc = "An interrupt will be generated when MSTIDLE enabled."]
-    #[inline]
-    pub fn mstidleen_1(self) -> &'a mut W {
-        self.variant(MSTIDLEENW::MSTIDLEEN_1)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
@@ -837,15 +732,6 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 8 - Determines whether an interrupt occurs when the MSTIDLE enable"]
-    #[inline]
-    pub fn mstidleen(&self) -> MSTIDLEENR {
-        MSTIDLEENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
-    }
 }
 impl W {
     #[doc = r" Reset value of the register"]
@@ -888,10 +774,5 @@ impl W {
     #[inline]
     pub fn ssden(&mut self) -> _SSDENW {
         _SSDENW { w: self }
-    }
-    #[doc = "Bit 8 - Determines whether an interrupt occurs when the MSTIDLE enable"]
-    #[inline]
-    pub fn mstidleen(&mut self) -> _MSTIDLEENW {
-        _MSTIDLEENW { w: self }
     }
 }
