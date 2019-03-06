@@ -23,7 +23,10 @@ extern "C" {
     fn I2C1();
     fn I2C0();
     fn SCT0();
+    fn MRT();
     fn CMP_CAPT();
+    fn WDT();
+    fn FLASH();
     fn WKT();
     fn ADC0_SEQA();
     fn ADC0_SEQB();
@@ -62,11 +65,11 @@ pub static __INTERRUPTS: [Vector; 32] = [
     Vector { _handler: I2C1 },
     Vector { _handler: I2C0 },
     Vector { _handler: SCT0 },
-    Vector { _reserved: 0 },
+    Vector { _handler: MRT },
     Vector { _handler: CMP_CAPT },
+    Vector { _handler: WDT },
     Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
-    Vector { _reserved: 0 },
+    Vector { _handler: FLASH },
     Vector { _handler: WKT },
     Vector {
         _handler: ADC0_SEQA,
@@ -117,8 +120,14 @@ pub enum Interrupt {
     I2C0,
     #[doc = "9 - SCT0"]
     SCT0,
+    #[doc = "10 - MRT"]
+    MRT,
     #[doc = "11 - CMP_CAPT"]
     CMP_CAPT,
+    #[doc = "12 - WDT"]
+    WDT,
+    #[doc = "14 - FLASH"]
+    FLASH,
     #[doc = "15 - WKT"]
     WKT,
     #[doc = "16 - ADC0_SEQA"]
@@ -167,7 +176,10 @@ unsafe impl ::bare_metal::Nr for Interrupt {
             Interrupt::I2C1 => 7,
             Interrupt::I2C0 => 8,
             Interrupt::SCT0 => 9,
+            Interrupt::MRT => 10,
             Interrupt::CMP_CAPT => 11,
+            Interrupt::WDT => 12,
+            Interrupt::FLASH => 14,
             Interrupt::WKT => 15,
             Interrupt::ADC0_SEQA => 16,
             Interrupt::ADC0_SEQB => 17,

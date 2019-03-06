@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
-cargo install --version 0.14.0 svd2rust &&
-cargo install --version 0.6.0 form
+cp LPC845.xml LPC845.svd
+
+for patch in patches/*
+do
+	patch \
+		--silent \
+		--force \
+		--reject-file=- \
+		LPC845.svd $patch
+done
 
 rm -rf src && mkdir src &&
 svd2rust -i LPC845.svd &&

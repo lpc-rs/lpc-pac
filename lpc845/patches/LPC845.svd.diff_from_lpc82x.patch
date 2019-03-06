@@ -1,0 +1,66 @@
+--- LPC845.svd	2019-03-03 22:18:14.000000000 +0100
++++ LPC845.fixed.svd	2019-03-06 12:48:09.023986047 +0100
+@@ -33,6 +33,10 @@
+         <size>0x1C</size>
+         <usage>registers</usage>
+       </addressBlock>
++      <interrupt>
++        <name>WDT</name>
++        <value>12</value>
++      </interrupt>
+       <registers>
+         <register>
+           <name>MOD</name>
+@@ -225,6 +229,10 @@
+         <size>0xFC</size>
+         <usage>registers</usage>
+       </addressBlock>
++      <interrupt>
++        <name>MRT</name>
++        <value>10</value>
++      </interrupt>
+       <registers>
+         <cluster>
+           <dim>4</dim>
+@@ -239,7 +247,7 @@
+             <size>32</size>
+             <access>read-write</access>
+             <resetValue>0</resetValue>
+-            <resetMask>0x80FFFFFF</resetMask>
++            <resetMask>0xFFFFFFFF</resetMask>
+             <fields>
+               <field>
+                 <name>IVALUE</name>
+@@ -275,8 +283,8 @@
+             <addressOffset>0x4</addressOffset>
+             <size>32</size>
+             <access>read-only</access>
+-            <resetValue>0xFFFFFF</resetValue>
+-            <resetMask>0xFFFFFF</resetMask>
++            <resetValue>0x00FFFFFF</resetValue>
++            <resetMask>0xFFFFFFFF</resetMask>
+             <fields>
+               <field>
+                 <name>VALUE</name>
+@@ -3992,6 +4000,10 @@
+         <size>0x8</size>
+         <usage>registers</usage>
+       </addressBlock>
++      <interrupt>
++        <name>CMP</name>
++        <value>11</value>
++      </interrupt>
+       <registers>
+         <register>
+           <name>CTRL</name>
+@@ -5158,6 +5170,10 @@
+         <size>0xFEC</size>
+         <usage>registers</usage>
+       </addressBlock>
++      <interrupt>
++        <name>FLASH</name>
++        <value>14</value>
++      </interrupt>
+       <registers>
+         <register>
+           <name>FLASHCFG</name>
