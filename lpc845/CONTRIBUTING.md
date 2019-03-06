@@ -1,6 +1,6 @@
-# Contributing to rust-lpc84x
+# Contributing to rust-lpc845
 
-Thank you for considering to work on rust-lpc82x. This document will give you some pointers and explain the guidelines that you need to follow.
+Thank you for considering to work on rust-lpc845. This document will give you some pointers and explain the guidelines that you need to follow.
 
 ## Opening issues
 
@@ -8,7 +8,7 @@ If you found a problem, please open an issue on the [GitHub repository]. If you'
 
 ## Contributing changes
 
-If you want to contribute a change to rust-lpc84x, please open a pull request on the [GitHub repository]. The best way to open a pull request is usually to just push a branch to your fork, then click the button that appears near the top of your fork's GitHub page.
+If you want to contribute a change to rust-lpc845, please open a pull request on the [GitHub repository]. The best way to open a pull request is usually to just push a branch to your fork, then click the button that appears near the top of your fork's GitHub page.
 
 If you're having any problems with completing your change, feel free to open a pull request anyway and ask any questions there. We're happy to help you get your changes across the finish line.
 
@@ -99,9 +99,9 @@ git push --tag upstream master
 
 That's it! If anything about this document is unclear, feel free to open an issue. If you have questions regarding a pull request that you're working on, just open the pull request and ask your questions there.
 
-[GitHub repository]: https://github.com/braun-robotics/rust-lpc82x
+[GitHub repository]: https://github.com/lpc-rs/lpc-pac
 [SVD file]: TODO (sdk builder)
 [svd2rust]: https://crates.io/crates/svd2rust
-[update script]: https://github.com/braun-robotics/rust-lpc82x/blob/master/scripts/update
+[update script]: https://github.com/lpc-rs/lpc-pac/blob/master/lpc845/scripts/update.sh
 [clog]: https://crates.io/crates/clog-cli
 [GitCop]: https://gitcop.com/
