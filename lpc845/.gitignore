@@ -5,7 +5,6 @@
 # Sublime Text
 /*.sublime-workspace
 
-# Downloaded SVD file. It doesn't seem to be licensed in a way that would allow
-# me to distribute it, so I can't include it in the repository.
-/LPC82x.svd
-/LPC82x.svd.orig
+# Don't include patched svd file
+/LPC845.svd
+/LPC845.svd.orig
