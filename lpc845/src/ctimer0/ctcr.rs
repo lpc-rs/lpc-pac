@@ -190,8 +190,10 @@ pub enum SELCCR {
     CHANNEL_2_RISING,
     #[doc = "Channel 2 Falling Edge. Falling edge of the signal on capture channel 2 clears the timer (if bit 4 is set)."]
     CHANNEL_2_FALLING,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
+    #[doc = "Channel 3 Rising Edge. Rising edge of the signal on capture channel 3 clears the timer (if bit 4 is set)."]
+    CHANNEL_3_RISING,
+    #[doc = "Channel 3 Falling Edge. Falling edge of the signal on capture channel 3 clears the timer (if bit 4 is set)."]
+    CHANNEL_3_FALLING,
 }
 impl SELCCR {
     #[doc = r" Value of the field as raw bits"]
@@ -204,7 +206,8 @@ impl SELCCR {
             SELCCR::CHANNEL_1_FALLING => 3,
             SELCCR::CHANNEL_2_RISING => 4,
             SELCCR::CHANNEL_2_FALLING => 5,
-            SELCCR::_Reserved(bits) => bits,
+            SELCCR::CHANNEL_3_RISING => 6,
+            SELCCR::CHANNEL_3_FALLING => 7,
         }
     }
     #[allow(missing_docs)]
@@ -218,7 +221,9 @@ impl SELCCR {
             3 => SELCCR::CHANNEL_1_FALLING,
             4 => SELCCR::CHANNEL_2_RISING,
             5 => SELCCR::CHANNEL_2_FALLING,
-            i => SELCCR::_Reserved(i),
+            6 => SELCCR::CHANNEL_3_RISING,
+            7 => SELCCR::CHANNEL_3_FALLING,
+            _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `CHANNEL_0_RISING`"]
@@ -250,6 +255,16 @@ impl SELCCR {
     #[inline]
     pub fn is_channel_2_falling(&self) -> bool {
         *self == SELCCR::CHANNEL_2_FALLING
+    }
+    #[doc = "Checks if the value of the field is `CHANNEL_3_RISING`"]
+    #[inline]
+    pub fn is_channel_3_rising(&self) -> bool {
+        *self == SELCCR::CHANNEL_3_RISING
+    }
+    #[doc = "Checks if the value of the field is `CHANNEL_3_FALLING`"]
+    #[inline]
+    pub fn is_channel_3_falling(&self) -> bool {
+        *self == SELCCR::CHANNEL_3_FALLING
     }
 }
 #[doc = "Values that can be written to the field `CTMODE`"]
@@ -421,6 +436,10 @@ pub enum SELCCW {
     CHANNEL_2_RISING,
     #[doc = "Channel 2 Falling Edge. Falling edge of the signal on capture channel 2 clears the timer (if bit 4 is set)."]
     CHANNEL_2_FALLING,
+    #[doc = "Channel 3 Rising Edge. Rising edge of the signal on capture channel 3 clears the timer (if bit 4 is set)."]
+    CHANNEL_3_RISING,
+    #[doc = "Channel 3 Falling Edge. Falling edge of the signal on capture channel 3 clears the timer (if bit 4 is set)."]
+    CHANNEL_3_FALLING,
 }
 impl SELCCW {
     #[allow(missing_docs)]
@@ -434,6 +453,8 @@ impl SELCCW {
             SELCCW::CHANNEL_1_FALLING => 3,
             SELCCW::CHANNEL_2_RISING => 4,
             SELCCW::CHANNEL_2_FALLING => 5,
+            SELCCW::CHANNEL_3_RISING => 6,
+            SELCCW::CHANNEL_3_FALLING => 7,
         }
     }
 }
@@ -445,7 +466,9 @@ impl<'a> _SELCCW<'a> {
     #[doc = r" Writes `variant` to the field"]
     #[inline]
     pub fn variant(self, variant: SELCCW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+        {
+            self.bits(variant._bits())
+        }
     }
     #[doc = "Channel 0 Rising Edge. Rising edge of the signal on capture channel 0 clears the timer (if bit 4 is set)."]
     #[inline]
@@ -477,9 +500,19 @@ impl<'a> _SELCCW<'a> {
     pub fn channel_2_falling(self) -> &'a mut W {
         self.variant(SELCCW::CHANNEL_2_FALLING)
     }
+    #[doc = "Channel 3 Rising Edge. Rising edge of the signal on capture channel 3 clears the timer (if bit 4 is set)."]
+    #[inline]
+    pub fn channel_3_rising(self) -> &'a mut W {
+        self.variant(SELCCW::CHANNEL_3_RISING)
+    }
+    #[doc = "Channel 3 Falling Edge. Falling edge of the signal on capture channel 3 clears the timer (if bit 4 is set)."]
+    #[inline]
+    pub fn channel_3_falling(self) -> &'a mut W {
+        self.variant(SELCCW::CHANNEL_3_FALLING)
+    }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+    pub fn bits(self, value: u8) -> &'a mut W {
         const MASK: u8 = 7;
         const OFFSET: u8 = 5;
         self.w.bits &= !((MASK as u32) << OFFSET);

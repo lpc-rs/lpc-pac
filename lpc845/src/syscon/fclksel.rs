@@ -50,7 +50,7 @@ pub enum SELR {
     #[doc = "main clock"]
     MAIN_CLK,
     #[doc = "Frg0clk"]
-    FRO0CLK,
+    FRG0CLK,
     #[doc = "Frg1clk"]
     FRG1CLK,
     #[doc = "FRO_DIV"]
@@ -69,7 +69,7 @@ impl SELR {
         match *self {
             SELR::FRO => 0,
             SELR::MAIN_CLK => 1,
-            SELR::FRO0CLK => 2,
+            SELR::FRG0CLK => 2,
             SELR::FRG1CLK => 3,
             SELR::FRO_DIV => 4,
             SELR::NONE => 5,
@@ -84,7 +84,7 @@ impl SELR {
         match value {
             0 => SELR::FRO,
             1 => SELR::MAIN_CLK,
-            2 => SELR::FRO0CLK,
+            2 => SELR::FRG0CLK,
             3 => SELR::FRG1CLK,
             4 => SELR::FRO_DIV,
             5 => SELR::NONE,
@@ -103,10 +103,10 @@ impl SELR {
     pub fn is_main_clk(&self) -> bool {
         *self == SELR::MAIN_CLK
     }
-    #[doc = "Checks if the value of the field is `FRO0CLK`"]
+    #[doc = "Checks if the value of the field is `FRG0CLK`"]
     #[inline]
-    pub fn is_fro0clk(&self) -> bool {
-        *self == SELR::FRO0CLK
+    pub fn is_frg0clk(&self) -> bool {
+        *self == SELR::FRG0CLK
     }
     #[doc = "Checks if the value of the field is `FRG1CLK`"]
     #[inline]
@@ -141,7 +141,7 @@ pub enum SELW {
     #[doc = "main clock"]
     MAIN_CLK,
     #[doc = "Frg0clk"]
-    FRO0CLK,
+    FRG0CLK,
     #[doc = "Frg1clk"]
     FRG1CLK,
     #[doc = "FRO_DIV"]
@@ -161,7 +161,7 @@ impl SELW {
         match *self {
             SELW::FRO => 0,
             SELW::MAIN_CLK => 1,
-            SELW::FRO0CLK => 2,
+            SELW::FRG0CLK => 2,
             SELW::FRG1CLK => 3,
             SELW::FRO_DIV => 4,
             SELW::NONE => 5,
@@ -194,8 +194,8 @@ impl<'a> _SELW<'a> {
     }
     #[doc = "Frg0clk"]
     #[inline]
-    pub fn fro0clk(self) -> &'a mut W {
-        self.variant(SELW::FRO0CLK)
+    pub fn frg0clk(self) -> &'a mut W {
+        self.variant(SELW::FRG0CLK)
     }
     #[doc = "Frg1clk"]
     #[inline]
