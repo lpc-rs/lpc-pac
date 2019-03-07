@@ -52,6 +52,12 @@ This project is open source software, licensed under the terms of the [Zero Clau
 
 See [LICENSE] for full details.
 
+## SVD file
+
+You can get the svd file via the nxp sdk builder or via the readymade [keil
+pack](https://mcuxpresso.nxp.com/cmsis_pack/repo/NXP.LPC845_DFP.11.0.0.pack)
+(simply unpack it as a zip file).
+
 
 **Supported by [Braun Robotics]**
 
