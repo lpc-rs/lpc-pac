@@ -15,8 +15,6 @@ Found by diffing with the patch lpc82x.svd & comparing differences with the manu
 - TODO
 ## CTIMER0
 - TODO
-## Flash
-- TODO FMSTAT/FMSTATCLR resetMask
 ## IOCON
 - TODO
   PIO0_17/PIO0_13/PIO0_12/PIO0_5/PIO0_4/PIO0_3/PIO0_2/PIO0_16/PIO0_15/PIO0_1/PIO0_9/0_8/0_7(and
@@ -26,13 +24,6 @@ Found by diffing with the patch lpc82x.svd & comparing differences with the manu
 - TODO until EXTTRACECMD
 ## CAPT
 - TODO
-## USART
-- TODO CFG Reset Mask is wrong, MODE32K & LINMODE & IOMODE bits don't exist
-- TODO STAT Reset Mask is wrong (N/A reset value for CTS)
-- TODO INTSTAT resetMask & resetValue doesn't match RM
-## SCT
-- TODO LIMIT/HALT/STOP/START resetMask is wrong
-- TODO INPUT/REGMODE/OUTPUT/OUTPUTDIRCTRLL/RES/DMAREQ0/DMAREQ1/EVEN/EVFLAG/CONEN/CONFLAG/EVENT/SET/CLR/CONFLAG resetMask is wrong
 ## DMA
 - TODO ENABLESET/ACTIVE0/BUSY0/ERRINT0/INTSET0/INTA0/INTB0 resetMask is wrong
 ## MTB

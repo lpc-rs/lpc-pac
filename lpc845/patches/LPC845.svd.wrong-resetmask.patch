@@ -36,6 +36,15 @@
            <fields>
              <field>
                <name>VRANGE</name>
+@@ -5249,7 +5249,7 @@
+           <size>32</size>
+           <access>read-only</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0x00000004</resetMask>
+           <fields>
+             <field>
+               <name>SIG_DONE</name>
 @@ -17927,7 +17927,7 @@
            <size>32</size>
            <access>read-only</access>
@@ -81,3 +90,266 @@
            <fields>
              <field>
                <name>RXRDY</name>
+@@ -20957,7 +20957,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFDDBFD</resetMask>
++          <resetMask>0xFCDA7D</resetMask>
+           <fields>
+             <field>
+               <name>ENABLE</name>
+@@ -21445,7 +21407,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0xE</resetValue>
+-          <resetMask>0x1FD7F</resetMask>
++          <resetMask>0x1FD6F</resetMask>
+           <fields>
+             <field>
+               <name>RXRDY</name>
+@@ -21843,8 +21805,8 @@
+           <addressOffset>0x24</addressOffset>
+           <size>32</size>
+           <access>read-write</access>
+-          <resetValue>0x5</resetValue>
+-          <resetMask>0x1FD7F</resetMask>
++          <resetValue>0xC</resetValue>
++          <resetMask>0x1F96D</resetMask>
+           <fields>
+             <field>
+               <name>RXRDY</name>
+@@ -22421,7 +22383,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>LIMMSK_L</name>
+@@ -22446,7 +22408,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>HALTMSK_L</name>
+@@ -22471,7 +22433,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>STOPMSK_L</name>
+@@ -22496,7 +22458,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>STARTMSK_L</name>
+@@ -22571,7 +22533,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0</resetMask>
+           <fields>
+             <field>
+               <name>AIN0</name>
+@@ -22652,7 +22614,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>REGMOD_L</name>
+@@ -22677,7 +22639,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFF</resetMask>
++          <resetMask>0x7F</resetMask>
+           <fields>
+             <field>
+               <name>OUT</name>
+@@ -22695,7 +22657,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0x3FFF</resetMask>
+           <fields>
+             <field>
+               <name>SETCLR0</name>
+@@ -22874,7 +22836,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0x3FFF</resetMask>
+           <fields>
+             <field>
+               <name>O0RES</name>
+@@ -23088,7 +23050,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xC000FFFF</resetMask>
++          <resetMask>0xC000003F</resetMask>
+           <fields>
+             <field>
+               <name>DEV_0</name>
+@@ -23120,7 +23082,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xC000FFFF</resetMask>
++          <resetMask>0xC000003F</resetMask>
+           <fields>
+             <field>
+               <name>DEV_1</name>
+@@ -23152,7 +23114,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFF</resetMask>
++          <resetMask>0xFF</resetMask>
+           <fields>
+             <field>
+               <name>IEN</name>
+@@ -23170,7 +23132,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFF</resetMask>
++          <resetMask>0xFF</resetMask>
+           <fields>
+             <field>
+               <name>FLAG</name>
+@@ -23188,7 +23150,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFF</resetMask>
++          <resetMask>0x3F</resetMask>
+           <fields>
+             <field>
+               <name>NCEN</name>
+@@ -23206,7 +23168,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xC000FFFF</resetMask>
++          <resetMask>0xC000003F</resetMask>
+           <fields>
+             <field>
+               <name>NCFLAG</name>
+@@ -23655,7 +23617,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>CAPCONn_L</name>
+@@ -23707,7 +23669,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>CAPCONn_L</name>
+@@ -23759,7 +23721,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>CAPCONn_L</name>
+@@ -23811,7 +23773,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>CAPCONn_L</name>
+@@ -23863,7 +23825,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>CAPCONn_L</name>
+@@ -23915,7 +23877,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>CAPCONn_L</name>
+@@ -23967,7 +23929,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>CAPCONn_L</name>
+@@ -24019,7 +23981,7 @@
+           <size>32</size>
+           <access>read-write</access>
+           <resetValue>0</resetValue>
+-          <resetMask>0xFFFFFFFF</resetMask>
++          <resetMask>0xFF00FF</resetMask>
+           <fields>
+             <field>
+               <name>CAPCONn_L</name>
+@@ -24076,7 +24038,7 @@
+             <size>32</size>
+             <access>read-write</access>
+             <resetValue>0</resetValue>
+-            <resetMask>0xFFFF</resetMask>
++            <resetMask>0xFF</resetMask>
+             <fields>
+               <field>
+                 <name>STATEMSKn</name>
+@@ -24279,7 +24241,7 @@
+             <size>32</size>
+             <access>read-write</access>
+             <resetValue>0</resetValue>
+-            <resetMask>0xFFFF</resetMask>
++            <resetMask>0x00FF</resetMask>
+             <fields>
+               <field>
+                 <name>SET</name>
+@@ -24297,7 +24259,7 @@
+             <size>32</size>
+             <access>read-write</access>
+             <resetValue>0</resetValue>
+-            <resetMask>0xFFFF</resetMask>
++            <resetMask>0x00FF</resetMask>
+             <fields>
+               <field>
+                 <name>CLR</name>

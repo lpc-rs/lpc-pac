@@ -236,100 +236,6 @@ impl STOPLENR {
         *self == STOPLENR::BITS_2
     }
 }
-#[doc = "Possible values of the field `MODE32K`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MODE32KR {
-    #[doc = "Disabled. USART uses standard clocking."]
-    DISABLED,
-    #[doc = "Enabled. USART uses the 32 kHz clock from the RTC oscillator as the clock source to the BRG, and uses a special bit clocking scheme."]
-    ENABLED,
-}
-impl MODE32KR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MODE32KR::DISABLED => false,
-            MODE32KR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MODE32KR {
-        match value {
-            false => MODE32KR::DISABLED,
-            true => MODE32KR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == MODE32KR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == MODE32KR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `LINMODE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LINMODER {
-    #[doc = "Disabled. Break detect and generate is configured for normal operation."]
-    DISABLED,
-    #[doc = "Enabled. Break detect and generate is configured for LIN bus operation."]
-    ENABLED,
-}
-impl LINMODER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LINMODER::DISABLED => false,
-            LINMODER::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LINMODER {
-        match value {
-            false => LINMODER::DISABLED,
-            true => LINMODER::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == LINMODER::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == LINMODER::ENABLED
-    }
-}
 #[doc = "Possible values of the field `CTSEN`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CTSENR {
@@ -1122,122 +1028,6 @@ impl<'a> _STOPLENW<'a> {
         self.w
     }
 }
-#[doc = "Values that can be written to the field `MODE32K`"]
-pub enum MODE32KW {
-    #[doc = "Disabled. USART uses standard clocking."]
-    DISABLED,
-    #[doc = "Enabled. USART uses the 32 kHz clock from the RTC oscillator as the clock source to the BRG, and uses a special bit clocking scheme."]
-    ENABLED,
-}
-impl MODE32KW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            MODE32KW::DISABLED => false,
-            MODE32KW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _MODE32KW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _MODE32KW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: MODE32KW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. USART uses standard clocking."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(MODE32KW::DISABLED)
-    }
-    #[doc = "Enabled. USART uses the 32 kHz clock from the RTC oscillator as the clock source to the BRG, and uses a special bit clocking scheme."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(MODE32KW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `LINMODE`"]
-pub enum LINMODEW {
-    #[doc = "Disabled. Break detect and generate is configured for normal operation."]
-    DISABLED,
-    #[doc = "Enabled. Break detect and generate is configured for LIN bus operation."]
-    ENABLED,
-}
-impl LINMODEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LINMODEW::DISABLED => false,
-            LINMODEW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LINMODEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _LINMODEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LINMODEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. Break detect and generate is configured for normal operation."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(LINMODEW::DISABLED)
-    }
-    #[doc = "Enabled. Break detect and generate is configured for LIN bus operation."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(LINMODEW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
 #[doc = "Values that can be written to the field `CTSEN`"]
 pub enum CTSENW {
     #[doc = "No flow control. The transmitter does not receive any automatic flow control signal."]
@@ -1976,24 +1766,6 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Selects standard or 32 kHz clocking mode."]
-    #[inline]
-    pub fn mode32k(&self) -> MODE32KR {
-        MODE32KR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
-    }
-    #[doc = "Bit 8 - LIN break mode enable."]
-    #[inline]
-    pub fn linmode(&self) -> LINMODER {
-        LINMODER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
-    }
     #[doc = "Bit 9 - CTS Enable. Determines whether CTS is used for flow control. CTS can be from the input pin, or from the USART's own RTS if loopback mode is enabled."]
     #[inline]
     pub fn ctsen(&self) -> CTSENR {
@@ -2134,16 +1906,6 @@ impl W {
     #[inline]
     pub fn stoplen(&mut self) -> _STOPLENW {
         _STOPLENW { w: self }
-    }
-    #[doc = "Bit 7 - Selects standard or 32 kHz clocking mode."]
-    #[inline]
-    pub fn mode32k(&mut self) -> _MODE32KW {
-        _MODE32KW { w: self }
-    }
-    #[doc = "Bit 8 - LIN break mode enable."]
-    #[inline]
-    pub fn linmode(&mut self) -> _LINMODEW {
-        _LINMODEW { w: self }
     }
     #[doc = "Bit 9 - CTS Enable. Determines whether CTS is used for flow control. CTS can be from the input pin, or from the USART's own RTS if loopback mode is enabled."]
     #[inline]
