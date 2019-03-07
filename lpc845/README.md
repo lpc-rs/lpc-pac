@@ -2,27 +2,23 @@
 
 ## Introduction
 
-**This is a very low-level library. Most users should use [lpc82x-hal] instead.**
-
 Low-level register mappings for the [NXP LPC845] family of ARM Cortex-M0+ microcontrollers, written in [Rust]. The code is generated automatically from the [SVD file] available from ARM, using [svd2rust].
 
 The purpose of this crate is to give embedded programs or libraries written Rust access to the complete functionality of LPC845 MCUs.
 
-Please also check out [lpc82x-hal], a higher-level crate for interfacing with LPC82x microcontrollers.
-
 
 ## Usage
 
-Add this to the `[dependencies]` section of your `Cargo.toml` to include rust-lpc82x in your Cargo project:
+Add this to the `[dependencies]` section of your `Cargo.toml` to include rust-lpc845 in your Cargo project:
 
 ``` toml
-lpc845 = "0.6"
+lpc845-pac = "0.1"
 ```
 
 This crate includes an optional `rt` feature that can be activated by adding this instead:
 
 ``` toml
-lpc845 = { version = "0.6", features = ["rt"] }
+lpc845-pac = { version = "0.1", features = ["rt"] }
 ```
 
 The `rt` feature includes the [cortex-m-rt] crate and provides overridable interrupt handlers. Please refer to the [svd2rust documentation] for further details.
@@ -63,10 +59,9 @@ See [LICENSE] for full details.
 [Rust]: https://www.rust-lang.org/
 [NXP LPC845]: https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/lpc-cortex-m-mcus/lpc800-series-cortex-m0-plus-mcus/low-cost-microcontrollers-mcus-based-on-arm-cortex-m0-plus-cores:LPC84X
 [svd2rust]: https://crates.io/crates/svd2rust
-[lpc82x-hal]: https://crates.io/crates/lpc82x-hal
 [cortex-m-rt]: https://crates.io/crates/cortex-m-rt
 [svd2rust documentation]: https://docs.rs/svd2rust
-[API reference]: https://docs.rs/lpc845
+[API reference]: https://docs.rs/lpc845-pac
 [LPC845 user manual]: https://www.nxp.com/docs/en/user-guide/UM11029.pdf
 [open an issue]: https://github.com/lpc-rs/lpc-pac/issues/new
 [list of open issues]: https://github.com/lpc-rs/lpc-pac/issues
@@ -74,5 +69,5 @@ See [LICENSE] for full details.
 [update script]: https://github.com/lpc-rs/lpc-pac//blob/master/lpc845/scripts/update.sh
 [rustfmt]: https://crates.io/crates/rustfmt
 [Zero Clause BSD License]: https://opensource.org/licenses/FPL-1.0.0
-[LICENSE]: https://github.com/braun-robotics/rust-lpc82x/blob/master/LICENSE
+[LICENSE]: https://github.com/lpc-rs/blob/master/lpc-pac/lpc845/LICENSE
 [Braun Robotics]: https://braun-robotics.com/

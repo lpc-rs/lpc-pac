@@ -1,10 +1,10 @@
 [package]
 name    = "lpc845-pac"
 version = "0.1.0"
-authors = ["Hanno Braun <hanno@braun-robotics.com>"]
+authors = ["David Sawatke <d-lpc@sawatzke.dev>"]
 
 description   = "Low-level register mappings for the NXP LPC845 series of ARM Cortex-M0+ microcontrollers"
-documentation = "https://docs.rs/lpc845"
+documentation = "https://docs.rs/lpc845-pac"
 repository    = "https://github.com/lpc-rs/lpc-pac"
 license       = "0BSD"
 readme        = "README.md"
