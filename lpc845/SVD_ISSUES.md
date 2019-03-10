@@ -17,8 +17,6 @@ Found by diffing with the patch lpc82x.svd & comparing differences with the manu
 - FDIV has enumerated Fields for a nibble from FDIV_0 to FDIV_15
 ## DMA
 - ENABLESET/ACTIVE0/BUSY0/ERRINT0/INTSET0/INTA0/INTB0 resetMask is wrong
-## MTB
-- TODO
 ## GPIO
 - B_/W_/PIN/MPIN/ resetMask is wrong
 
