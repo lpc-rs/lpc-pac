@@ -1,0 +1,27 @@
+[package]
+name    = "lpc845-pac"
+version = "0.1.0"
+authors = ["David Sawatke <d-lpc@sawatzke.dev>"]
+
+description   = "Low-level register mappings for the NXP LPC845 series of ARM Cortex-M0+ microcontrollers"
+documentation = "https://docs.rs/lpc845-pac"
+repository    = "https://github.com/lpc-rs/lpc-pac"
+license       = "0BSD"
+readme        = "README.md"
+categories    = ["embedded", "hardware-support", "no-std"]
+keywords      = ["arm", "cortex-m", "nxp", "lpc", "svd2rust"]
+
+
+[badges]
+travis-ci   = { repository = "lpc-rs/lpc-pac" }
+
+
+[dependencies]
+bare-metal  = "0.2"
+cortex-m    = "0.5"
+cortex-m-rt = { version = "0.6.3", optional = true }
+vcell       = "0.1"
+
+
+[features]
+rt = ["cortex-m-rt", "cortex-m-rt/device"]

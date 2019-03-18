@@ -1,0 +1,56 @@
+--- LPC845.svd.orig	2019-03-06 13:55:41.567307913 +0100
++++ LPC845.svd	2019-03-06 14:13:13.346919361 +0100
+@@ -19797,25 +19797,6 @@
+                 </enumeratedValue>
+               </enumeratedValues>
+             </field>
+-            <field>
+-              <name>MSTIDLEEN</name>
+-              <description>Determines whether an interrupt occurs when the MSTIDLE enable</description>
+-              <bitOffset>8</bitOffset>
+-              <bitWidth>1</bitWidth>
+-              <access>read-write</access>
+-              <enumeratedValues>
+-                <enumeratedValue>
+-                  <name>MSTIDLEEN_0</name>
+-                  <description>No interrupt will be generated when MSTIDLE enabled.</description>
+-                  <value>0</value>
+-                </enumeratedValue>
+-                <enumeratedValue>
+-                  <name>MSTIDLEEN_1</name>
+-                  <description>An interrupt will be generated when MSTIDLE enabled.</description>
+-                  <value>0x1</value>
+-                </enumeratedValue>
+-              </enumeratedValues>
+-            </field>
+           </fields>
+         </register>
+         <register>
+@@ -19869,13 +19850,6 @@
+               <bitWidth>1</bitWidth>
+               <access>write-only</access>
+             </field>
+-            <field>
+-              <name>MSTIDLE</name>
+-              <description>Writing 1 clears the corresponding bits in the INTENSET register.</description>
+-              <bitOffset>8</bitOffset>
+-              <bitWidth>1</bitWidth>
+-              <access>write-only</access>
+-            </field>
+           </fields>
+         </register>
+         <register>
+@@ -20325,13 +20299,6 @@
+               <bitWidth>1</bitWidth>
+               <access>read-only</access>
+             </field>
+-            <field>
+-              <name>MSTIDLE</name>
+-              <description>Master Idle status flag.</description>
+-              <bitOffset>8</bitOffset>
+-              <bitWidth>1</bitWidth>
+-              <access>read-only</access>
+-            </field>
+           </fields>
+         </register>
+       </registers>

@@ -1,0 +1,10 @@
+# Cargo
+/target
+/Cargo.lock
+
+# Sublime Text
+/*.sublime-workspace
+
+# Don't include patched svd file
+/LPC845.svd
+/LPC845.svd.orig

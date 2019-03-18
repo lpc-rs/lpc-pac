@@ -8,3 +8,4 @@ rust:
 script:
   - cargo build --verbose --manifest-path lpc11uxx/Cargo.toml
   - cargo build --verbose --manifest-path lpc82x/Cargo.toml
+  - cargo build --verbose --manifest-path lpc845/Cargo.toml

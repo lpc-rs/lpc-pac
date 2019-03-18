@@ -1,0 +1,19 @@
+--- LPC845.svd.orig	2019-03-07 20:55:52.732144676 +0100
++++ LPC845.svd	2019-03-07 22:00:56.263335056 +0100
+@@ -5018,6 +5018,16 @@
+                   <description>Channel 2 Falling Edge. Falling edge of the signal on capture channel 2 clears the timer (if bit 4 is set).</description>
+                   <value>0x5</value>
+                 </enumeratedValue>
++                <enumeratedValue>
++                  <name>CHANNEL_3_RISING</name>
++                  <description>Channel 3 Rising Edge. Rising edge of the signal on capture channel 3 clears the timer (if bit 4 is set).</description>
++                  <value>0x6</value>
++                </enumeratedValue>
++                <enumeratedValue>
++                  <name>CHANNEL_3_FALLING</name>
++                  <description>Channel 3 Falling Edge. Falling edge of the signal on capture channel 3 clears the timer (if bit 4 is set).</description>
++                  <value>0x7</value>
++                </enumeratedValue>
+               </enumeratedValues>
+             </field>
+           </fields>
