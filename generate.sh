@@ -24,7 +24,7 @@ PACS=(
 )
 
 # everything is relative to the generate script
-cd $(dirname $0)
+cd "$(dirname "$0")"
 
 
 ### Helper functions
@@ -40,8 +40,8 @@ cecho() {
 }
 
 fail() {
-    cecho $RED "Error: $2"
-    exit $1
+    cecho "$RED" "Error: $2"
+    exit "$1"
 }
 
 command_exists() {
@@ -52,12 +52,12 @@ require_command() {
     # Params:
     # - 1: Command name
     # - 2: Version string (optional)
-    if ! command_exists $1; then
+    if ! command_exists "$1"; then
         fail 1 "Command $1 not found."
     fi
     set +u  # Optional parameter
     if [ ! -z "$2" ]; then
-        out=$($1 --version); parts=($out); version=${parts[1]}
+        out="$("$1" --version)"; parts=($out); version=${parts[1]}
         if [ "$version" != "$2" ]; then
             fail 1 "Command $1 version $2 was expected, but $version is installed"
         fi
@@ -73,12 +73,12 @@ require_command cargo-fmt
 require_command form  0.6.0
 
 generate_pac() {
-    cecho $CYAN "Running svd2rust..."
+    cecho "$CYAN" "Running svd2rust..."
     rm -rf src
     svd2rust -i "${1}.svd" 2> >(tee svd2rust-warnings.log >&2)
     RUST_LOG=form=warn form -i lib.rs -o src
     rm lib.rs
-    cecho $CYAN "Formatting generated code..."
+    cecho "$CYAN" "Formatting generated code..."
     cargo fmt
 }
 
@@ -89,10 +89,10 @@ if (( $# == 1 )); then
 fi
 
 for PAC in ${PACS[*]}; do
-    cecho $BOLDGREEN "\nEntering $PAC/"
+    cecho "$BOLDGREEN" "\nEntering $PAC/"
     pushd "$PAC" >/dev/null
     generate_pac "$PAC"
-    cecho $BOLDGREEN "Done"
+    cecho "$BOLDGREEN" "Done"
     popd >/dev/null
 done
 echo ""
