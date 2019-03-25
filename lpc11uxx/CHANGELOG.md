@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+ * Generate using the `--nightly` flag to allow access to overlapping registers
+   (#13)
  * Rename `INACTIVE` field in pull-up/down mode enums (and associated methods)
    to `FLOATING` (#9)
 
