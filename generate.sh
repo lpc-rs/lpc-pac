@@ -57,7 +57,7 @@ require_command() {
     fi
     set +u  # Optional parameter
     if [ ! -z "$2" ]; then
-        out="$("$1" --version)"; parts=($out); version=${parts[1]}
+        out="$("$1" --version)"; read -ra parts <<< "$out"; version=${parts[1]}
         if [ "$version" != "$2" ]; then
             fail 1 "Command $1 version $2 was expected, but $version is installed"
         fi
