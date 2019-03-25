@@ -23,7 +23,7 @@ PACS=(
     # around to fixing those, we can just include LPC82x here normally.
 )
 
-# everything is relativ to the generate script
+# everything is relative to the generate script
 cd $(dirname $0)
 
 
