@@ -13,8 +13,8 @@ set -euo pipefail
 ### Configuration
 
 PACS=(
-    lpc11uxx
-    lpc176x5x
+    "lpc11uxx:--nightly"
+    "lpc176x5x:--nightly"
     # NOTE(hannobraun):
     # lpc82x has not been added here, since it doesn't include an SVD file, for
     # copyright reasons. I figured extending this script to support this is not
@@ -75,7 +75,9 @@ require_command form  0.6.0
 generate_pac() {
     cecho "$CYAN" "Running svd2rust..."
     rm -rf src
-    svd2rust --nightly -i "${1}.svd" 2> >(tee svd2rust-warnings.log >&2)
+    crate=$1
+    shift
+    svd2rust "$@" -i "${crate}.svd" 2> >(tee svd2rust-warnings.log >&2)
     RUST_LOG=form=warn form -i lib.rs -o src
     rm lib.rs
     cecho "$CYAN" "Formatting generated code..."
@@ -89,9 +91,11 @@ if (( $# == 1 )); then
 fi
 
 for PAC in ${PACS[*]}; do
-    cecho "$BOLDGREEN" "\nEntering $PAC/"
-    pushd "$PAC" >/dev/null
-    generate_pac "$PAC"
+    IFS=: read -ra parts <<< "$PAC"
+    crate=${parts[0]}
+    cecho "$BOLDGREEN" "\nEntering $crate/"
+    pushd "$crate" >/dev/null
+    generate_pac "${parts[@]}"
     cecho "$BOLDGREEN" "Done"
     popd >/dev/null
 done
