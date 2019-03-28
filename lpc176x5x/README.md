@@ -7,3 +7,6 @@ using [svd2rust](https://crates.io/crates/svd2rust) 0.14.
 
 This crate is part of the [lpc-pac](https://github.com/lpc-rs/lpc-pac/)
 project.
+
+This crate requires nightly Rust to compile since it uses `untagged_unions` to
+access registers which map to the same address.
