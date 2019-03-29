@@ -69,11 +69,11 @@ See [LICENSE] for full details.
 [svd2rust documentation]: https://docs.rs/svd2rust
 [API reference]: https://docs.rs/lpc82x-pac
 [LPC82x user manual]: https://www.nxp.com/docs/en/user-guide/UM10800.pdf
-[open an issue]: https://github.com/braun-robotics/rust-lpc82x/issues/new
-[list of open issues]: https://github.com/braun-robotics/rust-lpc82x/issues
+[open an issue]: https://github.com/lpc-rs/lpc-pac/issues/new
+[list of open issues]: https://github.com/lpc-rs/lpc-pac/labels/crate%3A%20lpc82x-pac
 [rustup]: https://rustup.rs/
-[update script]: https://github.com/braun-robotics/rust-lpc82x/blob/master/scripts/update
+[update script]: https://github.com/lpc-rs/lpc-pac/blob/master/lpc82x/scripts/update.sh
 [rustfmt]: https://crates.io/crates/rustfmt
 [Zero Clause BSD License]: https://opensource.org/licenses/FPL-1.0.0
-[LICENSE]: https://github.com/braun-robotics/rust-lpc82x/blob/master/LICENSE
+[LICENSE]: https://github.com/lpc-rs/lpc-pac/blob/master/lpc82x/LICENSE
 [Braun Robotics]: https://braun-robotics.com/
