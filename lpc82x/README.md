@@ -67,7 +67,7 @@ See [LICENSE] for full details.
 [lpc82x-hal]: https://crates.io/crates/lpc82x-hal
 [cortex-m-rt]: https://crates.io/crates/cortex-m-rt
 [svd2rust documentation]: https://docs.rs/svd2rust
-[API reference]: https://docs.rs/lpc82x
+[API reference]: https://docs.rs/lpc82x-pac
 [LPC82x user manual]: https://www.nxp.com/docs/en/user-guide/UM10800.pdf
 [open an issue]: https://github.com/braun-robotics/rust-lpc82x/issues/new
 [list of open issues]: https://github.com/braun-robotics/rust-lpc82x/issues
