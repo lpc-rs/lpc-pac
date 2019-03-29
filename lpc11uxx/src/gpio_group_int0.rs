@@ -3,10 +3,10 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - GPIO grouped interrupt control register"]
     pub ctrl: CTRL,
-    _reserved0: [u8; 28usize],
+    _reserved1: [u8; 28usize],
     #[doc = "0x20 - GPIO grouped interrupt port 0 polarity register"]
     pub port_pol: [PORT_POL; 2],
-    _reserved1: [u8; 24usize],
+    _reserved2: [u8; 24usize],
     #[doc = "0x40 - GPIO grouped interrupt port 0/1 enable register"]
     pub port_ena: [PORT_ENA; 2],
 }

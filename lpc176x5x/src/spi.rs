@@ -9,7 +9,7 @@ pub struct RegisterBlock {
     pub dr: DR,
     #[doc = "0x0c - SPI Clock Counter Register. This register controls the frequency of a master's SCK0."]
     pub ccr: CCR,
-    _reserved0: [u8; 12usize],
+    _reserved4: [u8; 12usize],
     #[doc = "0x1c - SPI Interrupt Flag. This register contains the interrupt flag for the SPI interface."]
     pub int: INT,
 }

@@ -5,7 +5,7 @@ pub struct RegisterBlock {
     pub cr: CR,
     #[doc = "0x04 - A/D Global Data Register. Contains the result of the most recent A/D conversion."]
     pub gdr: GDR,
-    _reserved0: [u8; 4usize],
+    _reserved2: [u8; 4usize],
     #[doc = "0x0c - A/D Interrupt Enable Register. This register contains enable bits that allow the DONE flag of each A/D channel to be included or excluded from contributing to the generation of an A/D interrupt."]
     pub inten: INTEN,
     #[doc = "0x10 - A/D Channel Data Register. This register contains the result of the most recent conversion completed on channel N"]

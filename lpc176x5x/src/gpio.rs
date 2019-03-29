@@ -3,7 +3,7 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - GPIO Port Direction control register."]
     pub dir0: DIR,
-    _reserved0: [u8; 12usize],
+    _reserved1: [u8; 12usize],
     #[doc = "0x10 - Mask register for Port."]
     pub mask0: MASK,
     #[doc = "0x14 - Port Pin value register using FIOMASK."]
@@ -14,7 +14,7 @@ pub struct RegisterBlock {
     pub clr0: CLR,
     #[doc = "0x20 - GPIO Port Direction control register."]
     pub dir1: DIR,
-    _reserved1: [u8; 12usize],
+    _reserved6: [u8; 12usize],
     #[doc = "0x30 - Mask register for Port."]
     pub mask1: MASK,
     #[doc = "0x34 - Port Pin value register using FIOMASK."]
@@ -25,7 +25,7 @@ pub struct RegisterBlock {
     pub clr1: CLR,
     #[doc = "0x40 - GPIO Port Direction control register."]
     pub dir2: DIR,
-    _reserved2: [u8; 12usize],
+    _reserved11: [u8; 12usize],
     #[doc = "0x50 - Mask register for Port."]
     pub mask2: MASK,
     #[doc = "0x54 - Port Pin value register using FIOMASK."]
@@ -36,7 +36,7 @@ pub struct RegisterBlock {
     pub clr2: CLR,
     #[doc = "0x60 - GPIO Port Direction control register."]
     pub dir3: DIR,
-    _reserved3: [u8; 12usize],
+    _reserved16: [u8; 12usize],
     #[doc = "0x70 - Mask register for Port."]
     pub mask3: MASK,
     #[doc = "0x74 - Port Pin value register using FIOMASK."]
@@ -47,7 +47,7 @@ pub struct RegisterBlock {
     pub clr3: CLR,
     #[doc = "0x80 - GPIO Port Direction control register."]
     pub dir4: DIR,
-    _reserved4: [u8; 12usize],
+    _reserved21: [u8; 12usize],
     #[doc = "0x90 - Mask register for Port."]
     pub mask4: MASK,
     #[doc = "0x94 - Port Pin value register using FIOMASK."]

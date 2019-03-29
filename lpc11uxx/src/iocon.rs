@@ -109,7 +109,7 @@ pub struct RegisterBlock {
     pub pio1_28: PIO1_28,
     #[doc = "0xd4 - I/O configuration for pin PIO1_29/SCK0/ CT32B0_CAP1"]
     pub pio1_29: PIO1_29,
-    _reserved0: [u8; 4usize],
+    _reserved54: [u8; 4usize],
     #[doc = "0xdc - I/O configuration for pin PIO1_31"]
     pub pio1_31: PIO1_31,
 }

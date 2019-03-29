@@ -29,7 +29,7 @@ pub struct RegisterBlock {
     pub config: CONFIG,
     #[doc = "0x34 - DMA Synchronization Register"]
     pub sync: SYNC,
-    _reserved0: [u8; 200usize],
+    _reserved14: [u8; 200usize],
     #[doc = "0x100 - DMA Channel 0 Source Address Register"]
     pub srcaddr0: SRCADDR,
     #[doc = "0x104 - DMA Channel 0 Destination Address Register"]
@@ -40,7 +40,7 @@ pub struct RegisterBlock {
     pub control0: CONTROL,
     #[doc = "0x110 - DMA Channel 0 Configuration Register\\[1\\]"]
     pub config0: CONFIG,
-    _reserved1: [u8; 12usize],
+    _reserved19: [u8; 12usize],
     #[doc = "0x120 - DMA Channel 0 Source Address Register"]
     pub srcaddr1: SRCADDR,
     #[doc = "0x124 - DMA Channel 0 Destination Address Register"]
@@ -51,7 +51,7 @@ pub struct RegisterBlock {
     pub control1: CONTROL,
     #[doc = "0x130 - DMA Channel 0 Configuration Register\\[1\\]"]
     pub config1: CONFIG,
-    _reserved2: [u8; 12usize],
+    _reserved24: [u8; 12usize],
     #[doc = "0x140 - DMA Channel 0 Source Address Register"]
     pub srcaddr2: SRCADDR,
     #[doc = "0x144 - DMA Channel 0 Destination Address Register"]
@@ -62,7 +62,7 @@ pub struct RegisterBlock {
     pub control2: CONTROL,
     #[doc = "0x150 - DMA Channel 0 Configuration Register\\[1\\]"]
     pub config2: CONFIG,
-    _reserved3: [u8; 12usize],
+    _reserved29: [u8; 12usize],
     #[doc = "0x160 - DMA Channel 0 Source Address Register"]
     pub srcaddr3: SRCADDR,
     #[doc = "0x164 - DMA Channel 0 Destination Address Register"]
@@ -73,7 +73,7 @@ pub struct RegisterBlock {
     pub control3: CONTROL,
     #[doc = "0x170 - DMA Channel 0 Configuration Register\\[1\\]"]
     pub config3: CONFIG,
-    _reserved4: [u8; 12usize],
+    _reserved34: [u8; 12usize],
     #[doc = "0x180 - DMA Channel 0 Source Address Register"]
     pub srcaddr4: SRCADDR,
     #[doc = "0x184 - DMA Channel 0 Destination Address Register"]
@@ -84,7 +84,7 @@ pub struct RegisterBlock {
     pub control4: CONTROL,
     #[doc = "0x190 - DMA Channel 0 Configuration Register\\[1\\]"]
     pub config4: CONFIG,
-    _reserved5: [u8; 12usize],
+    _reserved39: [u8; 12usize],
     #[doc = "0x1a0 - DMA Channel 0 Source Address Register"]
     pub srcaddr5: SRCADDR,
     #[doc = "0x1a4 - DMA Channel 0 Destination Address Register"]
@@ -95,7 +95,7 @@ pub struct RegisterBlock {
     pub control5: CONTROL,
     #[doc = "0x1b0 - DMA Channel 0 Configuration Register\\[1\\]"]
     pub config5: CONFIG,
-    _reserved6: [u8; 12usize],
+    _reserved44: [u8; 12usize],
     #[doc = "0x1c0 - DMA Channel 0 Source Address Register"]
     pub srcaddr6: SRCADDR,
     #[doc = "0x1c4 - DMA Channel 0 Destination Address Register"]
@@ -106,7 +106,7 @@ pub struct RegisterBlock {
     pub control6: CONTROL,
     #[doc = "0x1d0 - DMA Channel 0 Configuration Register\\[1\\]"]
     pub config6: CONFIG,
-    _reserved7: [u8; 12usize],
+    _reserved49: [u8; 12usize],
     #[doc = "0x1e0 - DMA Channel 0 Source Address Register"]
     pub srcaddr7: SRCADDR,
     #[doc = "0x1e4 - DMA Channel 0 Destination Address Register"]

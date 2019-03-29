@@ -21,10 +21,10 @@ pub struct RegisterBlock {
     pub cr0: CR0,
     #[doc = "0x30 - Capture Register 1. CR1 is loaded with the value of TC when there is an event on the CT16B1_CAP1 input."]
     pub cr1: CR1,
-    _reserved0: [u8; 8usize],
+    _reserved10: [u8; 8usize],
     #[doc = "0x3c - External Match Register. The EMR controls the match function and the external match pins CT16B0_MAT\\[1:0\\] and CT16B1_MAT\\[1:0\\]."]
     pub emr: EMR,
-    _reserved1: [u8; 48usize],
+    _reserved11: [u8; 48usize],
     #[doc = "0x70 - Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting."]
     pub ctcr: CTCR,
     #[doc = "0x74 - PWM Control Register. The PWMCON enables PWM mode for the external match pins CT16B0_MAT\\[1:0\\] and CT16B1_MAT\\[1:0\\]."]

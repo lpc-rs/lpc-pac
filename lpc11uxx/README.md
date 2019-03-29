@@ -9,3 +9,6 @@ LPC11U3x/2x/1x user manual: [https://gab.wallawalla.edu/~curt.nelson/engr355/dat
 
 This crate is part of the [lpc-pac](https://github.com/lpc-rs/lpc-pac/)
 project.
+
+This crate requires nightly Rust to compile since it uses `untagged_unions` to
+access registers which map to the same address.

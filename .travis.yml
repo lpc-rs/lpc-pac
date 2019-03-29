@@ -6,6 +6,6 @@ rust:
   - nightly
 
 script:
-  - cargo build --verbose --manifest-path lpc11uxx/Cargo.toml
+  - if [ $TRAVIS_RUST_VERSION = nightly ]; then cargo build --verbose --manifest-path lpc11uxx/Cargo.toml; fi
   - cargo build --verbose --manifest-path lpc82x/Cargo.toml
   - cargo build --verbose --manifest-path lpc845/Cargo.toml

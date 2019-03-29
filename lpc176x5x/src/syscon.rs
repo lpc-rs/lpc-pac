@@ -3,7 +3,7 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - Flash Accelerator Configuration Register. Controls flash access timing."]
     pub flashcfg: FLASHCFG,
-    _reserved0: [u8; 124usize],
+    _reserved1: [u8; 124usize],
     #[doc = "0x80 - PLL0 Control Register"]
     pub pll0con: PLL0CON,
     #[doc = "0x84 - PLL0 Configuration Register"]
@@ -12,7 +12,7 @@ pub struct RegisterBlock {
     pub pll0stat: PLL0STAT,
     #[doc = "0x8c - PLL0 Feed Register"]
     pub pll0feed: PLL0FEED,
-    _reserved1: [u8; 16usize],
+    _reserved5: [u8; 16usize],
     #[doc = "0xa0 - PLL1 Control Register"]
     pub pll1con: PLL1CON,
     #[doc = "0xa4 - PLL1 Configuration Register"]
@@ -21,12 +21,12 @@ pub struct RegisterBlock {
     pub pll1stat: PLL1STAT,
     #[doc = "0xac - PLL1 Feed Register"]
     pub pll1feed: PLL1FEED,
-    _reserved2: [u8; 16usize],
+    _reserved9: [u8; 16usize],
     #[doc = "0xc0 - Power Control Register"]
     pub pcon: PCON,
     #[doc = "0xc4 - Power Control for Peripherals Register"]
     pub pconp: PCONP,
-    _reserved3: [u8; 60usize],
+    _reserved11: [u8; 60usize],
     #[doc = "0x104 - CPU Clock Configuration Register"]
     pub cclkcfg: CCLKCFG,
     #[doc = "0x108 - USB Clock Configuration Register"]
@@ -37,26 +37,26 @@ pub struct RegisterBlock {
     pub cansleepclr: CANSLEEPCLR,
     #[doc = "0x114 - Allows reading the wake-up state of the CAN channels."]
     pub canwakeflags: CANWAKEFLAGS,
-    _reserved4: [u8; 40usize],
+    _reserved16: [u8; 40usize],
     #[doc = "0x140 - External Interrupt Flag Register"]
     pub extint: EXTINT,
-    _reserved5: [u8; 4usize],
+    _reserved17: [u8; 4usize],
     #[doc = "0x148 - External Interrupt Mode register"]
     pub extmode: EXTMODE,
     #[doc = "0x14c - External Interrupt Polarity Register"]
     pub extpolar: EXTPOLAR,
-    _reserved6: [u8; 48usize],
+    _reserved19: [u8; 48usize],
     #[doc = "0x180 - Reset Source Identification Register"]
     pub rsid: RSID,
-    _reserved7: [u8; 28usize],
+    _reserved20: [u8; 28usize],
     #[doc = "0x1a0 - System control and status"]
     pub scs: SCS,
-    _reserved8: [u8; 4usize],
+    _reserved21: [u8; 4usize],
     #[doc = "0x1a8 - Peripheral Clock Selection register 0."]
     pub pclksel0: PCLKSEL0,
     #[doc = "0x1ac - Peripheral Clock Selection register 1."]
     pub pclksel1: PCLKSEL1,
-    _reserved9: [u8; 16usize],
+    _reserved23: [u8; 16usize],
     #[doc = "0x1c0 - USB Interrupt Status"]
     pub usbintst: USBINTST,
     #[doc = "0x1c4 - Selects between alternative requests on DMA channels 0 through 7 and 10 through 15"]

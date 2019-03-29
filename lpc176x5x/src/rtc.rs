@@ -3,7 +3,7 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - Interrupt Location Register"]
     pub ilr: ILR,
-    _reserved0: [u8; 4usize],
+    _reserved1: [u8; 4usize],
     #[doc = "0x08 - Clock Control Register"]
     pub ccr: CCR,
     #[doc = "0x0c - Counter Increment Interrupt Register"]

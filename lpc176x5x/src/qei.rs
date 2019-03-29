@@ -33,7 +33,7 @@ pub struct RegisterBlock {
     pub velcomp: VELCOMP,
     #[doc = "0x3c - Digital filter register"]
     pub filter: FILTER,
-    _reserved0: [u8; 3992usize],
+    _reserved16: [u8; 3992usize],
     #[doc = "0xfd8 - Interrupt enable clear register"]
     pub iec: IEC,
     #[doc = "0xfdc - Interrupt enable set register"]
