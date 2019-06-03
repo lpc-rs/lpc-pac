@@ -57,7 +57,7 @@ This project is open source software, licensed under the terms of the [Zero Clau
 See [LICENSE] for full details.
 
 
-**Supported by [Braun Robotics]**
+**Supported by [Braun Embedded]**
 
 
 [Rust]: https://www.rust-lang.org/
@@ -76,4 +76,4 @@ See [LICENSE] for full details.
 [rustfmt]: https://crates.io/crates/rustfmt
 [Zero Clause BSD License]: https://opensource.org/licenses/FPL-1.0.0
 [LICENSE]: https://github.com/lpc-rs/lpc-pac/blob/master/lpc82x/LICENSE
-[Braun Robotics]: https://braun-robotics.com/
+[Braun Embedded]: https://braun-embedded.com/
