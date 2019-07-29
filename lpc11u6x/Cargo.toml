@@ -1,0 +1,27 @@
+[package]
+name = "lpc11u6x"
+version = "0.3.0"
+authors = [
+    "Raphael Nestler <raphael.nestler@gmail.com>",
+    "Danilo Bargen <mail@dbrgn.ch>",
+]
+description = "Register mappings for the NXP LPC11Uxx family of ARM Cortex-M0+ microcontrollers"
+documentation = "https://docs.rs/lpc11uxx"
+repository = "https://github.com/lpc-rs/lpc-pac"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+categories = ["embedded", "hardware-support", "no-std"]
+keywords = ["arm", "cortex-m", "nxp", "lpc", "svd2rust"]
+edition = "2018"
+
+[dependencies]
+bare-metal = "0.2"
+cortex-m = "0.5"
+vcell = "0.1"
+
+[dependencies.cortex-m-rt]
+optional = true
+version = "0.6"
+
+[features]
+rt = ["cortex-m-rt/device"]

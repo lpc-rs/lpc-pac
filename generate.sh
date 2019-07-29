@@ -15,6 +15,7 @@ set -euo pipefail
 PACS=(
     "lpc11uxx:--nightly"
     "lpc176x5x:--nightly"
+    "lpc11u6x:--nightly"
     # NOTE(hannobraun):
     # lpc82x has not been added here, since it doesn't include an SVD file, for
     # copyright reasons. I figured extending this script to support this is not
