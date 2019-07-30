@@ -140,9 +140,9 @@ impl HWTRIGENR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGPOLR {
     #[doc = "Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE."]
-    ACTIVE_LOW__FALLING,
+    ACTIVE_LOW_FALLING,
     #[doc = "Active high - rising edge. Hardware trigger is active high or rising edge triggered, based on TRIGTYPE."]
-    ACTIVE_HIGH__RISING,
+    ACTIVE_HIGH_RISING,
 }
 impl TRIGPOLR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -159,8 +159,8 @@ impl TRIGPOLR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            TRIGPOLR::ACTIVE_LOW__FALLING => false,
-            TRIGPOLR::ACTIVE_HIGH__RISING => true,
+            TRIGPOLR::ACTIVE_LOW_FALLING => false,
+            TRIGPOLR::ACTIVE_HIGH_RISING => true,
         }
     }
     #[allow(missing_docs)]
@@ -168,19 +168,19 @@ impl TRIGPOLR {
     #[inline]
     pub fn _from(value: bool) -> TRIGPOLR {
         match value {
-            false => TRIGPOLR::ACTIVE_LOW__FALLING,
-            true => TRIGPOLR::ACTIVE_HIGH__RISING,
+            false => TRIGPOLR::ACTIVE_LOW_FALLING,
+            true => TRIGPOLR::ACTIVE_HIGH_RISING,
         }
     }
-    #[doc = "Checks if the value of the field is `ACTIVE_LOW__FALLING`"]
+    #[doc = "Checks if the value of the field is `ACTIVE_LOW_FALLING`"]
     #[inline]
-    pub fn is_active_low__falling(&self) -> bool {
-        *self == TRIGPOLR::ACTIVE_LOW__FALLING
+    pub fn is_active_low_falling(&self) -> bool {
+        *self == TRIGPOLR::ACTIVE_LOW_FALLING
     }
-    #[doc = "Checks if the value of the field is `ACTIVE_HIGH__RISING`"]
+    #[doc = "Checks if the value of the field is `ACTIVE_HIGH_RISING`"]
     #[inline]
-    pub fn is_active_high__rising(&self) -> bool {
-        *self == TRIGPOLR::ACTIVE_HIGH__RISING
+    pub fn is_active_high_rising(&self) -> bool {
+        *self == TRIGPOLR::ACTIVE_HIGH_RISING
     }
 }
 #[doc = "Possible values of the field `TRIGTYPE`"]
@@ -512,9 +512,9 @@ impl<'a> _HWTRIGENW<'a> {
 #[doc = "Values that can be written to the field `TRIGPOL`"]
 pub enum TRIGPOLW {
     #[doc = "Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE."]
-    ACTIVE_LOW__FALLING,
+    ACTIVE_LOW_FALLING,
     #[doc = "Active high - rising edge. Hardware trigger is active high or rising edge triggered, based on TRIGTYPE."]
-    ACTIVE_HIGH__RISING,
+    ACTIVE_HIGH_RISING,
 }
 impl TRIGPOLW {
     #[allow(missing_docs)]
@@ -522,8 +522,8 @@ impl TRIGPOLW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            TRIGPOLW::ACTIVE_LOW__FALLING => false,
-            TRIGPOLW::ACTIVE_HIGH__RISING => true,
+            TRIGPOLW::ACTIVE_LOW_FALLING => false,
+            TRIGPOLW::ACTIVE_HIGH_RISING => true,
         }
     }
 }
@@ -541,13 +541,13 @@ impl<'a> _TRIGPOLW<'a> {
     }
     #[doc = "Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE."]
     #[inline]
-    pub fn active_low__falling(self) -> &'a mut W {
-        self.variant(TRIGPOLW::ACTIVE_LOW__FALLING)
+    pub fn active_low_falling(self) -> &'a mut W {
+        self.variant(TRIGPOLW::ACTIVE_LOW_FALLING)
     }
     #[doc = "Active high - rising edge. Hardware trigger is active high or rising edge triggered, based on TRIGTYPE."]
     #[inline]
-    pub fn active_high__rising(self) -> &'a mut W {
-        self.variant(TRIGPOLW::ACTIVE_HIGH__RISING)
+    pub fn active_high_rising(self) -> &'a mut W {
+        self.variant(TRIGPOLW::ACTIVE_HIGH_RISING)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

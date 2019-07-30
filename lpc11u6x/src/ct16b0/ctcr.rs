@@ -183,7 +183,7 @@ pub enum SELCCR {
     #[doc = "Rising Edge of thesignal on capture channel 2 clears the timer (if bit 4 is set)."]
     CAP2RISING,
     #[doc = "Falling Edge of thesignal on capture channel 2 clears the timer (if bit 4 is set)."]
-    CAP1FALLING,
+    CAP2FALLING,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -197,7 +197,7 @@ impl SELCCR {
             SELCCR::CAP1RISING => 2,
             SELCCR::CAP1FALLING => 3,
             SELCCR::CAP2RISING => 4,
-            SELCCR::CAP1FALLING => 5,
+            SELCCR::CAP2FALLING => 5,
             SELCCR::_Reserved(bits) => bits,
         }
     }
@@ -211,7 +211,7 @@ impl SELCCR {
             2 => SELCCR::CAP1RISING,
             3 => SELCCR::CAP1FALLING,
             4 => SELCCR::CAP2RISING,
-            5 => SELCCR::CAP1FALLING,
+            5 => SELCCR::CAP2FALLING,
             i => SELCCR::_Reserved(i),
         }
     }
@@ -240,10 +240,10 @@ impl SELCCR {
     pub fn is_cap2rising(&self) -> bool {
         *self == SELCCR::CAP2RISING
     }
-    #[doc = "Checks if the value of the field is `CAP1FALLING`"]
+    #[doc = "Checks if the value of the field is `CAP2FALLING`"]
     #[inline]
-    pub fn is_cap1falling(&self) -> bool {
-        *self == SELCCR::CAP1FALLING
+    pub fn is_cap2falling(&self) -> bool {
+        *self == SELCCR::CAP2FALLING
     }
 }
 #[doc = "Values that can be written to the field `CTM`"]
@@ -404,7 +404,7 @@ pub enum SELCCW {
     #[doc = "Rising Edge of thesignal on capture channel 2 clears the timer (if bit 4 is set)."]
     CAP2RISING,
     #[doc = "Falling Edge of thesignal on capture channel 2 clears the timer (if bit 4 is set)."]
-    CAP1FALLING,
+    CAP2FALLING,
 }
 impl SELCCW {
     #[allow(missing_docs)]
@@ -417,7 +417,7 @@ impl SELCCW {
             SELCCW::CAP1RISING => 2,
             SELCCW::CAP1FALLING => 3,
             SELCCW::CAP2RISING => 4,
-            SELCCW::CAP1FALLING => 5,
+            SELCCW::CAP2FALLING => 5,
         }
     }
 }
@@ -458,8 +458,8 @@ impl<'a> _SELCCW<'a> {
     }
     #[doc = "Falling Edge of thesignal on capture channel 2 clears the timer (if bit 4 is set)."]
     #[inline]
-    pub fn cap1falling(self) -> &'a mut W {
-        self.variant(SELCCW::CAP1FALLING)
+    pub fn cap2falling(self) -> &'a mut W {
+        self.variant(SELCCW::CAP2FALLING)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

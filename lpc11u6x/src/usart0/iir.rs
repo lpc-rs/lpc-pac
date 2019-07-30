@@ -64,9 +64,9 @@ pub enum INTIDR {
     #[doc = "1   - Receive Line Status (RLS)."]
     _1_RECEIVE_LINE_S,
     #[doc = "2a - Receive Data Available (RDA)."]
-    _2A__RECEIVE_DATA_AV,
+    _2A_RECEIVE_DATA_AV,
     #[doc = "2b - Character Time-out Indicator (CTI)."]
-    _2B__CHARACTER_TIME_,
+    _2B_CHARACTER_TIME_,
     #[doc = "3   - THRE Interrupt."]
     _3_THRE_INTERRUPT,
     #[doc = "4   - Modem status"]
@@ -80,8 +80,8 @@ impl INTIDR {
     pub fn bits(&self) -> u8 {
         match *self {
             INTIDR::_1_RECEIVE_LINE_S => 3,
-            INTIDR::_2A__RECEIVE_DATA_AV => 2,
-            INTIDR::_2B__CHARACTER_TIME_ => 6,
+            INTIDR::_2A_RECEIVE_DATA_AV => 2,
+            INTIDR::_2B_CHARACTER_TIME_ => 6,
             INTIDR::_3_THRE_INTERRUPT => 1,
             INTIDR::_4_MODEM_STATUS => 0,
             INTIDR::_Reserved(bits) => bits,
@@ -93,8 +93,8 @@ impl INTIDR {
     pub fn _from(value: u8) -> INTIDR {
         match value {
             3 => INTIDR::_1_RECEIVE_LINE_S,
-            2 => INTIDR::_2A__RECEIVE_DATA_AV,
-            6 => INTIDR::_2B__CHARACTER_TIME_,
+            2 => INTIDR::_2A_RECEIVE_DATA_AV,
+            6 => INTIDR::_2B_CHARACTER_TIME_,
             1 => INTIDR::_3_THRE_INTERRUPT,
             0 => INTIDR::_4_MODEM_STATUS,
             i => INTIDR::_Reserved(i),
@@ -105,15 +105,15 @@ impl INTIDR {
     pub fn is_1_receive_line_s(&self) -> bool {
         *self == INTIDR::_1_RECEIVE_LINE_S
     }
-    #[doc = "Checks if the value of the field is `_2A__RECEIVE_DATA_AV`"]
+    #[doc = "Checks if the value of the field is `_2A_RECEIVE_DATA_AV`"]
     #[inline]
-    pub fn is_2a__receive_data_av(&self) -> bool {
-        *self == INTIDR::_2A__RECEIVE_DATA_AV
+    pub fn is_2a_receive_data_av(&self) -> bool {
+        *self == INTIDR::_2A_RECEIVE_DATA_AV
     }
-    #[doc = "Checks if the value of the field is `_2B__CHARACTER_TIME_`"]
+    #[doc = "Checks if the value of the field is `_2B_CHARACTER_TIME_`"]
     #[inline]
-    pub fn is_2b__character_time_(&self) -> bool {
-        *self == INTIDR::_2B__CHARACTER_TIME_
+    pub fn is_2b_character_time_(&self) -> bool {
+        *self == INTIDR::_2B_CHARACTER_TIME_
     }
     #[doc = "Checks if the value of the field is `_3_THRE_INTERRUPT`"]
     #[inline]

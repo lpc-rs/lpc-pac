@@ -48,9 +48,9 @@ pub enum SETCLR0R {
     #[doc = "Set and clear do not depend on any counter."]
     SET_AND_CLEAR_DO_NOT,
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -60,8 +60,8 @@ impl SETCLR0R {
     pub fn bits(&self) -> u8 {
         match *self {
             SETCLR0R::SET_AND_CLEAR_DO_NOT => 0,
-            SETCLR0R::SET_AND_CLEAR_ARE_RE => 1,
-            SETCLR0R::SET_AND_CLEAR_ARE_RE => 2,
+            SETCLR0R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L => 1,
+            SETCLR0R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H => 2,
             SETCLR0R::_Reserved(bits) => bits,
         }
     }
@@ -71,8 +71,8 @@ impl SETCLR0R {
     pub fn _from(value: u8) -> SETCLR0R {
         match value {
             0 => SETCLR0R::SET_AND_CLEAR_DO_NOT,
-            1 => SETCLR0R::SET_AND_CLEAR_ARE_RE,
-            2 => SETCLR0R::SET_AND_CLEAR_ARE_RE,
+            1 => SETCLR0R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
+            2 => SETCLR0R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
             i => SETCLR0R::_Reserved(i),
         }
     }
@@ -81,15 +81,15 @@ impl SETCLR0R {
     pub fn is_set_and_clear_do_not(&self) -> bool {
         *self == SETCLR0R::SET_AND_CLEAR_DO_NOT
     }
-    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_RE`"]
+    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L`"]
     #[inline]
-    pub fn is_set_and_clear_are_re(&self) -> bool {
-        *self == SETCLR0R::SET_AND_CLEAR_ARE_RE
+    pub fn is_set_and_clear_are_reversed_when_counter_l(&self) -> bool {
+        *self == SETCLR0R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L
     }
-    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_RE`"]
+    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H`"]
     #[inline]
-    pub fn is_set_and_clear_are_re(&self) -> bool {
-        *self == SETCLR0R::SET_AND_CLEAR_ARE_RE
+    pub fn is_set_and_clear_are_reversed_when_counter_h(&self) -> bool {
+        *self == SETCLR0R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H
     }
 }
 #[doc = "Possible values of the field `SETCLR1`"]
@@ -98,9 +98,9 @@ pub enum SETCLR1R {
     #[doc = "Set and clear do not depend on any counter."]
     SET_AND_CLEAR_DO_NOT,
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -110,8 +110,8 @@ impl SETCLR1R {
     pub fn bits(&self) -> u8 {
         match *self {
             SETCLR1R::SET_AND_CLEAR_DO_NOT => 0,
-            SETCLR1R::SET_AND_CLEAR_ARE_RE => 1,
-            SETCLR1R::SET_AND_CLEAR_ARE_RE => 2,
+            SETCLR1R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L => 1,
+            SETCLR1R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H => 2,
             SETCLR1R::_Reserved(bits) => bits,
         }
     }
@@ -121,8 +121,8 @@ impl SETCLR1R {
     pub fn _from(value: u8) -> SETCLR1R {
         match value {
             0 => SETCLR1R::SET_AND_CLEAR_DO_NOT,
-            1 => SETCLR1R::SET_AND_CLEAR_ARE_RE,
-            2 => SETCLR1R::SET_AND_CLEAR_ARE_RE,
+            1 => SETCLR1R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
+            2 => SETCLR1R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
             i => SETCLR1R::_Reserved(i),
         }
     }
@@ -131,15 +131,15 @@ impl SETCLR1R {
     pub fn is_set_and_clear_do_not(&self) -> bool {
         *self == SETCLR1R::SET_AND_CLEAR_DO_NOT
     }
-    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_RE`"]
+    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L`"]
     #[inline]
-    pub fn is_set_and_clear_are_re(&self) -> bool {
-        *self == SETCLR1R::SET_AND_CLEAR_ARE_RE
+    pub fn is_set_and_clear_are_reversed_when_counter_l(&self) -> bool {
+        *self == SETCLR1R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L
     }
-    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_RE`"]
+    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H`"]
     #[inline]
-    pub fn is_set_and_clear_are_re(&self) -> bool {
-        *self == SETCLR1R::SET_AND_CLEAR_ARE_RE
+    pub fn is_set_and_clear_are_reversed_when_counter_h(&self) -> bool {
+        *self == SETCLR1R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H
     }
 }
 #[doc = "Possible values of the field `SETCLR2`"]
@@ -148,9 +148,9 @@ pub enum SETCLR2R {
     #[doc = "Set and clear do not depend on any counter."]
     SET_AND_CLEAR_DO_NOT,
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -160,8 +160,8 @@ impl SETCLR2R {
     pub fn bits(&self) -> u8 {
         match *self {
             SETCLR2R::SET_AND_CLEAR_DO_NOT => 0,
-            SETCLR2R::SET_AND_CLEAR_ARE_RE => 1,
-            SETCLR2R::SET_AND_CLEAR_ARE_RE => 2,
+            SETCLR2R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L => 1,
+            SETCLR2R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H => 2,
             SETCLR2R::_Reserved(bits) => bits,
         }
     }
@@ -171,8 +171,8 @@ impl SETCLR2R {
     pub fn _from(value: u8) -> SETCLR2R {
         match value {
             0 => SETCLR2R::SET_AND_CLEAR_DO_NOT,
-            1 => SETCLR2R::SET_AND_CLEAR_ARE_RE,
-            2 => SETCLR2R::SET_AND_CLEAR_ARE_RE,
+            1 => SETCLR2R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
+            2 => SETCLR2R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
             i => SETCLR2R::_Reserved(i),
         }
     }
@@ -181,15 +181,15 @@ impl SETCLR2R {
     pub fn is_set_and_clear_do_not(&self) -> bool {
         *self == SETCLR2R::SET_AND_CLEAR_DO_NOT
     }
-    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_RE`"]
+    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L`"]
     #[inline]
-    pub fn is_set_and_clear_are_re(&self) -> bool {
-        *self == SETCLR2R::SET_AND_CLEAR_ARE_RE
+    pub fn is_set_and_clear_are_reversed_when_counter_l(&self) -> bool {
+        *self == SETCLR2R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L
     }
-    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_RE`"]
+    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H`"]
     #[inline]
-    pub fn is_set_and_clear_are_re(&self) -> bool {
-        *self == SETCLR2R::SET_AND_CLEAR_ARE_RE
+    pub fn is_set_and_clear_are_reversed_when_counter_h(&self) -> bool {
+        *self == SETCLR2R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H
     }
 }
 #[doc = "Possible values of the field `SETCLR3`"]
@@ -198,9 +198,9 @@ pub enum SETCLR3R {
     #[doc = "Set and clear do not depend on any counter."]
     SET_AND_CLEAR_DO_NOT,
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -210,8 +210,8 @@ impl SETCLR3R {
     pub fn bits(&self) -> u8 {
         match *self {
             SETCLR3R::SET_AND_CLEAR_DO_NOT => 0,
-            SETCLR3R::SET_AND_CLEAR_ARE_RE => 1,
-            SETCLR3R::SET_AND_CLEAR_ARE_RE => 2,
+            SETCLR3R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L => 1,
+            SETCLR3R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H => 2,
             SETCLR3R::_Reserved(bits) => bits,
         }
     }
@@ -221,8 +221,8 @@ impl SETCLR3R {
     pub fn _from(value: u8) -> SETCLR3R {
         match value {
             0 => SETCLR3R::SET_AND_CLEAR_DO_NOT,
-            1 => SETCLR3R::SET_AND_CLEAR_ARE_RE,
-            2 => SETCLR3R::SET_AND_CLEAR_ARE_RE,
+            1 => SETCLR3R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
+            2 => SETCLR3R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
             i => SETCLR3R::_Reserved(i),
         }
     }
@@ -231,15 +231,15 @@ impl SETCLR3R {
     pub fn is_set_and_clear_do_not(&self) -> bool {
         *self == SETCLR3R::SET_AND_CLEAR_DO_NOT
     }
-    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_RE`"]
+    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L`"]
     #[inline]
-    pub fn is_set_and_clear_are_re(&self) -> bool {
-        *self == SETCLR3R::SET_AND_CLEAR_ARE_RE
+    pub fn is_set_and_clear_are_reversed_when_counter_l(&self) -> bool {
+        *self == SETCLR3R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L
     }
-    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_RE`"]
+    #[doc = "Checks if the value of the field is `SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H`"]
     #[inline]
-    pub fn is_set_and_clear_are_re(&self) -> bool {
-        *self == SETCLR3R::SET_AND_CLEAR_ARE_RE
+    pub fn is_set_and_clear_are_reversed_when_counter_h(&self) -> bool {
+        *self == SETCLR3R::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H
     }
 }
 #[doc = "Values that can be written to the field `SETCLR0`"]
@@ -247,9 +247,9 @@ pub enum SETCLR0W {
     #[doc = "Set and clear do not depend on any counter."]
     SET_AND_CLEAR_DO_NOT,
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
 }
 impl SETCLR0W {
     #[allow(missing_docs)]
@@ -258,8 +258,8 @@ impl SETCLR0W {
     pub fn _bits(&self) -> u8 {
         match *self {
             SETCLR0W::SET_AND_CLEAR_DO_NOT => 0,
-            SETCLR0W::SET_AND_CLEAR_ARE_RE => 1,
-            SETCLR0W::SET_AND_CLEAR_ARE_RE => 2,
+            SETCLR0W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L => 1,
+            SETCLR0W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H => 2,
         }
     }
 }
@@ -280,13 +280,13 @@ impl<'a> _SETCLR0W<'a> {
     }
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
     #[inline]
-    pub fn set_and_clear_are_re(self) -> &'a mut W {
-        self.variant(SETCLR0W::SET_AND_CLEAR_ARE_RE)
+    pub fn set_and_clear_are_reversed_when_counter_l(self) -> &'a mut W {
+        self.variant(SETCLR0W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L)
     }
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
     #[inline]
-    pub fn set_and_clear_are_re(self) -> &'a mut W {
-        self.variant(SETCLR0W::SET_AND_CLEAR_ARE_RE)
+    pub fn set_and_clear_are_reversed_when_counter_h(self) -> &'a mut W {
+        self.variant(SETCLR0W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -303,9 +303,9 @@ pub enum SETCLR1W {
     #[doc = "Set and clear do not depend on any counter."]
     SET_AND_CLEAR_DO_NOT,
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
 }
 impl SETCLR1W {
     #[allow(missing_docs)]
@@ -314,8 +314,8 @@ impl SETCLR1W {
     pub fn _bits(&self) -> u8 {
         match *self {
             SETCLR1W::SET_AND_CLEAR_DO_NOT => 0,
-            SETCLR1W::SET_AND_CLEAR_ARE_RE => 1,
-            SETCLR1W::SET_AND_CLEAR_ARE_RE => 2,
+            SETCLR1W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L => 1,
+            SETCLR1W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H => 2,
         }
     }
 }
@@ -336,13 +336,13 @@ impl<'a> _SETCLR1W<'a> {
     }
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
     #[inline]
-    pub fn set_and_clear_are_re(self) -> &'a mut W {
-        self.variant(SETCLR1W::SET_AND_CLEAR_ARE_RE)
+    pub fn set_and_clear_are_reversed_when_counter_l(self) -> &'a mut W {
+        self.variant(SETCLR1W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L)
     }
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
     #[inline]
-    pub fn set_and_clear_are_re(self) -> &'a mut W {
-        self.variant(SETCLR1W::SET_AND_CLEAR_ARE_RE)
+    pub fn set_and_clear_are_reversed_when_counter_h(self) -> &'a mut W {
+        self.variant(SETCLR1W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -359,9 +359,9 @@ pub enum SETCLR2W {
     #[doc = "Set and clear do not depend on any counter."]
     SET_AND_CLEAR_DO_NOT,
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
 }
 impl SETCLR2W {
     #[allow(missing_docs)]
@@ -370,8 +370,8 @@ impl SETCLR2W {
     pub fn _bits(&self) -> u8 {
         match *self {
             SETCLR2W::SET_AND_CLEAR_DO_NOT => 0,
-            SETCLR2W::SET_AND_CLEAR_ARE_RE => 1,
-            SETCLR2W::SET_AND_CLEAR_ARE_RE => 2,
+            SETCLR2W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L => 1,
+            SETCLR2W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H => 2,
         }
     }
 }
@@ -392,13 +392,13 @@ impl<'a> _SETCLR2W<'a> {
     }
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
     #[inline]
-    pub fn set_and_clear_are_re(self) -> &'a mut W {
-        self.variant(SETCLR2W::SET_AND_CLEAR_ARE_RE)
+    pub fn set_and_clear_are_reversed_when_counter_l(self) -> &'a mut W {
+        self.variant(SETCLR2W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L)
     }
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
     #[inline]
-    pub fn set_and_clear_are_re(self) -> &'a mut W {
-        self.variant(SETCLR2W::SET_AND_CLEAR_ARE_RE)
+    pub fn set_and_clear_are_reversed_when_counter_h(self) -> &'a mut W {
+        self.variant(SETCLR2W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
@@ -415,9 +415,9 @@ pub enum SETCLR3W {
     #[doc = "Set and clear do not depend on any counter."]
     SET_AND_CLEAR_DO_NOT,
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L,
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
-    SET_AND_CLEAR_ARE_RE,
+    SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H,
 }
 impl SETCLR3W {
     #[allow(missing_docs)]
@@ -426,8 +426,8 @@ impl SETCLR3W {
     pub fn _bits(&self) -> u8 {
         match *self {
             SETCLR3W::SET_AND_CLEAR_DO_NOT => 0,
-            SETCLR3W::SET_AND_CLEAR_ARE_RE => 1,
-            SETCLR3W::SET_AND_CLEAR_ARE_RE => 2,
+            SETCLR3W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L => 1,
+            SETCLR3W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H => 2,
         }
     }
 }
@@ -448,13 +448,13 @@ impl<'a> _SETCLR3W<'a> {
     }
     #[doc = "Set and clear are reversed when counter L or the unified counter is counting down."]
     #[inline]
-    pub fn set_and_clear_are_re(self) -> &'a mut W {
-        self.variant(SETCLR3W::SET_AND_CLEAR_ARE_RE)
+    pub fn set_and_clear_are_reversed_when_counter_l(self) -> &'a mut W {
+        self.variant(SETCLR3W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_L)
     }
     #[doc = "Set and clear are reversed when counter H is counting down. Do not use if UNIFY = 1."]
     #[inline]
-    pub fn set_and_clear_are_re(self) -> &'a mut W {
-        self.variant(SETCLR3W::SET_AND_CLEAR_ARE_RE)
+    pub fn set_and_clear_are_reversed_when_counter_h(self) -> &'a mut W {
+        self.variant(SETCLR3W::SET_AND_CLEAR_ARE_REVERSED_WHEN_COUNTER_H)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

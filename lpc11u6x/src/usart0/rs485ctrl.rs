@@ -140,9 +140,9 @@ impl RXDISR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AADENR {
     #[doc = "Auto Address Detect (AAD) is disabled."]
-    AUTO_ADDRESS_DETECT_,
+    AUTO_ADDRESS_DETECT_DISABLED,
     #[doc = "Auto Address Detect (AAD) is enabled."]
-    AUTO_ADDRESS_DETECT_,
+    AUTO_ADDRESS_DETECT_ENABLED,
 }
 impl AADENR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -159,8 +159,8 @@ impl AADENR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            AADENR::AUTO_ADDRESS_DETECT_ => false,
-            AADENR::AUTO_ADDRESS_DETECT_ => true,
+            AADENR::AUTO_ADDRESS_DETECT_DISABLED => false,
+            AADENR::AUTO_ADDRESS_DETECT_ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -168,19 +168,19 @@ impl AADENR {
     #[inline]
     pub fn _from(value: bool) -> AADENR {
         match value {
-            false => AADENR::AUTO_ADDRESS_DETECT_,
-            true => AADENR::AUTO_ADDRESS_DETECT_,
+            false => AADENR::AUTO_ADDRESS_DETECT_DISABLED,
+            true => AADENR::AUTO_ADDRESS_DETECT_ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `AUTO_ADDRESS_DETECT_`"]
+    #[doc = "Checks if the value of the field is `AUTO_ADDRESS_DETECT_DISABLED`"]
     #[inline]
-    pub fn is_auto_address_detect_(&self) -> bool {
-        *self == AADENR::AUTO_ADDRESS_DETECT_
+    pub fn is_auto_address_detect_disabled(&self) -> bool {
+        *self == AADENR::AUTO_ADDRESS_DETECT_DISABLED
     }
-    #[doc = "Checks if the value of the field is `AUTO_ADDRESS_DETECT_`"]
+    #[doc = "Checks if the value of the field is `AUTO_ADDRESS_DETECT_ENABLED`"]
     #[inline]
-    pub fn is_auto_address_detect_(&self) -> bool {
-        *self == AADENR::AUTO_ADDRESS_DETECT_
+    pub fn is_auto_address_detect_enabled(&self) -> bool {
+        *self == AADENR::AUTO_ADDRESS_DETECT_ENABLED
     }
 }
 #[doc = "Possible values of the field `SEL`"]
@@ -443,9 +443,9 @@ impl<'a> _RXDISW<'a> {
 #[doc = "Values that can be written to the field `AADEN`"]
 pub enum AADENW {
     #[doc = "Auto Address Detect (AAD) is disabled."]
-    AUTO_ADDRESS_DETECT_,
+    AUTO_ADDRESS_DETECT_DISABLED,
     #[doc = "Auto Address Detect (AAD) is enabled."]
-    AUTO_ADDRESS_DETECT_,
+    AUTO_ADDRESS_DETECT_ENABLED,
 }
 impl AADENW {
     #[allow(missing_docs)]
@@ -453,8 +453,8 @@ impl AADENW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            AADENW::AUTO_ADDRESS_DETECT_ => false,
-            AADENW::AUTO_ADDRESS_DETECT_ => true,
+            AADENW::AUTO_ADDRESS_DETECT_DISABLED => false,
+            AADENW::AUTO_ADDRESS_DETECT_ENABLED => true,
         }
     }
 }
@@ -472,13 +472,13 @@ impl<'a> _AADENW<'a> {
     }
     #[doc = "Auto Address Detect (AAD) is disabled."]
     #[inline]
-    pub fn auto_address_detect_(self) -> &'a mut W {
-        self.variant(AADENW::AUTO_ADDRESS_DETECT_)
+    pub fn auto_address_detect_disabled(self) -> &'a mut W {
+        self.variant(AADENW::AUTO_ADDRESS_DETECT_DISABLED)
     }
     #[doc = "Auto Address Detect (AAD) is enabled."]
     #[inline]
-    pub fn auto_address_detect_(self) -> &'a mut W {
-        self.variant(AADENW::AUTO_ADDRESS_DETECT_)
+    pub fn auto_address_detect_enabled(self) -> &'a mut W {
+        self.variant(AADENW::AUTO_ADDRESS_DETECT_ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

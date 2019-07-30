@@ -130,9 +130,9 @@ impl CLRCTR_LR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BIDIR_LR {
     #[doc = "The counter counts up to its limit condition, then is cleared to zero."]
-    THE_COUNTER_COUNTS_U,
+    THE_COUNTER_COUNTS_UP_AND_CLEAR,
     #[doc = "The counter counts up to its limit, then counts down to a limit condition or to 0."]
-    THE_COUNTER_COUNTS_U,
+    THE_COUNTER_COUNTS_UP_AND_DOWN,
 }
 impl BIDIR_LR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -149,8 +149,8 @@ impl BIDIR_LR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            BIDIR_LR::THE_COUNTER_COUNTS_U => false,
-            BIDIR_LR::THE_COUNTER_COUNTS_U => true,
+            BIDIR_LR::THE_COUNTER_COUNTS_UP_AND_CLEAR => false,
+            BIDIR_LR::THE_COUNTER_COUNTS_UP_AND_DOWN => true,
         }
     }
     #[allow(missing_docs)]
@@ -158,19 +158,19 @@ impl BIDIR_LR {
     #[inline]
     pub fn _from(value: bool) -> BIDIR_LR {
         match value {
-            false => BIDIR_LR::THE_COUNTER_COUNTS_U,
-            true => BIDIR_LR::THE_COUNTER_COUNTS_U,
+            false => BIDIR_LR::THE_COUNTER_COUNTS_UP_AND_CLEAR,
+            true => BIDIR_LR::THE_COUNTER_COUNTS_UP_AND_DOWN,
         }
     }
-    #[doc = "Checks if the value of the field is `THE_COUNTER_COUNTS_U`"]
+    #[doc = "Checks if the value of the field is `THE_COUNTER_COUNTS_UP_AND_CLEAR`"]
     #[inline]
-    pub fn is_the_counter_counts_u(&self) -> bool {
-        *self == BIDIR_LR::THE_COUNTER_COUNTS_U
+    pub fn is_the_counter_counts_up_and_clear(&self) -> bool {
+        *self == BIDIR_LR::THE_COUNTER_COUNTS_UP_AND_CLEAR
     }
-    #[doc = "Checks if the value of the field is `THE_COUNTER_COUNTS_U`"]
+    #[doc = "Checks if the value of the field is `THE_COUNTER_COUNTS_UP_AND_DOWN`"]
     #[inline]
-    pub fn is_the_counter_counts_u(&self) -> bool {
-        *self == BIDIR_LR::THE_COUNTER_COUNTS_U
+    pub fn is_the_counter_counts_up_and_down(&self) -> bool {
+        *self == BIDIR_LR::THE_COUNTER_COUNTS_UP_AND_DOWN
     }
 }
 #[doc = r" Value of the field"]
@@ -272,9 +272,9 @@ impl CLRCTR_HR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BIDIR_HR {
     #[doc = "The H counter counts up to its limit condition, then is cleared to zero."]
-    THE_H_COUNTER_COUNTS,
+    THE_H_COUNTER_COUNTS_UP_AND_CLEAR,
     #[doc = "The H counter counts up to its limit, then counts down to a limit condition or to 0."]
-    THE_H_COUNTER_COUNTS,
+    THE_H_COUNTER_COUNTS_UP_AND_DOWN,
 }
 impl BIDIR_HR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -291,8 +291,8 @@ impl BIDIR_HR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            BIDIR_HR::THE_H_COUNTER_COUNTS => false,
-            BIDIR_HR::THE_H_COUNTER_COUNTS => true,
+            BIDIR_HR::THE_H_COUNTER_COUNTS_UP_AND_CLEAR => false,
+            BIDIR_HR::THE_H_COUNTER_COUNTS_UP_AND_DOWN => true,
         }
     }
     #[allow(missing_docs)]
@@ -300,19 +300,19 @@ impl BIDIR_HR {
     #[inline]
     pub fn _from(value: bool) -> BIDIR_HR {
         match value {
-            false => BIDIR_HR::THE_H_COUNTER_COUNTS,
-            true => BIDIR_HR::THE_H_COUNTER_COUNTS,
+            false => BIDIR_HR::THE_H_COUNTER_COUNTS_UP_AND_CLEAR,
+            true => BIDIR_HR::THE_H_COUNTER_COUNTS_UP_AND_DOWN,
         }
     }
-    #[doc = "Checks if the value of the field is `THE_H_COUNTER_COUNTS`"]
+    #[doc = "Checks if the value of the field is `THE_H_COUNTER_COUNTS_UP_AND_CLEAR`"]
     #[inline]
-    pub fn is_the_h_counter_counts(&self) -> bool {
-        *self == BIDIR_HR::THE_H_COUNTER_COUNTS
+    pub fn is_the_h_counter_counts_up_and_clear(&self) -> bool {
+        *self == BIDIR_HR::THE_H_COUNTER_COUNTS_UP_AND_CLEAR
     }
-    #[doc = "Checks if the value of the field is `THE_H_COUNTER_COUNTS`"]
+    #[doc = "Checks if the value of the field is `THE_H_COUNTER_COUNTS_UP_AND_DOWN`"]
     #[inline]
-    pub fn is_the_h_counter_counts(&self) -> bool {
-        *self == BIDIR_HR::THE_H_COUNTER_COUNTS
+    pub fn is_the_h_counter_counts_up_and_down(&self) -> bool {
+        *self == BIDIR_HR::THE_H_COUNTER_COUNTS_UP_AND_DOWN
     }
 }
 #[doc = r" Value of the field"]
@@ -421,9 +421,9 @@ impl<'a> _CLRCTR_LW<'a> {
 #[doc = "Values that can be written to the field `BIDIR_L`"]
 pub enum BIDIR_LW {
     #[doc = "The counter counts up to its limit condition, then is cleared to zero."]
-    THE_COUNTER_COUNTS_U,
+    THE_COUNTER_COUNTS_UP_AND_CLEAR,
     #[doc = "The counter counts up to its limit, then counts down to a limit condition or to 0."]
-    THE_COUNTER_COUNTS_U,
+    THE_COUNTER_COUNTS_UP_AND_DOWN,
 }
 impl BIDIR_LW {
     #[allow(missing_docs)]
@@ -431,8 +431,8 @@ impl BIDIR_LW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            BIDIR_LW::THE_COUNTER_COUNTS_U => false,
-            BIDIR_LW::THE_COUNTER_COUNTS_U => true,
+            BIDIR_LW::THE_COUNTER_COUNTS_UP_AND_CLEAR => false,
+            BIDIR_LW::THE_COUNTER_COUNTS_UP_AND_DOWN => true,
         }
     }
 }
@@ -450,13 +450,13 @@ impl<'a> _BIDIR_LW<'a> {
     }
     #[doc = "The counter counts up to its limit condition, then is cleared to zero."]
     #[inline]
-    pub fn the_counter_counts_u(self) -> &'a mut W {
-        self.variant(BIDIR_LW::THE_COUNTER_COUNTS_U)
+    pub fn the_counter_counts_up_and_clear(self) -> &'a mut W {
+        self.variant(BIDIR_LW::THE_COUNTER_COUNTS_UP_AND_CLEAR)
     }
     #[doc = "The counter counts up to its limit, then counts down to a limit condition or to 0."]
     #[inline]
-    pub fn the_counter_counts_u(self) -> &'a mut W {
-        self.variant(BIDIR_LW::THE_COUNTER_COUNTS_U)
+    pub fn the_counter_counts_up_and_down(self) -> &'a mut W {
+        self.variant(BIDIR_LW::THE_COUNTER_COUNTS_UP_AND_DOWN)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -586,9 +586,9 @@ impl<'a> _CLRCTR_HW<'a> {
 #[doc = "Values that can be written to the field `BIDIR_H`"]
 pub enum BIDIR_HW {
     #[doc = "The H counter counts up to its limit condition, then is cleared to zero."]
-    THE_H_COUNTER_COUNTS,
+    THE_H_COUNTER_COUNTS_UP_AND_CLEAR,
     #[doc = "The H counter counts up to its limit, then counts down to a limit condition or to 0."]
-    THE_H_COUNTER_COUNTS,
+    THE_H_COUNTER_COUNTS_UP_AND_DOWN,
 }
 impl BIDIR_HW {
     #[allow(missing_docs)]
@@ -596,8 +596,8 @@ impl BIDIR_HW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            BIDIR_HW::THE_H_COUNTER_COUNTS => false,
-            BIDIR_HW::THE_H_COUNTER_COUNTS => true,
+            BIDIR_HW::THE_H_COUNTER_COUNTS_UP_AND_CLEAR => false,
+            BIDIR_HW::THE_H_COUNTER_COUNTS_UP_AND_DOWN => true,
         }
     }
 }
@@ -615,13 +615,13 @@ impl<'a> _BIDIR_HW<'a> {
     }
     #[doc = "The H counter counts up to its limit condition, then is cleared to zero."]
     #[inline]
-    pub fn the_h_counter_counts(self) -> &'a mut W {
-        self.variant(BIDIR_HW::THE_H_COUNTER_COUNTS)
+    pub fn the_h_counter_counts_up_and_clear(self) -> &'a mut W {
+        self.variant(BIDIR_HW::THE_H_COUNTER_COUNTS_UP_AND_CLEAR)
     }
     #[doc = "The H counter counts up to its limit, then counts down to a limit condition or to 0."]
     #[inline]
-    pub fn the_h_counter_counts(self) -> &'a mut W {
-        self.variant(BIDIR_HW::THE_H_COUNTER_COUNTS)
+    pub fn the_h_counter_counts_up_and_down(self) -> &'a mut W {
+        self.variant(BIDIR_HW::THE_H_COUNTER_COUNTS_UP_AND_DOWN)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

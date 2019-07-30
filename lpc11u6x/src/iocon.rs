@@ -2,7 +2,7 @@
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - I/O configuration for port PIO0"]
-    pub pio0_: [PIO0_; 4],
+    pub pio0__: [PIO0__; 4],
     #[doc = "0x10 - I/O configuration for open-drain pin PIO0_4"]
     pub pio0_4: PIO0_4,
     #[doc = "0x14 - I/O configuration for open-drain pin PIO0_5"]
@@ -47,7 +47,7 @@ pub struct RegisterBlock {
     pub pio1_: [PIO1_; 32],
     _reserved22: [u8; 16usize],
     #[doc = "0xf0 - I/O configuration for port PIO2"]
-    pub pio2_: [PIO2_; 2],
+    pub pio2__: [PIO2__; 2],
     _reserved23: [u8; 4usize],
     #[doc = "0xfc - I/O configuration for port PIO2"]
     pub pio2_2: PIO2_,
@@ -95,11 +95,11 @@ pub struct RegisterBlock {
     pub pio2_23: PIO2_,
 }
 #[doc = "I/O configuration for port PIO0"]
-pub struct PIO0_ {
+pub struct PIO0__ {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "I/O configuration for port PIO0"]
-pub mod pio0_;
+pub mod pio0__;
 #[doc = "I/O configuration for open-drain pin PIO0_4"]
 pub struct PIO0_4 {
     register: ::vcell::VolatileCell<u32>,
@@ -125,11 +125,11 @@ pub struct PIO1_ {
 #[doc = "I/O configuration for port PIO1"]
 pub mod pio1_;
 #[doc = "I/O configuration for port PIO2"]
-pub struct PIO2_ {
+pub struct PIO2__ {
     register: ::vcell::VolatileCell<u32>,
 }
 #[doc = "I/O configuration for port PIO2"]
-pub mod pio2_;
+pub mod pio2__;
 #[doc = "I/O configuration for port PIO2"]
 pub struct PIO2_ {
     register: ::vcell::VolatileCell<u32>,

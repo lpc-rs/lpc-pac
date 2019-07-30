@@ -46,9 +46,9 @@ impl super::CONFIG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UNIFYR {
     #[doc = "The SCT operates as two 16-bit counters named L and H."]
-    THE_SCT_OPERATES_AS,
+    THE_SCT_OPERATES_AS_TWO_16BIT,
     #[doc = "The SCT operates as a unified 32-bit counter."]
-    THE_SCT_OPERATES_AS,
+    THE_SCT_OPERATES_AS_UNIFIED_32BIT,
 }
 impl UNIFYR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl UNIFYR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            UNIFYR::THE_SCT_OPERATES_AS => false,
-            UNIFYR::THE_SCT_OPERATES_AS => true,
+            UNIFYR::THE_SCT_OPERATES_AS_TWO_16BIT => false,
+            UNIFYR::THE_SCT_OPERATES_AS_UNIFIED_32BIT => true,
         }
     }
     #[allow(missing_docs)]
@@ -74,19 +74,19 @@ impl UNIFYR {
     #[inline]
     pub fn _from(value: bool) -> UNIFYR {
         match value {
-            false => UNIFYR::THE_SCT_OPERATES_AS,
-            true => UNIFYR::THE_SCT_OPERATES_AS,
+            false => UNIFYR::THE_SCT_OPERATES_AS_TWO_16BIT,
+            true => UNIFYR::THE_SCT_OPERATES_AS_UNIFIED_32BIT,
         }
     }
-    #[doc = "Checks if the value of the field is `THE_SCT_OPERATES_AS`"]
+    #[doc = "Checks if the value of the field is `THE_SCT_OPERATES_AS_TWO_16BIT`"]
     #[inline]
-    pub fn is_the_sct_operates_as(&self) -> bool {
-        *self == UNIFYR::THE_SCT_OPERATES_AS
+    pub fn is_the_sct_operates_as_two_16bit(&self) -> bool {
+        *self == UNIFYR::THE_SCT_OPERATES_AS_TWO_16BIT
     }
-    #[doc = "Checks if the value of the field is `THE_SCT_OPERATES_AS`"]
+    #[doc = "Checks if the value of the field is `THE_SCT_OPERATES_AS_UNIFIED_32BIT`"]
     #[inline]
-    pub fn is_the_sct_operates_as(&self) -> bool {
-        *self == UNIFYR::THE_SCT_OPERATES_AS
+    pub fn is_the_sct_operates_as_unified_32bit(&self) -> bool {
+        *self == UNIFYR::THE_SCT_OPERATES_AS_UNIFIED_32BIT
     }
 }
 #[doc = "Possible values of the field `CLKMODE`"]
@@ -149,21 +149,21 @@ impl CLKMODER {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CKSELR {
     #[doc = "Rising edges on input 0."]
-    RISING_EDGES_ON_INPU,
+    RISING_EDGES_ON_INPUT_0,
     #[doc = "Falling edges on input 0."]
-    FALLING_EDGES_ON_INP,
+    FALLING_EDGES_ON_INPUT_0,
     #[doc = "Rising edges on input 1."]
-    RISING_EDGES_ON_INPU,
+    RISING_EDGES_ON_INPUT_1,
     #[doc = "Falling edges on input 1."]
-    FALLING_EDGES_ON_INP,
+    FALLING_EDGES_ON_INPUT_1,
     #[doc = "Rising edges on input 2."]
-    RISING_EDGES_ON_INPU,
+    RISING_EDGES_ON_INPUT_2,
     #[doc = "Falling edges on input 2."]
-    FALLING_EDGES_ON_INP,
+    FALLING_EDGES_ON_INPUT_2,
     #[doc = "Rising edges on input 3."]
-    RISING_EDGES_ON_INPU,
+    RISING_EDGES_ON_INPUT_3,
     #[doc = "Falling edges on input 3."]
-    FALLING_EDGES_ON_INP,
+    FALLING_EDGES_ON_INPUT_3,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -172,14 +172,14 @@ impl CKSELR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            CKSELR::RISING_EDGES_ON_INPU => 0,
-            CKSELR::FALLING_EDGES_ON_INP => 1,
-            CKSELR::RISING_EDGES_ON_INPU => 2,
-            CKSELR::FALLING_EDGES_ON_INP => 3,
-            CKSELR::RISING_EDGES_ON_INPU => 4,
-            CKSELR::FALLING_EDGES_ON_INP => 5,
-            CKSELR::RISING_EDGES_ON_INPU => 6,
-            CKSELR::FALLING_EDGES_ON_INP => 7,
+            CKSELR::RISING_EDGES_ON_INPUT_0 => 0,
+            CKSELR::FALLING_EDGES_ON_INPUT_0 => 1,
+            CKSELR::RISING_EDGES_ON_INPUT_1 => 2,
+            CKSELR::FALLING_EDGES_ON_INPUT_1 => 3,
+            CKSELR::RISING_EDGES_ON_INPUT_2 => 4,
+            CKSELR::FALLING_EDGES_ON_INPUT_2 => 5,
+            CKSELR::RISING_EDGES_ON_INPUT_3 => 6,
+            CKSELR::FALLING_EDGES_ON_INPUT_3 => 7,
             CKSELR::_Reserved(bits) => bits,
         }
     }
@@ -188,56 +188,56 @@ impl CKSELR {
     #[inline]
     pub fn _from(value: u8) -> CKSELR {
         match value {
-            0 => CKSELR::RISING_EDGES_ON_INPU,
-            1 => CKSELR::FALLING_EDGES_ON_INP,
-            2 => CKSELR::RISING_EDGES_ON_INPU,
-            3 => CKSELR::FALLING_EDGES_ON_INP,
-            4 => CKSELR::RISING_EDGES_ON_INPU,
-            5 => CKSELR::FALLING_EDGES_ON_INP,
-            6 => CKSELR::RISING_EDGES_ON_INPU,
-            7 => CKSELR::FALLING_EDGES_ON_INP,
+            0 => CKSELR::RISING_EDGES_ON_INPUT_0,
+            1 => CKSELR::FALLING_EDGES_ON_INPUT_0,
+            2 => CKSELR::RISING_EDGES_ON_INPUT_1,
+            3 => CKSELR::FALLING_EDGES_ON_INPUT_1,
+            4 => CKSELR::RISING_EDGES_ON_INPUT_2,
+            5 => CKSELR::FALLING_EDGES_ON_INPUT_2,
+            6 => CKSELR::RISING_EDGES_ON_INPUT_3,
+            7 => CKSELR::FALLING_EDGES_ON_INPUT_3,
             i => CKSELR::_Reserved(i),
         }
     }
-    #[doc = "Checks if the value of the field is `RISING_EDGES_ON_INPU`"]
+    #[doc = "Checks if the value of the field is `RISING_EDGES_ON_INPUT_0`"]
     #[inline]
-    pub fn is_rising_edges_on_inpu(&self) -> bool {
-        *self == CKSELR::RISING_EDGES_ON_INPU
+    pub fn is_rising_edges_on_input_0(&self) -> bool {
+        *self == CKSELR::RISING_EDGES_ON_INPUT_0
     }
-    #[doc = "Checks if the value of the field is `FALLING_EDGES_ON_INP`"]
+    #[doc = "Checks if the value of the field is `FALLING_EDGES_ON_INPUT_0`"]
     #[inline]
-    pub fn is_falling_edges_on_inp(&self) -> bool {
-        *self == CKSELR::FALLING_EDGES_ON_INP
+    pub fn is_falling_edges_on_input_0(&self) -> bool {
+        *self == CKSELR::FALLING_EDGES_ON_INPUT_0
     }
-    #[doc = "Checks if the value of the field is `RISING_EDGES_ON_INPU`"]
+    #[doc = "Checks if the value of the field is `RISING_EDGES_ON_INPUT_1`"]
     #[inline]
-    pub fn is_rising_edges_on_inpu(&self) -> bool {
-        *self == CKSELR::RISING_EDGES_ON_INPU
+    pub fn is_rising_edges_on_input_1(&self) -> bool {
+        *self == CKSELR::RISING_EDGES_ON_INPUT_1
     }
-    #[doc = "Checks if the value of the field is `FALLING_EDGES_ON_INP`"]
+    #[doc = "Checks if the value of the field is `FALLING_EDGES_ON_INPUT_1`"]
     #[inline]
-    pub fn is_falling_edges_on_inp(&self) -> bool {
-        *self == CKSELR::FALLING_EDGES_ON_INP
+    pub fn is_falling_edges_on_input_1(&self) -> bool {
+        *self == CKSELR::FALLING_EDGES_ON_INPUT_1
     }
-    #[doc = "Checks if the value of the field is `RISING_EDGES_ON_INPU`"]
+    #[doc = "Checks if the value of the field is `RISING_EDGES_ON_INPUT_2`"]
     #[inline]
-    pub fn is_rising_edges_on_inpu(&self) -> bool {
-        *self == CKSELR::RISING_EDGES_ON_INPU
+    pub fn is_rising_edges_on_input_2(&self) -> bool {
+        *self == CKSELR::RISING_EDGES_ON_INPUT_2
     }
-    #[doc = "Checks if the value of the field is `FALLING_EDGES_ON_INP`"]
+    #[doc = "Checks if the value of the field is `FALLING_EDGES_ON_INPUT_2`"]
     #[inline]
-    pub fn is_falling_edges_on_inp(&self) -> bool {
-        *self == CKSELR::FALLING_EDGES_ON_INP
+    pub fn is_falling_edges_on_input_2(&self) -> bool {
+        *self == CKSELR::FALLING_EDGES_ON_INPUT_2
     }
-    #[doc = "Checks if the value of the field is `RISING_EDGES_ON_INPU`"]
+    #[doc = "Checks if the value of the field is `RISING_EDGES_ON_INPUT_3`"]
     #[inline]
-    pub fn is_rising_edges_on_inpu(&self) -> bool {
-        *self == CKSELR::RISING_EDGES_ON_INPU
+    pub fn is_rising_edges_on_input_3(&self) -> bool {
+        *self == CKSELR::RISING_EDGES_ON_INPUT_3
     }
-    #[doc = "Checks if the value of the field is `FALLING_EDGES_ON_INP`"]
+    #[doc = "Checks if the value of the field is `FALLING_EDGES_ON_INPUT_3`"]
     #[inline]
-    pub fn is_falling_edges_on_inp(&self) -> bool {
-        *self == CKSELR::FALLING_EDGES_ON_INP
+    pub fn is_falling_edges_on_input_3(&self) -> bool {
+        *self == CKSELR::FALLING_EDGES_ON_INPUT_3
     }
 }
 #[doc = r" Value of the field"]
@@ -338,9 +338,9 @@ impl AUTOLIMIT_HR {
 #[doc = "Values that can be written to the field `UNIFY`"]
 pub enum UNIFYW {
     #[doc = "The SCT operates as two 16-bit counters named L and H."]
-    THE_SCT_OPERATES_AS,
+    THE_SCT_OPERATES_AS_TWO_16BIT,
     #[doc = "The SCT operates as a unified 32-bit counter."]
-    THE_SCT_OPERATES_AS,
+    THE_SCT_OPERATES_AS_UNIFIED_32BIT,
 }
 impl UNIFYW {
     #[allow(missing_docs)]
@@ -348,8 +348,8 @@ impl UNIFYW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            UNIFYW::THE_SCT_OPERATES_AS => false,
-            UNIFYW::THE_SCT_OPERATES_AS => true,
+            UNIFYW::THE_SCT_OPERATES_AS_TWO_16BIT => false,
+            UNIFYW::THE_SCT_OPERATES_AS_UNIFIED_32BIT => true,
         }
     }
 }
@@ -367,13 +367,13 @@ impl<'a> _UNIFYW<'a> {
     }
     #[doc = "The SCT operates as two 16-bit counters named L and H."]
     #[inline]
-    pub fn the_sct_operates_as(self) -> &'a mut W {
-        self.variant(UNIFYW::THE_SCT_OPERATES_AS)
+    pub fn the_sct_operates_as_two_16bit(self) -> &'a mut W {
+        self.variant(UNIFYW::THE_SCT_OPERATES_AS_TWO_16BIT)
     }
     #[doc = "The SCT operates as a unified 32-bit counter."]
     #[inline]
-    pub fn the_sct_operates_as(self) -> &'a mut W {
-        self.variant(UNIFYW::THE_SCT_OPERATES_AS)
+    pub fn the_sct_operates_as_unified_32bit(self) -> &'a mut W {
+        self.variant(UNIFYW::THE_SCT_OPERATES_AS_UNIFIED_32BIT)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -462,21 +462,21 @@ impl<'a> _CLKMODEW<'a> {
 #[doc = "Values that can be written to the field `CKSEL`"]
 pub enum CKSELW {
     #[doc = "Rising edges on input 0."]
-    RISING_EDGES_ON_INPU,
+    RISING_EDGES_ON_INPUT_0,
     #[doc = "Falling edges on input 0."]
-    FALLING_EDGES_ON_INP,
+    FALLING_EDGES_ON_INPUT_0,
     #[doc = "Rising edges on input 1."]
-    RISING_EDGES_ON_INPU,
+    RISING_EDGES_ON_INPUT_1,
     #[doc = "Falling edges on input 1."]
-    FALLING_EDGES_ON_INP,
+    FALLING_EDGES_ON_INPUT_1,
     #[doc = "Rising edges on input 2."]
-    RISING_EDGES_ON_INPU,
+    RISING_EDGES_ON_INPUT_2,
     #[doc = "Falling edges on input 2."]
-    FALLING_EDGES_ON_INP,
+    FALLING_EDGES_ON_INPUT_2,
     #[doc = "Rising edges on input 3."]
-    RISING_EDGES_ON_INPU,
+    RISING_EDGES_ON_INPUT_3,
     #[doc = "Falling edges on input 3."]
-    FALLING_EDGES_ON_INP,
+    FALLING_EDGES_ON_INPUT_3,
 }
 impl CKSELW {
     #[allow(missing_docs)]
@@ -484,14 +484,14 @@ impl CKSELW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            CKSELW::RISING_EDGES_ON_INPU => 0,
-            CKSELW::FALLING_EDGES_ON_INP => 1,
-            CKSELW::RISING_EDGES_ON_INPU => 2,
-            CKSELW::FALLING_EDGES_ON_INP => 3,
-            CKSELW::RISING_EDGES_ON_INPU => 4,
-            CKSELW::FALLING_EDGES_ON_INP => 5,
-            CKSELW::RISING_EDGES_ON_INPU => 6,
-            CKSELW::FALLING_EDGES_ON_INP => 7,
+            CKSELW::RISING_EDGES_ON_INPUT_0 => 0,
+            CKSELW::FALLING_EDGES_ON_INPUT_0 => 1,
+            CKSELW::RISING_EDGES_ON_INPUT_1 => 2,
+            CKSELW::FALLING_EDGES_ON_INPUT_1 => 3,
+            CKSELW::RISING_EDGES_ON_INPUT_2 => 4,
+            CKSELW::FALLING_EDGES_ON_INPUT_2 => 5,
+            CKSELW::RISING_EDGES_ON_INPUT_3 => 6,
+            CKSELW::FALLING_EDGES_ON_INPUT_3 => 7,
         }
     }
 }
@@ -507,43 +507,43 @@ impl<'a> _CKSELW<'a> {
     }
     #[doc = "Rising edges on input 0."]
     #[inline]
-    pub fn rising_edges_on_inpu(self) -> &'a mut W {
-        self.variant(CKSELW::RISING_EDGES_ON_INPU)
+    pub fn rising_edges_on_input_0(self) -> &'a mut W {
+        self.variant(CKSELW::RISING_EDGES_ON_INPUT_0)
     }
     #[doc = "Falling edges on input 0."]
     #[inline]
-    pub fn falling_edges_on_inp(self) -> &'a mut W {
-        self.variant(CKSELW::FALLING_EDGES_ON_INP)
+    pub fn falling_edges_on_input_0(self) -> &'a mut W {
+        self.variant(CKSELW::FALLING_EDGES_ON_INPUT_0)
     }
     #[doc = "Rising edges on input 1."]
     #[inline]
-    pub fn rising_edges_on_inpu(self) -> &'a mut W {
-        self.variant(CKSELW::RISING_EDGES_ON_INPU)
+    pub fn rising_edges_on_input_1(self) -> &'a mut W {
+        self.variant(CKSELW::RISING_EDGES_ON_INPUT_1)
     }
     #[doc = "Falling edges on input 1."]
     #[inline]
-    pub fn falling_edges_on_inp(self) -> &'a mut W {
-        self.variant(CKSELW::FALLING_EDGES_ON_INP)
+    pub fn falling_edges_on_input_1(self) -> &'a mut W {
+        self.variant(CKSELW::FALLING_EDGES_ON_INPUT_1)
     }
     #[doc = "Rising edges on input 2."]
     #[inline]
-    pub fn rising_edges_on_inpu(self) -> &'a mut W {
-        self.variant(CKSELW::RISING_EDGES_ON_INPU)
+    pub fn rising_edges_on_input_2(self) -> &'a mut W {
+        self.variant(CKSELW::RISING_EDGES_ON_INPUT_2)
     }
     #[doc = "Falling edges on input 2."]
     #[inline]
-    pub fn falling_edges_on_inp(self) -> &'a mut W {
-        self.variant(CKSELW::FALLING_EDGES_ON_INP)
+    pub fn falling_edges_on_input_2(self) -> &'a mut W {
+        self.variant(CKSELW::FALLING_EDGES_ON_INPUT_2)
     }
     #[doc = "Rising edges on input 3."]
     #[inline]
-    pub fn rising_edges_on_inpu(self) -> &'a mut W {
-        self.variant(CKSELW::RISING_EDGES_ON_INPU)
+    pub fn rising_edges_on_input_3(self) -> &'a mut W {
+        self.variant(CKSELW::RISING_EDGES_ON_INPUT_3)
     }
     #[doc = "Falling edges on input 3."]
     #[inline]
-    pub fn falling_edges_on_inp(self) -> &'a mut W {
-        self.variant(CKSELW::FALLING_EDGES_ON_INP)
+    pub fn falling_edges_on_input_3(self) -> &'a mut W {
+        self.variant(CKSELW::FALLING_EDGES_ON_INPUT_3)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]

@@ -4,9 +4,10 @@ version = "0.3.0"
 authors = [
     "Raphael Nestler <raphael.nestler@gmail.com>",
     "Danilo Bargen <mail@dbrgn.ch>",
+    "Akos Vandra <akos@vandra.hu>"
 ]
-description = "Register mappings for the NXP LPC11Uxx family of ARM Cortex-M0+ microcontrollers"
-documentation = "https://docs.rs/lpc11uxx"
+description = "Register mappings for the NXP LPC11U6x/LPC11E6x family of ARM Cortex-M0+ microcontrollers"
+documentation = "https://docs.rs/lpc11u6xe6x"
 repository = "https://github.com/lpc-rs/lpc-pac"
 license = "MIT OR Apache-2.0"
 readme = "README.md"

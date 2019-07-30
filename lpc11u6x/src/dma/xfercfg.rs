@@ -140,9 +140,9 @@ impl RELOADR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SWTRIGR {
     #[doc = "When written by software, the trigger for this channel is not set. A new trigger, as defined by the HWTRIGEN, TRIGPOL, and TRIGTYPE will be needed to start the channel."]
-    WHEN_WRITTEN_BY_SOFT,
+    WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_NOT_SET,
     #[doc = "When written by software, the trigger for this channel is set immediately. This feature should not be used with level triggering when TRIGBURST = 0."]
-    WHEN_WRITTEN_BY_SOFT,
+    WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_SET,
 }
 impl SWTRIGR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -159,8 +159,8 @@ impl SWTRIGR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            SWTRIGR::WHEN_WRITTEN_BY_SOFT => false,
-            SWTRIGR::WHEN_WRITTEN_BY_SOFT => true,
+            SWTRIGR::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_NOT_SET => false,
+            SWTRIGR::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_SET => true,
         }
     }
     #[allow(missing_docs)]
@@ -168,19 +168,19 @@ impl SWTRIGR {
     #[inline]
     pub fn _from(value: bool) -> SWTRIGR {
         match value {
-            false => SWTRIGR::WHEN_WRITTEN_BY_SOFT,
-            true => SWTRIGR::WHEN_WRITTEN_BY_SOFT,
+            false => SWTRIGR::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_NOT_SET,
+            true => SWTRIGR::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_SET,
         }
     }
-    #[doc = "Checks if the value of the field is `WHEN_WRITTEN_BY_SOFT`"]
+    #[doc = "Checks if the value of the field is `WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_NOT_SET`"]
     #[inline]
-    pub fn is_when_written_by_soft(&self) -> bool {
-        *self == SWTRIGR::WHEN_WRITTEN_BY_SOFT
+    pub fn is_when_written_by_software_trigger_not_set(&self) -> bool {
+        *self == SWTRIGR::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_NOT_SET
     }
-    #[doc = "Checks if the value of the field is `WHEN_WRITTEN_BY_SOFT`"]
+    #[doc = "Checks if the value of the field is `WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_SET`"]
     #[inline]
-    pub fn is_when_written_by_soft(&self) -> bool {
-        *self == SWTRIGR::WHEN_WRITTEN_BY_SOFT
+    pub fn is_when_written_by_software_trigger_set(&self) -> bool {
+        *self == SWTRIGR::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_SET
     }
 }
 #[doc = "Possible values of the field `CLRTRIG`"]
@@ -613,9 +613,9 @@ impl<'a> _RELOADW<'a> {
 #[doc = "Values that can be written to the field `SWTRIG`"]
 pub enum SWTRIGW {
     #[doc = "When written by software, the trigger for this channel is not set. A new trigger, as defined by the HWTRIGEN, TRIGPOL, and TRIGTYPE will be needed to start the channel."]
-    WHEN_WRITTEN_BY_SOFT,
+    WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_NOT_SET,
     #[doc = "When written by software, the trigger for this channel is set immediately. This feature should not be used with level triggering when TRIGBURST = 0."]
-    WHEN_WRITTEN_BY_SOFT,
+    WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_SET,
 }
 impl SWTRIGW {
     #[allow(missing_docs)]
@@ -623,8 +623,8 @@ impl SWTRIGW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            SWTRIGW::WHEN_WRITTEN_BY_SOFT => false,
-            SWTRIGW::WHEN_WRITTEN_BY_SOFT => true,
+            SWTRIGW::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_NOT_SET => false,
+            SWTRIGW::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_SET => true,
         }
     }
 }
@@ -642,13 +642,13 @@ impl<'a> _SWTRIGW<'a> {
     }
     #[doc = "When written by software, the trigger for this channel is not set. A new trigger, as defined by the HWTRIGEN, TRIGPOL, and TRIGTYPE will be needed to start the channel."]
     #[inline]
-    pub fn when_written_by_soft(self) -> &'a mut W {
-        self.variant(SWTRIGW::WHEN_WRITTEN_BY_SOFT)
+    pub fn when_written_by_software_trigger_not_set(self) -> &'a mut W {
+        self.variant(SWTRIGW::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_NOT_SET)
     }
     #[doc = "When written by software, the trigger for this channel is set immediately. This feature should not be used with level triggering when TRIGBURST = 0."]
     #[inline]
-    pub fn when_written_by_soft(self) -> &'a mut W {
-        self.variant(SWTRIGW::WHEN_WRITTEN_BY_SOFT)
+    pub fn when_written_by_software_trigger_set(self) -> &'a mut W {
+        self.variant(SWTRIGW::WHEN_WRITTEN_BY_SOFTWARE_TRIGGER_SET)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

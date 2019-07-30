@@ -57,35 +57,35 @@ impl DIVSELR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FREQSELR {
     #[doc = "0.6 MHz"]
-    _0,
+    _600KHZ,
     #[doc = "1.05 MHz"]
-    _1,
+    _1050KHZ,
     #[doc = "1.4 MHz"]
-    _1,
+    _1400KHZ,
     #[doc = "1.75 MHz"]
-    _1,
+    _1750KHZ,
     #[doc = "2.1 MHz"]
-    _2,
+    _2100KHZ,
     #[doc = "2.4 MHz"]
-    _2,
+    _2400KHZ,
     #[doc = "2.7 MHz"]
-    _2,
+    _2700KHZ,
     #[doc = "3.0 MHz"]
-    _3,
+    _3000KHZ,
     #[doc = "3.25 MHz"]
-    _3,
+    _3250KHZ,
     #[doc = "3.5 MHz"]
-    _3,
+    _3500KHZ,
     #[doc = "3.75 MHz"]
-    _3,
+    _3750KHZ,
     #[doc = "4.0 MHz"]
-    _4,
+    _4000KHZ,
     #[doc = "4.2 MHz"]
-    _4,
+    _4200KHZ,
     #[doc = "4.4 MHz"]
-    _4,
+    _4400KHZ,
     #[doc = "4.6 MHz"]
-    _4,
+    _4600KHZ,
     #[doc = r" Reserved"]
     _Reserved(u8),
 }
@@ -94,21 +94,21 @@ impl FREQSELR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            FREQSELR::_0 => 1,
-            FREQSELR::_1 => 2,
-            FREQSELR::_1 => 3,
-            FREQSELR::_1 => 4,
-            FREQSELR::_2 => 5,
-            FREQSELR::_2 => 6,
-            FREQSELR::_2 => 7,
-            FREQSELR::_3 => 8,
-            FREQSELR::_3 => 9,
-            FREQSELR::_3 => 10,
-            FREQSELR::_3 => 11,
-            FREQSELR::_4 => 12,
-            FREQSELR::_4 => 13,
-            FREQSELR::_4 => 14,
-            FREQSELR::_4 => 15,
+            FREQSELR::_600KHZ => 1,
+            FREQSELR::_1050KHZ => 2,
+            FREQSELR::_1400KHZ => 3,
+            FREQSELR::_1750KHZ => 4,
+            FREQSELR::_2100KHZ => 5,
+            FREQSELR::_2400KHZ => 6,
+            FREQSELR::_2700KHZ => 7,
+            FREQSELR::_3000KHZ => 8,
+            FREQSELR::_3250KHZ => 9,
+            FREQSELR::_3500KHZ => 10,
+            FREQSELR::_3750KHZ => 11,
+            FREQSELR::_4000KHZ => 12,
+            FREQSELR::_4200KHZ => 13,
+            FREQSELR::_4400KHZ => 14,
+            FREQSELR::_4600KHZ => 15,
             FREQSELR::_Reserved(bits) => bits,
         }
     }
@@ -117,98 +117,98 @@ impl FREQSELR {
     #[inline]
     pub fn _from(value: u8) -> FREQSELR {
         match value {
-            1 => FREQSELR::_0,
-            2 => FREQSELR::_1,
-            3 => FREQSELR::_1,
-            4 => FREQSELR::_1,
-            5 => FREQSELR::_2,
-            6 => FREQSELR::_2,
-            7 => FREQSELR::_2,
-            8 => FREQSELR::_3,
-            9 => FREQSELR::_3,
-            10 => FREQSELR::_3,
-            11 => FREQSELR::_3,
-            12 => FREQSELR::_4,
-            13 => FREQSELR::_4,
-            14 => FREQSELR::_4,
-            15 => FREQSELR::_4,
+            1 => FREQSELR::_600KHZ,
+            2 => FREQSELR::_1050KHZ,
+            3 => FREQSELR::_1400KHZ,
+            4 => FREQSELR::_1750KHZ,
+            5 => FREQSELR::_2100KHZ,
+            6 => FREQSELR::_2400KHZ,
+            7 => FREQSELR::_2700KHZ,
+            8 => FREQSELR::_3000KHZ,
+            9 => FREQSELR::_3250KHZ,
+            10 => FREQSELR::_3500KHZ,
+            11 => FREQSELR::_3750KHZ,
+            12 => FREQSELR::_4000KHZ,
+            13 => FREQSELR::_4200KHZ,
+            14 => FREQSELR::_4400KHZ,
+            15 => FREQSELR::_4600KHZ,
             i => FREQSELR::_Reserved(i),
         }
     }
-    #[doc = "Checks if the value of the field is `_0`"]
+    #[doc = "Checks if the value of the field is `_600KHZ`"]
     #[inline]
-    pub fn is_0(&self) -> bool {
-        *self == FREQSELR::_0
+    pub fn is_600khz(&self) -> bool {
+        *self == FREQSELR::_600KHZ
     }
-    #[doc = "Checks if the value of the field is `_1`"]
+    #[doc = "Checks if the value of the field is `_1050KHZ`"]
     #[inline]
-    pub fn is_1(&self) -> bool {
-        *self == FREQSELR::_1
+    pub fn is_1050khz(&self) -> bool {
+        *self == FREQSELR::_1050KHZ
     }
-    #[doc = "Checks if the value of the field is `_1`"]
+    #[doc = "Checks if the value of the field is `_1400KHZ`"]
     #[inline]
-    pub fn is_1(&self) -> bool {
-        *self == FREQSELR::_1
+    pub fn is_1400khz(&self) -> bool {
+        *self == FREQSELR::_1400KHZ
     }
-    #[doc = "Checks if the value of the field is `_1`"]
+    #[doc = "Checks if the value of the field is `_1750KHZ`"]
     #[inline]
-    pub fn is_1(&self) -> bool {
-        *self == FREQSELR::_1
+    pub fn is_1750khz(&self) -> bool {
+        *self == FREQSELR::_1750KHZ
     }
-    #[doc = "Checks if the value of the field is `_2`"]
+    #[doc = "Checks if the value of the field is `_2100KHZ`"]
     #[inline]
-    pub fn is_2(&self) -> bool {
-        *self == FREQSELR::_2
+    pub fn is_2100khz(&self) -> bool {
+        *self == FREQSELR::_2100KHZ
     }
-    #[doc = "Checks if the value of the field is `_2`"]
+    #[doc = "Checks if the value of the field is `_2400KHZ`"]
     #[inline]
-    pub fn is_2(&self) -> bool {
-        *self == FREQSELR::_2
+    pub fn is_2400khz(&self) -> bool {
+        *self == FREQSELR::_2400KHZ
     }
-    #[doc = "Checks if the value of the field is `_2`"]
+    #[doc = "Checks if the value of the field is `_2700KHZ`"]
     #[inline]
-    pub fn is_2(&self) -> bool {
-        *self == FREQSELR::_2
+    pub fn is_2700khz(&self) -> bool {
+        *self == FREQSELR::_2700KHZ
     }
-    #[doc = "Checks if the value of the field is `_3`"]
+    #[doc = "Checks if the value of the field is `_3000KHZ`"]
     #[inline]
-    pub fn is_3(&self) -> bool {
-        *self == FREQSELR::_3
+    pub fn is_3000khz(&self) -> bool {
+        *self == FREQSELR::_3000KHZ
     }
-    #[doc = "Checks if the value of the field is `_3`"]
+    #[doc = "Checks if the value of the field is `_3250KHZ`"]
     #[inline]
-    pub fn is_3(&self) -> bool {
-        *self == FREQSELR::_3
+    pub fn is_3250khz(&self) -> bool {
+        *self == FREQSELR::_3250KHZ
     }
-    #[doc = "Checks if the value of the field is `_3`"]
+    #[doc = "Checks if the value of the field is `_3500KHZ`"]
     #[inline]
-    pub fn is_3(&self) -> bool {
-        *self == FREQSELR::_3
+    pub fn is_3500khz(&self) -> bool {
+        *self == FREQSELR::_3500KHZ
     }
-    #[doc = "Checks if the value of the field is `_3`"]
+    #[doc = "Checks if the value of the field is `_3750KHZ`"]
     #[inline]
-    pub fn is_3(&self) -> bool {
-        *self == FREQSELR::_3
+    pub fn is_3750khz(&self) -> bool {
+        *self == FREQSELR::_3750KHZ
     }
-    #[doc = "Checks if the value of the field is `_4`"]
+    #[doc = "Checks if the value of the field is `_4000KHZ`"]
     #[inline]
-    pub fn is_4(&self) -> bool {
-        *self == FREQSELR::_4
+    pub fn is_4000khz(&self) -> bool {
+        *self == FREQSELR::_4000KHZ
     }
-    #[doc = "Checks if the value of the field is `_4`"]
+    #[doc = "Checks if the value of the field is `_4200KHZ`"]
     #[inline]
-    pub fn is_4(&self) -> bool {
-        *self == FREQSELR::_4
+    pub fn is_4200khz(&self) -> bool {
+        *self == FREQSELR::_4200KHZ
     }
-    #[doc = "Checks if the value of the field is `_4`"]
+    #[doc = "Checks if the value of the field is `_4400KHZ`"]
     #[inline]
-    pub fn is_4(&self) -> bool {
-        *self == FREQSELR::_4
+    pub fn is_4400khz(&self) -> bool {
+        *self == FREQSELR::_4400KHZ
     }
-    #[doc = "Checks if the value of the field is `_4`"]
+    #[doc = "Checks if the value of the field is `_4600KHZ`"]
     #[inline]
-    pub fn is_4(&self) -> bool {
-        *self == FREQSELR::_4
+    pub fn is_4600khz(&self) -> bool {
+        *self == FREQSELR::_4600KHZ
     }
 }
 #[doc = r" Proxy"]
@@ -229,35 +229,35 @@ impl<'a> _DIVSELW<'a> {
 #[doc = "Values that can be written to the field `FREQSEL`"]
 pub enum FREQSELW {
     #[doc = "0.6 MHz"]
-    _0,
+    _600KHZ,
     #[doc = "1.05 MHz"]
-    _1,
+    _1050KHZ,
     #[doc = "1.4 MHz"]
-    _1,
+    _1400KHZ,
     #[doc = "1.75 MHz"]
-    _1,
+    _1750KHZ,
     #[doc = "2.1 MHz"]
-    _2,
+    _2100KHZ,
     #[doc = "2.4 MHz"]
-    _2,
+    _2400KHZ,
     #[doc = "2.7 MHz"]
-    _2,
+    _2700KHZ,
     #[doc = "3.0 MHz"]
-    _3,
+    _3000KHZ,
     #[doc = "3.25 MHz"]
-    _3,
+    _3250KHZ,
     #[doc = "3.5 MHz"]
-    _3,
+    _3500KHZ,
     #[doc = "3.75 MHz"]
-    _3,
+    _3750KHZ,
     #[doc = "4.0 MHz"]
-    _4,
+    _4000KHZ,
     #[doc = "4.2 MHz"]
-    _4,
+    _4200KHZ,
     #[doc = "4.4 MHz"]
-    _4,
+    _4400KHZ,
     #[doc = "4.6 MHz"]
-    _4,
+    _4600KHZ,
 }
 impl FREQSELW {
     #[allow(missing_docs)]
@@ -265,21 +265,21 @@ impl FREQSELW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            FREQSELW::_0 => 1,
-            FREQSELW::_1 => 2,
-            FREQSELW::_1 => 3,
-            FREQSELW::_1 => 4,
-            FREQSELW::_2 => 5,
-            FREQSELW::_2 => 6,
-            FREQSELW::_2 => 7,
-            FREQSELW::_3 => 8,
-            FREQSELW::_3 => 9,
-            FREQSELW::_3 => 10,
-            FREQSELW::_3 => 11,
-            FREQSELW::_4 => 12,
-            FREQSELW::_4 => 13,
-            FREQSELW::_4 => 14,
-            FREQSELW::_4 => 15,
+            FREQSELW::_600KHZ => 1,
+            FREQSELW::_1050KHZ => 2,
+            FREQSELW::_1400KHZ => 3,
+            FREQSELW::_1750KHZ => 4,
+            FREQSELW::_2100KHZ => 5,
+            FREQSELW::_2400KHZ => 6,
+            FREQSELW::_2700KHZ => 7,
+            FREQSELW::_3000KHZ => 8,
+            FREQSELW::_3250KHZ => 9,
+            FREQSELW::_3500KHZ => 10,
+            FREQSELW::_3750KHZ => 11,
+            FREQSELW::_4000KHZ => 12,
+            FREQSELW::_4200KHZ => 13,
+            FREQSELW::_4400KHZ => 14,
+            FREQSELW::_4600KHZ => 15,
         }
     }
 }
@@ -295,78 +295,78 @@ impl<'a> _FREQSELW<'a> {
     }
     #[doc = "0.6 MHz"]
     #[inline]
-    pub fn _0(self) -> &'a mut W {
-        self.variant(FREQSELW::_0)
+    pub fn _600khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_600KHZ)
     }
     #[doc = "1.05 MHz"]
     #[inline]
-    pub fn _1(self) -> &'a mut W {
-        self.variant(FREQSELW::_1)
+    pub fn _1050khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_1050KHZ)
     }
     #[doc = "1.4 MHz"]
     #[inline]
-    pub fn _1(self) -> &'a mut W {
-        self.variant(FREQSELW::_1)
+    pub fn _1400khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_1400KHZ)
     }
     #[doc = "1.75 MHz"]
     #[inline]
-    pub fn _1(self) -> &'a mut W {
-        self.variant(FREQSELW::_1)
+    pub fn _1750khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_1750KHZ)
     }
     #[doc = "2.1 MHz"]
     #[inline]
-    pub fn _2(self) -> &'a mut W {
-        self.variant(FREQSELW::_2)
+    pub fn _2100khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_2100KHZ)
     }
     #[doc = "2.4 MHz"]
     #[inline]
-    pub fn _2(self) -> &'a mut W {
-        self.variant(FREQSELW::_2)
+    pub fn _2400khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_2400KHZ)
     }
     #[doc = "2.7 MHz"]
     #[inline]
-    pub fn _2(self) -> &'a mut W {
-        self.variant(FREQSELW::_2)
+    pub fn _2700khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_2700KHZ)
     }
     #[doc = "3.0 MHz"]
     #[inline]
-    pub fn _3(self) -> &'a mut W {
-        self.variant(FREQSELW::_3)
+    pub fn _3000khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_3000KHZ)
     }
     #[doc = "3.25 MHz"]
     #[inline]
-    pub fn _3(self) -> &'a mut W {
-        self.variant(FREQSELW::_3)
+    pub fn _3250khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_3250KHZ)
     }
     #[doc = "3.5 MHz"]
     #[inline]
-    pub fn _3(self) -> &'a mut W {
-        self.variant(FREQSELW::_3)
+    pub fn _3500khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_3500KHZ)
     }
     #[doc = "3.75 MHz"]
     #[inline]
-    pub fn _3(self) -> &'a mut W {
-        self.variant(FREQSELW::_3)
+    pub fn _3750khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_3750KHZ)
     }
     #[doc = "4.0 MHz"]
     #[inline]
-    pub fn _4(self) -> &'a mut W {
-        self.variant(FREQSELW::_4)
+    pub fn _4000khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_4000KHZ)
     }
     #[doc = "4.2 MHz"]
     #[inline]
-    pub fn _4(self) -> &'a mut W {
-        self.variant(FREQSELW::_4)
+    pub fn _4200khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_4200KHZ)
     }
     #[doc = "4.4 MHz"]
     #[inline]
-    pub fn _4(self) -> &'a mut W {
-        self.variant(FREQSELW::_4)
+    pub fn _4400khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_4400KHZ)
     }
     #[doc = "4.6 MHz"]
     #[inline]
-    pub fn _4(self) -> &'a mut W {
-        self.variant(FREQSELW::_4)
+    pub fn _4600khz(self) -> &'a mut W {
+        self.variant(FREQSELW::_4600KHZ)
     }
     #[doc = r" Writes raw bits to the field"]
     #[inline]
