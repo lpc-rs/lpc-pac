@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - Byte pin registers"]
@@ -30,55 +30,55 @@ pub struct RegisterBlock {
 }
 #[doc = "Byte pin registers"]
 pub struct B {
-    register: ::vcell::VolatileCell<u8>,
+    register: vcell::VolatileCell<u8>,
 }
 #[doc = "Byte pin registers"]
 pub mod b;
 #[doc = "Word pin registers"]
 pub struct W {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Word pin registers"]
 pub mod w;
 #[doc = "Port Direction registers"]
 pub struct DIR {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Port Direction registers"]
 pub mod dir;
 #[doc = "Port Mask register"]
 pub struct MASK {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Port Mask register"]
 pub mod mask;
 #[doc = "Port pin register"]
 pub struct PIN {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Port pin register"]
 pub mod pin;
 #[doc = "Masked port register"]
 pub struct MPIN {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Masked port register"]
 pub mod mpin;
 #[doc = "Write: Set port register Read: port output bits"]
 pub struct SET {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Write: Set port register Read: port output bits"]
 pub mod set;
 #[doc = "Clear port"]
 pub struct CLR {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Clear port"]
 pub mod clr;
 #[doc = "Toggle port"]
 pub struct NOT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Toggle port"]
 pub mod not;

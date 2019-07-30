@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - GPIO grouped interrupt control register"]
@@ -12,19 +12,19 @@ pub struct RegisterBlock {
 }
 #[doc = "GPIO grouped interrupt control register"]
 pub struct CTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "GPIO grouped interrupt control register"]
 pub mod ctrl;
 #[doc = "GPIO grouped interrupt port 0 polarity register"]
 pub struct PORT_POL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "GPIO grouped interrupt port 0 polarity register"]
 pub mod port_pol;
 #[doc = "GPIO grouped interrupt port enable register"]
 pub struct PORT_ENA {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "GPIO grouped interrupt port enable register"]
 pub mod port_ena;

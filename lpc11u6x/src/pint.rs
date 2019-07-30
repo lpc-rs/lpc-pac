@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - Pin Interrupt Mode register"]
@@ -30,79 +30,79 @@ pub struct RegisterBlock {
 }
 #[doc = "Pin Interrupt Mode register"]
 pub struct ISEL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin Interrupt Mode register"]
 pub mod isel;
 #[doc = "Pin interrupt level or rising edge interrupt enable register"]
 pub struct IENR {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin interrupt level or rising edge interrupt enable register"]
 pub mod ienr;
 #[doc = "Pin interrupt level or rising edge interrupt set register"]
 pub struct SIENR {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin interrupt level or rising edge interrupt set register"]
 pub mod sienr;
 #[doc = "Pin interrupt level (rising edge interrupt) clear register"]
 pub struct CIENR {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin interrupt level (rising edge interrupt) clear register"]
 pub mod cienr;
 #[doc = "Pin interrupt active level or falling edge interrupt enable register"]
 pub struct IENF {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin interrupt active level or falling edge interrupt enable register"]
 pub mod ienf;
 #[doc = "Pin interrupt active level or falling edge interrupt set register"]
 pub struct SIENF {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin interrupt active level or falling edge interrupt set register"]
 pub mod sienf;
 #[doc = "Pin interrupt active level or falling edge interrupt clear register"]
 pub struct CIENF {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin interrupt active level or falling edge interrupt clear register"]
 pub mod cienf;
 #[doc = "Pin interrupt rising edge register"]
 pub struct RISE {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin interrupt rising edge register"]
 pub mod rise;
 #[doc = "Pin interrupt falling edge register"]
 pub struct FALL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin interrupt falling edge register"]
 pub mod fall;
 #[doc = "Pin interrupt status register"]
 pub struct IST {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pin interrupt status register"]
 pub mod ist;
 #[doc = "Pattern match interrupt control register"]
 pub struct PMCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pattern match interrupt control register"]
 pub mod pmctrl;
 #[doc = "Pattern match interrupt bit-slice source register"]
 pub struct PMSRC {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pattern match interrupt bit-slice source register"]
 pub mod pmsrc;
 #[doc = "Pattern match interrupt bit slice configuration register"]
 pub struct PMCFG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Pattern match interrupt bit slice configuration register"]
 pub mod pmcfg;

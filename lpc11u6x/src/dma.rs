@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - DMA control."]
@@ -158,109 +158,109 @@ pub struct RegisterBlock {
 }
 #[doc = "DMA control."]
 pub struct CTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "DMA control."]
 pub mod ctrl;
 #[doc = "Interrupt status."]
 pub struct INTSTAT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Interrupt status."]
 pub mod intstat;
 #[doc = "SRAM address of the channel configuration table."]
 pub struct SRAMBASE {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SRAM address of the channel configuration table."]
 pub mod srambase;
 #[doc = "Channel Enable read and Set for all DMA channels."]
 pub struct ENABLESET0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Channel Enable read and Set for all DMA channels."]
 pub mod enableset0;
 #[doc = "Channel Enable Clear for all DMA channels."]
 pub struct ENABLECLR0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Channel Enable Clear for all DMA channels."]
 pub mod enableclr0;
 #[doc = "Channel Active status for all DMA channels."]
 pub struct ACTIVE0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Channel Active status for all DMA channels."]
 pub mod active0;
 #[doc = "Channel Busy status for all DMA channels."]
 pub struct BUSY0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Channel Busy status for all DMA channels."]
 pub mod busy0;
 #[doc = "Error Interrupt status for all DMA channels."]
 pub struct ERRINT0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Error Interrupt status for all DMA channels."]
 pub mod errint0;
 #[doc = "Interrupt Enable read and Set for all DMA channels."]
 pub struct INTENSET0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Interrupt Enable read and Set for all DMA channels."]
 pub mod intenset0;
 #[doc = "Interrupt Enable Clear for all DMA channels."]
 pub struct INTENCLR0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Interrupt Enable Clear for all DMA channels."]
 pub mod intenclr0;
 #[doc = "Interrupt A status for all DMA channels."]
 pub struct INTA0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Interrupt A status for all DMA channels."]
 pub mod inta0;
 #[doc = "Interrupt B status for all DMA channels."]
 pub struct INTB0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Interrupt B status for all DMA channels."]
 pub mod intb0;
 #[doc = "Set ValidPending control bits for all DMA channels."]
 pub struct SETVALID0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Set ValidPending control bits for all DMA channels."]
 pub mod setvalid0;
 #[doc = "Set Trigger control bits for all DMA channels."]
 pub struct SETTRIG0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Set Trigger control bits for all DMA channels."]
 pub mod settrig0;
 #[doc = "Channel Abort control for all DMA channels."]
 pub struct ABORT0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Channel Abort control for all DMA channels."]
 pub mod abort0;
 #[doc = "Configuration register for DMA channel 0."]
 pub struct CFG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Configuration register for DMA channel 0."]
 pub mod cfg;
 #[doc = "Control and status register for DMA channel 0."]
 pub struct CTLSTAT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Control and status register for DMA channel 0."]
 pub mod ctlstat;
 #[doc = "Transfer configuration register for DMA channel 0."]
 pub struct XFERCFG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Transfer configuration register for DMA channel 0."]
 pub mod xfercfg;

@@ -1,10 +1,10 @@
-#[doc = r" Value read from the register"]
+#[doc = r"Value read from the register"]
 pub struct R {
     bits: u32,
 }
 impl super::SYSPLLSTAT {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
+    #[doc = r"Reads the contents of the register"]
+    #[inline(always)]
     pub fn read(&self) -> R {
         R {
             bits: self.register.get(),
@@ -19,58 +19,38 @@ pub enum LOCKR {
     #[doc = "Lock. PLL locked"]
     LOCK,
 }
-impl LOCKR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
+impl crate::ToBits<bool> for LOCKR {
+    #[inline(always)]
+    fn _bits(&self) -> bool {
         match *self {
             LOCKR::NO_LOCK => false,
             LOCKR::LOCK => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOCKR {
-        match value {
-            false => LOCKR::NO_LOCK,
-            true => LOCKR::LOCK,
-        }
-    }
+}
+#[doc = r"Reader of the field"]
+pub type LOCK_R = crate::FR<bool, LOCKR>;
+impl LOCK_R {
     #[doc = "Checks if the value of the field is `NO_LOCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_lock(&self) -> bool {
         *self == LOCKR::NO_LOCK
     }
     #[doc = "Checks if the value of the field is `LOCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_lock(&self) -> bool {
         *self == LOCKR::LOCK
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
+    #[doc = r"Value of the register as raw bits"]
+    #[inline(always)]
     pub fn bits(&self) -> u32 {
         self.bits
     }
     #[doc = "Bit 0 - PLL lock status"]
-    #[inline]
-    pub fn lock(&self) -> LOCKR {
-        LOCKR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lock(&self) -> LOCK_R {
+        LOCK_R::new((self.bits() & 0x01) != 0)
     }
 }

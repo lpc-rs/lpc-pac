@@ -1,10 +1,10 @@
-#[doc = r" Value read from the register"]
+#[doc = r"Value read from the register"]
 pub struct R {
     bits: u32,
 }
 impl super::CTLSTAT {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
+    #[doc = r"Reads the contents of the register"]
+    #[inline(always)]
     pub fn read(&self) -> R {
         R {
             bits: self.register.get(),
@@ -19,41 +19,25 @@ pub enum VALIDPENDINGR {
     #[doc = "Valid pending."]
     VALID_PENDING,
 }
-impl VALIDPENDINGR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
+impl crate::ToBits<bool> for VALIDPENDINGR {
+    #[inline(always)]
+    fn _bits(&self) -> bool {
         match *self {
             VALIDPENDINGR::NO_EFFECT_ON_DMA_OPE => false,
             VALIDPENDINGR::VALID_PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> VALIDPENDINGR {
-        match value {
-            false => VALIDPENDINGR::NO_EFFECT_ON_DMA_OPE,
-            true => VALIDPENDINGR::VALID_PENDING,
-        }
-    }
+}
+#[doc = r"Reader of the field"]
+pub type VALIDPENDING_R = crate::FR<bool, VALIDPENDINGR>;
+impl VALIDPENDING_R {
     #[doc = "Checks if the value of the field is `NO_EFFECT_ON_DMA_OPE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_effect_on_dma_ope(&self) -> bool {
         *self == VALIDPENDINGR::NO_EFFECT_ON_DMA_OPE
     }
     #[doc = "Checks if the value of the field is `VALID_PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_valid_pending(&self) -> bool {
         *self == VALIDPENDINGR::VALID_PENDING
     }
@@ -66,67 +50,43 @@ pub enum TRIGR {
     #[doc = "Triggered. The trigger for this DMA channel is set. DMA operations will be carried out."]
     TRIGGERED,
 }
-impl TRIGR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
+impl crate::ToBits<bool> for TRIGR {
+    #[inline(always)]
+    fn _bits(&self) -> bool {
         match *self {
             TRIGR::NOT_TRIGGERED => false,
             TRIGR::TRIGGERED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TRIGR {
-        match value {
-            false => TRIGR::NOT_TRIGGERED,
-            true => TRIGR::TRIGGERED,
-        }
-    }
+}
+#[doc = r"Reader of the field"]
+pub type TRIG_R = crate::FR<bool, TRIGR>;
+impl TRIG_R {
     #[doc = "Checks if the value of the field is `NOT_TRIGGERED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_triggered(&self) -> bool {
         *self == TRIGR::NOT_TRIGGERED
     }
     #[doc = "Checks if the value of the field is `TRIGGERED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_triggered(&self) -> bool {
         *self == TRIGR::TRIGGERED
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
+    #[doc = r"Value of the register as raw bits"]
+    #[inline(always)]
     pub fn bits(&self) -> u32 {
         self.bits
     }
     #[doc = "Bit 0 - Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel."]
-    #[inline]
-    pub fn validpending(&self) -> VALIDPENDINGR {
-        VALIDPENDINGR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn validpending(&self) -> VALIDPENDING_R {
+        VALIDPENDING_R::new((self.bits() & 0x01) != 0)
     }
     #[doc = "Bit 2 - Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1."]
-    #[inline]
-    pub fn trig(&self) -> TRIGR {
-        TRIGR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn trig(&self) -> TRIG_R {
+        TRIG_R::new(((self.bits() >> 2) & 0x01) != 0)
     }
 }

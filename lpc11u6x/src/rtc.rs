@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - RTC control register"]
@@ -12,25 +12,25 @@ pub struct RegisterBlock {
 }
 #[doc = "RTC control register"]
 pub struct CTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "RTC control register"]
 pub mod ctrl;
 #[doc = "RTC match register"]
 pub struct MATCH {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "RTC match register"]
 pub mod match_;
 #[doc = "RTC counter register"]
 pub struct COUNT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "RTC counter register"]
 pub mod count;
 #[doc = "RTC high-resolution/wake-up timer control register"]
 pub struct WAKE {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "RTC high-resolution/wake-up timer control register"]
 pub mod wake;

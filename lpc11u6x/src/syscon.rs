@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - System memory remap"]
@@ -130,331 +130,331 @@ pub struct RegisterBlock {
 }
 #[doc = "System memory remap"]
 pub struct SYSMEMREMAP {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System memory remap"]
 pub mod sysmemremap;
 #[doc = "Peripheral reset control"]
 pub struct PRESETCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Peripheral reset control"]
 pub mod presetctrl;
 #[doc = "System PLL control"]
 pub struct SYSPLLCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System PLL control"]
 pub mod syspllctrl;
 #[doc = "System PLL status"]
 pub struct SYSPLLSTAT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System PLL status"]
 pub mod syspllstat;
 #[doc = "USB PLL control"]
 pub struct USBPLLCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USB PLL control"]
 pub mod usbpllctrl;
 #[doc = "USB PLL status"]
 pub struct USBPLLSTAT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USB PLL status"]
 pub mod usbpllstat;
 #[doc = "RTC oscillator 32 kHz output control"]
 pub struct RTCOSCCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "RTC oscillator 32 kHz output control"]
 pub mod rtcoscctrl;
 #[doc = "System oscillator control"]
 pub struct SYSOSCCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System oscillator control"]
 pub mod sysoscctrl;
 #[doc = "Watchdog oscillator control"]
 pub struct WDTOSCCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Watchdog oscillator control"]
 pub mod wdtoscctrl;
 #[doc = "IRC control"]
 pub struct IRCCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "IRC control"]
 pub mod ircctrl;
 #[doc = "System reset status register"]
 pub struct SYSRSTSTAT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System reset status register"]
 pub mod sysrststat;
 #[doc = "System PLL clock source select"]
 pub struct SYSPLLCLKSEL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System PLL clock source select"]
 pub mod syspllclksel;
 #[doc = "System PLL clock source update enable"]
 pub struct SYSPLLCLKUEN {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System PLL clock source update enable"]
 pub mod syspllclkuen;
 #[doc = "USB PLL clock source select"]
 pub struct USBPLLCLKSEL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USB PLL clock source select"]
 pub mod usbpllclksel;
 #[doc = "USB PLL clock source update enable"]
 pub struct USBPLLCLKUEN {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USB PLL clock source update enable"]
 pub mod usbpllclkuen;
 #[doc = "Main clock source select"]
 pub struct MAINCLKSEL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Main clock source select"]
 pub mod mainclksel;
 #[doc = "Main clock source update enable"]
 pub struct MAINCLKUEN {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Main clock source update enable"]
 pub mod mainclkuen;
 #[doc = "System clock divider"]
 pub struct SYSAHBCLKDIV {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System clock divider"]
 pub mod sysahbclkdiv;
 #[doc = "System clock control"]
 pub struct SYSAHBCLKCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System clock control"]
 pub mod sysahbclkctrl;
 #[doc = "SSP0 clock divider"]
 pub struct SSP0CLKDIV {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SSP0 clock divider"]
 pub mod ssp0clkdiv;
 #[doc = "USART0 clock divider"]
 pub struct USART0CLKDIV {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USART0 clock divider"]
 pub mod usart0clkdiv;
 #[doc = "SSP1 clock divider"]
 pub struct SSP1CLKDIV {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SSP1 clock divider"]
 pub mod ssp1clkdiv;
 #[doc = "Clock divider for the common fractional baud rate generator of USART1, USART2, USART3, USART4"]
 pub struct FRGCLKDIV {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Clock divider for the common fractional baud rate generator of USART1, USART2, USART3, USART4"]
 pub mod frgclkdiv;
 #[doc = "USB clock source select"]
 pub struct USBCLKSEL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USB clock source select"]
 pub mod usbclksel;
 #[doc = "USB clock source update enable"]
 pub struct USBCLKUEN {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USB clock source update enable"]
 pub mod usbclkuen;
 #[doc = "USB clock source divider"]
 pub struct USBCLKDIV {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USB clock source divider"]
 pub mod usbclkdiv;
 #[doc = "CLKOUT clock source select"]
 pub struct CLKOUTSEL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "CLKOUT clock source select"]
 pub mod clkoutsel;
 #[doc = "CLKOUT clock source update enable"]
 pub struct CLKOUTUEN {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "CLKOUT clock source update enable"]
 pub mod clkoutuen;
 #[doc = "CLKOUT clock divider"]
 pub struct CLKOUTDIV {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "CLKOUT clock divider"]
 pub mod clkoutdiv;
 #[doc = "USART fractional generator divider value"]
 pub struct UARTFRGDIV {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USART fractional generator divider value"]
 pub mod uartfrgdiv;
 #[doc = "USART fractional generator multiplier value"]
 pub struct UARTFRGMULT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USART fractional generator multiplier value"]
 pub mod uartfrgmult;
 #[doc = "External trace buffer command register"]
 pub struct EXTTRACECMD {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "External trace buffer command register"]
 pub mod exttracecmd;
 #[doc = "POR captured PIO status 0"]
 pub struct PIOPORCAP0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "POR captured PIO status 0"]
 pub mod pioporcap0;
 #[doc = "POR captured PIO status 1"]
 pub struct PIOPORCAP1 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "POR captured PIO status 1"]
 pub mod pioporcap1;
 #[doc = "POR captured PIO status 1"]
 pub struct PIOPORCAP2 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "POR captured PIO status 1"]
 pub mod pioporcap2;
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub struct IOCONCLKDIV6 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub mod ioconclkdiv6;
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub struct IOCONCLKDIV5 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub mod ioconclkdiv5;
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub struct IOCONCLKDIV4 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub mod ioconclkdiv4;
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub struct IOCONCLKDIV3 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub mod ioconclkdiv3;
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub struct IOCONCLKDIV2 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub mod ioconclkdiv2;
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub struct IOCONCLKDIV1 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub mod ioconclkdiv1;
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub struct IOCONCLKDIV0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Peripheral clock to the IOCON block for programmable glitch filter"]
 pub mod ioconclkdiv0;
 #[doc = "Brown-Out Detect"]
 pub struct BODCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Brown-Out Detect"]
 pub mod bodctrl;
 #[doc = "System tick counter calibration"]
 pub struct SYSTCKCAL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "System tick counter calibration"]
 pub mod systckcal;
 #[doc = "IRQ delay. Allows trade-off between interrupt latency and determinism."]
 pub struct IRQLATENCY {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "IRQ delay. Allows trade-off between interrupt latency and determinism."]
 pub mod irqlatency;
 #[doc = "NMI Source Control"]
 pub struct NMISRC {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "NMI Source Control"]
 pub mod nmisrc;
 #[doc = "GPIO Pin Interrupt Select register 0"]
 pub struct PINTSEL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "GPIO Pin Interrupt Select register 0"]
 pub mod pintsel;
 #[doc = "USB clock control"]
 pub struct USBCLKCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USB clock control"]
 pub mod usbclkctrl;
 #[doc = "USB clock status"]
 pub struct USBCLKST {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "USB clock status"]
 pub mod usbclkst;
 #[doc = "Start logic 0 interrupt wake-up enable register 0"]
 pub struct STARTERP0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Start logic 0 interrupt wake-up enable register 0"]
 pub mod starterp0;
 #[doc = "Start logic 1 interrupt wake-up enable register 1"]
 pub struct STARTERP1 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Start logic 1 interrupt wake-up enable register 1"]
 pub mod starterp1;
 #[doc = "Power-down states in deep-sleep mode"]
 pub struct PDSLEEPCFG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Power-down states in deep-sleep mode"]
 pub mod pdsleepcfg;
 #[doc = "Power-down states for wake-up from deep-sleep"]
 pub struct PDAWAKECFG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Power-down states for wake-up from deep-sleep"]
 pub mod pdawakecfg;
 #[doc = "Power configuration register"]
 pub struct PDRUNCFG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Power configuration register"]
 pub mod pdruncfg;
 #[doc = "Device ID"]
 pub struct DEVICE_ID {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Device ID"]
 pub mod device_id;

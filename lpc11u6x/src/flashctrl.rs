@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     _reserved0: [u8; 16usize],
@@ -15,25 +15,25 @@ pub struct RegisterBlock {
 }
 #[doc = "Flash configuration register"]
 pub struct FLASHCFG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Flash configuration register"]
 pub mod flashcfg;
 #[doc = "Signature start address register"]
 pub struct FMSSTART {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Signature start address register"]
 pub mod fmsstart;
 #[doc = "Signature stop-address register"]
 pub struct FMSSTOP {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Signature stop-address register"]
 pub mod fmsstop;
 #[doc = "Signature Word"]
 pub struct FMSW0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "Signature Word"]
 pub mod fmsw0;

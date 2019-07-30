@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - SCT configuration register"]
@@ -41,11 +41,9 @@ pub struct RegisterBlock {
     pub conen: CONEN,
     #[doc = "0xfc - SCT conflict flag register"]
     pub conflag: CONFLAG,
-    #[doc = "SCT capture register of capture channel 0 to 4; REGMOD0 to REGMODE4 = 1 SCT match value register of match channels 0 to 4; REGMOD0 to REGMODE4 = 0"]
-    pub cap: CAP_UNION,
+    _reserved_19_cap: [u8; 20usize],
     _reserved20: [u8; 236usize],
-    #[doc = "SCT capture control register 0 to 4; REGMOD0 = 1 to REGMODE4 = 1 SCT match reload value register 0 to 4; REGMOD0 = 0 to REGMODE4 = 0"]
-    pub capctrl: CAPCTRL_UNION,
+    _reserved_20_capctrl: [u8; 20usize],
     _reserved21: [u8; 236usize],
     #[doc = "0x300 - SCT event state register 0"]
     pub ev0_state: EV_STATE,
@@ -89,181 +87,207 @@ pub struct RegisterBlock {
     #[doc = "0x51c - SCT output 0 clear register"]
     pub out3_clr: OUT_CLR,
 }
-#[doc = "SCT capture register of capture channel 0 to 4; REGMOD0 to REGMODE4 = 1 SCT match value register of match channels 0 to 4; REGMOD0 to REGMODE4 = 0"]
-#[repr(C)]
-pub union CAP_UNION {
+impl RegisterBlock {
     #[doc = "0x100 - SCT capture register of capture channel 0 to 4; REGMOD0 to REGMODE4 = 1"]
-    pub cap: [CAP; 5],
+    #[inline(always)]
+    pub fn cap(&self) -> &[CAP; 5] {
+        unsafe { &*(((self as *const Self) as *const u8).add(256usize) as *const [CAP; 5]) }
+    }
+    #[doc = "0x100 - SCT capture register of capture channel 0 to 4; REGMOD0 to REGMODE4 = 1"]
+    #[inline(always)]
+    pub fn cap_mut(&self) -> &mut [CAP; 5] {
+        unsafe { &mut *(((self as *const Self) as *mut u8).add(256usize) as *mut [CAP; 5]) }
+    }
     #[doc = "0x100 - SCT match value register of match channels 0 to 4; REGMOD0 to REGMODE4 = 0"]
-    pub match_: [MATCH; 5],
-}
-#[doc = "SCT capture control register 0 to 4; REGMOD0 = 1 to REGMODE4 = 1 SCT match reload value register 0 to 4; REGMOD0 = 0 to REGMODE4 = 0"]
-#[repr(C)]
-pub union CAPCTRL_UNION {
+    #[inline(always)]
+    pub fn match_(&self) -> &[MATCH; 5] {
+        unsafe { &*(((self as *const Self) as *const u8).add(256usize) as *const [MATCH; 5]) }
+    }
+    #[doc = "0x100 - SCT match value register of match channels 0 to 4; REGMOD0 to REGMODE4 = 0"]
+    #[inline(always)]
+    pub fn match__mut(&self) -> &mut [MATCH; 5] {
+        unsafe { &mut *(((self as *const Self) as *mut u8).add(256usize) as *mut [MATCH; 5]) }
+    }
     #[doc = "0x200 - SCT capture control register 0 to 4; REGMOD0 = 1 to REGMODE4 = 1"]
-    pub capctrl: [CAPCTRL; 5],
+    #[inline(always)]
+    pub fn capctrl(&self) -> &[CAPCTRL; 5] {
+        unsafe { &*(((self as *const Self) as *const u8).add(512usize) as *const [CAPCTRL; 5]) }
+    }
+    #[doc = "0x200 - SCT capture control register 0 to 4; REGMOD0 = 1 to REGMODE4 = 1"]
+    #[inline(always)]
+    pub fn capctrl_mut(&self) -> &mut [CAPCTRL; 5] {
+        unsafe { &mut *(((self as *const Self) as *mut u8).add(512usize) as *mut [CAPCTRL; 5]) }
+    }
     #[doc = "0x200 - SCT match reload value register 0 to 4; REGMOD0 = 0 to REGMODE4 = 0"]
-    pub matchrel: [MATCHREL; 5],
+    #[inline(always)]
+    pub fn matchrel(&self) -> &[MATCHREL; 5] {
+        unsafe { &*(((self as *const Self) as *const u8).add(512usize) as *const [MATCHREL; 5]) }
+    }
+    #[doc = "0x200 - SCT match reload value register 0 to 4; REGMOD0 = 0 to REGMODE4 = 0"]
+    #[inline(always)]
+    pub fn matchrel_mut(&self) -> &mut [MATCHREL; 5] {
+        unsafe { &mut *(((self as *const Self) as *mut u8).add(512usize) as *mut [MATCHREL; 5]) }
+    }
 }
 #[doc = "SCT configuration register"]
 pub struct CONFIG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT configuration register"]
 pub mod config;
 #[doc = "SCT control register"]
 pub struct CTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT control register"]
 pub mod ctrl;
 #[doc = "SCT limit register"]
 pub struct LIMIT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT limit register"]
 pub mod limit;
 #[doc = "SCT halt condition register"]
 pub struct HALT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT halt condition register"]
 pub mod halt;
 #[doc = "SCT stop condition register"]
 pub struct STOP {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT stop condition register"]
 pub mod stop;
 #[doc = "SCT start condition register"]
 pub struct START {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT start condition register"]
 pub mod start;
 #[doc = "SCT counter register"]
 pub struct COUNT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT counter register"]
 pub mod count;
 #[doc = "SCT state register"]
 pub struct STATE {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT state register"]
 pub mod state;
 #[doc = "SCT input register"]
 pub struct INPUT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT input register"]
 pub mod input;
 #[doc = "SCT match/capture registers mode register"]
 pub struct REGMODE {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT match/capture registers mode register"]
 pub mod regmode;
 #[doc = "SCT output register"]
 pub struct OUTPUT {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT output register"]
 pub mod output;
 #[doc = "SCT output counter direction control register"]
 pub struct OUTPUTDIRCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT output counter direction control register"]
 pub mod outputdirctrl;
 #[doc = "SCT conflict resolution register"]
 pub struct RES {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT conflict resolution register"]
 pub mod res;
 #[doc = "SCT DMA request 0 register"]
 pub struct DMAREQ0 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT DMA request 0 register"]
 pub mod dmareq0;
 #[doc = "SCT DMA request 1 register"]
 pub struct DMAREQ1 {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT DMA request 1 register"]
 pub mod dmareq1;
 #[doc = "SCT event enable register"]
 pub struct EVEN {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT event enable register"]
 pub mod even;
 #[doc = "SCT event flag register"]
 pub struct EVFLAG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT event flag register"]
 pub mod evflag;
 #[doc = "SCT conflict enable register"]
 pub struct CONEN {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT conflict enable register"]
 pub mod conen;
 #[doc = "SCT conflict flag register"]
 pub struct CONFLAG {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT conflict flag register"]
 pub mod conflag;
 #[doc = "SCT match value register of match channels 0 to 4; REGMOD0 to REGMODE4 = 0"]
 pub struct MATCH {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT match value register of match channels 0 to 4; REGMOD0 to REGMODE4 = 0"]
 pub mod match_;
 #[doc = "SCT capture register of capture channel 0 to 4; REGMOD0 to REGMODE4 = 1"]
 pub struct CAP {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT capture register of capture channel 0 to 4; REGMOD0 to REGMODE4 = 1"]
 pub mod cap;
 #[doc = "SCT match reload value register 0 to 4; REGMOD0 = 0 to REGMODE4 = 0"]
 pub struct MATCHREL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT match reload value register 0 to 4; REGMOD0 = 0 to REGMODE4 = 0"]
 pub mod matchrel;
 #[doc = "SCT capture control register 0 to 4; REGMOD0 = 1 to REGMODE4 = 1"]
 pub struct CAPCTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT capture control register 0 to 4; REGMOD0 = 1 to REGMODE4 = 1"]
 pub mod capctrl;
 #[doc = "SCT event state register 0"]
 pub struct EV_STATE {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT event state register 0"]
 pub mod ev_state;
 #[doc = "SCT event control register 0"]
 pub struct EV_CTRL {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT event control register 0"]
 pub mod ev_ctrl;
 #[doc = "SCT output 0 set register"]
 pub struct OUT_SET {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT output 0 set register"]
 pub mod out_set;
 #[doc = "SCT output 0 clear register"]
 pub struct OUT_CLR {
-    register: ::vcell::VolatileCell<u32>,
+    register: vcell::VolatileCell<u32>,
 }
 #[doc = "SCT output 0 clear register"]
 pub mod out_clr;
