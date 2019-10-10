@@ -12,7 +12,7 @@ SPDX-License-Identifier: BSD-3-Clause
   </licenseText>
   <cpu>
     <name>CM0PLUS</name>
-    <revision>r0p0</revision>
+    <revision>r0p1</revision>
     <endian>little</endian>
     <mpuPresent>false</mpuPresent>
     <fpuPresent>false</fpuPresent>
