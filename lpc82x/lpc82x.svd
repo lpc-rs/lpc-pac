@@ -10828,7 +10828,7 @@ SPDX-License-Identifier: BSD-3-Clause
           <addressOffset>0x234</addressOffset>
           <size>32</size>
           <access>read-write</access>
-          <resetValue>0xEDF8</resetValue>
+          <resetValue>0xEDF0</resetValue>
           <resetMask>0xFFFF</resetMask>
           <fields>
             <field>
