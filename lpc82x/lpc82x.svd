@@ -3560,11 +3560,6 @@ SPDX-License-Identifier: BSD-3-Clause
                   <description>DMA trigger mux 1</description>
                   <value>0x8</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>None</name>
-                  <description>None</description>
-                  <value>0x9</value>
-                </enumeratedValue>
               </enumeratedValues>
             </field>
           </fields>
