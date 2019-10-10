@@ -10536,12 +10536,12 @@ SPDX-License-Identifier: BSD-3-Clause
         </register>
         <register>
           <name>STARTERP1</name>
-          <description>Start logic 0 pin wake-up enable register 1</description>
+          <description>Start logic 1 interrupt wake-up enable register</description>
           <addressOffset>0x214</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
-          <resetMask>0xFF</resetMask>
+          <resetMask>0x60B1BB</resetMask>
           <fields>
             <field>
               <name>SPI0</name>
