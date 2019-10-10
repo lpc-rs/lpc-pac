@@ -3605,52 +3605,42 @@ SPDX-License-Identifier: BSD-3-Clause
                 <enumeratedValue>
                   <name>SCT_PIN0</name>
                   <description>SCT_PIN0</description>
-                  <value>0x1</value>
+                  <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SCT_PIN1</name>
                   <description>SCT_PIN1</description>
-                  <value>0x2</value>
+                  <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SCT_PIN2</name>
                   <description>SCT_PIN2</description>
-                  <value>0x3</value>
+                  <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SCT_PIN3</name>
                   <description>SCT_PIN3</description>
-                  <value>0x4</value>
+                  <value>0x3</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_THCMP_IRQ</name>
                   <description>ADC_THCMP_IRQ</description>
-                  <value>0x5</value>
+                  <value>0x4</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ACMP_O</name>
                   <description>ACMP_O</description>
-                  <value>0x6</value>
+                  <value>0x5</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ARM_TXEV</name>
                   <description>ARM_TXEV</description>
-                  <value>0x7</value>
+                  <value>0x6</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>DEBUG_HALTED</name>
                   <description>DEBUG_HALTED</description>
-                  <value>0x8</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>None</name>
-                  <description>None</description>
-                  <value>0x9</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>None</name>
-                  <description>None</description>
-                  <value>0xA</value>
+                  <value>0x7</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
