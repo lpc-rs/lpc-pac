@@ -3754,42 +3754,6 @@ SPDX-License-Identifier: BSD-3-Clause
             </field>
           </fields>
         </register>
-        <register>
-          <name>FMSTAT</name>
-          <description>Flash signature generation status bit</description>
-          <addressOffset>0xFE0</addressOffset>
-          <size>32</size>
-          <access>read-only</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>SIGNATURE_DONE</name>
-              <description>This status bit is set at the end of signature computation</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>FMSTATCLR</name>
-          <description>Clear FLASH signature generation status bit</description>
-          <addressOffset>0xFE8</addressOffset>
-          <size>32</size>
-          <access>write-only</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>SIGNATURE_DONE_CLR</name>
-              <description>When the bit is written to 1, the SIGNATURE_DONE bit is cleared.</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>write-only</access>
-            </field>
-          </fields>
-        </register>
       </registers>
     </peripheral>
     <peripheral>
