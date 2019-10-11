@@ -2738,10 +2738,6 @@ SPDX-License-Identifier: BSD-3-Clause
         <size>0xC</size>
         <usage>registers</usage>
       </addressBlock>
-      <interrupt>
-        <name>PIN_INT5_DAC1</name>
-        <value>29</value>
-      </interrupt>
     </peripheral>
     <peripheral>
       <name>ADC0</name>
@@ -21974,10 +21970,6 @@ SPDX-License-Identifier: BSD-3-Clause
         <size>0x30</size>
         <usage>registers</usage>
       </addressBlock>
-      <interrupt>
-        <name>PIN_INT6_USART3</name>
-        <value>30</value>
-      </interrupt>
     </peripheral>
     <peripheral derivedFrom="USART0">
       <name>USART4</name>
@@ -21989,10 +21981,6 @@ SPDX-License-Identifier: BSD-3-Clause
         <size>0x30</size>
         <usage>registers</usage>
       </addressBlock>
-      <interrupt>
-        <name>PIN_INT7_USART4</name>
-        <value>31</value>
-      </interrupt>
     </peripheral>
     <peripheral>
       <name>CRC</name>
