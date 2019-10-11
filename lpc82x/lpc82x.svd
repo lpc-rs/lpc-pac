@@ -14113,7 +14113,6 @@ SPDX-License-Identifier: BSD-3-Clause
               <description>This bit is set when a change in the state is detected for the CTS flag above. This bit is cleared by software.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>write-only</access>
             </field>
             <field>
               <name>TXDISSTAT</name>
@@ -14127,7 +14126,6 @@ SPDX-License-Identifier: BSD-3-Clause
               <description>Overrun Error interrupt flag. This flag is set when a new character is received while the receiver buffer is still in use. If this occurs, the newly received character in the shift register is lost.</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>write-only</access>
             </field>
             <field>
               <name>RXBRK</name>
@@ -14141,42 +14139,36 @@ SPDX-License-Identifier: BSD-3-Clause
               <description>This bit is set when a change in the state of receiver break detection occurs.Cleared by software.</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>write-only</access>
             </field>
             <field>
               <name>START</name>
               <description>This bit is set when a start is detected on the receiver input. Its purpose is primarily to allow wake-up from Deep-sleep or Power-down mode immediately when a start is detected. Cleared by software.</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>write-only</access>
             </field>
             <field>
               <name>FRAMERRINT</name>
               <description>Framing Error interrupt flag. This flag is set when a character is received with a missing stop bit at the expected location. This could be an indication of a baud rate or configuration mismatch with the transmitting source.</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>write-only</access>
             </field>
             <field>
               <name>PARITYERRINT</name>
               <description>Parity Error interrupt flag. This flag is set when a parity error is detected in a received character.</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>write-only</access>
             </field>
             <field>
               <name>RXNOISEINT</name>
               <description>Received Noise interrupt flag. Three samples of received data are taken in order to determine the value of each received data bit, except in synchronous mode. This acts as a noise filter if one sample disagrees. This flag is set when a received data bit contains one disagreeing sample. This could indicate line noise, a baud rate or character format mismatch, or loss of synchronization during data reception.</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>write-only</access>
             </field>
             <field>
               <name>ABERR</name>
               <description>Autobaud Error. An autobaud error can occur if the BRG counts to its limit before the end of the start bit that is being measured, essentially an autobaud time-out.</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>write-only</access>
             </field>
           </fields>
         </register>
