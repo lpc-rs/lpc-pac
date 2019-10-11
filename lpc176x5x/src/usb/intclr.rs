@@ -1,141 +1,120 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INTCLR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register INTCLR"]
+pub type W = crate::W<u32, super::INTCLR>;
+#[doc = "Register INTCLR `reset()`'s with value 0"]
+impl crate::ResetValue for super::INTCLR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Proxy"]
-pub struct _TMR_CLRW<'a> {
+#[doc = "Write proxy for field `TMR_CLR`"]
+pub struct TMR_CLR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TMR_CLRW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TMR_CLR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _REMOVE_PU_CLRW<'a> {
+#[doc = "Write proxy for field `REMOVE_PU_CLR`"]
+pub struct REMOVE_PU_CLR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _REMOVE_PU_CLRW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> REMOVE_PU_CLR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _HNP_FAILURE_CLRW<'a> {
+#[doc = "Write proxy for field `HNP_FAILURE_CLR`"]
+pub struct HNP_FAILURE_CLR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _HNP_FAILURE_CLRW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> HNP_FAILURE_CLR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _HNP_SUCCES_CLRW<'a> {
+#[doc = "Write proxy for field `HNP_SUCCES_CLR`"]
+pub struct HNP_SUCCES_CLR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _HNP_SUCCES_CLRW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> HNP_SUCCES_CLR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - 0 = no effect. 1 = clear the corresponding bit in the IntSt register."]
-    #[inline]
-    pub fn tmr_clr(&mut self) -> _TMR_CLRW {
-        _TMR_CLRW { w: self }
+    #[inline(always)]
+    pub fn tmr_clr(&mut self) -> TMR_CLR_W {
+        TMR_CLR_W { w: self }
     }
     #[doc = "Bit 1 - 0 = no effect. 1 = clear the corresponding bit in the IntSt register."]
-    #[inline]
-    pub fn remove_pu_clr(&mut self) -> _REMOVE_PU_CLRW {
-        _REMOVE_PU_CLRW { w: self }
+    #[inline(always)]
+    pub fn remove_pu_clr(&mut self) -> REMOVE_PU_CLR_W {
+        REMOVE_PU_CLR_W { w: self }
     }
     #[doc = "Bit 2 - 0 = no effect. 1 = clear the corresponding bit in the IntSt register."]
-    #[inline]
-    pub fn hnp_failure_clr(&mut self) -> _HNP_FAILURE_CLRW {
-        _HNP_FAILURE_CLRW { w: self }
+    #[inline(always)]
+    pub fn hnp_failure_clr(&mut self) -> HNP_FAILURE_CLR_W {
+        HNP_FAILURE_CLR_W { w: self }
     }
     #[doc = "Bit 3 - 0 = no effect. 1 = clear the corresponding bit in the IntSt register."]
-    #[inline]
-    pub fn hnp_succes_clr(&mut self) -> _HNP_SUCCES_CLRW {
-        _HNP_SUCCES_CLRW { w: self }
+    #[inline(always)]
+    pub fn hnp_succes_clr(&mut self) -> HNP_SUCCES_CLR_W {
+        HNP_SUCCES_CLR_W { w: self }
     }
 }

@@ -1,105 +1,40 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SCT_INMUX {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SCT_INMUX[%s]"]
+pub type R = crate::R<u32, super::SCT_INMUX>;
+#[doc = "Writer for register SCT_INMUX[%s]"]
+pub type W = crate::W<u32, super::SCT_INMUX>;
+#[doc = "Register SCT_INMUX[%s] `reset()`'s with value 0x0f"]
+impl crate::ResetValue for super::SCT_INMUX {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0f
     }
 }
-#[doc = r" Value of the field"]
-pub struct INP_NR {
-    bits: u8,
-}
-impl INP_NR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _INP_NW<'a> {
+#[doc = "Reader of field `INP_N`"]
+pub type INP_N_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `INP_N`"]
+pub struct INP_N_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _INP_NW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> INP_N_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:3 - Input mux register for SCT input n (n = 0 to 3). 0 = sct input 0 1=sct input 1 2= sct input 2 3= sct gpio input 3 4= adc_thcmp_irq 5 = comparator out 6 = timer ct32b0 match2 7=gpio_int_bmatch 8=arm_txev 9=debug_halted"]
-    #[inline]
-    pub fn inp_n(&self) -> INP_NR {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        INP_NR { bits }
+    #[inline(always)]
+    pub fn inp_n(&self) -> INP_N_R {
+        INP_N_R::new((self.bits & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 15 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:3 - Input mux register for SCT input n (n = 0 to 3). 0 = sct input 0 1=sct input 1 2= sct input 2 3= sct gpio input 3 4= adc_thcmp_irq 5 = comparator out 6 = timer ct32b0 match2 7=gpio_int_bmatch 8=arm_txev 9=debug_halted"]
-    #[inline]
-    pub fn inp_n(&mut self) -> _INP_NW {
-        _INP_NW { w: self }
+    #[inline(always)]
+    pub fn inp_n(&mut self) -> INP_N_W {
+        INP_N_W { w: self }
     }
 }

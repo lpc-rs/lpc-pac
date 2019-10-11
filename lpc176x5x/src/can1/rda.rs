@@ -1,228 +1,112 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::RDA {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register RDA"]
+pub type R = crate::R<u32, super::RDA>;
+#[doc = "Writer for register RDA"]
+pub type W = crate::W<u32, super::RDA>;
+#[doc = "Register RDA `reset()`'s with value 0"]
+impl crate::ResetValue for super::RDA {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct DATA1R {
-    bits: u8,
-}
-impl DATA1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DATA2R {
-    bits: u8,
-}
-impl DATA2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DATA3R {
-    bits: u8,
-}
-impl DATA3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DATA4R {
-    bits: u8,
-}
-impl DATA4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DATA1W<'a> {
+#[doc = "Reader of field `DATA1`"]
+pub type DATA1_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DATA1`"]
+pub struct DATA1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DATA1W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DATA1_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DATA2W<'a> {
+#[doc = "Reader of field `DATA2`"]
+pub type DATA2_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DATA2`"]
+pub struct DATA2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DATA2W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DATA2_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DATA3W<'a> {
+#[doc = "Reader of field `DATA3`"]
+pub type DATA3_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DATA3`"]
+pub struct DATA3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DATA3W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DATA3_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DATA4W<'a> {
+#[doc = "Reader of field `DATA4`"]
+pub type DATA4_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `DATA4`"]
+pub struct DATA4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DATA4W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> DATA4_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - Data 1. If the DLC field in CANRFS >= 0001, this contains the first Data byte of the current received message."]
-    #[inline]
-    pub fn data1(&self) -> DATA1R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DATA1R { bits }
+    #[inline(always)]
+    pub fn data1(&self) -> DATA1_R {
+        DATA1_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - Data 2. If the DLC field in CANRFS >= 0010, this contains the first Data byte of the current received message."]
-    #[inline]
-    pub fn data2(&self) -> DATA2R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DATA2R { bits }
+    #[inline(always)]
+    pub fn data2(&self) -> DATA2_R {
+        DATA2_R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - Data 3. If the DLC field in CANRFS >= 0011, this contains the first Data byte of the current received message."]
-    #[inline]
-    pub fn data3(&self) -> DATA3R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DATA3R { bits }
+    #[inline(always)]
+    pub fn data3(&self) -> DATA3_R {
+        DATA3_R::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:31 - Data 4. If the DLC field in CANRFS >= 0100, this contains the first Data byte of the current received message."]
-    #[inline]
-    pub fn data4(&self) -> DATA4R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DATA4R { bits }
+    #[inline(always)]
+    pub fn data4(&self) -> DATA4_R {
+        DATA4_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:7 - Data 1. If the DLC field in CANRFS >= 0001, this contains the first Data byte of the current received message."]
-    #[inline]
-    pub fn data1(&mut self) -> _DATA1W {
-        _DATA1W { w: self }
+    #[inline(always)]
+    pub fn data1(&mut self) -> DATA1_W {
+        DATA1_W { w: self }
     }
     #[doc = "Bits 8:15 - Data 2. If the DLC field in CANRFS >= 0010, this contains the first Data byte of the current received message."]
-    #[inline]
-    pub fn data2(&mut self) -> _DATA2W {
-        _DATA2W { w: self }
+    #[inline(always)]
+    pub fn data2(&mut self) -> DATA2_W {
+        DATA2_W { w: self }
     }
     #[doc = "Bits 16:23 - Data 3. If the DLC field in CANRFS >= 0011, this contains the first Data byte of the current received message."]
-    #[inline]
-    pub fn data3(&mut self) -> _DATA3W {
-        _DATA3W { w: self }
+    #[inline(always)]
+    pub fn data3(&mut self) -> DATA3_W {
+        DATA3_W { w: self }
     }
     #[doc = "Bits 24:31 - Data 4. If the DLC field in CANRFS >= 0100, this contains the first Data byte of the current received message."]
-    #[inline]
-    pub fn data4(&mut self) -> _DATA4W {
-        _DATA4W { w: self }
+    #[inline(always)]
+    pub fn data4(&mut self) -> DATA4_W {
+        DATA4_W { w: self }
     }
 }

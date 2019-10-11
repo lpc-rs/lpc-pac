@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - Flash Accelerator Configuration Register. Controls flash access timing."]
@@ -64,159 +64,281 @@ pub struct RegisterBlock {
     #[doc = "0x1c8 - Clock Output Configuration Register"]
     pub clkoutcfg: CLKOUTCFG,
 }
-#[doc = "Flash Accelerator Configuration Register. Controls flash access timing."]
-pub struct FLASHCFG {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Flash Accelerator Configuration Register. Controls flash access timing.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [flashcfg](flashcfg) module"]
+pub type FLASHCFG = crate::Reg<u32, _FLASHCFG>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _FLASHCFG;
+#[doc = "`read()` method returns [flashcfg::R](flashcfg::R) reader structure"]
+impl crate::Readable for FLASHCFG {}
+#[doc = "`write(|w| ..)` method takes [flashcfg::W](flashcfg::W) writer structure"]
+impl crate::Writable for FLASHCFG {}
 #[doc = "Flash Accelerator Configuration Register. Controls flash access timing."]
 pub mod flashcfg;
-#[doc = "PLL0 Control Register"]
-pub struct PLL0CON {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "PLL0 Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pll0con](pll0con) module"]
+pub type PLL0CON = crate::Reg<u32, _PLL0CON>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PLL0CON;
+#[doc = "`read()` method returns [pll0con::R](pll0con::R) reader structure"]
+impl crate::Readable for PLL0CON {}
+#[doc = "`write(|w| ..)` method takes [pll0con::W](pll0con::W) writer structure"]
+impl crate::Writable for PLL0CON {}
 #[doc = "PLL0 Control Register"]
 pub mod pll0con;
-#[doc = "PLL0 Configuration Register"]
-pub struct PLL0CFG {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "PLL0 Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pll0cfg](pll0cfg) module"]
+pub type PLL0CFG = crate::Reg<u32, _PLL0CFG>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PLL0CFG;
+#[doc = "`read()` method returns [pll0cfg::R](pll0cfg::R) reader structure"]
+impl crate::Readable for PLL0CFG {}
+#[doc = "`write(|w| ..)` method takes [pll0cfg::W](pll0cfg::W) writer structure"]
+impl crate::Writable for PLL0CFG {}
 #[doc = "PLL0 Configuration Register"]
 pub mod pll0cfg;
-#[doc = "PLL0 Status Register"]
-pub struct PLL0STAT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "PLL0 Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pll0stat](pll0stat) module"]
+pub type PLL0STAT = crate::Reg<u32, _PLL0STAT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PLL0STAT;
+#[doc = "`read()` method returns [pll0stat::R](pll0stat::R) reader structure"]
+impl crate::Readable for PLL0STAT {}
 #[doc = "PLL0 Status Register"]
 pub mod pll0stat;
-#[doc = "PLL0 Feed Register"]
-pub struct PLL0FEED {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "PLL0 Feed Register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pll0feed](pll0feed) module"]
+pub type PLL0FEED = crate::Reg<u32, _PLL0FEED>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PLL0FEED;
+#[doc = "`write(|w| ..)` method takes [pll0feed::W](pll0feed::W) writer structure"]
+impl crate::Writable for PLL0FEED {}
 #[doc = "PLL0 Feed Register"]
 pub mod pll0feed;
-#[doc = "PLL1 Control Register"]
-pub struct PLL1CON {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "PLL1 Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pll1con](pll1con) module"]
+pub type PLL1CON = crate::Reg<u32, _PLL1CON>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PLL1CON;
+#[doc = "`read()` method returns [pll1con::R](pll1con::R) reader structure"]
+impl crate::Readable for PLL1CON {}
+#[doc = "`write(|w| ..)` method takes [pll1con::W](pll1con::W) writer structure"]
+impl crate::Writable for PLL1CON {}
 #[doc = "PLL1 Control Register"]
 pub mod pll1con;
-#[doc = "PLL1 Configuration Register"]
-pub struct PLL1CFG {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "PLL1 Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pll1cfg](pll1cfg) module"]
+pub type PLL1CFG = crate::Reg<u32, _PLL1CFG>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PLL1CFG;
+#[doc = "`read()` method returns [pll1cfg::R](pll1cfg::R) reader structure"]
+impl crate::Readable for PLL1CFG {}
+#[doc = "`write(|w| ..)` method takes [pll1cfg::W](pll1cfg::W) writer structure"]
+impl crate::Writable for PLL1CFG {}
 #[doc = "PLL1 Configuration Register"]
 pub mod pll1cfg;
-#[doc = "PLL1 Status Register"]
-pub struct PLL1STAT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "PLL1 Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pll1stat](pll1stat) module"]
+pub type PLL1STAT = crate::Reg<u32, _PLL1STAT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PLL1STAT;
+#[doc = "`read()` method returns [pll1stat::R](pll1stat::R) reader structure"]
+impl crate::Readable for PLL1STAT {}
 #[doc = "PLL1 Status Register"]
 pub mod pll1stat;
-#[doc = "PLL1 Feed Register"]
-pub struct PLL1FEED {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "PLL1 Feed Register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pll1feed](pll1feed) module"]
+pub type PLL1FEED = crate::Reg<u32, _PLL1FEED>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PLL1FEED;
+#[doc = "`write(|w| ..)` method takes [pll1feed::W](pll1feed::W) writer structure"]
+impl crate::Writable for PLL1FEED {}
 #[doc = "PLL1 Feed Register"]
 pub mod pll1feed;
-#[doc = "Power Control Register"]
-pub struct PCON {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Power Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pcon](pcon) module"]
+pub type PCON = crate::Reg<u32, _PCON>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PCON;
+#[doc = "`read()` method returns [pcon::R](pcon::R) reader structure"]
+impl crate::Readable for PCON {}
+#[doc = "`write(|w| ..)` method takes [pcon::W](pcon::W) writer structure"]
+impl crate::Writable for PCON {}
 #[doc = "Power Control Register"]
 pub mod pcon;
-#[doc = "Power Control for Peripherals Register"]
-pub struct PCONP {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Power Control for Peripherals Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pconp](pconp) module"]
+pub type PCONP = crate::Reg<u32, _PCONP>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PCONP;
+#[doc = "`read()` method returns [pconp::R](pconp::R) reader structure"]
+impl crate::Readable for PCONP {}
+#[doc = "`write(|w| ..)` method takes [pconp::W](pconp::W) writer structure"]
+impl crate::Writable for PCONP {}
 #[doc = "Power Control for Peripherals Register"]
 pub mod pconp;
-#[doc = "CPU Clock Configuration Register"]
-pub struct CCLKCFG {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "CPU Clock Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cclkcfg](cclkcfg) module"]
+pub type CCLKCFG = crate::Reg<u32, _CCLKCFG>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CCLKCFG;
+#[doc = "`read()` method returns [cclkcfg::R](cclkcfg::R) reader structure"]
+impl crate::Readable for CCLKCFG {}
+#[doc = "`write(|w| ..)` method takes [cclkcfg::W](cclkcfg::W) writer structure"]
+impl crate::Writable for CCLKCFG {}
 #[doc = "CPU Clock Configuration Register"]
 pub mod cclkcfg;
-#[doc = "USB Clock Configuration Register"]
-pub struct USBCLKCFG {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "USB Clock Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [usbclkcfg](usbclkcfg) module"]
+pub type USBCLKCFG = crate::Reg<u32, _USBCLKCFG>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _USBCLKCFG;
+#[doc = "`read()` method returns [usbclkcfg::R](usbclkcfg::R) reader structure"]
+impl crate::Readable for USBCLKCFG {}
+#[doc = "`write(|w| ..)` method takes [usbclkcfg::W](usbclkcfg::W) writer structure"]
+impl crate::Writable for USBCLKCFG {}
 #[doc = "USB Clock Configuration Register"]
 pub mod usbclkcfg;
-#[doc = "Clock Source Select Register"]
-pub struct CLKSRCSEL {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Clock Source Select Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [clksrcsel](clksrcsel) module"]
+pub type CLKSRCSEL = crate::Reg<u32, _CLKSRCSEL>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CLKSRCSEL;
+#[doc = "`read()` method returns [clksrcsel::R](clksrcsel::R) reader structure"]
+impl crate::Readable for CLKSRCSEL {}
+#[doc = "`write(|w| ..)` method takes [clksrcsel::W](clksrcsel::W) writer structure"]
+impl crate::Writable for CLKSRCSEL {}
 #[doc = "Clock Source Select Register"]
 pub mod clksrcsel;
-#[doc = "Allows clearing the current CAN channel sleep state as well as reading that state."]
-pub struct CANSLEEPCLR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Allows clearing the current CAN channel sleep state as well as reading that state.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cansleepclr](cansleepclr) module"]
+pub type CANSLEEPCLR = crate::Reg<u32, _CANSLEEPCLR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CANSLEEPCLR;
+#[doc = "`read()` method returns [cansleepclr::R](cansleepclr::R) reader structure"]
+impl crate::Readable for CANSLEEPCLR {}
+#[doc = "`write(|w| ..)` method takes [cansleepclr::W](cansleepclr::W) writer structure"]
+impl crate::Writable for CANSLEEPCLR {}
 #[doc = "Allows clearing the current CAN channel sleep state as well as reading that state."]
 pub mod cansleepclr;
-#[doc = "Allows reading the wake-up state of the CAN channels."]
-pub struct CANWAKEFLAGS {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Allows reading the wake-up state of the CAN channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [canwakeflags](canwakeflags) module"]
+pub type CANWAKEFLAGS = crate::Reg<u32, _CANWAKEFLAGS>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CANWAKEFLAGS;
+#[doc = "`read()` method returns [canwakeflags::R](canwakeflags::R) reader structure"]
+impl crate::Readable for CANWAKEFLAGS {}
+#[doc = "`write(|w| ..)` method takes [canwakeflags::W](canwakeflags::W) writer structure"]
+impl crate::Writable for CANWAKEFLAGS {}
 #[doc = "Allows reading the wake-up state of the CAN channels."]
 pub mod canwakeflags;
-#[doc = "External Interrupt Flag Register"]
-pub struct EXTINT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "External Interrupt Flag Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [extint](extint) module"]
+pub type EXTINT = crate::Reg<u32, _EXTINT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _EXTINT;
+#[doc = "`read()` method returns [extint::R](extint::R) reader structure"]
+impl crate::Readable for EXTINT {}
+#[doc = "`write(|w| ..)` method takes [extint::W](extint::W) writer structure"]
+impl crate::Writable for EXTINT {}
 #[doc = "External Interrupt Flag Register"]
 pub mod extint;
-#[doc = "External Interrupt Mode register"]
-pub struct EXTMODE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "External Interrupt Mode register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [extmode](extmode) module"]
+pub type EXTMODE = crate::Reg<u32, _EXTMODE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _EXTMODE;
+#[doc = "`read()` method returns [extmode::R](extmode::R) reader structure"]
+impl crate::Readable for EXTMODE {}
+#[doc = "`write(|w| ..)` method takes [extmode::W](extmode::W) writer structure"]
+impl crate::Writable for EXTMODE {}
 #[doc = "External Interrupt Mode register"]
 pub mod extmode;
-#[doc = "External Interrupt Polarity Register"]
-pub struct EXTPOLAR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "External Interrupt Polarity Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [extpolar](extpolar) module"]
+pub type EXTPOLAR = crate::Reg<u32, _EXTPOLAR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _EXTPOLAR;
+#[doc = "`read()` method returns [extpolar::R](extpolar::R) reader structure"]
+impl crate::Readable for EXTPOLAR {}
+#[doc = "`write(|w| ..)` method takes [extpolar::W](extpolar::W) writer structure"]
+impl crate::Writable for EXTPOLAR {}
 #[doc = "External Interrupt Polarity Register"]
 pub mod extpolar;
-#[doc = "Reset Source Identification Register"]
-pub struct RSID {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Reset Source Identification Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rsid](rsid) module"]
+pub type RSID = crate::Reg<u32, _RSID>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _RSID;
+#[doc = "`read()` method returns [rsid::R](rsid::R) reader structure"]
+impl crate::Readable for RSID {}
+#[doc = "`write(|w| ..)` method takes [rsid::W](rsid::W) writer structure"]
+impl crate::Writable for RSID {}
 #[doc = "Reset Source Identification Register"]
 pub mod rsid;
-#[doc = "System control and status"]
-pub struct SCS {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "System control and status\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [scs](scs) module"]
+pub type SCS = crate::Reg<u32, _SCS>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SCS;
+#[doc = "`read()` method returns [scs::R](scs::R) reader structure"]
+impl crate::Readable for SCS {}
+#[doc = "`write(|w| ..)` method takes [scs::W](scs::W) writer structure"]
+impl crate::Writable for SCS {}
 #[doc = "System control and status"]
 pub mod scs;
-#[doc = "Peripheral Clock Selection register 0."]
-pub struct PCLKSEL0 {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Peripheral Clock Selection register 0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pclksel0](pclksel0) module"]
+pub type PCLKSEL0 = crate::Reg<u32, _PCLKSEL0>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PCLKSEL0;
+#[doc = "`read()` method returns [pclksel0::R](pclksel0::R) reader structure"]
+impl crate::Readable for PCLKSEL0 {}
+#[doc = "`write(|w| ..)` method takes [pclksel0::W](pclksel0::W) writer structure"]
+impl crate::Writable for PCLKSEL0 {}
 #[doc = "Peripheral Clock Selection register 0."]
 pub mod pclksel0;
-#[doc = "Peripheral Clock Selection register 1."]
-pub struct PCLKSEL1 {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Peripheral Clock Selection register 1.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pclksel1](pclksel1) module"]
+pub type PCLKSEL1 = crate::Reg<u32, _PCLKSEL1>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PCLKSEL1;
+#[doc = "`read()` method returns [pclksel1::R](pclksel1::R) reader structure"]
+impl crate::Readable for PCLKSEL1 {}
+#[doc = "`write(|w| ..)` method takes [pclksel1::W](pclksel1::W) writer structure"]
+impl crate::Writable for PCLKSEL1 {}
 #[doc = "Peripheral Clock Selection register 1."]
 pub mod pclksel1;
-#[doc = "USB Interrupt Status"]
-pub struct USBINTST {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "USB Interrupt Status\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [usbintst](usbintst) module"]
+pub type USBINTST = crate::Reg<u32, _USBINTST>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _USBINTST;
+#[doc = "`read()` method returns [usbintst::R](usbintst::R) reader structure"]
+impl crate::Readable for USBINTST {}
+#[doc = "`write(|w| ..)` method takes [usbintst::W](usbintst::W) writer structure"]
+impl crate::Writable for USBINTST {}
 #[doc = "USB Interrupt Status"]
 pub mod usbintst;
-#[doc = "Selects between alternative requests on DMA channels 0 through 7 and 10 through 15"]
-pub struct DMACREQSEL {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Selects between alternative requests on DMA channels 0 through 7 and 10 through 15\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dmacreqsel](dmacreqsel) module"]
+pub type DMACREQSEL = crate::Reg<u32, _DMACREQSEL>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _DMACREQSEL;
+#[doc = "`read()` method returns [dmacreqsel::R](dmacreqsel::R) reader structure"]
+impl crate::Readable for DMACREQSEL {}
+#[doc = "`write(|w| ..)` method takes [dmacreqsel::W](dmacreqsel::W) writer structure"]
+impl crate::Writable for DMACREQSEL {}
 #[doc = "Selects between alternative requests on DMA channels 0 through 7 and 10 through 15"]
 pub mod dmacreqsel;
-#[doc = "Clock Output Configuration Register"]
-pub struct CLKOUTCFG {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Clock Output Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [clkoutcfg](clkoutcfg) module"]
+pub type CLKOUTCFG = crate::Reg<u32, _CLKOUTCFG>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CLKOUTCFG;
+#[doc = "`read()` method returns [clkoutcfg::R](clkoutcfg::R) reader structure"]
+impl crate::Readable for CLKOUTCFG {}
+#[doc = "`write(|w| ..)` method takes [clkoutcfg::W](clkoutcfg::W) writer structure"]
+impl crate::Writable for CLKOUTCFG {}
 #[doc = "Clock Output Configuration Register"]
 pub mod clkoutcfg;

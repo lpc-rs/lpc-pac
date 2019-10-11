@@ -1,359 +1,186 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INTENCLR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register INTENCLR"]
+pub type R = crate::R<u32, super::INTENCLR>;
+#[doc = "Writer for register INTENCLR"]
+pub type W = crate::W<u32, super::INTENCLR>;
+#[doc = "Register INTENCLR `reset()`'s with value 0"]
+impl crate::ResetValue for super::INTENCLR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct YESTOUCHR {
-    bits: bool,
-}
-impl YESTOUCHR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct NOTOUCHR {
-    bits: bool,
-}
-impl NOTOUCHR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct POLLDONER {
-    bits: bool,
-}
-impl POLLDONER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TIMEOUTR {
-    bits: bool,
-}
-impl TIMEOUTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OVERUNR {
-    bits: bool,
-}
-impl OVERUNR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _YESTOUCHW<'a> {
+#[doc = "Reader of field `YESTOUCH`"]
+pub type YESTOUCH_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `YESTOUCH`"]
+pub struct YESTOUCH_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _YESTOUCHW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> YESTOUCH_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _NOTOUCHW<'a> {
+#[doc = "Reader of field `NOTOUCH`"]
+pub type NOTOUCH_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `NOTOUCH`"]
+pub struct NOTOUCH_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _NOTOUCHW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> NOTOUCH_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _POLLDONEW<'a> {
+#[doc = "Reader of field `POLLDONE`"]
+pub type POLLDONE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `POLLDONE`"]
+pub struct POLLDONE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _POLLDONEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> POLLDONE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TIMEOUTW<'a> {
+#[doc = "Reader of field `TIMEOUT`"]
+pub type TIMEOUT_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TIMEOUT`"]
+pub struct TIMEOUT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TIMEOUTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TIMEOUT_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OVERUNW<'a> {
+#[doc = "Reader of field `OVERUN`"]
+pub type OVERUN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `OVERUN`"]
+pub struct OVERUN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OVERUNW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> OVERUN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - clear the touch interrupt"]
-    #[inline]
-    pub fn yestouch(&self) -> YESTOUCHR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        YESTOUCHR { bits }
+    #[inline(always)]
+    pub fn yestouch(&self) -> YESTOUCH_R {
+        YESTOUCH_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - clear the no-touch interrupt"]
-    #[inline]
-    pub fn notouch(&self) -> NOTOUCHR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        NOTOUCHR { bits }
+    #[inline(always)]
+    pub fn notouch(&self) -> NOTOUCH_R {
+        NOTOUCH_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - clear the poll or POLLNOW completing interrupt"]
-    #[inline]
-    pub fn polldone(&self) -> POLLDONER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        POLLDONER { bits }
+    #[inline(always)]
+    pub fn polldone(&self) -> POLLDONE_R {
+        POLLDONE_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - clear the timeout interrupt"]
-    #[inline]
-    pub fn timeout(&self) -> TIMEOUTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TIMEOUTR { bits }
+    #[inline(always)]
+    pub fn timeout(&self) -> TIMEOUT_R {
+        TIMEOUT_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - clear the overrun interrupt"]
-    #[inline]
-    pub fn overun(&self) -> OVERUNR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        OVERUNR { bits }
+    #[inline(always)]
+    pub fn overun(&self) -> OVERUN_R {
+        OVERUN_R::new(((self.bits >> 4) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - clear the touch interrupt"]
-    #[inline]
-    pub fn yestouch(&mut self) -> _YESTOUCHW {
-        _YESTOUCHW { w: self }
+    #[inline(always)]
+    pub fn yestouch(&mut self) -> YESTOUCH_W {
+        YESTOUCH_W { w: self }
     }
     #[doc = "Bit 1 - clear the no-touch interrupt"]
-    #[inline]
-    pub fn notouch(&mut self) -> _NOTOUCHW {
-        _NOTOUCHW { w: self }
+    #[inline(always)]
+    pub fn notouch(&mut self) -> NOTOUCH_W {
+        NOTOUCH_W { w: self }
     }
     #[doc = "Bit 2 - clear the poll or POLLNOW completing interrupt"]
-    #[inline]
-    pub fn polldone(&mut self) -> _POLLDONEW {
-        _POLLDONEW { w: self }
+    #[inline(always)]
+    pub fn polldone(&mut self) -> POLLDONE_W {
+        POLLDONE_W { w: self }
     }
     #[doc = "Bit 3 - clear the timeout interrupt"]
-    #[inline]
-    pub fn timeout(&mut self) -> _TIMEOUTW {
-        _TIMEOUTW { w: self }
+    #[inline(always)]
+    pub fn timeout(&mut self) -> TIMEOUT_W {
+        TIMEOUT_W { w: self }
     }
     #[doc = "Bit 4 - clear the overrun interrupt"]
-    #[inline]
-    pub fn overun(&mut self) -> _OVERUNW {
-        _OVERUNW { w: self }
+    #[inline(always)]
+    pub fn overun(&mut self) -> OVERUN_W {
+        OVERUN_W { w: self }
     }
 }

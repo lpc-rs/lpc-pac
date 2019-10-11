@@ -1,1373 +1,984 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PCR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PCR"]
+pub type R = crate::R<u32, super::PCR>;
+#[doc = "Writer for register PCR"]
+pub type W = crate::W<u32, super::PCR>;
+#[doc = "Register PCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::PCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `PWMSEL2`"]
+#[doc = "PWM\\[2\\] output single/double edge mode control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMSEL2R {
-    #[doc = "Single edge controlled mode is selected."]
+pub enum PWMSEL2_A {
+    #[doc = "0: Single edge controlled mode is selected."]
     SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
+    #[doc = "1: Double edge controlled mode is selected."]
     DOUBLE_EDGE_CONTROLL,
 }
-impl PWMSEL2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMSEL2R::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL2R::DOUBLE_EDGE_CONTROLL => true,
+impl From<PWMSEL2_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMSEL2_A) -> Self {
+        match variant {
+            PWMSEL2_A::SINGLE_EDGE_CONTROLL => false,
+            PWMSEL2_A::DOUBLE_EDGE_CONTROLL => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMSEL2R {
-        match value {
-            false => PWMSEL2R::SINGLE_EDGE_CONTROLL,
-            true => PWMSEL2R::DOUBLE_EDGE_CONTROLL,
+}
+#[doc = "Reader of field `PWMSEL2`"]
+pub type PWMSEL2_R = crate::R<bool, PWMSEL2_A>;
+impl PWMSEL2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMSEL2_A {
+        match self.bits {
+            false => PWMSEL2_A::SINGLE_EDGE_CONTROLL,
+            true => PWMSEL2_A::DOUBLE_EDGE_CONTROLL,
         }
     }
     #[doc = "Checks if the value of the field is `SINGLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_single_edge_controll(&self) -> bool {
-        *self == PWMSEL2R::SINGLE_EDGE_CONTROLL
+        *self == PWMSEL2_A::SINGLE_EDGE_CONTROLL
     }
     #[doc = "Checks if the value of the field is `DOUBLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_double_edge_controll(&self) -> bool {
-        *self == PWMSEL2R::DOUBLE_EDGE_CONTROLL
+        *self == PWMSEL2_A::DOUBLE_EDGE_CONTROLL
     }
 }
-#[doc = "Possible values of the field `PWMSEL3`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMSEL3R {
-    #[doc = "Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
+#[doc = "Write proxy for field `PWMSEL2`"]
+pub struct PWMSEL2_W<'a> {
+    w: &'a mut W,
 }
-impl PWMSEL3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMSEL3R::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL3R::DOUBLE_EDGE_CONTROLL => true,
+impl<'a> PWMSEL2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMSEL2_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMSEL3R {
-        match value {
-            false => PWMSEL3R::SINGLE_EDGE_CONTROLL,
-            true => PWMSEL3R::DOUBLE_EDGE_CONTROLL,
+    #[doc = "Single edge controlled mode is selected."]
+    #[inline(always)]
+    pub fn single_edge_controll(self) -> &'a mut W {
+        self.variant(PWMSEL2_A::SINGLE_EDGE_CONTROLL)
+    }
+    #[doc = "Double edge controlled mode is selected."]
+    #[inline(always)]
+    pub fn double_edge_controll(self) -> &'a mut W {
+        self.variant(PWMSEL2_A::DOUBLE_EDGE_CONTROLL)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "PWM\\[3\\] output edge control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMSEL3_A {
+    #[doc = "0: Single edge controlled mode is selected."]
+    SINGLE_EDGE_CONTROLL,
+    #[doc = "1: Double edge controlled mode is selected."]
+    DOUBLE_EDGE_CONTROLL,
+}
+impl From<PWMSEL3_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMSEL3_A) -> Self {
+        match variant {
+            PWMSEL3_A::SINGLE_EDGE_CONTROLL => false,
+            PWMSEL3_A::DOUBLE_EDGE_CONTROLL => true,
+        }
+    }
+}
+#[doc = "Reader of field `PWMSEL3`"]
+pub type PWMSEL3_R = crate::R<bool, PWMSEL3_A>;
+impl PWMSEL3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMSEL3_A {
+        match self.bits {
+            false => PWMSEL3_A::SINGLE_EDGE_CONTROLL,
+            true => PWMSEL3_A::DOUBLE_EDGE_CONTROLL,
         }
     }
     #[doc = "Checks if the value of the field is `SINGLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_single_edge_controll(&self) -> bool {
-        *self == PWMSEL3R::SINGLE_EDGE_CONTROLL
+        *self == PWMSEL3_A::SINGLE_EDGE_CONTROLL
     }
     #[doc = "Checks if the value of the field is `DOUBLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_double_edge_controll(&self) -> bool {
-        *self == PWMSEL3R::DOUBLE_EDGE_CONTROLL
+        *self == PWMSEL3_A::DOUBLE_EDGE_CONTROLL
     }
 }
-#[doc = "Possible values of the field `PWMSEL4`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMSEL4R {
-    #[doc = "Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
+#[doc = "Write proxy for field `PWMSEL3`"]
+pub struct PWMSEL3_W<'a> {
+    w: &'a mut W,
 }
-impl PWMSEL4R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMSEL4R::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL4R::DOUBLE_EDGE_CONTROLL => true,
+impl<'a> PWMSEL3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMSEL3_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMSEL4R {
-        match value {
-            false => PWMSEL4R::SINGLE_EDGE_CONTROLL,
-            true => PWMSEL4R::DOUBLE_EDGE_CONTROLL,
+    #[doc = "Single edge controlled mode is selected."]
+    #[inline(always)]
+    pub fn single_edge_controll(self) -> &'a mut W {
+        self.variant(PWMSEL3_A::SINGLE_EDGE_CONTROLL)
+    }
+    #[doc = "Double edge controlled mode is selected."]
+    #[inline(always)]
+    pub fn double_edge_controll(self) -> &'a mut W {
+        self.variant(PWMSEL3_A::DOUBLE_EDGE_CONTROLL)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "PWM\\[4\\] output edge control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMSEL4_A {
+    #[doc = "0: Single edge controlled mode is selected."]
+    SINGLE_EDGE_CONTROLL,
+    #[doc = "1: Double edge controlled mode is selected."]
+    DOUBLE_EDGE_CONTROLL,
+}
+impl From<PWMSEL4_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMSEL4_A) -> Self {
+        match variant {
+            PWMSEL4_A::SINGLE_EDGE_CONTROLL => false,
+            PWMSEL4_A::DOUBLE_EDGE_CONTROLL => true,
+        }
+    }
+}
+#[doc = "Reader of field `PWMSEL4`"]
+pub type PWMSEL4_R = crate::R<bool, PWMSEL4_A>;
+impl PWMSEL4_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMSEL4_A {
+        match self.bits {
+            false => PWMSEL4_A::SINGLE_EDGE_CONTROLL,
+            true => PWMSEL4_A::DOUBLE_EDGE_CONTROLL,
         }
     }
     #[doc = "Checks if the value of the field is `SINGLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_single_edge_controll(&self) -> bool {
-        *self == PWMSEL4R::SINGLE_EDGE_CONTROLL
+        *self == PWMSEL4_A::SINGLE_EDGE_CONTROLL
     }
     #[doc = "Checks if the value of the field is `DOUBLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_double_edge_controll(&self) -> bool {
-        *self == PWMSEL4R::DOUBLE_EDGE_CONTROLL
+        *self == PWMSEL4_A::DOUBLE_EDGE_CONTROLL
     }
 }
-#[doc = "Possible values of the field `PWMSEL5`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMSEL5R {
-    #[doc = "Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
+#[doc = "Write proxy for field `PWMSEL4`"]
+pub struct PWMSEL4_W<'a> {
+    w: &'a mut W,
 }
-impl PWMSEL5R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMSEL5R::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL5R::DOUBLE_EDGE_CONTROLL => true,
+impl<'a> PWMSEL4_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMSEL4_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMSEL5R {
-        match value {
-            false => PWMSEL5R::SINGLE_EDGE_CONTROLL,
-            true => PWMSEL5R::DOUBLE_EDGE_CONTROLL,
+    #[doc = "Single edge controlled mode is selected."]
+    #[inline(always)]
+    pub fn single_edge_controll(self) -> &'a mut W {
+        self.variant(PWMSEL4_A::SINGLE_EDGE_CONTROLL)
+    }
+    #[doc = "Double edge controlled mode is selected."]
+    #[inline(always)]
+    pub fn double_edge_controll(self) -> &'a mut W {
+        self.variant(PWMSEL4_A::DOUBLE_EDGE_CONTROLL)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "PWM\\[5\\] output edge control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMSEL5_A {
+    #[doc = "0: Single edge controlled mode is selected."]
+    SINGLE_EDGE_CONTROLL,
+    #[doc = "1: Double edge controlled mode is selected."]
+    DOUBLE_EDGE_CONTROLL,
+}
+impl From<PWMSEL5_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMSEL5_A) -> Self {
+        match variant {
+            PWMSEL5_A::SINGLE_EDGE_CONTROLL => false,
+            PWMSEL5_A::DOUBLE_EDGE_CONTROLL => true,
+        }
+    }
+}
+#[doc = "Reader of field `PWMSEL5`"]
+pub type PWMSEL5_R = crate::R<bool, PWMSEL5_A>;
+impl PWMSEL5_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMSEL5_A {
+        match self.bits {
+            false => PWMSEL5_A::SINGLE_EDGE_CONTROLL,
+            true => PWMSEL5_A::DOUBLE_EDGE_CONTROLL,
         }
     }
     #[doc = "Checks if the value of the field is `SINGLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_single_edge_controll(&self) -> bool {
-        *self == PWMSEL5R::SINGLE_EDGE_CONTROLL
+        *self == PWMSEL5_A::SINGLE_EDGE_CONTROLL
     }
     #[doc = "Checks if the value of the field is `DOUBLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_double_edge_controll(&self) -> bool {
-        *self == PWMSEL5R::DOUBLE_EDGE_CONTROLL
+        *self == PWMSEL5_A::DOUBLE_EDGE_CONTROLL
     }
 }
-#[doc = "Possible values of the field `PWMSEL6`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMSEL6R {
-    #[doc = "Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
+#[doc = "Write proxy for field `PWMSEL5`"]
+pub struct PWMSEL5_W<'a> {
+    w: &'a mut W,
 }
-impl PWMSEL6R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMSEL6R::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL6R::DOUBLE_EDGE_CONTROLL => true,
+impl<'a> PWMSEL5_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMSEL5_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMSEL6R {
-        match value {
-            false => PWMSEL6R::SINGLE_EDGE_CONTROLL,
-            true => PWMSEL6R::DOUBLE_EDGE_CONTROLL,
+    #[doc = "Single edge controlled mode is selected."]
+    #[inline(always)]
+    pub fn single_edge_controll(self) -> &'a mut W {
+        self.variant(PWMSEL5_A::SINGLE_EDGE_CONTROLL)
+    }
+    #[doc = "Double edge controlled mode is selected."]
+    #[inline(always)]
+    pub fn double_edge_controll(self) -> &'a mut W {
+        self.variant(PWMSEL5_A::DOUBLE_EDGE_CONTROLL)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "PWM\\[6\\] output edge control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMSEL6_A {
+    #[doc = "0: Single edge controlled mode is selected."]
+    SINGLE_EDGE_CONTROLL,
+    #[doc = "1: Double edge controlled mode is selected."]
+    DOUBLE_EDGE_CONTROLL,
+}
+impl From<PWMSEL6_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMSEL6_A) -> Self {
+        match variant {
+            PWMSEL6_A::SINGLE_EDGE_CONTROLL => false,
+            PWMSEL6_A::DOUBLE_EDGE_CONTROLL => true,
+        }
+    }
+}
+#[doc = "Reader of field `PWMSEL6`"]
+pub type PWMSEL6_R = crate::R<bool, PWMSEL6_A>;
+impl PWMSEL6_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMSEL6_A {
+        match self.bits {
+            false => PWMSEL6_A::SINGLE_EDGE_CONTROLL,
+            true => PWMSEL6_A::DOUBLE_EDGE_CONTROLL,
         }
     }
     #[doc = "Checks if the value of the field is `SINGLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_single_edge_controll(&self) -> bool {
-        *self == PWMSEL6R::SINGLE_EDGE_CONTROLL
+        *self == PWMSEL6_A::SINGLE_EDGE_CONTROLL
     }
     #[doc = "Checks if the value of the field is `DOUBLE_EDGE_CONTROLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_double_edge_controll(&self) -> bool {
-        *self == PWMSEL6R::DOUBLE_EDGE_CONTROLL
+        *self == PWMSEL6_A::DOUBLE_EDGE_CONTROLL
     }
 }
-#[doc = "Possible values of the field `PWMENA1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMENA1R {
-    #[doc = "The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
-}
-impl PWMENA1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMENA1R::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA1R::THE_PWM_OUTPUT_IS_EN => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMENA1R {
-        match value {
-            false => PWMENA1R::THE_PWM_OUTPUT_IS_DI,
-            true => PWMENA1R::THE_PWM_OUTPUT_IS_EN,
-        }
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_di(&self) -> bool {
-        *self == PWMENA1R::THE_PWM_OUTPUT_IS_DI
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_en(&self) -> bool {
-        *self == PWMENA1R::THE_PWM_OUTPUT_IS_EN
-    }
-}
-#[doc = "Possible values of the field `PWMENA2`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMENA2R {
-    #[doc = "The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
-}
-impl PWMENA2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMENA2R::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA2R::THE_PWM_OUTPUT_IS_EN => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMENA2R {
-        match value {
-            false => PWMENA2R::THE_PWM_OUTPUT_IS_DI,
-            true => PWMENA2R::THE_PWM_OUTPUT_IS_EN,
-        }
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_di(&self) -> bool {
-        *self == PWMENA2R::THE_PWM_OUTPUT_IS_DI
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_en(&self) -> bool {
-        *self == PWMENA2R::THE_PWM_OUTPUT_IS_EN
-    }
-}
-#[doc = "Possible values of the field `PWMENA3`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMENA3R {
-    #[doc = "The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
-}
-impl PWMENA3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMENA3R::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA3R::THE_PWM_OUTPUT_IS_EN => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMENA3R {
-        match value {
-            false => PWMENA3R::THE_PWM_OUTPUT_IS_DI,
-            true => PWMENA3R::THE_PWM_OUTPUT_IS_EN,
-        }
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_di(&self) -> bool {
-        *self == PWMENA3R::THE_PWM_OUTPUT_IS_DI
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_en(&self) -> bool {
-        *self == PWMENA3R::THE_PWM_OUTPUT_IS_EN
-    }
-}
-#[doc = "Possible values of the field `PWMENA4`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMENA4R {
-    #[doc = "The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
-}
-impl PWMENA4R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMENA4R::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA4R::THE_PWM_OUTPUT_IS_EN => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMENA4R {
-        match value {
-            false => PWMENA4R::THE_PWM_OUTPUT_IS_DI,
-            true => PWMENA4R::THE_PWM_OUTPUT_IS_EN,
-        }
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_di(&self) -> bool {
-        *self == PWMENA4R::THE_PWM_OUTPUT_IS_DI
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_en(&self) -> bool {
-        *self == PWMENA4R::THE_PWM_OUTPUT_IS_EN
-    }
-}
-#[doc = "Possible values of the field `PWMENA5`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMENA5R {
-    #[doc = "The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
-}
-impl PWMENA5R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMENA5R::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA5R::THE_PWM_OUTPUT_IS_EN => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMENA5R {
-        match value {
-            false => PWMENA5R::THE_PWM_OUTPUT_IS_DI,
-            true => PWMENA5R::THE_PWM_OUTPUT_IS_EN,
-        }
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_di(&self) -> bool {
-        *self == PWMENA5R::THE_PWM_OUTPUT_IS_DI
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_en(&self) -> bool {
-        *self == PWMENA5R::THE_PWM_OUTPUT_IS_EN
-    }
-}
-#[doc = "Possible values of the field `PWMENA6`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMENA6R {
-    #[doc = "The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
-}
-impl PWMENA6R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMENA6R::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA6R::THE_PWM_OUTPUT_IS_EN => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMENA6R {
-        match value {
-            false => PWMENA6R::THE_PWM_OUTPUT_IS_DI,
-            true => PWMENA6R::THE_PWM_OUTPUT_IS_EN,
-        }
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_di(&self) -> bool {
-        *self == PWMENA6R::THE_PWM_OUTPUT_IS_DI
-    }
-    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
-    #[inline]
-    pub fn is_the_pwm_output_is_en(&self) -> bool {
-        *self == PWMENA6R::THE_PWM_OUTPUT_IS_EN
-    }
-}
-#[doc = "Values that can be written to the field `PWMSEL2`"]
-pub enum PWMSEL2W {
-    #[doc = "Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
-}
-impl PWMSEL2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMSEL2W::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL2W::DOUBLE_EDGE_CONTROLL => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PWMSEL2W<'a> {
+#[doc = "Write proxy for field `PWMSEL6`"]
+pub struct PWMSEL6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMSEL2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMSEL2W) -> &'a mut W {
+impl<'a> PWMSEL6_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMSEL6_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Single edge controlled mode is selected."]
-    #[inline]
+    #[inline(always)]
     pub fn single_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL2W::SINGLE_EDGE_CONTROLL)
+        self.variant(PWMSEL6_A::SINGLE_EDGE_CONTROLL)
     }
     #[doc = "Double edge controlled mode is selected."]
-    #[inline]
+    #[inline(always)]
     pub fn double_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL2W::DOUBLE_EDGE_CONTROLL)
+        self.variant(PWMSEL6_A::DOUBLE_EDGE_CONTROLL)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PWMSEL3`"]
-pub enum PWMSEL3W {
-    #[doc = "Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
-}
-impl PWMSEL3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMSEL3W::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL3W::DOUBLE_EDGE_CONTROLL => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PWMSEL3W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PWMSEL3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMSEL3W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Single edge controlled mode is selected."]
-    #[inline]
-    pub fn single_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL3W::SINGLE_EDGE_CONTROLL)
-    }
-    #[doc = "Double edge controlled mode is selected."]
-    #[inline]
-    pub fn double_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL3W::DOUBLE_EDGE_CONTROLL)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `PWMSEL4`"]
-pub enum PWMSEL4W {
-    #[doc = "Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
-}
-impl PWMSEL4W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMSEL4W::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL4W::DOUBLE_EDGE_CONTROLL => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PWMSEL4W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PWMSEL4W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMSEL4W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Single edge controlled mode is selected."]
-    #[inline]
-    pub fn single_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL4W::SINGLE_EDGE_CONTROLL)
-    }
-    #[doc = "Double edge controlled mode is selected."]
-    #[inline]
-    pub fn double_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL4W::DOUBLE_EDGE_CONTROLL)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `PWMSEL5`"]
-pub enum PWMSEL5W {
-    #[doc = "Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
-}
-impl PWMSEL5W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMSEL5W::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL5W::DOUBLE_EDGE_CONTROLL => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PWMSEL5W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PWMSEL5W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMSEL5W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Single edge controlled mode is selected."]
-    #[inline]
-    pub fn single_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL5W::SINGLE_EDGE_CONTROLL)
-    }
-    #[doc = "Double edge controlled mode is selected."]
-    #[inline]
-    pub fn double_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL5W::DOUBLE_EDGE_CONTROLL)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `PWMSEL6`"]
-pub enum PWMSEL6W {
-    #[doc = "Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
-    #[doc = "Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
-}
-impl PWMSEL6W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMSEL6W::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL6W::DOUBLE_EDGE_CONTROLL => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PWMSEL6W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PWMSEL6W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMSEL6W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Single edge controlled mode is selected."]
-    #[inline]
-    pub fn single_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL6W::SINGLE_EDGE_CONTROLL)
-    }
-    #[doc = "Double edge controlled mode is selected."]
-    #[inline]
-    pub fn double_edge_controll(self) -> &'a mut W {
-        self.variant(PWMSEL6W::DOUBLE_EDGE_CONTROLL)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `PWMENA1`"]
-pub enum PWMENA1W {
-    #[doc = "The PWM output is disabled."]
+#[doc = "PWM\\[1\\] output enable control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMENA1_A {
+    #[doc = "0: The PWM output is disabled."]
     THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
+    #[doc = "1: The PWM output is enabled."]
     THE_PWM_OUTPUT_IS_EN,
 }
-impl PWMENA1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMENA1W::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA1W::THE_PWM_OUTPUT_IS_EN => true,
+impl From<PWMENA1_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMENA1_A) -> Self {
+        match variant {
+            PWMENA1_A::THE_PWM_OUTPUT_IS_DI => false,
+            PWMENA1_A::THE_PWM_OUTPUT_IS_EN => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _PWMENA1W<'a> {
+#[doc = "Reader of field `PWMENA1`"]
+pub type PWMENA1_R = crate::R<bool, PWMENA1_A>;
+impl PWMENA1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMENA1_A {
+        match self.bits {
+            false => PWMENA1_A::THE_PWM_OUTPUT_IS_DI,
+            true => PWMENA1_A::THE_PWM_OUTPUT_IS_EN,
+        }
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_di(&self) -> bool {
+        *self == PWMENA1_A::THE_PWM_OUTPUT_IS_DI
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_en(&self) -> bool {
+        *self == PWMENA1_A::THE_PWM_OUTPUT_IS_EN
+    }
+}
+#[doc = "Write proxy for field `PWMENA1`"]
+pub struct PWMENA1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMENA1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMENA1W) -> &'a mut W {
+impl<'a> PWMENA1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMENA1_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "The PWM output is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_di(self) -> &'a mut W {
-        self.variant(PWMENA1W::THE_PWM_OUTPUT_IS_DI)
+        self.variant(PWMENA1_A::THE_PWM_OUTPUT_IS_DI)
     }
     #[doc = "The PWM output is enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_en(self) -> &'a mut W {
-        self.variant(PWMENA1W::THE_PWM_OUTPUT_IS_EN)
+        self.variant(PWMENA1_A::THE_PWM_OUTPUT_IS_EN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PWMENA2`"]
-pub enum PWMENA2W {
-    #[doc = "The PWM output is disabled."]
+#[doc = "PWM\\[2\\] output enable control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMENA2_A {
+    #[doc = "0: The PWM output is disabled."]
     THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
+    #[doc = "1: The PWM output is enabled."]
     THE_PWM_OUTPUT_IS_EN,
 }
-impl PWMENA2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMENA2W::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA2W::THE_PWM_OUTPUT_IS_EN => true,
+impl From<PWMENA2_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMENA2_A) -> Self {
+        match variant {
+            PWMENA2_A::THE_PWM_OUTPUT_IS_DI => false,
+            PWMENA2_A::THE_PWM_OUTPUT_IS_EN => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _PWMENA2W<'a> {
+#[doc = "Reader of field `PWMENA2`"]
+pub type PWMENA2_R = crate::R<bool, PWMENA2_A>;
+impl PWMENA2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMENA2_A {
+        match self.bits {
+            false => PWMENA2_A::THE_PWM_OUTPUT_IS_DI,
+            true => PWMENA2_A::THE_PWM_OUTPUT_IS_EN,
+        }
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_di(&self) -> bool {
+        *self == PWMENA2_A::THE_PWM_OUTPUT_IS_DI
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_en(&self) -> bool {
+        *self == PWMENA2_A::THE_PWM_OUTPUT_IS_EN
+    }
+}
+#[doc = "Write proxy for field `PWMENA2`"]
+pub struct PWMENA2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMENA2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMENA2W) -> &'a mut W {
+impl<'a> PWMENA2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMENA2_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "The PWM output is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_di(self) -> &'a mut W {
-        self.variant(PWMENA2W::THE_PWM_OUTPUT_IS_DI)
+        self.variant(PWMENA2_A::THE_PWM_OUTPUT_IS_DI)
     }
     #[doc = "The PWM output is enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_en(self) -> &'a mut W {
-        self.variant(PWMENA2W::THE_PWM_OUTPUT_IS_EN)
+        self.variant(PWMENA2_A::THE_PWM_OUTPUT_IS_EN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PWMENA3`"]
-pub enum PWMENA3W {
-    #[doc = "The PWM output is disabled."]
+#[doc = "PWM\\[3\\] output enable control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMENA3_A {
+    #[doc = "0: The PWM output is disabled."]
     THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
+    #[doc = "1: The PWM output is enabled."]
     THE_PWM_OUTPUT_IS_EN,
 }
-impl PWMENA3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMENA3W::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA3W::THE_PWM_OUTPUT_IS_EN => true,
+impl From<PWMENA3_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMENA3_A) -> Self {
+        match variant {
+            PWMENA3_A::THE_PWM_OUTPUT_IS_DI => false,
+            PWMENA3_A::THE_PWM_OUTPUT_IS_EN => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _PWMENA3W<'a> {
+#[doc = "Reader of field `PWMENA3`"]
+pub type PWMENA3_R = crate::R<bool, PWMENA3_A>;
+impl PWMENA3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMENA3_A {
+        match self.bits {
+            false => PWMENA3_A::THE_PWM_OUTPUT_IS_DI,
+            true => PWMENA3_A::THE_PWM_OUTPUT_IS_EN,
+        }
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_di(&self) -> bool {
+        *self == PWMENA3_A::THE_PWM_OUTPUT_IS_DI
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_en(&self) -> bool {
+        *self == PWMENA3_A::THE_PWM_OUTPUT_IS_EN
+    }
+}
+#[doc = "Write proxy for field `PWMENA3`"]
+pub struct PWMENA3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMENA3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMENA3W) -> &'a mut W {
+impl<'a> PWMENA3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMENA3_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "The PWM output is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_di(self) -> &'a mut W {
-        self.variant(PWMENA3W::THE_PWM_OUTPUT_IS_DI)
+        self.variant(PWMENA3_A::THE_PWM_OUTPUT_IS_DI)
     }
     #[doc = "The PWM output is enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_en(self) -> &'a mut W {
-        self.variant(PWMENA3W::THE_PWM_OUTPUT_IS_EN)
+        self.variant(PWMENA3_A::THE_PWM_OUTPUT_IS_EN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PWMENA4`"]
-pub enum PWMENA4W {
-    #[doc = "The PWM output is disabled."]
+#[doc = "PWM\\[4\\] output enable control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMENA4_A {
+    #[doc = "0: The PWM output is disabled."]
     THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
+    #[doc = "1: The PWM output is enabled."]
     THE_PWM_OUTPUT_IS_EN,
 }
-impl PWMENA4W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMENA4W::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA4W::THE_PWM_OUTPUT_IS_EN => true,
+impl From<PWMENA4_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMENA4_A) -> Self {
+        match variant {
+            PWMENA4_A::THE_PWM_OUTPUT_IS_DI => false,
+            PWMENA4_A::THE_PWM_OUTPUT_IS_EN => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _PWMENA4W<'a> {
+#[doc = "Reader of field `PWMENA4`"]
+pub type PWMENA4_R = crate::R<bool, PWMENA4_A>;
+impl PWMENA4_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMENA4_A {
+        match self.bits {
+            false => PWMENA4_A::THE_PWM_OUTPUT_IS_DI,
+            true => PWMENA4_A::THE_PWM_OUTPUT_IS_EN,
+        }
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_di(&self) -> bool {
+        *self == PWMENA4_A::THE_PWM_OUTPUT_IS_DI
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_en(&self) -> bool {
+        *self == PWMENA4_A::THE_PWM_OUTPUT_IS_EN
+    }
+}
+#[doc = "Write proxy for field `PWMENA4`"]
+pub struct PWMENA4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMENA4W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMENA4W) -> &'a mut W {
+impl<'a> PWMENA4_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMENA4_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "The PWM output is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_di(self) -> &'a mut W {
-        self.variant(PWMENA4W::THE_PWM_OUTPUT_IS_DI)
+        self.variant(PWMENA4_A::THE_PWM_OUTPUT_IS_DI)
     }
     #[doc = "The PWM output is enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_en(self) -> &'a mut W {
-        self.variant(PWMENA4W::THE_PWM_OUTPUT_IS_EN)
+        self.variant(PWMENA4_A::THE_PWM_OUTPUT_IS_EN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PWMENA5`"]
-pub enum PWMENA5W {
-    #[doc = "The PWM output is disabled."]
+#[doc = "PWM\\[5\\] output enable control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMENA5_A {
+    #[doc = "0: The PWM output is disabled."]
     THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
+    #[doc = "1: The PWM output is enabled."]
     THE_PWM_OUTPUT_IS_EN,
 }
-impl PWMENA5W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMENA5W::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA5W::THE_PWM_OUTPUT_IS_EN => true,
+impl From<PWMENA5_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMENA5_A) -> Self {
+        match variant {
+            PWMENA5_A::THE_PWM_OUTPUT_IS_DI => false,
+            PWMENA5_A::THE_PWM_OUTPUT_IS_EN => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _PWMENA5W<'a> {
+#[doc = "Reader of field `PWMENA5`"]
+pub type PWMENA5_R = crate::R<bool, PWMENA5_A>;
+impl PWMENA5_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMENA5_A {
+        match self.bits {
+            false => PWMENA5_A::THE_PWM_OUTPUT_IS_DI,
+            true => PWMENA5_A::THE_PWM_OUTPUT_IS_EN,
+        }
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_di(&self) -> bool {
+        *self == PWMENA5_A::THE_PWM_OUTPUT_IS_DI
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_en(&self) -> bool {
+        *self == PWMENA5_A::THE_PWM_OUTPUT_IS_EN
+    }
+}
+#[doc = "Write proxy for field `PWMENA5`"]
+pub struct PWMENA5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMENA5W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMENA5W) -> &'a mut W {
+impl<'a> PWMENA5_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMENA5_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "The PWM output is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_di(self) -> &'a mut W {
-        self.variant(PWMENA5W::THE_PWM_OUTPUT_IS_DI)
+        self.variant(PWMENA5_A::THE_PWM_OUTPUT_IS_DI)
     }
     #[doc = "The PWM output is enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_en(self) -> &'a mut W {
-        self.variant(PWMENA5W::THE_PWM_OUTPUT_IS_EN)
+        self.variant(PWMENA5_A::THE_PWM_OUTPUT_IS_EN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PWMENA6`"]
-pub enum PWMENA6W {
-    #[doc = "The PWM output is disabled."]
+#[doc = "PWM\\[6\\] output enable control. See PWMENA1 for details.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMENA6_A {
+    #[doc = "0: The PWM output is disabled."]
     THE_PWM_OUTPUT_IS_DI,
-    #[doc = "The PWM output is enabled."]
+    #[doc = "1: The PWM output is enabled."]
     THE_PWM_OUTPUT_IS_EN,
 }
-impl PWMENA6W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMENA6W::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA6W::THE_PWM_OUTPUT_IS_EN => true,
+impl From<PWMENA6_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMENA6_A) -> Self {
+        match variant {
+            PWMENA6_A::THE_PWM_OUTPUT_IS_DI => false,
+            PWMENA6_A::THE_PWM_OUTPUT_IS_EN => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _PWMENA6W<'a> {
+#[doc = "Reader of field `PWMENA6`"]
+pub type PWMENA6_R = crate::R<bool, PWMENA6_A>;
+impl PWMENA6_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMENA6_A {
+        match self.bits {
+            false => PWMENA6_A::THE_PWM_OUTPUT_IS_DI,
+            true => PWMENA6_A::THE_PWM_OUTPUT_IS_EN,
+        }
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_DI`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_di(&self) -> bool {
+        *self == PWMENA6_A::THE_PWM_OUTPUT_IS_DI
+    }
+    #[doc = "Checks if the value of the field is `THE_PWM_OUTPUT_IS_EN`"]
+    #[inline(always)]
+    pub fn is_the_pwm_output_is_en(&self) -> bool {
+        *self == PWMENA6_A::THE_PWM_OUTPUT_IS_EN
+    }
+}
+#[doc = "Write proxy for field `PWMENA6`"]
+pub struct PWMENA6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMENA6W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMENA6W) -> &'a mut W {
+impl<'a> PWMENA6_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMENA6_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "The PWM output is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_di(self) -> &'a mut W {
-        self.variant(PWMENA6W::THE_PWM_OUTPUT_IS_DI)
+        self.variant(PWMENA6_A::THE_PWM_OUTPUT_IS_DI)
     }
     #[doc = "The PWM output is enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_pwm_output_is_en(self) -> &'a mut W {
-        self.variant(PWMENA6W::THE_PWM_OUTPUT_IS_EN)
+        self.variant(PWMENA6_A::THE_PWM_OUTPUT_IS_EN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 2 - PWM\\[2\\] output single/double edge mode control."]
-    #[inline]
-    pub fn pwmsel2(&self) -> PWMSEL2R {
-        PWMSEL2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmsel2(&self) -> PWMSEL2_R {
+        PWMSEL2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - PWM\\[3\\] output edge control."]
-    #[inline]
-    pub fn pwmsel3(&self) -> PWMSEL3R {
-        PWMSEL3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmsel3(&self) -> PWMSEL3_R {
+        PWMSEL3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - PWM\\[4\\] output edge control."]
-    #[inline]
-    pub fn pwmsel4(&self) -> PWMSEL4R {
-        PWMSEL4R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmsel4(&self) -> PWMSEL4_R {
+        PWMSEL4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - PWM\\[5\\] output edge control."]
-    #[inline]
-    pub fn pwmsel5(&self) -> PWMSEL5R {
-        PWMSEL5R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmsel5(&self) -> PWMSEL5_R {
+        PWMSEL5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - PWM\\[6\\] output edge control."]
-    #[inline]
-    pub fn pwmsel6(&self) -> PWMSEL6R {
-        PWMSEL6R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmsel6(&self) -> PWMSEL6_R {
+        PWMSEL6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 9 - PWM\\[1\\] output enable control."]
-    #[inline]
-    pub fn pwmena1(&self) -> PWMENA1R {
-        PWMENA1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmena1(&self) -> PWMENA1_R {
+        PWMENA1_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - PWM\\[2\\] output enable control."]
-    #[inline]
-    pub fn pwmena2(&self) -> PWMENA2R {
-        PWMENA2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmena2(&self) -> PWMENA2_R {
+        PWMENA2_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - PWM\\[3\\] output enable control."]
-    #[inline]
-    pub fn pwmena3(&self) -> PWMENA3R {
-        PWMENA3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmena3(&self) -> PWMENA3_R {
+        PWMENA3_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12 - PWM\\[4\\] output enable control."]
-    #[inline]
-    pub fn pwmena4(&self) -> PWMENA4R {
-        PWMENA4R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmena4(&self) -> PWMENA4_R {
+        PWMENA4_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - PWM\\[5\\] output enable control."]
-    #[inline]
-    pub fn pwmena5(&self) -> PWMENA5R {
-        PWMENA5R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmena5(&self) -> PWMENA5_R {
+        PWMENA5_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - PWM\\[6\\] output enable control. See PWMENA1 for details."]
-    #[inline]
-    pub fn pwmena6(&self) -> PWMENA6R {
-        PWMENA6R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmena6(&self) -> PWMENA6_R {
+        PWMENA6_R::new(((self.bits >> 14) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 2 - PWM\\[2\\] output single/double edge mode control."]
-    #[inline]
-    pub fn pwmsel2(&mut self) -> _PWMSEL2W {
-        _PWMSEL2W { w: self }
+    #[inline(always)]
+    pub fn pwmsel2(&mut self) -> PWMSEL2_W {
+        PWMSEL2_W { w: self }
     }
     #[doc = "Bit 3 - PWM\\[3\\] output edge control."]
-    #[inline]
-    pub fn pwmsel3(&mut self) -> _PWMSEL3W {
-        _PWMSEL3W { w: self }
+    #[inline(always)]
+    pub fn pwmsel3(&mut self) -> PWMSEL3_W {
+        PWMSEL3_W { w: self }
     }
     #[doc = "Bit 4 - PWM\\[4\\] output edge control."]
-    #[inline]
-    pub fn pwmsel4(&mut self) -> _PWMSEL4W {
-        _PWMSEL4W { w: self }
+    #[inline(always)]
+    pub fn pwmsel4(&mut self) -> PWMSEL4_W {
+        PWMSEL4_W { w: self }
     }
     #[doc = "Bit 5 - PWM\\[5\\] output edge control."]
-    #[inline]
-    pub fn pwmsel5(&mut self) -> _PWMSEL5W {
-        _PWMSEL5W { w: self }
+    #[inline(always)]
+    pub fn pwmsel5(&mut self) -> PWMSEL5_W {
+        PWMSEL5_W { w: self }
     }
     #[doc = "Bit 6 - PWM\\[6\\] output edge control."]
-    #[inline]
-    pub fn pwmsel6(&mut self) -> _PWMSEL6W {
-        _PWMSEL6W { w: self }
+    #[inline(always)]
+    pub fn pwmsel6(&mut self) -> PWMSEL6_W {
+        PWMSEL6_W { w: self }
     }
     #[doc = "Bit 9 - PWM\\[1\\] output enable control."]
-    #[inline]
-    pub fn pwmena1(&mut self) -> _PWMENA1W {
-        _PWMENA1W { w: self }
+    #[inline(always)]
+    pub fn pwmena1(&mut self) -> PWMENA1_W {
+        PWMENA1_W { w: self }
     }
     #[doc = "Bit 10 - PWM\\[2\\] output enable control."]
-    #[inline]
-    pub fn pwmena2(&mut self) -> _PWMENA2W {
-        _PWMENA2W { w: self }
+    #[inline(always)]
+    pub fn pwmena2(&mut self) -> PWMENA2_W {
+        PWMENA2_W { w: self }
     }
     #[doc = "Bit 11 - PWM\\[3\\] output enable control."]
-    #[inline]
-    pub fn pwmena3(&mut self) -> _PWMENA3W {
-        _PWMENA3W { w: self }
+    #[inline(always)]
+    pub fn pwmena3(&mut self) -> PWMENA3_W {
+        PWMENA3_W { w: self }
     }
     #[doc = "Bit 12 - PWM\\[4\\] output enable control."]
-    #[inline]
-    pub fn pwmena4(&mut self) -> _PWMENA4W {
-        _PWMENA4W { w: self }
+    #[inline(always)]
+    pub fn pwmena4(&mut self) -> PWMENA4_W {
+        PWMENA4_W { w: self }
     }
     #[doc = "Bit 13 - PWM\\[5\\] output enable control."]
-    #[inline]
-    pub fn pwmena5(&mut self) -> _PWMENA5W {
-        _PWMENA5W { w: self }
+    #[inline(always)]
+    pub fn pwmena5(&mut self) -> PWMENA5_W {
+        PWMENA5_W { w: self }
     }
     #[doc = "Bit 14 - PWM\\[6\\] output enable control. See PWMENA1 for details."]
-    #[inline]
-    pub fn pwmena6(&mut self) -> _PWMENA6W {
-        _PWMENA6W { w: self }
+    #[inline(always)]
+    pub fn pwmena6(&mut self) -> PWMENA6_W {
+        PWMENA6_W { w: self }
     }
 }

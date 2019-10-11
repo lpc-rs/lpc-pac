@@ -1,1012 +1,228 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::EPINTST {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST0R {
-    bits: bool,
-}
-impl EPST0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST1R {
-    bits: bool,
-}
-impl EPST1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST2R {
-    bits: bool,
-}
-impl EPST2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST3R {
-    bits: bool,
-}
-impl EPST3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST4R {
-    bits: bool,
-}
-impl EPST4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST5R {
-    bits: bool,
-}
-impl EPST5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST6R {
-    bits: bool,
-}
-impl EPST6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST7R {
-    bits: bool,
-}
-impl EPST7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST8R {
-    bits: bool,
-}
-impl EPST8R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST9R {
-    bits: bool,
-}
-impl EPST9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST10R {
-    bits: bool,
-}
-impl EPST10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST11R {
-    bits: bool,
-}
-impl EPST11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST12R {
-    bits: bool,
-}
-impl EPST12R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST13R {
-    bits: bool,
-}
-impl EPST13R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST14R {
-    bits: bool,
-}
-impl EPST14R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST15R {
-    bits: bool,
-}
-impl EPST15R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST16R {
-    bits: bool,
-}
-impl EPST16R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST17R {
-    bits: bool,
-}
-impl EPST17R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST18R {
-    bits: bool,
-}
-impl EPST18R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST19R {
-    bits: bool,
-}
-impl EPST19R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST20R {
-    bits: bool,
-}
-impl EPST20R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST21R {
-    bits: bool,
-}
-impl EPST21R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST22R {
-    bits: bool,
-}
-impl EPST22R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST23R {
-    bits: bool,
-}
-impl EPST23R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST24R {
-    bits: bool,
-}
-impl EPST24R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST25R {
-    bits: bool,
-}
-impl EPST25R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST26R {
-    bits: bool,
-}
-impl EPST26R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST27R {
-    bits: bool,
-}
-impl EPST27R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST28R {
-    bits: bool,
-}
-impl EPST28R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST29R {
-    bits: bool,
-}
-impl EPST29R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST30R {
-    bits: bool,
-}
-impl EPST30R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPST31R {
-    bits: bool,
-}
-impl EPST31R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register EPINTST"]
+pub type R = crate::R<u32, super::EPINTST>;
+#[doc = "Reader of field `EPST0`"]
+pub type EPST0_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST1`"]
+pub type EPST1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST2`"]
+pub type EPST2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST3`"]
+pub type EPST3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST4`"]
+pub type EPST4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST5`"]
+pub type EPST5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST6`"]
+pub type EPST6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST7`"]
+pub type EPST7_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST8`"]
+pub type EPST8_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST9`"]
+pub type EPST9_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST10`"]
+pub type EPST10_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST11`"]
+pub type EPST11_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST12`"]
+pub type EPST12_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST13`"]
+pub type EPST13_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST14`"]
+pub type EPST14_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST15`"]
+pub type EPST15_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST16`"]
+pub type EPST16_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST17`"]
+pub type EPST17_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST18`"]
+pub type EPST18_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST19`"]
+pub type EPST19_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST20`"]
+pub type EPST20_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST21`"]
+pub type EPST21_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST22`"]
+pub type EPST22_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST23`"]
+pub type EPST23_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST24`"]
+pub type EPST24_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST25`"]
+pub type EPST25_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST26`"]
+pub type EPST26_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST27`"]
+pub type EPST27_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST28`"]
+pub type EPST28_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST29`"]
+pub type EPST29_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST30`"]
+pub type EPST30_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPST31`"]
+pub type EPST31_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst0(&self) -> EPST0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST0R { bits }
+    #[inline(always)]
+    pub fn epst0(&self) -> EPST0_R {
+        EPST0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst1(&self) -> EPST1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST1R { bits }
+    #[inline(always)]
+    pub fn epst1(&self) -> EPST1_R {
+        EPST1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst2(&self) -> EPST2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST2R { bits }
+    #[inline(always)]
+    pub fn epst2(&self) -> EPST2_R {
+        EPST2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst3(&self) -> EPST3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST3R { bits }
+    #[inline(always)]
+    pub fn epst3(&self) -> EPST3_R {
+        EPST3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst4(&self) -> EPST4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST4R { bits }
+    #[inline(always)]
+    pub fn epst4(&self) -> EPST4_R {
+        EPST4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst5(&self) -> EPST5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST5R { bits }
+    #[inline(always)]
+    pub fn epst5(&self) -> EPST5_R {
+        EPST5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst6(&self) -> EPST6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST6R { bits }
+    #[inline(always)]
+    pub fn epst6(&self) -> EPST6_R {
+        EPST6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst7(&self) -> EPST7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST7R { bits }
+    #[inline(always)]
+    pub fn epst7(&self) -> EPST7_R {
+        EPST7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst8(&self) -> EPST8R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST8R { bits }
+    #[inline(always)]
+    pub fn epst8(&self) -> EPST8_R {
+        EPST8_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst9(&self) -> EPST9R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST9R { bits }
+    #[inline(always)]
+    pub fn epst9(&self) -> EPST9_R {
+        EPST9_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst10(&self) -> EPST10R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST10R { bits }
+    #[inline(always)]
+    pub fn epst10(&self) -> EPST10_R {
+        EPST10_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst11(&self) -> EPST11R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST11R { bits }
+    #[inline(always)]
+    pub fn epst11(&self) -> EPST11_R {
+        EPST11_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst12(&self) -> EPST12R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST12R { bits }
+    #[inline(always)]
+    pub fn epst12(&self) -> EPST12_R {
+        EPST12_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst13(&self) -> EPST13R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST13R { bits }
+    #[inline(always)]
+    pub fn epst13(&self) -> EPST13_R {
+        EPST13_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst14(&self) -> EPST14R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST14R { bits }
+    #[inline(always)]
+    pub fn epst14(&self) -> EPST14_R {
+        EPST14_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 15 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst15(&self) -> EPST15R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST15R { bits }
+    #[inline(always)]
+    pub fn epst15(&self) -> EPST15_R {
+        EPST15_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 16 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst16(&self) -> EPST16R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST16R { bits }
+    #[inline(always)]
+    pub fn epst16(&self) -> EPST16_R {
+        EPST16_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst17(&self) -> EPST17R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST17R { bits }
+    #[inline(always)]
+    pub fn epst17(&self) -> EPST17_R {
+        EPST17_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst18(&self) -> EPST18R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST18R { bits }
+    #[inline(always)]
+    pub fn epst18(&self) -> EPST18_R {
+        EPST18_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst19(&self) -> EPST19R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST19R { bits }
+    #[inline(always)]
+    pub fn epst19(&self) -> EPST19_R {
+        EPST19_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 20 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst20(&self) -> EPST20R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST20R { bits }
+    #[inline(always)]
+    pub fn epst20(&self) -> EPST20_R {
+        EPST20_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst21(&self) -> EPST21R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST21R { bits }
+    #[inline(always)]
+    pub fn epst21(&self) -> EPST21_R {
+        EPST21_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 22 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst22(&self) -> EPST22R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST22R { bits }
+    #[inline(always)]
+    pub fn epst22(&self) -> EPST22_R {
+        EPST22_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst23(&self) -> EPST23R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST23R { bits }
+    #[inline(always)]
+    pub fn epst23(&self) -> EPST23_R {
+        EPST23_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bit 24 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst24(&self) -> EPST24R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST24R { bits }
+    #[inline(always)]
+    pub fn epst24(&self) -> EPST24_R {
+        EPST24_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bit 25 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst25(&self) -> EPST25R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST25R { bits }
+    #[inline(always)]
+    pub fn epst25(&self) -> EPST25_R {
+        EPST25_R::new(((self.bits >> 25) & 0x01) != 0)
     }
     #[doc = "Bit 26 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst26(&self) -> EPST26R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 26;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST26R { bits }
+    #[inline(always)]
+    pub fn epst26(&self) -> EPST26_R {
+        EPST26_R::new(((self.bits >> 26) & 0x01) != 0)
     }
     #[doc = "Bit 27 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst27(&self) -> EPST27R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 27;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST27R { bits }
+    #[inline(always)]
+    pub fn epst27(&self) -> EPST27_R {
+        EPST27_R::new(((self.bits >> 27) & 0x01) != 0)
     }
     #[doc = "Bit 28 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst28(&self) -> EPST28R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST28R { bits }
+    #[inline(always)]
+    pub fn epst28(&self) -> EPST28_R {
+        EPST28_R::new(((self.bits >> 28) & 0x01) != 0)
     }
     #[doc = "Bit 29 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst29(&self) -> EPST29R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 29;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST29R { bits }
+    #[inline(always)]
+    pub fn epst29(&self) -> EPST29_R {
+        EPST29_R::new(((self.bits >> 29) & 0x01) != 0)
     }
     #[doc = "Bit 30 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst30(&self) -> EPST30R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST30R { bits }
+    #[inline(always)]
+    pub fn epst30(&self) -> EPST30_R {
+        EPST30_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - 1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received."]
-    #[inline]
-    pub fn epst31(&self) -> EPST31R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPST31R { bits }
+    #[inline(always)]
+    pub fn epst31(&self) -> EPST31_R {
+        EPST31_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }

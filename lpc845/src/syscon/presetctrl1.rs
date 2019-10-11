@@ -1,540 +1,368 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PRESETCTRL1 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PRESETCTRL1"]
+pub type R = crate::R<u32, super::PRESETCTRL1>;
+#[doc = "Writer for register PRESETCTRL1"]
+pub type W = crate::W<u32, super::PRESETCTRL1>;
+#[doc = "Register PRESETCTRL1 `reset()`'s with value 0x1f"]
+impl crate::ResetValue for super::PRESETCTRL1 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x1f
     }
 }
-#[doc = "Possible values of the field `CAPT_RST_N`"]
+#[doc = "Capacitive touch reset control\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CAPT_RST_NR {
-    #[doc = "Assert the capacitive touch reset."]
+pub enum CAPT_RST_N_A {
+    #[doc = "0: Assert the capacitive touch reset."]
     ASSERT,
-    #[doc = "Clear the capacitive touch reset."]
+    #[doc = "1: Clear the capacitive touch reset."]
     CLEAR,
 }
-impl CAPT_RST_NR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CAPT_RST_NR::ASSERT => false,
-            CAPT_RST_NR::CLEAR => true,
+impl From<CAPT_RST_N_A> for bool {
+    #[inline(always)]
+    fn from(variant: CAPT_RST_N_A) -> Self {
+        match variant {
+            CAPT_RST_N_A::ASSERT => false,
+            CAPT_RST_N_A::CLEAR => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CAPT_RST_NR {
-        match value {
-            false => CAPT_RST_NR::ASSERT,
-            true => CAPT_RST_NR::CLEAR,
+}
+#[doc = "Reader of field `CAPT_RST_N`"]
+pub type CAPT_RST_N_R = crate::R<bool, CAPT_RST_N_A>;
+impl CAPT_RST_N_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CAPT_RST_N_A {
+        match self.bits {
+            false => CAPT_RST_N_A::ASSERT,
+            true => CAPT_RST_N_A::CLEAR,
         }
     }
     #[doc = "Checks if the value of the field is `ASSERT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_assert(&self) -> bool {
-        *self == CAPT_RST_NR::ASSERT
+        *self == CAPT_RST_N_A::ASSERT
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == CAPT_RST_NR::CLEAR
+        *self == CAPT_RST_N_A::CLEAR
     }
 }
-#[doc = "Possible values of the field `DAC1_RST_N`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DAC1_RST_NR {
-    #[doc = "Assert the DAC1 reset."]
-    ASSERT,
-    #[doc = "Clear the DAC1 reset."]
-    CLEAR,
-}
-impl DAC1_RST_NR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DAC1_RST_NR::ASSERT => false,
-            DAC1_RST_NR::CLEAR => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DAC1_RST_NR {
-        match value {
-            false => DAC1_RST_NR::ASSERT,
-            true => DAC1_RST_NR::CLEAR,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ASSERT`"]
-    #[inline]
-    pub fn is_assert(&self) -> bool {
-        *self == DAC1_RST_NR::ASSERT
-    }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
-    pub fn is_clear(&self) -> bool {
-        *self == DAC1_RST_NR::CLEAR
-    }
-}
-#[doc = "Possible values of the field `FRG0_RST_N`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FRG0_RST_NR {
-    #[doc = "Assert the FRG0 reset."]
-    ASSERT,
-    #[doc = "Clear the FRG0 reset."]
-    CLEAR,
-}
-impl FRG0_RST_NR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FRG0_RST_NR::ASSERT => false,
-            FRG0_RST_NR::CLEAR => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FRG0_RST_NR {
-        match value {
-            false => FRG0_RST_NR::ASSERT,
-            true => FRG0_RST_NR::CLEAR,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ASSERT`"]
-    #[inline]
-    pub fn is_assert(&self) -> bool {
-        *self == FRG0_RST_NR::ASSERT
-    }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
-    pub fn is_clear(&self) -> bool {
-        *self == FRG0_RST_NR::CLEAR
-    }
-}
-#[doc = "Possible values of the field `FRG1_RST_N`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FRG1_RST_NR {
-    #[doc = "Assert the FRG1 reset."]
-    ASSERT,
-    #[doc = "Clear the FRG1 reset."]
-    CLEAR,
-}
-impl FRG1_RST_NR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FRG1_RST_NR::ASSERT => false,
-            FRG1_RST_NR::CLEAR => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FRG1_RST_NR {
-        match value {
-            false => FRG1_RST_NR::ASSERT,
-            true => FRG1_RST_NR::CLEAR,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ASSERT`"]
-    #[inline]
-    pub fn is_assert(&self) -> bool {
-        *self == FRG1_RST_NR::ASSERT
-    }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
-    pub fn is_clear(&self) -> bool {
-        *self == FRG1_RST_NR::CLEAR
-    }
-}
-#[doc = "Values that can be written to the field `CAPT_RST_N`"]
-pub enum CAPT_RST_NW {
-    #[doc = "Assert the capacitive touch reset."]
-    ASSERT,
-    #[doc = "Clear the capacitive touch reset."]
-    CLEAR,
-}
-impl CAPT_RST_NW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CAPT_RST_NW::ASSERT => false,
-            CAPT_RST_NW::CLEAR => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CAPT_RST_NW<'a> {
+#[doc = "Write proxy for field `CAPT_RST_N`"]
+pub struct CAPT_RST_N_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CAPT_RST_NW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CAPT_RST_NW) -> &'a mut W {
+impl<'a> CAPT_RST_N_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CAPT_RST_N_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Assert the capacitive touch reset."]
-    #[inline]
+    #[inline(always)]
     pub fn assert(self) -> &'a mut W {
-        self.variant(CAPT_RST_NW::ASSERT)
+        self.variant(CAPT_RST_N_A::ASSERT)
     }
     #[doc = "Clear the capacitive touch reset."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(CAPT_RST_NW::CLEAR)
+        self.variant(CAPT_RST_N_A::CLEAR)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `DAC1_RST_N`"]
-pub enum DAC1_RST_NW {
+#[doc = "DAC1 reset control\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DAC1_RST_N_A {
+    #[doc = "0: Assert the DAC1 reset."]
+    ASSERT,
+    #[doc = "1: Clear the DAC1 reset."]
+    CLEAR,
+}
+impl From<DAC1_RST_N_A> for bool {
+    #[inline(always)]
+    fn from(variant: DAC1_RST_N_A) -> Self {
+        match variant {
+            DAC1_RST_N_A::ASSERT => false,
+            DAC1_RST_N_A::CLEAR => true,
+        }
+    }
+}
+#[doc = "Reader of field `DAC1_RST_N`"]
+pub type DAC1_RST_N_R = crate::R<bool, DAC1_RST_N_A>;
+impl DAC1_RST_N_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DAC1_RST_N_A {
+        match self.bits {
+            false => DAC1_RST_N_A::ASSERT,
+            true => DAC1_RST_N_A::CLEAR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ASSERT`"]
+    #[inline(always)]
+    pub fn is_assert(&self) -> bool {
+        *self == DAC1_RST_N_A::ASSERT
+    }
+    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == DAC1_RST_N_A::CLEAR
+    }
+}
+#[doc = "Write proxy for field `DAC1_RST_N`"]
+pub struct DAC1_RST_N_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> DAC1_RST_N_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DAC1_RST_N_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Assert the DAC1 reset."]
-    ASSERT,
-    #[doc = "Clear the DAC1 reset."]
-    CLEAR,
-}
-impl DAC1_RST_NW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            DAC1_RST_NW::ASSERT => false,
-            DAC1_RST_NW::CLEAR => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DAC1_RST_NW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _DAC1_RST_NW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DAC1_RST_NW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Assert the DAC1 reset."]
-    #[inline]
+    #[inline(always)]
     pub fn assert(self) -> &'a mut W {
-        self.variant(DAC1_RST_NW::ASSERT)
+        self.variant(DAC1_RST_N_A::ASSERT)
     }
     #[doc = "Clear the DAC1 reset."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(DAC1_RST_NW::CLEAR)
+        self.variant(DAC1_RST_N_A::CLEAR)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `FRG0_RST_N`"]
-pub enum FRG0_RST_NW {
-    #[doc = "Assert the FRG0 reset."]
+#[doc = "Fractional baud rate generator 0 reset control\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FRG0_RST_N_A {
+    #[doc = "0: Assert the FRG0 reset."]
     ASSERT,
-    #[doc = "Clear the FRG0 reset."]
+    #[doc = "1: Clear the FRG0 reset."]
     CLEAR,
 }
-impl FRG0_RST_NW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FRG0_RST_NW::ASSERT => false,
-            FRG0_RST_NW::CLEAR => true,
+impl From<FRG0_RST_N_A> for bool {
+    #[inline(always)]
+    fn from(variant: FRG0_RST_N_A) -> Self {
+        match variant {
+            FRG0_RST_N_A::ASSERT => false,
+            FRG0_RST_N_A::CLEAR => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _FRG0_RST_NW<'a> {
+#[doc = "Reader of field `FRG0_RST_N`"]
+pub type FRG0_RST_N_R = crate::R<bool, FRG0_RST_N_A>;
+impl FRG0_RST_N_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FRG0_RST_N_A {
+        match self.bits {
+            false => FRG0_RST_N_A::ASSERT,
+            true => FRG0_RST_N_A::CLEAR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ASSERT`"]
+    #[inline(always)]
+    pub fn is_assert(&self) -> bool {
+        *self == FRG0_RST_N_A::ASSERT
+    }
+    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == FRG0_RST_N_A::CLEAR
+    }
+}
+#[doc = "Write proxy for field `FRG0_RST_N`"]
+pub struct FRG0_RST_N_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FRG0_RST_NW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FRG0_RST_NW) -> &'a mut W {
+impl<'a> FRG0_RST_N_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FRG0_RST_N_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Assert the FRG0 reset."]
-    #[inline]
+    #[inline(always)]
     pub fn assert(self) -> &'a mut W {
-        self.variant(FRG0_RST_NW::ASSERT)
+        self.variant(FRG0_RST_N_A::ASSERT)
     }
     #[doc = "Clear the FRG0 reset."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(FRG0_RST_NW::CLEAR)
+        self.variant(FRG0_RST_N_A::CLEAR)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `FRG1_RST_N`"]
-pub enum FRG1_RST_NW {
-    #[doc = "Assert the FRG1 reset."]
+#[doc = "Fractional baud rate generator 1 reset control\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FRG1_RST_N_A {
+    #[doc = "0: Assert the FRG1 reset."]
     ASSERT,
-    #[doc = "Clear the FRG1 reset."]
+    #[doc = "1: Clear the FRG1 reset."]
     CLEAR,
 }
-impl FRG1_RST_NW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FRG1_RST_NW::ASSERT => false,
-            FRG1_RST_NW::CLEAR => true,
+impl From<FRG1_RST_N_A> for bool {
+    #[inline(always)]
+    fn from(variant: FRG1_RST_N_A) -> Self {
+        match variant {
+            FRG1_RST_N_A::ASSERT => false,
+            FRG1_RST_N_A::CLEAR => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _FRG1_RST_NW<'a> {
+#[doc = "Reader of field `FRG1_RST_N`"]
+pub type FRG1_RST_N_R = crate::R<bool, FRG1_RST_N_A>;
+impl FRG1_RST_N_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FRG1_RST_N_A {
+        match self.bits {
+            false => FRG1_RST_N_A::ASSERT,
+            true => FRG1_RST_N_A::CLEAR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ASSERT`"]
+    #[inline(always)]
+    pub fn is_assert(&self) -> bool {
+        *self == FRG1_RST_N_A::ASSERT
+    }
+    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == FRG1_RST_N_A::CLEAR
+    }
+}
+#[doc = "Write proxy for field `FRG1_RST_N`"]
+pub struct FRG1_RST_N_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FRG1_RST_NW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FRG1_RST_NW) -> &'a mut W {
+impl<'a> FRG1_RST_N_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FRG1_RST_N_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Assert the FRG1 reset."]
-    #[inline]
+    #[inline(always)]
     pub fn assert(self) -> &'a mut W {
-        self.variant(FRG1_RST_NW::ASSERT)
+        self.variant(FRG1_RST_N_A::ASSERT)
     }
     #[doc = "Clear the FRG1 reset."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(FRG1_RST_NW::CLEAR)
+        self.variant(FRG1_RST_N_A::CLEAR)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Capacitive touch reset control"]
-    #[inline]
-    pub fn capt_rst_n(&self) -> CAPT_RST_NR {
-        CAPT_RST_NR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn capt_rst_n(&self) -> CAPT_RST_N_R {
+        CAPT_RST_N_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - DAC1 reset control"]
-    #[inline]
-    pub fn dac1_rst_n(&self) -> DAC1_RST_NR {
-        DAC1_RST_NR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn dac1_rst_n(&self) -> DAC1_RST_N_R {
+        DAC1_RST_N_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Fractional baud rate generator 0 reset control"]
-    #[inline]
-    pub fn frg0_rst_n(&self) -> FRG0_RST_NR {
-        FRG0_RST_NR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn frg0_rst_n(&self) -> FRG0_RST_N_R {
+        FRG0_RST_N_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Fractional baud rate generator 1 reset control"]
-    #[inline]
-    pub fn frg1_rst_n(&self) -> FRG1_RST_NR {
-        FRG1_RST_NR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn frg1_rst_n(&self) -> FRG1_RST_N_R {
+        FRG1_RST_N_R::new(((self.bits >> 4) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 31 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Capacitive touch reset control"]
-    #[inline]
-    pub fn capt_rst_n(&mut self) -> _CAPT_RST_NW {
-        _CAPT_RST_NW { w: self }
+    #[inline(always)]
+    pub fn capt_rst_n(&mut self) -> CAPT_RST_N_W {
+        CAPT_RST_N_W { w: self }
     }
     #[doc = "Bit 1 - DAC1 reset control"]
-    #[inline]
-    pub fn dac1_rst_n(&mut self) -> _DAC1_RST_NW {
-        _DAC1_RST_NW { w: self }
+    #[inline(always)]
+    pub fn dac1_rst_n(&mut self) -> DAC1_RST_N_W {
+        DAC1_RST_N_W { w: self }
     }
     #[doc = "Bit 3 - Fractional baud rate generator 0 reset control"]
-    #[inline]
-    pub fn frg0_rst_n(&mut self) -> _FRG0_RST_NW {
-        _FRG0_RST_NW { w: self }
+    #[inline(always)]
+    pub fn frg0_rst_n(&mut self) -> FRG0_RST_N_W {
+        FRG0_RST_N_W { w: self }
     }
     #[doc = "Bit 4 - Fractional baud rate generator 1 reset control"]
-    #[inline]
-    pub fn frg1_rst_n(&mut self) -> _FRG1_RST_NW {
-        _FRG1_RST_NW { w: self }
+    #[inline(always)]
+    pub fn frg1_rst_n(&mut self) -> FRG1_RST_N_W {
+        FRG1_RST_N_W { w: self }
     }
 }

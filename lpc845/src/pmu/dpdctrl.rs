@@ -1,1057 +1,744 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::DPDCTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register DPDCTRL"]
+pub type R = crate::R<u32, super::DPDCTRL>;
+#[doc = "Writer for register DPDCTRL"]
+pub type W = crate::W<u32, super::DPDCTRL>;
+#[doc = "Register DPDCTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::DPDCTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `WAKEUPHYS`"]
+#[doc = "WAKEUP pin hysteresis enable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WAKEUPHYSR {
-    #[doc = "Disabled. Hysteresis for WAKEUP pin disabled."]
+pub enum WAKEUPHYS_A {
+    #[doc = "0: Disabled. Hysteresis for WAKEUP pin disabled."]
     DISABLED,
-    #[doc = "Enabled. Hysteresis for WAKEUP pin enabled."]
+    #[doc = "1: Enabled. Hysteresis for WAKEUP pin enabled."]
     ENABLED,
 }
-impl WAKEUPHYSR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WAKEUPHYSR::DISABLED => false,
-            WAKEUPHYSR::ENABLED => true,
+impl From<WAKEUPHYS_A> for bool {
+    #[inline(always)]
+    fn from(variant: WAKEUPHYS_A) -> Self {
+        match variant {
+            WAKEUPHYS_A::DISABLED => false,
+            WAKEUPHYS_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WAKEUPHYSR {
-        match value {
-            false => WAKEUPHYSR::DISABLED,
-            true => WAKEUPHYSR::ENABLED,
+}
+#[doc = "Reader of field `WAKEUPHYS`"]
+pub type WAKEUPHYS_R = crate::R<bool, WAKEUPHYS_A>;
+impl WAKEUPHYS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WAKEUPHYS_A {
+        match self.bits {
+            false => WAKEUPHYS_A::DISABLED,
+            true => WAKEUPHYS_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == WAKEUPHYSR::DISABLED
+        *self == WAKEUPHYS_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == WAKEUPHYSR::ENABLED
+        *self == WAKEUPHYS_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `WAKEPAD_DISABLE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WAKEPAD_DISABLER {
-    #[doc = "Enabled. The wake-up function is enabled on pin PIO0_4."]
-    ENABLED,
-    #[doc = "Disabled. Setting this bit disables the wake-up function on pin PIO0_4."]
-    DISABLED,
-}
-impl WAKEPAD_DISABLER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WAKEPAD_DISABLER::ENABLED => false,
-            WAKEPAD_DISABLER::DISABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WAKEPAD_DISABLER {
-        match value {
-            false => WAKEPAD_DISABLER::ENABLED,
-            true => WAKEPAD_DISABLER::DISABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == WAKEPAD_DISABLER::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == WAKEPAD_DISABLER::DISABLED
-    }
-}
-#[doc = "Possible values of the field `LPOSCEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LPOSCENR {
-    #[doc = "Disabled."]
-    DISABLED,
-    #[doc = "Enabled."]
-    ENABLED,
-}
-impl LPOSCENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LPOSCENR::DISABLED => false,
-            LPOSCENR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LPOSCENR {
-        match value {
-            false => LPOSCENR::DISABLED,
-            true => LPOSCENR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == LPOSCENR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == LPOSCENR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `LPOSCDPDEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LPOSCDPDENR {
-    #[doc = "Disabled."]
-    DISABLED,
-    #[doc = "Enabled."]
-    ENABLED,
-}
-impl LPOSCDPDENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LPOSCDPDENR::DISABLED => false,
-            LPOSCDPDENR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LPOSCDPDENR {
-        match value {
-            false => LPOSCDPDENR::DISABLED,
-            true => LPOSCDPDENR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == LPOSCDPDENR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == LPOSCDPDENR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `WAKEUPCLKHYS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WAKEUPCLKHYSR {
-    #[doc = "Disabled. Hysteresis for WAKEUP clock pin disabled."]
-    DISABLED,
-    #[doc = "Enabled. Hysteresis for WAKEUP clock pin enabled."]
-    ENABLED,
-}
-impl WAKEUPCLKHYSR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WAKEUPCLKHYSR::DISABLED => false,
-            WAKEUPCLKHYSR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WAKEUPCLKHYSR {
-        match value {
-            false => WAKEUPCLKHYSR::DISABLED,
-            true => WAKEUPCLKHYSR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == WAKEUPCLKHYSR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == WAKEUPCLKHYSR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `WAKECLKPAD_DISABLE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WAKECLKPAD_DISABLER {
-    #[doc = "Disabled. Setting this bit disables external clock input on pin PIO0_28."]
-    DISABLED,
-    #[doc = "Enabled. The external clock input for the self wake-up timer is enabled on pin PIO0_28."]
-    ENABLED,
-}
-impl WAKECLKPAD_DISABLER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WAKECLKPAD_DISABLER::DISABLED => false,
-            WAKECLKPAD_DISABLER::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WAKECLKPAD_DISABLER {
-        match value {
-            false => WAKECLKPAD_DISABLER::DISABLED,
-            true => WAKECLKPAD_DISABLER::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == WAKECLKPAD_DISABLER::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == WAKECLKPAD_DISABLER::ENABLED
-    }
-}
-#[doc = "Possible values of the field `RESETHYS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RESETHYSR {
-    #[doc = "Disabled. Hysteresis for RESET pin disabled."]
-    DISABLED,
-    #[doc = "Enabled. Hysteresis for RESET pin enabled."]
-    ENABLED,
-}
-impl RESETHYSR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RESETHYSR::DISABLED => false,
-            RESETHYSR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RESETHYSR {
-        match value {
-            false => RESETHYSR::DISABLED,
-            true => RESETHYSR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == RESETHYSR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == RESETHYSR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `RESET_DISABLE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RESET_DISABLER {
-    #[doc = "Enabled. The reset wake-up function is enabled on pin PIO0_5."]
-    ENABLED,
-    #[doc = "Disabled. Setting this bit disables the wake-up function on pin PIO0_5."]
-    DISABLED,
-}
-impl RESET_DISABLER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RESET_DISABLER::ENABLED => false,
-            RESET_DISABLER::DISABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RESET_DISABLER {
-        match value {
-            false => RESET_DISABLER::ENABLED,
-            true => RESET_DISABLER::DISABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == RESET_DISABLER::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == RESET_DISABLER::DISABLED
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GPDATAR {
-    bits: u32,
-}
-impl GPDATAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
-}
-#[doc = "Values that can be written to the field `WAKEUPHYS`"]
-pub enum WAKEUPHYSW {
-    #[doc = "Disabled. Hysteresis for WAKEUP pin disabled."]
-    DISABLED,
-    #[doc = "Enabled. Hysteresis for WAKEUP pin enabled."]
-    ENABLED,
-}
-impl WAKEUPHYSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WAKEUPHYSW::DISABLED => false,
-            WAKEUPHYSW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WAKEUPHYSW<'a> {
+#[doc = "Write proxy for field `WAKEUPHYS`"]
+pub struct WAKEUPHYS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WAKEUPHYSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WAKEUPHYSW) -> &'a mut W {
+impl<'a> WAKEUPHYS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WAKEUPHYS_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled. Hysteresis for WAKEUP pin disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(WAKEUPHYSW::DISABLED)
+        self.variant(WAKEUPHYS_A::DISABLED)
     }
     #[doc = "Enabled. Hysteresis for WAKEUP pin enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(WAKEUPHYSW::ENABLED)
+        self.variant(WAKEUPHYS_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `WAKEPAD_DISABLE`"]
-pub enum WAKEPAD_DISABLEW {
+#[doc = "WAKEUP pin disable. Setting this bit disables the wake-up pin, so it can be used for other purposes. Remark: Never set this bit if you intend to use a pin to wake up the part from Deep power-down mode. You can only disable the wake-up pin if the self wake-up timer is enabled and configured. Remark: Setting this bit is not necessary if Deep power-down mode is not used.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WAKEPAD_DISABLE_A {
+    #[doc = "0: Enabled. The wake-up function is enabled on pin PIO0_4."]
+    ENABLED,
+    #[doc = "1: Disabled. Setting this bit disables the wake-up function on pin PIO0_4."]
+    DISABLED,
+}
+impl From<WAKEPAD_DISABLE_A> for bool {
+    #[inline(always)]
+    fn from(variant: WAKEPAD_DISABLE_A) -> Self {
+        match variant {
+            WAKEPAD_DISABLE_A::ENABLED => false,
+            WAKEPAD_DISABLE_A::DISABLED => true,
+        }
+    }
+}
+#[doc = "Reader of field `WAKEPAD_DISABLE`"]
+pub type WAKEPAD_DISABLE_R = crate::R<bool, WAKEPAD_DISABLE_A>;
+impl WAKEPAD_DISABLE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WAKEPAD_DISABLE_A {
+        match self.bits {
+            false => WAKEPAD_DISABLE_A::ENABLED,
+            true => WAKEPAD_DISABLE_A::DISABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == WAKEPAD_DISABLE_A::ENABLED
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == WAKEPAD_DISABLE_A::DISABLED
+    }
+}
+#[doc = "Write proxy for field `WAKEPAD_DISABLE`"]
+pub struct WAKEPAD_DISABLE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> WAKEPAD_DISABLE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WAKEPAD_DISABLE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Enabled. The wake-up function is enabled on pin PIO0_4."]
-    ENABLED,
-    #[doc = "Disabled. Setting this bit disables the wake-up function on pin PIO0_4."]
-    DISABLED,
-}
-impl WAKEPAD_DISABLEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WAKEPAD_DISABLEW::ENABLED => false,
-            WAKEPAD_DISABLEW::DISABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WAKEPAD_DISABLEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WAKEPAD_DISABLEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WAKEPAD_DISABLEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Enabled. The wake-up function is enabled on pin PIO0_4."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(WAKEPAD_DISABLEW::ENABLED)
+        self.variant(WAKEPAD_DISABLE_A::ENABLED)
     }
     #[doc = "Disabled. Setting this bit disables the wake-up function on pin PIO0_4."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(WAKEPAD_DISABLEW::DISABLED)
+        self.variant(WAKEPAD_DISABLE_A::DISABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `LPOSCEN`"]
-pub enum LPOSCENW {
-    #[doc = "Disabled."]
+#[doc = "Enable the low-power oscillator for use with the 10 kHz self wake-up timer clock. You must set this bit if the CLKSEL bit in the self wake-up timer CTRL bit is set. Do not enable the low-power oscillator if the self wake-up timer is clocked by the divided IRC or the external clock input.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LPOSCEN_A {
+    #[doc = "0: Disabled."]
     DISABLED,
-    #[doc = "Enabled."]
+    #[doc = "1: Enabled."]
     ENABLED,
 }
-impl LPOSCENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LPOSCENW::DISABLED => false,
-            LPOSCENW::ENABLED => true,
+impl From<LPOSCEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: LPOSCEN_A) -> Self {
+        match variant {
+            LPOSCEN_A::DISABLED => false,
+            LPOSCEN_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _LPOSCENW<'a> {
+#[doc = "Reader of field `LPOSCEN`"]
+pub type LPOSCEN_R = crate::R<bool, LPOSCEN_A>;
+impl LPOSCEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LPOSCEN_A {
+        match self.bits {
+            false => LPOSCEN_A::DISABLED,
+            true => LPOSCEN_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == LPOSCEN_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == LPOSCEN_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `LPOSCEN`"]
+pub struct LPOSCEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LPOSCENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LPOSCENW) -> &'a mut W {
+impl<'a> LPOSCEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LPOSCEN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(LPOSCENW::DISABLED)
+        self.variant(LPOSCEN_A::DISABLED)
     }
     #[doc = "Enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(LPOSCENW::ENABLED)
+        self.variant(LPOSCEN_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `LPOSCDPDEN`"]
-pub enum LPOSCDPDENW {
-    #[doc = "Disabled."]
+#[doc = "causes the low-power oscillator to remain running during Deep power-down mode provided that bit 2 in this register is set as well. You must set this bit for the self wake-up timer to be able to wake up the part from Deep power-down mode. Remark: Do not set this bit unless you use the self wake-up timer with the low-power oscillator clock source to wake up from Deep power-down mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LPOSCDPDEN_A {
+    #[doc = "0: Disabled."]
     DISABLED,
-    #[doc = "Enabled."]
+    #[doc = "1: Enabled."]
     ENABLED,
 }
-impl LPOSCDPDENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LPOSCDPDENW::DISABLED => false,
-            LPOSCDPDENW::ENABLED => true,
+impl From<LPOSCDPDEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: LPOSCDPDEN_A) -> Self {
+        match variant {
+            LPOSCDPDEN_A::DISABLED => false,
+            LPOSCDPDEN_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _LPOSCDPDENW<'a> {
+#[doc = "Reader of field `LPOSCDPDEN`"]
+pub type LPOSCDPDEN_R = crate::R<bool, LPOSCDPDEN_A>;
+impl LPOSCDPDEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LPOSCDPDEN_A {
+        match self.bits {
+            false => LPOSCDPDEN_A::DISABLED,
+            true => LPOSCDPDEN_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == LPOSCDPDEN_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == LPOSCDPDEN_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `LPOSCDPDEN`"]
+pub struct LPOSCDPDEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LPOSCDPDENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LPOSCDPDENW) -> &'a mut W {
+impl<'a> LPOSCDPDEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LPOSCDPDEN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(LPOSCDPDENW::DISABLED)
+        self.variant(LPOSCDPDEN_A::DISABLED)
     }
     #[doc = "Enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(LPOSCDPDENW::ENABLED)
+        self.variant(LPOSCDPDEN_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `WAKEUPCLKHYS`"]
-pub enum WAKEUPCLKHYSW {
+#[doc = "External clock input for the self wake-up timer WKTCLKIN hysteresis enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WAKEUPCLKHYS_A {
+    #[doc = "0: Disabled. Hysteresis for WAKEUP clock pin disabled."]
+    DISABLED,
+    #[doc = "1: Enabled. Hysteresis for WAKEUP clock pin enabled."]
+    ENABLED,
+}
+impl From<WAKEUPCLKHYS_A> for bool {
+    #[inline(always)]
+    fn from(variant: WAKEUPCLKHYS_A) -> Self {
+        match variant {
+            WAKEUPCLKHYS_A::DISABLED => false,
+            WAKEUPCLKHYS_A::ENABLED => true,
+        }
+    }
+}
+#[doc = "Reader of field `WAKEUPCLKHYS`"]
+pub type WAKEUPCLKHYS_R = crate::R<bool, WAKEUPCLKHYS_A>;
+impl WAKEUPCLKHYS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WAKEUPCLKHYS_A {
+        match self.bits {
+            false => WAKEUPCLKHYS_A::DISABLED,
+            true => WAKEUPCLKHYS_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == WAKEUPCLKHYS_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == WAKEUPCLKHYS_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `WAKEUPCLKHYS`"]
+pub struct WAKEUPCLKHYS_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> WAKEUPCLKHYS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WAKEUPCLKHYS_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Disabled. Hysteresis for WAKEUP clock pin disabled."]
-    DISABLED,
-    #[doc = "Enabled. Hysteresis for WAKEUP clock pin enabled."]
-    ENABLED,
-}
-impl WAKEUPCLKHYSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WAKEUPCLKHYSW::DISABLED => false,
-            WAKEUPCLKHYSW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WAKEUPCLKHYSW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WAKEUPCLKHYSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WAKEUPCLKHYSW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. Hysteresis for WAKEUP clock pin disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(WAKEUPCLKHYSW::DISABLED)
+        self.variant(WAKEUPCLKHYS_A::DISABLED)
     }
     #[doc = "Enabled. Hysteresis for WAKEUP clock pin enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(WAKEUPCLKHYSW::ENABLED)
+        self.variant(WAKEUPCLKHYS_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `WAKECLKPAD_DISABLE`"]
-pub enum WAKECLKPAD_DISABLEW {
-    #[doc = "Disabled. Setting this bit disables external clock input on pin PIO0_28."]
+#[doc = "Disable the external clock input for the self-wake-up timer. Setting this bit enables the self-wake-up timer clock pin WKTCLKLIN. To minimize power consumption, especially in deep power-down mode, disable this clock input when not using the external clock option for the self-wake-up timer.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WAKECLKPAD_DISABLE_A {
+    #[doc = "0: Disabled. Setting this bit disables external clock input on pin PIO0_28."]
     DISABLED,
-    #[doc = "Enabled. The external clock input for the self wake-up timer is enabled on pin PIO0_28."]
+    #[doc = "1: Enabled. The external clock input for the self wake-up timer is enabled on pin PIO0_28."]
     ENABLED,
 }
-impl WAKECLKPAD_DISABLEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WAKECLKPAD_DISABLEW::DISABLED => false,
-            WAKECLKPAD_DISABLEW::ENABLED => true,
+impl From<WAKECLKPAD_DISABLE_A> for bool {
+    #[inline(always)]
+    fn from(variant: WAKECLKPAD_DISABLE_A) -> Self {
+        match variant {
+            WAKECLKPAD_DISABLE_A::DISABLED => false,
+            WAKECLKPAD_DISABLE_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _WAKECLKPAD_DISABLEW<'a> {
+#[doc = "Reader of field `WAKECLKPAD_DISABLE`"]
+pub type WAKECLKPAD_DISABLE_R = crate::R<bool, WAKECLKPAD_DISABLE_A>;
+impl WAKECLKPAD_DISABLE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WAKECLKPAD_DISABLE_A {
+        match self.bits {
+            false => WAKECLKPAD_DISABLE_A::DISABLED,
+            true => WAKECLKPAD_DISABLE_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == WAKECLKPAD_DISABLE_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == WAKECLKPAD_DISABLE_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `WAKECLKPAD_DISABLE`"]
+pub struct WAKECLKPAD_DISABLE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WAKECLKPAD_DISABLEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WAKECLKPAD_DISABLEW) -> &'a mut W {
+impl<'a> WAKECLKPAD_DISABLE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WAKECLKPAD_DISABLE_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled. Setting this bit disables external clock input on pin PIO0_28."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(WAKECLKPAD_DISABLEW::DISABLED)
+        self.variant(WAKECLKPAD_DISABLE_A::DISABLED)
     }
     #[doc = "Enabled. The external clock input for the self wake-up timer is enabled on pin PIO0_28."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(WAKECLKPAD_DISABLEW::ENABLED)
+        self.variant(WAKECLKPAD_DISABLE_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `RESETHYS`"]
-pub enum RESETHYSW {
-    #[doc = "Disabled. Hysteresis for RESET pin disabled."]
+#[doc = "RESET pin hysteresis enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RESETHYS_A {
+    #[doc = "0: Disabled. Hysteresis for RESET pin disabled."]
     DISABLED,
-    #[doc = "Enabled. Hysteresis for RESET pin enabled."]
+    #[doc = "1: Enabled. Hysteresis for RESET pin enabled."]
     ENABLED,
 }
-impl RESETHYSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RESETHYSW::DISABLED => false,
-            RESETHYSW::ENABLED => true,
+impl From<RESETHYS_A> for bool {
+    #[inline(always)]
+    fn from(variant: RESETHYS_A) -> Self {
+        match variant {
+            RESETHYS_A::DISABLED => false,
+            RESETHYS_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _RESETHYSW<'a> {
+#[doc = "Reader of field `RESETHYS`"]
+pub type RESETHYS_R = crate::R<bool, RESETHYS_A>;
+impl RESETHYS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RESETHYS_A {
+        match self.bits {
+            false => RESETHYS_A::DISABLED,
+            true => RESETHYS_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == RESETHYS_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == RESETHYS_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `RESETHYS`"]
+pub struct RESETHYS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RESETHYSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RESETHYSW) -> &'a mut W {
+impl<'a> RESETHYS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RESETHYS_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled. Hysteresis for RESET pin disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(RESETHYSW::DISABLED)
+        self.variant(RESETHYS_A::DISABLED)
     }
     #[doc = "Enabled. Hysteresis for RESET pin enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(RESETHYSW::ENABLED)
+        self.variant(RESETHYS_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `RESET_DISABLE`"]
-pub enum RESET_DISABLEW {
-    #[doc = "Enabled. The reset wake-up function is enabled on pin PIO0_5."]
+#[doc = "RESET pin disable. Setting this bit disables the reset wake-up function, so the pin can be used for other purposes. Remark: Setting this bit is not necessary if deep power-down mode is not used.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RESET_DISABLE_A {
+    #[doc = "0: Enabled. The reset wake-up function is enabled on pin PIO0_5."]
     ENABLED,
-    #[doc = "Disabled. Setting this bit disables the wake-up function on pin PIO0_5."]
+    #[doc = "1: Disabled. Setting this bit disables the wake-up function on pin PIO0_5."]
     DISABLED,
 }
-impl RESET_DISABLEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RESET_DISABLEW::ENABLED => false,
-            RESET_DISABLEW::DISABLED => true,
+impl From<RESET_DISABLE_A> for bool {
+    #[inline(always)]
+    fn from(variant: RESET_DISABLE_A) -> Self {
+        match variant {
+            RESET_DISABLE_A::ENABLED => false,
+            RESET_DISABLE_A::DISABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _RESET_DISABLEW<'a> {
+#[doc = "Reader of field `RESET_DISABLE`"]
+pub type RESET_DISABLE_R = crate::R<bool, RESET_DISABLE_A>;
+impl RESET_DISABLE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RESET_DISABLE_A {
+        match self.bits {
+            false => RESET_DISABLE_A::ENABLED,
+            true => RESET_DISABLE_A::DISABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == RESET_DISABLE_A::ENABLED
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == RESET_DISABLE_A::DISABLED
+    }
+}
+#[doc = "Write proxy for field `RESET_DISABLE`"]
+pub struct RESET_DISABLE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RESET_DISABLEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RESET_DISABLEW) -> &'a mut W {
+impl<'a> RESET_DISABLE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RESET_DISABLE_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Enabled. The reset wake-up function is enabled on pin PIO0_5."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(RESET_DISABLEW::ENABLED)
+        self.variant(RESET_DISABLE_A::ENABLED)
     }
     #[doc = "Disabled. Setting this bit disables the wake-up function on pin PIO0_5."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(RESET_DISABLEW::DISABLED)
+        self.variant(RESET_DISABLE_A::DISABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GPDATAW<'a> {
+#[doc = "Reader of field `GPDATA`"]
+pub type GPDATA_R = crate::R<u32, u32>;
+#[doc = "Write proxy for field `GPDATA`"]
+pub struct GPDATA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GPDATAW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> GPDATA_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        const MASK: u32 = 16777215;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x00ff_ffff << 8)) | (((value as u32) & 0x00ff_ffff) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - WAKEUP pin hysteresis enable"]
-    #[inline]
-    pub fn wakeuphys(&self) -> WAKEUPHYSR {
-        WAKEUPHYSR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wakeuphys(&self) -> WAKEUPHYS_R {
+        WAKEUPHYS_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - WAKEUP pin disable. Setting this bit disables the wake-up pin, so it can be used for other purposes. Remark: Never set this bit if you intend to use a pin to wake up the part from Deep power-down mode. You can only disable the wake-up pin if the self wake-up timer is enabled and configured. Remark: Setting this bit is not necessary if Deep power-down mode is not used."]
-    #[inline]
-    pub fn wakepad_disable(&self) -> WAKEPAD_DISABLER {
-        WAKEPAD_DISABLER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wakepad_disable(&self) -> WAKEPAD_DISABLE_R {
+        WAKEPAD_DISABLE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Enable the low-power oscillator for use with the 10 kHz self wake-up timer clock. You must set this bit if the CLKSEL bit in the self wake-up timer CTRL bit is set. Do not enable the low-power oscillator if the self wake-up timer is clocked by the divided IRC or the external clock input."]
-    #[inline]
-    pub fn lposcen(&self) -> LPOSCENR {
-        LPOSCENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lposcen(&self) -> LPOSCEN_R {
+        LPOSCEN_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - causes the low-power oscillator to remain running during Deep power-down mode provided that bit 2 in this register is set as well. You must set this bit for the self wake-up timer to be able to wake up the part from Deep power-down mode. Remark: Do not set this bit unless you use the self wake-up timer with the low-power oscillator clock source to wake up from Deep power-down mode."]
-    #[inline]
-    pub fn lposcdpden(&self) -> LPOSCDPDENR {
-        LPOSCDPDENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lposcdpden(&self) -> LPOSCDPDEN_R {
+        LPOSCDPDEN_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - External clock input for the self wake-up timer WKTCLKIN hysteresis enable."]
-    #[inline]
-    pub fn wakeupclkhys(&self) -> WAKEUPCLKHYSR {
-        WAKEUPCLKHYSR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wakeupclkhys(&self) -> WAKEUPCLKHYS_R {
+        WAKEUPCLKHYS_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Disable the external clock input for the self-wake-up timer. Setting this bit enables the self-wake-up timer clock pin WKTCLKLIN. To minimize power consumption, especially in deep power-down mode, disable this clock input when not using the external clock option for the self-wake-up timer."]
-    #[inline]
-    pub fn wakeclkpad_disable(&self) -> WAKECLKPAD_DISABLER {
-        WAKECLKPAD_DISABLER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wakeclkpad_disable(&self) -> WAKECLKPAD_DISABLE_R {
+        WAKECLKPAD_DISABLE_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - RESET pin hysteresis enable."]
-    #[inline]
-    pub fn resethys(&self) -> RESETHYSR {
-        RESETHYSR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn resethys(&self) -> RESETHYS_R {
+        RESETHYS_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - RESET pin disable. Setting this bit disables the reset wake-up function, so the pin can be used for other purposes. Remark: Setting this bit is not necessary if deep power-down mode is not used."]
-    #[inline]
-    pub fn reset_disable(&self) -> RESET_DISABLER {
-        RESET_DISABLER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn reset_disable(&self) -> RESET_DISABLE_R {
+        RESET_DISABLE_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bits 8:31 - Data retained during Deep power-down mode."]
-    #[inline]
-    pub fn gpdata(&self) -> GPDATAR {
-        let bits = {
-            const MASK: u32 = 16777215;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        };
-        GPDATAR { bits }
+    #[inline(always)]
+    pub fn gpdata(&self) -> GPDATA_R {
+        GPDATA_R::new(((self.bits >> 8) & 0x00ff_ffff) as u32)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - WAKEUP pin hysteresis enable"]
-    #[inline]
-    pub fn wakeuphys(&mut self) -> _WAKEUPHYSW {
-        _WAKEUPHYSW { w: self }
+    #[inline(always)]
+    pub fn wakeuphys(&mut self) -> WAKEUPHYS_W {
+        WAKEUPHYS_W { w: self }
     }
     #[doc = "Bit 1 - WAKEUP pin disable. Setting this bit disables the wake-up pin, so it can be used for other purposes. Remark: Never set this bit if you intend to use a pin to wake up the part from Deep power-down mode. You can only disable the wake-up pin if the self wake-up timer is enabled and configured. Remark: Setting this bit is not necessary if Deep power-down mode is not used."]
-    #[inline]
-    pub fn wakepad_disable(&mut self) -> _WAKEPAD_DISABLEW {
-        _WAKEPAD_DISABLEW { w: self }
+    #[inline(always)]
+    pub fn wakepad_disable(&mut self) -> WAKEPAD_DISABLE_W {
+        WAKEPAD_DISABLE_W { w: self }
     }
     #[doc = "Bit 2 - Enable the low-power oscillator for use with the 10 kHz self wake-up timer clock. You must set this bit if the CLKSEL bit in the self wake-up timer CTRL bit is set. Do not enable the low-power oscillator if the self wake-up timer is clocked by the divided IRC or the external clock input."]
-    #[inline]
-    pub fn lposcen(&mut self) -> _LPOSCENW {
-        _LPOSCENW { w: self }
+    #[inline(always)]
+    pub fn lposcen(&mut self) -> LPOSCEN_W {
+        LPOSCEN_W { w: self }
     }
     #[doc = "Bit 3 - causes the low-power oscillator to remain running during Deep power-down mode provided that bit 2 in this register is set as well. You must set this bit for the self wake-up timer to be able to wake up the part from Deep power-down mode. Remark: Do not set this bit unless you use the self wake-up timer with the low-power oscillator clock source to wake up from Deep power-down mode."]
-    #[inline]
-    pub fn lposcdpden(&mut self) -> _LPOSCDPDENW {
-        _LPOSCDPDENW { w: self }
+    #[inline(always)]
+    pub fn lposcdpden(&mut self) -> LPOSCDPDEN_W {
+        LPOSCDPDEN_W { w: self }
     }
     #[doc = "Bit 4 - External clock input for the self wake-up timer WKTCLKIN hysteresis enable."]
-    #[inline]
-    pub fn wakeupclkhys(&mut self) -> _WAKEUPCLKHYSW {
-        _WAKEUPCLKHYSW { w: self }
+    #[inline(always)]
+    pub fn wakeupclkhys(&mut self) -> WAKEUPCLKHYS_W {
+        WAKEUPCLKHYS_W { w: self }
     }
     #[doc = "Bit 5 - Disable the external clock input for the self-wake-up timer. Setting this bit enables the self-wake-up timer clock pin WKTCLKLIN. To minimize power consumption, especially in deep power-down mode, disable this clock input when not using the external clock option for the self-wake-up timer."]
-    #[inline]
-    pub fn wakeclkpad_disable(&mut self) -> _WAKECLKPAD_DISABLEW {
-        _WAKECLKPAD_DISABLEW { w: self }
+    #[inline(always)]
+    pub fn wakeclkpad_disable(&mut self) -> WAKECLKPAD_DISABLE_W {
+        WAKECLKPAD_DISABLE_W { w: self }
     }
     #[doc = "Bit 6 - RESET pin hysteresis enable."]
-    #[inline]
-    pub fn resethys(&mut self) -> _RESETHYSW {
-        _RESETHYSW { w: self }
+    #[inline(always)]
+    pub fn resethys(&mut self) -> RESETHYS_W {
+        RESETHYS_W { w: self }
     }
     #[doc = "Bit 7 - RESET pin disable. Setting this bit disables the reset wake-up function, so the pin can be used for other purposes. Remark: Setting this bit is not necessary if deep power-down mode is not used."]
-    #[inline]
-    pub fn reset_disable(&mut self) -> _RESET_DISABLEW {
-        _RESET_DISABLEW { w: self }
+    #[inline(always)]
+    pub fn reset_disable(&mut self) -> RESET_DISABLE_W {
+        RESET_DISABLE_W { w: self }
     }
     #[doc = "Bits 8:31 - Data retained during Deep power-down mode."]
-    #[inline]
-    pub fn gpdata(&mut self) -> _GPDATAW {
-        _GPDATAW { w: self }
+    #[inline(always)]
+    pub fn gpdata(&mut self) -> GPDATA_W {
+        GPDATA_W { w: self }
     }
 }

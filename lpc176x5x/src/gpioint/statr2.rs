@@ -1,454 +1,102 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::STATR2 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_0REIR {
-    bits: bool,
-}
-impl P2_0REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_1REIR {
-    bits: bool,
-}
-impl P2_1REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_2REIR {
-    bits: bool,
-}
-impl P2_2REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_3REIR {
-    bits: bool,
-}
-impl P2_3REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_4REIR {
-    bits: bool,
-}
-impl P2_4REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_5REIR {
-    bits: bool,
-}
-impl P2_5REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_6REIR {
-    bits: bool,
-}
-impl P2_6REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_7REIR {
-    bits: bool,
-}
-impl P2_7REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_8REIR {
-    bits: bool,
-}
-impl P2_8REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_9REIR {
-    bits: bool,
-}
-impl P2_9REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_10REIR {
-    bits: bool,
-}
-impl P2_10REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_11REIR {
-    bits: bool,
-}
-impl P2_11REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_12REIR {
-    bits: bool,
-}
-impl P2_12REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct P2_13REIR {
-    bits: bool,
-}
-impl P2_13REIR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register STATR2"]
+pub type R = crate::R<u32, super::STATR2>;
+#[doc = "Reader of field `P2_0REI`"]
+pub type P2_0REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_1REI`"]
+pub type P2_1REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_2REI`"]
+pub type P2_2REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_3REI`"]
+pub type P2_3REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_4REI`"]
+pub type P2_4REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_5REI`"]
+pub type P2_5REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_6REI`"]
+pub type P2_6REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_7REI`"]
+pub type P2_7REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_8REI`"]
+pub type P2_8REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_9REI`"]
+pub type P2_9REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_10REI`"]
+pub type P2_10REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_11REI`"]
+pub type P2_11REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_12REI`"]
+pub type P2_12REI_R = crate::R<bool, bool>;
+#[doc = "Reader of field `P2_13REI`"]
+pub type P2_13REI_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Status of Rising Edge Interrupt for P2\\[0\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_0rei(&self) -> P2_0REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_0REIR { bits }
+    #[inline(always)]
+    pub fn p2_0rei(&self) -> P2_0REI_R {
+        P2_0REI_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Status of Rising Edge Interrupt for P2\\[1\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_1rei(&self) -> P2_1REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_1REIR { bits }
+    #[inline(always)]
+    pub fn p2_1rei(&self) -> P2_1REI_R {
+        P2_1REI_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Status of Rising Edge Interrupt for P2\\[2\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_2rei(&self) -> P2_2REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_2REIR { bits }
+    #[inline(always)]
+    pub fn p2_2rei(&self) -> P2_2REI_R {
+        P2_2REI_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Status of Rising Edge Interrupt for P2\\[3\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_3rei(&self) -> P2_3REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_3REIR { bits }
+    #[inline(always)]
+    pub fn p2_3rei(&self) -> P2_3REI_R {
+        P2_3REI_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Status of Rising Edge Interrupt for P2\\[4\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_4rei(&self) -> P2_4REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_4REIR { bits }
+    #[inline(always)]
+    pub fn p2_4rei(&self) -> P2_4REI_R {
+        P2_4REI_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Status of Rising Edge Interrupt for P2\\[5\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_5rei(&self) -> P2_5REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_5REIR { bits }
+    #[inline(always)]
+    pub fn p2_5rei(&self) -> P2_5REI_R {
+        P2_5REI_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Status of Rising Edge Interrupt for P2\\[6\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_6rei(&self) -> P2_6REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_6REIR { bits }
+    #[inline(always)]
+    pub fn p2_6rei(&self) -> P2_6REI_R {
+        P2_6REI_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Status of Rising Edge Interrupt for P2\\[7\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_7rei(&self) -> P2_7REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_7REIR { bits }
+    #[inline(always)]
+    pub fn p2_7rei(&self) -> P2_7REI_R {
+        P2_7REI_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Status of Rising Edge Interrupt for P2\\[8\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_8rei(&self) -> P2_8REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_8REIR { bits }
+    #[inline(always)]
+    pub fn p2_8rei(&self) -> P2_8REI_R {
+        P2_8REI_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Status of Rising Edge Interrupt for P2\\[9\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_9rei(&self) -> P2_9REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_9REIR { bits }
+    #[inline(always)]
+    pub fn p2_9rei(&self) -> P2_9REI_R {
+        P2_9REI_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Status of Rising Edge Interrupt for P2\\[10\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_10rei(&self) -> P2_10REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_10REIR { bits }
+    #[inline(always)]
+    pub fn p2_10rei(&self) -> P2_10REI_R {
+        P2_10REI_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Status of Rising Edge Interrupt for P2\\[11\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_11rei(&self) -> P2_11REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_11REIR { bits }
+    #[inline(always)]
+    pub fn p2_11rei(&self) -> P2_11REI_R {
+        P2_11REI_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Status of Rising Edge Interrupt for P2\\[12\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_12rei(&self) -> P2_12REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_12REIR { bits }
+    #[inline(always)]
+    pub fn p2_12rei(&self) -> P2_12REI_R {
+        P2_12REI_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Status of Rising Edge Interrupt for P2\\[13\\]. 0 = No rising edge detected. 1 = Rising edge interrupt generated."]
-    #[inline]
-    pub fn p2_13rei(&self) -> P2_13REIR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        P2_13REIR { bits }
+    #[inline(always)]
+    pub fn p2_13rei(&self) -> P2_13REI_R {
+        P2_13REI_R::new(((self.bits >> 13) & 0x01) != 0)
     }
 }

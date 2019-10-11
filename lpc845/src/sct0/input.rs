@@ -1,374 +1,85 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INPUT {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register INPUT"]
+pub type R = crate::R<u32, super::INPUT>;
+#[doc = "Writer for register INPUT"]
+pub type W = crate::W<u32, super::INPUT>;
+#[doc = "Register INPUT `reset()`'s with value 0"]
+impl crate::ResetValue for super::INPUT {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct AIN0R {
-    bits: bool,
-}
-impl AIN0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AIN1R {
-    bits: bool,
-}
-impl AIN1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AIN2R {
-    bits: bool,
-}
-impl AIN2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AIN3R {
-    bits: bool,
-}
-impl AIN3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct AIN4R {
-    bits: bool,
-}
-impl AIN4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SIN0R {
-    bits: bool,
-}
-impl SIN0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SIN1R {
-    bits: bool,
-}
-impl SIN1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SIN2R {
-    bits: bool,
-}
-impl SIN2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SIN3R {
-    bits: bool,
-}
-impl SIN3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SIN4R {
-    bits: bool,
-}
-impl SIN4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of field `AIN0`"]
+pub type AIN0_R = crate::R<bool, bool>;
+#[doc = "Reader of field `AIN1`"]
+pub type AIN1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `AIN2`"]
+pub type AIN2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `AIN3`"]
+pub type AIN3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `AIN4`"]
+pub type AIN4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SIN0`"]
+pub type SIN0_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SIN1`"]
+pub type SIN1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SIN2`"]
+pub type SIN2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SIN3`"]
+pub type SIN3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SIN4`"]
+pub type SIN4_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Input 0 state. Input 0 state on the last SCT clock edge."]
-    #[inline]
-    pub fn ain0(&self) -> AIN0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AIN0R { bits }
+    #[inline(always)]
+    pub fn ain0(&self) -> AIN0_R {
+        AIN0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Input 1 state. Input 1 state on the last SCT clock edge."]
-    #[inline]
-    pub fn ain1(&self) -> AIN1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AIN1R { bits }
+    #[inline(always)]
+    pub fn ain1(&self) -> AIN1_R {
+        AIN1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Input 2 state. Input 2 state on the last SCT clock edge."]
-    #[inline]
-    pub fn ain2(&self) -> AIN2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AIN2R { bits }
+    #[inline(always)]
+    pub fn ain2(&self) -> AIN2_R {
+        AIN2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Input 3 state. Input 3 state on the last SCT clock edge."]
-    #[inline]
-    pub fn ain3(&self) -> AIN3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AIN3R { bits }
+    #[inline(always)]
+    pub fn ain3(&self) -> AIN3_R {
+        AIN3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Input 4 state. Input 4 state on the last SCT clock edge."]
-    #[inline]
-    pub fn ain4(&self) -> AIN4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        AIN4R { bits }
+    #[inline(always)]
+    pub fn ain4(&self) -> AIN4_R {
+        AIN4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Input 0 state. Input 0 state following the synchronization specified by INSYNC."]
-    #[inline]
-    pub fn sin0(&self) -> SIN0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SIN0R { bits }
+    #[inline(always)]
+    pub fn sin0(&self) -> SIN0_R {
+        SIN0_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Input 1 state. Input 1 state following the synchronization specified by INSYNC."]
-    #[inline]
-    pub fn sin1(&self) -> SIN1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SIN1R { bits }
+    #[inline(always)]
+    pub fn sin1(&self) -> SIN1_R {
+        SIN1_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Input 2 state. Input 2 state following the synchronization specified by INSYNC."]
-    #[inline]
-    pub fn sin2(&self) -> SIN2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SIN2R { bits }
+    #[inline(always)]
+    pub fn sin2(&self) -> SIN2_R {
+        SIN2_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Input 3 state. Input 3 state following the synchronization specified by INSYNC."]
-    #[inline]
-    pub fn sin3(&self) -> SIN3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SIN3R { bits }
+    #[inline(always)]
+    pub fn sin3(&self) -> SIN3_R {
+        SIN3_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Input 4 state. Input 4 state following the synchronization specified by INSYNC."]
-    #[inline]
-    pub fn sin4(&self) -> SIN4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SIN4R { bits }
+    #[inline(always)]
+    pub fn sin4(&self) -> SIN4_R {
+        SIN4_R::new(((self.bits >> 20) & 0x01) != 0)
     }
 }
-impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
-}
+impl W {}

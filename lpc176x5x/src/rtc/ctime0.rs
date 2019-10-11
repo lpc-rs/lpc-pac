@@ -1,104 +1,32 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::CTIME0 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SECONDSR {
-    bits: u8,
-}
-impl SECONDSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MINUTESR {
-    bits: u8,
-}
-impl MINUTESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct HOURSR {
-    bits: u8,
-}
-impl HOURSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DOWR {
-    bits: u8,
-}
-impl DOWR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of register CTIME0"]
+pub type R = crate::R<u32, super::CTIME0>;
+#[doc = "Reader of field `SECONDS`"]
+pub type SECONDS_R = crate::R<u8, u8>;
+#[doc = "Reader of field `MINUTES`"]
+pub type MINUTES_R = crate::R<u8, u8>;
+#[doc = "Reader of field `HOURS`"]
+pub type HOURS_R = crate::R<u8, u8>;
+#[doc = "Reader of field `DOW`"]
+pub type DOW_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:5 - Seconds value in the range of 0 to 59"]
-    #[inline]
-    pub fn seconds(&self) -> SECONDSR {
-        let bits = {
-            const MASK: u8 = 63;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SECONDSR { bits }
+    #[inline(always)]
+    pub fn seconds(&self) -> SECONDS_R {
+        SECONDS_R::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bits 8:13 - Minutes value in the range of 0 to 59"]
-    #[inline]
-    pub fn minutes(&self) -> MINUTESR {
-        let bits = {
-            const MASK: u8 = 63;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        MINUTESR { bits }
+    #[inline(always)]
+    pub fn minutes(&self) -> MINUTES_R {
+        MINUTES_R::new(((self.bits >> 8) & 0x3f) as u8)
     }
     #[doc = "Bits 16:20 - Hours value in the range of 0 to 23"]
-    #[inline]
-    pub fn hours(&self) -> HOURSR {
-        let bits = {
-            const MASK: u8 = 31;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        HOURSR { bits }
+    #[inline(always)]
+    pub fn hours(&self) -> HOURS_R {
+        HOURS_R::new(((self.bits >> 16) & 0x1f) as u8)
     }
     #[doc = "Bits 24:26 - Day of week value in the range of 0 to 6"]
-    #[inline]
-    pub fn dow(&self) -> DOWR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        DOWR { bits }
+    #[inline(always)]
+    pub fn dow(&self) -> DOW_R {
+        DOW_R::new(((self.bits >> 24) & 0x07) as u8)
     }
 }

@@ -1,987 +1,708 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CR"]
+pub type R = crate::R<u32, super::CR>;
+#[doc = "Writer for register CR"]
+pub type W = crate::W<u32, super::CR>;
+#[doc = "Register CR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `BITENABLE`"]
+#[doc = "The SPI controller sends and receives 8 bits of data per transfer.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BITENABLER {
-    #[doc = "The SPI controller sends and receives the number of bits selected by bits 11:8."]
+pub enum BITENABLE_A {
+    #[doc = "1: The SPI controller sends and receives the number of bits selected by bits 11:8."]
     THE_SPI_CONTROLLER_S,
-    #[doc = r" Reserved"]
-    _Reserved(bool),
 }
-impl BITENABLER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            BITENABLER::THE_SPI_CONTROLLER_S => true,
-            BITENABLER::_Reserved(bits) => bits,
+impl From<BITENABLE_A> for bool {
+    #[inline(always)]
+    fn from(variant: BITENABLE_A) -> Self {
+        match variant {
+            BITENABLE_A::THE_SPI_CONTROLLER_S => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> BITENABLER {
-        match value {
-            true => BITENABLER::THE_SPI_CONTROLLER_S,
-            i => BITENABLER::_Reserved(i),
+}
+#[doc = "Reader of field `BITENABLE`"]
+pub type BITENABLE_R = crate::R<bool, BITENABLE_A>;
+impl BITENABLE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<bool, BITENABLE_A> {
+        use crate::Variant::*;
+        match self.bits {
+            true => Val(BITENABLE_A::THE_SPI_CONTROLLER_S),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `THE_SPI_CONTROLLER_S`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_the_spi_controller_s(&self) -> bool {
-        *self == BITENABLER::THE_SPI_CONTROLLER_S
+        *self == BITENABLE_A::THE_SPI_CONTROLLER_S
     }
 }
-#[doc = "Possible values of the field `CPHA`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPHAR {
-    #[doc = "Data is sampled on the first clock edge of SCK. A transfer starts and ends with activation and deactivation of the SSEL signal."]
-    FIRST_EDGE,
-    #[doc = "Data is sampled on the second clock edge of the SCK. A transfer starts with the first clock edge, and ends with the last sampling edge when the SSEL signal is active."]
-    SECOND_EDGE,
+#[doc = "Write proxy for field `BITENABLE`"]
+pub struct BITENABLE_W<'a> {
+    w: &'a mut W,
 }
-impl CPHAR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CPHAR::FIRST_EDGE => false,
-            CPHAR::SECOND_EDGE => true,
+impl<'a> BITENABLE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BITENABLE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CPHAR {
-        match value {
-            false => CPHAR::FIRST_EDGE,
-            true => CPHAR::SECOND_EDGE,
+    #[doc = "The SPI controller sends and receives the number of bits selected by bits 11:8."]
+    #[inline(always)]
+    pub fn the_spi_controller_s(self) -> &'a mut W {
+        self.variant(BITENABLE_A::THE_SPI_CONTROLLER_S)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Clock phase control determines the relationship between the data and the clock on SPI transfers, and controls when a slave transfer is defined as starting and ending.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CPHA_A {
+    #[doc = "0: Data is sampled on the first clock edge of SCK. A transfer starts and ends with activation and deactivation of the SSEL signal."]
+    FIRST_EDGE,
+    #[doc = "1: Data is sampled on the second clock edge of the SCK. A transfer starts with the first clock edge, and ends with the last sampling edge when the SSEL signal is active."]
+    SECOND_EDGE,
+}
+impl From<CPHA_A> for bool {
+    #[inline(always)]
+    fn from(variant: CPHA_A) -> Self {
+        match variant {
+            CPHA_A::FIRST_EDGE => false,
+            CPHA_A::SECOND_EDGE => true,
+        }
+    }
+}
+#[doc = "Reader of field `CPHA`"]
+pub type CPHA_R = crate::R<bool, CPHA_A>;
+impl CPHA_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CPHA_A {
+        match self.bits {
+            false => CPHA_A::FIRST_EDGE,
+            true => CPHA_A::SECOND_EDGE,
         }
     }
     #[doc = "Checks if the value of the field is `FIRST_EDGE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_first_edge(&self) -> bool {
-        *self == CPHAR::FIRST_EDGE
+        *self == CPHA_A::FIRST_EDGE
     }
     #[doc = "Checks if the value of the field is `SECOND_EDGE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_second_edge(&self) -> bool {
-        *self == CPHAR::SECOND_EDGE
+        *self == CPHA_A::SECOND_EDGE
     }
 }
-#[doc = "Possible values of the field `CPOL`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPOLR {
-    #[doc = "SCK is active high."]
-    SCK_IS_ACTIVE_HIGH_,
-    #[doc = "SCK is active low."]
-    SCK_IS_ACTIVE_LOW_,
+#[doc = "Write proxy for field `CPHA`"]
+pub struct CPHA_W<'a> {
+    w: &'a mut W,
 }
-impl CPOLR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CPOLR::SCK_IS_ACTIVE_HIGH_ => false,
-            CPOLR::SCK_IS_ACTIVE_LOW_ => true,
+impl<'a> CPHA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CPHA_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CPOLR {
-        match value {
-            false => CPOLR::SCK_IS_ACTIVE_HIGH_,
-            true => CPOLR::SCK_IS_ACTIVE_LOW_,
+    #[doc = "Data is sampled on the first clock edge of SCK. A transfer starts and ends with activation and deactivation of the SSEL signal."]
+    #[inline(always)]
+    pub fn first_edge(self) -> &'a mut W {
+        self.variant(CPHA_A::FIRST_EDGE)
+    }
+    #[doc = "Data is sampled on the second clock edge of the SCK. A transfer starts with the first clock edge, and ends with the last sampling edge when the SSEL signal is active."]
+    #[inline(always)]
+    pub fn second_edge(self) -> &'a mut W {
+        self.variant(CPHA_A::SECOND_EDGE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Clock polarity control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CPOL_A {
+    #[doc = "0: SCK is active high."]
+    SCK_IS_ACTIVE_HIGH_,
+    #[doc = "1: SCK is active low."]
+    SCK_IS_ACTIVE_LOW_,
+}
+impl From<CPOL_A> for bool {
+    #[inline(always)]
+    fn from(variant: CPOL_A) -> Self {
+        match variant {
+            CPOL_A::SCK_IS_ACTIVE_HIGH_ => false,
+            CPOL_A::SCK_IS_ACTIVE_LOW_ => true,
+        }
+    }
+}
+#[doc = "Reader of field `CPOL`"]
+pub type CPOL_R = crate::R<bool, CPOL_A>;
+impl CPOL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CPOL_A {
+        match self.bits {
+            false => CPOL_A::SCK_IS_ACTIVE_HIGH_,
+            true => CPOL_A::SCK_IS_ACTIVE_LOW_,
         }
     }
     #[doc = "Checks if the value of the field is `SCK_IS_ACTIVE_HIGH_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sck_is_active_high_(&self) -> bool {
-        *self == CPOLR::SCK_IS_ACTIVE_HIGH_
+        *self == CPOL_A::SCK_IS_ACTIVE_HIGH_
     }
     #[doc = "Checks if the value of the field is `SCK_IS_ACTIVE_LOW_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sck_is_active_low_(&self) -> bool {
-        *self == CPOLR::SCK_IS_ACTIVE_LOW_
+        *self == CPOL_A::SCK_IS_ACTIVE_LOW_
     }
 }
-#[doc = "Possible values of the field `MSTR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MSTRR {
-    #[doc = "The SPI operates in Slave mode."]
-    SLAVE,
-    #[doc = "The SPI operates in Master mode."]
-    MASTER,
+#[doc = "Write proxy for field `CPOL`"]
+pub struct CPOL_W<'a> {
+    w: &'a mut W,
 }
-impl MSTRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MSTRR::SLAVE => false,
-            MSTRR::MASTER => true,
+impl<'a> CPOL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CPOL_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MSTRR {
-        match value {
-            false => MSTRR::SLAVE,
-            true => MSTRR::MASTER,
+    #[doc = "SCK is active high."]
+    #[inline(always)]
+    pub fn sck_is_active_high_(self) -> &'a mut W {
+        self.variant(CPOL_A::SCK_IS_ACTIVE_HIGH_)
+    }
+    #[doc = "SCK is active low."]
+    #[inline(always)]
+    pub fn sck_is_active_low_(self) -> &'a mut W {
+        self.variant(CPOL_A::SCK_IS_ACTIVE_LOW_)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Master mode select.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum MSTR_A {
+    #[doc = "0: The SPI operates in Slave mode."]
+    SLAVE,
+    #[doc = "1: The SPI operates in Master mode."]
+    MASTER,
+}
+impl From<MSTR_A> for bool {
+    #[inline(always)]
+    fn from(variant: MSTR_A) -> Self {
+        match variant {
+            MSTR_A::SLAVE => false,
+            MSTR_A::MASTER => true,
+        }
+    }
+}
+#[doc = "Reader of field `MSTR`"]
+pub type MSTR_R = crate::R<bool, MSTR_A>;
+impl MSTR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> MSTR_A {
+        match self.bits {
+            false => MSTR_A::SLAVE,
+            true => MSTR_A::MASTER,
         }
     }
     #[doc = "Checks if the value of the field is `SLAVE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_slave(&self) -> bool {
-        *self == MSTRR::SLAVE
+        *self == MSTR_A::SLAVE
     }
     #[doc = "Checks if the value of the field is `MASTER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_master(&self) -> bool {
-        *self == MSTRR::MASTER
+        *self == MSTR_A::MASTER
     }
 }
-#[doc = "Possible values of the field `LSBF`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LSBFR {
-    #[doc = "SPI data is transferred MSB (bit 7) first."]
-    MSB,
-    #[doc = "SPI data is transferred LSB (bit 0) first."]
-    LSB,
+#[doc = "Write proxy for field `MSTR`"]
+pub struct MSTR_W<'a> {
+    w: &'a mut W,
 }
-impl LSBFR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LSBFR::MSB => false,
-            LSBFR::LSB => true,
+impl<'a> MSTR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: MSTR_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LSBFR {
-        match value {
-            false => LSBFR::MSB,
-            true => LSBFR::LSB,
+    #[doc = "The SPI operates in Slave mode."]
+    #[inline(always)]
+    pub fn slave(self) -> &'a mut W {
+        self.variant(MSTR_A::SLAVE)
+    }
+    #[doc = "The SPI operates in Master mode."]
+    #[inline(always)]
+    pub fn master(self) -> &'a mut W {
+        self.variant(MSTR_A::MASTER)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "LSB First controls which direction each byte is shifted when transferred.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LSBF_A {
+    #[doc = "0: SPI data is transferred MSB (bit 7) first."]
+    MSB,
+    #[doc = "1: SPI data is transferred LSB (bit 0) first."]
+    LSB,
+}
+impl From<LSBF_A> for bool {
+    #[inline(always)]
+    fn from(variant: LSBF_A) -> Self {
+        match variant {
+            LSBF_A::MSB => false,
+            LSBF_A::LSB => true,
+        }
+    }
+}
+#[doc = "Reader of field `LSBF`"]
+pub type LSBF_R = crate::R<bool, LSBF_A>;
+impl LSBF_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LSBF_A {
+        match self.bits {
+            false => LSBF_A::MSB,
+            true => LSBF_A::LSB,
         }
     }
     #[doc = "Checks if the value of the field is `MSB`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_msb(&self) -> bool {
-        *self == LSBFR::MSB
+        *self == LSBF_A::MSB
     }
     #[doc = "Checks if the value of the field is `LSB`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_lsb(&self) -> bool {
-        *self == LSBFR::LSB
+        *self == LSBF_A::LSB
     }
 }
-#[doc = "Possible values of the field `SPIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SPIER {
-    #[doc = "SPI interrupts are inhibited."]
-    INTBLOCK,
-    #[doc = "A hardware interrupt is generated each time the SPIF or MODF bits are activated."]
-    HWINT,
+#[doc = "Write proxy for field `LSBF`"]
+pub struct LSBF_W<'a> {
+    w: &'a mut W,
 }
-impl SPIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SPIER::INTBLOCK => false,
-            SPIER::HWINT => true,
+impl<'a> LSBF_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LSBF_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SPIER {
-        match value {
-            false => SPIER::INTBLOCK,
-            true => SPIER::HWINT,
+    #[doc = "SPI data is transferred MSB (bit 7) first."]
+    #[inline(always)]
+    pub fn msb(self) -> &'a mut W {
+        self.variant(LSBF_A::MSB)
+    }
+    #[doc = "SPI data is transferred LSB (bit 0) first."]
+    #[inline(always)]
+    pub fn lsb(self) -> &'a mut W {
+        self.variant(LSBF_A::LSB)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w
+    }
+}
+#[doc = "Serial peripheral interrupt enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SPIE_A {
+    #[doc = "0: SPI interrupts are inhibited."]
+    INTBLOCK,
+    #[doc = "1: A hardware interrupt is generated each time the SPIF or MODF bits are activated."]
+    HWINT,
+}
+impl From<SPIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: SPIE_A) -> Self {
+        match variant {
+            SPIE_A::INTBLOCK => false,
+            SPIE_A::HWINT => true,
+        }
+    }
+}
+#[doc = "Reader of field `SPIE`"]
+pub type SPIE_R = crate::R<bool, SPIE_A>;
+impl SPIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SPIE_A {
+        match self.bits {
+            false => SPIE_A::INTBLOCK,
+            true => SPIE_A::HWINT,
         }
     }
     #[doc = "Checks if the value of the field is `INTBLOCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_intblock(&self) -> bool {
-        *self == SPIER::INTBLOCK
+        *self == SPIE_A::INTBLOCK
     }
     #[doc = "Checks if the value of the field is `HWINT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_hwint(&self) -> bool {
-        *self == SPIER::HWINT
+        *self == SPIE_A::HWINT
     }
 }
-#[doc = "Possible values of the field `BITS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BITSR {
-    #[doc = "8 bits per transfer"]
-    _8_BITS_PER_TRANSFER,
-    #[doc = "9 bits per transfer"]
-    _9_BITS_PER_TRANSFER,
-    #[doc = "10 bits per transfer"]
-    _10_BITS_PER_TRANSFER,
-    #[doc = "11 bits per transfer"]
-    _11_BITS_PER_TRANSFER,
-    #[doc = "12 bits per transfer"]
-    _12_BITS_PER_TRANSFER,
-    #[doc = "13 bits per transfer"]
-    _13_BITS_PER_TRANSFER,
-    #[doc = "14 bits per transfer"]
-    _14_BITS_PER_TRANSFER,
-    #[doc = "15 bits per transfer"]
-    _15_BITS_PER_TRANSFER,
-    #[doc = "16 bits per transfer"]
-    _16_BITS_PER_TRANSFER,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
+#[doc = "Write proxy for field `SPIE`"]
+pub struct SPIE_W<'a> {
+    w: &'a mut W,
 }
-impl BITSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            BITSR::_8_BITS_PER_TRANSFER => 8,
-            BITSR::_9_BITS_PER_TRANSFER => 9,
-            BITSR::_10_BITS_PER_TRANSFER => 10,
-            BITSR::_11_BITS_PER_TRANSFER => 11,
-            BITSR::_12_BITS_PER_TRANSFER => 12,
-            BITSR::_13_BITS_PER_TRANSFER => 13,
-            BITSR::_14_BITS_PER_TRANSFER => 14,
-            BITSR::_15_BITS_PER_TRANSFER => 15,
-            BITSR::_16_BITS_PER_TRANSFER => 0,
-            BITSR::_Reserved(bits) => bits,
+impl<'a> SPIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SPIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> BITSR {
-        match value {
-            8 => BITSR::_8_BITS_PER_TRANSFER,
-            9 => BITSR::_9_BITS_PER_TRANSFER,
-            10 => BITSR::_10_BITS_PER_TRANSFER,
-            11 => BITSR::_11_BITS_PER_TRANSFER,
-            12 => BITSR::_12_BITS_PER_TRANSFER,
-            13 => BITSR::_13_BITS_PER_TRANSFER,
-            14 => BITSR::_14_BITS_PER_TRANSFER,
-            15 => BITSR::_15_BITS_PER_TRANSFER,
-            0 => BITSR::_16_BITS_PER_TRANSFER,
-            i => BITSR::_Reserved(i),
+    #[doc = "SPI interrupts are inhibited."]
+    #[inline(always)]
+    pub fn intblock(self) -> &'a mut W {
+        self.variant(SPIE_A::INTBLOCK)
+    }
+    #[doc = "A hardware interrupt is generated each time the SPIF or MODF bits are activated."]
+    #[inline(always)]
+    pub fn hwint(self) -> &'a mut W {
+        self.variant(SPIE_A::HWINT)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w
+    }
+}
+#[doc = "When bit 2 of this register is 1, this field controls the number of bits per transfer:\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum BITS_A {
+    #[doc = "8: 8 bits per transfer"]
+    _8_BITS_PER_TRANSFER,
+    #[doc = "9: 9 bits per transfer"]
+    _9_BITS_PER_TRANSFER,
+    #[doc = "10: 10 bits per transfer"]
+    _10_BITS_PER_TRANSFER,
+    #[doc = "11: 11 bits per transfer"]
+    _11_BITS_PER_TRANSFER,
+    #[doc = "12: 12 bits per transfer"]
+    _12_BITS_PER_TRANSFER,
+    #[doc = "13: 13 bits per transfer"]
+    _13_BITS_PER_TRANSFER,
+    #[doc = "14: 14 bits per transfer"]
+    _14_BITS_PER_TRANSFER,
+    #[doc = "15: 15 bits per transfer"]
+    _15_BITS_PER_TRANSFER,
+    #[doc = "0: 16 bits per transfer"]
+    _16_BITS_PER_TRANSFER,
+}
+impl From<BITS_A> for u8 {
+    #[inline(always)]
+    fn from(variant: BITS_A) -> Self {
+        match variant {
+            BITS_A::_8_BITS_PER_TRANSFER => 8,
+            BITS_A::_9_BITS_PER_TRANSFER => 9,
+            BITS_A::_10_BITS_PER_TRANSFER => 10,
+            BITS_A::_11_BITS_PER_TRANSFER => 11,
+            BITS_A::_12_BITS_PER_TRANSFER => 12,
+            BITS_A::_13_BITS_PER_TRANSFER => 13,
+            BITS_A::_14_BITS_PER_TRANSFER => 14,
+            BITS_A::_15_BITS_PER_TRANSFER => 15,
+            BITS_A::_16_BITS_PER_TRANSFER => 0,
+        }
+    }
+}
+#[doc = "Reader of field `BITS`"]
+pub type BITS_R = crate::R<u8, BITS_A>;
+impl BITS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, BITS_A> {
+        use crate::Variant::*;
+        match self.bits {
+            8 => Val(BITS_A::_8_BITS_PER_TRANSFER),
+            9 => Val(BITS_A::_9_BITS_PER_TRANSFER),
+            10 => Val(BITS_A::_10_BITS_PER_TRANSFER),
+            11 => Val(BITS_A::_11_BITS_PER_TRANSFER),
+            12 => Val(BITS_A::_12_BITS_PER_TRANSFER),
+            13 => Val(BITS_A::_13_BITS_PER_TRANSFER),
+            14 => Val(BITS_A::_14_BITS_PER_TRANSFER),
+            15 => Val(BITS_A::_15_BITS_PER_TRANSFER),
+            0 => Val(BITS_A::_16_BITS_PER_TRANSFER),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `_8_BITS_PER_TRANSFER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_8_bits_per_transfer(&self) -> bool {
-        *self == BITSR::_8_BITS_PER_TRANSFER
+        *self == BITS_A::_8_BITS_PER_TRANSFER
     }
     #[doc = "Checks if the value of the field is `_9_BITS_PER_TRANSFER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_9_bits_per_transfer(&self) -> bool {
-        *self == BITSR::_9_BITS_PER_TRANSFER
+        *self == BITS_A::_9_BITS_PER_TRANSFER
     }
     #[doc = "Checks if the value of the field is `_10_BITS_PER_TRANSFER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_10_bits_per_transfer(&self) -> bool {
-        *self == BITSR::_10_BITS_PER_TRANSFER
+        *self == BITS_A::_10_BITS_PER_TRANSFER
     }
     #[doc = "Checks if the value of the field is `_11_BITS_PER_TRANSFER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_11_bits_per_transfer(&self) -> bool {
-        *self == BITSR::_11_BITS_PER_TRANSFER
+        *self == BITS_A::_11_BITS_PER_TRANSFER
     }
     #[doc = "Checks if the value of the field is `_12_BITS_PER_TRANSFER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_12_bits_per_transfer(&self) -> bool {
-        *self == BITSR::_12_BITS_PER_TRANSFER
+        *self == BITS_A::_12_BITS_PER_TRANSFER
     }
     #[doc = "Checks if the value of the field is `_13_BITS_PER_TRANSFER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_13_bits_per_transfer(&self) -> bool {
-        *self == BITSR::_13_BITS_PER_TRANSFER
+        *self == BITS_A::_13_BITS_PER_TRANSFER
     }
     #[doc = "Checks if the value of the field is `_14_BITS_PER_TRANSFER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_14_bits_per_transfer(&self) -> bool {
-        *self == BITSR::_14_BITS_PER_TRANSFER
+        *self == BITS_A::_14_BITS_PER_TRANSFER
     }
     #[doc = "Checks if the value of the field is `_15_BITS_PER_TRANSFER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_15_bits_per_transfer(&self) -> bool {
-        *self == BITSR::_15_BITS_PER_TRANSFER
+        *self == BITS_A::_15_BITS_PER_TRANSFER
     }
     #[doc = "Checks if the value of the field is `_16_BITS_PER_TRANSFER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_16_bits_per_transfer(&self) -> bool {
-        *self == BITSR::_16_BITS_PER_TRANSFER
+        *self == BITS_A::_16_BITS_PER_TRANSFER
     }
 }
-#[doc = "Values that can be written to the field `BITENABLE`"]
-pub enum BITENABLEW {
-    #[doc = "The SPI controller sends and receives the number of bits selected by bits 11:8."]
-    THE_SPI_CONTROLLER_S,
-}
-impl BITENABLEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            BITENABLEW::THE_SPI_CONTROLLER_S => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BITENABLEW<'a> {
+#[doc = "Write proxy for field `BITS`"]
+pub struct BITS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BITENABLEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: BITENABLEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "The SPI controller sends and receives the number of bits selected by bits 11:8."]
-    #[inline]
-    pub fn the_spi_controller_s(self) -> &'a mut W {
-        self.variant(BITENABLEW::THE_SPI_CONTROLLER_S)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CPHA`"]
-pub enum CPHAW {
-    #[doc = "Data is sampled on the first clock edge of SCK. A transfer starts and ends with activation and deactivation of the SSEL signal."]
-    FIRST_EDGE,
-    #[doc = "Data is sampled on the second clock edge of the SCK. A transfer starts with the first clock edge, and ends with the last sampling edge when the SSEL signal is active."]
-    SECOND_EDGE,
-}
-impl CPHAW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CPHAW::FIRST_EDGE => false,
-            CPHAW::SECOND_EDGE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CPHAW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CPHAW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CPHAW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Data is sampled on the first clock edge of SCK. A transfer starts and ends with activation and deactivation of the SSEL signal."]
-    #[inline]
-    pub fn first_edge(self) -> &'a mut W {
-        self.variant(CPHAW::FIRST_EDGE)
-    }
-    #[doc = "Data is sampled on the second clock edge of the SCK. A transfer starts with the first clock edge, and ends with the last sampling edge when the SSEL signal is active."]
-    #[inline]
-    pub fn second_edge(self) -> &'a mut W {
-        self.variant(CPHAW::SECOND_EDGE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CPOL`"]
-pub enum CPOLW {
-    #[doc = "SCK is active high."]
-    SCK_IS_ACTIVE_HIGH_,
-    #[doc = "SCK is active low."]
-    SCK_IS_ACTIVE_LOW_,
-}
-impl CPOLW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CPOLW::SCK_IS_ACTIVE_HIGH_ => false,
-            CPOLW::SCK_IS_ACTIVE_LOW_ => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CPOLW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CPOLW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CPOLW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "SCK is active high."]
-    #[inline]
-    pub fn sck_is_active_high_(self) -> &'a mut W {
-        self.variant(CPOLW::SCK_IS_ACTIVE_HIGH_)
-    }
-    #[doc = "SCK is active low."]
-    #[inline]
-    pub fn sck_is_active_low_(self) -> &'a mut W {
-        self.variant(CPOLW::SCK_IS_ACTIVE_LOW_)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `MSTR`"]
-pub enum MSTRW {
-    #[doc = "The SPI operates in Slave mode."]
-    SLAVE,
-    #[doc = "The SPI operates in Master mode."]
-    MASTER,
-}
-impl MSTRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            MSTRW::SLAVE => false,
-            MSTRW::MASTER => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _MSTRW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _MSTRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: MSTRW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "The SPI operates in Slave mode."]
-    #[inline]
-    pub fn slave(self) -> &'a mut W {
-        self.variant(MSTRW::SLAVE)
-    }
-    #[doc = "The SPI operates in Master mode."]
-    #[inline]
-    pub fn master(self) -> &'a mut W {
-        self.variant(MSTRW::MASTER)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `LSBF`"]
-pub enum LSBFW {
-    #[doc = "SPI data is transferred MSB (bit 7) first."]
-    MSB,
-    #[doc = "SPI data is transferred LSB (bit 0) first."]
-    LSB,
-}
-impl LSBFW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LSBFW::MSB => false,
-            LSBFW::LSB => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LSBFW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _LSBFW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LSBFW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "SPI data is transferred MSB (bit 7) first."]
-    #[inline]
-    pub fn msb(self) -> &'a mut W {
-        self.variant(LSBFW::MSB)
-    }
-    #[doc = "SPI data is transferred LSB (bit 0) first."]
-    #[inline]
-    pub fn lsb(self) -> &'a mut W {
-        self.variant(LSBFW::LSB)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SPIE`"]
-pub enum SPIEW {
-    #[doc = "SPI interrupts are inhibited."]
-    INTBLOCK,
-    #[doc = "A hardware interrupt is generated each time the SPIF or MODF bits are activated."]
-    HWINT,
-}
-impl SPIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SPIEW::INTBLOCK => false,
-            SPIEW::HWINT => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SPIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SPIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SPIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "SPI interrupts are inhibited."]
-    #[inline]
-    pub fn intblock(self) -> &'a mut W {
-        self.variant(SPIEW::INTBLOCK)
-    }
-    #[doc = "A hardware interrupt is generated each time the SPIF or MODF bits are activated."]
-    #[inline]
-    pub fn hwint(self) -> &'a mut W {
-        self.variant(SPIEW::HWINT)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `BITS`"]
-pub enum BITSW {
-    #[doc = "8 bits per transfer"]
-    _8_BITS_PER_TRANSFER,
-    #[doc = "9 bits per transfer"]
-    _9_BITS_PER_TRANSFER,
-    #[doc = "10 bits per transfer"]
-    _10_BITS_PER_TRANSFER,
-    #[doc = "11 bits per transfer"]
-    _11_BITS_PER_TRANSFER,
-    #[doc = "12 bits per transfer"]
-    _12_BITS_PER_TRANSFER,
-    #[doc = "13 bits per transfer"]
-    _13_BITS_PER_TRANSFER,
-    #[doc = "14 bits per transfer"]
-    _14_BITS_PER_TRANSFER,
-    #[doc = "15 bits per transfer"]
-    _15_BITS_PER_TRANSFER,
-    #[doc = "16 bits per transfer"]
-    _16_BITS_PER_TRANSFER,
-}
-impl BITSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            BITSW::_8_BITS_PER_TRANSFER => 8,
-            BITSW::_9_BITS_PER_TRANSFER => 9,
-            BITSW::_10_BITS_PER_TRANSFER => 10,
-            BITSW::_11_BITS_PER_TRANSFER => 11,
-            BITSW::_12_BITS_PER_TRANSFER => 12,
-            BITSW::_13_BITS_PER_TRANSFER => 13,
-            BITSW::_14_BITS_PER_TRANSFER => 14,
-            BITSW::_15_BITS_PER_TRANSFER => 15,
-            BITSW::_16_BITS_PER_TRANSFER => 0,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BITSW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _BITSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: BITSW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> BITS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BITS_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "8 bits per transfer"]
-    #[inline]
+    #[inline(always)]
     pub fn _8_bits_per_transfer(self) -> &'a mut W {
-        self.variant(BITSW::_8_BITS_PER_TRANSFER)
+        self.variant(BITS_A::_8_BITS_PER_TRANSFER)
     }
     #[doc = "9 bits per transfer"]
-    #[inline]
+    #[inline(always)]
     pub fn _9_bits_per_transfer(self) -> &'a mut W {
-        self.variant(BITSW::_9_BITS_PER_TRANSFER)
+        self.variant(BITS_A::_9_BITS_PER_TRANSFER)
     }
     #[doc = "10 bits per transfer"]
-    #[inline]
+    #[inline(always)]
     pub fn _10_bits_per_transfer(self) -> &'a mut W {
-        self.variant(BITSW::_10_BITS_PER_TRANSFER)
+        self.variant(BITS_A::_10_BITS_PER_TRANSFER)
     }
     #[doc = "11 bits per transfer"]
-    #[inline]
+    #[inline(always)]
     pub fn _11_bits_per_transfer(self) -> &'a mut W {
-        self.variant(BITSW::_11_BITS_PER_TRANSFER)
+        self.variant(BITS_A::_11_BITS_PER_TRANSFER)
     }
     #[doc = "12 bits per transfer"]
-    #[inline]
+    #[inline(always)]
     pub fn _12_bits_per_transfer(self) -> &'a mut W {
-        self.variant(BITSW::_12_BITS_PER_TRANSFER)
+        self.variant(BITS_A::_12_BITS_PER_TRANSFER)
     }
     #[doc = "13 bits per transfer"]
-    #[inline]
+    #[inline(always)]
     pub fn _13_bits_per_transfer(self) -> &'a mut W {
-        self.variant(BITSW::_13_BITS_PER_TRANSFER)
+        self.variant(BITS_A::_13_BITS_PER_TRANSFER)
     }
     #[doc = "14 bits per transfer"]
-    #[inline]
+    #[inline(always)]
     pub fn _14_bits_per_transfer(self) -> &'a mut W {
-        self.variant(BITSW::_14_BITS_PER_TRANSFER)
+        self.variant(BITS_A::_14_BITS_PER_TRANSFER)
     }
     #[doc = "15 bits per transfer"]
-    #[inline]
+    #[inline(always)]
     pub fn _15_bits_per_transfer(self) -> &'a mut W {
-        self.variant(BITSW::_15_BITS_PER_TRANSFER)
+        self.variant(BITS_A::_15_BITS_PER_TRANSFER)
     }
     #[doc = "16 bits per transfer"]
-    #[inline]
+    #[inline(always)]
     pub fn _16_bits_per_transfer(self) -> &'a mut W {
-        self.variant(BITSW::_16_BITS_PER_TRANSFER)
+        self.variant(BITS_A::_16_BITS_PER_TRANSFER)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 2 - The SPI controller sends and receives 8 bits of data per transfer."]
-    #[inline]
-    pub fn bitenable(&self) -> BITENABLER {
-        BITENABLER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn bitenable(&self) -> BITENABLE_R {
+        BITENABLE_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Clock phase control determines the relationship between the data and the clock on SPI transfers, and controls when a slave transfer is defined as starting and ending."]
-    #[inline]
-    pub fn cpha(&self) -> CPHAR {
-        CPHAR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cpha(&self) -> CPHA_R {
+        CPHA_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Clock polarity control."]
-    #[inline]
-    pub fn cpol(&self) -> CPOLR {
-        CPOLR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cpol(&self) -> CPOL_R {
+        CPOL_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Master mode select."]
-    #[inline]
-    pub fn mstr(&self) -> MSTRR {
-        MSTRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn mstr(&self) -> MSTR_R {
+        MSTR_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - LSB First controls which direction each byte is shifted when transferred."]
-    #[inline]
-    pub fn lsbf(&self) -> LSBFR {
-        LSBFR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lsbf(&self) -> LSBF_R {
+        LSBF_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Serial peripheral interrupt enable."]
-    #[inline]
-    pub fn spie(&self) -> SPIER {
-        SPIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn spie(&self) -> SPIE_R {
+        SPIE_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bits 8:11 - When bit 2 of this register is 1, this field controls the number of bits per transfer:"]
-    #[inline]
-    pub fn bits_(&self) -> BITSR {
-        BITSR::_from({
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn bits_(&self) -> BITS_R {
+        BITS_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 2 - The SPI controller sends and receives 8 bits of data per transfer."]
-    #[inline]
-    pub fn bitenable(&mut self) -> _BITENABLEW {
-        _BITENABLEW { w: self }
+    #[inline(always)]
+    pub fn bitenable(&mut self) -> BITENABLE_W {
+        BITENABLE_W { w: self }
     }
     #[doc = "Bit 3 - Clock phase control determines the relationship between the data and the clock on SPI transfers, and controls when a slave transfer is defined as starting and ending."]
-    #[inline]
-    pub fn cpha(&mut self) -> _CPHAW {
-        _CPHAW { w: self }
+    #[inline(always)]
+    pub fn cpha(&mut self) -> CPHA_W {
+        CPHA_W { w: self }
     }
     #[doc = "Bit 4 - Clock polarity control."]
-    #[inline]
-    pub fn cpol(&mut self) -> _CPOLW {
-        _CPOLW { w: self }
+    #[inline(always)]
+    pub fn cpol(&mut self) -> CPOL_W {
+        CPOL_W { w: self }
     }
     #[doc = "Bit 5 - Master mode select."]
-    #[inline]
-    pub fn mstr(&mut self) -> _MSTRW {
-        _MSTRW { w: self }
+    #[inline(always)]
+    pub fn mstr(&mut self) -> MSTR_W {
+        MSTR_W { w: self }
     }
     #[doc = "Bit 6 - LSB First controls which direction each byte is shifted when transferred."]
-    #[inline]
-    pub fn lsbf(&mut self) -> _LSBFW {
-        _LSBFW { w: self }
+    #[inline(always)]
+    pub fn lsbf(&mut self) -> LSBF_W {
+        LSBF_W { w: self }
     }
     #[doc = "Bit 7 - Serial peripheral interrupt enable."]
-    #[inline]
-    pub fn spie(&mut self) -> _SPIEW {
-        _SPIEW { w: self }
+    #[inline(always)]
+    pub fn spie(&mut self) -> SPIE_W {
+        SPIE_W { w: self }
     }
     #[doc = "Bits 8:11 - When bit 2 of this register is 1, this field controls the number of bits per transfer:"]
-    #[inline]
-    pub fn bits_(&mut self) -> _BITSW {
-        _BITSW { w: self }
+    #[inline(always)]
+    pub fn bits_(&mut self) -> BITS_W {
+        BITS_W { w: self }
     }
 }

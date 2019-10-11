@@ -1,268 +1,60 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::INTTCSTAT {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct INTTCSTAT0R {
-    bits: bool,
-}
-impl INTTCSTAT0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct INTTCSTAT1R {
-    bits: bool,
-}
-impl INTTCSTAT1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct INTTCSTAT2R {
-    bits: bool,
-}
-impl INTTCSTAT2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct INTTCSTAT3R {
-    bits: bool,
-}
-impl INTTCSTAT3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct INTTCSTAT4R {
-    bits: bool,
-}
-impl INTTCSTAT4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct INTTCSTAT5R {
-    bits: bool,
-}
-impl INTTCSTAT5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct INTTCSTAT6R {
-    bits: bool,
-}
-impl INTTCSTAT6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct INTTCSTAT7R {
-    bits: bool,
-}
-impl INTTCSTAT7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register INTTCSTAT"]
+pub type R = crate::R<u32, super::INTTCSTAT>;
+#[doc = "Reader of field `INTTCSTAT0`"]
+pub type INTTCSTAT0_R = crate::R<bool, bool>;
+#[doc = "Reader of field `INTTCSTAT1`"]
+pub type INTTCSTAT1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `INTTCSTAT2`"]
+pub type INTTCSTAT2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `INTTCSTAT3`"]
+pub type INTTCSTAT3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `INTTCSTAT4`"]
+pub type INTTCSTAT4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `INTTCSTAT5`"]
+pub type INTTCSTAT5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `INTTCSTAT6`"]
+pub type INTTCSTAT6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `INTTCSTAT7`"]
+pub type INTTCSTAT7_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request."]
-    #[inline]
-    pub fn inttcstat0(&self) -> INTTCSTAT0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        INTTCSTAT0R { bits }
+    #[inline(always)]
+    pub fn inttcstat0(&self) -> INTTCSTAT0_R {
+        INTTCSTAT0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request."]
-    #[inline]
-    pub fn inttcstat1(&self) -> INTTCSTAT1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        INTTCSTAT1R { bits }
+    #[inline(always)]
+    pub fn inttcstat1(&self) -> INTTCSTAT1_R {
+        INTTCSTAT1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request."]
-    #[inline]
-    pub fn inttcstat2(&self) -> INTTCSTAT2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        INTTCSTAT2R { bits }
+    #[inline(always)]
+    pub fn inttcstat2(&self) -> INTTCSTAT2_R {
+        INTTCSTAT2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request."]
-    #[inline]
-    pub fn inttcstat3(&self) -> INTTCSTAT3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        INTTCSTAT3R { bits }
+    #[inline(always)]
+    pub fn inttcstat3(&self) -> INTTCSTAT3_R {
+        INTTCSTAT3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request."]
-    #[inline]
-    pub fn inttcstat4(&self) -> INTTCSTAT4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        INTTCSTAT4R { bits }
+    #[inline(always)]
+    pub fn inttcstat4(&self) -> INTTCSTAT4_R {
+        INTTCSTAT4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request."]
-    #[inline]
-    pub fn inttcstat5(&self) -> INTTCSTAT5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        INTTCSTAT5R { bits }
+    #[inline(always)]
+    pub fn inttcstat5(&self) -> INTTCSTAT5_R {
+        INTTCSTAT5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request."]
-    #[inline]
-    pub fn inttcstat6(&self) -> INTTCSTAT6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        INTTCSTAT6R { bits }
+    #[inline(always)]
+    pub fn inttcstat6(&self) -> INTTCSTAT6_R {
+        INTTCSTAT6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request."]
-    #[inline]
-    pub fn inttcstat7(&self) -> INTTCSTAT7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        INTTCSTAT7R { bits }
+    #[inline(always)]
+    pub fn inttcstat7(&self) -> INTTCSTAT7_R {
+        INTTCSTAT7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
 }

@@ -1,461 +1,268 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::DAI {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register DAI"]
+pub type R = crate::R<u32, super::DAI>;
+#[doc = "Writer for register DAI"]
+pub type W = crate::W<u32, super::DAI>;
+#[doc = "Register DAI `reset()`'s with value 0x07e1"]
+impl crate::ResetValue for super::DAI {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x07e1
     }
 }
-#[doc = "Possible values of the field `WORDWIDTH`"]
+#[doc = "Selects the number of bytes in data as follows:\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WORDWIDTHR {
-    #[doc = "8-bit data"]
+pub enum WORDWIDTH_A {
+    #[doc = "0: 8-bit data"]
     _8_BIT_DATA,
-    #[doc = "16-bit data"]
+    #[doc = "1: 16-bit data"]
     _16_BIT_DATA,
-    #[doc = "32-bit data"]
+    #[doc = "3: 32-bit data"]
     _32_BIT_DATA,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl WORDWIDTHR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            WORDWIDTHR::_8_BIT_DATA => 0,
-            WORDWIDTHR::_16_BIT_DATA => 1,
-            WORDWIDTHR::_32_BIT_DATA => 3,
-            WORDWIDTHR::_Reserved(bits) => bits,
+impl From<WORDWIDTH_A> for u8 {
+    #[inline(always)]
+    fn from(variant: WORDWIDTH_A) -> Self {
+        match variant {
+            WORDWIDTH_A::_8_BIT_DATA => 0,
+            WORDWIDTH_A::_16_BIT_DATA => 1,
+            WORDWIDTH_A::_32_BIT_DATA => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> WORDWIDTHR {
-        match value {
-            0 => WORDWIDTHR::_8_BIT_DATA,
-            1 => WORDWIDTHR::_16_BIT_DATA,
-            3 => WORDWIDTHR::_32_BIT_DATA,
-            i => WORDWIDTHR::_Reserved(i),
+}
+#[doc = "Reader of field `WORDWIDTH`"]
+pub type WORDWIDTH_R = crate::R<u8, WORDWIDTH_A>;
+impl WORDWIDTH_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, WORDWIDTH_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(WORDWIDTH_A::_8_BIT_DATA),
+            1 => Val(WORDWIDTH_A::_16_BIT_DATA),
+            3 => Val(WORDWIDTH_A::_32_BIT_DATA),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `_8_BIT_DATA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_8_bit_data(&self) -> bool {
-        *self == WORDWIDTHR::_8_BIT_DATA
+        *self == WORDWIDTH_A::_8_BIT_DATA
     }
     #[doc = "Checks if the value of the field is `_16_BIT_DATA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_16_bit_data(&self) -> bool {
-        *self == WORDWIDTHR::_16_BIT_DATA
+        *self == WORDWIDTH_A::_16_BIT_DATA
     }
     #[doc = "Checks if the value of the field is `_32_BIT_DATA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_32_bit_data(&self) -> bool {
-        *self == WORDWIDTHR::_32_BIT_DATA
+        *self == WORDWIDTH_A::_32_BIT_DATA
     }
 }
-#[doc = r" Value of the field"]
-pub struct MONOR {
-    bits: bool,
-}
-impl MONOR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct STOPR {
-    bits: bool,
-}
-impl STOPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RESETR {
-    bits: bool,
-}
-impl RESETR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WS_SELR {
-    bits: bool,
-}
-impl WS_SELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WS_HALFPERIODR {
-    bits: u16,
-}
-impl WS_HALFPERIODR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = "Values that can be written to the field `WORDWIDTH`"]
-pub enum WORDWIDTHW {
-    #[doc = "8-bit data"]
-    _8_BIT_DATA,
-    #[doc = "16-bit data"]
-    _16_BIT_DATA,
-    #[doc = "32-bit data"]
-    _32_BIT_DATA,
-}
-impl WORDWIDTHW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            WORDWIDTHW::_8_BIT_DATA => 0,
-            WORDWIDTHW::_16_BIT_DATA => 1,
-            WORDWIDTHW::_32_BIT_DATA => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WORDWIDTHW<'a> {
+#[doc = "Write proxy for field `WORDWIDTH`"]
+pub struct WORDWIDTH_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WORDWIDTHW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WORDWIDTHW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> WORDWIDTH_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WORDWIDTH_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "8-bit data"]
-    #[inline]
+    #[inline(always)]
     pub fn _8_bit_data(self) -> &'a mut W {
-        self.variant(WORDWIDTHW::_8_BIT_DATA)
+        self.variant(WORDWIDTH_A::_8_BIT_DATA)
     }
     #[doc = "16-bit data"]
-    #[inline]
+    #[inline(always)]
     pub fn _16_bit_data(self) -> &'a mut W {
-        self.variant(WORDWIDTHW::_16_BIT_DATA)
+        self.variant(WORDWIDTH_A::_16_BIT_DATA)
     }
     #[doc = "32-bit data"]
-    #[inline]
+    #[inline(always)]
     pub fn _32_bit_data(self) -> &'a mut W {
-        self.variant(WORDWIDTHW::_32_BIT_DATA)
+        self.variant(WORDWIDTH_A::_32_BIT_DATA)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _MONOW<'a> {
+#[doc = "Reader of field `MONO`"]
+pub type MONO_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `MONO`"]
+pub struct MONO_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _MONOW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> MONO_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _STOPW<'a> {
+#[doc = "Reader of field `STOP`"]
+pub type STOP_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `STOP`"]
+pub struct STOP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _STOPW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> STOP_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _RESETW<'a> {
+#[doc = "Reader of field `RESET`"]
+pub type RESET_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RESET`"]
+pub struct RESET_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RESETW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RESET_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _WS_SELW<'a> {
+#[doc = "Reader of field `WS_SEL`"]
+pub type WS_SEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `WS_SEL`"]
+pub struct WS_SEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WS_SELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> WS_SEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _WS_HALFPERIODW<'a> {
+#[doc = "Reader of field `WS_HALFPERIOD`"]
+pub type WS_HALFPERIOD_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `WS_HALFPERIOD`"]
+pub struct WS_HALFPERIOD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WS_HALFPERIODW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> WS_HALFPERIOD_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 511;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01ff << 6)) | (((value as u32) & 0x01ff) << 6);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Selects the number of bytes in data as follows:"]
-    #[inline]
-    pub fn wordwidth(&self) -> WORDWIDTHR {
-        WORDWIDTHR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn wordwidth(&self) -> WORDWIDTH_R {
+        WORDWIDTH_R::new((self.bits & 0x03) as u8)
     }
     #[doc = "Bit 2 - When 1, data is of monaural format. When 0, the data is in stereo format."]
-    #[inline]
-    pub fn mono(&self) -> MONOR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MONOR { bits }
+    #[inline(always)]
+    pub fn mono(&self) -> MONO_R {
+        MONO_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - When 1, disables accesses on FIFOs, places the transmit channel in mute mode."]
-    #[inline]
-    pub fn stop(&self) -> STOPR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        STOPR { bits }
+    #[inline(always)]
+    pub fn stop(&self) -> STOP_R {
+        STOP_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - When 1, asynchronously reset the transmit channel and FIFO."]
-    #[inline]
-    pub fn reset(&self) -> RESETR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RESETR { bits }
+    #[inline(always)]
+    pub fn reset(&self) -> RESET_R {
+        RESET_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - When 0, the interface is in master mode. When 1, the interface is in slave mode. See Section 34.7.2 for a summary of useful combinations for this bit with RXMODE."]
-    #[inline]
-    pub fn ws_sel(&self) -> WS_SELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        WS_SELR { bits }
+    #[inline(always)]
+    pub fn ws_sel(&self) -> WS_SEL_R {
+        WS_SEL_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bits 6:14 - Word select half period minus 1, i.e. WS 64clk period -> ws_halfperiod = 31."]
-    #[inline]
-    pub fn ws_halfperiod(&self) -> WS_HALFPERIODR {
-        let bits = {
-            const MASK: u16 = 511;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        WS_HALFPERIODR { bits }
+    #[inline(always)]
+    pub fn ws_halfperiod(&self) -> WS_HALFPERIOD_R {
+        WS_HALFPERIOD_R::new(((self.bits >> 6) & 0x01ff) as u16)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 2017 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Selects the number of bytes in data as follows:"]
-    #[inline]
-    pub fn wordwidth(&mut self) -> _WORDWIDTHW {
-        _WORDWIDTHW { w: self }
+    #[inline(always)]
+    pub fn wordwidth(&mut self) -> WORDWIDTH_W {
+        WORDWIDTH_W { w: self }
     }
     #[doc = "Bit 2 - When 1, data is of monaural format. When 0, the data is in stereo format."]
-    #[inline]
-    pub fn mono(&mut self) -> _MONOW {
-        _MONOW { w: self }
+    #[inline(always)]
+    pub fn mono(&mut self) -> MONO_W {
+        MONO_W { w: self }
     }
     #[doc = "Bit 3 - When 1, disables accesses on FIFOs, places the transmit channel in mute mode."]
-    #[inline]
-    pub fn stop(&mut self) -> _STOPW {
-        _STOPW { w: self }
+    #[inline(always)]
+    pub fn stop(&mut self) -> STOP_W {
+        STOP_W { w: self }
     }
     #[doc = "Bit 4 - When 1, asynchronously reset the transmit channel and FIFO."]
-    #[inline]
-    pub fn reset(&mut self) -> _RESETW {
-        _RESETW { w: self }
+    #[inline(always)]
+    pub fn reset(&mut self) -> RESET_W {
+        RESET_W { w: self }
     }
     #[doc = "Bit 5 - When 0, the interface is in master mode. When 1, the interface is in slave mode. See Section 34.7.2 for a summary of useful combinations for this bit with RXMODE."]
-    #[inline]
-    pub fn ws_sel(&mut self) -> _WS_SELW {
-        _WS_SELW { w: self }
+    #[inline(always)]
+    pub fn ws_sel(&mut self) -> WS_SEL_W {
+        WS_SEL_W { w: self }
     }
     #[doc = "Bits 6:14 - Word select half period minus 1, i.e. WS 64clk period -> ws_halfperiod = 31."]
-    #[inline]
-    pub fn ws_halfperiod(&mut self) -> _WS_HALFPERIODW {
-        _WS_HALFPERIODW { w: self }
+    #[inline(always)]
+    pub fn ws_halfperiod(&mut self) -> WS_HALFPERIOD_W {
+        WS_HALFPERIOD_W { w: self }
     }
 }

@@ -1,181 +1,107 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CLKSRCSEL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CLKSRCSEL"]
+pub type R = crate::R<u32, super::CLKSRCSEL>;
+#[doc = "Writer for register CLKSRCSEL"]
+pub type W = crate::W<u32, super::CLKSRCSEL>;
+#[doc = "Register CLKSRCSEL `reset()`'s with value 0"]
+impl crate::ResetValue for super::CLKSRCSEL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CLKSRC`"]
+#[doc = "Selects the clock source for PLL0 as follows. Warning: Improper setting of this value, or an incorrect sequence of changing this value may result in incorrect operation of the device.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CLKSRCR {
-    #[doc = "Selects the Internal RC oscillator as the PLL0 clock source (default)."]
+pub enum CLKSRC_A {
+    #[doc = "0: Selects the Internal RC oscillator as the PLL0 clock source (default)."]
     SELECTS_THE_INTERNAL,
-    #[doc = "Selects the main oscillator as the PLL0 clock source.  Select the main oscillator as PLL0 clock source if the PLL0 clock output is used for USB or for CAN with baudrates > 100 kBit/s."]
+    #[doc = "1: Selects the main oscillator as the PLL0 clock source.  Select the main oscillator as PLL0 clock source if the PLL0 clock output is used for USB or for CAN with baudrates > 100 kBit/s."]
     SELECTS_THE_MAIN_OSC,
-    #[doc = "Selects the RTC oscillator as the PLL0 clock source."]
+    #[doc = "2: Selects the RTC oscillator as the PLL0 clock source."]
     SELECTS_THE_RTC_OSCI,
 }
-impl CLKSRCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            CLKSRCR::SELECTS_THE_INTERNAL => 0,
-            CLKSRCR::SELECTS_THE_MAIN_OSC => 1,
-            CLKSRCR::SELECTS_THE_RTC_OSCI => 2,
+impl From<CLKSRC_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CLKSRC_A) -> Self {
+        match variant {
+            CLKSRC_A::SELECTS_THE_INTERNAL => 0,
+            CLKSRC_A::SELECTS_THE_MAIN_OSC => 1,
+            CLKSRC_A::SELECTS_THE_RTC_OSCI => 2,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> CLKSRCR {
-        match value {
-            0 => CLKSRCR::SELECTS_THE_INTERNAL,
-            1 => CLKSRCR::SELECTS_THE_MAIN_OSC,
-            2 => CLKSRCR::SELECTS_THE_RTC_OSCI,
+}
+#[doc = "Reader of field `CLKSRC`"]
+pub type CLKSRC_R = crate::R<u8, CLKSRC_A>;
+impl CLKSRC_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CLKSRC_A {
+        match self.bits {
+            0 => CLKSRC_A::SELECTS_THE_INTERNAL,
+            1 => CLKSRC_A::SELECTS_THE_MAIN_OSC,
+            2 => CLKSRC_A::SELECTS_THE_RTC_OSCI,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `SELECTS_THE_INTERNAL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_selects_the_internal(&self) -> bool {
-        *self == CLKSRCR::SELECTS_THE_INTERNAL
+        *self == CLKSRC_A::SELECTS_THE_INTERNAL
     }
     #[doc = "Checks if the value of the field is `SELECTS_THE_MAIN_OSC`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_selects_the_main_osc(&self) -> bool {
-        *self == CLKSRCR::SELECTS_THE_MAIN_OSC
+        *self == CLKSRC_A::SELECTS_THE_MAIN_OSC
     }
     #[doc = "Checks if the value of the field is `SELECTS_THE_RTC_OSCI`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_selects_the_rtc_osci(&self) -> bool {
-        *self == CLKSRCR::SELECTS_THE_RTC_OSCI
+        *self == CLKSRC_A::SELECTS_THE_RTC_OSCI
     }
 }
-#[doc = "Values that can be written to the field `CLKSRC`"]
-pub enum CLKSRCW {
-    #[doc = "Selects the Internal RC oscillator as the PLL0 clock source (default)."]
-    SELECTS_THE_INTERNAL,
-    #[doc = "Selects the main oscillator as the PLL0 clock source.  Select the main oscillator as PLL0 clock source if the PLL0 clock output is used for USB or for CAN with baudrates > 100 kBit/s."]
-    SELECTS_THE_MAIN_OSC,
-    #[doc = "Selects the RTC oscillator as the PLL0 clock source."]
-    SELECTS_THE_RTC_OSCI,
-}
-impl CLKSRCW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            CLKSRCW::SELECTS_THE_INTERNAL => 0,
-            CLKSRCW::SELECTS_THE_MAIN_OSC => 1,
-            CLKSRCW::SELECTS_THE_RTC_OSCI => 2,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CLKSRCW<'a> {
+#[doc = "Write proxy for field `CLKSRC`"]
+pub struct CLKSRC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLKSRCW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CLKSRCW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> CLKSRC_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CLKSRC_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Selects the Internal RC oscillator as the PLL0 clock source (default)."]
-    #[inline]
+    #[inline(always)]
     pub fn selects_the_internal(self) -> &'a mut W {
-        self.variant(CLKSRCW::SELECTS_THE_INTERNAL)
+        self.variant(CLKSRC_A::SELECTS_THE_INTERNAL)
     }
     #[doc = "Selects the main oscillator as the PLL0 clock source. Select the main oscillator as PLL0 clock source if the PLL0 clock output is used for USB or for CAN with baudrates > 100 kBit/s."]
-    #[inline]
+    #[inline(always)]
     pub fn selects_the_main_osc(self) -> &'a mut W {
-        self.variant(CLKSRCW::SELECTS_THE_MAIN_OSC)
+        self.variant(CLKSRC_A::SELECTS_THE_MAIN_OSC)
     }
     #[doc = "Selects the RTC oscillator as the PLL0 clock source."]
-    #[inline]
+    #[inline(always)]
     pub fn selects_the_rtc_osci(self) -> &'a mut W {
-        self.variant(CLKSRCW::SELECTS_THE_RTC_OSCI)
+        self.variant(CLKSRC_A::SELECTS_THE_RTC_OSCI)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Selects the clock source for PLL0 as follows. Warning: Improper setting of this value, or an incorrect sequence of changing this value may result in incorrect operation of the device."]
-    #[inline]
-    pub fn clksrc(&self) -> CLKSRCR {
-        CLKSRCR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn clksrc(&self) -> CLKSRC_R {
+        CLKSRC_R::new((self.bits & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Selects the clock source for PLL0 as follows. Warning: Improper setting of this value, or an incorrect sequence of changing this value may result in incorrect operation of the device."]
-    #[inline]
-    pub fn clksrc(&mut self) -> _CLKSRCW {
-        _CLKSRCW { w: self }
+    #[inline(always)]
+    pub fn clksrc(&mut self) -> CLKSRC_W {
+        CLKSRC_W { w: self }
     }
 }

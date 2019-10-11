@@ -1,302 +1,192 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SYSOSCCTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SYSOSCCTRL"]
+pub type R = crate::R<u32, super::SYSOSCCTRL>;
+#[doc = "Writer for register SYSOSCCTRL"]
+pub type W = crate::W<u32, super::SYSOSCCTRL>;
+#[doc = "Register SYSOSCCTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::SYSOSCCTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `BYPASS`"]
+#[doc = "Bypass system oscillator\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BYPASSR {
-    #[doc = "Oscillator is not bypassed."]
+pub enum BYPASS_A {
+    #[doc = "0: Oscillator is not bypassed."]
     DISABLED,
-    #[doc = "Bypass enabled. PLL input (sys_osc_clk) is fed directly from the XTALIN pin bypassing the oscillator. Use this mode when using an external clock source instead of the crystal oscillator."]
+    #[doc = "1: Bypass enabled. PLL input (sys_osc_clk) is fed directly from the XTALIN pin bypassing the oscillator. Use this mode when using an external clock source instead of the crystal oscillator."]
     ENABLED,
 }
-impl BYPASSR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            BYPASSR::DISABLED => false,
-            BYPASSR::ENABLED => true,
+impl From<BYPASS_A> for bool {
+    #[inline(always)]
+    fn from(variant: BYPASS_A) -> Self {
+        match variant {
+            BYPASS_A::DISABLED => false,
+            BYPASS_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> BYPASSR {
-        match value {
-            false => BYPASSR::DISABLED,
-            true => BYPASSR::ENABLED,
+}
+#[doc = "Reader of field `BYPASS`"]
+pub type BYPASS_R = crate::R<bool, BYPASS_A>;
+impl BYPASS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BYPASS_A {
+        match self.bits {
+            false => BYPASS_A::DISABLED,
+            true => BYPASS_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == BYPASSR::DISABLED
+        *self == BYPASS_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == BYPASSR::ENABLED
+        *self == BYPASS_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `FREQRANGE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FREQRANGER {
-    #[doc = "1 - 20 MHz frequency range."]
-    _1_20_MHZ_FREQUENCY,
-    #[doc = "15 - 25 MHz frequency range"]
-    _15_25_MHZ_FREQUENC,
-}
-impl FREQRANGER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FREQRANGER::_1_20_MHZ_FREQUENCY => false,
-            FREQRANGER::_15_25_MHZ_FREQUENC => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FREQRANGER {
-        match value {
-            false => FREQRANGER::_1_20_MHZ_FREQUENCY,
-            true => FREQRANGER::_15_25_MHZ_FREQUENC,
-        }
-    }
-    #[doc = "Checks if the value of the field is `_1_20_MHZ_FREQUENCY`"]
-    #[inline]
-    pub fn is_1_20_mhz_frequency(&self) -> bool {
-        *self == FREQRANGER::_1_20_MHZ_FREQUENCY
-    }
-    #[doc = "Checks if the value of the field is `_15_25_MHZ_FREQUENC`"]
-    #[inline]
-    pub fn is_15_25_mhz_frequenc(&self) -> bool {
-        *self == FREQRANGER::_15_25_MHZ_FREQUENC
-    }
-}
-#[doc = "Values that can be written to the field `BYPASS`"]
-pub enum BYPASSW {
-    #[doc = "Oscillator is not bypassed."]
-    DISABLED,
-    #[doc = "Bypass enabled. PLL input (sys_osc_clk) is fed directly from the XTALIN pin bypassing the oscillator. Use this mode when using an external clock source instead of the crystal oscillator."]
-    ENABLED,
-}
-impl BYPASSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            BYPASSW::DISABLED => false,
-            BYPASSW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BYPASSW<'a> {
+#[doc = "Write proxy for field `BYPASS`"]
+pub struct BYPASS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BYPASSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: BYPASSW) -> &'a mut W {
+impl<'a> BYPASS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BYPASS_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Oscillator is not bypassed."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(BYPASSW::DISABLED)
+        self.variant(BYPASS_A::DISABLED)
     }
     #[doc = "Bypass enabled. PLL input (sys_osc_clk) is fed directly from the XTALIN pin bypassing the oscillator. Use this mode when using an external clock source instead of the crystal oscillator."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(BYPASSW::ENABLED)
+        self.variant(BYPASS_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `FREQRANGE`"]
-pub enum FREQRANGEW {
-    #[doc = "1 - 20 MHz frequency range."]
+#[doc = "Determines frequency range for Low-power oscillator.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FREQRANGE_A {
+    #[doc = "0: 1 - 20 MHz frequency range."]
     _1_20_MHZ_FREQUENCY,
-    #[doc = "15 - 25 MHz frequency range"]
+    #[doc = "1: 15 - 25 MHz frequency range"]
     _15_25_MHZ_FREQUENC,
 }
-impl FREQRANGEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FREQRANGEW::_1_20_MHZ_FREQUENCY => false,
-            FREQRANGEW::_15_25_MHZ_FREQUENC => true,
+impl From<FREQRANGE_A> for bool {
+    #[inline(always)]
+    fn from(variant: FREQRANGE_A) -> Self {
+        match variant {
+            FREQRANGE_A::_1_20_MHZ_FREQUENCY => false,
+            FREQRANGE_A::_15_25_MHZ_FREQUENC => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _FREQRANGEW<'a> {
+#[doc = "Reader of field `FREQRANGE`"]
+pub type FREQRANGE_R = crate::R<bool, FREQRANGE_A>;
+impl FREQRANGE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FREQRANGE_A {
+        match self.bits {
+            false => FREQRANGE_A::_1_20_MHZ_FREQUENCY,
+            true => FREQRANGE_A::_15_25_MHZ_FREQUENC,
+        }
+    }
+    #[doc = "Checks if the value of the field is `_1_20_MHZ_FREQUENCY`"]
+    #[inline(always)]
+    pub fn is_1_20_mhz_frequency(&self) -> bool {
+        *self == FREQRANGE_A::_1_20_MHZ_FREQUENCY
+    }
+    #[doc = "Checks if the value of the field is `_15_25_MHZ_FREQUENC`"]
+    #[inline(always)]
+    pub fn is_15_25_mhz_frequenc(&self) -> bool {
+        *self == FREQRANGE_A::_15_25_MHZ_FREQUENC
+    }
+}
+#[doc = "Write proxy for field `FREQRANGE`"]
+pub struct FREQRANGE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FREQRANGEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FREQRANGEW) -> &'a mut W {
+impl<'a> FREQRANGE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FREQRANGE_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "1 - 20 MHz frequency range."]
-    #[inline]
+    #[inline(always)]
     pub fn _1_20_mhz_frequency(self) -> &'a mut W {
-        self.variant(FREQRANGEW::_1_20_MHZ_FREQUENCY)
+        self.variant(FREQRANGE_A::_1_20_MHZ_FREQUENCY)
     }
     #[doc = "15 - 25 MHz frequency range"]
-    #[inline]
+    #[inline(always)]
     pub fn _15_25_mhz_frequenc(self) -> &'a mut W {
-        self.variant(FREQRANGEW::_15_25_MHZ_FREQUENC)
+        self.variant(FREQRANGE_A::_15_25_MHZ_FREQUENC)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Bypass system oscillator"]
-    #[inline]
-    pub fn bypass(&self) -> BYPASSR {
-        BYPASSR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn bypass(&self) -> BYPASS_R {
+        BYPASS_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Determines frequency range for Low-power oscillator."]
-    #[inline]
-    pub fn freqrange(&self) -> FREQRANGER {
-        FREQRANGER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn freqrange(&self) -> FREQRANGE_R {
+        FREQRANGE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Bypass system oscillator"]
-    #[inline]
-    pub fn bypass(&mut self) -> _BYPASSW {
-        _BYPASSW { w: self }
+    #[inline(always)]
+    pub fn bypass(&mut self) -> BYPASS_W {
+        BYPASS_W { w: self }
     }
     #[doc = "Bit 1 - Determines frequency range for Low-power oscillator."]
-    #[inline]
-    pub fn freqrange(&mut self) -> _FREQRANGEW {
-        _FREQRANGEW { w: self }
+    #[inline(always)]
+    pub fn freqrange(&mut self) -> FREQRANGE_W {
+        FREQRANGE_W { w: self }
     }
 }

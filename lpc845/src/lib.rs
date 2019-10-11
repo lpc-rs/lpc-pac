@@ -1,4 +1,4 @@
-#![doc = "Peripheral access API for LPC845 microcontrollers (generated using svd2rust v0.14.0)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.14.0/svd2rust/#peripheral-api"]
+#![doc = "Peripheral access API for LPC845 microcontrollers (generated using svd2rust v0.16.1)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.16.1/svd2rust/#peripheral-api"]
 #![deny(missing_docs)]
 #![deny(warnings)]
 #![allow(non_camel_case_types)]
@@ -10,7 +10,7 @@ extern crate cortex_m_rt;
 extern crate vcell;
 use core::marker::PhantomData;
 use core::ops::Deref;
-#[doc = r" Number available in the NVIC for configuring priority"]
+#[doc = r"Number available in the NVIC for configuring priority"]
 pub const NVIC_PRIO_BITS: u8 = 2;
 #[cfg(feature = "rt")]
 extern "C" {
@@ -23,7 +23,7 @@ extern "C" {
     fn I2C1();
     fn I2C0();
     fn SCT0();
-    fn MRT();
+    fn MRT0();
     fn CMP_CAPT();
     fn WDT();
     fn BOD();
@@ -66,7 +66,7 @@ pub static __INTERRUPTS: [Vector; 32] = [
     Vector { _handler: I2C1 },
     Vector { _handler: I2C0 },
     Vector { _handler: SCT0 },
-    Vector { _handler: MRT },
+    Vector { _handler: MRT0 },
     Vector { _handler: CMP_CAPT },
     Vector { _handler: WDT },
     Vector { _handler: BOD },
@@ -101,7 +101,8 @@ pub static __INTERRUPTS: [Vector; 32] = [
         _handler: PIN_INT7_USART4,
     },
 ];
-#[doc = r" Enumeration of all the interrupts"]
+#[doc = r"Enumeration of all the interrupts"]
+#[derive(Copy, Clone, Debug)]
 pub enum Interrupt {
     #[doc = "0 - SPI0"]
     SPI0,
@@ -121,8 +122,8 @@ pub enum Interrupt {
     I2C0,
     #[doc = "9 - SCT0"]
     SCT0,
-    #[doc = "10 - MRT"]
-    MRT,
+    #[doc = "10 - MRT0"]
+    MRT0,
     #[doc = "11 - CMP_CAPT"]
     CMP_CAPT,
     #[doc = "12 - WDT"]
@@ -166,7 +167,7 @@ pub enum Interrupt {
     #[doc = "31 - PIN_INT7_USART4"]
     PIN_INT7_USART4,
 }
-unsafe impl ::bare_metal::Nr for Interrupt {
+unsafe impl bare_metal::Nr for Interrupt {
     #[inline]
     fn nr(&self) -> u8 {
         match *self {
@@ -179,7 +180,7 @@ unsafe impl ::bare_metal::Nr for Interrupt {
             Interrupt::I2C1 => 7,
             Interrupt::I2C0 => 8,
             Interrupt::SCT0 => 9,
-            Interrupt::MRT => 10,
+            Interrupt::MRT0 => 10,
             Interrupt::CMP_CAPT => 11,
             Interrupt::WDT => 12,
             Interrupt::BOD => 13,
@@ -210,20 +211,25 @@ pub use cortex_m::peripheral::Peripherals as CorePeripherals;
 pub use cortex_m::peripheral::{CBP, CPUID, DCB, DWT, FPB, ITM, MPU, NVIC, SCB, SYST, TPIU};
 #[cfg(feature = "rt")]
 pub use cortex_m_rt::interrupt;
+#[allow(unused_imports)]
+use generic::*;
+#[doc = r"Common register and bit access and modify traits"]
+pub mod generic;
 #[doc = "LPC84x Windowed Watchdog Timer (WWDT)"]
 pub struct WWDT {
     _marker: PhantomData<*const ()>,
 }
 unsafe impl Send for WWDT {}
 impl WWDT {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const wwdt::RegisterBlock {
-        1073741824 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const wwdt::RegisterBlock {
+        0x4000_0000 as *const _
     }
 }
 impl Deref for WWDT {
     type Target = wwdt::RegisterBlock;
-    fn deref(&self) -> &wwdt::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*WWDT::ptr() }
     }
 }
@@ -235,14 +241,15 @@ pub struct MRT0 {
 }
 unsafe impl Send for MRT0 {}
 impl MRT0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const mrt0::RegisterBlock {
-        1073758208 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const mrt0::RegisterBlock {
+        0x4000_4000 as *const _
     }
 }
 impl Deref for MRT0 {
     type Target = mrt0::RegisterBlock;
-    fn deref(&self) -> &mrt0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*MRT0::ptr() }
     }
 }
@@ -254,14 +261,15 @@ pub struct WKT {
 }
 unsafe impl Send for WKT {}
 impl WKT {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const wkt::RegisterBlock {
-        1073774592 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const wkt::RegisterBlock {
+        0x4000_8000 as *const _
     }
 }
 impl Deref for WKT {
     type Target = wkt::RegisterBlock;
-    fn deref(&self) -> &wkt::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*WKT::ptr() }
     }
 }
@@ -273,14 +281,15 @@ pub struct SWM0 {
 }
 unsafe impl Send for SWM0 {}
 impl SWM0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const swm0::RegisterBlock {
-        1073790976 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const swm0::RegisterBlock {
+        0x4000_c000 as *const _
     }
 }
 impl Deref for SWM0 {
     type Target = swm0::RegisterBlock;
-    fn deref(&self) -> &swm0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*SWM0::ptr() }
     }
 }
@@ -292,14 +301,15 @@ pub struct DAC0 {
 }
 unsafe impl Send for DAC0 {}
 impl DAC0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const dac0::RegisterBlock {
-        1073823744 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const dac0::RegisterBlock {
+        0x4001_4000 as *const _
     }
 }
 impl Deref for DAC0 {
     type Target = dac0::RegisterBlock;
-    fn deref(&self) -> &dac0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*DAC0::ptr() }
     }
 }
@@ -311,14 +321,15 @@ pub struct DAC1 {
 }
 unsafe impl Send for DAC1 {}
 impl DAC1 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const dac0::RegisterBlock {
-        1073840128 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const dac0::RegisterBlock {
+        0x4001_8000 as *const _
     }
 }
 impl Deref for DAC1 {
     type Target = dac0::RegisterBlock;
-    fn deref(&self) -> &dac0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*DAC1::ptr() }
     }
 }
@@ -328,14 +339,15 @@ pub struct ADC0 {
 }
 unsafe impl Send for ADC0 {}
 impl ADC0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const adc0::RegisterBlock {
-        1073856512 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const adc0::RegisterBlock {
+        0x4001_c000 as *const _
     }
 }
 impl Deref for ADC0 {
     type Target = adc0::RegisterBlock;
-    fn deref(&self) -> &adc0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*ADC0::ptr() }
     }
 }
@@ -347,14 +359,15 @@ pub struct PMU {
 }
 unsafe impl Send for PMU {}
 impl PMU {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const pmu::RegisterBlock {
-        1073872896 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const pmu::RegisterBlock {
+        0x4002_0000 as *const _
     }
 }
 impl Deref for PMU {
     type Target = pmu::RegisterBlock;
-    fn deref(&self) -> &pmu::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*PMU::ptr() }
     }
 }
@@ -366,14 +379,15 @@ pub struct ACOMP {
 }
 unsafe impl Send for ACOMP {}
 impl ACOMP {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const acomp::RegisterBlock {
-        1073889280 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const acomp::RegisterBlock {
+        0x4002_4000 as *const _
     }
 }
 impl Deref for ACOMP {
     type Target = acomp::RegisterBlock;
-    fn deref(&self) -> &acomp::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*ACOMP::ptr() }
     }
 }
@@ -385,14 +399,15 @@ pub struct INPUTMUX {
 }
 unsafe impl Send for INPUTMUX {}
 impl INPUTMUX {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const inputmux::RegisterBlock {
-        1073922048 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const inputmux::RegisterBlock {
+        0x4002_c000 as *const _
     }
 }
 impl Deref for INPUTMUX {
     type Target = inputmux::RegisterBlock;
-    fn deref(&self) -> &inputmux::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*INPUTMUX::ptr() }
     }
 }
@@ -404,14 +419,15 @@ pub struct CTIMER0 {
 }
 unsafe impl Send for CTIMER0 {}
 impl CTIMER0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const ctimer0::RegisterBlock {
-        1073971200 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const ctimer0::RegisterBlock {
+        0x4003_8000 as *const _
     }
 }
 impl Deref for CTIMER0 {
     type Target = ctimer0::RegisterBlock;
-    fn deref(&self) -> &ctimer0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*CTIMER0::ptr() }
     }
 }
@@ -423,14 +439,15 @@ pub struct FLASH_CTRL {
 }
 unsafe impl Send for FLASH_CTRL {}
 impl FLASH_CTRL {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const flash_ctrl::RegisterBlock {
-        1074003968 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const flash_ctrl::RegisterBlock {
+        0x4004_0000 as *const _
     }
 }
 impl Deref for FLASH_CTRL {
     type Target = flash_ctrl::RegisterBlock;
-    fn deref(&self) -> &flash_ctrl::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*FLASH_CTRL::ptr() }
     }
 }
@@ -442,14 +459,15 @@ pub struct IOCON {
 }
 unsafe impl Send for IOCON {}
 impl IOCON {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const iocon::RegisterBlock {
-        1074020352 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const iocon::RegisterBlock {
+        0x4004_4000 as *const _
     }
 }
 impl Deref for IOCON {
     type Target = iocon::RegisterBlock;
-    fn deref(&self) -> &iocon::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*IOCON::ptr() }
     }
 }
@@ -461,14 +479,15 @@ pub struct SYSCON {
 }
 unsafe impl Send for SYSCON {}
 impl SYSCON {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const syscon::RegisterBlock {
-        1074036736 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const syscon::RegisterBlock {
+        0x4004_8000 as *const _
     }
 }
 impl Deref for SYSCON {
     type Target = syscon::RegisterBlock;
-    fn deref(&self) -> &syscon::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*SYSCON::ptr() }
     }
 }
@@ -480,14 +499,15 @@ pub struct I2C0 {
 }
 unsafe impl Send for I2C0 {}
 impl I2C0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const i2c0::RegisterBlock {
-        1074069504 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const i2c0::RegisterBlock {
+        0x4005_0000 as *const _
     }
 }
 impl Deref for I2C0 {
     type Target = i2c0::RegisterBlock;
-    fn deref(&self) -> &i2c0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*I2C0::ptr() }
     }
 }
@@ -499,14 +519,15 @@ pub struct I2C2 {
 }
 unsafe impl Send for I2C2 {}
 impl I2C2 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const i2c0::RegisterBlock {
-        1073938432 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const i2c0::RegisterBlock {
+        0x4003_0000 as *const _
     }
 }
 impl Deref for I2C2 {
     type Target = i2c0::RegisterBlock;
-    fn deref(&self) -> &i2c0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*I2C2::ptr() }
     }
 }
@@ -516,14 +537,15 @@ pub struct I2C3 {
 }
 unsafe impl Send for I2C3 {}
 impl I2C3 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const i2c0::RegisterBlock {
-        1073954816 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const i2c0::RegisterBlock {
+        0x4003_4000 as *const _
     }
 }
 impl Deref for I2C3 {
     type Target = i2c0::RegisterBlock;
-    fn deref(&self) -> &i2c0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*I2C3::ptr() }
     }
 }
@@ -533,14 +555,15 @@ pub struct I2C1 {
 }
 unsafe impl Send for I2C1 {}
 impl I2C1 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const i2c0::RegisterBlock {
-        1074085888 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const i2c0::RegisterBlock {
+        0x4005_4000 as *const _
     }
 }
 impl Deref for I2C1 {
     type Target = i2c0::RegisterBlock;
-    fn deref(&self) -> &i2c0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*I2C1::ptr() }
     }
 }
@@ -550,14 +573,15 @@ pub struct SPI0 {
 }
 unsafe impl Send for SPI0 {}
 impl SPI0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const spi0::RegisterBlock {
-        1074102272 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const spi0::RegisterBlock {
+        0x4005_8000 as *const _
     }
 }
 impl Deref for SPI0 {
     type Target = spi0::RegisterBlock;
-    fn deref(&self) -> &spi0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*SPI0::ptr() }
     }
 }
@@ -569,14 +593,15 @@ pub struct SPI1 {
 }
 unsafe impl Send for SPI1 {}
 impl SPI1 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const spi0::RegisterBlock {
-        1074118656 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const spi0::RegisterBlock {
+        0x4005_c000 as *const _
     }
 }
 impl Deref for SPI1 {
     type Target = spi0::RegisterBlock;
-    fn deref(&self) -> &spi0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*SPI1::ptr() }
     }
 }
@@ -586,14 +611,15 @@ pub struct CAPT {
 }
 unsafe impl Send for CAPT {}
 impl CAPT {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const capt::RegisterBlock {
-        1074135040 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const capt::RegisterBlock {
+        0x4006_0000 as *const _
     }
 }
 impl Deref for CAPT {
     type Target = capt::RegisterBlock;
-    fn deref(&self) -> &capt::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*CAPT::ptr() }
     }
 }
@@ -605,14 +631,15 @@ pub struct USART0 {
 }
 unsafe impl Send for USART0 {}
 impl USART0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const usart0::RegisterBlock {
-        1074151424 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const usart0::RegisterBlock {
+        0x4006_4000 as *const _
     }
 }
 impl Deref for USART0 {
     type Target = usart0::RegisterBlock;
-    fn deref(&self) -> &usart0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*USART0::ptr() }
     }
 }
@@ -624,14 +651,15 @@ pub struct USART1 {
 }
 unsafe impl Send for USART1 {}
 impl USART1 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const usart0::RegisterBlock {
-        1074167808 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const usart0::RegisterBlock {
+        0x4006_8000 as *const _
     }
 }
 impl Deref for USART1 {
     type Target = usart0::RegisterBlock;
-    fn deref(&self) -> &usart0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*USART1::ptr() }
     }
 }
@@ -641,14 +669,15 @@ pub struct USART2 {
 }
 unsafe impl Send for USART2 {}
 impl USART2 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const usart0::RegisterBlock {
-        1074184192 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const usart0::RegisterBlock {
+        0x4006_c000 as *const _
     }
 }
 impl Deref for USART2 {
     type Target = usart0::RegisterBlock;
-    fn deref(&self) -> &usart0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*USART2::ptr() }
     }
 }
@@ -658,14 +687,15 @@ pub struct USART3 {
 }
 unsafe impl Send for USART3 {}
 impl USART3 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const usart0::RegisterBlock {
-        1074200576 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const usart0::RegisterBlock {
+        0x4007_0000 as *const _
     }
 }
 impl Deref for USART3 {
     type Target = usart0::RegisterBlock;
-    fn deref(&self) -> &usart0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*USART3::ptr() }
     }
 }
@@ -675,14 +705,15 @@ pub struct USART4 {
 }
 unsafe impl Send for USART4 {}
 impl USART4 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const usart0::RegisterBlock {
-        1074216960 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const usart0::RegisterBlock {
+        0x4007_4000 as *const _
     }
 }
 impl Deref for USART4 {
     type Target = usart0::RegisterBlock;
-    fn deref(&self) -> &usart0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*USART4::ptr() }
     }
 }
@@ -692,14 +723,15 @@ pub struct CRC {
 }
 unsafe impl Send for CRC {}
 impl CRC {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const crc::RegisterBlock {
-        1342177280 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const crc::RegisterBlock {
+        0x5000_0000 as *const _
     }
 }
 impl Deref for CRC {
     type Target = crc::RegisterBlock;
-    fn deref(&self) -> &crc::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*CRC::ptr() }
     }
 }
@@ -711,14 +743,15 @@ pub struct SCT0 {
 }
 unsafe impl Send for SCT0 {}
 impl SCT0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const sct0::RegisterBlock {
-        1342193664 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const sct0::RegisterBlock {
+        0x5000_4000 as *const _
     }
 }
 impl Deref for SCT0 {
     type Target = sct0::RegisterBlock;
-    fn deref(&self) -> &sct0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*SCT0::ptr() }
     }
 }
@@ -730,14 +763,15 @@ pub struct DMA0 {
 }
 unsafe impl Send for DMA0 {}
 impl DMA0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const dma0::RegisterBlock {
-        1342210048 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const dma0::RegisterBlock {
+        0x5000_8000 as *const _
     }
 }
 impl Deref for DMA0 {
     type Target = dma0::RegisterBlock;
-    fn deref(&self) -> &dma0::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*DMA0::ptr() }
     }
 }
@@ -749,14 +783,15 @@ pub struct MTB_SFR {
 }
 unsafe impl Send for MTB_SFR {}
 impl MTB_SFR {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const mtb_sfr::RegisterBlock {
-        1342226432 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const mtb_sfr::RegisterBlock {
+        0x5000_c000 as *const _
     }
 }
 impl Deref for MTB_SFR {
     type Target = mtb_sfr::RegisterBlock;
-    fn deref(&self) -> &mtb_sfr::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*MTB_SFR::ptr() }
     }
 }
@@ -768,14 +803,15 @@ pub struct GPIO {
 }
 unsafe impl Send for GPIO {}
 impl GPIO {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const gpio::RegisterBlock {
-        2684354560 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const gpio::RegisterBlock {
+        0xa000_0000 as *const _
     }
 }
 impl Deref for GPIO {
     type Target = gpio::RegisterBlock;
-    fn deref(&self) -> &gpio::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*GPIO::ptr() }
     }
 }
@@ -787,24 +823,23 @@ pub struct PINT {
 }
 unsafe impl Send for PINT {}
 impl PINT {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const pint::RegisterBlock {
-        2684370944 as *const _
+    #[doc = r"Returns a pointer to the register block"]
+    #[inline(always)]
+    pub const fn ptr() -> *const pint::RegisterBlock {
+        0xa000_4000 as *const _
     }
 }
 impl Deref for PINT {
     type Target = pint::RegisterBlock;
-    fn deref(&self) -> &pint::RegisterBlock {
+    fn deref(&self) -> &Self::Target {
         unsafe { &*PINT::ptr() }
     }
 }
 #[doc = "LPC84x Pin interrupt and pattern match (PINT)"]
 pub mod pint;
-#[allow(renamed_and_removed_lints)]
-#[allow(private_no_mangle_statics)]
 #[no_mangle]
 static mut DEVICE_PERIPHERALS: bool = false;
-#[doc = r" All the peripherals"]
+#[doc = r"All the peripherals"]
 #[allow(non_snake_case)]
 pub struct Peripherals {
     #[doc = "WWDT"]
@@ -873,7 +908,7 @@ pub struct Peripherals {
     pub PINT: PINT,
 }
 impl Peripherals {
-    #[doc = r" Returns all the peripherals *once*"]
+    #[doc = r"Returns all the peripherals *once*"]
     #[inline]
     pub fn take() -> Option<Self> {
         cortex_m::interrupt::free(|_| {
@@ -884,9 +919,8 @@ impl Peripherals {
             }
         })
     }
-    #[doc = r" Unchecked version of `Peripherals::take`"]
+    #[doc = r"Unchecked version of `Peripherals::take`"]
     pub unsafe fn steal() -> Self {
-        debug_assert!(!DEVICE_PERIPHERALS);
         DEVICE_PERIPHERALS = true;
         Peripherals {
             WWDT: WWDT {

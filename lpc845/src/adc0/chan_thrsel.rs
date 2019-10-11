@@ -1,832 +1,478 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CHAN_THRSEL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CHAN_THRSEL"]
+pub type R = crate::R<u32, super::CHAN_THRSEL>;
+#[doc = "Writer for register CHAN_THRSEL"]
+pub type W = crate::W<u32, super::CHAN_THRSEL>;
+#[doc = "Register CHAN_THRSEL `reset()`'s with value 0"]
+impl crate::ResetValue for super::CHAN_THRSEL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CH0_THRSEL`"]
+#[doc = "Threshold select for channel 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CH0_THRSELR {
-    #[doc = "Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
+pub enum CH0_THRSEL_A {
+    #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
     THRESHOLD0,
-    #[doc = "Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
+    #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
     THRESHOLD1,
 }
-impl CH0_THRSELR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CH0_THRSELR::THRESHOLD0 => false,
-            CH0_THRSELR::THRESHOLD1 => true,
+impl From<CH0_THRSEL_A> for bool {
+    #[inline(always)]
+    fn from(variant: CH0_THRSEL_A) -> Self {
+        match variant {
+            CH0_THRSEL_A::THRESHOLD0 => false,
+            CH0_THRSEL_A::THRESHOLD1 => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CH0_THRSELR {
-        match value {
-            false => CH0_THRSELR::THRESHOLD0,
-            true => CH0_THRSELR::THRESHOLD1,
+}
+#[doc = "Reader of field `CH0_THRSEL`"]
+pub type CH0_THRSEL_R = crate::R<bool, CH0_THRSEL_A>;
+impl CH0_THRSEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CH0_THRSEL_A {
+        match self.bits {
+            false => CH0_THRSEL_A::THRESHOLD0,
+            true => CH0_THRSEL_A::THRESHOLD1,
         }
     }
     #[doc = "Checks if the value of the field is `THRESHOLD0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_threshold0(&self) -> bool {
-        *self == CH0_THRSELR::THRESHOLD0
+        *self == CH0_THRSEL_A::THRESHOLD0
     }
     #[doc = "Checks if the value of the field is `THRESHOLD1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_threshold1(&self) -> bool {
-        *self == CH0_THRSELR::THRESHOLD1
+        *self == CH0_THRSEL_A::THRESHOLD1
     }
 }
-#[doc = r" Value of the field"]
-pub struct CH1_THRSELR {
-    bits: bool,
-}
-impl CH1_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH2_THRSELR {
-    bits: bool,
-}
-impl CH2_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH3_THRSELR {
-    bits: bool,
-}
-impl CH3_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH4_THRSELR {
-    bits: bool,
-}
-impl CH4_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH5_THRSELR {
-    bits: bool,
-}
-impl CH5_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH6_THRSELR {
-    bits: bool,
-}
-impl CH6_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH7_THRSELR {
-    bits: bool,
-}
-impl CH7_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH8_THRSELR {
-    bits: bool,
-}
-impl CH8_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH9_THRSELR {
-    bits: bool,
-}
-impl CH9_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH10_THRSELR {
-    bits: bool,
-}
-impl CH10_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CH11_THRSELR {
-    bits: bool,
-}
-impl CH11_THRSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = "Values that can be written to the field `CH0_THRSEL`"]
-pub enum CH0_THRSELW {
-    #[doc = "Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
-    #[doc = "Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
-}
-impl CH0_THRSELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CH0_THRSELW::THRESHOLD0 => false,
-            CH0_THRSELW::THRESHOLD1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CH0_THRSELW<'a> {
+#[doc = "Write proxy for field `CH0_THRSEL`"]
+pub struct CH0_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH0_THRSELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CH0_THRSELW) -> &'a mut W {
+impl<'a> CH0_THRSEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CH0_THRSEL_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    #[inline]
+    #[inline(always)]
     pub fn threshold0(self) -> &'a mut W {
-        self.variant(CH0_THRSELW::THRESHOLD0)
+        self.variant(CH0_THRSEL_A::THRESHOLD0)
     }
     #[doc = "Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    #[inline]
+    #[inline(always)]
     pub fn threshold1(self) -> &'a mut W {
-        self.variant(CH0_THRSELW::THRESHOLD1)
+        self.variant(CH0_THRSEL_A::THRESHOLD1)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH1_THRSELW<'a> {
+#[doc = "Reader of field `CH1_THRSEL`"]
+pub type CH1_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH1_THRSEL`"]
+pub struct CH1_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH1_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH1_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH2_THRSELW<'a> {
+#[doc = "Reader of field `CH2_THRSEL`"]
+pub type CH2_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH2_THRSEL`"]
+pub struct CH2_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH2_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH2_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH3_THRSELW<'a> {
+#[doc = "Reader of field `CH3_THRSEL`"]
+pub type CH3_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH3_THRSEL`"]
+pub struct CH3_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH3_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH3_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH4_THRSELW<'a> {
+#[doc = "Reader of field `CH4_THRSEL`"]
+pub type CH4_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH4_THRSEL`"]
+pub struct CH4_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH4_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH4_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH5_THRSELW<'a> {
+#[doc = "Reader of field `CH5_THRSEL`"]
+pub type CH5_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH5_THRSEL`"]
+pub struct CH5_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH5_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH5_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH6_THRSELW<'a> {
+#[doc = "Reader of field `CH6_THRSEL`"]
+pub type CH6_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH6_THRSEL`"]
+pub struct CH6_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH6_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH6_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH7_THRSELW<'a> {
+#[doc = "Reader of field `CH7_THRSEL`"]
+pub type CH7_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH7_THRSEL`"]
+pub struct CH7_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH7_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH7_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH8_THRSELW<'a> {
+#[doc = "Reader of field `CH8_THRSEL`"]
+pub type CH8_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH8_THRSEL`"]
+pub struct CH8_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH8_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH8_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH9_THRSELW<'a> {
+#[doc = "Reader of field `CH9_THRSEL`"]
+pub type CH9_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH9_THRSEL`"]
+pub struct CH9_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH9_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH9_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH10_THRSELW<'a> {
+#[doc = "Reader of field `CH10_THRSEL`"]
+pub type CH10_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH10_THRSEL`"]
+pub struct CH10_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH10_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH10_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CH11_THRSELW<'a> {
+#[doc = "Reader of field `CH11_THRSEL`"]
+pub type CH11_THRSEL_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `CH11_THRSEL`"]
+pub struct CH11_THRSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CH11_THRSELW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CH11_THRSEL_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Threshold select for channel 0."]
-    #[inline]
-    pub fn ch0_thrsel(&self) -> CH0_THRSELR {
-        CH0_THRSELR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ch0_thrsel(&self) -> CH0_THRSEL_R {
+        CH0_THRSEL_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Threshold select for channel 1. See description for channel 0."]
-    #[inline]
-    pub fn ch1_thrsel(&self) -> CH1_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH1_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch1_thrsel(&self) -> CH1_THRSEL_R {
+        CH1_THRSEL_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Threshold select for channel 2. See description for channel 0."]
-    #[inline]
-    pub fn ch2_thrsel(&self) -> CH2_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH2_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch2_thrsel(&self) -> CH2_THRSEL_R {
+        CH2_THRSEL_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Threshold select for channel 3. See description for channel 0."]
-    #[inline]
-    pub fn ch3_thrsel(&self) -> CH3_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH3_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch3_thrsel(&self) -> CH3_THRSEL_R {
+        CH3_THRSEL_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Threshold select for channel 4. See description for channel 0."]
-    #[inline]
-    pub fn ch4_thrsel(&self) -> CH4_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH4_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch4_thrsel(&self) -> CH4_THRSEL_R {
+        CH4_THRSEL_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Threshold select for channel 5. See description for channel 0."]
-    #[inline]
-    pub fn ch5_thrsel(&self) -> CH5_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH5_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch5_thrsel(&self) -> CH5_THRSEL_R {
+        CH5_THRSEL_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Threshold select for channel 6. See description for channel 0."]
-    #[inline]
-    pub fn ch6_thrsel(&self) -> CH6_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH6_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch6_thrsel(&self) -> CH6_THRSEL_R {
+        CH6_THRSEL_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Threshold select for channel 7. See description for channel 0."]
-    #[inline]
-    pub fn ch7_thrsel(&self) -> CH7_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH7_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch7_thrsel(&self) -> CH7_THRSEL_R {
+        CH7_THRSEL_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Threshold select for channel 8. See description for channel 0."]
-    #[inline]
-    pub fn ch8_thrsel(&self) -> CH8_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH8_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch8_thrsel(&self) -> CH8_THRSEL_R {
+        CH8_THRSEL_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Threshold select for channel 9. See description for channel 0."]
-    #[inline]
-    pub fn ch9_thrsel(&self) -> CH9_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH9_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch9_thrsel(&self) -> CH9_THRSEL_R {
+        CH9_THRSEL_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Threshold select for channel 10. See description for channel 0."]
-    #[inline]
-    pub fn ch10_thrsel(&self) -> CH10_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH10_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch10_thrsel(&self) -> CH10_THRSEL_R {
+        CH10_THRSEL_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Threshold select for channel 11. See description for channel 0."]
-    #[inline]
-    pub fn ch11_thrsel(&self) -> CH11_THRSELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CH11_THRSELR { bits }
+    #[inline(always)]
+    pub fn ch11_thrsel(&self) -> CH11_THRSEL_R {
+        CH11_THRSEL_R::new(((self.bits >> 11) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Threshold select for channel 0."]
-    #[inline]
-    pub fn ch0_thrsel(&mut self) -> _CH0_THRSELW {
-        _CH0_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch0_thrsel(&mut self) -> CH0_THRSEL_W {
+        CH0_THRSEL_W { w: self }
     }
     #[doc = "Bit 1 - Threshold select for channel 1. See description for channel 0."]
-    #[inline]
-    pub fn ch1_thrsel(&mut self) -> _CH1_THRSELW {
-        _CH1_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch1_thrsel(&mut self) -> CH1_THRSEL_W {
+        CH1_THRSEL_W { w: self }
     }
     #[doc = "Bit 2 - Threshold select for channel 2. See description for channel 0."]
-    #[inline]
-    pub fn ch2_thrsel(&mut self) -> _CH2_THRSELW {
-        _CH2_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch2_thrsel(&mut self) -> CH2_THRSEL_W {
+        CH2_THRSEL_W { w: self }
     }
     #[doc = "Bit 3 - Threshold select for channel 3. See description for channel 0."]
-    #[inline]
-    pub fn ch3_thrsel(&mut self) -> _CH3_THRSELW {
-        _CH3_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch3_thrsel(&mut self) -> CH3_THRSEL_W {
+        CH3_THRSEL_W { w: self }
     }
     #[doc = "Bit 4 - Threshold select for channel 4. See description for channel 0."]
-    #[inline]
-    pub fn ch4_thrsel(&mut self) -> _CH4_THRSELW {
-        _CH4_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch4_thrsel(&mut self) -> CH4_THRSEL_W {
+        CH4_THRSEL_W { w: self }
     }
     #[doc = "Bit 5 - Threshold select for channel 5. See description for channel 0."]
-    #[inline]
-    pub fn ch5_thrsel(&mut self) -> _CH5_THRSELW {
-        _CH5_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch5_thrsel(&mut self) -> CH5_THRSEL_W {
+        CH5_THRSEL_W { w: self }
     }
     #[doc = "Bit 6 - Threshold select for channel 6. See description for channel 0."]
-    #[inline]
-    pub fn ch6_thrsel(&mut self) -> _CH6_THRSELW {
-        _CH6_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch6_thrsel(&mut self) -> CH6_THRSEL_W {
+        CH6_THRSEL_W { w: self }
     }
     #[doc = "Bit 7 - Threshold select for channel 7. See description for channel 0."]
-    #[inline]
-    pub fn ch7_thrsel(&mut self) -> _CH7_THRSELW {
-        _CH7_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch7_thrsel(&mut self) -> CH7_THRSEL_W {
+        CH7_THRSEL_W { w: self }
     }
     #[doc = "Bit 8 - Threshold select for channel 8. See description for channel 0."]
-    #[inline]
-    pub fn ch8_thrsel(&mut self) -> _CH8_THRSELW {
-        _CH8_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch8_thrsel(&mut self) -> CH8_THRSEL_W {
+        CH8_THRSEL_W { w: self }
     }
     #[doc = "Bit 9 - Threshold select for channel 9. See description for channel 0."]
-    #[inline]
-    pub fn ch9_thrsel(&mut self) -> _CH9_THRSELW {
-        _CH9_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch9_thrsel(&mut self) -> CH9_THRSEL_W {
+        CH9_THRSEL_W { w: self }
     }
     #[doc = "Bit 10 - Threshold select for channel 10. See description for channel 0."]
-    #[inline]
-    pub fn ch10_thrsel(&mut self) -> _CH10_THRSELW {
-        _CH10_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch10_thrsel(&mut self) -> CH10_THRSEL_W {
+        CH10_THRSEL_W { w: self }
     }
     #[doc = "Bit 11 - Threshold select for channel 11. See description for channel 0."]
-    #[inline]
-    pub fn ch11_thrsel(&mut self) -> _CH11_THRSELW {
-        _CH11_THRSELW { w: self }
+    #[inline(always)]
+    pub fn ch11_thrsel(&mut self) -> CH11_THRSEL_W {
+        CH11_THRSEL_W { w: self }
     }
 }

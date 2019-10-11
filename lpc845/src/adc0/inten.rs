@@ -1,992 +1,636 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INTEN {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
+#[doc = "Reader of register INTEN"]
+pub type R = crate::R<u32, super::INTEN>;
+#[doc = "Writer for register INTEN"]
+pub type W = crate::W<u32, super::INTEN>;
+#[doc = "Register INTEN `reset()`'s with value 0"]
+impl crate::ResetValue for super::INTEN {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
+}
+#[doc = "Sequence A interrupt enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SEQA_INTEN_A {
+    #[doc = "0: Disabled. The sequence A interrupt/DMA trigger is disabled."]
+    DISABLED,
+    #[doc = "1: Enabled. The sequence A interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence A, or upon completion of the entire A sequence of conversions, depending on the MODE bit in the SEQA_CTRL register."]
+    ENABLED,
+}
+impl From<SEQA_INTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: SEQA_INTEN_A) -> Self {
+        match variant {
+            SEQA_INTEN_A::DISABLED => false,
+            SEQA_INTEN_A::ENABLED => true,
         }
     }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+}
+#[doc = "Reader of field `SEQA_INTEN`"]
+pub type SEQA_INTEN_R = crate::R<bool, SEQA_INTEN_A>;
+impl SEQA_INTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SEQA_INTEN_A {
+        match self.bits {
+            false => SEQA_INTEN_A::DISABLED,
+            true => SEQA_INTEN_A::ENABLED,
+        }
     }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == SEQA_INTEN_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == SEQA_INTEN_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `SEQA_INTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SEQA_INTENR {
+#[doc = "Write proxy for field `SEQA_INTEN`"]
+pub struct SEQA_INTEN_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> SEQA_INTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SEQA_INTEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Disabled. The sequence A interrupt/DMA trigger is disabled."]
-    DISABLED,
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(SEQA_INTEN_A::DISABLED)
+    }
     #[doc = "Enabled. The sequence A interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence A, or upon completion of the entire A sequence of conversions, depending on the MODE bit in the SEQA_CTRL register."]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(SEQA_INTEN_A::ENABLED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Sequence B interrupt enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SEQB_INTEN_A {
+    #[doc = "0: Disabled. The sequence B interrupt/DMA trigger is disabled."]
+    DISABLED,
+    #[doc = "1: Enabled. The sequence B interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence B, or upon completion of the entire B sequence of conversions, depending on the MODE bit in the SEQB_CTRL register."]
     ENABLED,
 }
-impl SEQA_INTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SEQA_INTENR::DISABLED => false,
-            SEQA_INTENR::ENABLED => true,
+impl From<SEQB_INTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: SEQB_INTEN_A) -> Self {
+        match variant {
+            SEQB_INTEN_A::DISABLED => false,
+            SEQB_INTEN_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SEQA_INTENR {
-        match value {
-            false => SEQA_INTENR::DISABLED,
-            true => SEQA_INTENR::ENABLED,
+}
+#[doc = "Reader of field `SEQB_INTEN`"]
+pub type SEQB_INTEN_R = crate::R<bool, SEQB_INTEN_A>;
+impl SEQB_INTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SEQB_INTEN_A {
+        match self.bits {
+            false => SEQB_INTEN_A::DISABLED,
+            true => SEQB_INTEN_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SEQA_INTENR::DISABLED
+        *self == SEQB_INTEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SEQA_INTENR::ENABLED
+        *self == SEQB_INTEN_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `SEQB_INTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SEQB_INTENR {
+#[doc = "Write proxy for field `SEQB_INTEN`"]
+pub struct SEQB_INTEN_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> SEQB_INTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SEQB_INTEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Disabled. The sequence B interrupt/DMA trigger is disabled."]
-    DISABLED,
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(SEQB_INTEN_A::DISABLED)
+    }
     #[doc = "Enabled. The sequence B interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence B, or upon completion of the entire B sequence of conversions, depending on the MODE bit in the SEQB_CTRL register."]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(SEQB_INTEN_A::ENABLED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Overrun interrupt enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum OVR_INTEN_A {
+    #[doc = "0: Disabled. The overrun interrupt is disabled."]
+    DISABLED,
+    #[doc = "1: Enabled. The overrun interrupt is enabled. Detection of an overrun condition on any of the 12 channel data registers will cause an overrun interrupt/DMA trigger. In addition, if the MODE bit for a particular sequence is 0, then an overrun in the global data register for that sequence will also cause this interrupt/DMA trigger to be asserted."]
     ENABLED,
 }
-impl SEQB_INTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SEQB_INTENR::DISABLED => false,
-            SEQB_INTENR::ENABLED => true,
+impl From<OVR_INTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: OVR_INTEN_A) -> Self {
+        match variant {
+            OVR_INTEN_A::DISABLED => false,
+            OVR_INTEN_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SEQB_INTENR {
-        match value {
-            false => SEQB_INTENR::DISABLED,
-            true => SEQB_INTENR::ENABLED,
+}
+#[doc = "Reader of field `OVR_INTEN`"]
+pub type OVR_INTEN_R = crate::R<bool, OVR_INTEN_A>;
+impl OVR_INTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> OVR_INTEN_A {
+        match self.bits {
+            false => OVR_INTEN_A::DISABLED,
+            true => OVR_INTEN_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SEQB_INTENR::DISABLED
+        *self == OVR_INTEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SEQB_INTENR::ENABLED
+        *self == OVR_INTEN_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `OVR_INTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OVR_INTENR {
+#[doc = "Write proxy for field `OVR_INTEN`"]
+pub struct OVR_INTEN_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> OVR_INTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: OVR_INTEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Disabled. The overrun interrupt is disabled."]
-    DISABLED,
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(OVR_INTEN_A::DISABLED)
+    }
     #[doc = "Enabled. The overrun interrupt is enabled. Detection of an overrun condition on any of the 12 channel data registers will cause an overrun interrupt/DMA trigger. In addition, if the MODE bit for a particular sequence is 0, then an overrun in the global data register for that sequence will also cause this interrupt/DMA trigger to be asserted."]
-    ENABLED,
-}
-impl OVR_INTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(OVR_INTEN_A::ENABLED)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            OVR_INTENR::DISABLED => false,
-            OVR_INTENR::ENABLED => true,
-        }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> OVR_INTENR {
-        match value {
-            false => OVR_INTENR::DISABLED,
-            true => OVR_INTENR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == OVR_INTENR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == OVR_INTENR::ENABLED
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
     }
 }
-#[doc = "Possible values of the field `ADCMPINTEN0`"]
+#[doc = "Threshold comparison interrupt enable for channel 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADCMPINTEN0R {
-    #[doc = "Disabled."]
+pub enum ADCMPINTEN0_A {
+    #[doc = "0: Disabled."]
     DISABLED,
-    #[doc = "Outside threshold."]
+    #[doc = "1: Outside threshold."]
     OUTSIDE_THRESHOLD,
-    #[doc = "Crossing threshold."]
+    #[doc = "2: Crossing threshold."]
     CROSSING_THRESHOLD,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl ADCMPINTEN0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            ADCMPINTEN0R::DISABLED => 0,
-            ADCMPINTEN0R::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN0R::CROSSING_THRESHOLD => 2,
-            ADCMPINTEN0R::_Reserved(bits) => bits,
+impl From<ADCMPINTEN0_A> for u8 {
+    #[inline(always)]
+    fn from(variant: ADCMPINTEN0_A) -> Self {
+        match variant {
+            ADCMPINTEN0_A::DISABLED => 0,
+            ADCMPINTEN0_A::OUTSIDE_THRESHOLD => 1,
+            ADCMPINTEN0_A::CROSSING_THRESHOLD => 2,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> ADCMPINTEN0R {
-        match value {
-            0 => ADCMPINTEN0R::DISABLED,
-            1 => ADCMPINTEN0R::OUTSIDE_THRESHOLD,
-            2 => ADCMPINTEN0R::CROSSING_THRESHOLD,
-            i => ADCMPINTEN0R::_Reserved(i),
+}
+#[doc = "Reader of field `ADCMPINTEN0`"]
+pub type ADCMPINTEN0_R = crate::R<u8, ADCMPINTEN0_A>;
+impl ADCMPINTEN0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN0_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(ADCMPINTEN0_A::DISABLED),
+            1 => Val(ADCMPINTEN0_A::OUTSIDE_THRESHOLD),
+            2 => Val(ADCMPINTEN0_A::CROSSING_THRESHOLD),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN0R::DISABLED
+        *self == ADCMPINTEN0_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN0R::OUTSIDE_THRESHOLD
+        *self == ADCMPINTEN0_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN0R::CROSSING_THRESHOLD
+        *self == ADCMPINTEN0_A::CROSSING_THRESHOLD
     }
 }
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN1R {
-    bits: u8,
-}
-impl ADCMPINTEN1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN2R {
-    bits: u8,
-}
-impl ADCMPINTEN2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN3R {
-    bits: u8,
-}
-impl ADCMPINTEN3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN4R {
-    bits: u8,
-}
-impl ADCMPINTEN4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN5R {
-    bits: u8,
-}
-impl ADCMPINTEN5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN6R {
-    bits: u8,
-}
-impl ADCMPINTEN6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN7R {
-    bits: u8,
-}
-impl ADCMPINTEN7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN8R {
-    bits: u8,
-}
-impl ADCMPINTEN8R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN9R {
-    bits: u8,
-}
-impl ADCMPINTEN9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN10R {
-    bits: u8,
-}
-impl ADCMPINTEN10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ADCMPINTEN11R {
-    bits: u8,
-}
-impl ADCMPINTEN11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = "Values that can be written to the field `SEQA_INTEN`"]
-pub enum SEQA_INTENW {
-    #[doc = "Disabled. The sequence A interrupt/DMA trigger is disabled."]
-    DISABLED,
-    #[doc = "Enabled. The sequence A interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence A, or upon completion of the entire A sequence of conversions, depending on the MODE bit in the SEQA_CTRL register."]
-    ENABLED,
-}
-impl SEQA_INTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SEQA_INTENW::DISABLED => false,
-            SEQA_INTENW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SEQA_INTENW<'a> {
+#[doc = "Write proxy for field `ADCMPINTEN0`"]
+pub struct ADCMPINTEN0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SEQA_INTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SEQA_INTENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. The sequence A interrupt/DMA trigger is disabled."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(SEQA_INTENW::DISABLED)
-    }
-    #[doc = "Enabled. The sequence A interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence A, or upon completion of the entire A sequence of conversions, depending on the MODE bit in the SEQA_CTRL register."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(SEQA_INTENW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SEQB_INTEN`"]
-pub enum SEQB_INTENW {
-    #[doc = "Disabled. The sequence B interrupt/DMA trigger is disabled."]
-    DISABLED,
-    #[doc = "Enabled. The sequence B interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence B, or upon completion of the entire B sequence of conversions, depending on the MODE bit in the SEQB_CTRL register."]
-    ENABLED,
-}
-impl SEQB_INTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SEQB_INTENW::DISABLED => false,
-            SEQB_INTENW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SEQB_INTENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SEQB_INTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SEQB_INTENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. The sequence B interrupt/DMA trigger is disabled."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(SEQB_INTENW::DISABLED)
-    }
-    #[doc = "Enabled. The sequence B interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence B, or upon completion of the entire B sequence of conversions, depending on the MODE bit in the SEQB_CTRL register."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(SEQB_INTENW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `OVR_INTEN`"]
-pub enum OVR_INTENW {
-    #[doc = "Disabled. The overrun interrupt is disabled."]
-    DISABLED,
-    #[doc = "Enabled. The overrun interrupt is enabled. Detection of an overrun condition on any of the 12 channel data registers will cause an overrun interrupt/DMA trigger. In addition, if the MODE bit for a particular sequence is 0, then an overrun in the global data register for that sequence will also cause this interrupt/DMA trigger to be asserted."]
-    ENABLED,
-}
-impl OVR_INTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            OVR_INTENW::DISABLED => false,
-            OVR_INTENW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _OVR_INTENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _OVR_INTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: OVR_INTENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. The overrun interrupt is disabled."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(OVR_INTENW::DISABLED)
-    }
-    #[doc = "Enabled. The overrun interrupt is enabled. Detection of an overrun condition on any of the 12 channel data registers will cause an overrun interrupt/DMA trigger. In addition, if the MODE bit for a particular sequence is 0, then an overrun in the global data register for that sequence will also cause this interrupt/DMA trigger to be asserted."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(OVR_INTENW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ADCMPINTEN0`"]
-pub enum ADCMPINTEN0W {
-    #[doc = "Disabled."]
-    DISABLED,
-    #[doc = "Outside threshold."]
-    OUTSIDE_THRESHOLD,
-    #[doc = "Crossing threshold."]
-    CROSSING_THRESHOLD,
-}
-impl ADCMPINTEN0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            ADCMPINTEN0W::DISABLED => 0,
-            ADCMPINTEN0W::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN0W::CROSSING_THRESHOLD => 2,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN0W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADCMPINTEN0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADCMPINTEN0W) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> ADCMPINTEN0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADCMPINTEN0_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(ADCMPINTEN0W::DISABLED)
+        self.variant(ADCMPINTEN0_A::DISABLED)
     }
     #[doc = "Outside threshold."]
-    #[inline]
+    #[inline(always)]
     pub fn outside_threshold(self) -> &'a mut W {
-        self.variant(ADCMPINTEN0W::OUTSIDE_THRESHOLD)
+        self.variant(ADCMPINTEN0_A::OUTSIDE_THRESHOLD)
     }
     #[doc = "Crossing threshold."]
-    #[inline]
+    #[inline(always)]
     pub fn crossing_threshold(self) -> &'a mut W {
-        self.variant(ADCMPINTEN0W::CROSSING_THRESHOLD)
+        self.variant(ADCMPINTEN0_A::CROSSING_THRESHOLD)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 3)) | (((value as u32) & 0x03) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN1W<'a> {
+#[doc = "Reader of field `ADCMPINTEN1`"]
+pub type ADCMPINTEN1_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN1`"]
+pub struct ADCMPINTEN1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN1W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN1_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 5)) | (((value as u32) & 0x03) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN2W<'a> {
+#[doc = "Reader of field `ADCMPINTEN2`"]
+pub type ADCMPINTEN2_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN2`"]
+pub struct ADCMPINTEN2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN2W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN2_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 7)) | (((value as u32) & 0x03) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN3W<'a> {
+#[doc = "Reader of field `ADCMPINTEN3`"]
+pub type ADCMPINTEN3_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN3`"]
+pub struct ADCMPINTEN3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN3W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN3_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 9)) | (((value as u32) & 0x03) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN4W<'a> {
+#[doc = "Reader of field `ADCMPINTEN4`"]
+pub type ADCMPINTEN4_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN4`"]
+pub struct ADCMPINTEN4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN4W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN4_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 11)) | (((value as u32) & 0x03) << 11);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN5W<'a> {
+#[doc = "Reader of field `ADCMPINTEN5`"]
+pub type ADCMPINTEN5_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN5`"]
+pub struct ADCMPINTEN5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN5W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN5_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 13)) | (((value as u32) & 0x03) << 13);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN6W<'a> {
+#[doc = "Reader of field `ADCMPINTEN6`"]
+pub type ADCMPINTEN6_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN6`"]
+pub struct ADCMPINTEN6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN6W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN6_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 15)) | (((value as u32) & 0x03) << 15);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN7W<'a> {
+#[doc = "Reader of field `ADCMPINTEN7`"]
+pub type ADCMPINTEN7_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN7`"]
+pub struct ADCMPINTEN7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN7W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN7_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 17)) | (((value as u32) & 0x03) << 17);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN8W<'a> {
+#[doc = "Reader of field `ADCMPINTEN8`"]
+pub type ADCMPINTEN8_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN8`"]
+pub struct ADCMPINTEN8_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN8W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN8_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 19)) | (((value as u32) & 0x03) << 19);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN9W<'a> {
+#[doc = "Reader of field `ADCMPINTEN9`"]
+pub type ADCMPINTEN9_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN9`"]
+pub struct ADCMPINTEN9_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN9W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN9_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 21;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 21)) | (((value as u32) & 0x03) << 21);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN10W<'a> {
+#[doc = "Reader of field `ADCMPINTEN10`"]
+pub type ADCMPINTEN10_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN10`"]
+pub struct ADCMPINTEN10_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN10W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN10_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 23)) | (((value as u32) & 0x03) << 23);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ADCMPINTEN11W<'a> {
+#[doc = "Reader of field `ADCMPINTEN11`"]
+pub type ADCMPINTEN11_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `ADCMPINTEN11`"]
+pub struct ADCMPINTEN11_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADCMPINTEN11W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ADCMPINTEN11_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 25;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 25)) | (((value as u32) & 0x03) << 25);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Sequence A interrupt enable."]
-    #[inline]
-    pub fn seqa_inten(&self) -> SEQA_INTENR {
-        SEQA_INTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn seqa_inten(&self) -> SEQA_INTEN_R {
+        SEQA_INTEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Sequence B interrupt enable."]
-    #[inline]
-    pub fn seqb_inten(&self) -> SEQB_INTENR {
-        SEQB_INTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn seqb_inten(&self) -> SEQB_INTEN_R {
+        SEQB_INTEN_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Overrun interrupt enable."]
-    #[inline]
-    pub fn ovr_inten(&self) -> OVR_INTENR {
-        OVR_INTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ovr_inten(&self) -> OVR_INTEN_R {
+        OVR_INTEN_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bits 3:4 - Threshold comparison interrupt enable for channel 0."]
-    #[inline]
-    pub fn adcmpinten0(&self) -> ADCMPINTEN0R {
-        ADCMPINTEN0R::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn adcmpinten0(&self) -> ADCMPINTEN0_R {
+        ADCMPINTEN0_R::new(((self.bits >> 3) & 0x03) as u8)
     }
     #[doc = "Bits 5:6 - Channel 1 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten1(&self) -> ADCMPINTEN1R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN1R { bits }
+    #[inline(always)]
+    pub fn adcmpinten1(&self) -> ADCMPINTEN1_R {
+        ADCMPINTEN1_R::new(((self.bits >> 5) & 0x03) as u8)
     }
     #[doc = "Bits 7:8 - Channel 2 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten2(&self) -> ADCMPINTEN2R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN2R { bits }
+    #[inline(always)]
+    pub fn adcmpinten2(&self) -> ADCMPINTEN2_R {
+        ADCMPINTEN2_R::new(((self.bits >> 7) & 0x03) as u8)
     }
     #[doc = "Bits 9:10 - Channel 3 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten3(&self) -> ADCMPINTEN3R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN3R { bits }
+    #[inline(always)]
+    pub fn adcmpinten3(&self) -> ADCMPINTEN3_R {
+        ADCMPINTEN3_R::new(((self.bits >> 9) & 0x03) as u8)
     }
     #[doc = "Bits 11:12 - Channel 4 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten4(&self) -> ADCMPINTEN4R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN4R { bits }
+    #[inline(always)]
+    pub fn adcmpinten4(&self) -> ADCMPINTEN4_R {
+        ADCMPINTEN4_R::new(((self.bits >> 11) & 0x03) as u8)
     }
     #[doc = "Bits 13:14 - Channel 5 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten5(&self) -> ADCMPINTEN5R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN5R { bits }
+    #[inline(always)]
+    pub fn adcmpinten5(&self) -> ADCMPINTEN5_R {
+        ADCMPINTEN5_R::new(((self.bits >> 13) & 0x03) as u8)
     }
     #[doc = "Bits 15:16 - Channel 6 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten6(&self) -> ADCMPINTEN6R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN6R { bits }
+    #[inline(always)]
+    pub fn adcmpinten6(&self) -> ADCMPINTEN6_R {
+        ADCMPINTEN6_R::new(((self.bits >> 15) & 0x03) as u8)
     }
     #[doc = "Bits 17:18 - Channel 7 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten7(&self) -> ADCMPINTEN7R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN7R { bits }
+    #[inline(always)]
+    pub fn adcmpinten7(&self) -> ADCMPINTEN7_R {
+        ADCMPINTEN7_R::new(((self.bits >> 17) & 0x03) as u8)
     }
     #[doc = "Bits 19:20 - Channel 8 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten8(&self) -> ADCMPINTEN8R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN8R { bits }
+    #[inline(always)]
+    pub fn adcmpinten8(&self) -> ADCMPINTEN8_R {
+        ADCMPINTEN8_R::new(((self.bits >> 19) & 0x03) as u8)
     }
     #[doc = "Bits 21:22 - Channel 9 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten9(&self) -> ADCMPINTEN9R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN9R { bits }
+    #[inline(always)]
+    pub fn adcmpinten9(&self) -> ADCMPINTEN9_R {
+        ADCMPINTEN9_R::new(((self.bits >> 21) & 0x03) as u8)
     }
     #[doc = "Bits 23:24 - Channel 10 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten10(&self) -> ADCMPINTEN10R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN10R { bits }
+    #[inline(always)]
+    pub fn adcmpinten10(&self) -> ADCMPINTEN10_R {
+        ADCMPINTEN10_R::new(((self.bits >> 23) & 0x03) as u8)
     }
     #[doc = "Bits 25:26 - Channel 21 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten11(&self) -> ADCMPINTEN11R {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ADCMPINTEN11R { bits }
+    #[inline(always)]
+    pub fn adcmpinten11(&self) -> ADCMPINTEN11_R {
+        ADCMPINTEN11_R::new(((self.bits >> 25) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Sequence A interrupt enable."]
-    #[inline]
-    pub fn seqa_inten(&mut self) -> _SEQA_INTENW {
-        _SEQA_INTENW { w: self }
+    #[inline(always)]
+    pub fn seqa_inten(&mut self) -> SEQA_INTEN_W {
+        SEQA_INTEN_W { w: self }
     }
     #[doc = "Bit 1 - Sequence B interrupt enable."]
-    #[inline]
-    pub fn seqb_inten(&mut self) -> _SEQB_INTENW {
-        _SEQB_INTENW { w: self }
+    #[inline(always)]
+    pub fn seqb_inten(&mut self) -> SEQB_INTEN_W {
+        SEQB_INTEN_W { w: self }
     }
     #[doc = "Bit 2 - Overrun interrupt enable."]
-    #[inline]
-    pub fn ovr_inten(&mut self) -> _OVR_INTENW {
-        _OVR_INTENW { w: self }
+    #[inline(always)]
+    pub fn ovr_inten(&mut self) -> OVR_INTEN_W {
+        OVR_INTEN_W { w: self }
     }
     #[doc = "Bits 3:4 - Threshold comparison interrupt enable for channel 0."]
-    #[inline]
-    pub fn adcmpinten0(&mut self) -> _ADCMPINTEN0W {
-        _ADCMPINTEN0W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten0(&mut self) -> ADCMPINTEN0_W {
+        ADCMPINTEN0_W { w: self }
     }
     #[doc = "Bits 5:6 - Channel 1 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten1(&mut self) -> _ADCMPINTEN1W {
-        _ADCMPINTEN1W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten1(&mut self) -> ADCMPINTEN1_W {
+        ADCMPINTEN1_W { w: self }
     }
     #[doc = "Bits 7:8 - Channel 2 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten2(&mut self) -> _ADCMPINTEN2W {
-        _ADCMPINTEN2W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten2(&mut self) -> ADCMPINTEN2_W {
+        ADCMPINTEN2_W { w: self }
     }
     #[doc = "Bits 9:10 - Channel 3 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten3(&mut self) -> _ADCMPINTEN3W {
-        _ADCMPINTEN3W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten3(&mut self) -> ADCMPINTEN3_W {
+        ADCMPINTEN3_W { w: self }
     }
     #[doc = "Bits 11:12 - Channel 4 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten4(&mut self) -> _ADCMPINTEN4W {
-        _ADCMPINTEN4W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten4(&mut self) -> ADCMPINTEN4_W {
+        ADCMPINTEN4_W { w: self }
     }
     #[doc = "Bits 13:14 - Channel 5 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten5(&mut self) -> _ADCMPINTEN5W {
-        _ADCMPINTEN5W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten5(&mut self) -> ADCMPINTEN5_W {
+        ADCMPINTEN5_W { w: self }
     }
     #[doc = "Bits 15:16 - Channel 6 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten6(&mut self) -> _ADCMPINTEN6W {
-        _ADCMPINTEN6W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten6(&mut self) -> ADCMPINTEN6_W {
+        ADCMPINTEN6_W { w: self }
     }
     #[doc = "Bits 17:18 - Channel 7 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten7(&mut self) -> _ADCMPINTEN7W {
-        _ADCMPINTEN7W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten7(&mut self) -> ADCMPINTEN7_W {
+        ADCMPINTEN7_W { w: self }
     }
     #[doc = "Bits 19:20 - Channel 8 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten8(&mut self) -> _ADCMPINTEN8W {
-        _ADCMPINTEN8W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten8(&mut self) -> ADCMPINTEN8_W {
+        ADCMPINTEN8_W { w: self }
     }
     #[doc = "Bits 21:22 - Channel 9 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten9(&mut self) -> _ADCMPINTEN9W {
-        _ADCMPINTEN9W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten9(&mut self) -> ADCMPINTEN9_W {
+        ADCMPINTEN9_W { w: self }
     }
     #[doc = "Bits 23:24 - Channel 10 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten10(&mut self) -> _ADCMPINTEN10W {
-        _ADCMPINTEN10W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten10(&mut self) -> ADCMPINTEN10_W {
+        ADCMPINTEN10_W { w: self }
     }
     #[doc = "Bits 25:26 - Channel 21 threshold comparison interrupt enable. See description for channel 0."]
-    #[inline]
-    pub fn adcmpinten11(&mut self) -> _ADCMPINTEN11W {
-        _ADCMPINTEN11W { w: self }
+    #[inline(always)]
+    pub fn adcmpinten11(&mut self) -> ADCMPINTEN11_W {
+        ADCMPINTEN11_W { w: self }
     }
 }

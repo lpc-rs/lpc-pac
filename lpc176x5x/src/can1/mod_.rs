@@ -1,897 +1,632 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MOD {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register MOD"]
+pub type R = crate::R<u32, super::MOD>;
+#[doc = "Writer for register MOD"]
+pub type W = crate::W<u32, super::MOD>;
+#[doc = "Register MOD `reset()`'s with value 0"]
+impl crate::ResetValue for super::MOD {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `RM`"]
+#[doc = "Reset Mode.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RMR {
-    #[doc = "Normal.The CAN Controller is in the Operating Mode, and certain registers can not be written."]
+pub enum RM_A {
+    #[doc = "0: Normal.The CAN Controller is in the Operating Mode, and certain registers can not be written."]
     NORMAL_THE_CAN_CONTR,
-    #[doc = "Reset. CAN operation is disabled, writable registers can be written and the current transmission/reception of a message is aborted."]
+    #[doc = "1: Reset. CAN operation is disabled, writable registers can be written and the current transmission/reception of a message is aborted."]
     RESET_CAN_OPERATION,
 }
-impl RMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RMR::NORMAL_THE_CAN_CONTR => false,
-            RMR::RESET_CAN_OPERATION => true,
+impl From<RM_A> for bool {
+    #[inline(always)]
+    fn from(variant: RM_A) -> Self {
+        match variant {
+            RM_A::NORMAL_THE_CAN_CONTR => false,
+            RM_A::RESET_CAN_OPERATION => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RMR {
-        match value {
-            false => RMR::NORMAL_THE_CAN_CONTR,
-            true => RMR::RESET_CAN_OPERATION,
+}
+#[doc = "Reader of field `RM`"]
+pub type RM_R = crate::R<bool, RM_A>;
+impl RM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RM_A {
+        match self.bits {
+            false => RM_A::NORMAL_THE_CAN_CONTR,
+            true => RM_A::RESET_CAN_OPERATION,
         }
     }
     #[doc = "Checks if the value of the field is `NORMAL_THE_CAN_CONTR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_normal_the_can_contr(&self) -> bool {
-        *self == RMR::NORMAL_THE_CAN_CONTR
+        *self == RM_A::NORMAL_THE_CAN_CONTR
     }
     #[doc = "Checks if the value of the field is `RESET_CAN_OPERATION`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset_can_operation(&self) -> bool {
-        *self == RMR::RESET_CAN_OPERATION
+        *self == RM_A::RESET_CAN_OPERATION
     }
 }
-#[doc = "Possible values of the field `LOM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LOMR {
-    #[doc = "Normal. The CAN controller acknowledges a successfully received message on the CAN bus. The error counters are stopped at the current value."]
-    NORMAL_THE_CAN_CONT,
-    #[doc = "Listen only. The controller gives no acknowledgment, even if a message is successfully received. Messages cannot be sent, and the controller operates in error passive mode. This mode is intended for software bit rate detection and hot plugging."]
-    LISTEN_ONLY_THE_CON,
+#[doc = "Write proxy for field `RM`"]
+pub struct RM_W<'a> {
+    w: &'a mut W,
 }
-impl LOMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LOMR::NORMAL_THE_CAN_CONT => false,
-            LOMR::LISTEN_ONLY_THE_CON => true,
+impl<'a> RM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RM_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOMR {
-        match value {
-            false => LOMR::NORMAL_THE_CAN_CONT,
-            true => LOMR::LISTEN_ONLY_THE_CON,
+    #[doc = "Normal.The CAN Controller is in the Operating Mode, and certain registers can not be written."]
+    #[inline(always)]
+    pub fn normal_the_can_contr(self) -> &'a mut W {
+        self.variant(RM_A::NORMAL_THE_CAN_CONTR)
+    }
+    #[doc = "Reset. CAN operation is disabled, writable registers can be written and the current transmission/reception of a message is aborted."]
+    #[inline(always)]
+    pub fn reset_can_operation(self) -> &'a mut W {
+        self.variant(RM_A::RESET_CAN_OPERATION)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Listen Only Mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LOM_A {
+    #[doc = "0: Normal. The CAN controller acknowledges a successfully received message on the CAN bus. The error counters are stopped at the current value."]
+    NORMAL_THE_CAN_CONT,
+    #[doc = "1: Listen only. The controller gives no acknowledgment, even if a message is successfully received. Messages cannot be sent, and the controller operates in error passive mode. This mode is intended for software bit rate detection and hot plugging."]
+    LISTEN_ONLY_THE_CON,
+}
+impl From<LOM_A> for bool {
+    #[inline(always)]
+    fn from(variant: LOM_A) -> Self {
+        match variant {
+            LOM_A::NORMAL_THE_CAN_CONT => false,
+            LOM_A::LISTEN_ONLY_THE_CON => true,
+        }
+    }
+}
+#[doc = "Reader of field `LOM`"]
+pub type LOM_R = crate::R<bool, LOM_A>;
+impl LOM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LOM_A {
+        match self.bits {
+            false => LOM_A::NORMAL_THE_CAN_CONT,
+            true => LOM_A::LISTEN_ONLY_THE_CON,
         }
     }
     #[doc = "Checks if the value of the field is `NORMAL_THE_CAN_CONT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_normal_the_can_cont(&self) -> bool {
-        *self == LOMR::NORMAL_THE_CAN_CONT
+        *self == LOM_A::NORMAL_THE_CAN_CONT
     }
     #[doc = "Checks if the value of the field is `LISTEN_ONLY_THE_CON`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_listen_only_the_con(&self) -> bool {
-        *self == LOMR::LISTEN_ONLY_THE_CON
+        *self == LOM_A::LISTEN_ONLY_THE_CON
     }
 }
-#[doc = "Possible values of the field `STM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum STMR {
-    #[doc = "Normal. A transmitted message must be acknowledged to be considered successful."]
-    NORMAL_A_TRANSMITTE,
-    #[doc = "Self test. The controller will consider a Tx message successful even if there is no acknowledgment received. In this mode a full node test is possible without any other active node on the bus using the SRR bit in CANxCMR."]
-    SELF_TEST_THE_CONTR,
+#[doc = "Write proxy for field `LOM`"]
+pub struct LOM_W<'a> {
+    w: &'a mut W,
 }
-impl STMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            STMR::NORMAL_A_TRANSMITTE => false,
-            STMR::SELF_TEST_THE_CONTR => true,
+impl<'a> LOM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LOM_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> STMR {
-        match value {
-            false => STMR::NORMAL_A_TRANSMITTE,
-            true => STMR::SELF_TEST_THE_CONTR,
+    #[doc = "Normal. The CAN controller acknowledges a successfully received message on the CAN bus. The error counters are stopped at the current value."]
+    #[inline(always)]
+    pub fn normal_the_can_cont(self) -> &'a mut W {
+        self.variant(LOM_A::NORMAL_THE_CAN_CONT)
+    }
+    #[doc = "Listen only. The controller gives no acknowledgment, even if a message is successfully received. Messages cannot be sent, and the controller operates in error passive mode. This mode is intended for software bit rate detection and hot plugging."]
+    #[inline(always)]
+    pub fn listen_only_the_con(self) -> &'a mut W {
+        self.variant(LOM_A::LISTEN_ONLY_THE_CON)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Self Test Mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum STM_A {
+    #[doc = "0: Normal. A transmitted message must be acknowledged to be considered successful."]
+    NORMAL_A_TRANSMITTE,
+    #[doc = "1: Self test. The controller will consider a Tx message successful even if there is no acknowledgment received. In this mode a full node test is possible without any other active node on the bus using the SRR bit in CANxCMR."]
+    SELF_TEST_THE_CONTR,
+}
+impl From<STM_A> for bool {
+    #[inline(always)]
+    fn from(variant: STM_A) -> Self {
+        match variant {
+            STM_A::NORMAL_A_TRANSMITTE => false,
+            STM_A::SELF_TEST_THE_CONTR => true,
+        }
+    }
+}
+#[doc = "Reader of field `STM`"]
+pub type STM_R = crate::R<bool, STM_A>;
+impl STM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> STM_A {
+        match self.bits {
+            false => STM_A::NORMAL_A_TRANSMITTE,
+            true => STM_A::SELF_TEST_THE_CONTR,
         }
     }
     #[doc = "Checks if the value of the field is `NORMAL_A_TRANSMITTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_normal_a_transmitte(&self) -> bool {
-        *self == STMR::NORMAL_A_TRANSMITTE
+        *self == STM_A::NORMAL_A_TRANSMITTE
     }
     #[doc = "Checks if the value of the field is `SELF_TEST_THE_CONTR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_self_test_the_contr(&self) -> bool {
-        *self == STMR::SELF_TEST_THE_CONTR
+        *self == STM_A::SELF_TEST_THE_CONTR
     }
 }
-#[doc = "Possible values of the field `TPM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TPMR {
-    #[doc = "CAN ID. The transmit priority for 3 Transmit Buffers depends on the CAN Identifier."]
-    CAN_ID_THE_TRANSMIT,
-    #[doc = "Local priority. The transmit priority for 3 Transmit Buffers depends on the contents of the Tx Priority register within the Transmit Buffer."]
-    LOCAL_PRIORITY_THE_,
+#[doc = "Write proxy for field `STM`"]
+pub struct STM_W<'a> {
+    w: &'a mut W,
 }
-impl TPMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TPMR::CAN_ID_THE_TRANSMIT => false,
-            TPMR::LOCAL_PRIORITY_THE_ => true,
+impl<'a> STM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: STM_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TPMR {
-        match value {
-            false => TPMR::CAN_ID_THE_TRANSMIT,
-            true => TPMR::LOCAL_PRIORITY_THE_,
+    #[doc = "Normal. A transmitted message must be acknowledged to be considered successful."]
+    #[inline(always)]
+    pub fn normal_a_transmitte(self) -> &'a mut W {
+        self.variant(STM_A::NORMAL_A_TRANSMITTE)
+    }
+    #[doc = "Self test. The controller will consider a Tx message successful even if there is no acknowledgment received. In this mode a full node test is possible without any other active node on the bus using the SRR bit in CANxCMR."]
+    #[inline(always)]
+    pub fn self_test_the_contr(self) -> &'a mut W {
+        self.variant(STM_A::SELF_TEST_THE_CONTR)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Transmit Priority Mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TPM_A {
+    #[doc = "0: CAN ID. The transmit priority for 3 Transmit Buffers depends on the CAN Identifier."]
+    CAN_ID_THE_TRANSMIT,
+    #[doc = "1: Local priority. The transmit priority for 3 Transmit Buffers depends on the contents of the Tx Priority register within the Transmit Buffer."]
+    LOCAL_PRIORITY_THE_,
+}
+impl From<TPM_A> for bool {
+    #[inline(always)]
+    fn from(variant: TPM_A) -> Self {
+        match variant {
+            TPM_A::CAN_ID_THE_TRANSMIT => false,
+            TPM_A::LOCAL_PRIORITY_THE_ => true,
+        }
+    }
+}
+#[doc = "Reader of field `TPM`"]
+pub type TPM_R = crate::R<bool, TPM_A>;
+impl TPM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TPM_A {
+        match self.bits {
+            false => TPM_A::CAN_ID_THE_TRANSMIT,
+            true => TPM_A::LOCAL_PRIORITY_THE_,
         }
     }
     #[doc = "Checks if the value of the field is `CAN_ID_THE_TRANSMIT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_can_id_the_transmit(&self) -> bool {
-        *self == TPMR::CAN_ID_THE_TRANSMIT
+        *self == TPM_A::CAN_ID_THE_TRANSMIT
     }
     #[doc = "Checks if the value of the field is `LOCAL_PRIORITY_THE_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_local_priority_the_(&self) -> bool {
-        *self == TPMR::LOCAL_PRIORITY_THE_
+        *self == TPM_A::LOCAL_PRIORITY_THE_
     }
 }
-#[doc = "Possible values of the field `SM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SMR {
-    #[doc = "Wake-up. Normal operation."]
-    WAKE_UP_NORMAL_OPER,
-    #[doc = "Sleep. The CAN controller enters Sleep Mode if no CAN interrupt is pending and there is no bus activity. See the Sleep Mode description Section 21.8.2 on page 565."]
-    SLEEP_THE_CAN_CONTR,
+#[doc = "Write proxy for field `TPM`"]
+pub struct TPM_W<'a> {
+    w: &'a mut W,
 }
-impl SMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SMR::WAKE_UP_NORMAL_OPER => false,
-            SMR::SLEEP_THE_CAN_CONTR => true,
+impl<'a> TPM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TPM_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SMR {
-        match value {
-            false => SMR::WAKE_UP_NORMAL_OPER,
-            true => SMR::SLEEP_THE_CAN_CONTR,
+    #[doc = "CAN ID. The transmit priority for 3 Transmit Buffers depends on the CAN Identifier."]
+    #[inline(always)]
+    pub fn can_id_the_transmit(self) -> &'a mut W {
+        self.variant(TPM_A::CAN_ID_THE_TRANSMIT)
+    }
+    #[doc = "Local priority. The transmit priority for 3 Transmit Buffers depends on the contents of the Tx Priority register within the Transmit Buffer."]
+    #[inline(always)]
+    pub fn local_priority_the_(self) -> &'a mut W {
+        self.variant(TPM_A::LOCAL_PRIORITY_THE_)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Sleep Mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SM_A {
+    #[doc = "0: Wake-up. Normal operation."]
+    WAKE_UP_NORMAL_OPER,
+    #[doc = "1: Sleep. The CAN controller enters Sleep Mode if no CAN interrupt is pending and there is no bus activity. See the Sleep Mode description Section 21.8.2 on page 565."]
+    SLEEP_THE_CAN_CONTR,
+}
+impl From<SM_A> for bool {
+    #[inline(always)]
+    fn from(variant: SM_A) -> Self {
+        match variant {
+            SM_A::WAKE_UP_NORMAL_OPER => false,
+            SM_A::SLEEP_THE_CAN_CONTR => true,
+        }
+    }
+}
+#[doc = "Reader of field `SM`"]
+pub type SM_R = crate::R<bool, SM_A>;
+impl SM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SM_A {
+        match self.bits {
+            false => SM_A::WAKE_UP_NORMAL_OPER,
+            true => SM_A::SLEEP_THE_CAN_CONTR,
         }
     }
     #[doc = "Checks if the value of the field is `WAKE_UP_NORMAL_OPER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_wake_up_normal_oper(&self) -> bool {
-        *self == SMR::WAKE_UP_NORMAL_OPER
+        *self == SM_A::WAKE_UP_NORMAL_OPER
     }
     #[doc = "Checks if the value of the field is `SLEEP_THE_CAN_CONTR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sleep_the_can_contr(&self) -> bool {
-        *self == SMR::SLEEP_THE_CAN_CONTR
+        *self == SM_A::SLEEP_THE_CAN_CONTR
     }
 }
-#[doc = "Possible values of the field `RPM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RPMR {
-    #[doc = "Low active. RD input is active Low (dominant bit = 0)."]
-    LOW_ACTIVE_RD_INPUT,
-    #[doc = "High active. RD input is active High (dominant bit = 1) -- reverse polarity."]
-    HIGH_ACTIVE_RD_INPU,
+#[doc = "Write proxy for field `SM`"]
+pub struct SM_W<'a> {
+    w: &'a mut W,
 }
-impl RPMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RPMR::LOW_ACTIVE_RD_INPUT => false,
-            RPMR::HIGH_ACTIVE_RD_INPU => true,
+impl<'a> SM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SM_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RPMR {
-        match value {
-            false => RPMR::LOW_ACTIVE_RD_INPUT,
-            true => RPMR::HIGH_ACTIVE_RD_INPU,
+    #[doc = "Wake-up. Normal operation."]
+    #[inline(always)]
+    pub fn wake_up_normal_oper(self) -> &'a mut W {
+        self.variant(SM_A::WAKE_UP_NORMAL_OPER)
+    }
+    #[doc = "Sleep. The CAN controller enters Sleep Mode if no CAN interrupt is pending and there is no bus activity. See the Sleep Mode description Section 21.8.2 on page 565."]
+    #[inline(always)]
+    pub fn sleep_the_can_contr(self) -> &'a mut W {
+        self.variant(SM_A::SLEEP_THE_CAN_CONTR)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Receive Polarity Mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RPM_A {
+    #[doc = "0: Low active. RD input is active Low (dominant bit = 0)."]
+    LOW_ACTIVE_RD_INPUT,
+    #[doc = "1: High active. RD input is active High (dominant bit = 1) -- reverse polarity."]
+    HIGH_ACTIVE_RD_INPU,
+}
+impl From<RPM_A> for bool {
+    #[inline(always)]
+    fn from(variant: RPM_A) -> Self {
+        match variant {
+            RPM_A::LOW_ACTIVE_RD_INPUT => false,
+            RPM_A::HIGH_ACTIVE_RD_INPU => true,
+        }
+    }
+}
+#[doc = "Reader of field `RPM`"]
+pub type RPM_R = crate::R<bool, RPM_A>;
+impl RPM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RPM_A {
+        match self.bits {
+            false => RPM_A::LOW_ACTIVE_RD_INPUT,
+            true => RPM_A::HIGH_ACTIVE_RD_INPU,
         }
     }
     #[doc = "Checks if the value of the field is `LOW_ACTIVE_RD_INPUT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_active_rd_input(&self) -> bool {
-        *self == RPMR::LOW_ACTIVE_RD_INPUT
+        *self == RPM_A::LOW_ACTIVE_RD_INPUT
     }
     #[doc = "Checks if the value of the field is `HIGH_ACTIVE_RD_INPU`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_active_rd_inpu(&self) -> bool {
-        *self == RPMR::HIGH_ACTIVE_RD_INPU
+        *self == RPM_A::HIGH_ACTIVE_RD_INPU
     }
 }
-#[doc = "Possible values of the field `TM`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TMR {
-    #[doc = "Disabled. Normal operation."]
-    DISABLED_NORMAL_OPE,
-    #[doc = "Enabled. The TD pin will reflect the bit, detected on RD pin, with the next positive edge of the system clock."]
-    ENABLED_THE_TD_PIN_,
+#[doc = "Write proxy for field `RPM`"]
+pub struct RPM_W<'a> {
+    w: &'a mut W,
 }
-impl TMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TMR::DISABLED_NORMAL_OPE => false,
-            TMR::ENABLED_THE_TD_PIN_ => true,
+impl<'a> RPM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RPM_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TMR {
-        match value {
-            false => TMR::DISABLED_NORMAL_OPE,
-            true => TMR::ENABLED_THE_TD_PIN_,
+    #[doc = "Low active. RD input is active Low (dominant bit = 0)."]
+    #[inline(always)]
+    pub fn low_active_rd_input(self) -> &'a mut W {
+        self.variant(RPM_A::LOW_ACTIVE_RD_INPUT)
+    }
+    #[doc = "High active. RD input is active High (dominant bit = 1) -- reverse polarity."]
+    #[inline(always)]
+    pub fn high_active_rd_inpu(self) -> &'a mut W {
+        self.variant(RPM_A::HIGH_ACTIVE_RD_INPU)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "Test Mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TM_A {
+    #[doc = "0: Disabled. Normal operation."]
+    DISABLED_NORMAL_OPE,
+    #[doc = "1: Enabled. The TD pin will reflect the bit, detected on RD pin, with the next positive edge of the system clock."]
+    ENABLED_THE_TD_PIN_,
+}
+impl From<TM_A> for bool {
+    #[inline(always)]
+    fn from(variant: TM_A) -> Self {
+        match variant {
+            TM_A::DISABLED_NORMAL_OPE => false,
+            TM_A::ENABLED_THE_TD_PIN_ => true,
+        }
+    }
+}
+#[doc = "Reader of field `TM`"]
+pub type TM_R = crate::R<bool, TM_A>;
+impl TM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TM_A {
+        match self.bits {
+            false => TM_A::DISABLED_NORMAL_OPE,
+            true => TM_A::ENABLED_THE_TD_PIN_,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED_NORMAL_OPE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled_normal_ope(&self) -> bool {
-        *self == TMR::DISABLED_NORMAL_OPE
+        *self == TM_A::DISABLED_NORMAL_OPE
     }
     #[doc = "Checks if the value of the field is `ENABLED_THE_TD_PIN_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled_the_td_pin_(&self) -> bool {
-        *self == TMR::ENABLED_THE_TD_PIN_
+        *self == TM_A::ENABLED_THE_TD_PIN_
     }
 }
-#[doc = "Values that can be written to the field `RM`"]
-pub enum RMW {
-    #[doc = "Normal.The CAN Controller is in the Operating Mode, and certain registers can not be written."]
-    NORMAL_THE_CAN_CONTR,
-    #[doc = "Reset. CAN operation is disabled, writable registers can be written and the current transmission/reception of a message is aborted."]
-    RESET_CAN_OPERATION,
-}
-impl RMW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RMW::NORMAL_THE_CAN_CONTR => false,
-            RMW::RESET_CAN_OPERATION => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RMW<'a> {
+#[doc = "Write proxy for field `TM`"]
+pub struct TM_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RMW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RMW) -> &'a mut W {
+impl<'a> TM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TM_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Normal.The CAN Controller is in the Operating Mode, and certain registers can not be written."]
-    #[inline]
-    pub fn normal_the_can_contr(self) -> &'a mut W {
-        self.variant(RMW::NORMAL_THE_CAN_CONTR)
-    }
-    #[doc = "Reset. CAN operation is disabled, writable registers can be written and the current transmission/reception of a message is aborted."]
-    #[inline]
-    pub fn reset_can_operation(self) -> &'a mut W {
-        self.variant(RMW::RESET_CAN_OPERATION)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `LOM`"]
-pub enum LOMW {
-    #[doc = "Normal. The CAN controller acknowledges a successfully received message on the CAN bus. The error counters are stopped at the current value."]
-    NORMAL_THE_CAN_CONT,
-    #[doc = "Listen only. The controller gives no acknowledgment, even if a message is successfully received. Messages cannot be sent, and the controller operates in error passive mode. This mode is intended for software bit rate detection and hot plugging."]
-    LISTEN_ONLY_THE_CON,
-}
-impl LOMW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LOMW::NORMAL_THE_CAN_CONT => false,
-            LOMW::LISTEN_ONLY_THE_CON => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LOMW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _LOMW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LOMW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Normal. The CAN controller acknowledges a successfully received message on the CAN bus. The error counters are stopped at the current value."]
-    #[inline]
-    pub fn normal_the_can_cont(self) -> &'a mut W {
-        self.variant(LOMW::NORMAL_THE_CAN_CONT)
-    }
-    #[doc = "Listen only. The controller gives no acknowledgment, even if a message is successfully received. Messages cannot be sent, and the controller operates in error passive mode. This mode is intended for software bit rate detection and hot plugging."]
-    #[inline]
-    pub fn listen_only_the_con(self) -> &'a mut W {
-        self.variant(LOMW::LISTEN_ONLY_THE_CON)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `STM`"]
-pub enum STMW {
-    #[doc = "Normal. A transmitted message must be acknowledged to be considered successful."]
-    NORMAL_A_TRANSMITTE,
-    #[doc = "Self test. The controller will consider a Tx message successful even if there is no acknowledgment received. In this mode a full node test is possible without any other active node on the bus using the SRR bit in CANxCMR."]
-    SELF_TEST_THE_CONTR,
-}
-impl STMW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            STMW::NORMAL_A_TRANSMITTE => false,
-            STMW::SELF_TEST_THE_CONTR => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _STMW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _STMW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: STMW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Normal. A transmitted message must be acknowledged to be considered successful."]
-    #[inline]
-    pub fn normal_a_transmitte(self) -> &'a mut W {
-        self.variant(STMW::NORMAL_A_TRANSMITTE)
-    }
-    #[doc = "Self test. The controller will consider a Tx message successful even if there is no acknowledgment received. In this mode a full node test is possible without any other active node on the bus using the SRR bit in CANxCMR."]
-    #[inline]
-    pub fn self_test_the_contr(self) -> &'a mut W {
-        self.variant(STMW::SELF_TEST_THE_CONTR)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `TPM`"]
-pub enum TPMW {
-    #[doc = "CAN ID. The transmit priority for 3 Transmit Buffers depends on the CAN Identifier."]
-    CAN_ID_THE_TRANSMIT,
-    #[doc = "Local priority. The transmit priority for 3 Transmit Buffers depends on the contents of the Tx Priority register within the Transmit Buffer."]
-    LOCAL_PRIORITY_THE_,
-}
-impl TPMW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TPMW::CAN_ID_THE_TRANSMIT => false,
-            TPMW::LOCAL_PRIORITY_THE_ => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TPMW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TPMW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TPMW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "CAN ID. The transmit priority for 3 Transmit Buffers depends on the CAN Identifier."]
-    #[inline]
-    pub fn can_id_the_transmit(self) -> &'a mut W {
-        self.variant(TPMW::CAN_ID_THE_TRANSMIT)
-    }
-    #[doc = "Local priority. The transmit priority for 3 Transmit Buffers depends on the contents of the Tx Priority register within the Transmit Buffer."]
-    #[inline]
-    pub fn local_priority_the_(self) -> &'a mut W {
-        self.variant(TPMW::LOCAL_PRIORITY_THE_)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SM`"]
-pub enum SMW {
-    #[doc = "Wake-up. Normal operation."]
-    WAKE_UP_NORMAL_OPER,
-    #[doc = "Sleep. The CAN controller enters Sleep Mode if no CAN interrupt is pending and there is no bus activity. See the Sleep Mode description Section 21.8.2 on page 565."]
-    SLEEP_THE_CAN_CONTR,
-}
-impl SMW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SMW::WAKE_UP_NORMAL_OPER => false,
-            SMW::SLEEP_THE_CAN_CONTR => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SMW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SMW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SMW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Wake-up. Normal operation."]
-    #[inline]
-    pub fn wake_up_normal_oper(self) -> &'a mut W {
-        self.variant(SMW::WAKE_UP_NORMAL_OPER)
-    }
-    #[doc = "Sleep. The CAN controller enters Sleep Mode if no CAN interrupt is pending and there is no bus activity. See the Sleep Mode description Section 21.8.2 on page 565."]
-    #[inline]
-    pub fn sleep_the_can_contr(self) -> &'a mut W {
-        self.variant(SMW::SLEEP_THE_CAN_CONTR)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RPM`"]
-pub enum RPMW {
-    #[doc = "Low active. RD input is active Low (dominant bit = 0)."]
-    LOW_ACTIVE_RD_INPUT,
-    #[doc = "High active. RD input is active High (dominant bit = 1) -- reverse polarity."]
-    HIGH_ACTIVE_RD_INPU,
-}
-impl RPMW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RPMW::LOW_ACTIVE_RD_INPUT => false,
-            RPMW::HIGH_ACTIVE_RD_INPU => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RPMW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RPMW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RPMW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Low active. RD input is active Low (dominant bit = 0)."]
-    #[inline]
-    pub fn low_active_rd_input(self) -> &'a mut W {
-        self.variant(RPMW::LOW_ACTIVE_RD_INPUT)
-    }
-    #[doc = "High active. RD input is active High (dominant bit = 1) -- reverse polarity."]
-    #[inline]
-    pub fn high_active_rd_inpu(self) -> &'a mut W {
-        self.variant(RPMW::HIGH_ACTIVE_RD_INPU)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `TM`"]
-pub enum TMW {
-    #[doc = "Disabled. Normal operation."]
-    DISABLED_NORMAL_OPE,
-    #[doc = "Enabled. The TD pin will reflect the bit, detected on RD pin, with the next positive edge of the system clock."]
-    ENABLED_THE_TD_PIN_,
-}
-impl TMW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TMW::DISABLED_NORMAL_OPE => false,
-            TMW::ENABLED_THE_TD_PIN_ => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TMW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TMW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TMW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled. Normal operation."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled_normal_ope(self) -> &'a mut W {
-        self.variant(TMW::DISABLED_NORMAL_OPE)
+        self.variant(TM_A::DISABLED_NORMAL_OPE)
     }
     #[doc = "Enabled. The TD pin will reflect the bit, detected on RD pin, with the next positive edge of the system clock."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled_the_td_pin_(self) -> &'a mut W {
-        self.variant(TMW::ENABLED_THE_TD_PIN_)
+        self.variant(TM_A::ENABLED_THE_TD_PIN_)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Reset Mode."]
-    #[inline]
-    pub fn rm(&self) -> RMR {
-        RMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rm(&self) -> RM_R {
+        RM_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Listen Only Mode."]
-    #[inline]
-    pub fn lom(&self) -> LOMR {
-        LOMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lom(&self) -> LOM_R {
+        LOM_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Self Test Mode."]
-    #[inline]
-    pub fn stm(&self) -> STMR {
-        STMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn stm(&self) -> STM_R {
+        STM_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Transmit Priority Mode."]
-    #[inline]
-    pub fn tpm(&self) -> TPMR {
-        TPMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn tpm(&self) -> TPM_R {
+        TPM_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Sleep Mode."]
-    #[inline]
-    pub fn sm(&self) -> SMR {
-        SMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn sm(&self) -> SM_R {
+        SM_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Receive Polarity Mode."]
-    #[inline]
-    pub fn rpm(&self) -> RPMR {
-        RPMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rpm(&self) -> RPM_R {
+        RPM_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Test Mode."]
-    #[inline]
-    pub fn tm(&self) -> TMR {
-        TMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn tm(&self) -> TM_R {
+        TM_R::new(((self.bits >> 7) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Reset Mode."]
-    #[inline]
-    pub fn rm(&mut self) -> _RMW {
-        _RMW { w: self }
+    #[inline(always)]
+    pub fn rm(&mut self) -> RM_W {
+        RM_W { w: self }
     }
     #[doc = "Bit 1 - Listen Only Mode."]
-    #[inline]
-    pub fn lom(&mut self) -> _LOMW {
-        _LOMW { w: self }
+    #[inline(always)]
+    pub fn lom(&mut self) -> LOM_W {
+        LOM_W { w: self }
     }
     #[doc = "Bit 2 - Self Test Mode."]
-    #[inline]
-    pub fn stm(&mut self) -> _STMW {
-        _STMW { w: self }
+    #[inline(always)]
+    pub fn stm(&mut self) -> STM_W {
+        STM_W { w: self }
     }
     #[doc = "Bit 3 - Transmit Priority Mode."]
-    #[inline]
-    pub fn tpm(&mut self) -> _TPMW {
-        _TPMW { w: self }
+    #[inline(always)]
+    pub fn tpm(&mut self) -> TPM_W {
+        TPM_W { w: self }
     }
     #[doc = "Bit 4 - Sleep Mode."]
-    #[inline]
-    pub fn sm(&mut self) -> _SMW {
-        _SMW { w: self }
+    #[inline(always)]
+    pub fn sm(&mut self) -> SM_W {
+        SM_W { w: self }
     }
     #[doc = "Bit 5 - Receive Polarity Mode."]
-    #[inline]
-    pub fn rpm(&mut self) -> _RPMW {
-        _RPMW { w: self }
+    #[inline(always)]
+    pub fn rpm(&mut self) -> RPM_W {
+        RPM_W { w: self }
     }
     #[doc = "Bit 7 - Test Mode."]
-    #[inline]
-    pub fn tm(&mut self) -> _TMW {
-        _TMW { w: self }
+    #[inline(always)]
+    pub fn tm(&mut self) -> TM_W {
+        TM_W { w: self }
     }
 }

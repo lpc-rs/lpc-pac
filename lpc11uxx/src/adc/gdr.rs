@@ -1,264 +1,132 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::GDR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register GDR"]
+pub type R = crate::R<u32, super::GDR>;
+#[doc = "Writer for register GDR"]
+pub type W = crate::W<u32, super::GDR>;
+#[doc = "Register GDR `reset()`'s with value 0"]
+impl crate::ResetValue for super::GDR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct V_VREFR {
-    bits: u16,
-}
-impl V_VREFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CHNR {
-    bits: u8,
-}
-impl CHNR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct OVERRUNR {
-    bits: bool,
-}
-impl OVERRUNR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DONER {
-    bits: bool,
-}
-impl DONER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _V_VREFW<'a> {
+#[doc = "Reader of field `V_VREF`"]
+pub type V_VREF_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `V_VREF`"]
+pub struct V_VREF_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _V_VREFW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> V_VREF_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 1023;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03ff << 6)) | (((value as u32) & 0x03ff) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CHNW<'a> {
+#[doc = "Reader of field `CHN`"]
+pub type CHN_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CHN`"]
+pub struct CHN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CHNW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CHN_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x07 << 24)) | (((value as u32) & 0x07) << 24);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _OVERRUNW<'a> {
+#[doc = "Reader of field `OVERRUN`"]
+pub type OVERRUN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `OVERRUN`"]
+pub struct OVERRUN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OVERRUNW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> OVERRUN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 30;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DONEW<'a> {
+#[doc = "Reader of field `DONE`"]
+pub type DONE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DONE`"]
+pub struct DONE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DONEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DONE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 6:15 - When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin selected by the SEL field, divided by the voltage on the VDD pin. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VSS, while 0x3FF indicates that the voltage on ADn was close to, equal to, or greater than that on VREF."]
-    #[inline]
-    pub fn v_vref(&self) -> V_VREFR {
-        let bits = {
-            const MASK: u16 = 1023;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        V_VREFR { bits }
+    #[inline(always)]
+    pub fn v_vref(&self) -> V_VREF_R {
+        V_VREF_R::new(((self.bits >> 6) & 0x03ff) as u16)
     }
     #[doc = "Bits 24:26 - These bits contain the channel from which the result bits V_VREF were converted."]
-    #[inline]
-    pub fn chn(&self) -> CHNR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CHNR { bits }
+    #[inline(always)]
+    pub fn chn(&self) -> CHN_R {
+        CHN_R::new(((self.bits >> 24) & 0x07) as u8)
     }
     #[doc = "Bit 30 - This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits."]
-    #[inline]
-    pub fn overrun(&self) -> OVERRUNR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        OVERRUNR { bits }
+    #[inline(always)]
+    pub fn overrun(&self) -> OVERRUN_R {
+        OVERRUN_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read and when the ADCR is written. If the ADCR is written while a conversion is still in progress, this bit is set and a new conversion is started."]
-    #[inline]
-    pub fn done(&self) -> DONER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DONER { bits }
+    #[inline(always)]
+    pub fn done(&self) -> DONE_R {
+        DONE_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 6:15 - When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin selected by the SEL field, divided by the voltage on the VDD pin. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VSS, while 0x3FF indicates that the voltage on ADn was close to, equal to, or greater than that on VREF."]
-    #[inline]
-    pub fn v_vref(&mut self) -> _V_VREFW {
-        _V_VREFW { w: self }
+    #[inline(always)]
+    pub fn v_vref(&mut self) -> V_VREF_W {
+        V_VREF_W { w: self }
     }
     #[doc = "Bits 24:26 - These bits contain the channel from which the result bits V_VREF were converted."]
-    #[inline]
-    pub fn chn(&mut self) -> _CHNW {
-        _CHNW { w: self }
+    #[inline(always)]
+    pub fn chn(&mut self) -> CHN_W {
+        CHN_W { w: self }
     }
     #[doc = "Bit 30 - This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits."]
-    #[inline]
-    pub fn overrun(&mut self) -> _OVERRUNW {
-        _OVERRUNW { w: self }
+    #[inline(always)]
+    pub fn overrun(&mut self) -> OVERRUN_W {
+        OVERRUN_W { w: self }
     }
     #[doc = "Bit 31 - This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read and when the ADCR is written. If the ADCR is written while a conversion is still in progress, this bit is set and a new conversion is started."]
-    #[inline]
-    pub fn done(&mut self) -> _DONEW {
-        _DONEW { w: self }
+    #[inline(always)]
+    pub fn done(&mut self) -> DONE_W {
+        DONE_W { w: self }
     }
 }

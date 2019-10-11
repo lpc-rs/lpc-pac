@@ -17,10 +17,10 @@ travis-ci   = { repository = "lpc-rs/lpc-pac" }
 
 
 [dependencies]
-bare-metal  = "0.2"
-cortex-m    = "0.5"
-cortex-m-rt = { version = "0.6.3", optional = true }
-vcell       = "0.1"
+bare-metal  = "0.2.5"
+cortex-m    = "0.6.1"
+cortex-m-rt = { version = "0.6.10", optional = true }
+vcell       = "0.1.2"
 
 
 [features]

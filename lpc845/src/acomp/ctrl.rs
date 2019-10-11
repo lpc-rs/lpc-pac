@@ -1,1099 +1,780 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CTRL"]
+pub type R = crate::R<u32, super::CTRL>;
+#[doc = "Writer for register CTRL"]
+pub type W = crate::W<u32, super::CTRL>;
+#[doc = "Register CTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::CTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `EDGESEL`"]
+#[doc = "This field controls which edges on the comparator output set the COMPEDGE bit (bit 23 below):\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EDGESELR {
-    #[doc = "Falling edges"]
+pub enum EDGESEL_A {
+    #[doc = "0: Falling edges"]
     FALLING_EDGES,
-    #[doc = "Rising edges"]
+    #[doc = "1: Rising edges"]
     RISING_EDGES,
-    #[doc = "Both edges"]
+    #[doc = "2: Both edges"]
     BOTH_EDGES0,
-    #[doc = "Both edges"]
+    #[doc = "3: Both edges"]
     BOTH_EDGES1,
 }
-impl EDGESELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            EDGESELR::FALLING_EDGES => 0,
-            EDGESELR::RISING_EDGES => 1,
-            EDGESELR::BOTH_EDGES0 => 2,
-            EDGESELR::BOTH_EDGES1 => 3,
+impl From<EDGESEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: EDGESEL_A) -> Self {
+        match variant {
+            EDGESEL_A::FALLING_EDGES => 0,
+            EDGESEL_A::RISING_EDGES => 1,
+            EDGESEL_A::BOTH_EDGES0 => 2,
+            EDGESEL_A::BOTH_EDGES1 => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> EDGESELR {
-        match value {
-            0 => EDGESELR::FALLING_EDGES,
-            1 => EDGESELR::RISING_EDGES,
-            2 => EDGESELR::BOTH_EDGES0,
-            3 => EDGESELR::BOTH_EDGES1,
+}
+#[doc = "Reader of field `EDGESEL`"]
+pub type EDGESEL_R = crate::R<u8, EDGESEL_A>;
+impl EDGESEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EDGESEL_A {
+        match self.bits {
+            0 => EDGESEL_A::FALLING_EDGES,
+            1 => EDGESEL_A::RISING_EDGES,
+            2 => EDGESEL_A::BOTH_EDGES0,
+            3 => EDGESEL_A::BOTH_EDGES1,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `FALLING_EDGES`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_falling_edges(&self) -> bool {
-        *self == EDGESELR::FALLING_EDGES
+        *self == EDGESEL_A::FALLING_EDGES
     }
     #[doc = "Checks if the value of the field is `RISING_EDGES`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rising_edges(&self) -> bool {
-        *self == EDGESELR::RISING_EDGES
+        *self == EDGESEL_A::RISING_EDGES
     }
     #[doc = "Checks if the value of the field is `BOTH_EDGES0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_both_edges0(&self) -> bool {
-        *self == EDGESELR::BOTH_EDGES0
+        *self == EDGESEL_A::BOTH_EDGES0
     }
     #[doc = "Checks if the value of the field is `BOTH_EDGES1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_both_edges1(&self) -> bool {
-        *self == EDGESELR::BOTH_EDGES1
+        *self == EDGESEL_A::BOTH_EDGES1
     }
 }
-#[doc = "Possible values of the field `COMPSA`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum COMPSAR {
-    #[doc = "Comparator output is used directly."]
-    COMPSA_0,
-    #[doc = "Comparator output is synchronized to the bus clock for output to other modules."]
-    COMPSA_1,
+#[doc = "Write proxy for field `EDGESEL`"]
+pub struct EDGESEL_W<'a> {
+    w: &'a mut W,
 }
-impl COMPSAR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            COMPSAR::COMPSA_0 => false,
-            COMPSAR::COMPSA_1 => true,
+impl<'a> EDGESEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EDGESEL_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> COMPSAR {
-        match value {
-            false => COMPSAR::COMPSA_0,
-            true => COMPSAR::COMPSA_1,
+    #[doc = "Falling edges"]
+    #[inline(always)]
+    pub fn falling_edges(self) -> &'a mut W {
+        self.variant(EDGESEL_A::FALLING_EDGES)
+    }
+    #[doc = "Rising edges"]
+    #[inline(always)]
+    pub fn rising_edges(self) -> &'a mut W {
+        self.variant(EDGESEL_A::RISING_EDGES)
+    }
+    #[doc = "Both edges"]
+    #[inline(always)]
+    pub fn both_edges0(self) -> &'a mut W {
+        self.variant(EDGESEL_A::BOTH_EDGES0)
+    }
+    #[doc = "Both edges"]
+    #[inline(always)]
+    pub fn both_edges1(self) -> &'a mut W {
+        self.variant(EDGESEL_A::BOTH_EDGES1)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x03 << 3)) | (((value as u32) & 0x03) << 3);
+        self.w
+    }
+}
+#[doc = "Comparator output control\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum COMPSA_A {
+    #[doc = "0: Comparator output is used directly."]
+    COMPSA_0,
+    #[doc = "1: Comparator output is synchronized to the bus clock for output to other modules."]
+    COMPSA_1,
+}
+impl From<COMPSA_A> for bool {
+    #[inline(always)]
+    fn from(variant: COMPSA_A) -> Self {
+        match variant {
+            COMPSA_A::COMPSA_0 => false,
+            COMPSA_A::COMPSA_1 => true,
+        }
+    }
+}
+#[doc = "Reader of field `COMPSA`"]
+pub type COMPSA_R = crate::R<bool, COMPSA_A>;
+impl COMPSA_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> COMPSA_A {
+        match self.bits {
+            false => COMPSA_A::COMPSA_0,
+            true => COMPSA_A::COMPSA_1,
         }
     }
     #[doc = "Checks if the value of the field is `COMPSA_0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_compsa_0(&self) -> bool {
-        *self == COMPSAR::COMPSA_0
+        *self == COMPSA_A::COMPSA_0
     }
     #[doc = "Checks if the value of the field is `COMPSA_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_compsa_1(&self) -> bool {
-        *self == COMPSAR::COMPSA_1
+        *self == COMPSA_A::COMPSA_1
     }
 }
-#[doc = "Possible values of the field `COMP_VP_SEL`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum COMP_VP_SELR {
-    #[doc = "VOLTAGE_LADDER_OUTPUT"]
-    VOLTAGE_LADDER_OUTPUT,
-    #[doc = "ACMP_I1"]
-    ACMP_I1,
-    #[doc = "ACMP_I2"]
-    ACMP_I2,
-    #[doc = "ACMP_I3"]
-    ACMP_I3,
-    #[doc = "ACMP_I4"]
-    ACMP_I4,
-    #[doc = "ACMP_I5"]
-    ACMP_I5,
-    #[doc = "Band gap. Internal reference voltage."]
-    BAND_GAP,
-    #[doc = "DAC0 output"]
-    DACOUT0,
+#[doc = "Write proxy for field `COMPSA`"]
+pub struct COMPSA_W<'a> {
+    w: &'a mut W,
 }
-impl COMP_VP_SELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            COMP_VP_SELR::VOLTAGE_LADDER_OUTPUT => 0,
-            COMP_VP_SELR::ACMP_I1 => 1,
-            COMP_VP_SELR::ACMP_I2 => 2,
-            COMP_VP_SELR::ACMP_I3 => 3,
-            COMP_VP_SELR::ACMP_I4 => 4,
-            COMP_VP_SELR::ACMP_I5 => 5,
-            COMP_VP_SELR::BAND_GAP => 6,
-            COMP_VP_SELR::DACOUT0 => 7,
+impl<'a> COMPSA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: COMPSA_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> COMP_VP_SELR {
-        match value {
-            0 => COMP_VP_SELR::VOLTAGE_LADDER_OUTPUT,
-            1 => COMP_VP_SELR::ACMP_I1,
-            2 => COMP_VP_SELR::ACMP_I2,
-            3 => COMP_VP_SELR::ACMP_I3,
-            4 => COMP_VP_SELR::ACMP_I4,
-            5 => COMP_VP_SELR::ACMP_I5,
-            6 => COMP_VP_SELR::BAND_GAP,
-            7 => COMP_VP_SELR::DACOUT0,
+    #[doc = "Comparator output is used directly."]
+    #[inline(always)]
+    pub fn compsa_0(self) -> &'a mut W {
+        self.variant(COMPSA_A::COMPSA_0)
+    }
+    #[doc = "Comparator output is synchronized to the bus clock for output to other modules."]
+    #[inline(always)]
+    pub fn compsa_1(self) -> &'a mut W {
+        self.variant(COMPSA_A::COMPSA_1)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w
+    }
+}
+#[doc = "Selects positive voltage input\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum COMP_VP_SEL_A {
+    #[doc = "0: VOLTAGE_LADDER_OUTPUT"]
+    VOLTAGE_LADDER_OUTPUT,
+    #[doc = "1: ACMP_I1"]
+    ACMP_I1,
+    #[doc = "2: ACMP_I2"]
+    ACMP_I2,
+    #[doc = "3: ACMP_I3"]
+    ACMP_I3,
+    #[doc = "4: ACMP_I4"]
+    ACMP_I4,
+    #[doc = "5: ACMP_I5"]
+    ACMP_I5,
+    #[doc = "6: Band gap. Internal reference voltage."]
+    BAND_GAP,
+    #[doc = "7: DAC0 output"]
+    DACOUT0,
+}
+impl From<COMP_VP_SEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: COMP_VP_SEL_A) -> Self {
+        match variant {
+            COMP_VP_SEL_A::VOLTAGE_LADDER_OUTPUT => 0,
+            COMP_VP_SEL_A::ACMP_I1 => 1,
+            COMP_VP_SEL_A::ACMP_I2 => 2,
+            COMP_VP_SEL_A::ACMP_I3 => 3,
+            COMP_VP_SEL_A::ACMP_I4 => 4,
+            COMP_VP_SEL_A::ACMP_I5 => 5,
+            COMP_VP_SEL_A::BAND_GAP => 6,
+            COMP_VP_SEL_A::DACOUT0 => 7,
+        }
+    }
+}
+#[doc = "Reader of field `COMP_VP_SEL`"]
+pub type COMP_VP_SEL_R = crate::R<u8, COMP_VP_SEL_A>;
+impl COMP_VP_SEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> COMP_VP_SEL_A {
+        match self.bits {
+            0 => COMP_VP_SEL_A::VOLTAGE_LADDER_OUTPUT,
+            1 => COMP_VP_SEL_A::ACMP_I1,
+            2 => COMP_VP_SEL_A::ACMP_I2,
+            3 => COMP_VP_SEL_A::ACMP_I3,
+            4 => COMP_VP_SEL_A::ACMP_I4,
+            5 => COMP_VP_SEL_A::ACMP_I5,
+            6 => COMP_VP_SEL_A::BAND_GAP,
+            7 => COMP_VP_SEL_A::DACOUT0,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `VOLTAGE_LADDER_OUTPUT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_voltage_ladder_output(&self) -> bool {
-        *self == COMP_VP_SELR::VOLTAGE_LADDER_OUTPUT
+        *self == COMP_VP_SEL_A::VOLTAGE_LADDER_OUTPUT
     }
     #[doc = "Checks if the value of the field is `ACMP_I1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i1(&self) -> bool {
-        *self == COMP_VP_SELR::ACMP_I1
+        *self == COMP_VP_SEL_A::ACMP_I1
     }
     #[doc = "Checks if the value of the field is `ACMP_I2`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i2(&self) -> bool {
-        *self == COMP_VP_SELR::ACMP_I2
+        *self == COMP_VP_SEL_A::ACMP_I2
     }
     #[doc = "Checks if the value of the field is `ACMP_I3`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i3(&self) -> bool {
-        *self == COMP_VP_SELR::ACMP_I3
+        *self == COMP_VP_SEL_A::ACMP_I3
     }
     #[doc = "Checks if the value of the field is `ACMP_I4`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i4(&self) -> bool {
-        *self == COMP_VP_SELR::ACMP_I4
+        *self == COMP_VP_SEL_A::ACMP_I4
     }
     #[doc = "Checks if the value of the field is `ACMP_I5`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i5(&self) -> bool {
-        *self == COMP_VP_SELR::ACMP_I5
+        *self == COMP_VP_SEL_A::ACMP_I5
     }
     #[doc = "Checks if the value of the field is `BAND_GAP`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_band_gap(&self) -> bool {
-        *self == COMP_VP_SELR::BAND_GAP
+        *self == COMP_VP_SEL_A::BAND_GAP
     }
     #[doc = "Checks if the value of the field is `DACOUT0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_dacout0(&self) -> bool {
-        *self == COMP_VP_SELR::DACOUT0
+        *self == COMP_VP_SEL_A::DACOUT0
     }
 }
-#[doc = "Possible values of the field `COMP_VM_SEL`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum COMP_VM_SELR {
-    #[doc = "VOLTAGE_LADDER_OUTPUT"]
-    VOLTAGE_LADDER_OUTPUT,
-    #[doc = "ACMP_I1"]
-    ACMP_I1,
-    #[doc = "ACMP_I2"]
-    ACMP_I2,
-    #[doc = "ACMP_I3"]
-    ACMP_I3,
-    #[doc = "ACMP_I4"]
-    ACMP_I4,
-    #[doc = "ACMP_I5"]
-    ACMP_I5,
-    #[doc = "Band gap. Internal reference voltage."]
-    BAND_GAP,
-    #[doc = "DAC0 output"]
-    DACOUT0,
+#[doc = "Write proxy for field `COMP_VP_SEL`"]
+pub struct COMP_VP_SEL_W<'a> {
+    w: &'a mut W,
 }
-impl COMP_VM_SELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            COMP_VM_SELR::VOLTAGE_LADDER_OUTPUT => 0,
-            COMP_VM_SELR::ACMP_I1 => 1,
-            COMP_VM_SELR::ACMP_I2 => 2,
-            COMP_VM_SELR::ACMP_I3 => 3,
-            COMP_VM_SELR::ACMP_I4 => 4,
-            COMP_VM_SELR::ACMP_I5 => 5,
-            COMP_VM_SELR::BAND_GAP => 6,
-            COMP_VM_SELR::DACOUT0 => 7,
+impl<'a> COMP_VP_SEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: COMP_VP_SEL_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> COMP_VM_SELR {
-        match value {
-            0 => COMP_VM_SELR::VOLTAGE_LADDER_OUTPUT,
-            1 => COMP_VM_SELR::ACMP_I1,
-            2 => COMP_VM_SELR::ACMP_I2,
-            3 => COMP_VM_SELR::ACMP_I3,
-            4 => COMP_VM_SELR::ACMP_I4,
-            5 => COMP_VM_SELR::ACMP_I5,
-            6 => COMP_VM_SELR::BAND_GAP,
-            7 => COMP_VM_SELR::DACOUT0,
+    #[doc = "VOLTAGE_LADDER_OUTPUT"]
+    #[inline(always)]
+    pub fn voltage_ladder_output(self) -> &'a mut W {
+        self.variant(COMP_VP_SEL_A::VOLTAGE_LADDER_OUTPUT)
+    }
+    #[doc = "ACMP_I1"]
+    #[inline(always)]
+    pub fn acmp_i1(self) -> &'a mut W {
+        self.variant(COMP_VP_SEL_A::ACMP_I1)
+    }
+    #[doc = "ACMP_I2"]
+    #[inline(always)]
+    pub fn acmp_i2(self) -> &'a mut W {
+        self.variant(COMP_VP_SEL_A::ACMP_I2)
+    }
+    #[doc = "ACMP_I3"]
+    #[inline(always)]
+    pub fn acmp_i3(self) -> &'a mut W {
+        self.variant(COMP_VP_SEL_A::ACMP_I3)
+    }
+    #[doc = "ACMP_I4"]
+    #[inline(always)]
+    pub fn acmp_i4(self) -> &'a mut W {
+        self.variant(COMP_VP_SEL_A::ACMP_I4)
+    }
+    #[doc = "ACMP_I5"]
+    #[inline(always)]
+    pub fn acmp_i5(self) -> &'a mut W {
+        self.variant(COMP_VP_SEL_A::ACMP_I5)
+    }
+    #[doc = "Band gap. Internal reference voltage."]
+    #[inline(always)]
+    pub fn band_gap(self) -> &'a mut W {
+        self.variant(COMP_VP_SEL_A::BAND_GAP)
+    }
+    #[doc = "DAC0 output"]
+    #[inline(always)]
+    pub fn dacout0(self) -> &'a mut W {
+        self.variant(COMP_VP_SEL_A::DACOUT0)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x07 << 8)) | (((value as u32) & 0x07) << 8);
+        self.w
+    }
+}
+#[doc = "Selects negative voltage input\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum COMP_VM_SEL_A {
+    #[doc = "0: VOLTAGE_LADDER_OUTPUT"]
+    VOLTAGE_LADDER_OUTPUT,
+    #[doc = "1: ACMP_I1"]
+    ACMP_I1,
+    #[doc = "2: ACMP_I2"]
+    ACMP_I2,
+    #[doc = "3: ACMP_I3"]
+    ACMP_I3,
+    #[doc = "4: ACMP_I4"]
+    ACMP_I4,
+    #[doc = "5: ACMP_I5"]
+    ACMP_I5,
+    #[doc = "6: Band gap. Internal reference voltage."]
+    BAND_GAP,
+    #[doc = "7: DAC0 output"]
+    DACOUT0,
+}
+impl From<COMP_VM_SEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: COMP_VM_SEL_A) -> Self {
+        match variant {
+            COMP_VM_SEL_A::VOLTAGE_LADDER_OUTPUT => 0,
+            COMP_VM_SEL_A::ACMP_I1 => 1,
+            COMP_VM_SEL_A::ACMP_I2 => 2,
+            COMP_VM_SEL_A::ACMP_I3 => 3,
+            COMP_VM_SEL_A::ACMP_I4 => 4,
+            COMP_VM_SEL_A::ACMP_I5 => 5,
+            COMP_VM_SEL_A::BAND_GAP => 6,
+            COMP_VM_SEL_A::DACOUT0 => 7,
+        }
+    }
+}
+#[doc = "Reader of field `COMP_VM_SEL`"]
+pub type COMP_VM_SEL_R = crate::R<u8, COMP_VM_SEL_A>;
+impl COMP_VM_SEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> COMP_VM_SEL_A {
+        match self.bits {
+            0 => COMP_VM_SEL_A::VOLTAGE_LADDER_OUTPUT,
+            1 => COMP_VM_SEL_A::ACMP_I1,
+            2 => COMP_VM_SEL_A::ACMP_I2,
+            3 => COMP_VM_SEL_A::ACMP_I3,
+            4 => COMP_VM_SEL_A::ACMP_I4,
+            5 => COMP_VM_SEL_A::ACMP_I5,
+            6 => COMP_VM_SEL_A::BAND_GAP,
+            7 => COMP_VM_SEL_A::DACOUT0,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `VOLTAGE_LADDER_OUTPUT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_voltage_ladder_output(&self) -> bool {
-        *self == COMP_VM_SELR::VOLTAGE_LADDER_OUTPUT
+        *self == COMP_VM_SEL_A::VOLTAGE_LADDER_OUTPUT
     }
     #[doc = "Checks if the value of the field is `ACMP_I1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i1(&self) -> bool {
-        *self == COMP_VM_SELR::ACMP_I1
+        *self == COMP_VM_SEL_A::ACMP_I1
     }
     #[doc = "Checks if the value of the field is `ACMP_I2`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i2(&self) -> bool {
-        *self == COMP_VM_SELR::ACMP_I2
+        *self == COMP_VM_SEL_A::ACMP_I2
     }
     #[doc = "Checks if the value of the field is `ACMP_I3`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i3(&self) -> bool {
-        *self == COMP_VM_SELR::ACMP_I3
+        *self == COMP_VM_SEL_A::ACMP_I3
     }
     #[doc = "Checks if the value of the field is `ACMP_I4`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i4(&self) -> bool {
-        *self == COMP_VM_SELR::ACMP_I4
+        *self == COMP_VM_SEL_A::ACMP_I4
     }
     #[doc = "Checks if the value of the field is `ACMP_I5`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_i5(&self) -> bool {
-        *self == COMP_VM_SELR::ACMP_I5
+        *self == COMP_VM_SEL_A::ACMP_I5
     }
     #[doc = "Checks if the value of the field is `BAND_GAP`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_band_gap(&self) -> bool {
-        *self == COMP_VM_SELR::BAND_GAP
+        *self == COMP_VM_SEL_A::BAND_GAP
     }
     #[doc = "Checks if the value of the field is `DACOUT0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_dacout0(&self) -> bool {
-        *self == COMP_VM_SELR::DACOUT0
+        *self == COMP_VM_SEL_A::DACOUT0
     }
 }
-#[doc = r" Value of the field"]
-pub struct EDGECLRR {
-    bits: bool,
+#[doc = "Write proxy for field `COMP_VM_SEL`"]
+pub struct COMP_VM_SEL_W<'a> {
+    w: &'a mut W,
 }
-impl EDGECLRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
+impl<'a> COMP_VM_SEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: COMP_VM_SEL_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
+        }
     }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[doc = "VOLTAGE_LADDER_OUTPUT"]
+    #[inline(always)]
+    pub fn voltage_ladder_output(self) -> &'a mut W {
+        self.variant(COMP_VM_SEL_A::VOLTAGE_LADDER_OUTPUT)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = "ACMP_I1"]
+    #[inline(always)]
+    pub fn acmp_i1(self) -> &'a mut W {
+        self.variant(COMP_VM_SEL_A::ACMP_I1)
     }
-}
-#[doc = r" Value of the field"]
-pub struct COMPSTATR {
-    bits: bool,
-}
-impl COMPSTATR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
+    #[doc = "ACMP_I2"]
+    #[inline(always)]
+    pub fn acmp_i2(self) -> &'a mut W {
+        self.variant(COMP_VM_SEL_A::ACMP_I2)
     }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[doc = "ACMP_I3"]
+    #[inline(always)]
+    pub fn acmp_i3(self) -> &'a mut W {
+        self.variant(COMP_VM_SEL_A::ACMP_I3)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = "ACMP_I4"]
+    #[inline(always)]
+    pub fn acmp_i4(self) -> &'a mut W {
+        self.variant(COMP_VM_SEL_A::ACMP_I4)
     }
-}
-#[doc = r" Value of the field"]
-pub struct COMPEDGER {
-    bits: bool,
-}
-impl COMPEDGER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
+    #[doc = "ACMP_I5"]
+    #[inline(always)]
+    pub fn acmp_i5(self) -> &'a mut W {
+        self.variant(COMP_VM_SEL_A::ACMP_I5)
     }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[doc = "Band gap. Internal reference voltage."]
+    #[inline(always)]
+    pub fn band_gap(self) -> &'a mut W {
+        self.variant(COMP_VM_SEL_A::BAND_GAP)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = "DAC0 output"]
+    #[inline(always)]
+    pub fn dacout0(self) -> &'a mut W {
+        self.variant(COMP_VM_SEL_A::DACOUT0)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x07 << 11)) | (((value as u32) & 0x07) << 11);
+        self.w
     }
 }
-#[doc = r" Value of the field"]
-pub struct INTENAR {
-    bits: bool,
+#[doc = "Reader of field `EDGECLR`"]
+pub type EDGECLR_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `EDGECLR`"]
+pub struct EDGECLR_W<'a> {
+    w: &'a mut W,
 }
-impl INTENAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
+impl<'a> EDGECLR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w
     }
 }
-#[doc = "Possible values of the field `HYS`"]
+#[doc = "Reader of field `COMPSTAT`"]
+pub type COMPSTAT_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `COMPSTAT`"]
+pub struct COMPSTAT_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> COMPSTAT_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w
+    }
+}
+#[doc = "Reader of field `COMPEDGE`"]
+pub type COMPEDGE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `COMPEDGE`"]
+pub struct COMPEDGE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> COMPEDGE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w
+    }
+}
+#[doc = "Reader of field `INTENA`"]
+pub type INTENA_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `INTENA`"]
+pub struct INTENA_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> INTENA_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w
+    }
+}
+#[doc = "Controls the hysteresis of the comparator. When the comparator is outputting a certain state, this is the difference between the selected signals, in the opposite direction from the state being output, that will switch the output.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum HYSR {
-    #[doc = "None (the output will switch as the voltages cross)"]
+pub enum HYS_A {
+    #[doc = "0: None (the output will switch as the voltages cross)"]
     HYS_0,
-    #[doc = "5 mv"]
+    #[doc = "1: 5 mv"]
     HYS_1,
-    #[doc = "10 mv"]
+    #[doc = "2: 10 mv"]
     HYS_2,
-    #[doc = "20 mv"]
+    #[doc = "3: 20 mv"]
     HYS_3,
 }
-impl HYSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            HYSR::HYS_0 => 0,
-            HYSR::HYS_1 => 1,
-            HYSR::HYS_2 => 2,
-            HYSR::HYS_3 => 3,
+impl From<HYS_A> for u8 {
+    #[inline(always)]
+    fn from(variant: HYS_A) -> Self {
+        match variant {
+            HYS_A::HYS_0 => 0,
+            HYS_A::HYS_1 => 1,
+            HYS_A::HYS_2 => 2,
+            HYS_A::HYS_3 => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> HYSR {
-        match value {
-            0 => HYSR::HYS_0,
-            1 => HYSR::HYS_1,
-            2 => HYSR::HYS_2,
-            3 => HYSR::HYS_3,
+}
+#[doc = "Reader of field `HYS`"]
+pub type HYS_R = crate::R<u8, HYS_A>;
+impl HYS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> HYS_A {
+        match self.bits {
+            0 => HYS_A::HYS_0,
+            1 => HYS_A::HYS_1,
+            2 => HYS_A::HYS_2,
+            3 => HYS_A::HYS_3,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `HYS_0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_hys_0(&self) -> bool {
-        *self == HYSR::HYS_0
+        *self == HYS_A::HYS_0
     }
     #[doc = "Checks if the value of the field is `HYS_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_hys_1(&self) -> bool {
-        *self == HYSR::HYS_1
+        *self == HYS_A::HYS_1
     }
     #[doc = "Checks if the value of the field is `HYS_2`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_hys_2(&self) -> bool {
-        *self == HYSR::HYS_2
+        *self == HYS_A::HYS_2
     }
     #[doc = "Checks if the value of the field is `HYS_3`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_hys_3(&self) -> bool {
-        *self == HYSR::HYS_3
+        *self == HYS_A::HYS_3
     }
 }
-#[doc = "Values that can be written to the field `EDGESEL`"]
-pub enum EDGESELW {
-    #[doc = "Falling edges"]
-    FALLING_EDGES,
-    #[doc = "Rising edges"]
-    RISING_EDGES,
-    #[doc = "Both edges"]
-    BOTH_EDGES0,
-    #[doc = "Both edges"]
-    BOTH_EDGES1,
-}
-impl EDGESELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            EDGESELW::FALLING_EDGES => 0,
-            EDGESELW::RISING_EDGES => 1,
-            EDGESELW::BOTH_EDGES0 => 2,
-            EDGESELW::BOTH_EDGES1 => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EDGESELW<'a> {
+#[doc = "Write proxy for field `HYS`"]
+pub struct HYS_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EDGESELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EDGESELW) -> &'a mut W {
+impl<'a> HYS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: HYS_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "Falling edges"]
-    #[inline]
-    pub fn falling_edges(self) -> &'a mut W {
-        self.variant(EDGESELW::FALLING_EDGES)
-    }
-    #[doc = "Rising edges"]
-    #[inline]
-    pub fn rising_edges(self) -> &'a mut W {
-        self.variant(EDGESELW::RISING_EDGES)
-    }
-    #[doc = "Both edges"]
-    #[inline]
-    pub fn both_edges0(self) -> &'a mut W {
-        self.variant(EDGESELW::BOTH_EDGES0)
-    }
-    #[doc = "Both edges"]
-    #[inline]
-    pub fn both_edges1(self) -> &'a mut W {
-        self.variant(EDGESELW::BOTH_EDGES1)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `COMPSA`"]
-pub enum COMPSAW {
-    #[doc = "Comparator output is used directly."]
-    COMPSA_0,
-    #[doc = "Comparator output is synchronized to the bus clock for output to other modules."]
-    COMPSA_1,
-}
-impl COMPSAW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            COMPSAW::COMPSA_0 => false,
-            COMPSAW::COMPSA_1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _COMPSAW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _COMPSAW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: COMPSAW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Comparator output is used directly."]
-    #[inline]
-    pub fn compsa_0(self) -> &'a mut W {
-        self.variant(COMPSAW::COMPSA_0)
-    }
-    #[doc = "Comparator output is synchronized to the bus clock for output to other modules."]
-    #[inline]
-    pub fn compsa_1(self) -> &'a mut W {
-        self.variant(COMPSAW::COMPSA_1)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `COMP_VP_SEL`"]
-pub enum COMP_VP_SELW {
-    #[doc = "VOLTAGE_LADDER_OUTPUT"]
-    VOLTAGE_LADDER_OUTPUT,
-    #[doc = "ACMP_I1"]
-    ACMP_I1,
-    #[doc = "ACMP_I2"]
-    ACMP_I2,
-    #[doc = "ACMP_I3"]
-    ACMP_I3,
-    #[doc = "ACMP_I4"]
-    ACMP_I4,
-    #[doc = "ACMP_I5"]
-    ACMP_I5,
-    #[doc = "Band gap. Internal reference voltage."]
-    BAND_GAP,
-    #[doc = "DAC0 output"]
-    DACOUT0,
-}
-impl COMP_VP_SELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            COMP_VP_SELW::VOLTAGE_LADDER_OUTPUT => 0,
-            COMP_VP_SELW::ACMP_I1 => 1,
-            COMP_VP_SELW::ACMP_I2 => 2,
-            COMP_VP_SELW::ACMP_I3 => 3,
-            COMP_VP_SELW::ACMP_I4 => 4,
-            COMP_VP_SELW::ACMP_I5 => 5,
-            COMP_VP_SELW::BAND_GAP => 6,
-            COMP_VP_SELW::DACOUT0 => 7,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _COMP_VP_SELW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _COMP_VP_SELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: COMP_VP_SELW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "VOLTAGE_LADDER_OUTPUT"]
-    #[inline]
-    pub fn voltage_ladder_output(self) -> &'a mut W {
-        self.variant(COMP_VP_SELW::VOLTAGE_LADDER_OUTPUT)
-    }
-    #[doc = "ACMP_I1"]
-    #[inline]
-    pub fn acmp_i1(self) -> &'a mut W {
-        self.variant(COMP_VP_SELW::ACMP_I1)
-    }
-    #[doc = "ACMP_I2"]
-    #[inline]
-    pub fn acmp_i2(self) -> &'a mut W {
-        self.variant(COMP_VP_SELW::ACMP_I2)
-    }
-    #[doc = "ACMP_I3"]
-    #[inline]
-    pub fn acmp_i3(self) -> &'a mut W {
-        self.variant(COMP_VP_SELW::ACMP_I3)
-    }
-    #[doc = "ACMP_I4"]
-    #[inline]
-    pub fn acmp_i4(self) -> &'a mut W {
-        self.variant(COMP_VP_SELW::ACMP_I4)
-    }
-    #[doc = "ACMP_I5"]
-    #[inline]
-    pub fn acmp_i5(self) -> &'a mut W {
-        self.variant(COMP_VP_SELW::ACMP_I5)
-    }
-    #[doc = "Band gap. Internal reference voltage."]
-    #[inline]
-    pub fn band_gap(self) -> &'a mut W {
-        self.variant(COMP_VP_SELW::BAND_GAP)
-    }
-    #[doc = "DAC0 output"]
-    #[inline]
-    pub fn dacout0(self) -> &'a mut W {
-        self.variant(COMP_VP_SELW::DACOUT0)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `COMP_VM_SEL`"]
-pub enum COMP_VM_SELW {
-    #[doc = "VOLTAGE_LADDER_OUTPUT"]
-    VOLTAGE_LADDER_OUTPUT,
-    #[doc = "ACMP_I1"]
-    ACMP_I1,
-    #[doc = "ACMP_I2"]
-    ACMP_I2,
-    #[doc = "ACMP_I3"]
-    ACMP_I3,
-    #[doc = "ACMP_I4"]
-    ACMP_I4,
-    #[doc = "ACMP_I5"]
-    ACMP_I5,
-    #[doc = "Band gap. Internal reference voltage."]
-    BAND_GAP,
-    #[doc = "DAC0 output"]
-    DACOUT0,
-}
-impl COMP_VM_SELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            COMP_VM_SELW::VOLTAGE_LADDER_OUTPUT => 0,
-            COMP_VM_SELW::ACMP_I1 => 1,
-            COMP_VM_SELW::ACMP_I2 => 2,
-            COMP_VM_SELW::ACMP_I3 => 3,
-            COMP_VM_SELW::ACMP_I4 => 4,
-            COMP_VM_SELW::ACMP_I5 => 5,
-            COMP_VM_SELW::BAND_GAP => 6,
-            COMP_VM_SELW::DACOUT0 => 7,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _COMP_VM_SELW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _COMP_VM_SELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: COMP_VM_SELW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "VOLTAGE_LADDER_OUTPUT"]
-    #[inline]
-    pub fn voltage_ladder_output(self) -> &'a mut W {
-        self.variant(COMP_VM_SELW::VOLTAGE_LADDER_OUTPUT)
-    }
-    #[doc = "ACMP_I1"]
-    #[inline]
-    pub fn acmp_i1(self) -> &'a mut W {
-        self.variant(COMP_VM_SELW::ACMP_I1)
-    }
-    #[doc = "ACMP_I2"]
-    #[inline]
-    pub fn acmp_i2(self) -> &'a mut W {
-        self.variant(COMP_VM_SELW::ACMP_I2)
-    }
-    #[doc = "ACMP_I3"]
-    #[inline]
-    pub fn acmp_i3(self) -> &'a mut W {
-        self.variant(COMP_VM_SELW::ACMP_I3)
-    }
-    #[doc = "ACMP_I4"]
-    #[inline]
-    pub fn acmp_i4(self) -> &'a mut W {
-        self.variant(COMP_VM_SELW::ACMP_I4)
-    }
-    #[doc = "ACMP_I5"]
-    #[inline]
-    pub fn acmp_i5(self) -> &'a mut W {
-        self.variant(COMP_VM_SELW::ACMP_I5)
-    }
-    #[doc = "Band gap. Internal reference voltage."]
-    #[inline]
-    pub fn band_gap(self) -> &'a mut W {
-        self.variant(COMP_VM_SELW::BAND_GAP)
-    }
-    #[doc = "DAC0 output"]
-    #[inline]
-    pub fn dacout0(self) -> &'a mut W {
-        self.variant(COMP_VM_SELW::DACOUT0)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EDGECLRW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EDGECLRW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _COMPSTATW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _COMPSTATW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 21;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _COMPEDGEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _COMPEDGEW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _INTENAW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _INTENAW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `HYS`"]
-pub enum HYSW {
-    #[doc = "None (the output will switch as the voltages cross)"]
-    HYS_0,
-    #[doc = "5 mv"]
-    HYS_1,
-    #[doc = "10 mv"]
-    HYS_2,
-    #[doc = "20 mv"]
-    HYS_3,
-}
-impl HYSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            HYSW::HYS_0 => 0,
-            HYSW::HYS_1 => 1,
-            HYSW::HYS_2 => 2,
-            HYSW::HYS_3 => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _HYSW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _HYSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: HYSW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "None (the output will switch as the voltages cross)"]
-    #[inline]
+    #[inline(always)]
     pub fn hys_0(self) -> &'a mut W {
-        self.variant(HYSW::HYS_0)
+        self.variant(HYS_A::HYS_0)
     }
     #[doc = "5 mv"]
-    #[inline]
+    #[inline(always)]
     pub fn hys_1(self) -> &'a mut W {
-        self.variant(HYSW::HYS_1)
+        self.variant(HYS_A::HYS_1)
     }
     #[doc = "10 mv"]
-    #[inline]
+    #[inline(always)]
     pub fn hys_2(self) -> &'a mut W {
-        self.variant(HYSW::HYS_2)
+        self.variant(HYS_A::HYS_2)
     }
     #[doc = "20 mv"]
-    #[inline]
+    #[inline(always)]
     pub fn hys_3(self) -> &'a mut W {
-        self.variant(HYSW::HYS_3)
+        self.variant(HYS_A::HYS_3)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 25;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 25)) | (((value as u32) & 0x03) << 25);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 3:4 - This field controls which edges on the comparator output set the COMPEDGE bit (bit 23 below):"]
-    #[inline]
-    pub fn edgesel(&self) -> EDGESELR {
-        EDGESELR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn edgesel(&self) -> EDGESEL_R {
+        EDGESEL_R::new(((self.bits >> 3) & 0x03) as u8)
     }
     #[doc = "Bit 6 - Comparator output control"]
-    #[inline]
-    pub fn compsa(&self) -> COMPSAR {
-        COMPSAR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn compsa(&self) -> COMPSA_R {
+        COMPSA_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bits 8:10 - Selects positive voltage input"]
-    #[inline]
-    pub fn comp_vp_sel(&self) -> COMP_VP_SELR {
-        COMP_VP_SELR::_from({
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn comp_vp_sel(&self) -> COMP_VP_SEL_R {
+        COMP_VP_SEL_R::new(((self.bits >> 8) & 0x07) as u8)
     }
     #[doc = "Bits 11:13 - Selects negative voltage input"]
-    #[inline]
-    pub fn comp_vm_sel(&self) -> COMP_VM_SELR {
-        COMP_VM_SELR::_from({
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn comp_vm_sel(&self) -> COMP_VM_SEL_R {
+        COMP_VM_SEL_R::new(((self.bits >> 11) & 0x07) as u8)
     }
     #[doc = "Bit 20 - Interrupt clear bit. To clear the COMPEDGE bit and thus negate the interrupt request, toggle the EDGECLR bit by first writing a 1 and then a 0."]
-    #[inline]
-    pub fn edgeclr(&self) -> EDGECLRR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EDGECLRR { bits }
+    #[inline(always)]
+    pub fn edgeclr(&self) -> EDGECLR_R {
+        EDGECLR_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - Comparator status. This bit reflects the state of the comparator output."]
-    #[inline]
-    pub fn compstat(&self) -> COMPSTATR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        COMPSTATR { bits }
+    #[inline(always)]
+    pub fn compstat(&self) -> COMPSTAT_R {
+        COMPSTAT_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Comparator edge-detect status."]
-    #[inline]
-    pub fn compedge(&self) -> COMPEDGER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        COMPEDGER { bits }
+    #[inline(always)]
+    pub fn compedge(&self) -> COMPEDGE_R {
+        COMPEDGE_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bit 24 - Must be set to generate interrupts."]
-    #[inline]
-    pub fn intena(&self) -> INTENAR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        INTENAR { bits }
+    #[inline(always)]
+    pub fn intena(&self) -> INTENA_R {
+        INTENA_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bits 25:26 - Controls the hysteresis of the comparator. When the comparator is outputting a certain state, this is the difference between the selected signals, in the opposite direction from the state being output, that will switch the output."]
-    #[inline]
-    pub fn hys(&self) -> HYSR {
-        HYSR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn hys(&self) -> HYS_R {
+        HYS_R::new(((self.bits >> 25) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 3:4 - This field controls which edges on the comparator output set the COMPEDGE bit (bit 23 below):"]
-    #[inline]
-    pub fn edgesel(&mut self) -> _EDGESELW {
-        _EDGESELW { w: self }
+    #[inline(always)]
+    pub fn edgesel(&mut self) -> EDGESEL_W {
+        EDGESEL_W { w: self }
     }
     #[doc = "Bit 6 - Comparator output control"]
-    #[inline]
-    pub fn compsa(&mut self) -> _COMPSAW {
-        _COMPSAW { w: self }
+    #[inline(always)]
+    pub fn compsa(&mut self) -> COMPSA_W {
+        COMPSA_W { w: self }
     }
     #[doc = "Bits 8:10 - Selects positive voltage input"]
-    #[inline]
-    pub fn comp_vp_sel(&mut self) -> _COMP_VP_SELW {
-        _COMP_VP_SELW { w: self }
+    #[inline(always)]
+    pub fn comp_vp_sel(&mut self) -> COMP_VP_SEL_W {
+        COMP_VP_SEL_W { w: self }
     }
     #[doc = "Bits 11:13 - Selects negative voltage input"]
-    #[inline]
-    pub fn comp_vm_sel(&mut self) -> _COMP_VM_SELW {
-        _COMP_VM_SELW { w: self }
+    #[inline(always)]
+    pub fn comp_vm_sel(&mut self) -> COMP_VM_SEL_W {
+        COMP_VM_SEL_W { w: self }
     }
     #[doc = "Bit 20 - Interrupt clear bit. To clear the COMPEDGE bit and thus negate the interrupt request, toggle the EDGECLR bit by first writing a 1 and then a 0."]
-    #[inline]
-    pub fn edgeclr(&mut self) -> _EDGECLRW {
-        _EDGECLRW { w: self }
+    #[inline(always)]
+    pub fn edgeclr(&mut self) -> EDGECLR_W {
+        EDGECLR_W { w: self }
     }
     #[doc = "Bit 21 - Comparator status. This bit reflects the state of the comparator output."]
-    #[inline]
-    pub fn compstat(&mut self) -> _COMPSTATW {
-        _COMPSTATW { w: self }
+    #[inline(always)]
+    pub fn compstat(&mut self) -> COMPSTAT_W {
+        COMPSTAT_W { w: self }
     }
     #[doc = "Bit 23 - Comparator edge-detect status."]
-    #[inline]
-    pub fn compedge(&mut self) -> _COMPEDGEW {
-        _COMPEDGEW { w: self }
+    #[inline(always)]
+    pub fn compedge(&mut self) -> COMPEDGE_W {
+        COMPEDGE_W { w: self }
     }
     #[doc = "Bit 24 - Must be set to generate interrupts."]
-    #[inline]
-    pub fn intena(&mut self) -> _INTENAW {
-        _INTENAW { w: self }
+    #[inline(always)]
+    pub fn intena(&mut self) -> INTENA_W {
+        INTENA_W { w: self }
     }
     #[doc = "Bits 25:26 - Controls the hysteresis of the comparator. When the comparator is outputting a certain state, this is the difference between the selected signals, in the opposite direction from the state being output, that will switch the output."]
-    #[inline]
-    pub fn hys(&mut self) -> _HYSW {
-        _HYSW { w: self }
+    #[inline(always)]
+    pub fn hys(&mut self) -> HYS_W {
+        HYS_W { w: self }
     }
 }

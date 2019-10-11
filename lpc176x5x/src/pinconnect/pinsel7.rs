@@ -1,317 +1,214 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PINSEL7 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PINSEL7"]
+pub type R = crate::R<u32, super::PINSEL7>;
+#[doc = "Writer for register PINSEL7"]
+pub type W = crate::W<u32, super::PINSEL7>;
+#[doc = "Register PINSEL7 `reset()`'s with value 0"]
+impl crate::ResetValue for super::PINSEL7 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `P3_25`"]
+#[doc = "Pin function select P3.25.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum P3_25R {
-    #[doc = "GPIO P3.25"]
+pub enum P3_25_A {
+    #[doc = "0: GPIO P3.25"]
     GPIO_P3,
-    #[doc = "MAT0.0"]
+    #[doc = "2: MAT0.0"]
     MAT0,
-    #[doc = "PWM1.2"]
+    #[doc = "3: PWM1.2"]
     PWM1,
 }
-impl P3_25R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            P3_25R::GPIO_P3 => 0,
-            P3_25R::MAT0 => 2,
-            P3_25R::PWM1 => 3,
+impl From<P3_25_A> for u8 {
+    #[inline(always)]
+    fn from(variant: P3_25_A) -> Self {
+        match variant {
+            P3_25_A::GPIO_P3 => 0,
+            P3_25_A::MAT0 => 2,
+            P3_25_A::PWM1 => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> P3_25R {
-        match value {
-            0 => P3_25R::GPIO_P3,
-            2 => P3_25R::MAT0,
-            3 => P3_25R::PWM1,
+}
+#[doc = "Reader of field `P3_25`"]
+pub type P3_25_R = crate::R<u8, P3_25_A>;
+impl P3_25_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> P3_25_A {
+        match self.bits {
+            0 => P3_25_A::GPIO_P3,
+            2 => P3_25_A::MAT0,
+            3 => P3_25_A::PWM1,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `GPIO_P3`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_gpio_p3(&self) -> bool {
-        *self == P3_25R::GPIO_P3
+        *self == P3_25_A::GPIO_P3
     }
     #[doc = "Checks if the value of the field is `MAT0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_mat0(&self) -> bool {
-        *self == P3_25R::MAT0
+        *self == P3_25_A::MAT0
     }
     #[doc = "Checks if the value of the field is `PWM1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pwm1(&self) -> bool {
-        *self == P3_25R::PWM1
+        *self == P3_25_A::PWM1
     }
 }
-#[doc = "Possible values of the field `P3_26`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum P3_26R {
-    #[doc = "GPIO P3.26"]
-    GPIO_P3,
-    #[doc = "STCLK"]
-    STCLK,
-    #[doc = "MAT0.1"]
-    MAT0,
-    #[doc = "PWM1.3"]
-    PWM1,
-}
-impl P3_26R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            P3_26R::GPIO_P3 => 0,
-            P3_26R::STCLK => 1,
-            P3_26R::MAT0 => 2,
-            P3_26R::PWM1 => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> P3_26R {
-        match value {
-            0 => P3_26R::GPIO_P3,
-            1 => P3_26R::STCLK,
-            2 => P3_26R::MAT0,
-            3 => P3_26R::PWM1,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `GPIO_P3`"]
-    #[inline]
-    pub fn is_gpio_p3(&self) -> bool {
-        *self == P3_26R::GPIO_P3
-    }
-    #[doc = "Checks if the value of the field is `STCLK`"]
-    #[inline]
-    pub fn is_stclk(&self) -> bool {
-        *self == P3_26R::STCLK
-    }
-    #[doc = "Checks if the value of the field is `MAT0`"]
-    #[inline]
-    pub fn is_mat0(&self) -> bool {
-        *self == P3_26R::MAT0
-    }
-    #[doc = "Checks if the value of the field is `PWM1`"]
-    #[inline]
-    pub fn is_pwm1(&self) -> bool {
-        *self == P3_26R::PWM1
-    }
-}
-#[doc = "Values that can be written to the field `P3_25`"]
-pub enum P3_25W {
-    #[doc = "GPIO P3.25"]
-    GPIO_P3,
-    #[doc = "MAT0.0"]
-    MAT0,
-    #[doc = "PWM1.2"]
-    PWM1,
-}
-impl P3_25W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            P3_25W::GPIO_P3 => 0,
-            P3_25W::MAT0 => 2,
-            P3_25W::PWM1 => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _P3_25W<'a> {
+#[doc = "Write proxy for field `P3_25`"]
+pub struct P3_25_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _P3_25W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: P3_25W) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> P3_25_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: P3_25_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "GPIO P3.25"]
-    #[inline]
+    #[inline(always)]
     pub fn gpio_p3(self) -> &'a mut W {
-        self.variant(P3_25W::GPIO_P3)
+        self.variant(P3_25_A::GPIO_P3)
     }
     #[doc = "MAT0.0"]
-    #[inline]
+    #[inline(always)]
     pub fn mat0(self) -> &'a mut W {
-        self.variant(P3_25W::MAT0)
+        self.variant(P3_25_A::MAT0)
     }
     #[doc = "PWM1.2"]
-    #[inline]
+    #[inline(always)]
     pub fn pwm1(self) -> &'a mut W {
-        self.variant(P3_25W::PWM1)
+        self.variant(P3_25_A::PWM1)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 18)) | (((value as u32) & 0x03) << 18);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `P3_26`"]
-pub enum P3_26W {
-    #[doc = "GPIO P3.26"]
+#[doc = "Pin function select P3.26.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum P3_26_A {
+    #[doc = "0: GPIO P3.26"]
     GPIO_P3,
-    #[doc = "STCLK"]
+    #[doc = "1: STCLK"]
     STCLK,
-    #[doc = "MAT0.1"]
+    #[doc = "2: MAT0.1"]
     MAT0,
-    #[doc = "PWM1.3"]
+    #[doc = "3: PWM1.3"]
     PWM1,
 }
-impl P3_26W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            P3_26W::GPIO_P3 => 0,
-            P3_26W::STCLK => 1,
-            P3_26W::MAT0 => 2,
-            P3_26W::PWM1 => 3,
+impl From<P3_26_A> for u8 {
+    #[inline(always)]
+    fn from(variant: P3_26_A) -> Self {
+        match variant {
+            P3_26_A::GPIO_P3 => 0,
+            P3_26_A::STCLK => 1,
+            P3_26_A::MAT0 => 2,
+            P3_26_A::PWM1 => 3,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _P3_26W<'a> {
+#[doc = "Reader of field `P3_26`"]
+pub type P3_26_R = crate::R<u8, P3_26_A>;
+impl P3_26_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> P3_26_A {
+        match self.bits {
+            0 => P3_26_A::GPIO_P3,
+            1 => P3_26_A::STCLK,
+            2 => P3_26_A::MAT0,
+            3 => P3_26_A::PWM1,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `GPIO_P3`"]
+    #[inline(always)]
+    pub fn is_gpio_p3(&self) -> bool {
+        *self == P3_26_A::GPIO_P3
+    }
+    #[doc = "Checks if the value of the field is `STCLK`"]
+    #[inline(always)]
+    pub fn is_stclk(&self) -> bool {
+        *self == P3_26_A::STCLK
+    }
+    #[doc = "Checks if the value of the field is `MAT0`"]
+    #[inline(always)]
+    pub fn is_mat0(&self) -> bool {
+        *self == P3_26_A::MAT0
+    }
+    #[doc = "Checks if the value of the field is `PWM1`"]
+    #[inline(always)]
+    pub fn is_pwm1(&self) -> bool {
+        *self == P3_26_A::PWM1
+    }
+}
+#[doc = "Write proxy for field `P3_26`"]
+pub struct P3_26_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _P3_26W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: P3_26W) -> &'a mut W {
+impl<'a> P3_26_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: P3_26_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "GPIO P3.26"]
-    #[inline]
+    #[inline(always)]
     pub fn gpio_p3(self) -> &'a mut W {
-        self.variant(P3_26W::GPIO_P3)
+        self.variant(P3_26_A::GPIO_P3)
     }
     #[doc = "STCLK"]
-    #[inline]
+    #[inline(always)]
     pub fn stclk(self) -> &'a mut W {
-        self.variant(P3_26W::STCLK)
+        self.variant(P3_26_A::STCLK)
     }
     #[doc = "MAT0.1"]
-    #[inline]
+    #[inline(always)]
     pub fn mat0(self) -> &'a mut W {
-        self.variant(P3_26W::MAT0)
+        self.variant(P3_26_A::MAT0)
     }
     #[doc = "PWM1.3"]
-    #[inline]
+    #[inline(always)]
     pub fn pwm1(self) -> &'a mut W {
-        self.variant(P3_26W::PWM1)
+        self.variant(P3_26_A::PWM1)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 20)) | (((value as u32) & 0x03) << 20);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 18:19 - Pin function select P3.25."]
-    #[inline]
-    pub fn p3_25(&self) -> P3_25R {
-        P3_25R::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn p3_25(&self) -> P3_25_R {
+        P3_25_R::new(((self.bits >> 18) & 0x03) as u8)
     }
     #[doc = "Bits 20:21 - Pin function select P3.26."]
-    #[inline]
-    pub fn p3_26(&self) -> P3_26R {
-        P3_26R::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn p3_26(&self) -> P3_26_R {
+        P3_26_R::new(((self.bits >> 20) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 18:19 - Pin function select P3.25."]
-    #[inline]
-    pub fn p3_25(&mut self) -> _P3_25W {
-        _P3_25W { w: self }
+    #[inline(always)]
+    pub fn p3_25(&mut self) -> P3_25_W {
+        P3_25_W { w: self }
     }
     #[doc = "Bits 20:21 - Pin function select P3.26."]
-    #[inline]
-    pub fn p3_26(&mut self) -> _P3_26W {
-        _P3_26W { w: self }
+    #[inline(always)]
+    pub fn p3_26(&mut self) -> P3_26_W {
+        P3_26_W { w: self }
     }
 }

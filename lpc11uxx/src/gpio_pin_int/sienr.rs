@@ -1,253 +1,228 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SIENR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register SIENR"]
+pub type W = crate::W<u32, super::SIENR>;
+#[doc = "Register SIENR `reset()`'s with value 0"]
+impl crate::ResetValue for super::SIENR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Proxy"]
-pub struct _SETENRL0W<'a> {
+#[doc = "Write proxy for field `SETENRL0`"]
+pub struct SETENRL0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SETENRL0W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SETENRL0_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SETENRL1W<'a> {
+#[doc = "Write proxy for field `SETENRL1`"]
+pub struct SETENRL1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SETENRL1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SETENRL1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SETENRL2W<'a> {
+#[doc = "Write proxy for field `SETENRL2`"]
+pub struct SETENRL2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SETENRL2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SETENRL2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SETENRL3W<'a> {
+#[doc = "Write proxy for field `SETENRL3`"]
+pub struct SETENRL3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SETENRL3W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SETENRL3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SETENRL4W<'a> {
+#[doc = "Write proxy for field `SETENRL4`"]
+pub struct SETENRL4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SETENRL4W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SETENRL4_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SETENRL5W<'a> {
+#[doc = "Write proxy for field `SETENRL5`"]
+pub struct SETENRL5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SETENRL5W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SETENRL5_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SETENRL6W<'a> {
+#[doc = "Write proxy for field `SETENRL6`"]
+pub struct SETENRL6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SETENRL6W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SETENRL6_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SETENRL7W<'a> {
+#[doc = "Write proxy for field `SETENRL7`"]
+pub struct SETENRL7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SETENRL7W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SETENRL7_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Ones written to this address set bits in the PINTEN_R, thus enabling interrupts. Bit n sets bit n in the PINTEN_R register. 0 = No operation. 1 = Enable rising edge or level interrupt."]
-    #[inline]
-    pub fn setenrl0(&mut self) -> _SETENRL0W {
-        _SETENRL0W { w: self }
+    #[inline(always)]
+    pub fn setenrl0(&mut self) -> SETENRL0_W {
+        SETENRL0_W { w: self }
     }
     #[doc = "Bit 1 - Ones written to this address set bits in the PINTEN_R, thus enabling interrupts. Bit n sets bit n in the PINTEN_R register. 0 = No operation. 1 = Enable rising edge or level interrupt."]
-    #[inline]
-    pub fn setenrl1(&mut self) -> _SETENRL1W {
-        _SETENRL1W { w: self }
+    #[inline(always)]
+    pub fn setenrl1(&mut self) -> SETENRL1_W {
+        SETENRL1_W { w: self }
     }
     #[doc = "Bit 2 - Ones written to this address set bits in the PINTEN_R, thus enabling interrupts. Bit n sets bit n in the PINTEN_R register. 0 = No operation. 1 = Enable rising edge or level interrupt."]
-    #[inline]
-    pub fn setenrl2(&mut self) -> _SETENRL2W {
-        _SETENRL2W { w: self }
+    #[inline(always)]
+    pub fn setenrl2(&mut self) -> SETENRL2_W {
+        SETENRL2_W { w: self }
     }
     #[doc = "Bit 3 - Ones written to this address set bits in the PINTEN_R, thus enabling interrupts. Bit n sets bit n in the PINTEN_R register. 0 = No operation. 1 = Enable rising edge or level interrupt."]
-    #[inline]
-    pub fn setenrl3(&mut self) -> _SETENRL3W {
-        _SETENRL3W { w: self }
+    #[inline(always)]
+    pub fn setenrl3(&mut self) -> SETENRL3_W {
+        SETENRL3_W { w: self }
     }
     #[doc = "Bit 4 - Ones written to this address set bits in the PINTEN_R, thus enabling interrupts. Bit n sets bit n in the PINTEN_R register. 0 = No operation. 1 = Enable rising edge or level interrupt."]
-    #[inline]
-    pub fn setenrl4(&mut self) -> _SETENRL4W {
-        _SETENRL4W { w: self }
+    #[inline(always)]
+    pub fn setenrl4(&mut self) -> SETENRL4_W {
+        SETENRL4_W { w: self }
     }
     #[doc = "Bit 5 - Ones written to this address set bits in the PINTEN_R, thus enabling interrupts. Bit n sets bit n in the PINTEN_R register. 0 = No operation. 1 = Enable rising edge or level interrupt."]
-    #[inline]
-    pub fn setenrl5(&mut self) -> _SETENRL5W {
-        _SETENRL5W { w: self }
+    #[inline(always)]
+    pub fn setenrl5(&mut self) -> SETENRL5_W {
+        SETENRL5_W { w: self }
     }
     #[doc = "Bit 6 - Ones written to this address set bits in the PINTEN_R, thus enabling interrupts. Bit n sets bit n in the PINTEN_R register. 0 = No operation. 1 = Enable rising edge or level interrupt."]
-    #[inline]
-    pub fn setenrl6(&mut self) -> _SETENRL6W {
-        _SETENRL6W { w: self }
+    #[inline(always)]
+    pub fn setenrl6(&mut self) -> SETENRL6_W {
+        SETENRL6_W { w: self }
     }
     #[doc = "Bit 7 - Ones written to this address set bits in the PINTEN_R, thus enabling interrupts. Bit n sets bit n in the PINTEN_R register. 0 = No operation. 1 = Enable rising edge or level interrupt."]
-    #[inline]
-    pub fn setenrl7(&mut self) -> _SETENRL7W {
-        _SETENRL7W { w: self }
+    #[inline(always)]
+    pub fn setenrl7(&mut self) -> SETENRL7_W {
+        SETENRL7_W { w: self }
     }
 }

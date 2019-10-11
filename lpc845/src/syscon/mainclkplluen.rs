@@ -1,183 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::MAINCLKPLLUEN {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register MAINCLKPLLUEN"]
+pub type R = crate::R<u32, super::MAINCLKPLLUEN>;
+#[doc = "Writer for register MAINCLKPLLUEN"]
+pub type W = crate::W<u32, super::MAINCLKPLLUEN>;
+#[doc = "Register MAINCLKPLLUEN `reset()`'s with value 0"]
+impl crate::ResetValue for super::MAINCLKPLLUEN {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `ENA`"]
+#[doc = "Enable main clock source update\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ENAR {
-    #[doc = "no change"]
+pub enum ENA_A {
+    #[doc = "0: no change"]
     NO_CHANGE,
-    #[doc = "update clock source"]
+    #[doc = "1: update clock source"]
     UPDATED,
 }
-impl ENAR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ENAR::NO_CHANGE => false,
-            ENAR::UPDATED => true,
+impl From<ENA_A> for bool {
+    #[inline(always)]
+    fn from(variant: ENA_A) -> Self {
+        match variant {
+            ENA_A::NO_CHANGE => false,
+            ENA_A::UPDATED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ENAR {
-        match value {
-            false => ENAR::NO_CHANGE,
-            true => ENAR::UPDATED,
+}
+#[doc = "Reader of field `ENA`"]
+pub type ENA_R = crate::R<bool, ENA_A>;
+impl ENA_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ENA_A {
+        match self.bits {
+            false => ENA_A::NO_CHANGE,
+            true => ENA_A::UPDATED,
         }
     }
     #[doc = "Checks if the value of the field is `NO_CHANGE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_change(&self) -> bool {
-        *self == ENAR::NO_CHANGE
+        *self == ENA_A::NO_CHANGE
     }
     #[doc = "Checks if the value of the field is `UPDATED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_updated(&self) -> bool {
-        *self == ENAR::UPDATED
+        *self == ENA_A::UPDATED
     }
 }
-#[doc = "Values that can be written to the field `ENA`"]
-pub enum ENAW {
-    #[doc = "no change"]
-    NO_CHANGE,
-    #[doc = "update clock source"]
-    UPDATED,
-}
-impl ENAW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ENAW::NO_CHANGE => false,
-            ENAW::UPDATED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ENAW<'a> {
+#[doc = "Write proxy for field `ENA`"]
+pub struct ENA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ENAW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ENAW) -> &'a mut W {
+impl<'a> ENA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ENA_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "no change"]
-    #[inline]
+    #[inline(always)]
     pub fn no_change(self) -> &'a mut W {
-        self.variant(ENAW::NO_CHANGE)
+        self.variant(ENA_A::NO_CHANGE)
     }
     #[doc = "update clock source"]
-    #[inline]
+    #[inline(always)]
     pub fn updated(self) -> &'a mut W {
-        self.variant(ENAW::UPDATED)
+        self.variant(ENA_A::UPDATED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Enable main clock source update"]
-    #[inline]
-    pub fn ena(&self) -> ENAR {
-        ENAR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ena(&self) -> ENA_R {
+        ENA_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Enable main clock source update"]
-    #[inline]
-    pub fn ena(&mut self) -> _ENAW {
-        _ENAW { w: self }
+    #[inline(always)]
+    pub fn ena(&mut self) -> ENA_W {
+        ENA_W { w: self }
     }
 }

@@ -1,541 +1,292 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::STCTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register STCTRL"]
+pub type R = crate::R<u32, super::STCTRL>;
+#[doc = "Writer for register STCTRL"]
+pub type W = crate::W<u32, super::STCTRL>;
+#[doc = "Register STCTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::STCTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct PORT_FUNCR {
-    bits: u8,
-}
-impl PORT_FUNCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TMR_SCALER {
-    bits: u8,
-}
-impl TMR_SCALER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TMR_MODER {
-    bits: bool,
-}
-impl TMR_MODER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TMR_ENR {
-    bits: bool,
-}
-impl TMR_ENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TMR_RSTR {
-    bits: bool,
-}
-impl TMR_RSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct B_HNP_TRACKR {
-    bits: bool,
-}
-impl B_HNP_TRACKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct A_HNP_TRACKR {
-    bits: bool,
-}
-impl A_HNP_TRACKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PU_REMOVEDR {
-    bits: bool,
-}
-impl PU_REMOVEDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TMR_CNTR {
-    bits: u16,
-}
-impl TMR_CNTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PORT_FUNCW<'a> {
+#[doc = "Reader of field `PORT_FUNC`"]
+pub type PORT_FUNC_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PORT_FUNC`"]
+pub struct PORT_FUNC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PORT_FUNCW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> PORT_FUNC_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TMR_SCALEW<'a> {
+#[doc = "Reader of field `TMR_SCALE`"]
+pub type TMR_SCALE_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `TMR_SCALE`"]
+pub struct TMR_SCALE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TMR_SCALEW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> TMR_SCALE_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TMR_MODEW<'a> {
+#[doc = "Reader of field `TMR_MODE`"]
+pub type TMR_MODE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TMR_MODE`"]
+pub struct TMR_MODE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TMR_MODEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TMR_MODE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TMR_ENW<'a> {
+#[doc = "Reader of field `TMR_EN`"]
+pub type TMR_EN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TMR_EN`"]
+pub struct TMR_EN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TMR_ENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TMR_EN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TMR_RSTW<'a> {
+#[doc = "Reader of field `TMR_RST`"]
+pub type TMR_RST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TMR_RST`"]
+pub struct TMR_RST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TMR_RSTW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TMR_RST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _B_HNP_TRACKW<'a> {
+#[doc = "Reader of field `B_HNP_TRACK`"]
+pub type B_HNP_TRACK_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `B_HNP_TRACK`"]
+pub struct B_HNP_TRACK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _B_HNP_TRACKW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> B_HNP_TRACK_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _A_HNP_TRACKW<'a> {
+#[doc = "Reader of field `A_HNP_TRACK`"]
+pub type A_HNP_TRACK_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `A_HNP_TRACK`"]
+pub struct A_HNP_TRACK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _A_HNP_TRACKW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> A_HNP_TRACK_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PU_REMOVEDW<'a> {
+#[doc = "Reader of field `PU_REMOVED`"]
+pub type PU_REMOVED_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PU_REMOVED`"]
+pub struct PU_REMOVED_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PU_REMOVEDW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PU_REMOVED_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TMR_CNTW<'a> {
+#[doc = "Reader of field `TMR_CNT`"]
+pub type TMR_CNT_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `TMR_CNT`"]
+pub struct TMR_CNT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TMR_CNTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> TMR_CNT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 65535;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xffff << 16)) | (((value as u32) & 0xffff) << 16);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Controls connection of USB functions (see Figure 51). Bit 0 is set or cleared by hardware when B_HNP_TRACK or A_HNP_TRACK is set and HNP succeeds. See Section 14.9. 00: U1 = device (OTG), U2 = host 01: U1 = host (OTG), U2 = host 10: Reserved 11: U1 = host, U2 = device In a device-only configuration, the following values are allowed: 00: U1 = device. The USB device controller signals are mapped to the U1 port: USB_CONNECT1, USB_UP_LED1, USB_D+1, USB_D-1. 11: U2 = device. The USB device controller signals are mapped to the U2 port: USB_CONNECT2, USB_UP_LED2, USB_D+2, USB_D-2."]
-    #[inline]
-    pub fn port_func(&self) -> PORT_FUNCR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        PORT_FUNCR { bits }
+    #[inline(always)]
+    pub fn port_func(&self) -> PORT_FUNC_R {
+        PORT_FUNC_R::new((self.bits & 0x03) as u8)
     }
     #[doc = "Bits 2:3 - Timer scale selection. This field determines the duration of each timer count. 00: 10 ms (100 KHz) 01: 100 ms (10 KHz) 10: 1000 ms (1 KHz) 11: Reserved"]
-    #[inline]
-    pub fn tmr_scale(&self) -> TMR_SCALER {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        TMR_SCALER { bits }
+    #[inline(always)]
+    pub fn tmr_scale(&self) -> TMR_SCALE_R {
+        TMR_SCALE_R::new(((self.bits >> 2) & 0x03) as u8)
     }
     #[doc = "Bit 4 - Timer mode selection. 0: monoshot 1: free running"]
-    #[inline]
-    pub fn tmr_mode(&self) -> TMR_MODER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TMR_MODER { bits }
+    #[inline(always)]
+    pub fn tmr_mode(&self) -> TMR_MODE_R {
+        TMR_MODE_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Timer enable. When set, TMR_CNT increments. When cleared, TMR_CNT is reset to 0."]
-    #[inline]
-    pub fn tmr_en(&self) -> TMR_ENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TMR_ENR { bits }
+    #[inline(always)]
+    pub fn tmr_en(&self) -> TMR_EN_R {
+        TMR_EN_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Timer reset. Writing one to this bit resets TMR_CNT to 0. This provides a single bit control for the software to restart the timer when the timer is enabled."]
-    #[inline]
-    pub fn tmr_rst(&self) -> TMR_RSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TMR_RSTR { bits }
+    #[inline(always)]
+    pub fn tmr_rst(&self) -> TMR_RST_R {
+        TMR_RST_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Enable HNP tracking for B-device (peripheral), see Section 14.9. Hardware clears this bit when HNP_SUCCESS or HNP_FAILURE is set."]
-    #[inline]
-    pub fn b_hnp_track(&self) -> B_HNP_TRACKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        B_HNP_TRACKR { bits }
+    #[inline(always)]
+    pub fn b_hnp_track(&self) -> B_HNP_TRACK_R {
+        B_HNP_TRACK_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Enable HNP tracking for A-device (host), see Section 14.9. Hardware clears this bit when HNP_SUCCESS or HNP_FAILURE is set."]
-    #[inline]
-    pub fn a_hnp_track(&self) -> A_HNP_TRACKR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        A_HNP_TRACKR { bits }
+    #[inline(always)]
+    pub fn a_hnp_track(&self) -> A_HNP_TRACK_R {
+        A_HNP_TRACK_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - When the B-device changes its role from peripheral to host, software sets this bit when it removes the D+ pull-up, see Section 14.9. Hardware clears this bit when HNP_SUCCESS or HNP_FAILURE is set."]
-    #[inline]
-    pub fn pu_removed(&self) -> PU_REMOVEDR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PU_REMOVEDR { bits }
+    #[inline(always)]
+    pub fn pu_removed(&self) -> PU_REMOVED_R {
+        PU_REMOVED_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bits 16:31 - Current timer count value."]
-    #[inline]
-    pub fn tmr_cnt(&self) -> TMR_CNTR {
-        let bits = {
-            const MASK: u16 = 65535;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        TMR_CNTR { bits }
+    #[inline(always)]
+    pub fn tmr_cnt(&self) -> TMR_CNT_R {
+        TMR_CNT_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Controls connection of USB functions (see Figure 51). Bit 0 is set or cleared by hardware when B_HNP_TRACK or A_HNP_TRACK is set and HNP succeeds. See Section 14.9. 00: U1 = device (OTG), U2 = host 01: U1 = host (OTG), U2 = host 10: Reserved 11: U1 = host, U2 = device In a device-only configuration, the following values are allowed: 00: U1 = device. The USB device controller signals are mapped to the U1 port: USB_CONNECT1, USB_UP_LED1, USB_D+1, USB_D-1. 11: U2 = device. The USB device controller signals are mapped to the U2 port: USB_CONNECT2, USB_UP_LED2, USB_D+2, USB_D-2."]
-    #[inline]
-    pub fn port_func(&mut self) -> _PORT_FUNCW {
-        _PORT_FUNCW { w: self }
+    #[inline(always)]
+    pub fn port_func(&mut self) -> PORT_FUNC_W {
+        PORT_FUNC_W { w: self }
     }
     #[doc = "Bits 2:3 - Timer scale selection. This field determines the duration of each timer count. 00: 10 ms (100 KHz) 01: 100 ms (10 KHz) 10: 1000 ms (1 KHz) 11: Reserved"]
-    #[inline]
-    pub fn tmr_scale(&mut self) -> _TMR_SCALEW {
-        _TMR_SCALEW { w: self }
+    #[inline(always)]
+    pub fn tmr_scale(&mut self) -> TMR_SCALE_W {
+        TMR_SCALE_W { w: self }
     }
     #[doc = "Bit 4 - Timer mode selection. 0: monoshot 1: free running"]
-    #[inline]
-    pub fn tmr_mode(&mut self) -> _TMR_MODEW {
-        _TMR_MODEW { w: self }
+    #[inline(always)]
+    pub fn tmr_mode(&mut self) -> TMR_MODE_W {
+        TMR_MODE_W { w: self }
     }
     #[doc = "Bit 5 - Timer enable. When set, TMR_CNT increments. When cleared, TMR_CNT is reset to 0."]
-    #[inline]
-    pub fn tmr_en(&mut self) -> _TMR_ENW {
-        _TMR_ENW { w: self }
+    #[inline(always)]
+    pub fn tmr_en(&mut self) -> TMR_EN_W {
+        TMR_EN_W { w: self }
     }
     #[doc = "Bit 6 - Timer reset. Writing one to this bit resets TMR_CNT to 0. This provides a single bit control for the software to restart the timer when the timer is enabled."]
-    #[inline]
-    pub fn tmr_rst(&mut self) -> _TMR_RSTW {
-        _TMR_RSTW { w: self }
+    #[inline(always)]
+    pub fn tmr_rst(&mut self) -> TMR_RST_W {
+        TMR_RST_W { w: self }
     }
     #[doc = "Bit 8 - Enable HNP tracking for B-device (peripheral), see Section 14.9. Hardware clears this bit when HNP_SUCCESS or HNP_FAILURE is set."]
-    #[inline]
-    pub fn b_hnp_track(&mut self) -> _B_HNP_TRACKW {
-        _B_HNP_TRACKW { w: self }
+    #[inline(always)]
+    pub fn b_hnp_track(&mut self) -> B_HNP_TRACK_W {
+        B_HNP_TRACK_W { w: self }
     }
     #[doc = "Bit 9 - Enable HNP tracking for A-device (host), see Section 14.9. Hardware clears this bit when HNP_SUCCESS or HNP_FAILURE is set."]
-    #[inline]
-    pub fn a_hnp_track(&mut self) -> _A_HNP_TRACKW {
-        _A_HNP_TRACKW { w: self }
+    #[inline(always)]
+    pub fn a_hnp_track(&mut self) -> A_HNP_TRACK_W {
+        A_HNP_TRACK_W { w: self }
     }
     #[doc = "Bit 10 - When the B-device changes its role from peripheral to host, software sets this bit when it removes the D+ pull-up, see Section 14.9. Hardware clears this bit when HNP_SUCCESS or HNP_FAILURE is set."]
-    #[inline]
-    pub fn pu_removed(&mut self) -> _PU_REMOVEDW {
-        _PU_REMOVEDW { w: self }
+    #[inline(always)]
+    pub fn pu_removed(&mut self) -> PU_REMOVED_W {
+        PU_REMOVED_W { w: self }
     }
     #[doc = "Bits 16:31 - Current timer count value."]
-    #[inline]
-    pub fn tmr_cnt(&mut self) -> _TMR_CNTW {
-        _TMR_CNTW { w: self }
+    #[inline(always)]
+    pub fn tmr_cnt(&mut self) -> TMR_CNT_W {
+        TMR_CNT_W { w: self }
     }
 }

@@ -1,421 +1,280 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::DMAINTEN {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register DMAINTEN"]
+pub type R = crate::R<u32, super::DMAINTEN>;
+#[doc = "Writer for register DMAINTEN"]
+pub type W = crate::W<u32, super::DMAINTEN>;
+#[doc = "Register DMAINTEN `reset()`'s with value 0"]
+impl crate::ResetValue for super::DMAINTEN {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `EOT`"]
+#[doc = "End of Transfer Interrupt enable bit.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EOTR {
-    #[doc = "Disabled."]
+pub enum EOT_A {
+    #[doc = "0: Disabled."]
     DISABLED_,
-    #[doc = "Enabled."]
+    #[doc = "1: Enabled."]
     ENABLED_,
 }
-impl EOTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EOTR::DISABLED_ => false,
-            EOTR::ENABLED_ => true,
+impl From<EOT_A> for bool {
+    #[inline(always)]
+    fn from(variant: EOT_A) -> Self {
+        match variant {
+            EOT_A::DISABLED_ => false,
+            EOT_A::ENABLED_ => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EOTR {
-        match value {
-            false => EOTR::DISABLED_,
-            true => EOTR::ENABLED_,
+}
+#[doc = "Reader of field `EOT`"]
+pub type EOT_R = crate::R<bool, EOT_A>;
+impl EOT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EOT_A {
+        match self.bits {
+            false => EOT_A::DISABLED_,
+            true => EOT_A::ENABLED_,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled_(&self) -> bool {
-        *self == EOTR::DISABLED_
+        *self == EOT_A::DISABLED_
     }
     #[doc = "Checks if the value of the field is `ENABLED_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled_(&self) -> bool {
-        *self == EOTR::ENABLED_
+        *self == EOT_A::ENABLED_
     }
 }
-#[doc = "Possible values of the field `NDDR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum NDDRR {
-    #[doc = "Disabled."]
-    DISABLED_,
-    #[doc = "Enabled."]
-    ENABLED_,
-}
-impl NDDRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            NDDRR::DISABLED_ => false,
-            NDDRR::ENABLED_ => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> NDDRR {
-        match value {
-            false => NDDRR::DISABLED_,
-            true => NDDRR::ENABLED_,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED_`"]
-    #[inline]
-    pub fn is_disabled_(&self) -> bool {
-        *self == NDDRR::DISABLED_
-    }
-    #[doc = "Checks if the value of the field is `ENABLED_`"]
-    #[inline]
-    pub fn is_enabled_(&self) -> bool {
-        *self == NDDRR::ENABLED_
-    }
-}
-#[doc = "Possible values of the field `ERR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ERRR {
-    #[doc = "Disabled."]
-    DISABLED_,
-    #[doc = "Enabled."]
-    ENABLED_,
-}
-impl ERRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ERRR::DISABLED_ => false,
-            ERRR::ENABLED_ => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ERRR {
-        match value {
-            false => ERRR::DISABLED_,
-            true => ERRR::ENABLED_,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED_`"]
-    #[inline]
-    pub fn is_disabled_(&self) -> bool {
-        *self == ERRR::DISABLED_
-    }
-    #[doc = "Checks if the value of the field is `ENABLED_`"]
-    #[inline]
-    pub fn is_enabled_(&self) -> bool {
-        *self == ERRR::ENABLED_
-    }
-}
-#[doc = "Values that can be written to the field `EOT`"]
-pub enum EOTW {
-    #[doc = "Disabled."]
-    DISABLED_,
-    #[doc = "Enabled."]
-    ENABLED_,
-}
-impl EOTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EOTW::DISABLED_ => false,
-            EOTW::ENABLED_ => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EOTW<'a> {
+#[doc = "Write proxy for field `EOT`"]
+pub struct EOT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EOTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EOTW) -> &'a mut W {
+impl<'a> EOT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EOT_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled_(self) -> &'a mut W {
-        self.variant(EOTW::DISABLED_)
+        self.variant(EOT_A::DISABLED_)
     }
     #[doc = "Enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled_(self) -> &'a mut W {
-        self.variant(EOTW::ENABLED_)
+        self.variant(EOT_A::ENABLED_)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `NDDR`"]
-pub enum NDDRW {
-    #[doc = "Disabled."]
+#[doc = "New DD Request Interrupt enable bit.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum NDDR_A {
+    #[doc = "0: Disabled."]
     DISABLED_,
-    #[doc = "Enabled."]
+    #[doc = "1: Enabled."]
     ENABLED_,
 }
-impl NDDRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            NDDRW::DISABLED_ => false,
-            NDDRW::ENABLED_ => true,
+impl From<NDDR_A> for bool {
+    #[inline(always)]
+    fn from(variant: NDDR_A) -> Self {
+        match variant {
+            NDDR_A::DISABLED_ => false,
+            NDDR_A::ENABLED_ => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _NDDRW<'a> {
+#[doc = "Reader of field `NDDR`"]
+pub type NDDR_R = crate::R<bool, NDDR_A>;
+impl NDDR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> NDDR_A {
+        match self.bits {
+            false => NDDR_A::DISABLED_,
+            true => NDDR_A::ENABLED_,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED_`"]
+    #[inline(always)]
+    pub fn is_disabled_(&self) -> bool {
+        *self == NDDR_A::DISABLED_
+    }
+    #[doc = "Checks if the value of the field is `ENABLED_`"]
+    #[inline(always)]
+    pub fn is_enabled_(&self) -> bool {
+        *self == NDDR_A::ENABLED_
+    }
+}
+#[doc = "Write proxy for field `NDDR`"]
+pub struct NDDR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _NDDRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: NDDRW) -> &'a mut W {
+impl<'a> NDDR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: NDDR_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled_(self) -> &'a mut W {
-        self.variant(NDDRW::DISABLED_)
+        self.variant(NDDR_A::DISABLED_)
     }
     #[doc = "Enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled_(self) -> &'a mut W {
-        self.variant(NDDRW::ENABLED_)
+        self.variant(NDDR_A::ENABLED_)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `ERR`"]
-pub enum ERRW {
-    #[doc = "Disabled."]
+#[doc = "System Error Interrupt enable bit.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ERR_A {
+    #[doc = "0: Disabled."]
     DISABLED_,
-    #[doc = "Enabled."]
+    #[doc = "1: Enabled."]
     ENABLED_,
 }
-impl ERRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ERRW::DISABLED_ => false,
-            ERRW::ENABLED_ => true,
+impl From<ERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: ERR_A) -> Self {
+        match variant {
+            ERR_A::DISABLED_ => false,
+            ERR_A::ENABLED_ => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _ERRW<'a> {
+#[doc = "Reader of field `ERR`"]
+pub type ERR_R = crate::R<bool, ERR_A>;
+impl ERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ERR_A {
+        match self.bits {
+            false => ERR_A::DISABLED_,
+            true => ERR_A::ENABLED_,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED_`"]
+    #[inline(always)]
+    pub fn is_disabled_(&self) -> bool {
+        *self == ERR_A::DISABLED_
+    }
+    #[doc = "Checks if the value of the field is `ENABLED_`"]
+    #[inline(always)]
+    pub fn is_enabled_(&self) -> bool {
+        *self == ERR_A::ENABLED_
+    }
+}
+#[doc = "Write proxy for field `ERR`"]
+pub struct ERR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ERRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ERRW) -> &'a mut W {
+impl<'a> ERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ERR_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled_(self) -> &'a mut W {
-        self.variant(ERRW::DISABLED_)
+        self.variant(ERR_A::DISABLED_)
     }
     #[doc = "Enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled_(self) -> &'a mut W {
-        self.variant(ERRW::ENABLED_)
+        self.variant(ERR_A::ENABLED_)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - End of Transfer Interrupt enable bit."]
-    #[inline]
-    pub fn eot(&self) -> EOTR {
-        EOTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn eot(&self) -> EOT_R {
+        EOT_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - New DD Request Interrupt enable bit."]
-    #[inline]
-    pub fn nddr(&self) -> NDDRR {
-        NDDRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn nddr(&self) -> NDDR_R {
+        NDDR_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - System Error Interrupt enable bit."]
-    #[inline]
-    pub fn err(&self) -> ERRR {
-        ERRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn err(&self) -> ERR_R {
+        ERR_R::new(((self.bits >> 2) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - End of Transfer Interrupt enable bit."]
-    #[inline]
-    pub fn eot(&mut self) -> _EOTW {
-        _EOTW { w: self }
+    #[inline(always)]
+    pub fn eot(&mut self) -> EOT_W {
+        EOT_W { w: self }
     }
     #[doc = "Bit 1 - New DD Request Interrupt enable bit."]
-    #[inline]
-    pub fn nddr(&mut self) -> _NDDRW {
-        _NDDRW { w: self }
+    #[inline(always)]
+    pub fn nddr(&mut self) -> NDDR_W {
+        NDDR_W { w: self }
     }
     #[doc = "Bit 2 - System Error Interrupt enable bit."]
-    #[inline]
-    pub fn err(&mut self) -> _ERRW {
-        _ERRW { w: self }
+    #[inline(always)]
+    pub fn err(&mut self) -> ERR_W {
+        ERR_W { w: self }
     }
 }

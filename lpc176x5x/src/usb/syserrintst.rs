@@ -1,1012 +1,228 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::SYSERRINTST {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST0R {
-    bits: bool,
-}
-impl EPERRINTST0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST1R {
-    bits: bool,
-}
-impl EPERRINTST1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST2R {
-    bits: bool,
-}
-impl EPERRINTST2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST3R {
-    bits: bool,
-}
-impl EPERRINTST3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST4R {
-    bits: bool,
-}
-impl EPERRINTST4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST5R {
-    bits: bool,
-}
-impl EPERRINTST5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST6R {
-    bits: bool,
-}
-impl EPERRINTST6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST7R {
-    bits: bool,
-}
-impl EPERRINTST7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST8R {
-    bits: bool,
-}
-impl EPERRINTST8R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST9R {
-    bits: bool,
-}
-impl EPERRINTST9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST10R {
-    bits: bool,
-}
-impl EPERRINTST10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST11R {
-    bits: bool,
-}
-impl EPERRINTST11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST12R {
-    bits: bool,
-}
-impl EPERRINTST12R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST13R {
-    bits: bool,
-}
-impl EPERRINTST13R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST14R {
-    bits: bool,
-}
-impl EPERRINTST14R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST15R {
-    bits: bool,
-}
-impl EPERRINTST15R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST16R {
-    bits: bool,
-}
-impl EPERRINTST16R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST17R {
-    bits: bool,
-}
-impl EPERRINTST17R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST18R {
-    bits: bool,
-}
-impl EPERRINTST18R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST19R {
-    bits: bool,
-}
-impl EPERRINTST19R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST20R {
-    bits: bool,
-}
-impl EPERRINTST20R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST21R {
-    bits: bool,
-}
-impl EPERRINTST21R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST22R {
-    bits: bool,
-}
-impl EPERRINTST22R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST23R {
-    bits: bool,
-}
-impl EPERRINTST23R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST24R {
-    bits: bool,
-}
-impl EPERRINTST24R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST25R {
-    bits: bool,
-}
-impl EPERRINTST25R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST26R {
-    bits: bool,
-}
-impl EPERRINTST26R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST27R {
-    bits: bool,
-}
-impl EPERRINTST27R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST28R {
-    bits: bool,
-}
-impl EPERRINTST28R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST29R {
-    bits: bool,
-}
-impl EPERRINTST29R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST30R {
-    bits: bool,
-}
-impl EPERRINTST30R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPERRINTST31R {
-    bits: bool,
-}
-impl EPERRINTST31R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register SYSERRINTST"]
+pub type R = crate::R<u32, super::SYSERRINTST>;
+#[doc = "Reader of field `EPERRINTST0`"]
+pub type EPERRINTST0_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST1`"]
+pub type EPERRINTST1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST2`"]
+pub type EPERRINTST2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST3`"]
+pub type EPERRINTST3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST4`"]
+pub type EPERRINTST4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST5`"]
+pub type EPERRINTST5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST6`"]
+pub type EPERRINTST6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST7`"]
+pub type EPERRINTST7_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST8`"]
+pub type EPERRINTST8_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST9`"]
+pub type EPERRINTST9_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST10`"]
+pub type EPERRINTST10_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST11`"]
+pub type EPERRINTST11_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST12`"]
+pub type EPERRINTST12_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST13`"]
+pub type EPERRINTST13_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST14`"]
+pub type EPERRINTST14_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST15`"]
+pub type EPERRINTST15_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST16`"]
+pub type EPERRINTST16_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST17`"]
+pub type EPERRINTST17_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST18`"]
+pub type EPERRINTST18_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST19`"]
+pub type EPERRINTST19_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST20`"]
+pub type EPERRINTST20_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST21`"]
+pub type EPERRINTST21_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST22`"]
+pub type EPERRINTST22_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST23`"]
+pub type EPERRINTST23_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST24`"]
+pub type EPERRINTST24_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST25`"]
+pub type EPERRINTST25_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST26`"]
+pub type EPERRINTST26_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST27`"]
+pub type EPERRINTST27_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST28`"]
+pub type EPERRINTST28_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST29`"]
+pub type EPERRINTST29_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST30`"]
+pub type EPERRINTST30_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPERRINTST31`"]
+pub type EPERRINTST31_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst0(&self) -> EPERRINTST0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST0R { bits }
+    #[inline(always)]
+    pub fn eperrintst0(&self) -> EPERRINTST0_R {
+        EPERRINTST0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst1(&self) -> EPERRINTST1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST1R { bits }
+    #[inline(always)]
+    pub fn eperrintst1(&self) -> EPERRINTST1_R {
+        EPERRINTST1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst2(&self) -> EPERRINTST2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST2R { bits }
+    #[inline(always)]
+    pub fn eperrintst2(&self) -> EPERRINTST2_R {
+        EPERRINTST2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst3(&self) -> EPERRINTST3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST3R { bits }
+    #[inline(always)]
+    pub fn eperrintst3(&self) -> EPERRINTST3_R {
+        EPERRINTST3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst4(&self) -> EPERRINTST4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST4R { bits }
+    #[inline(always)]
+    pub fn eperrintst4(&self) -> EPERRINTST4_R {
+        EPERRINTST4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst5(&self) -> EPERRINTST5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST5R { bits }
+    #[inline(always)]
+    pub fn eperrintst5(&self) -> EPERRINTST5_R {
+        EPERRINTST5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst6(&self) -> EPERRINTST6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST6R { bits }
+    #[inline(always)]
+    pub fn eperrintst6(&self) -> EPERRINTST6_R {
+        EPERRINTST6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst7(&self) -> EPERRINTST7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST7R { bits }
+    #[inline(always)]
+    pub fn eperrintst7(&self) -> EPERRINTST7_R {
+        EPERRINTST7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst8(&self) -> EPERRINTST8R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST8R { bits }
+    #[inline(always)]
+    pub fn eperrintst8(&self) -> EPERRINTST8_R {
+        EPERRINTST8_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst9(&self) -> EPERRINTST9R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST9R { bits }
+    #[inline(always)]
+    pub fn eperrintst9(&self) -> EPERRINTST9_R {
+        EPERRINTST9_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst10(&self) -> EPERRINTST10R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST10R { bits }
+    #[inline(always)]
+    pub fn eperrintst10(&self) -> EPERRINTST10_R {
+        EPERRINTST10_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst11(&self) -> EPERRINTST11R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST11R { bits }
+    #[inline(always)]
+    pub fn eperrintst11(&self) -> EPERRINTST11_R {
+        EPERRINTST11_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst12(&self) -> EPERRINTST12R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST12R { bits }
+    #[inline(always)]
+    pub fn eperrintst12(&self) -> EPERRINTST12_R {
+        EPERRINTST12_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst13(&self) -> EPERRINTST13R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST13R { bits }
+    #[inline(always)]
+    pub fn eperrintst13(&self) -> EPERRINTST13_R {
+        EPERRINTST13_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst14(&self) -> EPERRINTST14R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST14R { bits }
+    #[inline(always)]
+    pub fn eperrintst14(&self) -> EPERRINTST14_R {
+        EPERRINTST14_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst15(&self) -> EPERRINTST15R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST15R { bits }
+    #[inline(always)]
+    pub fn eperrintst15(&self) -> EPERRINTST15_R {
+        EPERRINTST15_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst16(&self) -> EPERRINTST16R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST16R { bits }
+    #[inline(always)]
+    pub fn eperrintst16(&self) -> EPERRINTST16_R {
+        EPERRINTST16_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst17(&self) -> EPERRINTST17R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST17R { bits }
+    #[inline(always)]
+    pub fn eperrintst17(&self) -> EPERRINTST17_R {
+        EPERRINTST17_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst18(&self) -> EPERRINTST18R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST18R { bits }
+    #[inline(always)]
+    pub fn eperrintst18(&self) -> EPERRINTST18_R {
+        EPERRINTST18_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst19(&self) -> EPERRINTST19R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST19R { bits }
+    #[inline(always)]
+    pub fn eperrintst19(&self) -> EPERRINTST19_R {
+        EPERRINTST19_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst20(&self) -> EPERRINTST20R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST20R { bits }
+    #[inline(always)]
+    pub fn eperrintst20(&self) -> EPERRINTST20_R {
+        EPERRINTST20_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst21(&self) -> EPERRINTST21R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST21R { bits }
+    #[inline(always)]
+    pub fn eperrintst21(&self) -> EPERRINTST21_R {
+        EPERRINTST21_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 22 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst22(&self) -> EPERRINTST22R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST22R { bits }
+    #[inline(always)]
+    pub fn eperrintst22(&self) -> EPERRINTST22_R {
+        EPERRINTST22_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst23(&self) -> EPERRINTST23R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST23R { bits }
+    #[inline(always)]
+    pub fn eperrintst23(&self) -> EPERRINTST23_R {
+        EPERRINTST23_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bit 24 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst24(&self) -> EPERRINTST24R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST24R { bits }
+    #[inline(always)]
+    pub fn eperrintst24(&self) -> EPERRINTST24_R {
+        EPERRINTST24_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bit 25 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst25(&self) -> EPERRINTST25R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST25R { bits }
+    #[inline(always)]
+    pub fn eperrintst25(&self) -> EPERRINTST25_R {
+        EPERRINTST25_R::new(((self.bits >> 25) & 0x01) != 0)
     }
     #[doc = "Bit 26 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst26(&self) -> EPERRINTST26R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 26;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST26R { bits }
+    #[inline(always)]
+    pub fn eperrintst26(&self) -> EPERRINTST26_R {
+        EPERRINTST26_R::new(((self.bits >> 26) & 0x01) != 0)
     }
     #[doc = "Bit 27 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst27(&self) -> EPERRINTST27R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 27;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST27R { bits }
+    #[inline(always)]
+    pub fn eperrintst27(&self) -> EPERRINTST27_R {
+        EPERRINTST27_R::new(((self.bits >> 27) & 0x01) != 0)
     }
     #[doc = "Bit 28 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst28(&self) -> EPERRINTST28R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST28R { bits }
+    #[inline(always)]
+    pub fn eperrintst28(&self) -> EPERRINTST28_R {
+        EPERRINTST28_R::new(((self.bits >> 28) & 0x01) != 0)
     }
     #[doc = "Bit 29 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst29(&self) -> EPERRINTST29R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 29;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST29R { bits }
+    #[inline(always)]
+    pub fn eperrintst29(&self) -> EPERRINTST29_R {
+        EPERRINTST29_R::new(((self.bits >> 29) & 0x01) != 0)
     }
     #[doc = "Bit 30 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst30(&self) -> EPERRINTST30R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST30R { bits }
+    #[inline(always)]
+    pub fn eperrintst30(&self) -> EPERRINTST30_R {
+        EPERRINTST30_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - Endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eperrintst31(&self) -> EPERRINTST31R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPERRINTST31R { bits }
+    #[inline(always)]
+    pub fn eperrintst31(&self) -> EPERRINTST31_R {
+        EPERRINTST31_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }

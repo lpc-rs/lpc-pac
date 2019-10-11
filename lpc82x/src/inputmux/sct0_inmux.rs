@@ -1,269 +1,178 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SCT0_INMUX {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SCT0_INMUX[%s]"]
+pub type R = crate::R<u32, super::SCT0_INMUX>;
+#[doc = "Writer for register SCT0_INMUX[%s]"]
+pub type W = crate::W<u32, super::SCT0_INMUX>;
+#[doc = "Register SCT0_INMUX[%s] `reset()`'s with value 0x0f"]
+impl crate::ResetValue for super::SCT0_INMUX {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0f
     }
 }
-#[doc = "Possible values of the field `INP_N`"]
+#[doc = "Input mux register for SCT input n (n = 0 to 3). 0 = sct input 0 1=sct input 1 2= sct input 2 3= sct input 3 4= adc_thcmp_irq 5 = comparator out 6=arm_txev 7=debug_halted\n\nValue on reset: 15"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum INP_NR {
-    #[doc = "SCT_IN0  change the name since this is not the function sct_in0 but the first selection for sct input in the mux.in fact it could be functionally sct_in3 (input 3 of the sct). Assign to pin using the switch matrix."]
-    SCT_IN0_CHANGE_THE,
-    #[doc = "SCT_IN1. Assign to pin using the switch matrix."]
-    SCT_IN1,
-    #[doc = "SCT_IN2. Assign to pin using the switch matrix."]
-    SCT_IN2,
-    #[doc = "SCT_IN3. Assign to pin using the switch matrix."]
-    SCT_IN3,
-    #[doc = "ADC_THCMP_IRQ"]
+pub enum INP_N_A {
+    #[doc = "0: SCT_PIN0"]
+    SCT_PIN0,
+    #[doc = "1: SCT_PIN1"]
+    SCT_PIN1,
+    #[doc = "2: SCT_PIN2"]
+    SCT_PIN2,
+    #[doc = "3: SCT_PIN3"]
+    SCT_PIN3,
+    #[doc = "4: ADC_THCMP_IRQ"]
     ADC_THCMP_IRQ,
-    #[doc = "ACMP_O"]
+    #[doc = "5: ACMP_O"]
     ACMP_O,
-    #[doc = "ARM_TXEV"]
+    #[doc = "6: ARM_TXEV"]
     ARM_TXEV,
-    #[doc = "DEBUG_HALTED"]
+    #[doc = "7: DEBUG_HALTED"]
     DEBUG_HALTED,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl INP_NR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            INP_NR::SCT_IN0_CHANGE_THE => 0,
-            INP_NR::SCT_IN1 => 1,
-            INP_NR::SCT_IN2 => 2,
-            INP_NR::SCT_IN3 => 3,
-            INP_NR::ADC_THCMP_IRQ => 4,
-            INP_NR::ACMP_O => 5,
-            INP_NR::ARM_TXEV => 6,
-            INP_NR::DEBUG_HALTED => 7,
-            INP_NR::_Reserved(bits) => bits,
+impl From<INP_N_A> for u8 {
+    #[inline(always)]
+    fn from(variant: INP_N_A) -> Self {
+        match variant {
+            INP_N_A::SCT_PIN0 => 0,
+            INP_N_A::SCT_PIN1 => 1,
+            INP_N_A::SCT_PIN2 => 2,
+            INP_N_A::SCT_PIN3 => 3,
+            INP_N_A::ADC_THCMP_IRQ => 4,
+            INP_N_A::ACMP_O => 5,
+            INP_N_A::ARM_TXEV => 6,
+            INP_N_A::DEBUG_HALTED => 7,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> INP_NR {
-        match value {
-            0 => INP_NR::SCT_IN0_CHANGE_THE,
-            1 => INP_NR::SCT_IN1,
-            2 => INP_NR::SCT_IN2,
-            3 => INP_NR::SCT_IN3,
-            4 => INP_NR::ADC_THCMP_IRQ,
-            5 => INP_NR::ACMP_O,
-            6 => INP_NR::ARM_TXEV,
-            7 => INP_NR::DEBUG_HALTED,
-            i => INP_NR::_Reserved(i),
+}
+#[doc = "Reader of field `INP_N`"]
+pub type INP_N_R = crate::R<u8, INP_N_A>;
+impl INP_N_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, INP_N_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(INP_N_A::SCT_PIN0),
+            1 => Val(INP_N_A::SCT_PIN1),
+            2 => Val(INP_N_A::SCT_PIN2),
+            3 => Val(INP_N_A::SCT_PIN3),
+            4 => Val(INP_N_A::ADC_THCMP_IRQ),
+            5 => Val(INP_N_A::ACMP_O),
+            6 => Val(INP_N_A::ARM_TXEV),
+            7 => Val(INP_N_A::DEBUG_HALTED),
+            i => Res(i),
         }
     }
-    #[doc = "Checks if the value of the field is `SCT_IN0_CHANGE_THE`"]
-    #[inline]
-    pub fn is_sct_in0_change_the(&self) -> bool {
-        *self == INP_NR::SCT_IN0_CHANGE_THE
+    #[doc = "Checks if the value of the field is `SCT_PIN0`"]
+    #[inline(always)]
+    pub fn is_sct_pin0(&self) -> bool {
+        *self == INP_N_A::SCT_PIN0
     }
-    #[doc = "Checks if the value of the field is `SCT_IN1`"]
-    #[inline]
-    pub fn is_sct_in1(&self) -> bool {
-        *self == INP_NR::SCT_IN1
+    #[doc = "Checks if the value of the field is `SCT_PIN1`"]
+    #[inline(always)]
+    pub fn is_sct_pin1(&self) -> bool {
+        *self == INP_N_A::SCT_PIN1
     }
-    #[doc = "Checks if the value of the field is `SCT_IN2`"]
-    #[inline]
-    pub fn is_sct_in2(&self) -> bool {
-        *self == INP_NR::SCT_IN2
+    #[doc = "Checks if the value of the field is `SCT_PIN2`"]
+    #[inline(always)]
+    pub fn is_sct_pin2(&self) -> bool {
+        *self == INP_N_A::SCT_PIN2
     }
-    #[doc = "Checks if the value of the field is `SCT_IN3`"]
-    #[inline]
-    pub fn is_sct_in3(&self) -> bool {
-        *self == INP_NR::SCT_IN3
+    #[doc = "Checks if the value of the field is `SCT_PIN3`"]
+    #[inline(always)]
+    pub fn is_sct_pin3(&self) -> bool {
+        *self == INP_N_A::SCT_PIN3
     }
     #[doc = "Checks if the value of the field is `ADC_THCMP_IRQ`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_adc_thcmp_irq(&self) -> bool {
-        *self == INP_NR::ADC_THCMP_IRQ
+        *self == INP_N_A::ADC_THCMP_IRQ
     }
     #[doc = "Checks if the value of the field is `ACMP_O`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acmp_o(&self) -> bool {
-        *self == INP_NR::ACMP_O
+        *self == INP_N_A::ACMP_O
     }
     #[doc = "Checks if the value of the field is `ARM_TXEV`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_arm_txev(&self) -> bool {
-        *self == INP_NR::ARM_TXEV
+        *self == INP_N_A::ARM_TXEV
     }
     #[doc = "Checks if the value of the field is `DEBUG_HALTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_debug_halted(&self) -> bool {
-        *self == INP_NR::DEBUG_HALTED
+        *self == INP_N_A::DEBUG_HALTED
     }
 }
-#[doc = "Values that can be written to the field `INP_N`"]
-pub enum INP_NW {
-    #[doc = "SCT_IN0  change the name since this is not the function sct_in0 but the first selection for sct input in the mux.in fact it could be functionally sct_in3 (input 3 of the sct). Assign to pin using the switch matrix."]
-    SCT_IN0_CHANGE_THE,
-    #[doc = "SCT_IN1. Assign to pin using the switch matrix."]
-    SCT_IN1,
-    #[doc = "SCT_IN2. Assign to pin using the switch matrix."]
-    SCT_IN2,
-    #[doc = "SCT_IN3. Assign to pin using the switch matrix."]
-    SCT_IN3,
-    #[doc = "ADC_THCMP_IRQ"]
-    ADC_THCMP_IRQ,
-    #[doc = "ACMP_O"]
-    ACMP_O,
-    #[doc = "ARM_TXEV"]
-    ARM_TXEV,
-    #[doc = "DEBUG_HALTED"]
-    DEBUG_HALTED,
-}
-impl INP_NW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            INP_NW::SCT_IN0_CHANGE_THE => 0,
-            INP_NW::SCT_IN1 => 1,
-            INP_NW::SCT_IN2 => 2,
-            INP_NW::SCT_IN3 => 3,
-            INP_NW::ADC_THCMP_IRQ => 4,
-            INP_NW::ACMP_O => 5,
-            INP_NW::ARM_TXEV => 6,
-            INP_NW::DEBUG_HALTED => 7,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _INP_NW<'a> {
+#[doc = "Write proxy for field `INP_N`"]
+pub struct INP_N_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _INP_NW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: INP_NW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> INP_N_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: INP_N_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
-    #[doc = "SCT_IN0 change the name since this is not the function sct_in0 but the first selection for sct input in the mux.in fact it could be functionally sct_in3 (input 3 of the sct). Assign to pin using the switch matrix."]
-    #[inline]
-    pub fn sct_in0_change_the(self) -> &'a mut W {
-        self.variant(INP_NW::SCT_IN0_CHANGE_THE)
+    #[doc = "SCT_PIN0"]
+    #[inline(always)]
+    pub fn sct_pin0(self) -> &'a mut W {
+        self.variant(INP_N_A::SCT_PIN0)
     }
-    #[doc = "SCT_IN1. Assign to pin using the switch matrix."]
-    #[inline]
-    pub fn sct_in1(self) -> &'a mut W {
-        self.variant(INP_NW::SCT_IN1)
+    #[doc = "SCT_PIN1"]
+    #[inline(always)]
+    pub fn sct_pin1(self) -> &'a mut W {
+        self.variant(INP_N_A::SCT_PIN1)
     }
-    #[doc = "SCT_IN2. Assign to pin using the switch matrix."]
-    #[inline]
-    pub fn sct_in2(self) -> &'a mut W {
-        self.variant(INP_NW::SCT_IN2)
+    #[doc = "SCT_PIN2"]
+    #[inline(always)]
+    pub fn sct_pin2(self) -> &'a mut W {
+        self.variant(INP_N_A::SCT_PIN2)
     }
-    #[doc = "SCT_IN3. Assign to pin using the switch matrix."]
-    #[inline]
-    pub fn sct_in3(self) -> &'a mut W {
-        self.variant(INP_NW::SCT_IN3)
+    #[doc = "SCT_PIN3"]
+    #[inline(always)]
+    pub fn sct_pin3(self) -> &'a mut W {
+        self.variant(INP_N_A::SCT_PIN3)
     }
     #[doc = "ADC_THCMP_IRQ"]
-    #[inline]
+    #[inline(always)]
     pub fn adc_thcmp_irq(self) -> &'a mut W {
-        self.variant(INP_NW::ADC_THCMP_IRQ)
+        self.variant(INP_N_A::ADC_THCMP_IRQ)
     }
     #[doc = "ACMP_O"]
-    #[inline]
+    #[inline(always)]
     pub fn acmp_o(self) -> &'a mut W {
-        self.variant(INP_NW::ACMP_O)
+        self.variant(INP_N_A::ACMP_O)
     }
     #[doc = "ARM_TXEV"]
-    #[inline]
+    #[inline(always)]
     pub fn arm_txev(self) -> &'a mut W {
-        self.variant(INP_NW::ARM_TXEV)
+        self.variant(INP_N_A::ARM_TXEV)
     }
     #[doc = "DEBUG_HALTED"]
-    #[inline]
+    #[inline(always)]
     pub fn debug_halted(self) -> &'a mut W {
-        self.variant(INP_NW::DEBUG_HALTED)
+        self.variant(INP_N_A::DEBUG_HALTED)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
-    #[doc = "Bits 0:3 - Input number (decimal value) to SCT0 inputs 0 to 3."]
-    #[inline]
-    pub fn inp_n(&self) -> INP_NR {
-        INP_NR::_from({
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[doc = "Bits 0:3 - Input mux register for SCT input n (n = 0 to 3). 0 = sct input 0 1=sct input 1 2= sct input 2 3= sct input 3 4= adc_thcmp_irq 5 = comparator out 6=arm_txev 7=debug_halted"]
+    #[inline(always)]
+    pub fn inp_n(&self) -> INP_N_R {
+        INP_N_R::new((self.bits & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 15 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
-    #[doc = "Bits 0:3 - Input number (decimal value) to SCT0 inputs 0 to 3."]
-    #[inline]
-    pub fn inp_n(&mut self) -> _INP_NW {
-        _INP_NW { w: self }
+    #[doc = "Bits 0:3 - Input mux register for SCT input n (n = 0 to 3). 0 = sct input 0 1=sct input 1 2= sct input 2 3= sct input 3 4= adc_thcmp_irq 5 = comparator out 6=arm_txev 7=debug_halted"]
+    #[inline(always)]
+    pub fn inp_n(&mut self) -> INP_N_W {
+        INP_N_W { w: self }
     }
 }

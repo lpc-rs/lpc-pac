@@ -1,228 +1,112 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PINASSIGN3 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PINASSIGN3"]
+pub type R = crate::R<u32, super::PINASSIGN3>;
+#[doc = "Writer for register PINASSIGN3"]
+pub type W = crate::W<u32, super::PINASSIGN3>;
+#[doc = "Register PINASSIGN3 `reset()`'s with value 0xffff_ffff"]
+impl crate::ResetValue for super::PINASSIGN3 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0xffff_ffff
     }
 }
-#[doc = r" Value of the field"]
-pub struct U2_RTS_OR {
-    bits: u8,
-}
-impl U2_RTS_OR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct U2_CTS_IR {
-    bits: u8,
-}
-impl U2_CTS_IR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct U2_SCLK_IOR {
-    bits: u8,
-}
-impl U2_SCLK_IOR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SPI0_SCK_IOR {
-    bits: u8,
-}
-impl SPI0_SCK_IOR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _U2_RTS_OW<'a> {
+#[doc = "Reader of field `U2_RTS_O`"]
+pub type U2_RTS_O_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `U2_RTS_O`"]
+pub struct U2_RTS_O_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _U2_RTS_OW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> U2_RTS_O_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _U2_CTS_IW<'a> {
+#[doc = "Reader of field `U2_CTS_I`"]
+pub type U2_CTS_I_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `U2_CTS_I`"]
+pub struct U2_CTS_I_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _U2_CTS_IW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> U2_CTS_I_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _U2_SCLK_IOW<'a> {
+#[doc = "Reader of field `U2_SCLK_IO`"]
+pub type U2_SCLK_IO_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `U2_SCLK_IO`"]
+pub struct U2_SCLK_IO_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _U2_SCLK_IOW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> U2_SCLK_IO_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SPI0_SCK_IOW<'a> {
+#[doc = "Reader of field `SPI0_SCK_IO`"]
+pub type SPI0_SCK_IO_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `SPI0_SCK_IO`"]
+pub struct SPI0_SCK_IO_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SPI0_SCK_IOW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> SPI0_SCK_IO_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - U2_RTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn u2_rts_o(&self) -> U2_RTS_OR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        U2_RTS_OR { bits }
+    #[inline(always)]
+    pub fn u2_rts_o(&self) -> U2_RTS_O_R {
+        U2_RTS_O_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - U2_CTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn u2_cts_i(&self) -> U2_CTS_IR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        U2_CTS_IR { bits }
+    #[inline(always)]
+    pub fn u2_cts_i(&self) -> U2_CTS_I_R {
+        U2_CTS_I_R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - U2_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn u2_sclk_io(&self) -> U2_SCLK_IOR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        U2_SCLK_IOR { bits }
+    #[inline(always)]
+    pub fn u2_sclk_io(&self) -> U2_SCLK_IO_R {
+        U2_SCLK_IO_R::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:31 - SPI0_SCK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn spi0_sck_io(&self) -> SPI0_SCK_IOR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SPI0_SCK_IOR { bits }
+    #[inline(always)]
+    pub fn spi0_sck_io(&self) -> SPI0_SCK_IO_R {
+        SPI0_SCK_IO_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 4294967295 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:7 - U2_RTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn u2_rts_o(&mut self) -> _U2_RTS_OW {
-        _U2_RTS_OW { w: self }
+    #[inline(always)]
+    pub fn u2_rts_o(&mut self) -> U2_RTS_O_W {
+        U2_RTS_O_W { w: self }
     }
     #[doc = "Bits 8:15 - U2_CTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn u2_cts_i(&mut self) -> _U2_CTS_IW {
-        _U2_CTS_IW { w: self }
+    #[inline(always)]
+    pub fn u2_cts_i(&mut self) -> U2_CTS_I_W {
+        U2_CTS_I_W { w: self }
     }
     #[doc = "Bits 16:23 - U2_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn u2_sclk_io(&mut self) -> _U2_SCLK_IOW {
-        _U2_SCLK_IOW { w: self }
+    #[inline(always)]
+    pub fn u2_sclk_io(&mut self) -> U2_SCLK_IO_W {
+        U2_SCLK_IO_W { w: self }
     }
     #[doc = "Bits 24:31 - SPI0_SCK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn spi0_sck_io(&mut self) -> _SPI0_SCK_IOW {
-        _SPI0_SCK_IOW { w: self }
+    #[inline(always)]
+    pub fn spi0_sck_io(&mut self) -> SPI0_SCK_IO_W {
+        SPI0_SCK_IO_W { w: self }
     }
 }

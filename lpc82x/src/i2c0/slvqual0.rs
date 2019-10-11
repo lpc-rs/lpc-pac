@@ -1,224 +1,128 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SLVQUAL0 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SLVQUAL0"]
+pub type R = crate::R<u32, super::SLVQUAL0>;
+#[doc = "Writer for register SLVQUAL0"]
+pub type W = crate::W<u32, super::SLVQUAL0>;
+#[doc = "Register SLVQUAL0 `reset()`'s with value 0"]
+impl crate::ResetValue for super::SLVQUAL0 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `QUALMODE0`"]
+#[doc = "Qualify mode for slave address 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum QUALMODE0R {
-    #[doc = "The SLVQUAL0 field is used as a logical mask for matching address 0."]
+pub enum QUALMODE0_A {
+    #[doc = "0: Mask. The SLVQUAL0 field is used as a logical mask for matching address 0."]
     MASK,
-    #[doc = "The SLVQUAL0 field is used to extend address 0 matching in a range of addresses."]
-    EXTENDMASK,
+    #[doc = "1: Extend. The SLVQUAL0 field is used to extend address 0 matching in a range of addresses."]
+    EXTEND,
 }
-impl QUALMODE0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            QUALMODE0R::MASK => false,
-            QUALMODE0R::EXTENDMASK => true,
+impl From<QUALMODE0_A> for bool {
+    #[inline(always)]
+    fn from(variant: QUALMODE0_A) -> Self {
+        match variant {
+            QUALMODE0_A::MASK => false,
+            QUALMODE0_A::EXTEND => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> QUALMODE0R {
-        match value {
-            false => QUALMODE0R::MASK,
-            true => QUALMODE0R::EXTENDMASK,
+}
+#[doc = "Reader of field `QUALMODE0`"]
+pub type QUALMODE0_R = crate::R<bool, QUALMODE0_A>;
+impl QUALMODE0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> QUALMODE0_A {
+        match self.bits {
+            false => QUALMODE0_A::MASK,
+            true => QUALMODE0_A::EXTEND,
         }
     }
     #[doc = "Checks if the value of the field is `MASK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_mask(&self) -> bool {
-        *self == QUALMODE0R::MASK
+        *self == QUALMODE0_A::MASK
     }
-    #[doc = "Checks if the value of the field is `EXTENDMASK`"]
-    #[inline]
-    pub fn is_extendmask(&self) -> bool {
-        *self == QUALMODE0R::EXTENDMASK
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SLVQUAL0R {
-    bits: u8,
-}
-impl SLVQUAL0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+    #[doc = "Checks if the value of the field is `EXTEND`"]
+    #[inline(always)]
+    pub fn is_extend(&self) -> bool {
+        *self == QUALMODE0_A::EXTEND
     }
 }
-#[doc = "Values that can be written to the field `QUALMODE0`"]
-pub enum QUALMODE0W {
-    #[doc = "The SLVQUAL0 field is used as a logical mask for matching address 0."]
-    MASK,
-    #[doc = "The SLVQUAL0 field is used to extend address 0 matching in a range of addresses."]
-    EXTENDMASK,
-}
-impl QUALMODE0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            QUALMODE0W::MASK => false,
-            QUALMODE0W::EXTENDMASK => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _QUALMODE0W<'a> {
+#[doc = "Write proxy for field `QUALMODE0`"]
+pub struct QUALMODE0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _QUALMODE0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: QUALMODE0W) -> &'a mut W {
+impl<'a> QUALMODE0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: QUALMODE0_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
-    #[doc = "The SLVQUAL0 field is used as a logical mask for matching address 0."]
-    #[inline]
+    #[doc = "Mask. The SLVQUAL0 field is used as a logical mask for matching address 0."]
+    #[inline(always)]
     pub fn mask(self) -> &'a mut W {
-        self.variant(QUALMODE0W::MASK)
+        self.variant(QUALMODE0_A::MASK)
     }
-    #[doc = "The SLVQUAL0 field is used to extend address 0 matching in a range of addresses."]
-    #[inline]
-    pub fn extendmask(self) -> &'a mut W {
-        self.variant(QUALMODE0W::EXTENDMASK)
+    #[doc = "Extend. The SLVQUAL0 field is used to extend address 0 matching in a range of addresses."]
+    #[inline(always)]
+    pub fn extend(self) -> &'a mut W {
+        self.variant(QUALMODE0_A::EXTEND)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SLVQUAL0W<'a> {
+#[doc = "Reader of field `SLVQUAL0`"]
+pub type SLVQUAL0_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `SLVQUAL0`"]
+pub struct SLVQUAL0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SLVQUAL0W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> SLVQUAL0_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 127;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x7f << 1)) | (((value as u32) & 0x7f) << 1);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
+    #[doc = "Bit 0 - Qualify mode for slave address 0."]
+    #[inline(always)]
+    pub fn qualmode0(&self) -> QUALMODE0_R {
+        QUALMODE0_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 0 - Reserved. Read value is undefined, only zero should be written."]
-    #[inline]
-    pub fn qualmode0(&self) -> QUALMODE0R {
-        QUALMODE0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
-    }
-    #[doc = "Bits 1:7 - Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0\\[7:1\\] <= received address < = SLVQUAL0\\[7:1\\])."]
-    #[inline]
-    pub fn slvqual0(&self) -> SLVQUAL0R {
-        let bits = {
-            const MASK: u8 = 127;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SLVQUAL0R { bits }
+    #[doc = "Bits 1:7 - Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0\\[7:1\\] <= received address <= SLVQUAL0\\[7:1\\])."]
+    #[inline(always)]
+    pub fn slvqual0(&self) -> SLVQUAL0_R {
+        SLVQUAL0_R::new(((self.bits >> 1) & 0x7f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
+    #[doc = "Bit 0 - Qualify mode for slave address 0."]
+    #[inline(always)]
+    pub fn qualmode0(&mut self) -> QUALMODE0_W {
+        QUALMODE0_W { w: self }
     }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
-    #[doc = "Bit 0 - Reserved. Read value is undefined, only zero should be written."]
-    #[inline]
-    pub fn qualmode0(&mut self) -> _QUALMODE0W {
-        _QUALMODE0W { w: self }
-    }
-    #[doc = "Bits 1:7 - Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0\\[7:1\\] <= received address < = SLVQUAL0\\[7:1\\])."]
-    #[inline]
-    pub fn slvqual0(&mut self) -> _SLVQUAL0W {
-        _SLVQUAL0W { w: self }
+    #[doc = "Bits 1:7 - Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0\\[7:1\\] <= received address <= SLVQUAL0\\[7:1\\])."]
+    #[inline(always)]
+    pub fn slvqual0(&mut self) -> SLVQUAL0_W {
+        SLVQUAL0_W { w: self }
     }
 }

@@ -1,7 +1,7 @@
 [package]
 name    = "lpc82x-pac"
 version = "0.6.2"
-authors = ["Hanno Braun <hanno@braun-robotics.com>"]
+authors = ["Hanno Braun <hanno@braun-embedded.com>"]
 
 description   = "Low-level register mappings for the NXP LPC82x series of ARM Cortex-M0+ microcontrollers"
 documentation = "https://docs.rs/lpc82x-pac"
@@ -17,10 +17,10 @@ travis-ci   = { repository = "lpc-rs/lpc-pac" }
 
 
 [dependencies]
-bare-metal  = "0.2"
-cortex-m    = "0.5"
-cortex-m-rt = { version = "0.6.3", optional = true }
-vcell       = "0.1"
+bare-metal  = "0.2.5"
+cortex-m    = "0.6.1"
+cortex-m-rt = { version = "0.6.10", optional = true }
+vcell       = "0.1.2"
 
 
 [features]

@@ -1,164 +1,93 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::USBPLLCLKSEL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register USBPLLCLKSEL"]
+pub type R = crate::R<u32, super::USBPLLCLKSEL>;
+#[doc = "Writer for register USBPLLCLKSEL"]
+pub type W = crate::W<u32, super::USBPLLCLKSEL>;
+#[doc = "Register USBPLLCLKSEL `reset()`'s with value 0"]
+impl crate::ResetValue for super::USBPLLCLKSEL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `SEL`"]
+#[doc = "USB PLL clock source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SELR {
-    #[doc = "IRC. The USB PLL clock source must be switched to system oscillator for correct full-speed USB operation. The IRC is suitable for low-speed USB operation."]
+pub enum SEL_A {
+    #[doc = "0: IRC. The USB PLL clock source must be switched to system oscillator for correct full-speed USB operation. The IRC is suitable for low-speed USB operation."]
     IRC_THE_USB_PLL_CLO,
-    #[doc = "System oscillator"]
+    #[doc = "1: System oscillator"]
     SYSTEM_OSCILLATOR,
 }
-impl SELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            SELR::IRC_THE_USB_PLL_CLO => 0,
-            SELR::SYSTEM_OSCILLATOR => 1,
+impl From<SEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SEL_A) -> Self {
+        match variant {
+            SEL_A::IRC_THE_USB_PLL_CLO => 0,
+            SEL_A::SYSTEM_OSCILLATOR => 1,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SELR {
-        match value {
-            0 => SELR::IRC_THE_USB_PLL_CLO,
-            1 => SELR::SYSTEM_OSCILLATOR,
+}
+#[doc = "Reader of field `SEL`"]
+pub type SEL_R = crate::R<u8, SEL_A>;
+impl SEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SEL_A {
+        match self.bits {
+            0 => SEL_A::IRC_THE_USB_PLL_CLO,
+            1 => SEL_A::SYSTEM_OSCILLATOR,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `IRC_THE_USB_PLL_CLO`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_irc_the_usb_pll_clo(&self) -> bool {
-        *self == SELR::IRC_THE_USB_PLL_CLO
+        *self == SEL_A::IRC_THE_USB_PLL_CLO
     }
     #[doc = "Checks if the value of the field is `SYSTEM_OSCILLATOR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_system_oscillator(&self) -> bool {
-        *self == SELR::SYSTEM_OSCILLATOR
+        *self == SEL_A::SYSTEM_OSCILLATOR
     }
 }
-#[doc = "Values that can be written to the field `SEL`"]
-pub enum SELW {
-    #[doc = "IRC. The USB PLL clock source must be switched to system oscillator for correct full-speed USB operation. The IRC is suitable for low-speed USB operation."]
-    IRC_THE_USB_PLL_CLO,
-    #[doc = "System oscillator"]
-    SYSTEM_OSCILLATOR,
-}
-impl SELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SELW::IRC_THE_USB_PLL_CLO => 0,
-            SELW::SYSTEM_OSCILLATOR => 1,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SELW<'a> {
+#[doc = "Write proxy for field `SEL`"]
+pub struct SEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SELW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> SEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SEL_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "IRC. The USB PLL clock source must be switched to system oscillator for correct full-speed USB operation. The IRC is suitable for low-speed USB operation."]
-    #[inline]
+    #[inline(always)]
     pub fn irc_the_usb_pll_clo(self) -> &'a mut W {
-        self.variant(SELW::IRC_THE_USB_PLL_CLO)
+        self.variant(SEL_A::IRC_THE_USB_PLL_CLO)
     }
     #[doc = "System oscillator"]
-    #[inline]
+    #[inline(always)]
     pub fn system_oscillator(self) -> &'a mut W {
-        self.variant(SELW::SYSTEM_OSCILLATOR)
+        self.variant(SEL_A::SYSTEM_OSCILLATOR)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - USB PLL clock source"]
-    #[inline]
-    pub fn sel(&self) -> SELR {
-        SELR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn sel(&self) -> SEL_R {
+        SEL_R::new((self.bits & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - USB PLL clock source"]
-    #[inline]
-    pub fn sel(&mut self) -> _SELW {
-        _SELW { w: self }
+    #[inline(always)]
+    pub fn sel(&mut self) -> SEL_W {
+        SEL_W { w: self }
     }
 }

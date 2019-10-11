@@ -1,540 +1,368 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CTRL"]
+pub type R = crate::R<u32, super::CTRL>;
+#[doc = "Writer for register CTRL"]
+pub type W = crate::W<u32, super::CTRL>;
+#[doc = "Register CTRL `reset()`'s with value 0x0c"]
+impl crate::ResetValue for super::CTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0c
     }
 }
-#[doc = "Possible values of the field `RITINT`"]
+#[doc = "Interrupt flag\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RITINTR {
-    #[doc = "This bit is set to 1 by hardware whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. Writing a 1 to this bit will clear it to 0. Writing a 0 has no effect."]
+pub enum RITINT_A {
+    #[doc = "1: This bit is set to 1 by hardware whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. Writing a 1 to this bit will clear it to 0. Writing a 0 has no effect."]
     THIS_BIT_IS_SET_TO_1,
-    #[doc = "The counter value does not equal the masked compare value."]
+    #[doc = "0: The counter value does not equal the masked compare value."]
     THE_COUNTER_VALUE_DO,
 }
-impl RITINTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RITINTR::THIS_BIT_IS_SET_TO_1 => true,
-            RITINTR::THE_COUNTER_VALUE_DO => false,
+impl From<RITINT_A> for bool {
+    #[inline(always)]
+    fn from(variant: RITINT_A) -> Self {
+        match variant {
+            RITINT_A::THIS_BIT_IS_SET_TO_1 => true,
+            RITINT_A::THE_COUNTER_VALUE_DO => false,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RITINTR {
-        match value {
-            true => RITINTR::THIS_BIT_IS_SET_TO_1,
-            false => RITINTR::THE_COUNTER_VALUE_DO,
+}
+#[doc = "Reader of field `RITINT`"]
+pub type RITINT_R = crate::R<bool, RITINT_A>;
+impl RITINT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RITINT_A {
+        match self.bits {
+            true => RITINT_A::THIS_BIT_IS_SET_TO_1,
+            false => RITINT_A::THE_COUNTER_VALUE_DO,
         }
     }
     #[doc = "Checks if the value of the field is `THIS_BIT_IS_SET_TO_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_this_bit_is_set_to_1(&self) -> bool {
-        *self == RITINTR::THIS_BIT_IS_SET_TO_1
+        *self == RITINT_A::THIS_BIT_IS_SET_TO_1
     }
     #[doc = "Checks if the value of the field is `THE_COUNTER_VALUE_DO`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_the_counter_value_do(&self) -> bool {
-        *self == RITINTR::THE_COUNTER_VALUE_DO
+        *self == RITINT_A::THE_COUNTER_VALUE_DO
     }
 }
-#[doc = "Possible values of the field `RITENCLR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RITENCLRR {
-    #[doc = "The timer will be cleared to 0 whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. This will occur on the same clock that sets the interrupt flag."]
-    THE_TIMER_WILL_BE_CL,
-    #[doc = "The timer will not be cleared to 0."]
-    THE_TIMER_WILL_NOT_B,
+#[doc = "Write proxy for field `RITINT`"]
+pub struct RITINT_W<'a> {
+    w: &'a mut W,
 }
-impl RITENCLRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RITENCLRR::THE_TIMER_WILL_BE_CL => true,
-            RITENCLRR::THE_TIMER_WILL_NOT_B => false,
+impl<'a> RITINT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RITINT_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RITENCLRR {
-        match value {
-            true => RITENCLRR::THE_TIMER_WILL_BE_CL,
-            false => RITENCLRR::THE_TIMER_WILL_NOT_B,
+    #[doc = "This bit is set to 1 by hardware whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. Writing a 1 to this bit will clear it to 0. Writing a 0 has no effect."]
+    #[inline(always)]
+    pub fn this_bit_is_set_to_1(self) -> &'a mut W {
+        self.variant(RITINT_A::THIS_BIT_IS_SET_TO_1)
+    }
+    #[doc = "The counter value does not equal the masked compare value."]
+    #[inline(always)]
+    pub fn the_counter_value_do(self) -> &'a mut W {
+        self.variant(RITINT_A::THE_COUNTER_VALUE_DO)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Timer enable clear\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RITENCLR_A {
+    #[doc = "1: The timer will be cleared to 0 whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. This will occur on the same clock that sets the interrupt flag."]
+    THE_TIMER_WILL_BE_CL,
+    #[doc = "0: The timer will not be cleared to 0."]
+    THE_TIMER_WILL_NOT_B,
+}
+impl From<RITENCLR_A> for bool {
+    #[inline(always)]
+    fn from(variant: RITENCLR_A) -> Self {
+        match variant {
+            RITENCLR_A::THE_TIMER_WILL_BE_CL => true,
+            RITENCLR_A::THE_TIMER_WILL_NOT_B => false,
+        }
+    }
+}
+#[doc = "Reader of field `RITENCLR`"]
+pub type RITENCLR_R = crate::R<bool, RITENCLR_A>;
+impl RITENCLR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RITENCLR_A {
+        match self.bits {
+            true => RITENCLR_A::THE_TIMER_WILL_BE_CL,
+            false => RITENCLR_A::THE_TIMER_WILL_NOT_B,
         }
     }
     #[doc = "Checks if the value of the field is `THE_TIMER_WILL_BE_CL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_the_timer_will_be_cl(&self) -> bool {
-        *self == RITENCLRR::THE_TIMER_WILL_BE_CL
+        *self == RITENCLR_A::THE_TIMER_WILL_BE_CL
     }
     #[doc = "Checks if the value of the field is `THE_TIMER_WILL_NOT_B`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_the_timer_will_not_b(&self) -> bool {
-        *self == RITENCLRR::THE_TIMER_WILL_NOT_B
+        *self == RITENCLR_A::THE_TIMER_WILL_NOT_B
     }
 }
-#[doc = "Possible values of the field `RITENBR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RITENBRR {
-    #[doc = "The timer is halted when the processor is halted for debugging."]
-    THE_TIMER_IS_HALTED_,
-    #[doc = "Debug has no effect on the timer operation."]
-    DEBUG_HAS_NO_EFFECT_,
+#[doc = "Write proxy for field `RITENCLR`"]
+pub struct RITENCLR_W<'a> {
+    w: &'a mut W,
 }
-impl RITENBRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RITENBRR::THE_TIMER_IS_HALTED_ => true,
-            RITENBRR::DEBUG_HAS_NO_EFFECT_ => false,
+impl<'a> RITENCLR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RITENCLR_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RITENBRR {
-        match value {
-            true => RITENBRR::THE_TIMER_IS_HALTED_,
-            false => RITENBRR::DEBUG_HAS_NO_EFFECT_,
+    #[doc = "The timer will be cleared to 0 whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. This will occur on the same clock that sets the interrupt flag."]
+    #[inline(always)]
+    pub fn the_timer_will_be_cl(self) -> &'a mut W {
+        self.variant(RITENCLR_A::THE_TIMER_WILL_BE_CL)
+    }
+    #[doc = "The timer will not be cleared to 0."]
+    #[inline(always)]
+    pub fn the_timer_will_not_b(self) -> &'a mut W {
+        self.variant(RITENCLR_A::THE_TIMER_WILL_NOT_B)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Timer enable for debug\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RITENBR_A {
+    #[doc = "1: The timer is halted when the processor is halted for debugging."]
+    THE_TIMER_IS_HALTED_,
+    #[doc = "0: Debug has no effect on the timer operation."]
+    DEBUG_HAS_NO_EFFECT_,
+}
+impl From<RITENBR_A> for bool {
+    #[inline(always)]
+    fn from(variant: RITENBR_A) -> Self {
+        match variant {
+            RITENBR_A::THE_TIMER_IS_HALTED_ => true,
+            RITENBR_A::DEBUG_HAS_NO_EFFECT_ => false,
+        }
+    }
+}
+#[doc = "Reader of field `RITENBR`"]
+pub type RITENBR_R = crate::R<bool, RITENBR_A>;
+impl RITENBR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RITENBR_A {
+        match self.bits {
+            true => RITENBR_A::THE_TIMER_IS_HALTED_,
+            false => RITENBR_A::DEBUG_HAS_NO_EFFECT_,
         }
     }
     #[doc = "Checks if the value of the field is `THE_TIMER_IS_HALTED_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_the_timer_is_halted_(&self) -> bool {
-        *self == RITENBRR::THE_TIMER_IS_HALTED_
+        *self == RITENBR_A::THE_TIMER_IS_HALTED_
     }
     #[doc = "Checks if the value of the field is `DEBUG_HAS_NO_EFFECT_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_debug_has_no_effect_(&self) -> bool {
-        *self == RITENBRR::DEBUG_HAS_NO_EFFECT_
+        *self == RITENBR_A::DEBUG_HAS_NO_EFFECT_
     }
 }
-#[doc = "Possible values of the field `RITEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RITENR {
-    #[doc = "Timer enabled. This can be overruled by a debug halt if enabled in bit 2."]
-    TIMER_ENABLED_THIS_,
-    #[doc = "Timer disabled."]
-    TIMER_DISABLED_,
+#[doc = "Write proxy for field `RITENBR`"]
+pub struct RITENBR_W<'a> {
+    w: &'a mut W,
 }
-impl RITENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RITENR::TIMER_ENABLED_THIS_ => true,
-            RITENR::TIMER_DISABLED_ => false,
+impl<'a> RITENBR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RITENBR_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RITENR {
-        match value {
-            true => RITENR::TIMER_ENABLED_THIS_,
-            false => RITENR::TIMER_DISABLED_,
+    #[doc = "The timer is halted when the processor is halted for debugging."]
+    #[inline(always)]
+    pub fn the_timer_is_halted_(self) -> &'a mut W {
+        self.variant(RITENBR_A::THE_TIMER_IS_HALTED_)
+    }
+    #[doc = "Debug has no effect on the timer operation."]
+    #[inline(always)]
+    pub fn debug_has_no_effect_(self) -> &'a mut W {
+        self.variant(RITENBR_A::DEBUG_HAS_NO_EFFECT_)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Timer enable.\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RITEN_A {
+    #[doc = "1: Timer enabled. This can be overruled by a debug halt if enabled in bit 2."]
+    TIMER_ENABLED_THIS_,
+    #[doc = "0: Timer disabled."]
+    TIMER_DISABLED_,
+}
+impl From<RITEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: RITEN_A) -> Self {
+        match variant {
+            RITEN_A::TIMER_ENABLED_THIS_ => true,
+            RITEN_A::TIMER_DISABLED_ => false,
+        }
+    }
+}
+#[doc = "Reader of field `RITEN`"]
+pub type RITEN_R = crate::R<bool, RITEN_A>;
+impl RITEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RITEN_A {
+        match self.bits {
+            true => RITEN_A::TIMER_ENABLED_THIS_,
+            false => RITEN_A::TIMER_DISABLED_,
         }
     }
     #[doc = "Checks if the value of the field is `TIMER_ENABLED_THIS_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_timer_enabled_this_(&self) -> bool {
-        *self == RITENR::TIMER_ENABLED_THIS_
+        *self == RITEN_A::TIMER_ENABLED_THIS_
     }
     #[doc = "Checks if the value of the field is `TIMER_DISABLED_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_timer_disabled_(&self) -> bool {
-        *self == RITENR::TIMER_DISABLED_
+        *self == RITEN_A::TIMER_DISABLED_
     }
 }
-#[doc = "Values that can be written to the field `RITINT`"]
-pub enum RITINTW {
-    #[doc = "This bit is set to 1 by hardware whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. Writing a 1 to this bit will clear it to 0. Writing a 0 has no effect."]
-    THIS_BIT_IS_SET_TO_1,
-    #[doc = "The counter value does not equal the masked compare value."]
-    THE_COUNTER_VALUE_DO,
-}
-impl RITINTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RITINTW::THIS_BIT_IS_SET_TO_1 => true,
-            RITINTW::THE_COUNTER_VALUE_DO => false,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RITINTW<'a> {
+#[doc = "Write proxy for field `RITEN`"]
+pub struct RITEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RITINTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RITINTW) -> &'a mut W {
+impl<'a> RITEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RITEN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "This bit is set to 1 by hardware whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. Writing a 1 to this bit will clear it to 0. Writing a 0 has no effect."]
-    #[inline]
-    pub fn this_bit_is_set_to_1(self) -> &'a mut W {
-        self.variant(RITINTW::THIS_BIT_IS_SET_TO_1)
-    }
-    #[doc = "The counter value does not equal the masked compare value."]
-    #[inline]
-    pub fn the_counter_value_do(self) -> &'a mut W {
-        self.variant(RITINTW::THE_COUNTER_VALUE_DO)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RITENCLR`"]
-pub enum RITENCLRW {
-    #[doc = "The timer will be cleared to 0 whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. This will occur on the same clock that sets the interrupt flag."]
-    THE_TIMER_WILL_BE_CL,
-    #[doc = "The timer will not be cleared to 0."]
-    THE_TIMER_WILL_NOT_B,
-}
-impl RITENCLRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RITENCLRW::THE_TIMER_WILL_BE_CL => true,
-            RITENCLRW::THE_TIMER_WILL_NOT_B => false,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RITENCLRW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RITENCLRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RITENCLRW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "The timer will be cleared to 0 whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. This will occur on the same clock that sets the interrupt flag."]
-    #[inline]
-    pub fn the_timer_will_be_cl(self) -> &'a mut W {
-        self.variant(RITENCLRW::THE_TIMER_WILL_BE_CL)
-    }
-    #[doc = "The timer will not be cleared to 0."]
-    #[inline]
-    pub fn the_timer_will_not_b(self) -> &'a mut W {
-        self.variant(RITENCLRW::THE_TIMER_WILL_NOT_B)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RITENBR`"]
-pub enum RITENBRW {
-    #[doc = "The timer is halted when the processor is halted for debugging."]
-    THE_TIMER_IS_HALTED_,
-    #[doc = "Debug has no effect on the timer operation."]
-    DEBUG_HAS_NO_EFFECT_,
-}
-impl RITENBRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RITENBRW::THE_TIMER_IS_HALTED_ => true,
-            RITENBRW::DEBUG_HAS_NO_EFFECT_ => false,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RITENBRW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RITENBRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RITENBRW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "The timer is halted when the processor is halted for debugging."]
-    #[inline]
-    pub fn the_timer_is_halted_(self) -> &'a mut W {
-        self.variant(RITENBRW::THE_TIMER_IS_HALTED_)
-    }
-    #[doc = "Debug has no effect on the timer operation."]
-    #[inline]
-    pub fn debug_has_no_effect_(self) -> &'a mut W {
-        self.variant(RITENBRW::DEBUG_HAS_NO_EFFECT_)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RITEN`"]
-pub enum RITENW {
-    #[doc = "Timer enabled. This can be overruled by a debug halt if enabled in bit 2."]
-    TIMER_ENABLED_THIS_,
-    #[doc = "Timer disabled."]
-    TIMER_DISABLED_,
-}
-impl RITENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RITENW::TIMER_ENABLED_THIS_ => true,
-            RITENW::TIMER_DISABLED_ => false,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RITENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RITENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RITENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Timer enabled. This can be overruled by a debug halt if enabled in bit 2."]
-    #[inline]
+    #[inline(always)]
     pub fn timer_enabled_this_(self) -> &'a mut W {
-        self.variant(RITENW::TIMER_ENABLED_THIS_)
+        self.variant(RITEN_A::TIMER_ENABLED_THIS_)
     }
     #[doc = "Timer disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn timer_disabled_(self) -> &'a mut W {
-        self.variant(RITENW::TIMER_DISABLED_)
+        self.variant(RITEN_A::TIMER_DISABLED_)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Interrupt flag"]
-    #[inline]
-    pub fn ritint(&self) -> RITINTR {
-        RITINTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ritint(&self) -> RITINT_R {
+        RITINT_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Timer enable clear"]
-    #[inline]
-    pub fn ritenclr(&self) -> RITENCLRR {
-        RITENCLRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ritenclr(&self) -> RITENCLR_R {
+        RITENCLR_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Timer enable for debug"]
-    #[inline]
-    pub fn ritenbr(&self) -> RITENBRR {
-        RITENBRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ritenbr(&self) -> RITENBR_R {
+        RITENBR_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Timer enable."]
-    #[inline]
-    pub fn riten(&self) -> RITENR {
-        RITENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn riten(&self) -> RITEN_R {
+        RITEN_R::new(((self.bits >> 3) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 12 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Interrupt flag"]
-    #[inline]
-    pub fn ritint(&mut self) -> _RITINTW {
-        _RITINTW { w: self }
+    #[inline(always)]
+    pub fn ritint(&mut self) -> RITINT_W {
+        RITINT_W { w: self }
     }
     #[doc = "Bit 1 - Timer enable clear"]
-    #[inline]
-    pub fn ritenclr(&mut self) -> _RITENCLRW {
-        _RITENCLRW { w: self }
+    #[inline(always)]
+    pub fn ritenclr(&mut self) -> RITENCLR_W {
+        RITENCLR_W { w: self }
     }
     #[doc = "Bit 2 - Timer enable for debug"]
-    #[inline]
-    pub fn ritenbr(&mut self) -> _RITENBRW {
-        _RITENBRW { w: self }
+    #[inline(always)]
+    pub fn ritenbr(&mut self) -> RITENBR_W {
+        RITENBR_W { w: self }
     }
     #[doc = "Bit 3 - Timer enable."]
-    #[inline]
-    pub fn riten(&mut self) -> _RITENW {
-        _RITENW { w: self }
+    #[inline(always)]
+    pub fn riten(&mut self) -> RITEN_W {
+        RITEN_W { w: self }
     }
 }

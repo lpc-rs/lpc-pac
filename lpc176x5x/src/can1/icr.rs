@@ -1,799 +1,609 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::ICR {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `RI`"]
+#[doc = "Reader of register ICR"]
+pub type R = crate::R<u32, super::ICR>;
+#[doc = "Receive Interrupt. This bit is set whenever the RBS bit in CANxSR and the RIE bit in CANxIER are both 1, indicating that a new message was received and stored in the Receive Buffer. The Receive Interrupt Bit is not cleared upon a read access to the Interrupt Register. Giving the Command Release Receive Buffer will clear RI temporarily. If there is another message available within the Receive Buffer after the release command, RI is set again. Otherwise RI remains cleared.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RIR {
-    #[doc = "Reset"]
+pub enum RI_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl RIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RIR::RESET => false,
-            RIR::SET => true,
+impl From<RI_A> for bool {
+    #[inline(always)]
+    fn from(variant: RI_A) -> Self {
+        match variant {
+            RI_A::RESET => false,
+            RI_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RIR {
-        match value {
-            false => RIR::RESET,
-            true => RIR::SET,
+}
+#[doc = "Reader of field `RI`"]
+pub type RI_R = crate::R<bool, RI_A>;
+impl RI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RI_A {
+        match self.bits {
+            false => RI_A::RESET,
+            true => RI_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == RIR::RESET
+        *self == RI_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == RIR::SET
+        *self == RI_A::SET
     }
 }
-#[doc = "Possible values of the field `TI1`"]
+#[doc = "Transmit Interrupt 1. This bit is set when the TBS1 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB1 was successfully transmitted or aborted), indicating that Transmit buffer 1 is available, and the TIE1 bit in CANxIER is 1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TI1R {
-    #[doc = "Reset"]
+pub enum TI1_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl TI1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TI1R::RESET => false,
-            TI1R::SET => true,
+impl From<TI1_A> for bool {
+    #[inline(always)]
+    fn from(variant: TI1_A) -> Self {
+        match variant {
+            TI1_A::RESET => false,
+            TI1_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TI1R {
-        match value {
-            false => TI1R::RESET,
-            true => TI1R::SET,
+}
+#[doc = "Reader of field `TI1`"]
+pub type TI1_R = crate::R<bool, TI1_A>;
+impl TI1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TI1_A {
+        match self.bits {
+            false => TI1_A::RESET,
+            true => TI1_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == TI1R::RESET
+        *self == TI1_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == TI1R::SET
+        *self == TI1_A::SET
     }
 }
-#[doc = "Possible values of the field `EI`"]
+#[doc = "Error Warning Interrupt. This bit is set on every change (set or clear) of either the Error Status or Bus Status bit in CANxSR and the EIE bit bit is set within the Interrupt Enable Register at the time of the change.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EIR {
-    #[doc = "Reset"]
+pub enum EI_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl EIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EIR::RESET => false,
-            EIR::SET => true,
+impl From<EI_A> for bool {
+    #[inline(always)]
+    fn from(variant: EI_A) -> Self {
+        match variant {
+            EI_A::RESET => false,
+            EI_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EIR {
-        match value {
-            false => EIR::RESET,
-            true => EIR::SET,
+}
+#[doc = "Reader of field `EI`"]
+pub type EI_R = crate::R<bool, EI_A>;
+impl EI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EI_A {
+        match self.bits {
+            false => EI_A::RESET,
+            true => EI_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == EIR::RESET
+        *self == EI_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == EIR::SET
+        *self == EI_A::SET
     }
 }
-#[doc = "Possible values of the field `DOI`"]
+#[doc = "Data Overrun Interrupt. This bit is set when the DOS bit in CANxSR goes from 0 to 1 and the DOIE bit in CANxIER is 1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DOIR {
-    #[doc = "Reset"]
+pub enum DOI_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl DOIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DOIR::RESET => false,
-            DOIR::SET => true,
+impl From<DOI_A> for bool {
+    #[inline(always)]
+    fn from(variant: DOI_A) -> Self {
+        match variant {
+            DOI_A::RESET => false,
+            DOI_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DOIR {
-        match value {
-            false => DOIR::RESET,
-            true => DOIR::SET,
+}
+#[doc = "Reader of field `DOI`"]
+pub type DOI_R = crate::R<bool, DOI_A>;
+impl DOI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DOI_A {
+        match self.bits {
+            false => DOI_A::RESET,
+            true => DOI_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == DOIR::RESET
+        *self == DOI_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == DOIR::SET
+        *self == DOI_A::SET
     }
 }
-#[doc = "Possible values of the field `WUI`"]
+#[doc = "Wake-Up Interrupt. This bit is set if the CAN controller is sleeping and bus activity is detected and the WUIE bit in CANxIER is 1. A Wake-Up Interrupt is also generated if the CPU tries to set the Sleep bit while the CAN controller is involved in bus activities or a CAN Interrupt is pending. The WUI flag can also get asserted when the according enable bit WUIE is not set. In this case a Wake-Up Interrupt does not get asserted.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WUIR {
-    #[doc = "Reset"]
+pub enum WUI_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl WUIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WUIR::RESET => false,
-            WUIR::SET => true,
+impl From<WUI_A> for bool {
+    #[inline(always)]
+    fn from(variant: WUI_A) -> Self {
+        match variant {
+            WUI_A::RESET => false,
+            WUI_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WUIR {
-        match value {
-            false => WUIR::RESET,
-            true => WUIR::SET,
+}
+#[doc = "Reader of field `WUI`"]
+pub type WUI_R = crate::R<bool, WUI_A>;
+impl WUI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WUI_A {
+        match self.bits {
+            false => WUI_A::RESET,
+            true => WUI_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == WUIR::RESET
+        *self == WUI_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == WUIR::SET
+        *self == WUI_A::SET
     }
 }
-#[doc = "Possible values of the field `EPI`"]
+#[doc = "Error Passive Interrupt. This bit is set if the EPIE bit in CANxIER is 1, and the CAN controller switches between Error Passive and Error Active mode in either direction. This is the case when the CAN Controller has reached the Error Passive Status (at least one error counter exceeds the CAN protocol defined level of 127) or if the CAN Controller is in Error Passive Status and enters the Error Active Status again.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPIR {
-    #[doc = "Reset"]
+pub enum EPI_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl EPIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPIR::RESET => false,
-            EPIR::SET => true,
+impl From<EPI_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPI_A) -> Self {
+        match variant {
+            EPI_A::RESET => false,
+            EPI_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPIR {
-        match value {
-            false => EPIR::RESET,
-            true => EPIR::SET,
+}
+#[doc = "Reader of field `EPI`"]
+pub type EPI_R = crate::R<bool, EPI_A>;
+impl EPI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPI_A {
+        match self.bits {
+            false => EPI_A::RESET,
+            true => EPI_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == EPIR::RESET
+        *self == EPI_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == EPIR::SET
+        *self == EPI_A::SET
     }
 }
-#[doc = "Possible values of the field `ALI`"]
+#[doc = "Arbitration Lost Interrupt. This bit is set if the ALIE bit in CANxIER is 1, and the CAN controller loses arbitration while attempting to transmit. In this case the CAN node becomes a receiver.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ALIR {
-    #[doc = "Reset"]
+pub enum ALI_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl ALIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ALIR::RESET => false,
-            ALIR::SET => true,
+impl From<ALI_A> for bool {
+    #[inline(always)]
+    fn from(variant: ALI_A) -> Self {
+        match variant {
+            ALI_A::RESET => false,
+            ALI_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ALIR {
-        match value {
-            false => ALIR::RESET,
-            true => ALIR::SET,
+}
+#[doc = "Reader of field `ALI`"]
+pub type ALI_R = crate::R<bool, ALI_A>;
+impl ALI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ALI_A {
+        match self.bits {
+            false => ALI_A::RESET,
+            true => ALI_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == ALIR::RESET
+        *self == ALI_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == ALIR::SET
+        *self == ALI_A::SET
     }
 }
-#[doc = "Possible values of the field `BEI`"]
+#[doc = "Bus Error Interrupt -- this bit is set if the BEIE bit in CANxIER is 1, and the CAN controller detects an error on the bus.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BEIR {
-    #[doc = "Reset"]
+pub enum BEI_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl BEIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            BEIR::RESET => false,
-            BEIR::SET => true,
+impl From<BEI_A> for bool {
+    #[inline(always)]
+    fn from(variant: BEI_A) -> Self {
+        match variant {
+            BEI_A::RESET => false,
+            BEI_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> BEIR {
-        match value {
-            false => BEIR::RESET,
-            true => BEIR::SET,
+}
+#[doc = "Reader of field `BEI`"]
+pub type BEI_R = crate::R<bool, BEI_A>;
+impl BEI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BEI_A {
+        match self.bits {
+            false => BEI_A::RESET,
+            true => BEI_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == BEIR::RESET
+        *self == BEI_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == BEIR::SET
+        *self == BEI_A::SET
     }
 }
-#[doc = "Possible values of the field `IDI`"]
+#[doc = "ID Ready Interrupt -- this bit is set if the IDIE bit in CANxIER is 1, and a CAN Identifier has been received (a message was successfully transmitted or aborted). This bit is set whenever a message was successfully transmitted or aborted and the IDIE bit is set in the IER register.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum IDIR {
-    #[doc = "Reset"]
+pub enum IDI_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl IDIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            IDIR::RESET => false,
-            IDIR::SET => true,
+impl From<IDI_A> for bool {
+    #[inline(always)]
+    fn from(variant: IDI_A) -> Self {
+        match variant {
+            IDI_A::RESET => false,
+            IDI_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> IDIR {
-        match value {
-            false => IDIR::RESET,
-            true => IDIR::SET,
+}
+#[doc = "Reader of field `IDI`"]
+pub type IDI_R = crate::R<bool, IDI_A>;
+impl IDI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> IDI_A {
+        match self.bits {
+            false => IDI_A::RESET,
+            true => IDI_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == IDIR::RESET
+        *self == IDI_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == IDIR::SET
+        *self == IDI_A::SET
     }
 }
-#[doc = "Possible values of the field `TI2`"]
+#[doc = "Transmit Interrupt 2. This bit is set when the TBS2 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB2 was successfully transmitted or aborted), indicating that Transmit buffer 2 is available, and the TIE2 bit in CANxIER is 1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TI2R {
-    #[doc = "Reset"]
+pub enum TI2_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl TI2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TI2R::RESET => false,
-            TI2R::SET => true,
+impl From<TI2_A> for bool {
+    #[inline(always)]
+    fn from(variant: TI2_A) -> Self {
+        match variant {
+            TI2_A::RESET => false,
+            TI2_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TI2R {
-        match value {
-            false => TI2R::RESET,
-            true => TI2R::SET,
+}
+#[doc = "Reader of field `TI2`"]
+pub type TI2_R = crate::R<bool, TI2_A>;
+impl TI2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TI2_A {
+        match self.bits {
+            false => TI2_A::RESET,
+            true => TI2_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == TI2R::RESET
+        *self == TI2_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == TI2R::SET
+        *self == TI2_A::SET
     }
 }
-#[doc = "Possible values of the field `TI3`"]
+#[doc = "Transmit Interrupt 3. This bit is set when the TBS3 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB3 was successfully transmitted or aborted), indicating that Transmit buffer 3 is available, and the TIE3 bit in CANxIER is 1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TI3R {
-    #[doc = "Reset"]
+pub enum TI3_A {
+    #[doc = "0: Reset"]
     RESET,
-    #[doc = "Set"]
+    #[doc = "1: Set"]
     SET,
 }
-impl TI3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TI3R::RESET => false,
-            TI3R::SET => true,
+impl From<TI3_A> for bool {
+    #[inline(always)]
+    fn from(variant: TI3_A) -> Self {
+        match variant {
+            TI3_A::RESET => false,
+            TI3_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TI3R {
-        match value {
-            false => TI3R::RESET,
-            true => TI3R::SET,
+}
+#[doc = "Reader of field `TI3`"]
+pub type TI3_R = crate::R<bool, TI3_A>;
+impl TI3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TI3_A {
+        match self.bits {
+            false => TI3_A::RESET,
+            true => TI3_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == TI3R::RESET
+        *self == TI3_A::RESET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == TI3R::SET
+        *self == TI3_A::SET
     }
 }
-#[doc = r" Value of the field"]
-pub struct ERRBIT4_0R {
-    bits: u8,
-}
-impl ERRBIT4_0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = "Possible values of the field `ERRDIR`"]
+#[doc = "Reader of field `ERRBIT4_0`"]
+pub type ERRBIT4_0_R = crate::R<u8, u8>;
+#[doc = "When the CAN controller detects a bus error, the direction of the current bit is captured in this bit.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ERRDIRR {
-    #[doc = "Error occurred during transmitting."]
+pub enum ERRDIR_A {
+    #[doc = "0: Error occurred during transmitting."]
     ERROR_OCCURRED_DURIN,
-    #[doc = "Error occurred during receiving."]
+    #[doc = "1: Error occurred during receiving."]
     ERROR_OCCURRED_DURIN,
 }
-impl ERRDIRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ERRDIRR::ERROR_OCCURRED_DURIN => false,
-            ERRDIRR::ERROR_OCCURRED_DURIN => true,
+impl From<ERRDIR_A> for bool {
+    #[inline(always)]
+    fn from(variant: ERRDIR_A) -> Self {
+        match variant {
+            ERRDIR_A::ERROR_OCCURRED_DURIN => false,
+            ERRDIR_A::ERROR_OCCURRED_DURIN => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ERRDIRR {
-        match value {
-            false => ERRDIRR::ERROR_OCCURRED_DURIN,
-            true => ERRDIRR::ERROR_OCCURRED_DURIN,
+}
+#[doc = "Reader of field `ERRDIR`"]
+pub type ERRDIR_R = crate::R<bool, ERRDIR_A>;
+impl ERRDIR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ERRDIR_A {
+        match self.bits {
+            false => ERRDIR_A::ERROR_OCCURRED_DURIN,
+            true => ERRDIR_A::ERROR_OCCURRED_DURIN,
         }
     }
     #[doc = "Checks if the value of the field is `ERROR_OCCURRED_DURIN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_error_occurred_durin(&self) -> bool {
-        *self == ERRDIRR::ERROR_OCCURRED_DURIN
+        *self == ERRDIR_A::ERROR_OCCURRED_DURIN
     }
     #[doc = "Checks if the value of the field is `ERROR_OCCURRED_DURIN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_error_occurred_durin(&self) -> bool {
-        *self == ERRDIRR::ERROR_OCCURRED_DURIN
+        *self == ERRDIR_A::ERROR_OCCURRED_DURIN
     }
 }
-#[doc = "Possible values of the field `ERRC1_0`"]
+#[doc = "When the CAN controller detects a bus error, the type of error is captured in this field:\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ERRC1_0R {
-    #[doc = "Bit error"]
+pub enum ERRC1_0_A {
+    #[doc = "0: Bit error"]
     BIT_ERROR,
-    #[doc = "Form error"]
+    #[doc = "1: Form error"]
     FORM_ERROR,
-    #[doc = "Stuff error"]
+    #[doc = "2: Stuff error"]
     STUFF_ERROR,
-    #[doc = "Other error"]
+    #[doc = "3: Other error"]
     OTHER_ERROR,
 }
-impl ERRC1_0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            ERRC1_0R::BIT_ERROR => 0,
-            ERRC1_0R::FORM_ERROR => 1,
-            ERRC1_0R::STUFF_ERROR => 2,
-            ERRC1_0R::OTHER_ERROR => 3,
+impl From<ERRC1_0_A> for u8 {
+    #[inline(always)]
+    fn from(variant: ERRC1_0_A) -> Self {
+        match variant {
+            ERRC1_0_A::BIT_ERROR => 0,
+            ERRC1_0_A::FORM_ERROR => 1,
+            ERRC1_0_A::STUFF_ERROR => 2,
+            ERRC1_0_A::OTHER_ERROR => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> ERRC1_0R {
-        match value {
-            0 => ERRC1_0R::BIT_ERROR,
-            1 => ERRC1_0R::FORM_ERROR,
-            2 => ERRC1_0R::STUFF_ERROR,
-            3 => ERRC1_0R::OTHER_ERROR,
+}
+#[doc = "Reader of field `ERRC1_0`"]
+pub type ERRC1_0_R = crate::R<u8, ERRC1_0_A>;
+impl ERRC1_0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ERRC1_0_A {
+        match self.bits {
+            0 => ERRC1_0_A::BIT_ERROR,
+            1 => ERRC1_0_A::FORM_ERROR,
+            2 => ERRC1_0_A::STUFF_ERROR,
+            3 => ERRC1_0_A::OTHER_ERROR,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `BIT_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_bit_error(&self) -> bool {
-        *self == ERRC1_0R::BIT_ERROR
+        *self == ERRC1_0_A::BIT_ERROR
     }
     #[doc = "Checks if the value of the field is `FORM_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_form_error(&self) -> bool {
-        *self == ERRC1_0R::FORM_ERROR
+        *self == ERRC1_0_A::FORM_ERROR
     }
     #[doc = "Checks if the value of the field is `STUFF_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_stuff_error(&self) -> bool {
-        *self == ERRC1_0R::STUFF_ERROR
+        *self == ERRC1_0_A::STUFF_ERROR
     }
     #[doc = "Checks if the value of the field is `OTHER_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_other_error(&self) -> bool {
-        *self == ERRC1_0R::OTHER_ERROR
+        *self == ERRC1_0_A::OTHER_ERROR
     }
 }
-#[doc = r" Value of the field"]
-pub struct ALCBITR {
-    bits: u8,
-}
-impl ALCBITR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of field `ALCBIT`"]
+pub type ALCBIT_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Receive Interrupt. This bit is set whenever the RBS bit in CANxSR and the RIE bit in CANxIER are both 1, indicating that a new message was received and stored in the Receive Buffer. The Receive Interrupt Bit is not cleared upon a read access to the Interrupt Register. Giving the Command Release Receive Buffer will clear RI temporarily. If there is another message available within the Receive Buffer after the release command, RI is set again. Otherwise RI remains cleared."]
-    #[inline]
-    pub fn ri(&self) -> RIR {
-        RIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ri(&self) -> RI_R {
+        RI_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Transmit Interrupt 1. This bit is set when the TBS1 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB1 was successfully transmitted or aborted), indicating that Transmit buffer 1 is available, and the TIE1 bit in CANxIER is 1."]
-    #[inline]
-    pub fn ti1(&self) -> TI1R {
-        TI1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ti1(&self) -> TI1_R {
+        TI1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Error Warning Interrupt. This bit is set on every change (set or clear) of either the Error Status or Bus Status bit in CANxSR and the EIE bit bit is set within the Interrupt Enable Register at the time of the change."]
-    #[inline]
-    pub fn ei(&self) -> EIR {
-        EIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ei(&self) -> EI_R {
+        EI_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Data Overrun Interrupt. This bit is set when the DOS bit in CANxSR goes from 0 to 1 and the DOIE bit in CANxIER is 1."]
-    #[inline]
-    pub fn doi(&self) -> DOIR {
-        DOIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn doi(&self) -> DOI_R {
+        DOI_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Wake-Up Interrupt. This bit is set if the CAN controller is sleeping and bus activity is detected and the WUIE bit in CANxIER is 1. A Wake-Up Interrupt is also generated if the CPU tries to set the Sleep bit while the CAN controller is involved in bus activities or a CAN Interrupt is pending. The WUI flag can also get asserted when the according enable bit WUIE is not set. In this case a Wake-Up Interrupt does not get asserted."]
-    #[inline]
-    pub fn wui(&self) -> WUIR {
-        WUIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wui(&self) -> WUI_R {
+        WUI_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Error Passive Interrupt. This bit is set if the EPIE bit in CANxIER is 1, and the CAN controller switches between Error Passive and Error Active mode in either direction. This is the case when the CAN Controller has reached the Error Passive Status (at least one error counter exceeds the CAN protocol defined level of 127) or if the CAN Controller is in Error Passive Status and enters the Error Active Status again."]
-    #[inline]
-    pub fn epi(&self) -> EPIR {
-        EPIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epi(&self) -> EPI_R {
+        EPI_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Arbitration Lost Interrupt. This bit is set if the ALIE bit in CANxIER is 1, and the CAN controller loses arbitration while attempting to transmit. In this case the CAN node becomes a receiver."]
-    #[inline]
-    pub fn ali(&self) -> ALIR {
-        ALIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ali(&self) -> ALI_R {
+        ALI_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Bus Error Interrupt -- this bit is set if the BEIE bit in CANxIER is 1, and the CAN controller detects an error on the bus."]
-    #[inline]
-    pub fn bei(&self) -> BEIR {
-        BEIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn bei(&self) -> BEI_R {
+        BEI_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - ID Ready Interrupt -- this bit is set if the IDIE bit in CANxIER is 1, and a CAN Identifier has been received (a message was successfully transmitted or aborted). This bit is set whenever a message was successfully transmitted or aborted and the IDIE bit is set in the IER register."]
-    #[inline]
-    pub fn idi(&self) -> IDIR {
-        IDIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn idi(&self) -> IDI_R {
+        IDI_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Transmit Interrupt 2. This bit is set when the TBS2 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB2 was successfully transmitted or aborted), indicating that Transmit buffer 2 is available, and the TIE2 bit in CANxIER is 1."]
-    #[inline]
-    pub fn ti2(&self) -> TI2R {
-        TI2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ti2(&self) -> TI2_R {
+        TI2_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Transmit Interrupt 3. This bit is set when the TBS3 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB3 was successfully transmitted or aborted), indicating that Transmit buffer 3 is available, and the TIE3 bit in CANxIER is 1."]
-    #[inline]
-    pub fn ti3(&self) -> TI3R {
-        TI3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ti3(&self) -> TI3_R {
+        TI3_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bits 16:20 - Error Code Capture: when the CAN controller detects a bus error, the location of the error within the frame is captured in this field. The value reflects an internal state variable, and as a result is not very linear: 00011 = Start of Frame 00010 = ID28 ... ID21 00110 = ID20 ... ID18 00100 = SRTR Bit 00101 = IDE bit 00111 = ID17 ... 13 01111 = ID12 ... ID5 01110 = ID4 ... ID0 01100 = RTR Bit 01101 = Reserved Bit 1 01001 = Reserved Bit 0 01011 = Data Length Code 01010 = Data Field 01000 = CRC Sequence 11000 = CRC Delimiter 11001 = Acknowledge Slot 11011 = Acknowledge Delimiter 11010 = End of Frame 10010 = Intermission Whenever a bus error occurs, the corresponding bus error interrupt is forced, if enabled. At the same time, the current position of the Bit Stream Processor is captured into the Error Code Capture Register. The content within this register is fixed until the user software has read out its content once. From now on, the capture mechanism is activated again, i.e. reading the CANxICR enables another Bus Error Interrupt."]
-    #[inline]
-    pub fn errbit4_0(&self) -> ERRBIT4_0R {
-        let bits = {
-            const MASK: u8 = 31;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ERRBIT4_0R { bits }
+    #[inline(always)]
+    pub fn errbit4_0(&self) -> ERRBIT4_0_R {
+        ERRBIT4_0_R::new(((self.bits >> 16) & 0x1f) as u8)
     }
     #[doc = "Bit 21 - When the CAN controller detects a bus error, the direction of the current bit is captured in this bit."]
-    #[inline]
-    pub fn errdir(&self) -> ERRDIRR {
-        ERRDIRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn errdir(&self) -> ERRDIR_R {
+        ERRDIR_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bits 22:23 - When the CAN controller detects a bus error, the type of error is captured in this field:"]
-    #[inline]
-    pub fn errc1_0(&self) -> ERRC1_0R {
-        ERRC1_0R::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn errc1_0(&self) -> ERRC1_0_R {
+        ERRC1_0_R::new(((self.bits >> 22) & 0x03) as u8)
     }
     #[doc = "Bits 24:31 - Each time arbitration is lost while trying to send on the CAN, the bit number within the frame is captured into this field. After the content of ALCBIT is read, the ALI bit is cleared and a new Arbitration Lost interrupt can occur. 00 = arbitration lost in the first bit (MS) of identifier ... 11 = arbitration lost in SRTS bit (RTR bit for standard frame messages) 12 = arbitration lost in IDE bit 13 = arbitration lost in 12th bit of identifier (extended frame only) ... 30 = arbitration lost in last bit of identifier (extended frame only) 31 = arbitration lost in RTR bit (extended frame only) On arbitration lost, the corresponding arbitration lost interrupt is forced, if enabled. At that time, the current bit position of the Bit Stream Processor is captured into the Arbitration Lost Capture Register. The content within this register is fixed until the user application has read out its contents once. From now on, the capture mechanism is activated again."]
-    #[inline]
-    pub fn alcbit(&self) -> ALCBITR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        ALCBITR { bits }
+    #[inline(always)]
+    pub fn alcbit(&self) -> ALCBIT_R {
+        ALCBIT_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }

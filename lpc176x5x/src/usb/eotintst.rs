@@ -1,1012 +1,228 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::EOTINTST {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST0R {
-    bits: bool,
-}
-impl EPTXINTST0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST1R {
-    bits: bool,
-}
-impl EPTXINTST1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST2R {
-    bits: bool,
-}
-impl EPTXINTST2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST3R {
-    bits: bool,
-}
-impl EPTXINTST3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST4R {
-    bits: bool,
-}
-impl EPTXINTST4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST5R {
-    bits: bool,
-}
-impl EPTXINTST5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST6R {
-    bits: bool,
-}
-impl EPTXINTST6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST7R {
-    bits: bool,
-}
-impl EPTXINTST7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST8R {
-    bits: bool,
-}
-impl EPTXINTST8R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST9R {
-    bits: bool,
-}
-impl EPTXINTST9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST10R {
-    bits: bool,
-}
-impl EPTXINTST10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST11R {
-    bits: bool,
-}
-impl EPTXINTST11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST12R {
-    bits: bool,
-}
-impl EPTXINTST12R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST13R {
-    bits: bool,
-}
-impl EPTXINTST13R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST14R {
-    bits: bool,
-}
-impl EPTXINTST14R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST15R {
-    bits: bool,
-}
-impl EPTXINTST15R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST16R {
-    bits: bool,
-}
-impl EPTXINTST16R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST17R {
-    bits: bool,
-}
-impl EPTXINTST17R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST18R {
-    bits: bool,
-}
-impl EPTXINTST18R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST19R {
-    bits: bool,
-}
-impl EPTXINTST19R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST20R {
-    bits: bool,
-}
-impl EPTXINTST20R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST21R {
-    bits: bool,
-}
-impl EPTXINTST21R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST22R {
-    bits: bool,
-}
-impl EPTXINTST22R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST23R {
-    bits: bool,
-}
-impl EPTXINTST23R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST24R {
-    bits: bool,
-}
-impl EPTXINTST24R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST25R {
-    bits: bool,
-}
-impl EPTXINTST25R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST26R {
-    bits: bool,
-}
-impl EPTXINTST26R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST27R {
-    bits: bool,
-}
-impl EPTXINTST27R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST28R {
-    bits: bool,
-}
-impl EPTXINTST28R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST29R {
-    bits: bool,
-}
-impl EPTXINTST29R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST30R {
-    bits: bool,
-}
-impl EPTXINTST30R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EPTXINTST31R {
-    bits: bool,
-}
-impl EPTXINTST31R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register EOTINTST"]
+pub type R = crate::R<u32, super::EOTINTST>;
+#[doc = "Reader of field `EPTXINTST0`"]
+pub type EPTXINTST0_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST1`"]
+pub type EPTXINTST1_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST2`"]
+pub type EPTXINTST2_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST3`"]
+pub type EPTXINTST3_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST4`"]
+pub type EPTXINTST4_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST5`"]
+pub type EPTXINTST5_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST6`"]
+pub type EPTXINTST6_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST7`"]
+pub type EPTXINTST7_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST8`"]
+pub type EPTXINTST8_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST9`"]
+pub type EPTXINTST9_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST10`"]
+pub type EPTXINTST10_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST11`"]
+pub type EPTXINTST11_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST12`"]
+pub type EPTXINTST12_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST13`"]
+pub type EPTXINTST13_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST14`"]
+pub type EPTXINTST14_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST15`"]
+pub type EPTXINTST15_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST16`"]
+pub type EPTXINTST16_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST17`"]
+pub type EPTXINTST17_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST18`"]
+pub type EPTXINTST18_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST19`"]
+pub type EPTXINTST19_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST20`"]
+pub type EPTXINTST20_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST21`"]
+pub type EPTXINTST21_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST22`"]
+pub type EPTXINTST22_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST23`"]
+pub type EPTXINTST23_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST24`"]
+pub type EPTXINTST24_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST25`"]
+pub type EPTXINTST25_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST26`"]
+pub type EPTXINTST26_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST27`"]
+pub type EPTXINTST27_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST28`"]
+pub type EPTXINTST28_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST29`"]
+pub type EPTXINTST29_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST30`"]
+pub type EPTXINTST30_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EPTXINTST31`"]
+pub type EPTXINTST31_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst0(&self) -> EPTXINTST0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST0R { bits }
+    #[inline(always)]
+    pub fn eptxintst0(&self) -> EPTXINTST0_R {
+        EPTXINTST0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst1(&self) -> EPTXINTST1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST1R { bits }
+    #[inline(always)]
+    pub fn eptxintst1(&self) -> EPTXINTST1_R {
+        EPTXINTST1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst2(&self) -> EPTXINTST2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST2R { bits }
+    #[inline(always)]
+    pub fn eptxintst2(&self) -> EPTXINTST2_R {
+        EPTXINTST2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst3(&self) -> EPTXINTST3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST3R { bits }
+    #[inline(always)]
+    pub fn eptxintst3(&self) -> EPTXINTST3_R {
+        EPTXINTST3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst4(&self) -> EPTXINTST4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST4R { bits }
+    #[inline(always)]
+    pub fn eptxintst4(&self) -> EPTXINTST4_R {
+        EPTXINTST4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst5(&self) -> EPTXINTST5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST5R { bits }
+    #[inline(always)]
+    pub fn eptxintst5(&self) -> EPTXINTST5_R {
+        EPTXINTST5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst6(&self) -> EPTXINTST6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST6R { bits }
+    #[inline(always)]
+    pub fn eptxintst6(&self) -> EPTXINTST6_R {
+        EPTXINTST6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst7(&self) -> EPTXINTST7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST7R { bits }
+    #[inline(always)]
+    pub fn eptxintst7(&self) -> EPTXINTST7_R {
+        EPTXINTST7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst8(&self) -> EPTXINTST8R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST8R { bits }
+    #[inline(always)]
+    pub fn eptxintst8(&self) -> EPTXINTST8_R {
+        EPTXINTST8_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst9(&self) -> EPTXINTST9R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST9R { bits }
+    #[inline(always)]
+    pub fn eptxintst9(&self) -> EPTXINTST9_R {
+        EPTXINTST9_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst10(&self) -> EPTXINTST10R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST10R { bits }
+    #[inline(always)]
+    pub fn eptxintst10(&self) -> EPTXINTST10_R {
+        EPTXINTST10_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst11(&self) -> EPTXINTST11R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST11R { bits }
+    #[inline(always)]
+    pub fn eptxintst11(&self) -> EPTXINTST11_R {
+        EPTXINTST11_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst12(&self) -> EPTXINTST12R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST12R { bits }
+    #[inline(always)]
+    pub fn eptxintst12(&self) -> EPTXINTST12_R {
+        EPTXINTST12_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst13(&self) -> EPTXINTST13R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST13R { bits }
+    #[inline(always)]
+    pub fn eptxintst13(&self) -> EPTXINTST13_R {
+        EPTXINTST13_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst14(&self) -> EPTXINTST14R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST14R { bits }
+    #[inline(always)]
+    pub fn eptxintst14(&self) -> EPTXINTST14_R {
+        EPTXINTST14_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst15(&self) -> EPTXINTST15R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST15R { bits }
+    #[inline(always)]
+    pub fn eptxintst15(&self) -> EPTXINTST15_R {
+        EPTXINTST15_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst16(&self) -> EPTXINTST16R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST16R { bits }
+    #[inline(always)]
+    pub fn eptxintst16(&self) -> EPTXINTST16_R {
+        EPTXINTST16_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst17(&self) -> EPTXINTST17R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST17R { bits }
+    #[inline(always)]
+    pub fn eptxintst17(&self) -> EPTXINTST17_R {
+        EPTXINTST17_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst18(&self) -> EPTXINTST18R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST18R { bits }
+    #[inline(always)]
+    pub fn eptxintst18(&self) -> EPTXINTST18_R {
+        EPTXINTST18_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst19(&self) -> EPTXINTST19R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST19R { bits }
+    #[inline(always)]
+    pub fn eptxintst19(&self) -> EPTXINTST19_R {
+        EPTXINTST19_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst20(&self) -> EPTXINTST20R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST20R { bits }
+    #[inline(always)]
+    pub fn eptxintst20(&self) -> EPTXINTST20_R {
+        EPTXINTST20_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst21(&self) -> EPTXINTST21R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST21R { bits }
+    #[inline(always)]
+    pub fn eptxintst21(&self) -> EPTXINTST21_R {
+        EPTXINTST21_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 22 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst22(&self) -> EPTXINTST22R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST22R { bits }
+    #[inline(always)]
+    pub fn eptxintst22(&self) -> EPTXINTST22_R {
+        EPTXINTST22_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst23(&self) -> EPTXINTST23R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST23R { bits }
+    #[inline(always)]
+    pub fn eptxintst23(&self) -> EPTXINTST23_R {
+        EPTXINTST23_R::new(((self.bits >> 23) & 0x01) != 0)
     }
     #[doc = "Bit 24 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst24(&self) -> EPTXINTST24R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST24R { bits }
+    #[inline(always)]
+    pub fn eptxintst24(&self) -> EPTXINTST24_R {
+        EPTXINTST24_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bit 25 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst25(&self) -> EPTXINTST25R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST25R { bits }
+    #[inline(always)]
+    pub fn eptxintst25(&self) -> EPTXINTST25_R {
+        EPTXINTST25_R::new(((self.bits >> 25) & 0x01) != 0)
     }
     #[doc = "Bit 26 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst26(&self) -> EPTXINTST26R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 26;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST26R { bits }
+    #[inline(always)]
+    pub fn eptxintst26(&self) -> EPTXINTST26_R {
+        EPTXINTST26_R::new(((self.bits >> 26) & 0x01) != 0)
     }
     #[doc = "Bit 27 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst27(&self) -> EPTXINTST27R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 27;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST27R { bits }
+    #[inline(always)]
+    pub fn eptxintst27(&self) -> EPTXINTST27_R {
+        EPTXINTST27_R::new(((self.bits >> 27) & 0x01) != 0)
     }
     #[doc = "Bit 28 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst28(&self) -> EPTXINTST28R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST28R { bits }
+    #[inline(always)]
+    pub fn eptxintst28(&self) -> EPTXINTST28_R {
+        EPTXINTST28_R::new(((self.bits >> 28) & 0x01) != 0)
     }
     #[doc = "Bit 29 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst29(&self) -> EPTXINTST29R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 29;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST29R { bits }
+    #[inline(always)]
+    pub fn eptxintst29(&self) -> EPTXINTST29_R {
+        EPTXINTST29_R::new(((self.bits >> 29) & 0x01) != 0)
     }
     #[doc = "Bit 30 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst30(&self) -> EPTXINTST30R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST30R { bits }
+    #[inline(always)]
+    pub fn eptxintst30(&self) -> EPTXINTST30_R {
+        EPTXINTST30_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - Endpoint xx (2 <= xx <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx."]
-    #[inline]
-    pub fn eptxintst31(&self) -> EPTXINTST31R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EPTXINTST31R { bits }
+    #[inline(always)]
+    pub fn eptxintst31(&self) -> EPTXINTST31_R {
+        EPTXINTST31_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }

@@ -1,302 +1,192 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::TCR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register TCR"]
+pub type R = crate::R<u32, super::TCR>;
+#[doc = "Writer for register TCR"]
+pub type W = crate::W<u32, super::TCR>;
+#[doc = "Register TCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::TCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CEN`"]
+#[doc = "Counter enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CENR {
-    #[doc = "The counters are disabled."]
+pub enum CEN_A {
+    #[doc = "0: The counters are disabled."]
     THE_COUNTERS_ARE_DIS,
-    #[doc = "The Timer Counter and Prescale Counter are enabled for counting."]
+    #[doc = "1: The Timer Counter and Prescale Counter are enabled for counting."]
     THE_TIMER_COUNTER_AN,
 }
-impl CENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CENR::THE_COUNTERS_ARE_DIS => false,
-            CENR::THE_TIMER_COUNTER_AN => true,
+impl From<CEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: CEN_A) -> Self {
+        match variant {
+            CEN_A::THE_COUNTERS_ARE_DIS => false,
+            CEN_A::THE_TIMER_COUNTER_AN => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CENR {
-        match value {
-            false => CENR::THE_COUNTERS_ARE_DIS,
-            true => CENR::THE_TIMER_COUNTER_AN,
+}
+#[doc = "Reader of field `CEN`"]
+pub type CEN_R = crate::R<bool, CEN_A>;
+impl CEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CEN_A {
+        match self.bits {
+            false => CEN_A::THE_COUNTERS_ARE_DIS,
+            true => CEN_A::THE_TIMER_COUNTER_AN,
         }
     }
     #[doc = "Checks if the value of the field is `THE_COUNTERS_ARE_DIS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_the_counters_are_dis(&self) -> bool {
-        *self == CENR::THE_COUNTERS_ARE_DIS
+        *self == CEN_A::THE_COUNTERS_ARE_DIS
     }
     #[doc = "Checks if the value of the field is `THE_TIMER_COUNTER_AN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_the_timer_counter_an(&self) -> bool {
-        *self == CENR::THE_TIMER_COUNTER_AN
+        *self == CEN_A::THE_TIMER_COUNTER_AN
     }
 }
-#[doc = "Possible values of the field `CRST`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CRSTR {
-    #[doc = "Do nothing."]
-    DO_NOTHING,
-    #[doc = "The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
-    RESET,
-}
-impl CRSTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CRSTR::DO_NOTHING => false,
-            CRSTR::RESET => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CRSTR {
-        match value {
-            false => CRSTR::DO_NOTHING,
-            true => CRSTR::RESET,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DO_NOTHING`"]
-    #[inline]
-    pub fn is_do_nothing(&self) -> bool {
-        *self == CRSTR::DO_NOTHING
-    }
-    #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
-    pub fn is_reset(&self) -> bool {
-        *self == CRSTR::RESET
-    }
-}
-#[doc = "Values that can be written to the field `CEN`"]
-pub enum CENW {
-    #[doc = "The counters are disabled."]
-    THE_COUNTERS_ARE_DIS,
-    #[doc = "The Timer Counter and Prescale Counter are enabled for counting."]
-    THE_TIMER_COUNTER_AN,
-}
-impl CENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CENW::THE_COUNTERS_ARE_DIS => false,
-            CENW::THE_TIMER_COUNTER_AN => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CENW<'a> {
+#[doc = "Write proxy for field `CEN`"]
+pub struct CEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CENW) -> &'a mut W {
+impl<'a> CEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CEN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "The counters are disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn the_counters_are_dis(self) -> &'a mut W {
-        self.variant(CENW::THE_COUNTERS_ARE_DIS)
+        self.variant(CEN_A::THE_COUNTERS_ARE_DIS)
     }
     #[doc = "The Timer Counter and Prescale Counter are enabled for counting."]
-    #[inline]
+    #[inline(always)]
     pub fn the_timer_counter_an(self) -> &'a mut W {
-        self.variant(CENW::THE_TIMER_COUNTER_AN)
+        self.variant(CEN_A::THE_TIMER_COUNTER_AN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CRST`"]
-pub enum CRSTW {
-    #[doc = "Do nothing."]
+#[doc = "Counter reset.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CRST_A {
+    #[doc = "0: Do nothing."]
     DO_NOTHING,
-    #[doc = "The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
+    #[doc = "1: The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
     RESET,
 }
-impl CRSTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CRSTW::DO_NOTHING => false,
-            CRSTW::RESET => true,
+impl From<CRST_A> for bool {
+    #[inline(always)]
+    fn from(variant: CRST_A) -> Self {
+        match variant {
+            CRST_A::DO_NOTHING => false,
+            CRST_A::RESET => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CRSTW<'a> {
+#[doc = "Reader of field `CRST`"]
+pub type CRST_R = crate::R<bool, CRST_A>;
+impl CRST_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CRST_A {
+        match self.bits {
+            false => CRST_A::DO_NOTHING,
+            true => CRST_A::RESET,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DO_NOTHING`"]
+    #[inline(always)]
+    pub fn is_do_nothing(&self) -> bool {
+        *self == CRST_A::DO_NOTHING
+    }
+    #[doc = "Checks if the value of the field is `RESET`"]
+    #[inline(always)]
+    pub fn is_reset(&self) -> bool {
+        *self == CRST_A::RESET
+    }
+}
+#[doc = "Write proxy for field `CRST`"]
+pub struct CRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CRSTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CRSTW) -> &'a mut W {
+impl<'a> CRST_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CRST_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Do nothing."]
-    #[inline]
+    #[inline(always)]
     pub fn do_nothing(self) -> &'a mut W {
-        self.variant(CRSTW::DO_NOTHING)
+        self.variant(CRST_A::DO_NOTHING)
     }
     #[doc = "The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
-    #[inline]
+    #[inline(always)]
     pub fn reset(self) -> &'a mut W {
-        self.variant(CRSTW::RESET)
+        self.variant(CRST_A::RESET)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Counter enable."]
-    #[inline]
-    pub fn cen(&self) -> CENR {
-        CENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cen(&self) -> CEN_R {
+        CEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Counter reset."]
-    #[inline]
-    pub fn crst(&self) -> CRSTR {
-        CRSTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn crst(&self) -> CRST_R {
+        CRST_R::new(((self.bits >> 1) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Counter enable."]
-    #[inline]
-    pub fn cen(&mut self) -> _CENW {
-        _CENW { w: self }
+    #[inline(always)]
+    pub fn cen(&mut self) -> CEN_W {
+        CEN_W { w: self }
     }
     #[doc = "Bit 1 - Counter reset."]
-    #[inline]
-    pub fn crst(&mut self) -> _CRSTW {
-        _CRSTW { w: self }
+    #[inline(always)]
+    pub fn crst(&mut self) -> CRST_W {
+        CRST_W { w: self }
     }
 }

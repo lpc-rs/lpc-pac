@@ -1,361 +1,81 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::INTSTAT {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MSTPENDINGR {
-    bits: bool,
-}
-impl MSTPENDINGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MSTARBLOSSR {
-    bits: bool,
-}
-impl MSTARBLOSSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MSTSTSTPERRR {
-    bits: bool,
-}
-impl MSTSTSTPERRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SLVPENDINGR {
-    bits: bool,
-}
-impl SLVPENDINGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SLVNOTSTRR {
-    bits: bool,
-}
-impl SLVNOTSTRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SLVDESELR {
-    bits: bool,
-}
-impl SLVDESELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MONRDYR {
-    bits: bool,
-}
-impl MONRDYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MONOVR {
-    bits: bool,
-}
-impl MONOVR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MONIDLER {
-    bits: bool,
-}
-impl MONIDLER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EVENTTIMEOUTR {
-    bits: bool,
-}
-impl EVENTTIMEOUTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SCLTIMEOUTR {
-    bits: bool,
-}
-impl SCLTIMEOUTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register INTSTAT"]
+pub type R = crate::R<u32, super::INTSTAT>;
+#[doc = "Reader of field `MSTPENDING`"]
+pub type MSTPENDING_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MSTARBLOSS`"]
+pub type MSTARBLOSS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MSTSTSTPERR`"]
+pub type MSTSTSTPERR_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SLVPENDING`"]
+pub type SLVPENDING_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SLVNOTSTR`"]
+pub type SLVNOTSTR_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SLVDESEL`"]
+pub type SLVDESEL_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MONRDY`"]
+pub type MONRDY_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MONOV`"]
+pub type MONOV_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MONIDLE`"]
+pub type MONIDLE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EVENTTIMEOUT`"]
+pub type EVENTTIMEOUT_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SCLTIMEOUT`"]
+pub type SCLTIMEOUT_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Master Pending."]
-    #[inline]
-    pub fn mstpending(&self) -> MSTPENDINGR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MSTPENDINGR { bits }
+    #[inline(always)]
+    pub fn mstpending(&self) -> MSTPENDING_R {
+        MSTPENDING_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 4 - Master Arbitration Loss flag."]
-    #[inline]
-    pub fn mstarbloss(&self) -> MSTARBLOSSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MSTARBLOSSR { bits }
+    #[inline(always)]
+    pub fn mstarbloss(&self) -> MSTARBLOSS_R {
+        MSTARBLOSS_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Master Start/Stop Error flag."]
-    #[inline]
-    pub fn mstststperr(&self) -> MSTSTSTPERRR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MSTSTSTPERRR { bits }
+    #[inline(always)]
+    pub fn mstststperr(&self) -> MSTSTSTPERR_R {
+        MSTSTSTPERR_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Slave Pending."]
-    #[inline]
-    pub fn slvpending(&self) -> SLVPENDINGR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SLVPENDINGR { bits }
+    #[inline(always)]
+    pub fn slvpending(&self) -> SLVPENDING_R {
+        SLVPENDING_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Slave Not Stretching status."]
-    #[inline]
-    pub fn slvnotstr(&self) -> SLVNOTSTRR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SLVNOTSTRR { bits }
+    #[inline(always)]
+    pub fn slvnotstr(&self) -> SLVNOTSTR_R {
+        SLVNOTSTR_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Slave Deselected flag."]
-    #[inline]
-    pub fn slvdesel(&self) -> SLVDESELR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SLVDESELR { bits }
+    #[inline(always)]
+    pub fn slvdesel(&self) -> SLVDESEL_R {
+        SLVDESEL_R::new(((self.bits >> 15) & 0x01) != 0)
     }
     #[doc = "Bit 16 - Monitor Ready."]
-    #[inline]
-    pub fn monrdy(&self) -> MONRDYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MONRDYR { bits }
+    #[inline(always)]
+    pub fn monrdy(&self) -> MONRDY_R {
+        MONRDY_R::new(((self.bits >> 16) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Monitor Overflow flag."]
-    #[inline]
-    pub fn monov(&self) -> MONOVR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MONOVR { bits }
+    #[inline(always)]
+    pub fn monov(&self) -> MONOV_R {
+        MONOV_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Monitor Idle flag."]
-    #[inline]
-    pub fn monidle(&self) -> MONIDLER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MONIDLER { bits }
+    #[inline(always)]
+    pub fn monidle(&self) -> MONIDLE_R {
+        MONIDLE_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 24 - Event time-out Interrupt flag."]
-    #[inline]
-    pub fn eventtimeout(&self) -> EVENTTIMEOUTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EVENTTIMEOUTR { bits }
+    #[inline(always)]
+    pub fn eventtimeout(&self) -> EVENTTIMEOUT_R {
+        EVENTTIMEOUT_R::new(((self.bits >> 24) & 0x01) != 0)
     }
     #[doc = "Bit 25 - SCL time-out Interrupt flag."]
-    #[inline]
-    pub fn scltimeout(&self) -> SCLTIMEOUTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 25;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SCLTIMEOUTR { bits }
+    #[inline(always)]
+    pub fn scltimeout(&self) -> SCLTIMEOUT_R {
+        SCLTIMEOUT_R::new(((self.bits >> 25) & 0x01) != 0)
     }
 }

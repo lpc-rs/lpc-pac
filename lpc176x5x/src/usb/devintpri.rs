@@ -1,155 +1,134 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::DEVINTPRI {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register DEVINTPRI"]
+pub type W = crate::W<u32, super::DEVINTPRI>;
+#[doc = "Register DEVINTPRI `reset()`'s with value 0"]
+impl crate::ResetValue for super::DEVINTPRI {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Values that can be written to the field `FRAME`"]
-pub enum FRAMEW {
-    #[doc = "FRAME interrupt is routed to USB_INT_REQ_LP."]
+#[doc = "Frame interrupt routing\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FRAME_AW {
+    #[doc = "0: FRAME interrupt is routed to USB_INT_REQ_LP."]
     LP,
-    #[doc = "FRAME interrupt is routed to USB_INT_REQ_HP."]
+    #[doc = "1: FRAME interrupt is routed to USB_INT_REQ_HP."]
     HP,
 }
-impl FRAMEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FRAMEW::LP => false,
-            FRAMEW::HP => true,
+impl From<FRAME_AW> for bool {
+    #[inline(always)]
+    fn from(variant: FRAME_AW) -> Self {
+        match variant {
+            FRAME_AW::LP => false,
+            FRAME_AW::HP => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _FRAMEW<'a> {
+#[doc = "Write proxy for field `FRAME`"]
+pub struct FRAME_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FRAMEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FRAMEW) -> &'a mut W {
+impl<'a> FRAME_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FRAME_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "FRAME interrupt is routed to USB_INT_REQ_LP."]
-    #[inline]
+    #[inline(always)]
     pub fn lp(self) -> &'a mut W {
-        self.variant(FRAMEW::LP)
+        self.variant(FRAME_AW::LP)
     }
     #[doc = "FRAME interrupt is routed to USB_INT_REQ_HP."]
-    #[inline]
+    #[inline(always)]
     pub fn hp(self) -> &'a mut W {
-        self.variant(FRAMEW::HP)
+        self.variant(FRAME_AW::HP)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `EP_FAST`"]
-pub enum EP_FASTW {
-    #[doc = "EP_FAST interrupt is routed to USB_INT_REQ_LP."]
+#[doc = "Fast endpoint interrupt routing\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EP_FAST_AW {
+    #[doc = "0: EP_FAST interrupt is routed to USB_INT_REQ_LP."]
     LP,
-    #[doc = "EP_FAST interrupt is routed to USB_INT_REQ_HP."]
+    #[doc = "1: EP_FAST interrupt is routed to USB_INT_REQ_HP."]
     HP,
 }
-impl EP_FASTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EP_FASTW::LP => false,
-            EP_FASTW::HP => true,
+impl From<EP_FAST_AW> for bool {
+    #[inline(always)]
+    fn from(variant: EP_FAST_AW) -> Self {
+        match variant {
+            EP_FAST_AW::LP => false,
+            EP_FAST_AW::HP => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _EP_FASTW<'a> {
+#[doc = "Write proxy for field `EP_FAST`"]
+pub struct EP_FAST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EP_FASTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EP_FASTW) -> &'a mut W {
+impl<'a> EP_FAST_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EP_FAST_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "EP_FAST interrupt is routed to USB_INT_REQ_LP."]
-    #[inline]
+    #[inline(always)]
     pub fn lp(self) -> &'a mut W {
-        self.variant(EP_FASTW::LP)
+        self.variant(EP_FAST_AW::LP)
     }
     #[doc = "EP_FAST interrupt is routed to USB_INT_REQ_HP."]
-    #[inline]
+    #[inline(always)]
     pub fn hp(self) -> &'a mut W {
-        self.variant(EP_FASTW::HP)
+        self.variant(EP_FAST_AW::HP)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Frame interrupt routing"]
-    #[inline]
-    pub fn frame(&mut self) -> _FRAMEW {
-        _FRAMEW { w: self }
+    #[inline(always)]
+    pub fn frame(&mut self) -> FRAME_W {
+        FRAME_W { w: self }
     }
     #[doc = "Bit 1 - Fast endpoint interrupt routing"]
-    #[inline]
-    pub fn ep_fast(&mut self) -> _EP_FASTW {
-        _EP_FASTW { w: self }
+    #[inline(always)]
+    pub fn ep_fast(&mut self) -> EP_FAST_W {
+        EP_FAST_W { w: self }
     }
 }

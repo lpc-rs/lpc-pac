@@ -1,595 +1,322 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PCON {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PCON"]
+pub type R = crate::R<u32, super::PCON>;
+#[doc = "Writer for register PCON"]
+pub type W = crate::W<u32, super::PCON>;
+#[doc = "Register PCON `reset()`'s with value 0"]
+impl crate::ResetValue for super::PCON {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct PM0R {
-    bits: bool,
-}
-impl PM0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PM1R {
-    bits: bool,
-}
-impl PM1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BODRPMR {
-    bits: bool,
-}
-impl BODRPMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BOGDR {
-    bits: bool,
-}
-impl BOGDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BORDR {
-    bits: bool,
-}
-impl BORDR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SMFLAGR {
-    bits: bool,
-}
-impl SMFLAGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DSFLAGR {
-    bits: bool,
-}
-impl DSFLAGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PDFLAGR {
-    bits: bool,
-}
-impl PDFLAGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DPDFLAGR {
-    bits: bool,
-}
-impl DPDFLAGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PM0W<'a> {
+#[doc = "Reader of field `PM0`"]
+pub type PM0_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PM0`"]
+pub struct PM0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PM0W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PM0_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PM1W<'a> {
+#[doc = "Reader of field `PM1`"]
+pub type PM1_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PM1`"]
+pub struct PM1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PM1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PM1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _BODRPMW<'a> {
+#[doc = "Reader of field `BODRPM`"]
+pub type BODRPM_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `BODRPM`"]
+pub struct BODRPM_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BODRPMW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> BODRPM_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _BOGDW<'a> {
+#[doc = "Reader of field `BOGD`"]
+pub type BOGD_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `BOGD`"]
+pub struct BOGD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BOGDW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> BOGD_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _BORDW<'a> {
+#[doc = "Reader of field `BORD`"]
+pub type BORD_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `BORD`"]
+pub struct BORD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BORDW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> BORD_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SMFLAGW<'a> {
+#[doc = "Reader of field `SMFLAG`"]
+pub type SMFLAG_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SMFLAG`"]
+pub struct SMFLAG_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SMFLAGW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SMFLAG_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DSFLAGW<'a> {
+#[doc = "Reader of field `DSFLAG`"]
+pub type DSFLAG_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DSFLAG`"]
+pub struct DSFLAG_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DSFLAGW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DSFLAG_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _PDFLAGW<'a> {
+#[doc = "Reader of field `PDFLAG`"]
+pub type PDFLAG_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PDFLAG`"]
+pub struct PDFLAG_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PDFLAGW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> PDFLAG_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DPDFLAGW<'a> {
+#[doc = "Reader of field `DPDFLAG`"]
+pub type DPDFLAG_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DPDFLAG`"]
+pub struct DPDFLAG_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DPDFLAGW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DPDFLAG_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Power mode control bit 0. This bit controls entry to the Power-down mode."]
-    #[inline]
-    pub fn pm0(&self) -> PM0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PM0R { bits }
+    #[inline(always)]
+    pub fn pm0(&self) -> PM0_R {
+        PM0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Power mode control bit 1. This bit controls entry to the Deep Power-down mode."]
-    #[inline]
-    pub fn pm1(&self) -> PM1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PM1R { bits }
+    #[inline(always)]
+    pub fn pm1(&self) -> PM1_R {
+        PM1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Brown-Out Reduced Power Mode. When BODRPM is 1, the Brown-Out Detect circuitry will be turned off when chip Power-down mode or Deep Sleep mode is entered, resulting in a further reduction in power usage. However, the possibility of using Brown-Out Detect as a wake-up source from the reduced power mode will be lost. When 0, the Brown-Out Detect function remains active during Power-down and Deep Sleep modes. See the System Control Block chapter for details of Brown-Out detection."]
-    #[inline]
-    pub fn bodrpm(&self) -> BODRPMR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        BODRPMR { bits }
+    #[inline(always)]
+    pub fn bodrpm(&self) -> BODRPM_R {
+        BODRPM_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Brown-Out Global Disable. When BOGD is 1, the Brown-Out Detect circuitry is fully disabled at all times, and does not consume power. When 0, the Brown-Out Detect circuitry is enabled. See the System Control Block chapter for details of Brown-Out detection. Note: the Brown-Out Reset Disable (BORD, in this register) and the Brown-Out Interrupt (xx) must be disabled when software changes the value of this bit."]
-    #[inline]
-    pub fn bogd(&self) -> BOGDR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        BOGDR { bits }
+    #[inline(always)]
+    pub fn bogd(&self) -> BOGD_R {
+        BOGD_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Brown-Out Reset Disable. When BORD is 1, the BOD will not reset the device when the VDD(REG)(3V3) voltage dips goes below the BOD reset trip level. The Brown-Out interrupt is not affected. When BORD is 0, the BOD reset is enabled."]
-    #[inline]
-    pub fn bord(&self) -> BORDR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        BORDR { bits }
+    #[inline(always)]
+    pub fn bord(&self) -> BORD_R {
+        BORD_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Sleep Mode entry flag. Set when the Sleep mode is successfully entered. Cleared by software writing a one to this bit."]
-    #[inline]
-    pub fn smflag(&self) -> SMFLAGR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SMFLAGR { bits }
+    #[inline(always)]
+    pub fn smflag(&self) -> SMFLAG_R {
+        SMFLAG_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Deep Sleep entry flag. Set when the Deep Sleep mode is successfully entered. Cleared by software writing a one to this bit."]
-    #[inline]
-    pub fn dsflag(&self) -> DSFLAGR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DSFLAGR { bits }
+    #[inline(always)]
+    pub fn dsflag(&self) -> DSFLAG_R {
+        DSFLAG_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Power-down entry flag. Set when the Power-down mode is successfully entered. Cleared by software writing a one to this bit."]
-    #[inline]
-    pub fn pdflag(&self) -> PDFLAGR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PDFLAGR { bits }
+    #[inline(always)]
+    pub fn pdflag(&self) -> PDFLAG_R {
+        PDFLAG_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Deep Power-down entry flag. Set when the Deep Power-down mode is successfully entered. Cleared by software writing a one to this bit."]
-    #[inline]
-    pub fn dpdflag(&self) -> DPDFLAGR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DPDFLAGR { bits }
+    #[inline(always)]
+    pub fn dpdflag(&self) -> DPDFLAG_R {
+        DPDFLAG_R::new(((self.bits >> 11) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Power mode control bit 0. This bit controls entry to the Power-down mode."]
-    #[inline]
-    pub fn pm0(&mut self) -> _PM0W {
-        _PM0W { w: self }
+    #[inline(always)]
+    pub fn pm0(&mut self) -> PM0_W {
+        PM0_W { w: self }
     }
     #[doc = "Bit 1 - Power mode control bit 1. This bit controls entry to the Deep Power-down mode."]
-    #[inline]
-    pub fn pm1(&mut self) -> _PM1W {
-        _PM1W { w: self }
+    #[inline(always)]
+    pub fn pm1(&mut self) -> PM1_W {
+        PM1_W { w: self }
     }
     #[doc = "Bit 2 - Brown-Out Reduced Power Mode. When BODRPM is 1, the Brown-Out Detect circuitry will be turned off when chip Power-down mode or Deep Sleep mode is entered, resulting in a further reduction in power usage. However, the possibility of using Brown-Out Detect as a wake-up source from the reduced power mode will be lost. When 0, the Brown-Out Detect function remains active during Power-down and Deep Sleep modes. See the System Control Block chapter for details of Brown-Out detection."]
-    #[inline]
-    pub fn bodrpm(&mut self) -> _BODRPMW {
-        _BODRPMW { w: self }
+    #[inline(always)]
+    pub fn bodrpm(&mut self) -> BODRPM_W {
+        BODRPM_W { w: self }
     }
     #[doc = "Bit 3 - Brown-Out Global Disable. When BOGD is 1, the Brown-Out Detect circuitry is fully disabled at all times, and does not consume power. When 0, the Brown-Out Detect circuitry is enabled. See the System Control Block chapter for details of Brown-Out detection. Note: the Brown-Out Reset Disable (BORD, in this register) and the Brown-Out Interrupt (xx) must be disabled when software changes the value of this bit."]
-    #[inline]
-    pub fn bogd(&mut self) -> _BOGDW {
-        _BOGDW { w: self }
+    #[inline(always)]
+    pub fn bogd(&mut self) -> BOGD_W {
+        BOGD_W { w: self }
     }
     #[doc = "Bit 4 - Brown-Out Reset Disable. When BORD is 1, the BOD will not reset the device when the VDD(REG)(3V3) voltage dips goes below the BOD reset trip level. The Brown-Out interrupt is not affected. When BORD is 0, the BOD reset is enabled."]
-    #[inline]
-    pub fn bord(&mut self) -> _BORDW {
-        _BORDW { w: self }
+    #[inline(always)]
+    pub fn bord(&mut self) -> BORD_W {
+        BORD_W { w: self }
     }
     #[doc = "Bit 8 - Sleep Mode entry flag. Set when the Sleep mode is successfully entered. Cleared by software writing a one to this bit."]
-    #[inline]
-    pub fn smflag(&mut self) -> _SMFLAGW {
-        _SMFLAGW { w: self }
+    #[inline(always)]
+    pub fn smflag(&mut self) -> SMFLAG_W {
+        SMFLAG_W { w: self }
     }
     #[doc = "Bit 9 - Deep Sleep entry flag. Set when the Deep Sleep mode is successfully entered. Cleared by software writing a one to this bit."]
-    #[inline]
-    pub fn dsflag(&mut self) -> _DSFLAGW {
-        _DSFLAGW { w: self }
+    #[inline(always)]
+    pub fn dsflag(&mut self) -> DSFLAG_W {
+        DSFLAG_W { w: self }
     }
     #[doc = "Bit 10 - Power-down entry flag. Set when the Power-down mode is successfully entered. Cleared by software writing a one to this bit."]
-    #[inline]
-    pub fn pdflag(&mut self) -> _PDFLAGW {
-        _PDFLAGW { w: self }
+    #[inline(always)]
+    pub fn pdflag(&mut self) -> PDFLAG_W {
+        PDFLAG_W { w: self }
     }
     #[doc = "Bit 11 - Deep Power-down entry flag. Set when the Deep Power-down mode is successfully entered. Cleared by software writing a one to this bit."]
-    #[inline]
-    pub fn dpdflag(&mut self) -> _DPDFLAGW {
-        _DPDFLAGW { w: self }
+    #[inline(always)]
+    pub fn dpdflag(&mut self) -> DPDFLAG_W {
+        DPDFLAG_W { w: self }
     }
 }

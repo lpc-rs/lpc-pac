@@ -1,183 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::FROOSCCTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register FROOSCCTRL"]
+pub type R = crate::R<u32, super::FROOSCCTRL>;
+#[doc = "Writer for register FROOSCCTRL"]
+pub type W = crate::W<u32, super::FROOSCCTRL>;
+#[doc = "Register FROOSCCTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::FROOSCCTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `FRO_DIRECT`"]
+#[doc = "fro direct clock select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum FRO_DIRECTR {
-    #[doc = "fro clock is divider by 2 or 16,depend on FAIM slow boot value"]
+pub enum FRO_DIRECT_A {
+    #[doc = "0: fro clock is divider by 2 or 16,depend on FAIM slow boot value"]
     DISABLED,
-    #[doc = "fro clock is direct from FRO oscillator"]
+    #[doc = "1: fro clock is direct from FRO oscillator"]
     ENABLED,
 }
-impl FRO_DIRECTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            FRO_DIRECTR::DISABLED => false,
-            FRO_DIRECTR::ENABLED => true,
+impl From<FRO_DIRECT_A> for bool {
+    #[inline(always)]
+    fn from(variant: FRO_DIRECT_A) -> Self {
+        match variant {
+            FRO_DIRECT_A::DISABLED => false,
+            FRO_DIRECT_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> FRO_DIRECTR {
-        match value {
-            false => FRO_DIRECTR::DISABLED,
-            true => FRO_DIRECTR::ENABLED,
+}
+#[doc = "Reader of field `FRO_DIRECT`"]
+pub type FRO_DIRECT_R = crate::R<bool, FRO_DIRECT_A>;
+impl FRO_DIRECT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> FRO_DIRECT_A {
+        match self.bits {
+            false => FRO_DIRECT_A::DISABLED,
+            true => FRO_DIRECT_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == FRO_DIRECTR::DISABLED
+        *self == FRO_DIRECT_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == FRO_DIRECTR::ENABLED
+        *self == FRO_DIRECT_A::ENABLED
     }
 }
-#[doc = "Values that can be written to the field `FRO_DIRECT`"]
-pub enum FRO_DIRECTW {
-    #[doc = "fro clock is divider by 2 or 16,depend on FAIM slow boot value"]
-    DISABLED,
-    #[doc = "fro clock is direct from FRO oscillator"]
-    ENABLED,
-}
-impl FRO_DIRECTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FRO_DIRECTW::DISABLED => false,
-            FRO_DIRECTW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _FRO_DIRECTW<'a> {
+#[doc = "Write proxy for field `FRO_DIRECT`"]
+pub struct FRO_DIRECT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FRO_DIRECTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FRO_DIRECTW) -> &'a mut W {
+impl<'a> FRO_DIRECT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FRO_DIRECT_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "fro clock is divider by 2 or 16,depend on FAIM slow boot value"]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(FRO_DIRECTW::DISABLED)
+        self.variant(FRO_DIRECT_A::DISABLED)
     }
     #[doc = "fro clock is direct from FRO oscillator"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(FRO_DIRECTW::ENABLED)
+        self.variant(FRO_DIRECT_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 17 - fro direct clock select"]
-    #[inline]
-    pub fn fro_direct(&self) -> FRO_DIRECTR {
-        FRO_DIRECTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn fro_direct(&self) -> FRO_DIRECT_R {
+        FRO_DIRECT_R::new(((self.bits >> 17) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 17 - fro direct clock select"]
-    #[inline]
-    pub fn fro_direct(&mut self) -> _FRO_DIRECTW {
-        _FRO_DIRECTW { w: self }
+    #[inline(always)]
+    pub fn fro_direct(&mut self) -> FRO_DIRECT_W {
+        FRO_DIRECT_W { w: self }
     }
 }

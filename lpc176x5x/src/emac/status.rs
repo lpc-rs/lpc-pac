@@ -1,82 +1,18 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::STATUS {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXSTATUSR {
-    bits: bool,
-}
-impl RXSTATUSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXSTATUSR {
-    bits: bool,
-}
-impl TXSTATUSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register STATUS"]
+pub type R = crate::R<u32, super::STATUS>;
+#[doc = "Reader of field `RXSTATUS`"]
+pub type RXSTATUS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TXSTATUS`"]
+pub type TXSTATUS_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - If 1, the receive channel is active. If 0, the receive channel is inactive."]
-    #[inline]
-    pub fn rxstatus(&self) -> RXSTATUSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXSTATUSR { bits }
+    #[inline(always)]
+    pub fn rxstatus(&self) -> RXSTATUS_R {
+        RXSTATUS_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - If 1, the transmit channel is active. If 0, the transmit channel is inactive."]
-    #[inline]
-    pub fn txstatus(&self) -> TXSTATUSR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXSTATUSR { bits }
+    #[inline(always)]
+    pub fn txstatus(&self) -> TXSTATUS_R {
+        TXSTATUS_R::new(((self.bits >> 1) & 0x01) != 0)
     }
 }

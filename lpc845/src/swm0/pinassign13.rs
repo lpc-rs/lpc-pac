@@ -1,228 +1,112 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PINASSIGN13 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PINASSIGN13"]
+pub type R = crate::R<u32, super::PINASSIGN13>;
+#[doc = "Writer for register PINASSIGN13"]
+pub type W = crate::W<u32, super::PINASSIGN13>;
+#[doc = "Register PINASSIGN13 `reset()`'s with value 0xffff_ffff"]
+impl crate::ResetValue for super::PINASSIGN13 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0xffff_ffff
     }
 }
-#[doc = r" Value of the field"]
-pub struct UART4_SCLKR {
-    bits: u8,
-}
-impl UART4_SCLKR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct T0_MAT0R {
-    bits: u8,
-}
-impl T0_MAT0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct T0_MAT1R {
-    bits: u8,
-}
-impl T0_MAT1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct T0_MAT2R {
-    bits: u8,
-}
-impl T0_MAT2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _UART4_SCLKW<'a> {
+#[doc = "Reader of field `UART4_SCLK`"]
+pub type UART4_SCLK_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `UART4_SCLK`"]
+pub struct UART4_SCLK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _UART4_SCLKW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> UART4_SCLK_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _T0_MAT0W<'a> {
+#[doc = "Reader of field `T0_MAT0`"]
+pub type T0_MAT0_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `T0_MAT0`"]
+pub struct T0_MAT0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _T0_MAT0W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> T0_MAT0_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _T0_MAT1W<'a> {
+#[doc = "Reader of field `T0_MAT1`"]
+pub type T0_MAT1_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `T0_MAT1`"]
+pub struct T0_MAT1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _T0_MAT1W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> T0_MAT1_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _T0_MAT2W<'a> {
+#[doc = "Reader of field `T0_MAT2`"]
+pub type T0_MAT2_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `T0_MAT2`"]
+pub struct T0_MAT2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _T0_MAT2W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> T0_MAT2_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - UART4_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn uart4_sclk(&self) -> UART4_SCLKR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        UART4_SCLKR { bits }
+    #[inline(always)]
+    pub fn uart4_sclk(&self) -> UART4_SCLK_R {
+        UART4_SCLK_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - T0_MAT0 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn t0_mat0(&self) -> T0_MAT0R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        T0_MAT0R { bits }
+    #[inline(always)]
+    pub fn t0_mat0(&self) -> T0_MAT0_R {
+        T0_MAT0_R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - T0_MAT1 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn t0_mat1(&self) -> T0_MAT1R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        T0_MAT1R { bits }
+    #[inline(always)]
+    pub fn t0_mat1(&self) -> T0_MAT1_R {
+        T0_MAT1_R::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:31 - T0_MAT2 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn t0_mat2(&self) -> T0_MAT2R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        T0_MAT2R { bits }
+    #[inline(always)]
+    pub fn t0_mat2(&self) -> T0_MAT2_R {
+        T0_MAT2_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 4294967295 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:7 - UART4_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn uart4_sclk(&mut self) -> _UART4_SCLKW {
-        _UART4_SCLKW { w: self }
+    #[inline(always)]
+    pub fn uart4_sclk(&mut self) -> UART4_SCLK_W {
+        UART4_SCLK_W { w: self }
     }
     #[doc = "Bits 8:15 - T0_MAT0 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn t0_mat0(&mut self) -> _T0_MAT0W {
-        _T0_MAT0W { w: self }
+    #[inline(always)]
+    pub fn t0_mat0(&mut self) -> T0_MAT0_W {
+        T0_MAT0_W { w: self }
     }
     #[doc = "Bits 16:23 - T0_MAT1 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn t0_mat1(&mut self) -> _T0_MAT1W {
-        _T0_MAT1W { w: self }
+    #[inline(always)]
+    pub fn t0_mat1(&mut self) -> T0_MAT1_W {
+        T0_MAT1_W { w: self }
     }
     #[doc = "Bits 24:31 - T0_MAT2 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
-    #[inline]
-    pub fn t0_mat2(&mut self) -> _T0_MAT2W {
-        _T0_MAT2W { w: self }
+    #[inline(always)]
+    pub fn t0_mat2(&mut self) -> T0_MAT2_W {
+        T0_MAT2_W { w: self }
     }
 }

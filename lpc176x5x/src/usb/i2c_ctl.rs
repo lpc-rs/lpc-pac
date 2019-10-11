@@ -1,1135 +1,808 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::I2C_CTL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register I2C_CTL"]
+pub type R = crate::R<u32, super::I2C_CTL>;
+#[doc = "Writer for register I2C_CTL"]
+pub type W = crate::W<u32, super::I2C_CTL>;
+#[doc = "Register I2C_CTL `reset()`'s with value 0"]
+impl crate::ResetValue for super::I2C_CTL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `TDIE`"]
+#[doc = "Transmit Done Interrupt Enable. This enables the TDI interrupt signalling that this I2C issued a STOP condition.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TDIER {
-    #[doc = "Disable the TDI interrupt."]
+pub enum TDIE_A {
+    #[doc = "0: Disable the TDI interrupt."]
     DISABLE_THE_TDI_INTE,
-    #[doc = "Enable the TDI interrupt."]
+    #[doc = "1: Enable the TDI interrupt."]
     ENABLE_THE_TDI_INTER,
 }
-impl TDIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TDIER::DISABLE_THE_TDI_INTE => false,
-            TDIER::ENABLE_THE_TDI_INTER => true,
+impl From<TDIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: TDIE_A) -> Self {
+        match variant {
+            TDIE_A::DISABLE_THE_TDI_INTE => false,
+            TDIE_A::ENABLE_THE_TDI_INTER => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TDIER {
-        match value {
-            false => TDIER::DISABLE_THE_TDI_INTE,
-            true => TDIER::ENABLE_THE_TDI_INTER,
+}
+#[doc = "Reader of field `TDIE`"]
+pub type TDIE_R = crate::R<bool, TDIE_A>;
+impl TDIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TDIE_A {
+        match self.bits {
+            false => TDIE_A::DISABLE_THE_TDI_INTE,
+            true => TDIE_A::ENABLE_THE_TDI_INTER,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_TDI_INTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_tdi_inte(&self) -> bool {
-        *self == TDIER::DISABLE_THE_TDI_INTE
+        *self == TDIE_A::DISABLE_THE_TDI_INTE
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_TDI_INTER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_tdi_inter(&self) -> bool {
-        *self == TDIER::ENABLE_THE_TDI_INTER
+        *self == TDIE_A::ENABLE_THE_TDI_INTER
     }
 }
-#[doc = "Possible values of the field `AFIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum AFIER {
-    #[doc = "Disable the AFI."]
-    DISABLE_THE_AFI_,
-    #[doc = "Enable the AFI."]
-    ENABLE_THE_AFI_,
+#[doc = "Write proxy for field `TDIE`"]
+pub struct TDIE_W<'a> {
+    w: &'a mut W,
 }
-impl AFIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            AFIER::DISABLE_THE_AFI_ => false,
-            AFIER::ENABLE_THE_AFI_ => true,
+impl<'a> TDIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TDIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> AFIER {
-        match value {
-            false => AFIER::DISABLE_THE_AFI_,
-            true => AFIER::ENABLE_THE_AFI_,
+    #[doc = "Disable the TDI interrupt."]
+    #[inline(always)]
+    pub fn disable_the_tdi_inte(self) -> &'a mut W {
+        self.variant(TDIE_A::DISABLE_THE_TDI_INTE)
+    }
+    #[doc = "Enable the TDI interrupt."]
+    #[inline(always)]
+    pub fn enable_the_tdi_inter(self) -> &'a mut W {
+        self.variant(TDIE_A::ENABLE_THE_TDI_INTER)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Transmitter Arbitration Failure Interrupt Enable. This enables the AFI interrupt which is asserted during transmission when trying to set SDA high, but the bus is driven low by another device.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum AFIE_A {
+    #[doc = "0: Disable the AFI."]
+    DISABLE_THE_AFI_,
+    #[doc = "1: Enable the AFI."]
+    ENABLE_THE_AFI_,
+}
+impl From<AFIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: AFIE_A) -> Self {
+        match variant {
+            AFIE_A::DISABLE_THE_AFI_ => false,
+            AFIE_A::ENABLE_THE_AFI_ => true,
+        }
+    }
+}
+#[doc = "Reader of field `AFIE`"]
+pub type AFIE_R = crate::R<bool, AFIE_A>;
+impl AFIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> AFIE_A {
+        match self.bits {
+            false => AFIE_A::DISABLE_THE_AFI_,
+            true => AFIE_A::ENABLE_THE_AFI_,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_AFI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_afi_(&self) -> bool {
-        *self == AFIER::DISABLE_THE_AFI_
+        *self == AFIE_A::DISABLE_THE_AFI_
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_AFI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_afi_(&self) -> bool {
-        *self == AFIER::ENABLE_THE_AFI_
+        *self == AFIE_A::ENABLE_THE_AFI_
     }
 }
-#[doc = "Possible values of the field `NAIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum NAIER {
-    #[doc = "Disable the NAI."]
-    DISABLE_THE_NAI_,
-    #[doc = "Enable the NAI."]
-    ENABLE_THE_NAI_,
+#[doc = "Write proxy for field `AFIE`"]
+pub struct AFIE_W<'a> {
+    w: &'a mut W,
 }
-impl NAIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            NAIER::DISABLE_THE_NAI_ => false,
-            NAIER::ENABLE_THE_NAI_ => true,
+impl<'a> AFIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: AFIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> NAIER {
-        match value {
-            false => NAIER::DISABLE_THE_NAI_,
-            true => NAIER::ENABLE_THE_NAI_,
+    #[doc = "Disable the AFI."]
+    #[inline(always)]
+    pub fn disable_the_afi_(self) -> &'a mut W {
+        self.variant(AFIE_A::DISABLE_THE_AFI_)
+    }
+    #[doc = "Enable the AFI."]
+    #[inline(always)]
+    pub fn enable_the_afi_(self) -> &'a mut W {
+        self.variant(AFIE_A::ENABLE_THE_AFI_)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Transmitter No Acknowledge Interrupt Enable. This enables the NAI interrupt signalling that transmitted byte was not acknowledged.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum NAIE_A {
+    #[doc = "0: Disable the NAI."]
+    DISABLE_THE_NAI_,
+    #[doc = "1: Enable the NAI."]
+    ENABLE_THE_NAI_,
+}
+impl From<NAIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: NAIE_A) -> Self {
+        match variant {
+            NAIE_A::DISABLE_THE_NAI_ => false,
+            NAIE_A::ENABLE_THE_NAI_ => true,
+        }
+    }
+}
+#[doc = "Reader of field `NAIE`"]
+pub type NAIE_R = crate::R<bool, NAIE_A>;
+impl NAIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> NAIE_A {
+        match self.bits {
+            false => NAIE_A::DISABLE_THE_NAI_,
+            true => NAIE_A::ENABLE_THE_NAI_,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_NAI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_nai_(&self) -> bool {
-        *self == NAIER::DISABLE_THE_NAI_
+        *self == NAIE_A::DISABLE_THE_NAI_
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_NAI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_nai_(&self) -> bool {
-        *self == NAIER::ENABLE_THE_NAI_
+        *self == NAIE_A::ENABLE_THE_NAI_
     }
 }
-#[doc = "Possible values of the field `DRMIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DRMIER {
-    #[doc = "Disable the DRMI interrupt."]
-    DISABLE_THE_DRMI_INT,
-    #[doc = "Enable the DRMI interrupt."]
-    ENABLE_THE_DRMI_INTE,
+#[doc = "Write proxy for field `NAIE`"]
+pub struct NAIE_W<'a> {
+    w: &'a mut W,
 }
-impl DRMIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DRMIER::DISABLE_THE_DRMI_INT => false,
-            DRMIER::ENABLE_THE_DRMI_INTE => true,
+impl<'a> NAIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: NAIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DRMIER {
-        match value {
-            false => DRMIER::DISABLE_THE_DRMI_INT,
-            true => DRMIER::ENABLE_THE_DRMI_INTE,
+    #[doc = "Disable the NAI."]
+    #[inline(always)]
+    pub fn disable_the_nai_(self) -> &'a mut W {
+        self.variant(NAIE_A::DISABLE_THE_NAI_)
+    }
+    #[doc = "Enable the NAI."]
+    #[inline(always)]
+    pub fn enable_the_nai_(self) -> &'a mut W {
+        self.variant(NAIE_A::ENABLE_THE_NAI_)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Master Transmitter Data Request Interrupt Enable. This enables the DRMI interrupt which signals that the master transmitter has run out of data, has not issued a STOP, and is holding the SCL line low.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DRMIE_A {
+    #[doc = "0: Disable the DRMI interrupt."]
+    DISABLE_THE_DRMI_INT,
+    #[doc = "1: Enable the DRMI interrupt."]
+    ENABLE_THE_DRMI_INTE,
+}
+impl From<DRMIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: DRMIE_A) -> Self {
+        match variant {
+            DRMIE_A::DISABLE_THE_DRMI_INT => false,
+            DRMIE_A::ENABLE_THE_DRMI_INTE => true,
+        }
+    }
+}
+#[doc = "Reader of field `DRMIE`"]
+pub type DRMIE_R = crate::R<bool, DRMIE_A>;
+impl DRMIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DRMIE_A {
+        match self.bits {
+            false => DRMIE_A::DISABLE_THE_DRMI_INT,
+            true => DRMIE_A::ENABLE_THE_DRMI_INTE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_DRMI_INT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_drmi_int(&self) -> bool {
-        *self == DRMIER::DISABLE_THE_DRMI_INT
+        *self == DRMIE_A::DISABLE_THE_DRMI_INT
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_DRMI_INTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_drmi_inte(&self) -> bool {
-        *self == DRMIER::ENABLE_THE_DRMI_INTE
+        *self == DRMIE_A::ENABLE_THE_DRMI_INTE
     }
 }
-#[doc = "Possible values of the field `DRSIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DRSIER {
-    #[doc = "Disable the DRSI interrupt."]
-    DISABLE_THE_DRSI_INT,
-    #[doc = "Enable the DRSI interrupt."]
-    ENABLE_THE_DRSI_INTE,
+#[doc = "Write proxy for field `DRMIE`"]
+pub struct DRMIE_W<'a> {
+    w: &'a mut W,
 }
-impl DRSIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DRSIER::DISABLE_THE_DRSI_INT => false,
-            DRSIER::ENABLE_THE_DRSI_INTE => true,
+impl<'a> DRMIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DRMIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DRSIER {
-        match value {
-            false => DRSIER::DISABLE_THE_DRSI_INT,
-            true => DRSIER::ENABLE_THE_DRSI_INTE,
+    #[doc = "Disable the DRMI interrupt."]
+    #[inline(always)]
+    pub fn disable_the_drmi_int(self) -> &'a mut W {
+        self.variant(DRMIE_A::DISABLE_THE_DRMI_INT)
+    }
+    #[doc = "Enable the DRMI interrupt."]
+    #[inline(always)]
+    pub fn enable_the_drmi_inte(self) -> &'a mut W {
+        self.variant(DRMIE_A::ENABLE_THE_DRMI_INTE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Slave Transmitter Data Request Interrupt Enable. This enables the DRSI interrupt which signals that the slave transmitter has run out of data and the last byte was acknowledged, so the SCL line is being held low.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DRSIE_A {
+    #[doc = "0: Disable the DRSI interrupt."]
+    DISABLE_THE_DRSI_INT,
+    #[doc = "1: Enable the DRSI interrupt."]
+    ENABLE_THE_DRSI_INTE,
+}
+impl From<DRSIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: DRSIE_A) -> Self {
+        match variant {
+            DRSIE_A::DISABLE_THE_DRSI_INT => false,
+            DRSIE_A::ENABLE_THE_DRSI_INTE => true,
+        }
+    }
+}
+#[doc = "Reader of field `DRSIE`"]
+pub type DRSIE_R = crate::R<bool, DRSIE_A>;
+impl DRSIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DRSIE_A {
+        match self.bits {
+            false => DRSIE_A::DISABLE_THE_DRSI_INT,
+            true => DRSIE_A::ENABLE_THE_DRSI_INTE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_DRSI_INT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_drsi_int(&self) -> bool {
-        *self == DRSIER::DISABLE_THE_DRSI_INT
+        *self == DRSIE_A::DISABLE_THE_DRSI_INT
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_DRSI_INTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_drsi_inte(&self) -> bool {
-        *self == DRSIER::ENABLE_THE_DRSI_INTE
+        *self == DRSIE_A::ENABLE_THE_DRSI_INTE
     }
 }
-#[doc = "Possible values of the field `REFIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum REFIER {
-    #[doc = "Disable the RFFI."]
-    DISABLE_THE_RFFI_,
-    #[doc = "Enable the RFFI."]
-    ENABLE_THE_RFFI_,
+#[doc = "Write proxy for field `DRSIE`"]
+pub struct DRSIE_W<'a> {
+    w: &'a mut W,
 }
-impl REFIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            REFIER::DISABLE_THE_RFFI_ => false,
-            REFIER::ENABLE_THE_RFFI_ => true,
+impl<'a> DRSIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DRSIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> REFIER {
-        match value {
-            false => REFIER::DISABLE_THE_RFFI_,
-            true => REFIER::ENABLE_THE_RFFI_,
+    #[doc = "Disable the DRSI interrupt."]
+    #[inline(always)]
+    pub fn disable_the_drsi_int(self) -> &'a mut W {
+        self.variant(DRSIE_A::DISABLE_THE_DRSI_INT)
+    }
+    #[doc = "Enable the DRSI interrupt."]
+    #[inline(always)]
+    pub fn enable_the_drsi_inte(self) -> &'a mut W {
+        self.variant(DRSIE_A::ENABLE_THE_DRSI_INTE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Receive FIFO Full Interrupt Enable. This enables the Receive FIFO Full interrupt to indicate that the receive FIFO cannot accept any more data.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum REFIE_A {
+    #[doc = "0: Disable the RFFI."]
+    DISABLE_THE_RFFI_,
+    #[doc = "1: Enable the RFFI."]
+    ENABLE_THE_RFFI_,
+}
+impl From<REFIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: REFIE_A) -> Self {
+        match variant {
+            REFIE_A::DISABLE_THE_RFFI_ => false,
+            REFIE_A::ENABLE_THE_RFFI_ => true,
+        }
+    }
+}
+#[doc = "Reader of field `REFIE`"]
+pub type REFIE_R = crate::R<bool, REFIE_A>;
+impl REFIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> REFIE_A {
+        match self.bits {
+            false => REFIE_A::DISABLE_THE_RFFI_,
+            true => REFIE_A::ENABLE_THE_RFFI_,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_RFFI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_rffi_(&self) -> bool {
-        *self == REFIER::DISABLE_THE_RFFI_
+        *self == REFIE_A::DISABLE_THE_RFFI_
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_RFFI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_rffi_(&self) -> bool {
-        *self == REFIER::ENABLE_THE_RFFI_
+        *self == REFIE_A::ENABLE_THE_RFFI_
     }
 }
-#[doc = "Possible values of the field `RFDAIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RFDAIER {
-    #[doc = "Disable the DAI."]
-    DISABLE_THE_DAI_,
-    #[doc = "Enable the DAI."]
-    ENABLE_THE_DAI_,
+#[doc = "Write proxy for field `REFIE`"]
+pub struct REFIE_W<'a> {
+    w: &'a mut W,
 }
-impl RFDAIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RFDAIER::DISABLE_THE_DAI_ => false,
-            RFDAIER::ENABLE_THE_DAI_ => true,
+impl<'a> REFIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: REFIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RFDAIER {
-        match value {
-            false => RFDAIER::DISABLE_THE_DAI_,
-            true => RFDAIER::ENABLE_THE_DAI_,
+    #[doc = "Disable the RFFI."]
+    #[inline(always)]
+    pub fn disable_the_rffi_(self) -> &'a mut W {
+        self.variant(REFIE_A::DISABLE_THE_RFFI_)
+    }
+    #[doc = "Enable the RFFI."]
+    #[inline(always)]
+    pub fn enable_the_rffi_(self) -> &'a mut W {
+        self.variant(REFIE_A::ENABLE_THE_RFFI_)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "Receive Data Available Interrupt Enable. This enables the DAI interrupt to indicate that data is available in the receive FIFO (i.e. not empty).\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RFDAIE_A {
+    #[doc = "0: Disable the DAI."]
+    DISABLE_THE_DAI_,
+    #[doc = "1: Enable the DAI."]
+    ENABLE_THE_DAI_,
+}
+impl From<RFDAIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: RFDAIE_A) -> Self {
+        match variant {
+            RFDAIE_A::DISABLE_THE_DAI_ => false,
+            RFDAIE_A::ENABLE_THE_DAI_ => true,
+        }
+    }
+}
+#[doc = "Reader of field `RFDAIE`"]
+pub type RFDAIE_R = crate::R<bool, RFDAIE_A>;
+impl RFDAIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RFDAIE_A {
+        match self.bits {
+            false => RFDAIE_A::DISABLE_THE_DAI_,
+            true => RFDAIE_A::ENABLE_THE_DAI_,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_DAI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_dai_(&self) -> bool {
-        *self == RFDAIER::DISABLE_THE_DAI_
+        *self == RFDAIE_A::DISABLE_THE_DAI_
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_DAI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_dai_(&self) -> bool {
-        *self == RFDAIER::ENABLE_THE_DAI_
+        *self == RFDAIE_A::ENABLE_THE_DAI_
     }
 }
-#[doc = "Possible values of the field `TFFIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TFFIER {
-    #[doc = "Disable the TFFI."]
-    DISABLE_THE_TFFI_,
-    #[doc = "Enable the TFFI."]
-    ENABLE_THE_TFFI_,
+#[doc = "Write proxy for field `RFDAIE`"]
+pub struct RFDAIE_W<'a> {
+    w: &'a mut W,
 }
-impl TFFIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TFFIER::DISABLE_THE_TFFI_ => false,
-            TFFIER::ENABLE_THE_TFFI_ => true,
+impl<'a> RFDAIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RFDAIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TFFIER {
-        match value {
-            false => TFFIER::DISABLE_THE_TFFI_,
-            true => TFFIER::ENABLE_THE_TFFI_,
+    #[doc = "Disable the DAI."]
+    #[inline(always)]
+    pub fn disable_the_dai_(self) -> &'a mut W {
+        self.variant(RFDAIE_A::DISABLE_THE_DAI_)
+    }
+    #[doc = "Enable the DAI."]
+    #[inline(always)]
+    pub fn enable_the_dai_(self) -> &'a mut W {
+        self.variant(RFDAIE_A::ENABLE_THE_DAI_)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w
+    }
+}
+#[doc = "Transmit FIFO Not Full Interrupt Enable. This enables the Transmit FIFO Not Full interrupt to indicate that the more data can be written to the transmit FIFO. Note that this is not full. It is intended help the CPU to write to the I2C block only when there is room in the FIFO and do this without polling the status register.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TFFIE_A {
+    #[doc = "0: Disable the TFFI."]
+    DISABLE_THE_TFFI_,
+    #[doc = "1: Enable the TFFI."]
+    ENABLE_THE_TFFI_,
+}
+impl From<TFFIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: TFFIE_A) -> Self {
+        match variant {
+            TFFIE_A::DISABLE_THE_TFFI_ => false,
+            TFFIE_A::ENABLE_THE_TFFI_ => true,
+        }
+    }
+}
+#[doc = "Reader of field `TFFIE`"]
+pub type TFFIE_R = crate::R<bool, TFFIE_A>;
+impl TFFIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TFFIE_A {
+        match self.bits {
+            false => TFFIE_A::DISABLE_THE_TFFI_,
+            true => TFFIE_A::ENABLE_THE_TFFI_,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_TFFI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_tffi_(&self) -> bool {
-        *self == TFFIER::DISABLE_THE_TFFI_
+        *self == TFFIE_A::DISABLE_THE_TFFI_
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_TFFI_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_tffi_(&self) -> bool {
-        *self == TFFIER::ENABLE_THE_TFFI_
+        *self == TFFIE_A::ENABLE_THE_TFFI_
     }
 }
-#[doc = "Possible values of the field `SRST`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SRSTR {
-    #[doc = "No reset."]
-    NO_RESET,
-    #[doc = "Reset the I2C to idle state. Self clearing."]
-    RESET,
+#[doc = "Write proxy for field `TFFIE`"]
+pub struct TFFIE_W<'a> {
+    w: &'a mut W,
 }
-impl SRSTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SRSTR::NO_RESET => false,
-            SRSTR::RESET => true,
+impl<'a> TFFIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TFFIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SRSTR {
-        match value {
-            false => SRSTR::NO_RESET,
-            true => SRSTR::RESET,
+    #[doc = "Disable the TFFI."]
+    #[inline(always)]
+    pub fn disable_the_tffi_(self) -> &'a mut W {
+        self.variant(TFFIE_A::DISABLE_THE_TFFI_)
+    }
+    #[doc = "Enable the TFFI."]
+    #[inline(always)]
+    pub fn enable_the_tffi_(self) -> &'a mut W {
+        self.variant(TFFIE_A::ENABLE_THE_TFFI_)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w
+    }
+}
+#[doc = "Soft reset. This is only needed in unusual circumstances. If a device issues a start condition without issuing a stop condition. A system timer may be used to reset the I2C if the bus remains busy longer than the time-out period. On a soft reset, the Tx and Rx FIFOs are flushed, I2C_STS register is cleared, and all internal state machines are reset to appear idle. The I2C_CLKHI, I2C_CLKLO and I2C_CTL (except Soft Reset Bit) are NOT modified by a soft reset.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SRST_A {
+    #[doc = "0: No reset."]
+    NO_RESET,
+    #[doc = "1: Reset the I2C to idle state. Self clearing."]
+    RESET,
+}
+impl From<SRST_A> for bool {
+    #[inline(always)]
+    fn from(variant: SRST_A) -> Self {
+        match variant {
+            SRST_A::NO_RESET => false,
+            SRST_A::RESET => true,
+        }
+    }
+}
+#[doc = "Reader of field `SRST`"]
+pub type SRST_R = crate::R<bool, SRST_A>;
+impl SRST_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SRST_A {
+        match self.bits {
+            false => SRST_A::NO_RESET,
+            true => SRST_A::RESET,
         }
     }
     #[doc = "Checks if the value of the field is `NO_RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_reset(&self) -> bool {
-        *self == SRSTR::NO_RESET
+        *self == SRST_A::NO_RESET
     }
     #[doc = "Checks if the value of the field is `RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == SRSTR::RESET
+        *self == SRST_A::RESET
     }
 }
-#[doc = "Values that can be written to the field `TDIE`"]
-pub enum TDIEW {
-    #[doc = "Disable the TDI interrupt."]
-    DISABLE_THE_TDI_INTE,
-    #[doc = "Enable the TDI interrupt."]
-    ENABLE_THE_TDI_INTER,
-}
-impl TDIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TDIEW::DISABLE_THE_TDI_INTE => false,
-            TDIEW::ENABLE_THE_TDI_INTER => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TDIEW<'a> {
+#[doc = "Write proxy for field `SRST`"]
+pub struct SRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TDIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TDIEW) -> &'a mut W {
+impl<'a> SRST_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SRST_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the TDI interrupt."]
-    #[inline]
-    pub fn disable_the_tdi_inte(self) -> &'a mut W {
-        self.variant(TDIEW::DISABLE_THE_TDI_INTE)
-    }
-    #[doc = "Enable the TDI interrupt."]
-    #[inline]
-    pub fn enable_the_tdi_inter(self) -> &'a mut W {
-        self.variant(TDIEW::ENABLE_THE_TDI_INTER)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `AFIE`"]
-pub enum AFIEW {
-    #[doc = "Disable the AFI."]
-    DISABLE_THE_AFI_,
-    #[doc = "Enable the AFI."]
-    ENABLE_THE_AFI_,
-}
-impl AFIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            AFIEW::DISABLE_THE_AFI_ => false,
-            AFIEW::ENABLE_THE_AFI_ => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _AFIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _AFIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: AFIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the AFI."]
-    #[inline]
-    pub fn disable_the_afi_(self) -> &'a mut W {
-        self.variant(AFIEW::DISABLE_THE_AFI_)
-    }
-    #[doc = "Enable the AFI."]
-    #[inline]
-    pub fn enable_the_afi_(self) -> &'a mut W {
-        self.variant(AFIEW::ENABLE_THE_AFI_)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `NAIE`"]
-pub enum NAIEW {
-    #[doc = "Disable the NAI."]
-    DISABLE_THE_NAI_,
-    #[doc = "Enable the NAI."]
-    ENABLE_THE_NAI_,
-}
-impl NAIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            NAIEW::DISABLE_THE_NAI_ => false,
-            NAIEW::ENABLE_THE_NAI_ => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _NAIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _NAIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: NAIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the NAI."]
-    #[inline]
-    pub fn disable_the_nai_(self) -> &'a mut W {
-        self.variant(NAIEW::DISABLE_THE_NAI_)
-    }
-    #[doc = "Enable the NAI."]
-    #[inline]
-    pub fn enable_the_nai_(self) -> &'a mut W {
-        self.variant(NAIEW::ENABLE_THE_NAI_)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `DRMIE`"]
-pub enum DRMIEW {
-    #[doc = "Disable the DRMI interrupt."]
-    DISABLE_THE_DRMI_INT,
-    #[doc = "Enable the DRMI interrupt."]
-    ENABLE_THE_DRMI_INTE,
-}
-impl DRMIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            DRMIEW::DISABLE_THE_DRMI_INT => false,
-            DRMIEW::ENABLE_THE_DRMI_INTE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DRMIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _DRMIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DRMIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the DRMI interrupt."]
-    #[inline]
-    pub fn disable_the_drmi_int(self) -> &'a mut W {
-        self.variant(DRMIEW::DISABLE_THE_DRMI_INT)
-    }
-    #[doc = "Enable the DRMI interrupt."]
-    #[inline]
-    pub fn enable_the_drmi_inte(self) -> &'a mut W {
-        self.variant(DRMIEW::ENABLE_THE_DRMI_INTE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `DRSIE`"]
-pub enum DRSIEW {
-    #[doc = "Disable the DRSI interrupt."]
-    DISABLE_THE_DRSI_INT,
-    #[doc = "Enable the DRSI interrupt."]
-    ENABLE_THE_DRSI_INTE,
-}
-impl DRSIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            DRSIEW::DISABLE_THE_DRSI_INT => false,
-            DRSIEW::ENABLE_THE_DRSI_INTE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DRSIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _DRSIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DRSIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the DRSI interrupt."]
-    #[inline]
-    pub fn disable_the_drsi_int(self) -> &'a mut W {
-        self.variant(DRSIEW::DISABLE_THE_DRSI_INT)
-    }
-    #[doc = "Enable the DRSI interrupt."]
-    #[inline]
-    pub fn enable_the_drsi_inte(self) -> &'a mut W {
-        self.variant(DRSIEW::ENABLE_THE_DRSI_INTE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `REFIE`"]
-pub enum REFIEW {
-    #[doc = "Disable the RFFI."]
-    DISABLE_THE_RFFI_,
-    #[doc = "Enable the RFFI."]
-    ENABLE_THE_RFFI_,
-}
-impl REFIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            REFIEW::DISABLE_THE_RFFI_ => false,
-            REFIEW::ENABLE_THE_RFFI_ => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _REFIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _REFIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: REFIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the RFFI."]
-    #[inline]
-    pub fn disable_the_rffi_(self) -> &'a mut W {
-        self.variant(REFIEW::DISABLE_THE_RFFI_)
-    }
-    #[doc = "Enable the RFFI."]
-    #[inline]
-    pub fn enable_the_rffi_(self) -> &'a mut W {
-        self.variant(REFIEW::ENABLE_THE_RFFI_)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RFDAIE`"]
-pub enum RFDAIEW {
-    #[doc = "Disable the DAI."]
-    DISABLE_THE_DAI_,
-    #[doc = "Enable the DAI."]
-    ENABLE_THE_DAI_,
-}
-impl RFDAIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RFDAIEW::DISABLE_THE_DAI_ => false,
-            RFDAIEW::ENABLE_THE_DAI_ => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RFDAIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RFDAIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RFDAIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the DAI."]
-    #[inline]
-    pub fn disable_the_dai_(self) -> &'a mut W {
-        self.variant(RFDAIEW::DISABLE_THE_DAI_)
-    }
-    #[doc = "Enable the DAI."]
-    #[inline]
-    pub fn enable_the_dai_(self) -> &'a mut W {
-        self.variant(RFDAIEW::ENABLE_THE_DAI_)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `TFFIE`"]
-pub enum TFFIEW {
-    #[doc = "Disable the TFFI."]
-    DISABLE_THE_TFFI_,
-    #[doc = "Enable the TFFI."]
-    ENABLE_THE_TFFI_,
-}
-impl TFFIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TFFIEW::DISABLE_THE_TFFI_ => false,
-            TFFIEW::ENABLE_THE_TFFI_ => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TFFIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TFFIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TFFIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the TFFI."]
-    #[inline]
-    pub fn disable_the_tffi_(self) -> &'a mut W {
-        self.variant(TFFIEW::DISABLE_THE_TFFI_)
-    }
-    #[doc = "Enable the TFFI."]
-    #[inline]
-    pub fn enable_the_tffi_(self) -> &'a mut W {
-        self.variant(TFFIEW::ENABLE_THE_TFFI_)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SRST`"]
-pub enum SRSTW {
-    #[doc = "No reset."]
-    NO_RESET,
-    #[doc = "Reset the I2C to idle state. Self clearing."]
-    RESET,
-}
-impl SRSTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SRSTW::NO_RESET => false,
-            SRSTW::RESET => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SRSTW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SRSTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SRSTW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No reset."]
-    #[inline]
+    #[inline(always)]
     pub fn no_reset(self) -> &'a mut W {
-        self.variant(SRSTW::NO_RESET)
+        self.variant(SRST_A::NO_RESET)
     }
     #[doc = "Reset the I2C to idle state. Self clearing."]
-    #[inline]
+    #[inline(always)]
     pub fn reset(self) -> &'a mut W {
-        self.variant(SRSTW::RESET)
+        self.variant(SRST_A::RESET)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Transmit Done Interrupt Enable. This enables the TDI interrupt signalling that this I2C issued a STOP condition."]
-    #[inline]
-    pub fn tdie(&self) -> TDIER {
-        TDIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn tdie(&self) -> TDIE_R {
+        TDIE_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Transmitter Arbitration Failure Interrupt Enable. This enables the AFI interrupt which is asserted during transmission when trying to set SDA high, but the bus is driven low by another device."]
-    #[inline]
-    pub fn afie(&self) -> AFIER {
-        AFIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn afie(&self) -> AFIE_R {
+        AFIE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Transmitter No Acknowledge Interrupt Enable. This enables the NAI interrupt signalling that transmitted byte was not acknowledged."]
-    #[inline]
-    pub fn naie(&self) -> NAIER {
-        NAIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn naie(&self) -> NAIE_R {
+        NAIE_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Master Transmitter Data Request Interrupt Enable. This enables the DRMI interrupt which signals that the master transmitter has run out of data, has not issued a STOP, and is holding the SCL line low."]
-    #[inline]
-    pub fn drmie(&self) -> DRMIER {
-        DRMIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn drmie(&self) -> DRMIE_R {
+        DRMIE_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Slave Transmitter Data Request Interrupt Enable. This enables the DRSI interrupt which signals that the slave transmitter has run out of data and the last byte was acknowledged, so the SCL line is being held low."]
-    #[inline]
-    pub fn drsie(&self) -> DRSIER {
-        DRSIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn drsie(&self) -> DRSIE_R {
+        DRSIE_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Receive FIFO Full Interrupt Enable. This enables the Receive FIFO Full interrupt to indicate that the receive FIFO cannot accept any more data."]
-    #[inline]
-    pub fn refie(&self) -> REFIER {
-        REFIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn refie(&self) -> REFIE_R {
+        REFIE_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Receive Data Available Interrupt Enable. This enables the DAI interrupt to indicate that data is available in the receive FIFO (i.e. not empty)."]
-    #[inline]
-    pub fn rfdaie(&self) -> RFDAIER {
-        RFDAIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rfdaie(&self) -> RFDAIE_R {
+        RFDAIE_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Transmit FIFO Not Full Interrupt Enable. This enables the Transmit FIFO Not Full interrupt to indicate that the more data can be written to the transmit FIFO. Note that this is not full. It is intended help the CPU to write to the I2C block only when there is room in the FIFO and do this without polling the status register."]
-    #[inline]
-    pub fn tffie(&self) -> TFFIER {
-        TFFIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn tffie(&self) -> TFFIE_R {
+        TFFIE_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Soft reset. This is only needed in unusual circumstances. If a device issues a start condition without issuing a stop condition. A system timer may be used to reset the I2C if the bus remains busy longer than the time-out period. On a soft reset, the Tx and Rx FIFOs are flushed, I2C_STS register is cleared, and all internal state machines are reset to appear idle. The I2C_CLKHI, I2C_CLKLO and I2C_CTL (except Soft Reset Bit) are NOT modified by a soft reset."]
-    #[inline]
-    pub fn srst(&self) -> SRSTR {
-        SRSTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn srst(&self) -> SRST_R {
+        SRST_R::new(((self.bits >> 8) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Transmit Done Interrupt Enable. This enables the TDI interrupt signalling that this I2C issued a STOP condition."]
-    #[inline]
-    pub fn tdie(&mut self) -> _TDIEW {
-        _TDIEW { w: self }
+    #[inline(always)]
+    pub fn tdie(&mut self) -> TDIE_W {
+        TDIE_W { w: self }
     }
     #[doc = "Bit 1 - Transmitter Arbitration Failure Interrupt Enable. This enables the AFI interrupt which is asserted during transmission when trying to set SDA high, but the bus is driven low by another device."]
-    #[inline]
-    pub fn afie(&mut self) -> _AFIEW {
-        _AFIEW { w: self }
+    #[inline(always)]
+    pub fn afie(&mut self) -> AFIE_W {
+        AFIE_W { w: self }
     }
     #[doc = "Bit 2 - Transmitter No Acknowledge Interrupt Enable. This enables the NAI interrupt signalling that transmitted byte was not acknowledged."]
-    #[inline]
-    pub fn naie(&mut self) -> _NAIEW {
-        _NAIEW { w: self }
+    #[inline(always)]
+    pub fn naie(&mut self) -> NAIE_W {
+        NAIE_W { w: self }
     }
     #[doc = "Bit 3 - Master Transmitter Data Request Interrupt Enable. This enables the DRMI interrupt which signals that the master transmitter has run out of data, has not issued a STOP, and is holding the SCL line low."]
-    #[inline]
-    pub fn drmie(&mut self) -> _DRMIEW {
-        _DRMIEW { w: self }
+    #[inline(always)]
+    pub fn drmie(&mut self) -> DRMIE_W {
+        DRMIE_W { w: self }
     }
     #[doc = "Bit 4 - Slave Transmitter Data Request Interrupt Enable. This enables the DRSI interrupt which signals that the slave transmitter has run out of data and the last byte was acknowledged, so the SCL line is being held low."]
-    #[inline]
-    pub fn drsie(&mut self) -> _DRSIEW {
-        _DRSIEW { w: self }
+    #[inline(always)]
+    pub fn drsie(&mut self) -> DRSIE_W {
+        DRSIE_W { w: self }
     }
     #[doc = "Bit 5 - Receive FIFO Full Interrupt Enable. This enables the Receive FIFO Full interrupt to indicate that the receive FIFO cannot accept any more data."]
-    #[inline]
-    pub fn refie(&mut self) -> _REFIEW {
-        _REFIEW { w: self }
+    #[inline(always)]
+    pub fn refie(&mut self) -> REFIE_W {
+        REFIE_W { w: self }
     }
     #[doc = "Bit 6 - Receive Data Available Interrupt Enable. This enables the DAI interrupt to indicate that data is available in the receive FIFO (i.e. not empty)."]
-    #[inline]
-    pub fn rfdaie(&mut self) -> _RFDAIEW {
-        _RFDAIEW { w: self }
+    #[inline(always)]
+    pub fn rfdaie(&mut self) -> RFDAIE_W {
+        RFDAIE_W { w: self }
     }
     #[doc = "Bit 7 - Transmit FIFO Not Full Interrupt Enable. This enables the Transmit FIFO Not Full interrupt to indicate that the more data can be written to the transmit FIFO. Note that this is not full. It is intended help the CPU to write to the I2C block only when there is room in the FIFO and do this without polling the status register."]
-    #[inline]
-    pub fn tffie(&mut self) -> _TFFIEW {
-        _TFFIEW { w: self }
+    #[inline(always)]
+    pub fn tffie(&mut self) -> TFFIE_W {
+        TFFIE_W { w: self }
     }
     #[doc = "Bit 8 - Soft reset. This is only needed in unusual circumstances. If a device issues a start condition without issuing a stop condition. A system timer may be used to reset the I2C if the bus remains busy longer than the time-out period. On a soft reset, the Tx and Rx FIFOs are flushed, I2C_STS register is cleared, and all internal state machines are reset to appear idle. The I2C_CLKHI, I2C_CLKLO and I2C_CTL (except Soft Reset Bit) are NOT modified by a soft reset."]
-    #[inline]
-    pub fn srst(&mut self) -> _SRSTW {
-        _SRSTW { w: self }
+    #[inline(always)]
+    pub fn srst(&mut self) -> SRST_W {
+        SRST_W { w: self }
     }
 }

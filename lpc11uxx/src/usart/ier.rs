@@ -1,778 +1,544 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::IER {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register IER"]
+pub type R = crate::R<u32, super::IER>;
+#[doc = "Writer for register IER"]
+pub type W = crate::W<u32, super::IER>;
+#[doc = "Register IER `reset()`'s with value 0"]
+impl crate::ResetValue for super::IER {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `RBRINTEN`"]
+#[doc = "RBR Interrupt Enable. Enables the Receive Data Available interrupt. It also controls the Character Receive Time-out interrupt.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RBRINTENR {
-    #[doc = "Disable the RDA interrupt."]
+pub enum RBRINTEN_A {
+    #[doc = "0: Disable the RDA interrupt."]
     DISABLE_THE_RDA_INTE,
-    #[doc = "Enable the RDA interrupt."]
+    #[doc = "1: Enable the RDA interrupt."]
     ENABLE_THE_RDA_INTER,
 }
-impl RBRINTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RBRINTENR::DISABLE_THE_RDA_INTE => false,
-            RBRINTENR::ENABLE_THE_RDA_INTER => true,
+impl From<RBRINTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: RBRINTEN_A) -> Self {
+        match variant {
+            RBRINTEN_A::DISABLE_THE_RDA_INTE => false,
+            RBRINTEN_A::ENABLE_THE_RDA_INTER => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RBRINTENR {
-        match value {
-            false => RBRINTENR::DISABLE_THE_RDA_INTE,
-            true => RBRINTENR::ENABLE_THE_RDA_INTER,
+}
+#[doc = "Reader of field `RBRINTEN`"]
+pub type RBRINTEN_R = crate::R<bool, RBRINTEN_A>;
+impl RBRINTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RBRINTEN_A {
+        match self.bits {
+            false => RBRINTEN_A::DISABLE_THE_RDA_INTE,
+            true => RBRINTEN_A::ENABLE_THE_RDA_INTER,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_RDA_INTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_rda_inte(&self) -> bool {
-        *self == RBRINTENR::DISABLE_THE_RDA_INTE
+        *self == RBRINTEN_A::DISABLE_THE_RDA_INTE
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_RDA_INTER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_rda_inter(&self) -> bool {
-        *self == RBRINTENR::ENABLE_THE_RDA_INTER
+        *self == RBRINTEN_A::ENABLE_THE_RDA_INTER
     }
 }
-#[doc = "Possible values of the field `THREINTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum THREINTENR {
-    #[doc = "Disable the THRE interrupt."]
-    DISABLE_THE_THRE_INT,
-    #[doc = "Enable the THRE interrupt."]
-    ENABLE_THE_THRE_INTE,
+#[doc = "Write proxy for field `RBRINTEN`"]
+pub struct RBRINTEN_W<'a> {
+    w: &'a mut W,
 }
-impl THREINTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            THREINTENR::DISABLE_THE_THRE_INT => false,
-            THREINTENR::ENABLE_THE_THRE_INTE => true,
+impl<'a> RBRINTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RBRINTEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> THREINTENR {
-        match value {
-            false => THREINTENR::DISABLE_THE_THRE_INT,
-            true => THREINTENR::ENABLE_THE_THRE_INTE,
+    #[doc = "Disable the RDA interrupt."]
+    #[inline(always)]
+    pub fn disable_the_rda_inte(self) -> &'a mut W {
+        self.variant(RBRINTEN_A::DISABLE_THE_RDA_INTE)
+    }
+    #[doc = "Enable the RDA interrupt."]
+    #[inline(always)]
+    pub fn enable_the_rda_inter(self) -> &'a mut W {
+        self.variant(RBRINTEN_A::ENABLE_THE_RDA_INTER)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "THRE Interrupt Enable. Enables the THRE interrupt. The status of this interrupt can be read from LSR\\[5\\].\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum THREINTEN_A {
+    #[doc = "0: Disable the THRE interrupt."]
+    DISABLE_THE_THRE_INT,
+    #[doc = "1: Enable the THRE interrupt."]
+    ENABLE_THE_THRE_INTE,
+}
+impl From<THREINTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: THREINTEN_A) -> Self {
+        match variant {
+            THREINTEN_A::DISABLE_THE_THRE_INT => false,
+            THREINTEN_A::ENABLE_THE_THRE_INTE => true,
+        }
+    }
+}
+#[doc = "Reader of field `THREINTEN`"]
+pub type THREINTEN_R = crate::R<bool, THREINTEN_A>;
+impl THREINTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> THREINTEN_A {
+        match self.bits {
+            false => THREINTEN_A::DISABLE_THE_THRE_INT,
+            true => THREINTEN_A::ENABLE_THE_THRE_INTE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_THRE_INT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_thre_int(&self) -> bool {
-        *self == THREINTENR::DISABLE_THE_THRE_INT
+        *self == THREINTEN_A::DISABLE_THE_THRE_INT
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_THRE_INTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_thre_inte(&self) -> bool {
-        *self == THREINTENR::ENABLE_THE_THRE_INTE
+        *self == THREINTEN_A::ENABLE_THE_THRE_INTE
     }
 }
-#[doc = "Possible values of the field `RLSINTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RLSINTENR {
-    #[doc = "Disable the RLS interrupt."]
-    DISABLE_THE_RLS_INTE,
-    #[doc = "Enable the RLS interrupt."]
-    ENABLE_THE_RLS_INTER,
+#[doc = "Write proxy for field `THREINTEN`"]
+pub struct THREINTEN_W<'a> {
+    w: &'a mut W,
 }
-impl RLSINTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RLSINTENR::DISABLE_THE_RLS_INTE => false,
-            RLSINTENR::ENABLE_THE_RLS_INTER => true,
+impl<'a> THREINTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: THREINTEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RLSINTENR {
-        match value {
-            false => RLSINTENR::DISABLE_THE_RLS_INTE,
-            true => RLSINTENR::ENABLE_THE_RLS_INTER,
+    #[doc = "Disable the THRE interrupt."]
+    #[inline(always)]
+    pub fn disable_the_thre_int(self) -> &'a mut W {
+        self.variant(THREINTEN_A::DISABLE_THE_THRE_INT)
+    }
+    #[doc = "Enable the THRE interrupt."]
+    #[inline(always)]
+    pub fn enable_the_thre_inte(self) -> &'a mut W {
+        self.variant(THREINTEN_A::ENABLE_THE_THRE_INTE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Enables the Receive Line Status interrupt. The status of this interrupt can be read from LSR\\[4:1\\].\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RLSINTEN_A {
+    #[doc = "0: Disable the RLS interrupt."]
+    DISABLE_THE_RLS_INTE,
+    #[doc = "1: Enable the RLS interrupt."]
+    ENABLE_THE_RLS_INTER,
+}
+impl From<RLSINTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: RLSINTEN_A) -> Self {
+        match variant {
+            RLSINTEN_A::DISABLE_THE_RLS_INTE => false,
+            RLSINTEN_A::ENABLE_THE_RLS_INTER => true,
+        }
+    }
+}
+#[doc = "Reader of field `RLSINTEN`"]
+pub type RLSINTEN_R = crate::R<bool, RLSINTEN_A>;
+impl RLSINTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RLSINTEN_A {
+        match self.bits {
+            false => RLSINTEN_A::DISABLE_THE_RLS_INTE,
+            true => RLSINTEN_A::ENABLE_THE_RLS_INTER,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_RLS_INTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_rls_inte(&self) -> bool {
-        *self == RLSINTENR::DISABLE_THE_RLS_INTE
+        *self == RLSINTEN_A::DISABLE_THE_RLS_INTE
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_RLS_INTER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_rls_inter(&self) -> bool {
-        *self == RLSINTENR::ENABLE_THE_RLS_INTER
+        *self == RLSINTEN_A::ENABLE_THE_RLS_INTER
     }
 }
-#[doc = "Possible values of the field `MSINTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MSINTENR {
-    #[doc = "Disable the MS interrupt."]
-    DISABLE_THE_MS_INTER,
-    #[doc = "Enable the MS interrupt."]
-    ENABLE_THE_MS_INTERR,
+#[doc = "Write proxy for field `RLSINTEN`"]
+pub struct RLSINTEN_W<'a> {
+    w: &'a mut W,
 }
-impl MSINTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MSINTENR::DISABLE_THE_MS_INTER => false,
-            MSINTENR::ENABLE_THE_MS_INTERR => true,
+impl<'a> RLSINTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RLSINTEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MSINTENR {
-        match value {
-            false => MSINTENR::DISABLE_THE_MS_INTER,
-            true => MSINTENR::ENABLE_THE_MS_INTERR,
+    #[doc = "Disable the RLS interrupt."]
+    #[inline(always)]
+    pub fn disable_the_rls_inte(self) -> &'a mut W {
+        self.variant(RLSINTEN_A::DISABLE_THE_RLS_INTE)
+    }
+    #[doc = "Enable the RLS interrupt."]
+    #[inline(always)]
+    pub fn enable_the_rls_inter(self) -> &'a mut W {
+        self.variant(RLSINTEN_A::ENABLE_THE_RLS_INTER)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Enables the Modem Status interrupt. The components of this interrupt can be read from the MSR.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum MSINTEN_A {
+    #[doc = "0: Disable the MS interrupt."]
+    DISABLE_THE_MS_INTER,
+    #[doc = "1: Enable the MS interrupt."]
+    ENABLE_THE_MS_INTERR,
+}
+impl From<MSINTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: MSINTEN_A) -> Self {
+        match variant {
+            MSINTEN_A::DISABLE_THE_MS_INTER => false,
+            MSINTEN_A::ENABLE_THE_MS_INTERR => true,
+        }
+    }
+}
+#[doc = "Reader of field `MSINTEN`"]
+pub type MSINTEN_R = crate::R<bool, MSINTEN_A>;
+impl MSINTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> MSINTEN_A {
+        match self.bits {
+            false => MSINTEN_A::DISABLE_THE_MS_INTER,
+            true => MSINTEN_A::ENABLE_THE_MS_INTERR,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_MS_INTER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_ms_inter(&self) -> bool {
-        *self == MSINTENR::DISABLE_THE_MS_INTER
+        *self == MSINTEN_A::DISABLE_THE_MS_INTER
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_MS_INTERR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_ms_interr(&self) -> bool {
-        *self == MSINTENR::ENABLE_THE_MS_INTERR
+        *self == MSINTEN_A::ENABLE_THE_MS_INTERR
     }
 }
-#[doc = "Possible values of the field `ABEOINTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ABEOINTENR {
-    #[doc = "Disable end of auto-baud Interrupt."]
-    DISABLED,
-    #[doc = "Enable end of auto-baud Interrupt."]
-    ENABLED,
-}
-impl ABEOINTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ABEOINTENR::DISABLED => false,
-            ABEOINTENR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ABEOINTENR {
-        match value {
-            false => ABEOINTENR::DISABLED,
-            true => ABEOINTENR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == ABEOINTENR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == ABEOINTENR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `ABTOINTEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ABTOINTENR {
-    #[doc = "Disable auto-baud time-out Interrupt."]
-    DISABLED,
-    #[doc = "Enable auto-baud time-out Interrupt."]
-    ENABLED,
-}
-impl ABTOINTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ABTOINTENR::DISABLED => false,
-            ABTOINTENR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ABTOINTENR {
-        match value {
-            false => ABTOINTENR::DISABLED,
-            true => ABTOINTENR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == ABTOINTENR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == ABTOINTENR::ENABLED
-    }
-}
-#[doc = "Values that can be written to the field `RBRINTEN`"]
-pub enum RBRINTENW {
-    #[doc = "Disable the RDA interrupt."]
-    DISABLE_THE_RDA_INTE,
-    #[doc = "Enable the RDA interrupt."]
-    ENABLE_THE_RDA_INTER,
-}
-impl RBRINTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RBRINTENW::DISABLE_THE_RDA_INTE => false,
-            RBRINTENW::ENABLE_THE_RDA_INTER => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RBRINTENW<'a> {
+#[doc = "Write proxy for field `MSINTEN`"]
+pub struct MSINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RBRINTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RBRINTENW) -> &'a mut W {
+impl<'a> MSINTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: MSINTEN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the RDA interrupt."]
-    #[inline]
-    pub fn disable_the_rda_inte(self) -> &'a mut W {
-        self.variant(RBRINTENW::DISABLE_THE_RDA_INTE)
-    }
-    #[doc = "Enable the RDA interrupt."]
-    #[inline]
-    pub fn enable_the_rda_inter(self) -> &'a mut W {
-        self.variant(RBRINTENW::ENABLE_THE_RDA_INTER)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `THREINTEN`"]
-pub enum THREINTENW {
-    #[doc = "Disable the THRE interrupt."]
-    DISABLE_THE_THRE_INT,
-    #[doc = "Enable the THRE interrupt."]
-    ENABLE_THE_THRE_INTE,
-}
-impl THREINTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            THREINTENW::DISABLE_THE_THRE_INT => false,
-            THREINTENW::ENABLE_THE_THRE_INTE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _THREINTENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _THREINTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: THREINTENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the THRE interrupt."]
-    #[inline]
-    pub fn disable_the_thre_int(self) -> &'a mut W {
-        self.variant(THREINTENW::DISABLE_THE_THRE_INT)
-    }
-    #[doc = "Enable the THRE interrupt."]
-    #[inline]
-    pub fn enable_the_thre_inte(self) -> &'a mut W {
-        self.variant(THREINTENW::ENABLE_THE_THRE_INTE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RLSINTEN`"]
-pub enum RLSINTENW {
-    #[doc = "Disable the RLS interrupt."]
-    DISABLE_THE_RLS_INTE,
-    #[doc = "Enable the RLS interrupt."]
-    ENABLE_THE_RLS_INTER,
-}
-impl RLSINTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RLSINTENW::DISABLE_THE_RLS_INTE => false,
-            RLSINTENW::ENABLE_THE_RLS_INTER => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RLSINTENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RLSINTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RLSINTENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the RLS interrupt."]
-    #[inline]
-    pub fn disable_the_rls_inte(self) -> &'a mut W {
-        self.variant(RLSINTENW::DISABLE_THE_RLS_INTE)
-    }
-    #[doc = "Enable the RLS interrupt."]
-    #[inline]
-    pub fn enable_the_rls_inter(self) -> &'a mut W {
-        self.variant(RLSINTENW::ENABLE_THE_RLS_INTER)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `MSINTEN`"]
-pub enum MSINTENW {
-    #[doc = "Disable the MS interrupt."]
-    DISABLE_THE_MS_INTER,
-    #[doc = "Enable the MS interrupt."]
-    ENABLE_THE_MS_INTERR,
-}
-impl MSINTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            MSINTENW::DISABLE_THE_MS_INTER => false,
-            MSINTENW::ENABLE_THE_MS_INTERR => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _MSINTENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _MSINTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: MSINTENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disable the MS interrupt."]
-    #[inline]
+    #[inline(always)]
     pub fn disable_the_ms_inter(self) -> &'a mut W {
-        self.variant(MSINTENW::DISABLE_THE_MS_INTER)
+        self.variant(MSINTEN_A::DISABLE_THE_MS_INTER)
     }
     #[doc = "Enable the MS interrupt."]
-    #[inline]
+    #[inline(always)]
     pub fn enable_the_ms_interr(self) -> &'a mut W {
-        self.variant(MSINTENW::ENABLE_THE_MS_INTERR)
+        self.variant(MSINTEN_A::ENABLE_THE_MS_INTERR)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `ABEOINTEN`"]
-pub enum ABEOINTENW {
-    #[doc = "Disable end of auto-baud Interrupt."]
+#[doc = "Enables the end of auto-baud interrupt.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ABEOINTEN_A {
+    #[doc = "0: Disable end of auto-baud Interrupt."]
     DISABLED,
-    #[doc = "Enable end of auto-baud Interrupt."]
+    #[doc = "1: Enable end of auto-baud Interrupt."]
     ENABLED,
 }
-impl ABEOINTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ABEOINTENW::DISABLED => false,
-            ABEOINTENW::ENABLED => true,
+impl From<ABEOINTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: ABEOINTEN_A) -> Self {
+        match variant {
+            ABEOINTEN_A::DISABLED => false,
+            ABEOINTEN_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _ABEOINTENW<'a> {
+#[doc = "Reader of field `ABEOINTEN`"]
+pub type ABEOINTEN_R = crate::R<bool, ABEOINTEN_A>;
+impl ABEOINTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ABEOINTEN_A {
+        match self.bits {
+            false => ABEOINTEN_A::DISABLED,
+            true => ABEOINTEN_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == ABEOINTEN_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == ABEOINTEN_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `ABEOINTEN`"]
+pub struct ABEOINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ABEOINTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ABEOINTENW) -> &'a mut W {
+impl<'a> ABEOINTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ABEOINTEN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disable end of auto-baud Interrupt."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(ABEOINTENW::DISABLED)
+        self.variant(ABEOINTEN_A::DISABLED)
     }
     #[doc = "Enable end of auto-baud Interrupt."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(ABEOINTENW::ENABLED)
+        self.variant(ABEOINTEN_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `ABTOINTEN`"]
-pub enum ABTOINTENW {
-    #[doc = "Disable auto-baud time-out Interrupt."]
+#[doc = "Enables the auto-baud time-out interrupt.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ABTOINTEN_A {
+    #[doc = "0: Disable auto-baud time-out Interrupt."]
     DISABLED,
-    #[doc = "Enable auto-baud time-out Interrupt."]
+    #[doc = "1: Enable auto-baud time-out Interrupt."]
     ENABLED,
 }
-impl ABTOINTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ABTOINTENW::DISABLED => false,
-            ABTOINTENW::ENABLED => true,
+impl From<ABTOINTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: ABTOINTEN_A) -> Self {
+        match variant {
+            ABTOINTEN_A::DISABLED => false,
+            ABTOINTEN_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _ABTOINTENW<'a> {
+#[doc = "Reader of field `ABTOINTEN`"]
+pub type ABTOINTEN_R = crate::R<bool, ABTOINTEN_A>;
+impl ABTOINTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ABTOINTEN_A {
+        match self.bits {
+            false => ABTOINTEN_A::DISABLED,
+            true => ABTOINTEN_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == ABTOINTEN_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == ABTOINTEN_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `ABTOINTEN`"]
+pub struct ABTOINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ABTOINTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ABTOINTENW) -> &'a mut W {
+impl<'a> ABTOINTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ABTOINTEN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disable auto-baud time-out Interrupt."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(ABTOINTENW::DISABLED)
+        self.variant(ABTOINTEN_A::DISABLED)
     }
     #[doc = "Enable auto-baud time-out Interrupt."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(ABTOINTENW::ENABLED)
+        self.variant(ABTOINTEN_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - RBR Interrupt Enable. Enables the Receive Data Available interrupt. It also controls the Character Receive Time-out interrupt."]
-    #[inline]
-    pub fn rbrinten(&self) -> RBRINTENR {
-        RBRINTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rbrinten(&self) -> RBRINTEN_R {
+        RBRINTEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - THRE Interrupt Enable. Enables the THRE interrupt. The status of this interrupt can be read from LSR\\[5\\]."]
-    #[inline]
-    pub fn threinten(&self) -> THREINTENR {
-        THREINTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn threinten(&self) -> THREINTEN_R {
+        THREINTEN_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Enables the Receive Line Status interrupt. The status of this interrupt can be read from LSR\\[4:1\\]."]
-    #[inline]
-    pub fn rlsinten(&self) -> RLSINTENR {
-        RLSINTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rlsinten(&self) -> RLSINTEN_R {
+        RLSINTEN_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Enables the Modem Status interrupt. The components of this interrupt can be read from the MSR."]
-    #[inline]
-    pub fn msinten(&self) -> MSINTENR {
-        MSINTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn msinten(&self) -> MSINTEN_R {
+        MSINTEN_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Enables the end of auto-baud interrupt."]
-    #[inline]
-    pub fn abeointen(&self) -> ABEOINTENR {
-        ABEOINTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn abeointen(&self) -> ABEOINTEN_R {
+        ABEOINTEN_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Enables the auto-baud time-out interrupt."]
-    #[inline]
-    pub fn abtointen(&self) -> ABTOINTENR {
-        ABTOINTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn abtointen(&self) -> ABTOINTEN_R {
+        ABTOINTEN_R::new(((self.bits >> 9) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - RBR Interrupt Enable. Enables the Receive Data Available interrupt. It also controls the Character Receive Time-out interrupt."]
-    #[inline]
-    pub fn rbrinten(&mut self) -> _RBRINTENW {
-        _RBRINTENW { w: self }
+    #[inline(always)]
+    pub fn rbrinten(&mut self) -> RBRINTEN_W {
+        RBRINTEN_W { w: self }
     }
     #[doc = "Bit 1 - THRE Interrupt Enable. Enables the THRE interrupt. The status of this interrupt can be read from LSR\\[5\\]."]
-    #[inline]
-    pub fn threinten(&mut self) -> _THREINTENW {
-        _THREINTENW { w: self }
+    #[inline(always)]
+    pub fn threinten(&mut self) -> THREINTEN_W {
+        THREINTEN_W { w: self }
     }
     #[doc = "Bit 2 - Enables the Receive Line Status interrupt. The status of this interrupt can be read from LSR\\[4:1\\]."]
-    #[inline]
-    pub fn rlsinten(&mut self) -> _RLSINTENW {
-        _RLSINTENW { w: self }
+    #[inline(always)]
+    pub fn rlsinten(&mut self) -> RLSINTEN_W {
+        RLSINTEN_W { w: self }
     }
     #[doc = "Bit 3 - Enables the Modem Status interrupt. The components of this interrupt can be read from the MSR."]
-    #[inline]
-    pub fn msinten(&mut self) -> _MSINTENW {
-        _MSINTENW { w: self }
+    #[inline(always)]
+    pub fn msinten(&mut self) -> MSINTEN_W {
+        MSINTEN_W { w: self }
     }
     #[doc = "Bit 8 - Enables the end of auto-baud interrupt."]
-    #[inline]
-    pub fn abeointen(&mut self) -> _ABEOINTENW {
-        _ABEOINTENW { w: self }
+    #[inline(always)]
+    pub fn abeointen(&mut self) -> ABEOINTEN_W {
+        ABEOINTEN_W { w: self }
     }
     #[doc = "Bit 9 - Enables the auto-baud time-out interrupt."]
-    #[inline]
-    pub fn abtointen(&mut self) -> _ABTOINTENW {
-        _ABTOINTENW { w: self }
+    #[inline(always)]
+    pub fn abtointen(&mut self) -> ABTOINTEN_W {
+        ABTOINTEN_W { w: self }
     }
 }
