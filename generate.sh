@@ -15,12 +15,7 @@ set -euo pipefail
 PACS=(
     "lpc11uxx:--nightly"
     "lpc176x5x:--nightly"
-    # NOTE(hannobraun):
-    # lpc82x has not been added here, since it doesn't include an SVD file, for
-    # copyright reasons. I figured extending this script to support this is not
-    # worth it, since the current situation is good enough(tm). Also, the newer
-    # versions of the LPC82x SVD files are BSD-licensed, so if NXP ever gets
-    # around to fixing those, we can just include LPC82x here normally.
+    "lpc82x"
 )
 
 # everything is relative to the generate script
