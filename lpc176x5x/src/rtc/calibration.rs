@@ -1,224 +1,128 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CALIBRATION {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CALIBRATION"]
+pub type R = crate::R<u32, super::CALIBRATION>;
+#[doc = "Writer for register CALIBRATION"]
+pub type W = crate::W<u32, super::CALIBRATION>;
+#[doc = "Register CALIBRATION `reset()`'s with value 0"]
+impl crate::ResetValue for super::CALIBRATION {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct CALVALR {
-    bits: u32,
-}
-impl CALVALR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
-}
-#[doc = "Possible values of the field `CALDIR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CALDIRR {
-    #[doc = "Backward calibration. When CALVAL is equal to the calibration counter, the RTC timers will stop incrementing for 1 second."]
-    BACKWARD_CALIBRATION,
-    #[doc = "Forward calibration. When CALVAL is equal to the calibration counter, the RTC timers will jump by 2 seconds."]
-    FORWARD_CALIBRATION_,
-}
-impl CALDIRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CALDIRR::BACKWARD_CALIBRATION => true,
-            CALDIRR::FORWARD_CALIBRATION_ => false,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CALDIRR {
-        match value {
-            true => CALDIRR::BACKWARD_CALIBRATION,
-            false => CALDIRR::FORWARD_CALIBRATION_,
-        }
-    }
-    #[doc = "Checks if the value of the field is `BACKWARD_CALIBRATION`"]
-    #[inline]
-    pub fn is_backward_calibration(&self) -> bool {
-        *self == CALDIRR::BACKWARD_CALIBRATION
-    }
-    #[doc = "Checks if the value of the field is `FORWARD_CALIBRATION_`"]
-    #[inline]
-    pub fn is_forward_calibration_(&self) -> bool {
-        *self == CALDIRR::FORWARD_CALIBRATION_
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CALVALW<'a> {
+#[doc = "Reader of field `CALVAL`"]
+pub type CALVAL_R = crate::R<u32, u32>;
+#[doc = "Write proxy for field `CALVAL`"]
+pub struct CALVAL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CALVALW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CALVAL_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        const MASK: u32 = 131071;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0001_ffff) | ((value as u32) & 0x0001_ffff);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CALDIR`"]
-pub enum CALDIRW {
-    #[doc = "Backward calibration. When CALVAL is equal to the calibration counter, the RTC timers will stop incrementing for 1 second."]
+#[doc = "Calibration direction\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CALDIR_A {
+    #[doc = "1: Backward calibration. When CALVAL is equal to the calibration counter, the RTC timers will stop incrementing for 1 second."]
     BACKWARD_CALIBRATION,
-    #[doc = "Forward calibration. When CALVAL is equal to the calibration counter, the RTC timers will jump by 2 seconds."]
+    #[doc = "0: Forward calibration. When CALVAL is equal to the calibration counter, the RTC timers will jump by 2 seconds."]
     FORWARD_CALIBRATION_,
 }
-impl CALDIRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CALDIRW::BACKWARD_CALIBRATION => true,
-            CALDIRW::FORWARD_CALIBRATION_ => false,
+impl From<CALDIR_A> for bool {
+    #[inline(always)]
+    fn from(variant: CALDIR_A) -> Self {
+        match variant {
+            CALDIR_A::BACKWARD_CALIBRATION => true,
+            CALDIR_A::FORWARD_CALIBRATION_ => false,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CALDIRW<'a> {
+#[doc = "Reader of field `CALDIR`"]
+pub type CALDIR_R = crate::R<bool, CALDIR_A>;
+impl CALDIR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CALDIR_A {
+        match self.bits {
+            true => CALDIR_A::BACKWARD_CALIBRATION,
+            false => CALDIR_A::FORWARD_CALIBRATION_,
+        }
+    }
+    #[doc = "Checks if the value of the field is `BACKWARD_CALIBRATION`"]
+    #[inline(always)]
+    pub fn is_backward_calibration(&self) -> bool {
+        *self == CALDIR_A::BACKWARD_CALIBRATION
+    }
+    #[doc = "Checks if the value of the field is `FORWARD_CALIBRATION_`"]
+    #[inline(always)]
+    pub fn is_forward_calibration_(&self) -> bool {
+        *self == CALDIR_A::FORWARD_CALIBRATION_
+    }
+}
+#[doc = "Write proxy for field `CALDIR`"]
+pub struct CALDIR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CALDIRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CALDIRW) -> &'a mut W {
+impl<'a> CALDIR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CALDIR_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Backward calibration. When CALVAL is equal to the calibration counter, the RTC timers will stop incrementing for 1 second."]
-    #[inline]
+    #[inline(always)]
     pub fn backward_calibration(self) -> &'a mut W {
-        self.variant(CALDIRW::BACKWARD_CALIBRATION)
+        self.variant(CALDIR_A::BACKWARD_CALIBRATION)
     }
     #[doc = "Forward calibration. When CALVAL is equal to the calibration counter, the RTC timers will jump by 2 seconds."]
-    #[inline]
+    #[inline(always)]
     pub fn forward_calibration_(self) -> &'a mut W {
-        self.variant(CALDIRW::FORWARD_CALIBRATION_)
+        self.variant(CALDIR_A::FORWARD_CALIBRATION_)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:16 - If enabled, the calibration counter counts up to this value. The maximum value is 131, 072 corresponding to about 36.4 hours. Calibration is disabled if CALVAL = 0."]
-    #[inline]
-    pub fn calval(&self) -> CALVALR {
-        let bits = {
-            const MASK: u32 = 131071;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        };
-        CALVALR { bits }
+    #[inline(always)]
+    pub fn calval(&self) -> CALVAL_R {
+        CALVAL_R::new((self.bits & 0x0001_ffff) as u32)
     }
     #[doc = "Bit 17 - Calibration direction"]
-    #[inline]
-    pub fn caldir(&self) -> CALDIRR {
-        CALDIRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn caldir(&self) -> CALDIR_R {
+        CALDIR_R::new(((self.bits >> 17) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:16 - If enabled, the calibration counter counts up to this value. The maximum value is 131, 072 corresponding to about 36.4 hours. Calibration is disabled if CALVAL = 0."]
-    #[inline]
-    pub fn calval(&mut self) -> _CALVALW {
-        _CALVALW { w: self }
+    #[inline(always)]
+    pub fn calval(&mut self) -> CALVAL_W {
+        CALVAL_W { w: self }
     }
     #[doc = "Bit 17 - Calibration direction"]
-    #[inline]
-    pub fn caldir(&mut self) -> _CALDIRW {
-        _CALDIRW { w: self }
+    #[inline(always)]
+    pub fn caldir(&mut self) -> CALDIR_W {
+        CALDIR_W { w: self }
     }
 }

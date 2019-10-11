@@ -1,537 +1,123 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::TSV0 {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CRCERRR {
-    bits: bool,
-}
-impl CRCERRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCER {
-    bits: bool,
-}
-impl LCER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LORR {
-    bits: bool,
-}
-impl LORR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct DONER {
-    bits: bool,
-}
-impl DONER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MULTICASTR {
-    bits: bool,
-}
-impl MULTICASTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BROADCASTR {
-    bits: bool,
-}
-impl BROADCASTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PACKETDEFERR {
-    bits: bool,
-}
-impl PACKETDEFERR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EXDFR {
-    bits: bool,
-}
-impl EXDFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct EXCOLR {
-    bits: bool,
-}
-impl EXCOLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LCOLR {
-    bits: bool,
-}
-impl LCOLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GIANTR {
-    bits: bool,
-}
-impl GIANTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct UNDERRUNR {
-    bits: bool,
-}
-impl UNDERRUNR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TOTALBYTESR {
-    bits: u16,
-}
-impl TOTALBYTESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CONTROLFRAMER {
-    bits: bool,
-}
-impl CONTROLFRAMER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct PAUSER {
-    bits: bool,
-}
-impl PAUSER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BACKPRESSURER {
-    bits: bool,
-}
-impl BACKPRESSURER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct VLANR {
-    bits: bool,
-}
-impl VLANR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
+#[doc = "Reader of register TSV0"]
+pub type R = crate::R<u32, super::TSV0>;
+#[doc = "Reader of field `CRCERR`"]
+pub type CRCERR_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LCE`"]
+pub type LCE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LOR`"]
+pub type LOR_R = crate::R<bool, bool>;
+#[doc = "Reader of field `DONE`"]
+pub type DONE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `MULTICAST`"]
+pub type MULTICAST_R = crate::R<bool, bool>;
+#[doc = "Reader of field `BROADCAST`"]
+pub type BROADCAST_R = crate::R<bool, bool>;
+#[doc = "Reader of field `PACKETDEFER`"]
+pub type PACKETDEFER_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EXDF`"]
+pub type EXDF_R = crate::R<bool, bool>;
+#[doc = "Reader of field `EXCOL`"]
+pub type EXCOL_R = crate::R<bool, bool>;
+#[doc = "Reader of field `LCOL`"]
+pub type LCOL_R = crate::R<bool, bool>;
+#[doc = "Reader of field `GIANT`"]
+pub type GIANT_R = crate::R<bool, bool>;
+#[doc = "Reader of field `UNDERRUN`"]
+pub type UNDERRUN_R = crate::R<bool, bool>;
+#[doc = "Reader of field `TOTALBYTES`"]
+pub type TOTALBYTES_R = crate::R<u16, u16>;
+#[doc = "Reader of field `CONTROLFRAME`"]
+pub type CONTROLFRAME_R = crate::R<bool, bool>;
+#[doc = "Reader of field `PAUSE`"]
+pub type PAUSE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `BACKPRESSURE`"]
+pub type BACKPRESSURE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `VLAN`"]
+pub type VLAN_R = crate::R<bool, bool>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - CRC error. The attached CRC in the packet did not match the internally generated CRC."]
-    #[inline]
-    pub fn crcerr(&self) -> CRCERRR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CRCERRR { bits }
+    #[inline(always)]
+    pub fn crcerr(&self) -> CRCERR_R {
+        CRCERR_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Length check error. Indicates the frame length field does not match the actual number of data items and is not a type field."]
-    #[inline]
-    pub fn lce(&self) -> LCER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCER { bits }
+    #[inline(always)]
+    pub fn lce(&self) -> LCE_R {
+        LCE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Length out of range. Indicates that frame type/length field was larger than 1500 bytes. The EMAC doesn't distinguish the frame type and frame length, so, e.g. when the IP(0x8000) or ARP(0x0806) packets are received, it compares the frame type with the max length and gives the \"Length out of range\" error. In fact, this bit is not an error indication, but simply a statement by the chip regarding the status of the received frame."]
-    #[inline]
-    pub fn lor(&self) -> LORR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LORR { bits }
+    #[inline(always)]
+    pub fn lor(&self) -> LOR_R {
+        LOR_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Transmission of packet was completed."]
-    #[inline]
-    pub fn done(&self) -> DONER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        DONER { bits }
+    #[inline(always)]
+    pub fn done(&self) -> DONE_R {
+        DONE_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Packet's destination was a multicast address."]
-    #[inline]
-    pub fn multicast(&self) -> MULTICASTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        MULTICASTR { bits }
+    #[inline(always)]
+    pub fn multicast(&self) -> MULTICAST_R {
+        MULTICAST_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Packet's destination was a broadcast address."]
-    #[inline]
-    pub fn broadcast(&self) -> BROADCASTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        BROADCASTR { bits }
+    #[inline(always)]
+    pub fn broadcast(&self) -> BROADCAST_R {
+        BROADCAST_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Packet was deferred for at least one attempt, but less than an excessive defer."]
-    #[inline]
-    pub fn packetdefer(&self) -> PACKETDEFERR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PACKETDEFERR { bits }
+    #[inline(always)]
+    pub fn packetdefer(&self) -> PACKETDEFER_R {
+        PACKETDEFER_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Excessive Defer. Packet was deferred in excess of 6071 nibble times in 100 Mbps or 24287 bit times in 10 Mbps mode."]
-    #[inline]
-    pub fn exdf(&self) -> EXDFR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EXDFR { bits }
+    #[inline(always)]
+    pub fn exdf(&self) -> EXDF_R {
+        EXDF_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Excessive Collision. Packet was aborted due to exceeding of maximum allowed number of collisions."]
-    #[inline]
-    pub fn excol(&self) -> EXCOLR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        EXCOLR { bits }
+    #[inline(always)]
+    pub fn excol(&self) -> EXCOL_R {
+        EXCOL_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Late Collision. Collision occurred beyond collision window, 512 bit times."]
-    #[inline]
-    pub fn lcol(&self) -> LCOLR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LCOLR { bits }
+    #[inline(always)]
+    pub fn lcol(&self) -> LCOL_R {
+        LCOL_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Byte count in frame was greater than can be represented in the transmit byte count field in TSV1."]
-    #[inline]
-    pub fn giant(&self) -> GIANTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GIANTR { bits }
+    #[inline(always)]
+    pub fn giant(&self) -> GIANT_R {
+        GIANT_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Host side caused buffer underrun."]
-    #[inline]
-    pub fn underrun(&self) -> UNDERRUNR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        UNDERRUNR { bits }
+    #[inline(always)]
+    pub fn underrun(&self) -> UNDERRUN_R {
+        UNDERRUN_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bits 12:27 - The total number of bytes transferred including collided attempts."]
-    #[inline]
-    pub fn totalbytes(&self) -> TOTALBYTESR {
-        let bits = {
-            const MASK: u16 = 65535;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        TOTALBYTESR { bits }
+    #[inline(always)]
+    pub fn totalbytes(&self) -> TOTALBYTES_R {
+        TOTALBYTES_R::new(((self.bits >> 12) & 0xffff) as u16)
     }
     #[doc = "Bit 28 - The frame was a control frame."]
-    #[inline]
-    pub fn controlframe(&self) -> CONTROLFRAMER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        CONTROLFRAMER { bits }
+    #[inline(always)]
+    pub fn controlframe(&self) -> CONTROLFRAME_R {
+        CONTROLFRAME_R::new(((self.bits >> 28) & 0x01) != 0)
     }
     #[doc = "Bit 29 - The frame was a control frame with a valid PAUSE opcode."]
-    #[inline]
-    pub fn pause(&self) -> PAUSER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 29;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        PAUSER { bits }
+    #[inline(always)]
+    pub fn pause(&self) -> PAUSE_R {
+        PAUSE_R::new(((self.bits >> 29) & 0x01) != 0)
     }
     #[doc = "Bit 30 - Carrier-sense method backpressure was previously applied."]
-    #[inline]
-    pub fn backpressure(&self) -> BACKPRESSURER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        BACKPRESSURER { bits }
+    #[inline(always)]
+    pub fn backpressure(&self) -> BACKPRESSURE_R {
+        BACKPRESSURE_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - Frame's length/type field contained 0x8100 which is the VLAN protocol identifier."]
-    #[inline]
-    pub fn vlan(&self) -> VLANR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        VLANR { bits }
+    #[inline(always)]
+    pub fn vlan(&self) -> VLAN_R {
+        VLAN_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }

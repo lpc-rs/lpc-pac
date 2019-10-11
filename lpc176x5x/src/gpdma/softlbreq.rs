@@ -1,1008 +1,560 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SOFTLBREQ {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SOFTLBREQ"]
+pub type R = crate::R<u32, super::SOFTLBREQ>;
+#[doc = "Writer for register SOFTLBREQ"]
+pub type W = crate::W<u32, super::SOFTLBREQ>;
+#[doc = "Register SOFTLBREQ `reset()`'s with value 0"]
+impl crate::ResetValue for super::SOFTLBREQ {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ0R {
-    bits: bool,
-}
-impl SOFTLBREQ0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ1R {
-    bits: bool,
-}
-impl SOFTLBREQ1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ2R {
-    bits: bool,
-}
-impl SOFTLBREQ2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ3R {
-    bits: bool,
-}
-impl SOFTLBREQ3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ4R {
-    bits: bool,
-}
-impl SOFTLBREQ4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ5R {
-    bits: bool,
-}
-impl SOFTLBREQ5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ6R {
-    bits: bool,
-}
-impl SOFTLBREQ6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ7R {
-    bits: bool,
-}
-impl SOFTLBREQ7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ8R {
-    bits: bool,
-}
-impl SOFTLBREQ8R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ9R {
-    bits: bool,
-}
-impl SOFTLBREQ9R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ10R {
-    bits: bool,
-}
-impl SOFTLBREQ10R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ11R {
-    bits: bool,
-}
-impl SOFTLBREQ11R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ12R {
-    bits: bool,
-}
-impl SOFTLBREQ12R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ13R {
-    bits: bool,
-}
-impl SOFTLBREQ13R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ14R {
-    bits: bool,
-}
-impl SOFTLBREQ14R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTLBREQ15R {
-    bits: bool,
-}
-impl SOFTLBREQ15R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ0W<'a> {
+#[doc = "Reader of field `SOFTLBREQ0`"]
+pub type SOFTLBREQ0_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ0`"]
+pub struct SOFTLBREQ0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ0W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ0_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ1W<'a> {
+#[doc = "Reader of field `SOFTLBREQ1`"]
+pub type SOFTLBREQ1_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ1`"]
+pub struct SOFTLBREQ1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ2W<'a> {
+#[doc = "Reader of field `SOFTLBREQ2`"]
+pub type SOFTLBREQ2_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ2`"]
+pub struct SOFTLBREQ2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ3W<'a> {
+#[doc = "Reader of field `SOFTLBREQ3`"]
+pub type SOFTLBREQ3_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ3`"]
+pub struct SOFTLBREQ3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ3W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ4W<'a> {
+#[doc = "Reader of field `SOFTLBREQ4`"]
+pub type SOFTLBREQ4_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ4`"]
+pub struct SOFTLBREQ4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ4W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ4_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ5W<'a> {
+#[doc = "Reader of field `SOFTLBREQ5`"]
+pub type SOFTLBREQ5_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ5`"]
+pub struct SOFTLBREQ5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ5W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ5_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ6W<'a> {
+#[doc = "Reader of field `SOFTLBREQ6`"]
+pub type SOFTLBREQ6_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ6`"]
+pub struct SOFTLBREQ6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ6W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ6_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ7W<'a> {
+#[doc = "Reader of field `SOFTLBREQ7`"]
+pub type SOFTLBREQ7_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ7`"]
+pub struct SOFTLBREQ7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ7W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ7_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ8W<'a> {
+#[doc = "Reader of field `SOFTLBREQ8`"]
+pub type SOFTLBREQ8_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ8`"]
+pub struct SOFTLBREQ8_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ8W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ8_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ9W<'a> {
+#[doc = "Reader of field `SOFTLBREQ9`"]
+pub type SOFTLBREQ9_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ9`"]
+pub struct SOFTLBREQ9_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ9W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ9_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ10W<'a> {
+#[doc = "Reader of field `SOFTLBREQ10`"]
+pub type SOFTLBREQ10_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ10`"]
+pub struct SOFTLBREQ10_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ10W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ10_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ11W<'a> {
+#[doc = "Reader of field `SOFTLBREQ11`"]
+pub type SOFTLBREQ11_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ11`"]
+pub struct SOFTLBREQ11_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ11W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ11_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ12W<'a> {
+#[doc = "Reader of field `SOFTLBREQ12`"]
+pub type SOFTLBREQ12_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ12`"]
+pub struct SOFTLBREQ12_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ12W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ12_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ13W<'a> {
+#[doc = "Reader of field `SOFTLBREQ13`"]
+pub type SOFTLBREQ13_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ13`"]
+pub struct SOFTLBREQ13_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ13W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ13_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ14W<'a> {
+#[doc = "Reader of field `SOFTLBREQ14`"]
+pub type SOFTLBREQ14_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ14`"]
+pub struct SOFTLBREQ14_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ14W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ14_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTLBREQ15W<'a> {
+#[doc = "Reader of field `SOFTLBREQ15`"]
+pub type SOFTLBREQ15_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTLBREQ15`"]
+pub struct SOFTLBREQ15_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTLBREQ15W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTLBREQ15_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq0(&self) -> SOFTLBREQ0R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ0R { bits }
+    #[inline(always)]
+    pub fn softlbreq0(&self) -> SOFTLBREQ0_R {
+        SOFTLBREQ0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq1(&self) -> SOFTLBREQ1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ1R { bits }
+    #[inline(always)]
+    pub fn softlbreq1(&self) -> SOFTLBREQ1_R {
+        SOFTLBREQ1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq2(&self) -> SOFTLBREQ2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ2R { bits }
+    #[inline(always)]
+    pub fn softlbreq2(&self) -> SOFTLBREQ2_R {
+        SOFTLBREQ2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq3(&self) -> SOFTLBREQ3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ3R { bits }
+    #[inline(always)]
+    pub fn softlbreq3(&self) -> SOFTLBREQ3_R {
+        SOFTLBREQ3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq4(&self) -> SOFTLBREQ4R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ4R { bits }
+    #[inline(always)]
+    pub fn softlbreq4(&self) -> SOFTLBREQ4_R {
+        SOFTLBREQ4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq5(&self) -> SOFTLBREQ5R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ5R { bits }
+    #[inline(always)]
+    pub fn softlbreq5(&self) -> SOFTLBREQ5_R {
+        SOFTLBREQ5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq6(&self) -> SOFTLBREQ6R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ6R { bits }
+    #[inline(always)]
+    pub fn softlbreq6(&self) -> SOFTLBREQ6_R {
+        SOFTLBREQ6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq7(&self) -> SOFTLBREQ7R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ7R { bits }
+    #[inline(always)]
+    pub fn softlbreq7(&self) -> SOFTLBREQ7_R {
+        SOFTLBREQ7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq8(&self) -> SOFTLBREQ8R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ8R { bits }
+    #[inline(always)]
+    pub fn softlbreq8(&self) -> SOFTLBREQ8_R {
+        SOFTLBREQ8_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq9(&self) -> SOFTLBREQ9R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ9R { bits }
+    #[inline(always)]
+    pub fn softlbreq9(&self) -> SOFTLBREQ9_R {
+        SOFTLBREQ9_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq10(&self) -> SOFTLBREQ10R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ10R { bits }
+    #[inline(always)]
+    pub fn softlbreq10(&self) -> SOFTLBREQ10_R {
+        SOFTLBREQ10_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq11(&self) -> SOFTLBREQ11R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ11R { bits }
+    #[inline(always)]
+    pub fn softlbreq11(&self) -> SOFTLBREQ11_R {
+        SOFTLBREQ11_R::new(((self.bits >> 11) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq12(&self) -> SOFTLBREQ12R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ12R { bits }
+    #[inline(always)]
+    pub fn softlbreq12(&self) -> SOFTLBREQ12_R {
+        SOFTLBREQ12_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq13(&self) -> SOFTLBREQ13R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ13R { bits }
+    #[inline(always)]
+    pub fn softlbreq13(&self) -> SOFTLBREQ13_R {
+        SOFTLBREQ13_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 14 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq14(&self) -> SOFTLBREQ14R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ14R { bits }
+    #[inline(always)]
+    pub fn softlbreq14(&self) -> SOFTLBREQ14_R {
+        SOFTLBREQ14_R::new(((self.bits >> 14) & 0x01) != 0)
     }
     #[doc = "Bit 15 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq15(&self) -> SOFTLBREQ15R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 15;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTLBREQ15R { bits }
+    #[inline(always)]
+    pub fn softlbreq15(&self) -> SOFTLBREQ15_R {
+        SOFTLBREQ15_R::new(((self.bits >> 15) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq0(&mut self) -> _SOFTLBREQ0W {
-        _SOFTLBREQ0W { w: self }
+    #[inline(always)]
+    pub fn softlbreq0(&mut self) -> SOFTLBREQ0_W {
+        SOFTLBREQ0_W { w: self }
     }
     #[doc = "Bit 1 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq1(&mut self) -> _SOFTLBREQ1W {
-        _SOFTLBREQ1W { w: self }
+    #[inline(always)]
+    pub fn softlbreq1(&mut self) -> SOFTLBREQ1_W {
+        SOFTLBREQ1_W { w: self }
     }
     #[doc = "Bit 2 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq2(&mut self) -> _SOFTLBREQ2W {
-        _SOFTLBREQ2W { w: self }
+    #[inline(always)]
+    pub fn softlbreq2(&mut self) -> SOFTLBREQ2_W {
+        SOFTLBREQ2_W { w: self }
     }
     #[doc = "Bit 3 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq3(&mut self) -> _SOFTLBREQ3W {
-        _SOFTLBREQ3W { w: self }
+    #[inline(always)]
+    pub fn softlbreq3(&mut self) -> SOFTLBREQ3_W {
+        SOFTLBREQ3_W { w: self }
     }
     #[doc = "Bit 4 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq4(&mut self) -> _SOFTLBREQ4W {
-        _SOFTLBREQ4W { w: self }
+    #[inline(always)]
+    pub fn softlbreq4(&mut self) -> SOFTLBREQ4_W {
+        SOFTLBREQ4_W { w: self }
     }
     #[doc = "Bit 5 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq5(&mut self) -> _SOFTLBREQ5W {
-        _SOFTLBREQ5W { w: self }
+    #[inline(always)]
+    pub fn softlbreq5(&mut self) -> SOFTLBREQ5_W {
+        SOFTLBREQ5_W { w: self }
     }
     #[doc = "Bit 6 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq6(&mut self) -> _SOFTLBREQ6W {
-        _SOFTLBREQ6W { w: self }
+    #[inline(always)]
+    pub fn softlbreq6(&mut self) -> SOFTLBREQ6_W {
+        SOFTLBREQ6_W { w: self }
     }
     #[doc = "Bit 7 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq7(&mut self) -> _SOFTLBREQ7W {
-        _SOFTLBREQ7W { w: self }
+    #[inline(always)]
+    pub fn softlbreq7(&mut self) -> SOFTLBREQ7_W {
+        SOFTLBREQ7_W { w: self }
     }
     #[doc = "Bit 8 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq8(&mut self) -> _SOFTLBREQ8W {
-        _SOFTLBREQ8W { w: self }
+    #[inline(always)]
+    pub fn softlbreq8(&mut self) -> SOFTLBREQ8_W {
+        SOFTLBREQ8_W { w: self }
     }
     #[doc = "Bit 9 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq9(&mut self) -> _SOFTLBREQ9W {
-        _SOFTLBREQ9W { w: self }
+    #[inline(always)]
+    pub fn softlbreq9(&mut self) -> SOFTLBREQ9_W {
+        SOFTLBREQ9_W { w: self }
     }
     #[doc = "Bit 10 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq10(&mut self) -> _SOFTLBREQ10W {
-        _SOFTLBREQ10W { w: self }
+    #[inline(always)]
+    pub fn softlbreq10(&mut self) -> SOFTLBREQ10_W {
+        SOFTLBREQ10_W { w: self }
     }
     #[doc = "Bit 11 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq11(&mut self) -> _SOFTLBREQ11W {
-        _SOFTLBREQ11W { w: self }
+    #[inline(always)]
+    pub fn softlbreq11(&mut self) -> SOFTLBREQ11_W {
+        SOFTLBREQ11_W { w: self }
     }
     #[doc = "Bit 12 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq12(&mut self) -> _SOFTLBREQ12W {
-        _SOFTLBREQ12W { w: self }
+    #[inline(always)]
+    pub fn softlbreq12(&mut self) -> SOFTLBREQ12_W {
+        SOFTLBREQ12_W { w: self }
     }
     #[doc = "Bit 13 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq13(&mut self) -> _SOFTLBREQ13W {
-        _SOFTLBREQ13W { w: self }
+    #[inline(always)]
+    pub fn softlbreq13(&mut self) -> SOFTLBREQ13_W {
+        SOFTLBREQ13_W { w: self }
     }
     #[doc = "Bit 14 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq14(&mut self) -> _SOFTLBREQ14W {
-        _SOFTLBREQ14W { w: self }
+    #[inline(always)]
+    pub fn softlbreq14(&mut self) -> SOFTLBREQ14_W {
+        SOFTLBREQ14_W { w: self }
     }
     #[doc = "Bit 15 - Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line."]
-    #[inline]
-    pub fn softlbreq15(&mut self) -> _SOFTLBREQ15W {
-        _SOFTLBREQ15W { w: self }
+    #[inline(always)]
+    pub fn softlbreq15(&mut self) -> SOFTLBREQ15_W {
+        SOFTLBREQ15_W { w: self }
     }
 }

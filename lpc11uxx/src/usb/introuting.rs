@@ -1,223 +1,108 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INTROUTING {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register INTROUTING"]
+pub type R = crate::R<u32, super::INTROUTING>;
+#[doc = "Writer for register INTROUTING"]
+pub type W = crate::W<u32, super::INTROUTING>;
+#[doc = "Register INTROUTING `reset()`'s with value 0"]
+impl crate::ResetValue for super::INTROUTING {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct ROUTE_INT9_0R {
-    bits: u16,
-}
-impl ROUTE_INT9_0R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ROUTE_INT30R {
-    bits: bool,
-}
-impl ROUTE_INT30R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct ROUTE_INT31R {
-    bits: bool,
-}
-impl ROUTE_INT31R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ROUTE_INT9_0W<'a> {
+#[doc = "Reader of field `ROUTE_INT9_0`"]
+pub type ROUTE_INT9_0_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `ROUTE_INT9_0`"]
+pub struct ROUTE_INT9_0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ROUTE_INT9_0W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> ROUTE_INT9_0_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 1023;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03ff) | ((value as u32) & 0x03ff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ROUTE_INT30W<'a> {
+#[doc = "Reader of field `ROUTE_INT30`"]
+pub type ROUTE_INT30_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ROUTE_INT30`"]
+pub struct ROUTE_INT30_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ROUTE_INT30W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> ROUTE_INT30_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 30;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _ROUTE_INT31W<'a> {
+#[doc = "Reader of field `ROUTE_INT31`"]
+pub type ROUTE_INT31_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ROUTE_INT31`"]
+pub struct ROUTE_INT31_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ROUTE_INT31W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> ROUTE_INT31_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:9 - This bit can control on which hardware interrupt line the interrupt will be generated: 0: IRQ interrupt line is selected for this interrupt bit 1: FIQ interrupt line is selected for this interrupt bit"]
-    #[inline]
-    pub fn route_int9_0(&self) -> ROUTE_INT9_0R {
-        let bits = {
-            const MASK: u16 = 1023;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        ROUTE_INT9_0R { bits }
+    #[inline(always)]
+    pub fn route_int9_0(&self) -> ROUTE_INT9_0_R {
+        ROUTE_INT9_0_R::new((self.bits & 0x03ff) as u16)
     }
     #[doc = "Bit 30 - This bit can control on which hardware interrupt line the interrupt will be generated: 0: IRQ interrupt line is selected for this interrupt bit 1: FIQ interrupt line is selected for this interrupt bit"]
-    #[inline]
-    pub fn route_int30(&self) -> ROUTE_INT30R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ROUTE_INT30R { bits }
+    #[inline(always)]
+    pub fn route_int30(&self) -> ROUTE_INT30_R {
+        ROUTE_INT30_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - This bit can control on which hardware interrupt line the interrupt will be generated: 0: IRQ interrupt line is selected for this interrupt bit 1: FIQ interrupt line is selected for this interrupt bit"]
-    #[inline]
-    pub fn route_int31(&self) -> ROUTE_INT31R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ROUTE_INT31R { bits }
+    #[inline(always)]
+    pub fn route_int31(&self) -> ROUTE_INT31_R {
+        ROUTE_INT31_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:9 - This bit can control on which hardware interrupt line the interrupt will be generated: 0: IRQ interrupt line is selected for this interrupt bit 1: FIQ interrupt line is selected for this interrupt bit"]
-    #[inline]
-    pub fn route_int9_0(&mut self) -> _ROUTE_INT9_0W {
-        _ROUTE_INT9_0W { w: self }
+    #[inline(always)]
+    pub fn route_int9_0(&mut self) -> ROUTE_INT9_0_W {
+        ROUTE_INT9_0_W { w: self }
     }
     #[doc = "Bit 30 - This bit can control on which hardware interrupt line the interrupt will be generated: 0: IRQ interrupt line is selected for this interrupt bit 1: FIQ interrupt line is selected for this interrupt bit"]
-    #[inline]
-    pub fn route_int30(&mut self) -> _ROUTE_INT30W {
-        _ROUTE_INT30W { w: self }
+    #[inline(always)]
+    pub fn route_int30(&mut self) -> ROUTE_INT30_W {
+        ROUTE_INT30_W { w: self }
     }
     #[doc = "Bit 31 - This bit can control on which hardware interrupt line the interrupt will be generated: 0: IRQ interrupt line is selected for this interrupt bit 1: FIQ interrupt line is selected for this interrupt bit"]
-    #[inline]
-    pub fn route_int31(&mut self) -> _ROUTE_INT31W {
-        _ROUTE_INT31W { w: self }
+    #[inline(always)]
+    pub fn route_int31(&mut self) -> ROUTE_INT31_W {
+        ROUTE_INT31_W { w: self }
     }
 }

@@ -1,617 +1,421 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::I2C_STS {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `TDI`"]
+#[doc = "Reader of register I2C_STS"]
+pub type R = crate::R<u32, super::I2C_STS>;
+#[doc = "Transaction Done Interrupt. This flag is set if a transaction completes successfully. It is cleared by writing a one to bit 0 of the status register. It is unaffected by slave transactions.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TDIR {
-    #[doc = "Transaction has not completed."]
+pub enum TDI_A {
+    #[doc = "0: Transaction has not completed."]
     NOT_COMPLETE,
-    #[doc = "Transaction completed."]
+    #[doc = "1: Transaction completed."]
     COMPLETE,
 }
-impl TDIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TDIR::NOT_COMPLETE => false,
-            TDIR::COMPLETE => true,
+impl From<TDI_A> for bool {
+    #[inline(always)]
+    fn from(variant: TDI_A) -> Self {
+        match variant {
+            TDI_A::NOT_COMPLETE => false,
+            TDI_A::COMPLETE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TDIR {
-        match value {
-            false => TDIR::NOT_COMPLETE,
-            true => TDIR::COMPLETE,
+}
+#[doc = "Reader of field `TDI`"]
+pub type TDI_R = crate::R<bool, TDI_A>;
+impl TDI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TDI_A {
+        match self.bits {
+            false => TDI_A::NOT_COMPLETE,
+            true => TDI_A::COMPLETE,
         }
     }
     #[doc = "Checks if the value of the field is `NOT_COMPLETE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_complete(&self) -> bool {
-        *self == TDIR::NOT_COMPLETE
+        *self == TDI_A::NOT_COMPLETE
     }
     #[doc = "Checks if the value of the field is `COMPLETE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_complete(&self) -> bool {
-        *self == TDIR::COMPLETE
+        *self == TDI_A::COMPLETE
     }
 }
-#[doc = "Possible values of the field `AFI`"]
+#[doc = "Arbitration Failure Interrupt. When transmitting, if the SDA is low when SDAOUT is high, then this I2C has lost the arbitration to another device on the bus. The Arbitration Failure bit is set when this happens. It is cleared by writing a one to bit 1 of the status register.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum AFIR {
-    #[doc = "No arbitration failure on last transmission."]
+pub enum AFI_A {
+    #[doc = "0: No arbitration failure on last transmission."]
     NO_ARBITRATION_FAILU,
-    #[doc = "Arbitration failure occurred on last transmission."]
+    #[doc = "1: Arbitration failure occurred on last transmission."]
     ARBITRATION_FAILURE_,
 }
-impl AFIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            AFIR::NO_ARBITRATION_FAILU => false,
-            AFIR::ARBITRATION_FAILURE_ => true,
+impl From<AFI_A> for bool {
+    #[inline(always)]
+    fn from(variant: AFI_A) -> Self {
+        match variant {
+            AFI_A::NO_ARBITRATION_FAILU => false,
+            AFI_A::ARBITRATION_FAILURE_ => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> AFIR {
-        match value {
-            false => AFIR::NO_ARBITRATION_FAILU,
-            true => AFIR::ARBITRATION_FAILURE_,
+}
+#[doc = "Reader of field `AFI`"]
+pub type AFI_R = crate::R<bool, AFI_A>;
+impl AFI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> AFI_A {
+        match self.bits {
+            false => AFI_A::NO_ARBITRATION_FAILU,
+            true => AFI_A::ARBITRATION_FAILURE_,
         }
     }
     #[doc = "Checks if the value of the field is `NO_ARBITRATION_FAILU`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_arbitration_failu(&self) -> bool {
-        *self == AFIR::NO_ARBITRATION_FAILU
+        *self == AFI_A::NO_ARBITRATION_FAILU
     }
     #[doc = "Checks if the value of the field is `ARBITRATION_FAILURE_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_arbitration_failure_(&self) -> bool {
-        *self == AFIR::ARBITRATION_FAILURE_
+        *self == AFI_A::ARBITRATION_FAILURE_
     }
 }
-#[doc = "Possible values of the field `NAI`"]
+#[doc = "No Acknowledge Interrupt. After every byte of data is sent, the transmitter expects an acknowledge from the receiver. This bit is set if the acknowledge is not received. It is cleared when a byte is written to the master TX FIFO.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum NAIR {
-    #[doc = "Last transmission received an acknowledge."]
+pub enum NAI_A {
+    #[doc = "0: Last transmission received an acknowledge."]
     ACKNOWLEDGE_RCVD,
-    #[doc = "Last transmission did not receive an acknowledge."]
+    #[doc = "1: Last transmission did not receive an acknowledge."]
     NO_ACKNOWLEDGE_RCVD,
 }
-impl NAIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            NAIR::ACKNOWLEDGE_RCVD => false,
-            NAIR::NO_ACKNOWLEDGE_RCVD => true,
+impl From<NAI_A> for bool {
+    #[inline(always)]
+    fn from(variant: NAI_A) -> Self {
+        match variant {
+            NAI_A::ACKNOWLEDGE_RCVD => false,
+            NAI_A::NO_ACKNOWLEDGE_RCVD => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> NAIR {
-        match value {
-            false => NAIR::ACKNOWLEDGE_RCVD,
-            true => NAIR::NO_ACKNOWLEDGE_RCVD,
+}
+#[doc = "Reader of field `NAI`"]
+pub type NAI_R = crate::R<bool, NAI_A>;
+impl NAI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> NAI_A {
+        match self.bits {
+            false => NAI_A::ACKNOWLEDGE_RCVD,
+            true => NAI_A::NO_ACKNOWLEDGE_RCVD,
         }
     }
     #[doc = "Checks if the value of the field is `ACKNOWLEDGE_RCVD`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acknowledge_rcvd(&self) -> bool {
-        *self == NAIR::ACKNOWLEDGE_RCVD
+        *self == NAI_A::ACKNOWLEDGE_RCVD
     }
     #[doc = "Checks if the value of the field is `NO_ACKNOWLEDGE_RCVD`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_acknowledge_rcvd(&self) -> bool {
-        *self == NAIR::NO_ACKNOWLEDGE_RCVD
+        *self == NAI_A::NO_ACKNOWLEDGE_RCVD
     }
 }
-#[doc = "Possible values of the field `DRMI`"]
+#[doc = "Master Data Request Interrupt. Once a transmission is started, the transmitter must have data to transmit as long as it isn't followed by a stop condition or it will hold SCL low until more data is available. The Master Data Request bit is set when the master transmitter is data-starved. If the master TX FIFO is empty and the last byte did not have a STOP condition flag, then SCL is held low until the CPU writes another byte to transmit. This bit is cleared when a byte is written to the master TX FIFO.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DRMIR {
-    #[doc = "Master transmitter does not need data."]
+pub enum DRMI_A {
+    #[doc = "0: Master transmitter does not need data."]
     BUSY,
-    #[doc = "Master transmitter needs data."]
+    #[doc = "1: Master transmitter needs data."]
     NEED_DATA,
 }
-impl DRMIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DRMIR::BUSY => false,
-            DRMIR::NEED_DATA => true,
+impl From<DRMI_A> for bool {
+    #[inline(always)]
+    fn from(variant: DRMI_A) -> Self {
+        match variant {
+            DRMI_A::BUSY => false,
+            DRMI_A::NEED_DATA => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DRMIR {
-        match value {
-            false => DRMIR::BUSY,
-            true => DRMIR::NEED_DATA,
+}
+#[doc = "Reader of field `DRMI`"]
+pub type DRMI_R = crate::R<bool, DRMI_A>;
+impl DRMI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DRMI_A {
+        match self.bits {
+            false => DRMI_A::BUSY,
+            true => DRMI_A::NEED_DATA,
         }
     }
     #[doc = "Checks if the value of the field is `BUSY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_busy(&self) -> bool {
-        *self == DRMIR::BUSY
+        *self == DRMI_A::BUSY
     }
     #[doc = "Checks if the value of the field is `NEED_DATA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_need_data(&self) -> bool {
-        *self == DRMIR::NEED_DATA
+        *self == DRMI_A::NEED_DATA
     }
 }
-#[doc = "Possible values of the field `DRSI`"]
+#[doc = "Slave Data Request Interrupt. Once a transmission is started, the transmitter must have data to transmit as long as it isn't followed by a STOP condition or it will hold SCL low until more data is available. The Slave Data Request bit is set when the slave transmitter is data-starved. If the slave TX FIFO is empty and the last byte transmitted was acknowledged, then SCL is held low until the CPU writes another byte to transmit. This bit is cleared when a byte is written to the slave Tx FIFO.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DRSIR {
-    #[doc = "Slave transmitter does not need data."]
+pub enum DRSI_A {
+    #[doc = "0: Slave transmitter does not need data."]
     BUSY,
-    #[doc = "Slave transmitter needs data."]
+    #[doc = "1: Slave transmitter needs data."]
     NEED_DATA,
 }
-impl DRSIR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DRSIR::BUSY => false,
-            DRSIR::NEED_DATA => true,
+impl From<DRSI_A> for bool {
+    #[inline(always)]
+    fn from(variant: DRSI_A) -> Self {
+        match variant {
+            DRSI_A::BUSY => false,
+            DRSI_A::NEED_DATA => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DRSIR {
-        match value {
-            false => DRSIR::BUSY,
-            true => DRSIR::NEED_DATA,
+}
+#[doc = "Reader of field `DRSI`"]
+pub type DRSI_R = crate::R<bool, DRSI_A>;
+impl DRSI_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DRSI_A {
+        match self.bits {
+            false => DRSI_A::BUSY,
+            true => DRSI_A::NEED_DATA,
         }
     }
     #[doc = "Checks if the value of the field is `BUSY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_busy(&self) -> bool {
-        *self == DRSIR::BUSY
+        *self == DRSI_A::BUSY
     }
     #[doc = "Checks if the value of the field is `NEED_DATA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_need_data(&self) -> bool {
-        *self == DRSIR::NEED_DATA
+        *self == DRSI_A::NEED_DATA
     }
 }
-#[doc = r" Value of the field"]
-pub struct ACTIVER {
-    bits: bool,
-}
-impl ACTIVER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SCLR {
-    bits: bool,
-}
-impl SCLR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SDAR {
-    bits: bool,
-}
-impl SDAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = "Possible values of the field `RFF`"]
+#[doc = "Reader of field `Active`"]
+pub type ACTIVE_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SCL`"]
+pub type SCL_R = crate::R<bool, bool>;
+#[doc = "Reader of field `SDA`"]
+pub type SDA_R = crate::R<bool, bool>;
+#[doc = "Receive FIFO Full (RFF). This bit is set when the RX FIFO is full and cannot accept any more data. It is cleared when the RX FIFO is not full. If a byte arrives when the Receive FIFO is full, the SCL is held low until the CPU reads the RX FIFO and makes room for it.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RFFR {
-    #[doc = "RX FIFO is not full"]
+pub enum RFF_A {
+    #[doc = "0: RX FIFO is not full"]
     RX_FIFO_IS_NOT_FULL,
-    #[doc = "RX FIFO is full"]
+    #[doc = "1: RX FIFO is full"]
     RX_FIFO_IS_FULL,
 }
-impl RFFR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RFFR::RX_FIFO_IS_NOT_FULL => false,
-            RFFR::RX_FIFO_IS_FULL => true,
+impl From<RFF_A> for bool {
+    #[inline(always)]
+    fn from(variant: RFF_A) -> Self {
+        match variant {
+            RFF_A::RX_FIFO_IS_NOT_FULL => false,
+            RFF_A::RX_FIFO_IS_FULL => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RFFR {
-        match value {
-            false => RFFR::RX_FIFO_IS_NOT_FULL,
-            true => RFFR::RX_FIFO_IS_FULL,
+}
+#[doc = "Reader of field `RFF`"]
+pub type RFF_R = crate::R<bool, RFF_A>;
+impl RFF_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RFF_A {
+        match self.bits {
+            false => RFF_A::RX_FIFO_IS_NOT_FULL,
+            true => RFF_A::RX_FIFO_IS_FULL,
         }
     }
     #[doc = "Checks if the value of the field is `RX_FIFO_IS_NOT_FULL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rx_fifo_is_not_full(&self) -> bool {
-        *self == RFFR::RX_FIFO_IS_NOT_FULL
+        *self == RFF_A::RX_FIFO_IS_NOT_FULL
     }
     #[doc = "Checks if the value of the field is `RX_FIFO_IS_FULL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rx_fifo_is_full(&self) -> bool {
-        *self == RFFR::RX_FIFO_IS_FULL
+        *self == RFF_A::RX_FIFO_IS_FULL
     }
 }
-#[doc = "Possible values of the field `RFE`"]
+#[doc = "Receive FIFO Empty. RFE is set when the RX FIFO is empty and is cleared when the RX FIFO contains valid data.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RFER {
-    #[doc = "RX FIFO contains data."]
+pub enum RFE_A {
+    #[doc = "0: RX FIFO contains data."]
     DATA,
-    #[doc = "RX FIFO is empty"]
+    #[doc = "1: RX FIFO is empty"]
     EMPTY,
 }
-impl RFER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RFER::DATA => false,
-            RFER::EMPTY => true,
+impl From<RFE_A> for bool {
+    #[inline(always)]
+    fn from(variant: RFE_A) -> Self {
+        match variant {
+            RFE_A::DATA => false,
+            RFE_A::EMPTY => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RFER {
-        match value {
-            false => RFER::DATA,
-            true => RFER::EMPTY,
+}
+#[doc = "Reader of field `RFE`"]
+pub type RFE_R = crate::R<bool, RFE_A>;
+impl RFE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RFE_A {
+        match self.bits {
+            false => RFE_A::DATA,
+            true => RFE_A::EMPTY,
         }
     }
     #[doc = "Checks if the value of the field is `DATA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data(&self) -> bool {
-        *self == RFER::DATA
+        *self == RFE_A::DATA
     }
     #[doc = "Checks if the value of the field is `EMPTY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_empty(&self) -> bool {
-        *self == RFER::EMPTY
+        *self == RFE_A::EMPTY
     }
 }
-#[doc = "Possible values of the field `TFF`"]
+#[doc = "Transmit FIFO Full. TFF is set when the TX FIFO is full and is cleared when the TX FIFO is not full.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TFFR {
-    #[doc = "TX FIFO is not full."]
+pub enum TFF_A {
+    #[doc = "0: TX FIFO is not full."]
     TX_FIFO_IS_NOT_FULL_,
-    #[doc = "TX FIFO is full"]
+    #[doc = "1: TX FIFO is full"]
     TX_FIFO_IS_FULL,
 }
-impl TFFR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TFFR::TX_FIFO_IS_NOT_FULL_ => false,
-            TFFR::TX_FIFO_IS_FULL => true,
+impl From<TFF_A> for bool {
+    #[inline(always)]
+    fn from(variant: TFF_A) -> Self {
+        match variant {
+            TFF_A::TX_FIFO_IS_NOT_FULL_ => false,
+            TFF_A::TX_FIFO_IS_FULL => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TFFR {
-        match value {
-            false => TFFR::TX_FIFO_IS_NOT_FULL_,
-            true => TFFR::TX_FIFO_IS_FULL,
+}
+#[doc = "Reader of field `TFF`"]
+pub type TFF_R = crate::R<bool, TFF_A>;
+impl TFF_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TFF_A {
+        match self.bits {
+            false => TFF_A::TX_FIFO_IS_NOT_FULL_,
+            true => TFF_A::TX_FIFO_IS_FULL,
         }
     }
     #[doc = "Checks if the value of the field is `TX_FIFO_IS_NOT_FULL_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_tx_fifo_is_not_full_(&self) -> bool {
-        *self == TFFR::TX_FIFO_IS_NOT_FULL_
+        *self == TFF_A::TX_FIFO_IS_NOT_FULL_
     }
     #[doc = "Checks if the value of the field is `TX_FIFO_IS_FULL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_tx_fifo_is_full(&self) -> bool {
-        *self == TFFR::TX_FIFO_IS_FULL
+        *self == TFF_A::TX_FIFO_IS_FULL
     }
 }
-#[doc = "Possible values of the field `TFE`"]
+#[doc = "Transmit FIFO Empty. TFE is set when the TX FIFO is empty and is cleared when the TX FIFO contains valid data.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TFER {
-    #[doc = "TX FIFO contains valid data."]
+pub enum TFE_A {
+    #[doc = "0: TX FIFO contains valid data."]
     VALID_DATA,
-    #[doc = "TX FIFO is empty"]
+    #[doc = "1: TX FIFO is empty"]
     EMPTY,
 }
-impl TFER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TFER::VALID_DATA => false,
-            TFER::EMPTY => true,
+impl From<TFE_A> for bool {
+    #[inline(always)]
+    fn from(variant: TFE_A) -> Self {
+        match variant {
+            TFE_A::VALID_DATA => false,
+            TFE_A::EMPTY => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TFER {
-        match value {
-            false => TFER::VALID_DATA,
-            true => TFER::EMPTY,
+}
+#[doc = "Reader of field `TFE`"]
+pub type TFE_R = crate::R<bool, TFE_A>;
+impl TFE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TFE_A {
+        match self.bits {
+            false => TFE_A::VALID_DATA,
+            true => TFE_A::EMPTY,
         }
     }
     #[doc = "Checks if the value of the field is `VALID_DATA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_valid_data(&self) -> bool {
-        *self == TFER::VALID_DATA
+        *self == TFE_A::VALID_DATA
     }
     #[doc = "Checks if the value of the field is `EMPTY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_empty(&self) -> bool {
-        *self == TFER::EMPTY
+        *self == TFE_A::EMPTY
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Transaction Done Interrupt. This flag is set if a transaction completes successfully. It is cleared by writing a one to bit 0 of the status register. It is unaffected by slave transactions."]
-    #[inline]
-    pub fn tdi(&self) -> TDIR {
-        TDIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn tdi(&self) -> TDI_R {
+        TDI_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Arbitration Failure Interrupt. When transmitting, if the SDA is low when SDAOUT is high, then this I2C has lost the arbitration to another device on the bus. The Arbitration Failure bit is set when this happens. It is cleared by writing a one to bit 1 of the status register."]
-    #[inline]
-    pub fn afi(&self) -> AFIR {
-        AFIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn afi(&self) -> AFI_R {
+        AFI_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - No Acknowledge Interrupt. After every byte of data is sent, the transmitter expects an acknowledge from the receiver. This bit is set if the acknowledge is not received. It is cleared when a byte is written to the master TX FIFO."]
-    #[inline]
-    pub fn nai(&self) -> NAIR {
-        NAIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn nai(&self) -> NAI_R {
+        NAI_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Master Data Request Interrupt. Once a transmission is started, the transmitter must have data to transmit as long as it isn't followed by a stop condition or it will hold SCL low until more data is available. The Master Data Request bit is set when the master transmitter is data-starved. If the master TX FIFO is empty and the last byte did not have a STOP condition flag, then SCL is held low until the CPU writes another byte to transmit. This bit is cleared when a byte is written to the master TX FIFO."]
-    #[inline]
-    pub fn drmi(&self) -> DRMIR {
-        DRMIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn drmi(&self) -> DRMI_R {
+        DRMI_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Slave Data Request Interrupt. Once a transmission is started, the transmitter must have data to transmit as long as it isn't followed by a STOP condition or it will hold SCL low until more data is available. The Slave Data Request bit is set when the slave transmitter is data-starved. If the slave TX FIFO is empty and the last byte transmitted was acknowledged, then SCL is held low until the CPU writes another byte to transmit. This bit is cleared when a byte is written to the slave Tx FIFO."]
-    #[inline]
-    pub fn drsi(&self) -> DRSIR {
-        DRSIR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn drsi(&self) -> DRSI_R {
+        DRSI_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Indicates whether the bus is busy. This bit is set when a START condition has been seen. It is cleared when a STOP condition is seen.."]
-    #[inline]
-    pub fn active(&self) -> ACTIVER {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        ACTIVER { bits }
+    #[inline(always)]
+    pub fn active(&self) -> ACTIVE_R {
+        ACTIVE_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - The current value of the SCL signal."]
-    #[inline]
-    pub fn scl(&self) -> SCLR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SCLR { bits }
+    #[inline(always)]
+    pub fn scl(&self) -> SCL_R {
+        SCL_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - The current value of the SDA signal."]
-    #[inline]
-    pub fn sda(&self) -> SDAR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SDAR { bits }
+    #[inline(always)]
+    pub fn sda(&self) -> SDA_R {
+        SDA_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Receive FIFO Full (RFF). This bit is set when the RX FIFO is full and cannot accept any more data. It is cleared when the RX FIFO is not full. If a byte arrives when the Receive FIFO is full, the SCL is held low until the CPU reads the RX FIFO and makes room for it."]
-    #[inline]
-    pub fn rff(&self) -> RFFR {
-        RFFR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rff(&self) -> RFF_R {
+        RFF_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Receive FIFO Empty. RFE is set when the RX FIFO is empty and is cleared when the RX FIFO contains valid data."]
-    #[inline]
-    pub fn rfe(&self) -> RFER {
-        RFER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rfe(&self) -> RFE_R {
+        RFE_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Transmit FIFO Full. TFF is set when the TX FIFO is full and is cleared when the TX FIFO is not full."]
-    #[inline]
-    pub fn tff(&self) -> TFFR {
-        TFFR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn tff(&self) -> TFF_R {
+        TFF_R::new(((self.bits >> 10) & 0x01) != 0)
     }
     #[doc = "Bit 11 - Transmit FIFO Empty. TFE is set when the TX FIFO is empty and is cleared when the TX FIFO contains valid data."]
-    #[inline]
-    pub fn tfe(&self) -> TFER {
-        TFER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn tfe(&self) -> TFE_R {
+        TFE_R::new(((self.bits >> 11) & 0x01) != 0)
     }
 }

@@ -1,317 +1,289 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::FCR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register FCR"]
+pub type W = crate::W<u32, super::FCR>;
+#[doc = "Register FCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::FCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Values that can be written to the field `FIFOEN`"]
-pub enum FIFOENW {
-    #[doc = "UARTn FIFOs are disabled. Must not be used in the application."]
+#[doc = "FIFO Enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum FIFOEN_AW {
+    #[doc = "0: UARTn FIFOs are disabled. Must not be used in the application."]
     UARTN_FIFOS_ARE_DISA,
-    #[doc = "Active high enable for both UARTn Rx and TX FIFOs and UnFCR\\[7:1\\] access. This bit must be set for proper UART operation. Any transition on this bit will automatically clear the related UART FIFOs."]
+    #[doc = "1: Active high enable for both UARTn Rx and TX FIFOs and UnFCR\\[7:1\\] access. This bit must be set for proper UART operation. Any transition on this bit will automatically clear the related UART FIFOs."]
     ACTIVE_HIGH_ENABLE_F,
 }
-impl FIFOENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            FIFOENW::UARTN_FIFOS_ARE_DISA => false,
-            FIFOENW::ACTIVE_HIGH_ENABLE_F => true,
+impl From<FIFOEN_AW> for bool {
+    #[inline(always)]
+    fn from(variant: FIFOEN_AW) -> Self {
+        match variant {
+            FIFOEN_AW::UARTN_FIFOS_ARE_DISA => false,
+            FIFOEN_AW::ACTIVE_HIGH_ENABLE_F => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _FIFOENW<'a> {
+#[doc = "Write proxy for field `FIFOEN`"]
+pub struct FIFOEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FIFOENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: FIFOENW) -> &'a mut W {
+impl<'a> FIFOEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: FIFOEN_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "UARTn FIFOs are disabled. Must not be used in the application."]
-    #[inline]
+    #[inline(always)]
     pub fn uartn_fifos_are_disa(self) -> &'a mut W {
-        self.variant(FIFOENW::UARTN_FIFOS_ARE_DISA)
+        self.variant(FIFOEN_AW::UARTN_FIFOS_ARE_DISA)
     }
     #[doc = "Active high enable for both UARTn Rx and TX FIFOs and UnFCR\\[7:1\\] access. This bit must be set for proper UART operation. Any transition on this bit will automatically clear the related UART FIFOs."]
-    #[inline]
+    #[inline(always)]
     pub fn active_high_enable_f(self) -> &'a mut W {
-        self.variant(FIFOENW::ACTIVE_HIGH_ENABLE_F)
+        self.variant(FIFOEN_AW::ACTIVE_HIGH_ENABLE_F)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `RXFIFORES`"]
-pub enum RXFIFORESW {
-    #[doc = "No impact on either of UARTn FIFOs."]
+#[doc = "RX FIFO Reset.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RXFIFORES_AW {
+    #[doc = "0: No impact on either of UARTn FIFOs."]
     NO_IMPACT_ON_EITHER_,
-    #[doc = "Writing a logic 1 to UnFCR\\[1\\] will clear all bytes in UARTn Rx FIFO, reset the pointer logic. This bit is self-clearing."]
+    #[doc = "1: Writing a logic 1 to UnFCR\\[1\\] will clear all bytes in UARTn Rx FIFO, reset the pointer logic. This bit is self-clearing."]
     WRITING_A_LOGIC_1_TO,
 }
-impl RXFIFORESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RXFIFORESW::NO_IMPACT_ON_EITHER_ => false,
-            RXFIFORESW::WRITING_A_LOGIC_1_TO => true,
+impl From<RXFIFORES_AW> for bool {
+    #[inline(always)]
+    fn from(variant: RXFIFORES_AW) -> Self {
+        match variant {
+            RXFIFORES_AW::NO_IMPACT_ON_EITHER_ => false,
+            RXFIFORES_AW::WRITING_A_LOGIC_1_TO => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _RXFIFORESW<'a> {
+#[doc = "Write proxy for field `RXFIFORES`"]
+pub struct RXFIFORES_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RXFIFORESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RXFIFORESW) -> &'a mut W {
+impl<'a> RXFIFORES_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RXFIFORES_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No impact on either of UARTn FIFOs."]
-    #[inline]
+    #[inline(always)]
     pub fn no_impact_on_either_(self) -> &'a mut W {
-        self.variant(RXFIFORESW::NO_IMPACT_ON_EITHER_)
+        self.variant(RXFIFORES_AW::NO_IMPACT_ON_EITHER_)
     }
     #[doc = "Writing a logic 1 to UnFCR\\[1\\] will clear all bytes in UARTn Rx FIFO, reset the pointer logic. This bit is self-clearing."]
-    #[inline]
+    #[inline(always)]
     pub fn writing_a_logic_1_to(self) -> &'a mut W {
-        self.variant(RXFIFORESW::WRITING_A_LOGIC_1_TO)
+        self.variant(RXFIFORES_AW::WRITING_A_LOGIC_1_TO)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `TXFIFORES`"]
-pub enum TXFIFORESW {
-    #[doc = "No impact on either of UARTn FIFOs."]
+#[doc = "TX FIFO Reset.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TXFIFORES_AW {
+    #[doc = "0: No impact on either of UARTn FIFOs."]
     NO_IMPACT_ON_EITHER_,
-    #[doc = "Writing a logic 1 to UnFCR\\[2\\] will clear all bytes in UARTn TX FIFO, reset the pointer logic. This bit is self-clearing."]
+    #[doc = "1: Writing a logic 1 to UnFCR\\[2\\] will clear all bytes in UARTn TX FIFO, reset the pointer logic. This bit is self-clearing."]
     WRITING_A_LOGIC_1_TO,
 }
-impl TXFIFORESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TXFIFORESW::NO_IMPACT_ON_EITHER_ => false,
-            TXFIFORESW::WRITING_A_LOGIC_1_TO => true,
+impl From<TXFIFORES_AW> for bool {
+    #[inline(always)]
+    fn from(variant: TXFIFORES_AW) -> Self {
+        match variant {
+            TXFIFORES_AW::NO_IMPACT_ON_EITHER_ => false,
+            TXFIFORES_AW::WRITING_A_LOGIC_1_TO => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _TXFIFORESW<'a> {
+#[doc = "Write proxy for field `TXFIFORES`"]
+pub struct TXFIFORES_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXFIFORESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TXFIFORESW) -> &'a mut W {
+impl<'a> TXFIFORES_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TXFIFORES_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No impact on either of UARTn FIFOs."]
-    #[inline]
+    #[inline(always)]
     pub fn no_impact_on_either_(self) -> &'a mut W {
-        self.variant(TXFIFORESW::NO_IMPACT_ON_EITHER_)
+        self.variant(TXFIFORES_AW::NO_IMPACT_ON_EITHER_)
     }
     #[doc = "Writing a logic 1 to UnFCR\\[2\\] will clear all bytes in UARTn TX FIFO, reset the pointer logic. This bit is self-clearing."]
-    #[inline]
+    #[inline(always)]
     pub fn writing_a_logic_1_to(self) -> &'a mut W {
-        self.variant(TXFIFORESW::WRITING_A_LOGIC_1_TO)
+        self.variant(TXFIFORES_AW::WRITING_A_LOGIC_1_TO)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _DMAMODEW<'a> {
+#[doc = "Write proxy for field `DMAMODE`"]
+pub struct DMAMODE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DMAMODEW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> DMAMODE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `RXTRIGLVL`"]
-pub enum RXTRIGLVLW {
-    #[doc = "Trigger level 0 (1 character or 0x01)."]
+#[doc = "RX Trigger Level. These two bits determine how many receiver UARTn FIFO characters must be written before an interrupt or DMA request is activated.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RXTRIGLVL_AW {
+    #[doc = "0: Trigger level 0 (1 character or 0x01)."]
     TRIGGER_LEVEL_0_1_C,
-    #[doc = "Trigger level 1 (4 characters or 0x04)."]
+    #[doc = "1: Trigger level 1 (4 characters or 0x04)."]
     TRIGGER_LEVEL_1_4_C,
-    #[doc = "Trigger level 2 (8 characters or 0x08)."]
+    #[doc = "2: Trigger level 2 (8 characters or 0x08)."]
     TRIGGER_LEVEL_2_8_C,
-    #[doc = "Trigger level 3 (14 characters or 0x0E)."]
+    #[doc = "3: Trigger level 3 (14 characters or 0x0E)."]
     TRIGGER_LEVEL_3_14_,
 }
-impl RXTRIGLVLW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            RXTRIGLVLW::TRIGGER_LEVEL_0_1_C => 0,
-            RXTRIGLVLW::TRIGGER_LEVEL_1_4_C => 1,
-            RXTRIGLVLW::TRIGGER_LEVEL_2_8_C => 2,
-            RXTRIGLVLW::TRIGGER_LEVEL_3_14_ => 3,
+impl From<RXTRIGLVL_AW> for u8 {
+    #[inline(always)]
+    fn from(variant: RXTRIGLVL_AW) -> Self {
+        match variant {
+            RXTRIGLVL_AW::TRIGGER_LEVEL_0_1_C => 0,
+            RXTRIGLVL_AW::TRIGGER_LEVEL_1_4_C => 1,
+            RXTRIGLVL_AW::TRIGGER_LEVEL_2_8_C => 2,
+            RXTRIGLVL_AW::TRIGGER_LEVEL_3_14_ => 3,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _RXTRIGLVLW<'a> {
+#[doc = "Write proxy for field `RXTRIGLVL`"]
+pub struct RXTRIGLVL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RXTRIGLVLW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RXTRIGLVLW) -> &'a mut W {
+impl<'a> RXTRIGLVL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RXTRIGLVL_AW) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Trigger level 0 (1 character or 0x01)."]
-    #[inline]
+    #[inline(always)]
     pub fn trigger_level_0_1_c(self) -> &'a mut W {
-        self.variant(RXTRIGLVLW::TRIGGER_LEVEL_0_1_C)
+        self.variant(RXTRIGLVL_AW::TRIGGER_LEVEL_0_1_C)
     }
     #[doc = "Trigger level 1 (4 characters or 0x04)."]
-    #[inline]
+    #[inline(always)]
     pub fn trigger_level_1_4_c(self) -> &'a mut W {
-        self.variant(RXTRIGLVLW::TRIGGER_LEVEL_1_4_C)
+        self.variant(RXTRIGLVL_AW::TRIGGER_LEVEL_1_4_C)
     }
     #[doc = "Trigger level 2 (8 characters or 0x08)."]
-    #[inline]
+    #[inline(always)]
     pub fn trigger_level_2_8_c(self) -> &'a mut W {
-        self.variant(RXTRIGLVLW::TRIGGER_LEVEL_2_8_C)
+        self.variant(RXTRIGLVL_AW::TRIGGER_LEVEL_2_8_C)
     }
     #[doc = "Trigger level 3 (14 characters or 0x0E)."]
-    #[inline]
+    #[inline(always)]
     pub fn trigger_level_3_14_(self) -> &'a mut W {
-        self.variant(RXTRIGLVLW::TRIGGER_LEVEL_3_14_)
+        self.variant(RXTRIGLVL_AW::TRIGGER_LEVEL_3_14_)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - FIFO Enable."]
-    #[inline]
-    pub fn fifoen(&mut self) -> _FIFOENW {
-        _FIFOENW { w: self }
+    #[inline(always)]
+    pub fn fifoen(&mut self) -> FIFOEN_W {
+        FIFOEN_W { w: self }
     }
     #[doc = "Bit 1 - RX FIFO Reset."]
-    #[inline]
-    pub fn rxfifores(&mut self) -> _RXFIFORESW {
-        _RXFIFORESW { w: self }
+    #[inline(always)]
+    pub fn rxfifores(&mut self) -> RXFIFORES_W {
+        RXFIFORES_W { w: self }
     }
     #[doc = "Bit 2 - TX FIFO Reset."]
-    #[inline]
-    pub fn txfifores(&mut self) -> _TXFIFORESW {
-        _TXFIFORESW { w: self }
+    #[inline(always)]
+    pub fn txfifores(&mut self) -> TXFIFORES_W {
+        TXFIFORES_W { w: self }
     }
     #[doc = "Bit 3 - DMA Mode Select. When the FIFO enable (bit 0 of this register) is set, this bit selects the DMA mode. See Section 18.6.6.1."]
-    #[inline]
-    pub fn dmamode(&mut self) -> _DMAMODEW {
-        _DMAMODEW { w: self }
+    #[inline(always)]
+    pub fn dmamode(&mut self) -> DMAMODE_W {
+        DMAMODE_W { w: self }
     }
     #[doc = "Bits 6:7 - RX Trigger Level. These two bits determine how many receiver UARTn FIFO characters must be written before an interrupt or DMA request is activated."]
-    #[inline]
-    pub fn rxtriglvl(&mut self) -> _RXTRIGLVLW {
-        _RXTRIGLVLW { w: self }
+    #[inline(always)]
+    pub fn rxtriglvl(&mut self) -> RXTRIGLVL_W {
+        RXTRIGLVL_W { w: self }
     }
 }

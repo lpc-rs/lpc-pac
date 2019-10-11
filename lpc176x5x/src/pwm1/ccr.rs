@@ -1,778 +1,544 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CCR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CCR"]
+pub type R = crate::R<u32, super::CCR>;
+#[doc = "Writer for register CCR"]
+pub type W = crate::W<u32, super::CCR>;
+#[doc = "Register CCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CAP0_R`"]
+#[doc = "Capture on PWMn_CAP0 rising edge\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CAP0_RR {
-    #[doc = "Disabled. This feature is disabled."]
+pub enum CAP0_R_A {
+    #[doc = "0: Disabled. This feature is disabled."]
     DISABLED_THIS_FEATU,
-    #[doc = "Rising edge. A synchronously sampled rising edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of the TC."]
+    #[doc = "1: Rising edge. A synchronously sampled rising edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of the TC."]
     RISING_EDGE_A_SYNCH,
 }
-impl CAP0_RR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CAP0_RR::DISABLED_THIS_FEATU => false,
-            CAP0_RR::RISING_EDGE_A_SYNCH => true,
+impl From<CAP0_R_A> for bool {
+    #[inline(always)]
+    fn from(variant: CAP0_R_A) -> Self {
+        match variant {
+            CAP0_R_A::DISABLED_THIS_FEATU => false,
+            CAP0_R_A::RISING_EDGE_A_SYNCH => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CAP0_RR {
-        match value {
-            false => CAP0_RR::DISABLED_THIS_FEATU,
-            true => CAP0_RR::RISING_EDGE_A_SYNCH,
+}
+#[doc = "Reader of field `CAP0_R`"]
+pub type CAP0_R_R = crate::R<bool, CAP0_R_A>;
+impl CAP0_R_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CAP0_R_A {
+        match self.bits {
+            false => CAP0_R_A::DISABLED_THIS_FEATU,
+            true => CAP0_R_A::RISING_EDGE_A_SYNCH,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED_THIS_FEATU`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled_this_featu(&self) -> bool {
-        *self == CAP0_RR::DISABLED_THIS_FEATU
+        *self == CAP0_R_A::DISABLED_THIS_FEATU
     }
     #[doc = "Checks if the value of the field is `RISING_EDGE_A_SYNCH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rising_edge_a_synch(&self) -> bool {
-        *self == CAP0_RR::RISING_EDGE_A_SYNCH
+        *self == CAP0_R_A::RISING_EDGE_A_SYNCH
     }
 }
-#[doc = "Possible values of the field `CAP0_F`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CAP0_FR {
+#[doc = "Write proxy for field `CAP0_R`"]
+pub struct CAP0_R_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> CAP0_R_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CAP0_R_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Disabled. This feature is disabled."]
+    #[inline(always)]
+    pub fn disabled_this_featu(self) -> &'a mut W {
+        self.variant(CAP0_R_A::DISABLED_THIS_FEATU)
+    }
+    #[doc = "Rising edge. A synchronously sampled rising edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of the TC."]
+    #[inline(always)]
+    pub fn rising_edge_a_synch(self) -> &'a mut W {
+        self.variant(CAP0_R_A::RISING_EDGE_A_SYNCH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Capture on PWMn_CAP0 falling edge\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CAP0_F_A {
+    #[doc = "0: Disabled. This feature is disabled."]
     DISABLED_THIS_FEATU,
-    #[doc = "Falling edge. A synchronously sampled falling edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of TC."]
+    #[doc = "1: Falling edge. A synchronously sampled falling edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of TC."]
     FALLING_EDGE_A_SYNC,
 }
-impl CAP0_FR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CAP0_FR::DISABLED_THIS_FEATU => false,
-            CAP0_FR::FALLING_EDGE_A_SYNC => true,
+impl From<CAP0_F_A> for bool {
+    #[inline(always)]
+    fn from(variant: CAP0_F_A) -> Self {
+        match variant {
+            CAP0_F_A::DISABLED_THIS_FEATU => false,
+            CAP0_F_A::FALLING_EDGE_A_SYNC => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CAP0_FR {
-        match value {
-            false => CAP0_FR::DISABLED_THIS_FEATU,
-            true => CAP0_FR::FALLING_EDGE_A_SYNC,
+}
+#[doc = "Reader of field `CAP0_F`"]
+pub type CAP0_F_R = crate::R<bool, CAP0_F_A>;
+impl CAP0_F_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CAP0_F_A {
+        match self.bits {
+            false => CAP0_F_A::DISABLED_THIS_FEATU,
+            true => CAP0_F_A::FALLING_EDGE_A_SYNC,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED_THIS_FEATU`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled_this_featu(&self) -> bool {
-        *self == CAP0_FR::DISABLED_THIS_FEATU
+        *self == CAP0_F_A::DISABLED_THIS_FEATU
     }
     #[doc = "Checks if the value of the field is `FALLING_EDGE_A_SYNC`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_falling_edge_a_sync(&self) -> bool {
-        *self == CAP0_FR::FALLING_EDGE_A_SYNC
+        *self == CAP0_F_A::FALLING_EDGE_A_SYNC
     }
 }
-#[doc = "Possible values of the field `CAP0_I`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CAP0_IR {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Interrupt. A CR0 load due to a PWMn_CAP0 event will generate an interrupt."]
-    INTERRUPT_A_CR0_LOA,
+#[doc = "Write proxy for field `CAP0_F`"]
+pub struct CAP0_F_W<'a> {
+    w: &'a mut W,
 }
-impl CAP0_IR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CAP0_IR::DISABLED_THIS_FEATU => false,
-            CAP0_IR::INTERRUPT_A_CR0_LOA => true,
+impl<'a> CAP0_F_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CAP0_F_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CAP0_IR {
-        match value {
-            false => CAP0_IR::DISABLED_THIS_FEATU,
-            true => CAP0_IR::INTERRUPT_A_CR0_LOA,
+    #[doc = "Disabled. This feature is disabled."]
+    #[inline(always)]
+    pub fn disabled_this_featu(self) -> &'a mut W {
+        self.variant(CAP0_F_A::DISABLED_THIS_FEATU)
+    }
+    #[doc = "Falling edge. A synchronously sampled falling edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of TC."]
+    #[inline(always)]
+    pub fn falling_edge_a_sync(self) -> &'a mut W {
+        self.variant(CAP0_F_A::FALLING_EDGE_A_SYNC)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Interrupt on PWMn_CAP0 event\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CAP0_I_A {
+    #[doc = "0: Disabled. This feature is disabled."]
+    DISABLED_THIS_FEATU,
+    #[doc = "1: Interrupt. A CR0 load due to a PWMn_CAP0 event will generate an interrupt."]
+    INTERRUPT_A_CR0_LOA,
+}
+impl From<CAP0_I_A> for bool {
+    #[inline(always)]
+    fn from(variant: CAP0_I_A) -> Self {
+        match variant {
+            CAP0_I_A::DISABLED_THIS_FEATU => false,
+            CAP0_I_A::INTERRUPT_A_CR0_LOA => true,
+        }
+    }
+}
+#[doc = "Reader of field `CAP0_I`"]
+pub type CAP0_I_R = crate::R<bool, CAP0_I_A>;
+impl CAP0_I_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CAP0_I_A {
+        match self.bits {
+            false => CAP0_I_A::DISABLED_THIS_FEATU,
+            true => CAP0_I_A::INTERRUPT_A_CR0_LOA,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED_THIS_FEATU`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled_this_featu(&self) -> bool {
-        *self == CAP0_IR::DISABLED_THIS_FEATU
+        *self == CAP0_I_A::DISABLED_THIS_FEATU
     }
     #[doc = "Checks if the value of the field is `INTERRUPT_A_CR0_LOA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_interrupt_a_cr0_loa(&self) -> bool {
-        *self == CAP0_IR::INTERRUPT_A_CR0_LOA
+        *self == CAP0_I_A::INTERRUPT_A_CR0_LOA
     }
 }
-#[doc = "Possible values of the field `CAP1_R`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CAP1_RR {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Rising edge. A synchronously sampled rising edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of the TC."]
-    RISING_EDGE_A_SYNCH,
+#[doc = "Write proxy for field `CAP0_I`"]
+pub struct CAP0_I_W<'a> {
+    w: &'a mut W,
 }
-impl CAP1_RR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CAP1_RR::DISABLED_THIS_FEATU => false,
-            CAP1_RR::RISING_EDGE_A_SYNCH => true,
+impl<'a> CAP0_I_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CAP0_I_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CAP1_RR {
-        match value {
-            false => CAP1_RR::DISABLED_THIS_FEATU,
-            true => CAP1_RR::RISING_EDGE_A_SYNCH,
+    #[doc = "Disabled. This feature is disabled."]
+    #[inline(always)]
+    pub fn disabled_this_featu(self) -> &'a mut W {
+        self.variant(CAP0_I_A::DISABLED_THIS_FEATU)
+    }
+    #[doc = "Interrupt. A CR0 load due to a PWMn_CAP0 event will generate an interrupt."]
+    #[inline(always)]
+    pub fn interrupt_a_cr0_loa(self) -> &'a mut W {
+        self.variant(CAP0_I_A::INTERRUPT_A_CR0_LOA)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Capture on PWMn_CAP1 rising edge. Reserved for PWM0.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CAP1_R_A {
+    #[doc = "0: Disabled. This feature is disabled."]
+    DISABLED_THIS_FEATU,
+    #[doc = "1: Rising edge. A synchronously sampled rising edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of the TC."]
+    RISING_EDGE_A_SYNCH,
+}
+impl From<CAP1_R_A> for bool {
+    #[inline(always)]
+    fn from(variant: CAP1_R_A) -> Self {
+        match variant {
+            CAP1_R_A::DISABLED_THIS_FEATU => false,
+            CAP1_R_A::RISING_EDGE_A_SYNCH => true,
+        }
+    }
+}
+#[doc = "Reader of field `CAP1_R`"]
+pub type CAP1_R_R = crate::R<bool, CAP1_R_A>;
+impl CAP1_R_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CAP1_R_A {
+        match self.bits {
+            false => CAP1_R_A::DISABLED_THIS_FEATU,
+            true => CAP1_R_A::RISING_EDGE_A_SYNCH,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED_THIS_FEATU`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled_this_featu(&self) -> bool {
-        *self == CAP1_RR::DISABLED_THIS_FEATU
+        *self == CAP1_R_A::DISABLED_THIS_FEATU
     }
     #[doc = "Checks if the value of the field is `RISING_EDGE_A_SYNCH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rising_edge_a_synch(&self) -> bool {
-        *self == CAP1_RR::RISING_EDGE_A_SYNCH
+        *self == CAP1_R_A::RISING_EDGE_A_SYNCH
     }
 }
-#[doc = "Possible values of the field `CAP1_F`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CAP1_FR {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Falling edge. A synchronously sampled falling edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of TC."]
-    FALLING_EDGE_A_SYNC,
+#[doc = "Write proxy for field `CAP1_R`"]
+pub struct CAP1_R_W<'a> {
+    w: &'a mut W,
 }
-impl CAP1_FR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CAP1_FR::DISABLED_THIS_FEATU => false,
-            CAP1_FR::FALLING_EDGE_A_SYNC => true,
+impl<'a> CAP1_R_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CAP1_R_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CAP1_FR {
-        match value {
-            false => CAP1_FR::DISABLED_THIS_FEATU,
-            true => CAP1_FR::FALLING_EDGE_A_SYNC,
+    #[doc = "Disabled. This feature is disabled."]
+    #[inline(always)]
+    pub fn disabled_this_featu(self) -> &'a mut W {
+        self.variant(CAP1_R_A::DISABLED_THIS_FEATU)
+    }
+    #[doc = "Rising edge. A synchronously sampled rising edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of the TC."]
+    #[inline(always)]
+    pub fn rising_edge_a_synch(self) -> &'a mut W {
+        self.variant(CAP1_R_A::RISING_EDGE_A_SYNCH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Capture on PWMn_CAP1 falling edge. Reserved for PWM0.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CAP1_F_A {
+    #[doc = "0: Disabled. This feature is disabled."]
+    DISABLED_THIS_FEATU,
+    #[doc = "1: Falling edge. A synchronously sampled falling edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of TC."]
+    FALLING_EDGE_A_SYNC,
+}
+impl From<CAP1_F_A> for bool {
+    #[inline(always)]
+    fn from(variant: CAP1_F_A) -> Self {
+        match variant {
+            CAP1_F_A::DISABLED_THIS_FEATU => false,
+            CAP1_F_A::FALLING_EDGE_A_SYNC => true,
+        }
+    }
+}
+#[doc = "Reader of field `CAP1_F`"]
+pub type CAP1_F_R = crate::R<bool, CAP1_F_A>;
+impl CAP1_F_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CAP1_F_A {
+        match self.bits {
+            false => CAP1_F_A::DISABLED_THIS_FEATU,
+            true => CAP1_F_A::FALLING_EDGE_A_SYNC,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED_THIS_FEATU`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled_this_featu(&self) -> bool {
-        *self == CAP1_FR::DISABLED_THIS_FEATU
+        *self == CAP1_F_A::DISABLED_THIS_FEATU
     }
     #[doc = "Checks if the value of the field is `FALLING_EDGE_A_SYNC`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_falling_edge_a_sync(&self) -> bool {
-        *self == CAP1_FR::FALLING_EDGE_A_SYNC
+        *self == CAP1_F_A::FALLING_EDGE_A_SYNC
     }
 }
-#[doc = "Possible values of the field `CAP1_I`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CAP1_IR {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Interrupt. A CR1 load due to a PWMn_CAP1 event will generate an interrupt."]
-    INTERRUPT_A_CR1_LOA,
+#[doc = "Write proxy for field `CAP1_F`"]
+pub struct CAP1_F_W<'a> {
+    w: &'a mut W,
 }
-impl CAP1_IR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CAP1_IR::DISABLED_THIS_FEATU => false,
-            CAP1_IR::INTERRUPT_A_CR1_LOA => true,
+impl<'a> CAP1_F_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CAP1_F_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CAP1_IR {
-        match value {
-            false => CAP1_IR::DISABLED_THIS_FEATU,
-            true => CAP1_IR::INTERRUPT_A_CR1_LOA,
+    #[doc = "Disabled. This feature is disabled."]
+    #[inline(always)]
+    pub fn disabled_this_featu(self) -> &'a mut W {
+        self.variant(CAP1_F_A::DISABLED_THIS_FEATU)
+    }
+    #[doc = "Falling edge. A synchronously sampled falling edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of TC."]
+    #[inline(always)]
+    pub fn falling_edge_a_sync(self) -> &'a mut W {
+        self.variant(CAP1_F_A::FALLING_EDGE_A_SYNC)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Interrupt on PWMn_CAP1 event. Reserved for PWM0.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CAP1_I_A {
+    #[doc = "0: Disabled. This feature is disabled."]
+    DISABLED_THIS_FEATU,
+    #[doc = "1: Interrupt. A CR1 load due to a PWMn_CAP1 event will generate an interrupt."]
+    INTERRUPT_A_CR1_LOA,
+}
+impl From<CAP1_I_A> for bool {
+    #[inline(always)]
+    fn from(variant: CAP1_I_A) -> Self {
+        match variant {
+            CAP1_I_A::DISABLED_THIS_FEATU => false,
+            CAP1_I_A::INTERRUPT_A_CR1_LOA => true,
+        }
+    }
+}
+#[doc = "Reader of field `CAP1_I`"]
+pub type CAP1_I_R = crate::R<bool, CAP1_I_A>;
+impl CAP1_I_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CAP1_I_A {
+        match self.bits {
+            false => CAP1_I_A::DISABLED_THIS_FEATU,
+            true => CAP1_I_A::INTERRUPT_A_CR1_LOA,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED_THIS_FEATU`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled_this_featu(&self) -> bool {
-        *self == CAP1_IR::DISABLED_THIS_FEATU
+        *self == CAP1_I_A::DISABLED_THIS_FEATU
     }
     #[doc = "Checks if the value of the field is `INTERRUPT_A_CR1_LOA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_interrupt_a_cr1_loa(&self) -> bool {
-        *self == CAP1_IR::INTERRUPT_A_CR1_LOA
+        *self == CAP1_I_A::INTERRUPT_A_CR1_LOA
     }
 }
-#[doc = "Values that can be written to the field `CAP0_R`"]
-pub enum CAP0_RW {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Rising edge. A synchronously sampled rising edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of the TC."]
-    RISING_EDGE_A_SYNCH,
-}
-impl CAP0_RW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CAP0_RW::DISABLED_THIS_FEATU => false,
-            CAP0_RW::RISING_EDGE_A_SYNCH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CAP0_RW<'a> {
+#[doc = "Write proxy for field `CAP1_I`"]
+pub struct CAP1_I_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CAP0_RW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CAP0_RW) -> &'a mut W {
+impl<'a> CAP1_I_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CAP1_I_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled. This feature is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled_this_featu(self) -> &'a mut W {
-        self.variant(CAP0_RW::DISABLED_THIS_FEATU)
-    }
-    #[doc = "Rising edge. A synchronously sampled rising edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of the TC."]
-    #[inline]
-    pub fn rising_edge_a_synch(self) -> &'a mut W {
-        self.variant(CAP0_RW::RISING_EDGE_A_SYNCH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CAP0_F`"]
-pub enum CAP0_FW {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Falling edge. A synchronously sampled falling edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of TC."]
-    FALLING_EDGE_A_SYNC,
-}
-impl CAP0_FW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CAP0_FW::DISABLED_THIS_FEATU => false,
-            CAP0_FW::FALLING_EDGE_A_SYNC => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CAP0_FW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CAP0_FW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CAP0_FW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. This feature is disabled."]
-    #[inline]
-    pub fn disabled_this_featu(self) -> &'a mut W {
-        self.variant(CAP0_FW::DISABLED_THIS_FEATU)
-    }
-    #[doc = "Falling edge. A synchronously sampled falling edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of TC."]
-    #[inline]
-    pub fn falling_edge_a_sync(self) -> &'a mut W {
-        self.variant(CAP0_FW::FALLING_EDGE_A_SYNC)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CAP0_I`"]
-pub enum CAP0_IW {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Interrupt. A CR0 load due to a PWMn_CAP0 event will generate an interrupt."]
-    INTERRUPT_A_CR0_LOA,
-}
-impl CAP0_IW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CAP0_IW::DISABLED_THIS_FEATU => false,
-            CAP0_IW::INTERRUPT_A_CR0_LOA => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CAP0_IW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CAP0_IW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CAP0_IW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. This feature is disabled."]
-    #[inline]
-    pub fn disabled_this_featu(self) -> &'a mut W {
-        self.variant(CAP0_IW::DISABLED_THIS_FEATU)
-    }
-    #[doc = "Interrupt. A CR0 load due to a PWMn_CAP0 event will generate an interrupt."]
-    #[inline]
-    pub fn interrupt_a_cr0_loa(self) -> &'a mut W {
-        self.variant(CAP0_IW::INTERRUPT_A_CR0_LOA)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CAP1_R`"]
-pub enum CAP1_RW {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Rising edge. A synchronously sampled rising edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of the TC."]
-    RISING_EDGE_A_SYNCH,
-}
-impl CAP1_RW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CAP1_RW::DISABLED_THIS_FEATU => false,
-            CAP1_RW::RISING_EDGE_A_SYNCH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CAP1_RW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CAP1_RW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CAP1_RW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. This feature is disabled."]
-    #[inline]
-    pub fn disabled_this_featu(self) -> &'a mut W {
-        self.variant(CAP1_RW::DISABLED_THIS_FEATU)
-    }
-    #[doc = "Rising edge. A synchronously sampled rising edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of the TC."]
-    #[inline]
-    pub fn rising_edge_a_synch(self) -> &'a mut W {
-        self.variant(CAP1_RW::RISING_EDGE_A_SYNCH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CAP1_F`"]
-pub enum CAP1_FW {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Falling edge. A synchronously sampled falling edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of TC."]
-    FALLING_EDGE_A_SYNC,
-}
-impl CAP1_FW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CAP1_FW::DISABLED_THIS_FEATU => false,
-            CAP1_FW::FALLING_EDGE_A_SYNC => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CAP1_FW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CAP1_FW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CAP1_FW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. This feature is disabled."]
-    #[inline]
-    pub fn disabled_this_featu(self) -> &'a mut W {
-        self.variant(CAP1_FW::DISABLED_THIS_FEATU)
-    }
-    #[doc = "Falling edge. A synchronously sampled falling edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of TC."]
-    #[inline]
-    pub fn falling_edge_a_sync(self) -> &'a mut W {
-        self.variant(CAP1_FW::FALLING_EDGE_A_SYNC)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CAP1_I`"]
-pub enum CAP1_IW {
-    #[doc = "Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
-    #[doc = "Interrupt. A CR1 load due to a PWMn_CAP1 event will generate an interrupt."]
-    INTERRUPT_A_CR1_LOA,
-}
-impl CAP1_IW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CAP1_IW::DISABLED_THIS_FEATU => false,
-            CAP1_IW::INTERRUPT_A_CR1_LOA => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CAP1_IW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CAP1_IW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CAP1_IW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. This feature is disabled."]
-    #[inline]
-    pub fn disabled_this_featu(self) -> &'a mut W {
-        self.variant(CAP1_IW::DISABLED_THIS_FEATU)
+        self.variant(CAP1_I_A::DISABLED_THIS_FEATU)
     }
     #[doc = "Interrupt. A CR1 load due to a PWMn_CAP1 event will generate an interrupt."]
-    #[inline]
+    #[inline(always)]
     pub fn interrupt_a_cr1_loa(self) -> &'a mut W {
-        self.variant(CAP1_IW::INTERRUPT_A_CR1_LOA)
+        self.variant(CAP1_I_A::INTERRUPT_A_CR1_LOA)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Capture on PWMn_CAP0 rising edge"]
-    #[inline]
-    pub fn cap0_r(&self) -> CAP0_RR {
-        CAP0_RR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cap0_r(&self) -> CAP0_R_R {
+        CAP0_R_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Capture on PWMn_CAP0 falling edge"]
-    #[inline]
-    pub fn cap0_f(&self) -> CAP0_FR {
-        CAP0_FR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cap0_f(&self) -> CAP0_F_R {
+        CAP0_F_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Interrupt on PWMn_CAP0 event"]
-    #[inline]
-    pub fn cap0_i(&self) -> CAP0_IR {
-        CAP0_IR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cap0_i(&self) -> CAP0_I_R {
+        CAP0_I_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Capture on PWMn_CAP1 rising edge. Reserved for PWM0."]
-    #[inline]
-    pub fn cap1_r(&self) -> CAP1_RR {
-        CAP1_RR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cap1_r(&self) -> CAP1_R_R {
+        CAP1_R_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Capture on PWMn_CAP1 falling edge. Reserved for PWM0."]
-    #[inline]
-    pub fn cap1_f(&self) -> CAP1_FR {
-        CAP1_FR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cap1_f(&self) -> CAP1_F_R {
+        CAP1_F_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Interrupt on PWMn_CAP1 event. Reserved for PWM0."]
-    #[inline]
-    pub fn cap1_i(&self) -> CAP1_IR {
-        CAP1_IR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cap1_i(&self) -> CAP1_I_R {
+        CAP1_I_R::new(((self.bits >> 5) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Capture on PWMn_CAP0 rising edge"]
-    #[inline]
-    pub fn cap0_r(&mut self) -> _CAP0_RW {
-        _CAP0_RW { w: self }
+    #[inline(always)]
+    pub fn cap0_r(&mut self) -> CAP0_R_W {
+        CAP0_R_W { w: self }
     }
     #[doc = "Bit 1 - Capture on PWMn_CAP0 falling edge"]
-    #[inline]
-    pub fn cap0_f(&mut self) -> _CAP0_FW {
-        _CAP0_FW { w: self }
+    #[inline(always)]
+    pub fn cap0_f(&mut self) -> CAP0_F_W {
+        CAP0_F_W { w: self }
     }
     #[doc = "Bit 2 - Interrupt on PWMn_CAP0 event"]
-    #[inline]
-    pub fn cap0_i(&mut self) -> _CAP0_IW {
-        _CAP0_IW { w: self }
+    #[inline(always)]
+    pub fn cap0_i(&mut self) -> CAP0_I_W {
+        CAP0_I_W { w: self }
     }
     #[doc = "Bit 3 - Capture on PWMn_CAP1 rising edge. Reserved for PWM0."]
-    #[inline]
-    pub fn cap1_r(&mut self) -> _CAP1_RW {
-        _CAP1_RW { w: self }
+    #[inline(always)]
+    pub fn cap1_r(&mut self) -> CAP1_R_W {
+        CAP1_R_W { w: self }
     }
     #[doc = "Bit 4 - Capture on PWMn_CAP1 falling edge. Reserved for PWM0."]
-    #[inline]
-    pub fn cap1_f(&mut self) -> _CAP1_FW {
-        _CAP1_FW { w: self }
+    #[inline(always)]
+    pub fn cap1_f(&mut self) -> CAP1_F_W {
+        CAP1_F_W { w: self }
     }
     #[doc = "Bit 5 - Interrupt on PWMn_CAP1 event. Reserved for PWM0."]
-    #[inline]
-    pub fn cap1_i(&mut self) -> _CAP1_IW {
-        _CAP1_IW { w: self }
+    #[inline(always)]
+    pub fn cap1_i(&mut self) -> CAP1_I_W {
+        CAP1_I_W { w: self }
     }
 }

@@ -1,300 +1,195 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CLKSEL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CLKSEL"]
+pub type R = crate::R<u32, super::CLKSEL>;
+#[doc = "Writer for register CLKSEL"]
+pub type W = crate::W<u32, super::CLKSEL>;
+#[doc = "Register CLKSEL `reset()`'s with value 0"]
+impl crate::ResetValue for super::CLKSEL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CLKSEL`"]
+#[doc = "Selects source of WDT clock\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CLKSELR {
-    #[doc = "IRC"]
+pub enum CLKSEL_A {
+    #[doc = "0: IRC"]
     IRC,
-    #[doc = "Peripheral clock"]
+    #[doc = "1: Peripheral clock"]
     PCLK,
-    #[doc = "RTC oscillator"]
+    #[doc = "2: RTC oscillator"]
     RTCOSC,
 }
-impl CLKSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            CLKSELR::IRC => 0,
-            CLKSELR::PCLK => 1,
-            CLKSELR::RTCOSC => 2,
+impl From<CLKSEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CLKSEL_A) -> Self {
+        match variant {
+            CLKSEL_A::IRC => 0,
+            CLKSEL_A::PCLK => 1,
+            CLKSEL_A::RTCOSC => 2,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> CLKSELR {
-        match value {
-            0 => CLKSELR::IRC,
-            1 => CLKSELR::PCLK,
-            2 => CLKSELR::RTCOSC,
+}
+#[doc = "Reader of field `CLKSEL`"]
+pub type CLKSEL_R = crate::R<u8, CLKSEL_A>;
+impl CLKSEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CLKSEL_A {
+        match self.bits {
+            0 => CLKSEL_A::IRC,
+            1 => CLKSEL_A::PCLK,
+            2 => CLKSEL_A::RTCOSC,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `IRC`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_irc(&self) -> bool {
-        *self == CLKSELR::IRC
+        *self == CLKSEL_A::IRC
     }
     #[doc = "Checks if the value of the field is `PCLK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pclk(&self) -> bool {
-        *self == CLKSELR::PCLK
+        *self == CLKSEL_A::PCLK
     }
     #[doc = "Checks if the value of the field is `RTCOSC`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rtcosc(&self) -> bool {
-        *self == CLKSELR::RTCOSC
+        *self == CLKSEL_A::RTCOSC
     }
 }
-#[doc = "Possible values of the field `LOCK`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LOCKR {
-    #[doc = "This bit is set to 0 on any reset. It cannot be cleared by software."]
-    UNLOCKED,
-    #[doc = "Software can set this bit to 1 at any time. Once WDLOCK is set, the bits of this register\n\t\t\t\t\t\t\t\t\t\tcannot be modified."]
-    LOCKED,
-}
-impl LOCKR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LOCKR::UNLOCKED => false,
-            LOCKR::LOCKED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOCKR {
-        match value {
-            false => LOCKR::UNLOCKED,
-            true => LOCKR::LOCKED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `UNLOCKED`"]
-    #[inline]
-    pub fn is_unlocked(&self) -> bool {
-        *self == LOCKR::UNLOCKED
-    }
-    #[doc = "Checks if the value of the field is `LOCKED`"]
-    #[inline]
-    pub fn is_locked(&self) -> bool {
-        *self == LOCKR::LOCKED
-    }
-}
-#[doc = "Values that can be written to the field `CLKSEL`"]
-pub enum CLKSELW {
-    #[doc = "IRC"]
-    IRC,
-    #[doc = "Peripheral clock"]
-    PCLK,
-    #[doc = "RTC oscillator"]
-    RTCOSC,
-}
-impl CLKSELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            CLKSELW::IRC => 0,
-            CLKSELW::PCLK => 1,
-            CLKSELW::RTCOSC => 2,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CLKSELW<'a> {
+#[doc = "Write proxy for field `CLKSEL`"]
+pub struct CLKSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLKSELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CLKSELW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> CLKSEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CLKSEL_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "IRC"]
-    #[inline]
+    #[inline(always)]
     pub fn irc(self) -> &'a mut W {
-        self.variant(CLKSELW::IRC)
+        self.variant(CLKSEL_A::IRC)
     }
     #[doc = "Peripheral clock"]
-    #[inline]
+    #[inline(always)]
     pub fn pclk(self) -> &'a mut W {
-        self.variant(CLKSELW::PCLK)
+        self.variant(CLKSEL_A::PCLK)
     }
     #[doc = "RTC oscillator"]
-    #[inline]
+    #[inline(always)]
     pub fn rtcosc(self) -> &'a mut W {
-        self.variant(CLKSELW::RTCOSC)
+        self.variant(CLKSEL_A::RTCOSC)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `LOCK`"]
-pub enum LOCKW {
-    #[doc = "This bit is set to 0 on any reset. It cannot be cleared by software."]
+#[doc = "If this bit is set to one writing to this register does not affect bit 0. The clock source can only be changed by first clearing this bit, then writing the new value of bit 0.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LOCK_A {
+    #[doc = "0: This bit is set to 0 on any reset. It cannot be cleared by software."]
     UNLOCKED,
-    #[doc = "Software can set this bit to 1 at any time. Once WDLOCK is set, the bits of this register\n\t\t\t\t\t\t\t\t\t\tcannot be modified."]
+    #[doc = "1: Software can set this bit to 1 at any time. Once WDLOCK is set, the bits of this register\n\t\t\t\t\t\t\t\t\t\tcannot be modified."]
     LOCKED,
 }
-impl LOCKW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LOCKW::UNLOCKED => false,
-            LOCKW::LOCKED => true,
+impl From<LOCK_A> for bool {
+    #[inline(always)]
+    fn from(variant: LOCK_A) -> Self {
+        match variant {
+            LOCK_A::UNLOCKED => false,
+            LOCK_A::LOCKED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _LOCKW<'a> {
+#[doc = "Reader of field `LOCK`"]
+pub type LOCK_R = crate::R<bool, LOCK_A>;
+impl LOCK_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LOCK_A {
+        match self.bits {
+            false => LOCK_A::UNLOCKED,
+            true => LOCK_A::LOCKED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `UNLOCKED`"]
+    #[inline(always)]
+    pub fn is_unlocked(&self) -> bool {
+        *self == LOCK_A::UNLOCKED
+    }
+    #[doc = "Checks if the value of the field is `LOCKED`"]
+    #[inline(always)]
+    pub fn is_locked(&self) -> bool {
+        *self == LOCK_A::LOCKED
+    }
+}
+#[doc = "Write proxy for field `LOCK`"]
+pub struct LOCK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LOCKW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LOCKW) -> &'a mut W {
+impl<'a> LOCK_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LOCK_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "This bit is set to 0 on any reset. It cannot be cleared by software."]
-    #[inline]
+    #[inline(always)]
     pub fn unlocked(self) -> &'a mut W {
-        self.variant(LOCKW::UNLOCKED)
+        self.variant(LOCK_A::UNLOCKED)
     }
     #[doc = "Software can set this bit to 1 at any time. Once WDLOCK is set, the bits of this register cannot be modified."]
-    #[inline]
+    #[inline(always)]
     pub fn locked(self) -> &'a mut W {
-        self.variant(LOCKW::LOCKED)
+        self.variant(LOCK_A::LOCKED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Selects source of WDT clock"]
-    #[inline]
-    pub fn clksel(&self) -> CLKSELR {
-        CLKSELR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn clksel(&self) -> CLKSEL_R {
+        CLKSEL_R::new((self.bits & 0x03) as u8)
     }
     #[doc = "Bit 31 - If this bit is set to one writing to this register does not affect bit 0. The clock source can only be changed by first clearing this bit, then writing the new value of bit 0."]
-    #[inline]
-    pub fn lock(&self) -> LOCKR {
-        LOCKR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lock(&self) -> LOCK_R {
+        LOCK_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Selects source of WDT clock"]
-    #[inline]
-    pub fn clksel(&mut self) -> _CLKSELW {
-        _CLKSELW { w: self }
+    #[inline(always)]
+    pub fn clksel(&mut self) -> CLKSEL_W {
+        CLKSEL_W { w: self }
     }
     #[doc = "Bit 31 - If this bit is set to one writing to this register does not affect bit 0. The clock source can only be changed by first clearing this bit, then writing the new value of bit 0."]
-    #[inline]
-    pub fn lock(&mut self) -> _LOCKW {
-        _LOCKW { w: self }
+    #[inline(always)]
+    pub fn lock(&mut self) -> LOCK_W {
+        LOCK_W { w: self }
     }
 }

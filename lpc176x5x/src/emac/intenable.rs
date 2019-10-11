@@ -1,654 +1,356 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INTENABLE {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register INTENABLE"]
+pub type R = crate::R<u32, super::INTENABLE>;
+#[doc = "Writer for register INTENABLE"]
+pub type W = crate::W<u32, super::INTENABLE>;
+#[doc = "Register INTENABLE `reset()`'s with value 0"]
+impl crate::ResetValue for super::INTENABLE {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct RXOVERRUNINTENR {
-    bits: bool,
-}
-impl RXOVERRUNINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXERRORINTENR {
-    bits: bool,
-}
-impl RXERRORINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXFINISHEDINTENR {
-    bits: bool,
-}
-impl RXFINISHEDINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct RXDONEINTENR {
-    bits: bool,
-}
-impl RXDONEINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXUNDERRUNINTENR {
-    bits: bool,
-}
-impl TXUNDERRUNINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXERRORINTENR {
-    bits: bool,
-}
-impl TXERRORINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXFINISHEDINTENR {
-    bits: bool,
-}
-impl TXFINISHEDINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXDONEINTENR {
-    bits: bool,
-}
-impl TXDONEINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SOFTINTENR {
-    bits: bool,
-}
-impl SOFTINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct WAKEUPINTENR {
-    bits: bool,
-}
-impl WAKEUPINTENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RXOVERRUNINTENW<'a> {
+#[doc = "Reader of field `RXOVERRUNINTEN`"]
+pub type RXOVERRUNINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RXOVERRUNINTEN`"]
+pub struct RXOVERRUNINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RXOVERRUNINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RXOVERRUNINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _RXERRORINTENW<'a> {
+#[doc = "Reader of field `RXERRORINTEN`"]
+pub type RXERRORINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RXERRORINTEN`"]
+pub struct RXERRORINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RXERRORINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RXERRORINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _RXFINISHEDINTENW<'a> {
+#[doc = "Reader of field `RXFINISHEDINTEN`"]
+pub type RXFINISHEDINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RXFINISHEDINTEN`"]
+pub struct RXFINISHEDINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RXFINISHEDINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RXFINISHEDINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _RXDONEINTENW<'a> {
+#[doc = "Reader of field `RXDONEINTEN`"]
+pub type RXDONEINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `RXDONEINTEN`"]
+pub struct RXDONEINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RXDONEINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> RXDONEINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TXUNDERRUNINTENW<'a> {
+#[doc = "Reader of field `TXUNDERRUNINTEN`"]
+pub type TXUNDERRUNINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TXUNDERRUNINTEN`"]
+pub struct TXUNDERRUNINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXUNDERRUNINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TXUNDERRUNINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TXERRORINTENW<'a> {
+#[doc = "Reader of field `TXERRORINTEN`"]
+pub type TXERRORINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TXERRORINTEN`"]
+pub struct TXERRORINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXERRORINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TXERRORINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TXFINISHEDINTENW<'a> {
+#[doc = "Reader of field `TXFINISHEDINTEN`"]
+pub type TXFINISHEDINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TXFINISHEDINTEN`"]
+pub struct TXFINISHEDINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXFINISHEDINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TXFINISHEDINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TXDONEINTENW<'a> {
+#[doc = "Reader of field `TXDONEINTEN`"]
+pub type TXDONEINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TXDONEINTEN`"]
+pub struct TXDONEINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXDONEINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TXDONEINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SOFTINTENW<'a> {
+#[doc = "Reader of field `SOFTINTEN`"]
+pub type SOFTINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SOFTINTEN`"]
+pub struct SOFTINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SOFTINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SOFTINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _WAKEUPINTENW<'a> {
+#[doc = "Reader of field `WAKEUPINTEN`"]
+pub type WAKEUPINTEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `WAKEUPINTEN`"]
+pub struct WAKEUPINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WAKEUPINTENW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> WAKEUPINTEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Enable for interrupt trigger on receive buffer overrun or descriptor underrun situations."]
-    #[inline]
-    pub fn rxoverruninten(&self) -> RXOVERRUNINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXOVERRUNINTENR { bits }
+    #[inline(always)]
+    pub fn rxoverruninten(&self) -> RXOVERRUNINTEN_R {
+        RXOVERRUNINTEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Enable for interrupt trigger on receive errors."]
-    #[inline]
-    pub fn rxerrorinten(&self) -> RXERRORINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXERRORINTENR { bits }
+    #[inline(always)]
+    pub fn rxerrorinten(&self) -> RXERRORINTEN_R {
+        RXERRORINTEN_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Enable for interrupt triggered when all receive descriptors have been processed i.e. on the transition to the situation where ProduceIndex == ConsumeIndex."]
-    #[inline]
-    pub fn rxfinishedinten(&self) -> RXFINISHEDINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXFINISHEDINTENR { bits }
+    #[inline(always)]
+    pub fn rxfinishedinten(&self) -> RXFINISHEDINTEN_R {
+        RXFINISHEDINTEN_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Enable for interrupt triggered when a receive descriptor has been processed while the Interrupt bit in the Control field of the descriptor was set."]
-    #[inline]
-    pub fn rxdoneinten(&self) -> RXDONEINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        RXDONEINTENR { bits }
+    #[inline(always)]
+    pub fn rxdoneinten(&self) -> RXDONEINTEN_R {
+        RXDONEINTEN_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Enable for interrupt trigger on transmit buffer or descriptor underrun situations."]
-    #[inline]
-    pub fn txunderruninten(&self) -> TXUNDERRUNINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXUNDERRUNINTENR { bits }
+    #[inline(always)]
+    pub fn txunderruninten(&self) -> TXUNDERRUNINTEN_R {
+        TXUNDERRUNINTEN_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Enable for interrupt trigger on transmit errors."]
-    #[inline]
-    pub fn txerrorinten(&self) -> TXERRORINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXERRORINTENR { bits }
+    #[inline(always)]
+    pub fn txerrorinten(&self) -> TXERRORINTEN_R {
+        TXERRORINTEN_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Enable for interrupt triggered when all transmit descriptors have been processed i.e. on the transition to the situation where ProduceIndex == ConsumeIndex."]
-    #[inline]
-    pub fn txfinishedinten(&self) -> TXFINISHEDINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXFINISHEDINTENR { bits }
+    #[inline(always)]
+    pub fn txfinishedinten(&self) -> TXFINISHEDINTEN_R {
+        TXFINISHEDINTEN_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Enable for interrupt triggered when a descriptor has been transmitted while the Interrupt bit in the Control field of the descriptor was set."]
-    #[inline]
-    pub fn txdoneinten(&self) -> TXDONEINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXDONEINTENR { bits }
+    #[inline(always)]
+    pub fn txdoneinten(&self) -> TXDONEINTEN_R {
+        TXDONEINTEN_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 12 - Enable for interrupt triggered by the SoftInt bit in the IntStatus register, caused by software writing a 1 to the SoftIntSet bit in the IntSet register."]
-    #[inline]
-    pub fn softinten(&self) -> SOFTINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SOFTINTENR { bits }
+    #[inline(always)]
+    pub fn softinten(&self) -> SOFTINTEN_R {
+        SOFTINTEN_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Enable for interrupt triggered by a Wake-up event detected by the receive filter."]
-    #[inline]
-    pub fn wakeupinten(&self) -> WAKEUPINTENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        WAKEUPINTENR { bits }
+    #[inline(always)]
+    pub fn wakeupinten(&self) -> WAKEUPINTEN_R {
+        WAKEUPINTEN_R::new(((self.bits >> 13) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Enable for interrupt trigger on receive buffer overrun or descriptor underrun situations."]
-    #[inline]
-    pub fn rxoverruninten(&mut self) -> _RXOVERRUNINTENW {
-        _RXOVERRUNINTENW { w: self }
+    #[inline(always)]
+    pub fn rxoverruninten(&mut self) -> RXOVERRUNINTEN_W {
+        RXOVERRUNINTEN_W { w: self }
     }
     #[doc = "Bit 1 - Enable for interrupt trigger on receive errors."]
-    #[inline]
-    pub fn rxerrorinten(&mut self) -> _RXERRORINTENW {
-        _RXERRORINTENW { w: self }
+    #[inline(always)]
+    pub fn rxerrorinten(&mut self) -> RXERRORINTEN_W {
+        RXERRORINTEN_W { w: self }
     }
     #[doc = "Bit 2 - Enable for interrupt triggered when all receive descriptors have been processed i.e. on the transition to the situation where ProduceIndex == ConsumeIndex."]
-    #[inline]
-    pub fn rxfinishedinten(&mut self) -> _RXFINISHEDINTENW {
-        _RXFINISHEDINTENW { w: self }
+    #[inline(always)]
+    pub fn rxfinishedinten(&mut self) -> RXFINISHEDINTEN_W {
+        RXFINISHEDINTEN_W { w: self }
     }
     #[doc = "Bit 3 - Enable for interrupt triggered when a receive descriptor has been processed while the Interrupt bit in the Control field of the descriptor was set."]
-    #[inline]
-    pub fn rxdoneinten(&mut self) -> _RXDONEINTENW {
-        _RXDONEINTENW { w: self }
+    #[inline(always)]
+    pub fn rxdoneinten(&mut self) -> RXDONEINTEN_W {
+        RXDONEINTEN_W { w: self }
     }
     #[doc = "Bit 4 - Enable for interrupt trigger on transmit buffer or descriptor underrun situations."]
-    #[inline]
-    pub fn txunderruninten(&mut self) -> _TXUNDERRUNINTENW {
-        _TXUNDERRUNINTENW { w: self }
+    #[inline(always)]
+    pub fn txunderruninten(&mut self) -> TXUNDERRUNINTEN_W {
+        TXUNDERRUNINTEN_W { w: self }
     }
     #[doc = "Bit 5 - Enable for interrupt trigger on transmit errors."]
-    #[inline]
-    pub fn txerrorinten(&mut self) -> _TXERRORINTENW {
-        _TXERRORINTENW { w: self }
+    #[inline(always)]
+    pub fn txerrorinten(&mut self) -> TXERRORINTEN_W {
+        TXERRORINTEN_W { w: self }
     }
     #[doc = "Bit 6 - Enable for interrupt triggered when all transmit descriptors have been processed i.e. on the transition to the situation where ProduceIndex == ConsumeIndex."]
-    #[inline]
-    pub fn txfinishedinten(&mut self) -> _TXFINISHEDINTENW {
-        _TXFINISHEDINTENW { w: self }
+    #[inline(always)]
+    pub fn txfinishedinten(&mut self) -> TXFINISHEDINTEN_W {
+        TXFINISHEDINTEN_W { w: self }
     }
     #[doc = "Bit 7 - Enable for interrupt triggered when a descriptor has been transmitted while the Interrupt bit in the Control field of the descriptor was set."]
-    #[inline]
-    pub fn txdoneinten(&mut self) -> _TXDONEINTENW {
-        _TXDONEINTENW { w: self }
+    #[inline(always)]
+    pub fn txdoneinten(&mut self) -> TXDONEINTEN_W {
+        TXDONEINTEN_W { w: self }
     }
     #[doc = "Bit 12 - Enable for interrupt triggered by the SoftInt bit in the IntStatus register, caused by software writing a 1 to the SoftIntSet bit in the IntSet register."]
-    #[inline]
-    pub fn softinten(&mut self) -> _SOFTINTENW {
-        _SOFTINTENW { w: self }
+    #[inline(always)]
+    pub fn softinten(&mut self) -> SOFTINTEN_W {
+        SOFTINTEN_W { w: self }
     }
     #[doc = "Bit 13 - Enable for interrupt triggered by a Wake-up event detected by the receive filter."]
-    #[inline]
-    pub fn wakeupinten(&mut self) -> _WAKEUPINTENW {
-        _WAKEUPINTENW { w: self }
+    #[inline(always)]
+    pub fn wakeupinten(&mut self) -> WAKEUPINTEN_W {
+        WAKEUPINTEN_W { w: self }
     }
 }

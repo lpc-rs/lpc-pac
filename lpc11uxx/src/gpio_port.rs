@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - Byte pin registers port 0; pins PIO0_0 to PIO0_31"]
@@ -156,69 +156,120 @@ pub struct RegisterBlock {
     #[doc = "0x2300 - Toggle port 0/1"]
     pub not: [NOT; 2],
 }
-#[doc = "Byte pin registers port 0; pins PIO0_0 to PIO0_31"]
-pub struct B0 {
-    register: ::vcell::VolatileCell<u8>,
-}
+#[doc = "Byte pin registers port 0; pins PIO0_0 to PIO0_31\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0](b0) module"]
+pub type B0 = crate::Reg<u8, _B0>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _B0;
+#[doc = "`read()` method returns [b0::R](b0::R) reader structure"]
+impl crate::Readable for B0 {}
+#[doc = "`write(|w| ..)` method takes [b0::W](b0::W) writer structure"]
+impl crate::Writable for B0 {}
 #[doc = "Byte pin registers port 0; pins PIO0_0 to PIO0_31"]
 pub mod b0;
-#[doc = "Byte pin registers port 1"]
-pub struct B1 {
-    register: ::vcell::VolatileCell<u8>,
-}
+#[doc = "Byte pin registers port 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b1](b1) module"]
+pub type B1 = crate::Reg<u8, _B1>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _B1;
+#[doc = "`read()` method returns [b1::R](b1::R) reader structure"]
+impl crate::Readable for B1 {}
+#[doc = "`write(|w| ..)` method takes [b1::W](b1::W) writer structure"]
+impl crate::Writable for B1 {}
 #[doc = "Byte pin registers port 1"]
 pub mod b1;
-#[doc = "Word pin registers port 0"]
-pub struct W_0 {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Word pin registers port 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w_0](w_0) module"]
+pub type W_0 = crate::Reg<u32, _W_0>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _W_0;
+#[doc = "`read()` method returns [w_0::R](w_0::R) reader structure"]
+impl crate::Readable for W_0 {}
+#[doc = "`write(|w| ..)` method takes [w_0::W](w_0::W) writer structure"]
+impl crate::Writable for W_0 {}
 #[doc = "Word pin registers port 0"]
 pub mod w_0;
-#[doc = "Word pin registers port 1"]
-pub struct W_1 {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Word pin registers port 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w_1](w_1) module"]
+pub type W_1 = crate::Reg<u32, _W_1>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _W_1;
+#[doc = "`read()` method returns [w_1::R](w_1::R) reader structure"]
+impl crate::Readable for W_1 {}
+#[doc = "`write(|w| ..)` method takes [w_1::W](w_1::W) writer structure"]
+impl crate::Writable for W_1 {}
 #[doc = "Word pin registers port 1"]
 pub mod w_1;
-#[doc = "Direction registers port 0/1"]
-pub struct DIR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Direction registers port 0/1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dir](dir) module"]
+pub type DIR = crate::Reg<u32, _DIR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _DIR;
+#[doc = "`read()` method returns [dir::R](dir::R) reader structure"]
+impl crate::Readable for DIR {}
+#[doc = "`write(|w| ..)` method takes [dir::W](dir::W) writer structure"]
+impl crate::Writable for DIR {}
 #[doc = "Direction registers port 0/1"]
 pub mod dir;
-#[doc = "Mask register port 0/1"]
-pub struct MASK {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Mask register port 0/1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [mask](mask) module"]
+pub type MASK = crate::Reg<u32, _MASK>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _MASK;
+#[doc = "`read()` method returns [mask::R](mask::R) reader structure"]
+impl crate::Readable for MASK {}
+#[doc = "`write(|w| ..)` method takes [mask::W](mask::W) writer structure"]
+impl crate::Writable for MASK {}
 #[doc = "Mask register port 0/1"]
 pub mod mask;
-#[doc = "Portpin register port 0"]
-pub struct PIN {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Portpin register port 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pin](pin) module"]
+pub type PIN = crate::Reg<u32, _PIN>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PIN;
+#[doc = "`read()` method returns [pin::R](pin::R) reader structure"]
+impl crate::Readable for PIN {}
+#[doc = "`write(|w| ..)` method takes [pin::W](pin::W) writer structure"]
+impl crate::Writable for PIN {}
 #[doc = "Portpin register port 0"]
 pub mod pin;
-#[doc = "Masked port register port 0/1"]
-pub struct MPIN {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Masked port register port 0/1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [mpin](mpin) module"]
+pub type MPIN = crate::Reg<u32, _MPIN>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _MPIN;
+#[doc = "`read()` method returns [mpin::R](mpin::R) reader structure"]
+impl crate::Readable for MPIN {}
+#[doc = "`write(|w| ..)` method takes [mpin::W](mpin::W) writer structure"]
+impl crate::Writable for MPIN {}
 #[doc = "Masked port register port 0/1"]
 pub mod mpin;
-#[doc = "Write: Set register for port 0/1 Read: output bits for port 0/1"]
-pub struct SET {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Write: Set register for port 0/1 Read: output bits for port 0/1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [set](set) module"]
+pub type SET = crate::Reg<u32, _SET>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SET;
+#[doc = "`read()` method returns [set::R](set::R) reader structure"]
+impl crate::Readable for SET {}
+#[doc = "`write(|w| ..)` method takes [set::W](set::W) writer structure"]
+impl crate::Writable for SET {}
 #[doc = "Write: Set register for port 0/1 Read: output bits for port 0/1"]
 pub mod set;
-#[doc = "Clear port 0/1"]
-pub struct CLR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Clear port 0/1\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [clr](clr) module"]
+pub type CLR = crate::Reg<u32, _CLR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CLR;
+#[doc = "`write(|w| ..)` method takes [clr::W](clr::W) writer structure"]
+impl crate::Writable for CLR {}
 #[doc = "Clear port 0/1"]
 pub mod clr;
-#[doc = "Toggle port 0/1"]
-pub struct NOT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Toggle port 0/1\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [not](not) module"]
+pub type NOT = crate::Reg<u32, _NOT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _NOT;
+#[doc = "`write(|w| ..)` method takes [not::W](not::W) writer structure"]
+impl crate::Writable for NOT {}
 #[doc = "Toggle port 0/1"]
 pub mod not;

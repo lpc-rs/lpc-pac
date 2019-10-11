@@ -1,659 +1,456 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::STARTERP1 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register STARTERP1"]
+pub type R = crate::R<u32, super::STARTERP1>;
+#[doc = "Writer for register STARTERP1"]
+pub type W = crate::W<u32, super::STARTERP1>;
+#[doc = "Register STARTERP1 `reset()`'s with value 0"]
+impl crate::ResetValue for super::STARTERP1 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `WWDTINT`"]
+#[doc = "WWDT interrupt wake-up\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WWDTINTR {
-    #[doc = "Disabled"]
+pub enum WWDTINT_A {
+    #[doc = "0: Disabled"]
     DISABLED,
-    #[doc = "Enabled"]
+    #[doc = "1: Enabled"]
     ENABLED,
 }
-impl WWDTINTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WWDTINTR::DISABLED => false,
-            WWDTINTR::ENABLED => true,
+impl From<WWDTINT_A> for bool {
+    #[inline(always)]
+    fn from(variant: WWDTINT_A) -> Self {
+        match variant {
+            WWDTINT_A::DISABLED => false,
+            WWDTINT_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WWDTINTR {
-        match value {
-            false => WWDTINTR::DISABLED,
-            true => WWDTINTR::ENABLED,
+}
+#[doc = "Reader of field `WWDTINT`"]
+pub type WWDTINT_R = crate::R<bool, WWDTINT_A>;
+impl WWDTINT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WWDTINT_A {
+        match self.bits {
+            false => WWDTINT_A::DISABLED,
+            true => WWDTINT_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == WWDTINTR::DISABLED
+        *self == WWDTINT_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == WWDTINTR::ENABLED
+        *self == WWDTINT_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `BODINT`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BODINTR {
-    #[doc = "Disabled"]
-    DISABLED,
-    #[doc = "Enabled"]
-    ENABLED,
-}
-impl BODINTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            BODINTR::DISABLED => false,
-            BODINTR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> BODINTR {
-        match value {
-            false => BODINTR::DISABLED,
-            true => BODINTR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == BODINTR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == BODINTR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `USB_WAKEUP`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum USB_WAKEUPR {
-    #[doc = "Disabled"]
-    DISABLED,
-    #[doc = "Enabled"]
-    ENABLED,
-}
-impl USB_WAKEUPR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            USB_WAKEUPR::DISABLED => false,
-            USB_WAKEUPR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> USB_WAKEUPR {
-        match value {
-            false => USB_WAKEUPR::DISABLED,
-            true => USB_WAKEUPR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == USB_WAKEUPR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == USB_WAKEUPR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `GPIOINT0`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum GPIOINT0R {
-    #[doc = "Disabled"]
-    DISABLED,
-    #[doc = "Enabled"]
-    ENABLED,
-}
-impl GPIOINT0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            GPIOINT0R::DISABLED => false,
-            GPIOINT0R::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> GPIOINT0R {
-        match value {
-            false => GPIOINT0R::DISABLED,
-            true => GPIOINT0R::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == GPIOINT0R::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == GPIOINT0R::ENABLED
-    }
-}
-#[doc = "Possible values of the field `GPIOINT1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum GPIOINT1R {
-    #[doc = "Disabled"]
-    DISABLED,
-    #[doc = "Enabled"]
-    ENABLED,
-}
-impl GPIOINT1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            GPIOINT1R::DISABLED => false,
-            GPIOINT1R::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> GPIOINT1R {
-        match value {
-            false => GPIOINT1R::DISABLED,
-            true => GPIOINT1R::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == GPIOINT1R::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == GPIOINT1R::ENABLED
-    }
-}
-#[doc = "Values that can be written to the field `WWDTINT`"]
-pub enum WWDTINTW {
-    #[doc = "Disabled"]
-    DISABLED,
-    #[doc = "Enabled"]
-    ENABLED,
-}
-impl WWDTINTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WWDTINTW::DISABLED => false,
-            WWDTINTW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WWDTINTW<'a> {
+#[doc = "Write proxy for field `WWDTINT`"]
+pub struct WWDTINT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WWDTINTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WWDTINTW) -> &'a mut W {
+impl<'a> WWDTINT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WWDTINT_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled"]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(WWDTINTW::DISABLED)
+        self.variant(WWDTINT_A::DISABLED)
     }
     #[doc = "Enabled"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(WWDTINTW::ENABLED)
+        self.variant(WWDTINT_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `BODINT`"]
-pub enum BODINTW {
-    #[doc = "Disabled"]
+#[doc = "Brown Out Detect (BOD) interrupt wake-up\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum BODINT_A {
+    #[doc = "0: Disabled"]
     DISABLED,
-    #[doc = "Enabled"]
+    #[doc = "1: Enabled"]
     ENABLED,
 }
-impl BODINTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            BODINTW::DISABLED => false,
-            BODINTW::ENABLED => true,
+impl From<BODINT_A> for bool {
+    #[inline(always)]
+    fn from(variant: BODINT_A) -> Self {
+        match variant {
+            BODINT_A::DISABLED => false,
+            BODINT_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _BODINTW<'a> {
+#[doc = "Reader of field `BODINT`"]
+pub type BODINT_R = crate::R<bool, BODINT_A>;
+impl BODINT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BODINT_A {
+        match self.bits {
+            false => BODINT_A::DISABLED,
+            true => BODINT_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == BODINT_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == BODINT_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `BODINT`"]
+pub struct BODINT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BODINTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: BODINTW) -> &'a mut W {
+impl<'a> BODINT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BODINT_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled"]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(BODINTW::DISABLED)
+        self.variant(BODINT_A::DISABLED)
     }
     #[doc = "Enabled"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(BODINTW::ENABLED)
+        self.variant(BODINT_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `USB_WAKEUP`"]
-pub enum USB_WAKEUPW {
-    #[doc = "Disabled"]
+#[doc = "USB need_clock signal wake-up\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum USB_WAKEUP_A {
+    #[doc = "0: Disabled"]
     DISABLED,
-    #[doc = "Enabled"]
+    #[doc = "1: Enabled"]
     ENABLED,
 }
-impl USB_WAKEUPW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            USB_WAKEUPW::DISABLED => false,
-            USB_WAKEUPW::ENABLED => true,
+impl From<USB_WAKEUP_A> for bool {
+    #[inline(always)]
+    fn from(variant: USB_WAKEUP_A) -> Self {
+        match variant {
+            USB_WAKEUP_A::DISABLED => false,
+            USB_WAKEUP_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _USB_WAKEUPW<'a> {
+#[doc = "Reader of field `USB_WAKEUP`"]
+pub type USB_WAKEUP_R = crate::R<bool, USB_WAKEUP_A>;
+impl USB_WAKEUP_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> USB_WAKEUP_A {
+        match self.bits {
+            false => USB_WAKEUP_A::DISABLED,
+            true => USB_WAKEUP_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == USB_WAKEUP_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == USB_WAKEUP_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `USB_WAKEUP`"]
+pub struct USB_WAKEUP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _USB_WAKEUPW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: USB_WAKEUPW) -> &'a mut W {
+impl<'a> USB_WAKEUP_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: USB_WAKEUP_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled"]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(USB_WAKEUPW::DISABLED)
+        self.variant(USB_WAKEUP_A::DISABLED)
     }
     #[doc = "Enabled"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(USB_WAKEUPW::ENABLED)
+        self.variant(USB_WAKEUP_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `GPIOINT0`"]
-pub enum GPIOINT0W {
-    #[doc = "Disabled"]
+#[doc = "GPIO GROUP0 interrupt wake-up\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum GPIOINT0_A {
+    #[doc = "0: Disabled"]
     DISABLED,
-    #[doc = "Enabled"]
+    #[doc = "1: Enabled"]
     ENABLED,
 }
-impl GPIOINT0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            GPIOINT0W::DISABLED => false,
-            GPIOINT0W::ENABLED => true,
+impl From<GPIOINT0_A> for bool {
+    #[inline(always)]
+    fn from(variant: GPIOINT0_A) -> Self {
+        match variant {
+            GPIOINT0_A::DISABLED => false,
+            GPIOINT0_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _GPIOINT0W<'a> {
+#[doc = "Reader of field `GPIOINT0`"]
+pub type GPIOINT0_R = crate::R<bool, GPIOINT0_A>;
+impl GPIOINT0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> GPIOINT0_A {
+        match self.bits {
+            false => GPIOINT0_A::DISABLED,
+            true => GPIOINT0_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == GPIOINT0_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == GPIOINT0_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `GPIOINT0`"]
+pub struct GPIOINT0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GPIOINT0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: GPIOINT0W) -> &'a mut W {
+impl<'a> GPIOINT0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: GPIOINT0_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled"]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(GPIOINT0W::DISABLED)
+        self.variant(GPIOINT0_A::DISABLED)
     }
     #[doc = "Enabled"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(GPIOINT0W::ENABLED)
+        self.variant(GPIOINT0_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `GPIOINT1`"]
-pub enum GPIOINT1W {
-    #[doc = "Disabled"]
+#[doc = "GPIO GROUP1 interrupt wake-up\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum GPIOINT1_A {
+    #[doc = "0: Disabled"]
     DISABLED,
-    #[doc = "Enabled"]
+    #[doc = "1: Enabled"]
     ENABLED,
 }
-impl GPIOINT1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            GPIOINT1W::DISABLED => false,
-            GPIOINT1W::ENABLED => true,
+impl From<GPIOINT1_A> for bool {
+    #[inline(always)]
+    fn from(variant: GPIOINT1_A) -> Self {
+        match variant {
+            GPIOINT1_A::DISABLED => false,
+            GPIOINT1_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _GPIOINT1W<'a> {
+#[doc = "Reader of field `GPIOINT1`"]
+pub type GPIOINT1_R = crate::R<bool, GPIOINT1_A>;
+impl GPIOINT1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> GPIOINT1_A {
+        match self.bits {
+            false => GPIOINT1_A::DISABLED,
+            true => GPIOINT1_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == GPIOINT1_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == GPIOINT1_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `GPIOINT1`"]
+pub struct GPIOINT1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GPIOINT1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: GPIOINT1W) -> &'a mut W {
+impl<'a> GPIOINT1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: GPIOINT1_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled"]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(GPIOINT1W::DISABLED)
+        self.variant(GPIOINT1_A::DISABLED)
     }
     #[doc = "Enabled"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(GPIOINT1W::ENABLED)
+        self.variant(GPIOINT1_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 21;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 12 - WWDT interrupt wake-up"]
-    #[inline]
-    pub fn wwdtint(&self) -> WWDTINTR {
-        WWDTINTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wwdtint(&self) -> WWDTINT_R {
+        WWDTINT_R::new(((self.bits >> 12) & 0x01) != 0)
     }
     #[doc = "Bit 13 - Brown Out Detect (BOD) interrupt wake-up"]
-    #[inline]
-    pub fn bodint(&self) -> BODINTR {
-        BODINTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 13;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn bodint(&self) -> BODINT_R {
+        BODINT_R::new(((self.bits >> 13) & 0x01) != 0)
     }
     #[doc = "Bit 19 - USB need_clock signal wake-up"]
-    #[inline]
-    pub fn usb_wakeup(&self) -> USB_WAKEUPR {
-        USB_WAKEUPR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn usb_wakeup(&self) -> USB_WAKEUP_R {
+        USB_WAKEUP_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 20 - GPIO GROUP0 interrupt wake-up"]
-    #[inline]
-    pub fn gpioint0(&self) -> GPIOINT0R {
-        GPIOINT0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn gpioint0(&self) -> GPIOINT0_R {
+        GPIOINT0_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - GPIO GROUP1 interrupt wake-up"]
-    #[inline]
-    pub fn gpioint1(&self) -> GPIOINT1R {
-        GPIOINT1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn gpioint1(&self) -> GPIOINT1_R {
+        GPIOINT1_R::new(((self.bits >> 21) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 12 - WWDT interrupt wake-up"]
-    #[inline]
-    pub fn wwdtint(&mut self) -> _WWDTINTW {
-        _WWDTINTW { w: self }
+    #[inline(always)]
+    pub fn wwdtint(&mut self) -> WWDTINT_W {
+        WWDTINT_W { w: self }
     }
     #[doc = "Bit 13 - Brown Out Detect (BOD) interrupt wake-up"]
-    #[inline]
-    pub fn bodint(&mut self) -> _BODINTW {
-        _BODINTW { w: self }
+    #[inline(always)]
+    pub fn bodint(&mut self) -> BODINT_W {
+        BODINT_W { w: self }
     }
     #[doc = "Bit 19 - USB need_clock signal wake-up"]
-    #[inline]
-    pub fn usb_wakeup(&mut self) -> _USB_WAKEUPW {
-        _USB_WAKEUPW { w: self }
+    #[inline(always)]
+    pub fn usb_wakeup(&mut self) -> USB_WAKEUP_W {
+        USB_WAKEUP_W { w: self }
     }
     #[doc = "Bit 20 - GPIO GROUP0 interrupt wake-up"]
-    #[inline]
-    pub fn gpioint0(&mut self) -> _GPIOINT0W {
-        _GPIOINT0W { w: self }
+    #[inline(always)]
+    pub fn gpioint0(&mut self) -> GPIOINT0_W {
+        GPIOINT0_W { w: self }
     }
     #[doc = "Bit 21 - GPIO GROUP1 interrupt wake-up"]
-    #[inline]
-    pub fn gpioint1(&mut self) -> _GPIOINT1W {
-        _GPIOINT1W { w: self }
+    #[inline(always)]
+    pub fn gpioint1(&mut self) -> GPIOINT1_W {
+        GPIOINT1_W { w: self }
     }
 }

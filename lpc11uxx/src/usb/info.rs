@@ -1,445 +1,315 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INFO {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register INFO"]
+pub type R = crate::R<u32, super::INFO>;
+#[doc = "Writer for register INFO"]
+pub type W = crate::W<u32, super::INFO>;
+#[doc = "Register INFO `reset()`'s with value 0"]
+impl crate::ResetValue for super::INFO {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct FRAME_NRR {
-    bits: u16,
+#[doc = "Reader of field `FRAME_NR`"]
+pub type FRAME_NR_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `FRAME_NR`"]
+pub struct FRAME_NR_W<'a> {
+    w: &'a mut W,
 }
-impl FRAME_NRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
+impl<'a> FRAME_NR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u16) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x07ff) | ((value as u32) & 0x07ff);
+        self.w
     }
 }
-#[doc = "Possible values of the field `ERR_CODE`"]
+#[doc = "The error code which last occurred:\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ERR_CODER {
-    #[doc = "No error"]
+pub enum ERR_CODE_A {
+    #[doc = "0: No error"]
     NO_ERROR,
-    #[doc = "PID encoding error"]
+    #[doc = "1: PID encoding error"]
     PID_ENCODING_ERROR,
-    #[doc = "PID unknown"]
+    #[doc = "2: PID unknown"]
     PID_UNKNOWN,
-    #[doc = "Packet unexpected"]
+    #[doc = "3: Packet unexpected"]
     PACKET_UNEXPECTED,
-    #[doc = "Token CRC error"]
+    #[doc = "4: Token CRC error"]
     TOKEN_CRC_ERROR,
-    #[doc = "Data CRC error"]
+    #[doc = "5: Data CRC error"]
     DATA_CRC_ERROR,
-    #[doc = "Time out"]
+    #[doc = "6: Time out"]
     TIME_OUT,
-    #[doc = "Babble"]
+    #[doc = "7: Babble"]
     BABBLE,
-    #[doc = "Truncated EOP"]
+    #[doc = "8: Truncated EOP"]
     TRUNCATED_EOP,
-    #[doc = "Sent/Received NAK"]
+    #[doc = "9: Sent/Received NAK"]
     SENTRECEIVED_NAK,
-    #[doc = "Sent Stall"]
+    #[doc = "10: Sent Stall"]
     SENT_STALL,
-    #[doc = "Overrun"]
+    #[doc = "11: Overrun"]
     OVERRUN,
-    #[doc = "Sent empty packet"]
+    #[doc = "12: Sent empty packet"]
     SENT_EMPTY_PACKET,
-    #[doc = "Bitstuff error"]
+    #[doc = "13: Bitstuff error"]
     BITSTUFF_ERROR,
-    #[doc = "Sync error"]
+    #[doc = "14: Sync error"]
     SYNC_ERROR,
-    #[doc = "Wrong data toggle"]
+    #[doc = "15: Wrong data toggle"]
     WRONG_DATA_TOGGLE,
 }
-impl ERR_CODER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            ERR_CODER::NO_ERROR => 0,
-            ERR_CODER::PID_ENCODING_ERROR => 1,
-            ERR_CODER::PID_UNKNOWN => 2,
-            ERR_CODER::PACKET_UNEXPECTED => 3,
-            ERR_CODER::TOKEN_CRC_ERROR => 4,
-            ERR_CODER::DATA_CRC_ERROR => 5,
-            ERR_CODER::TIME_OUT => 6,
-            ERR_CODER::BABBLE => 7,
-            ERR_CODER::TRUNCATED_EOP => 8,
-            ERR_CODER::SENTRECEIVED_NAK => 9,
-            ERR_CODER::SENT_STALL => 10,
-            ERR_CODER::OVERRUN => 11,
-            ERR_CODER::SENT_EMPTY_PACKET => 12,
-            ERR_CODER::BITSTUFF_ERROR => 13,
-            ERR_CODER::SYNC_ERROR => 14,
-            ERR_CODER::WRONG_DATA_TOGGLE => 15,
+impl From<ERR_CODE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: ERR_CODE_A) -> Self {
+        match variant {
+            ERR_CODE_A::NO_ERROR => 0,
+            ERR_CODE_A::PID_ENCODING_ERROR => 1,
+            ERR_CODE_A::PID_UNKNOWN => 2,
+            ERR_CODE_A::PACKET_UNEXPECTED => 3,
+            ERR_CODE_A::TOKEN_CRC_ERROR => 4,
+            ERR_CODE_A::DATA_CRC_ERROR => 5,
+            ERR_CODE_A::TIME_OUT => 6,
+            ERR_CODE_A::BABBLE => 7,
+            ERR_CODE_A::TRUNCATED_EOP => 8,
+            ERR_CODE_A::SENTRECEIVED_NAK => 9,
+            ERR_CODE_A::SENT_STALL => 10,
+            ERR_CODE_A::OVERRUN => 11,
+            ERR_CODE_A::SENT_EMPTY_PACKET => 12,
+            ERR_CODE_A::BITSTUFF_ERROR => 13,
+            ERR_CODE_A::SYNC_ERROR => 14,
+            ERR_CODE_A::WRONG_DATA_TOGGLE => 15,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> ERR_CODER {
-        match value {
-            0 => ERR_CODER::NO_ERROR,
-            1 => ERR_CODER::PID_ENCODING_ERROR,
-            2 => ERR_CODER::PID_UNKNOWN,
-            3 => ERR_CODER::PACKET_UNEXPECTED,
-            4 => ERR_CODER::TOKEN_CRC_ERROR,
-            5 => ERR_CODER::DATA_CRC_ERROR,
-            6 => ERR_CODER::TIME_OUT,
-            7 => ERR_CODER::BABBLE,
-            8 => ERR_CODER::TRUNCATED_EOP,
-            9 => ERR_CODER::SENTRECEIVED_NAK,
-            10 => ERR_CODER::SENT_STALL,
-            11 => ERR_CODER::OVERRUN,
-            12 => ERR_CODER::SENT_EMPTY_PACKET,
-            13 => ERR_CODER::BITSTUFF_ERROR,
-            14 => ERR_CODER::SYNC_ERROR,
-            15 => ERR_CODER::WRONG_DATA_TOGGLE,
+}
+#[doc = "Reader of field `ERR_CODE`"]
+pub type ERR_CODE_R = crate::R<u8, ERR_CODE_A>;
+impl ERR_CODE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ERR_CODE_A {
+        match self.bits {
+            0 => ERR_CODE_A::NO_ERROR,
+            1 => ERR_CODE_A::PID_ENCODING_ERROR,
+            2 => ERR_CODE_A::PID_UNKNOWN,
+            3 => ERR_CODE_A::PACKET_UNEXPECTED,
+            4 => ERR_CODE_A::TOKEN_CRC_ERROR,
+            5 => ERR_CODE_A::DATA_CRC_ERROR,
+            6 => ERR_CODE_A::TIME_OUT,
+            7 => ERR_CODE_A::BABBLE,
+            8 => ERR_CODE_A::TRUNCATED_EOP,
+            9 => ERR_CODE_A::SENTRECEIVED_NAK,
+            10 => ERR_CODE_A::SENT_STALL,
+            11 => ERR_CODE_A::OVERRUN,
+            12 => ERR_CODE_A::SENT_EMPTY_PACKET,
+            13 => ERR_CODE_A::BITSTUFF_ERROR,
+            14 => ERR_CODE_A::SYNC_ERROR,
+            15 => ERR_CODE_A::WRONG_DATA_TOGGLE,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `NO_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_error(&self) -> bool {
-        *self == ERR_CODER::NO_ERROR
+        *self == ERR_CODE_A::NO_ERROR
     }
     #[doc = "Checks if the value of the field is `PID_ENCODING_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pid_encoding_error(&self) -> bool {
-        *self == ERR_CODER::PID_ENCODING_ERROR
+        *self == ERR_CODE_A::PID_ENCODING_ERROR
     }
     #[doc = "Checks if the value of the field is `PID_UNKNOWN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pid_unknown(&self) -> bool {
-        *self == ERR_CODER::PID_UNKNOWN
+        *self == ERR_CODE_A::PID_UNKNOWN
     }
     #[doc = "Checks if the value of the field is `PACKET_UNEXPECTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_packet_unexpected(&self) -> bool {
-        *self == ERR_CODER::PACKET_UNEXPECTED
+        *self == ERR_CODE_A::PACKET_UNEXPECTED
     }
     #[doc = "Checks if the value of the field is `TOKEN_CRC_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_token_crc_error(&self) -> bool {
-        *self == ERR_CODER::TOKEN_CRC_ERROR
+        *self == ERR_CODE_A::TOKEN_CRC_ERROR
     }
     #[doc = "Checks if the value of the field is `DATA_CRC_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data_crc_error(&self) -> bool {
-        *self == ERR_CODER::DATA_CRC_ERROR
+        *self == ERR_CODE_A::DATA_CRC_ERROR
     }
     #[doc = "Checks if the value of the field is `TIME_OUT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_time_out(&self) -> bool {
-        *self == ERR_CODER::TIME_OUT
+        *self == ERR_CODE_A::TIME_OUT
     }
     #[doc = "Checks if the value of the field is `BABBLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_babble(&self) -> bool {
-        *self == ERR_CODER::BABBLE
+        *self == ERR_CODE_A::BABBLE
     }
     #[doc = "Checks if the value of the field is `TRUNCATED_EOP`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_truncated_eop(&self) -> bool {
-        *self == ERR_CODER::TRUNCATED_EOP
+        *self == ERR_CODE_A::TRUNCATED_EOP
     }
     #[doc = "Checks if the value of the field is `SENTRECEIVED_NAK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sentreceived_nak(&self) -> bool {
-        *self == ERR_CODER::SENTRECEIVED_NAK
+        *self == ERR_CODE_A::SENTRECEIVED_NAK
     }
     #[doc = "Checks if the value of the field is `SENT_STALL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sent_stall(&self) -> bool {
-        *self == ERR_CODER::SENT_STALL
+        *self == ERR_CODE_A::SENT_STALL
     }
     #[doc = "Checks if the value of the field is `OVERRUN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_overrun(&self) -> bool {
-        *self == ERR_CODER::OVERRUN
+        *self == ERR_CODE_A::OVERRUN
     }
     #[doc = "Checks if the value of the field is `SENT_EMPTY_PACKET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sent_empty_packet(&self) -> bool {
-        *self == ERR_CODER::SENT_EMPTY_PACKET
+        *self == ERR_CODE_A::SENT_EMPTY_PACKET
     }
     #[doc = "Checks if the value of the field is `BITSTUFF_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_bitstuff_error(&self) -> bool {
-        *self == ERR_CODER::BITSTUFF_ERROR
+        *self == ERR_CODE_A::BITSTUFF_ERROR
     }
     #[doc = "Checks if the value of the field is `SYNC_ERROR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sync_error(&self) -> bool {
-        *self == ERR_CODER::SYNC_ERROR
+        *self == ERR_CODE_A::SYNC_ERROR
     }
     #[doc = "Checks if the value of the field is `WRONG_DATA_TOGGLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_wrong_data_toggle(&self) -> bool {
-        *self == ERR_CODER::WRONG_DATA_TOGGLE
+        *self == ERR_CODE_A::WRONG_DATA_TOGGLE
     }
 }
-#[doc = r" Proxy"]
-pub struct _FRAME_NRW<'a> {
+#[doc = "Write proxy for field `ERR_CODE`"]
+pub struct ERR_CODE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _FRAME_NRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 2047;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ERR_CODE`"]
-pub enum ERR_CODEW {
-    #[doc = "No error"]
-    NO_ERROR,
-    #[doc = "PID encoding error"]
-    PID_ENCODING_ERROR,
-    #[doc = "PID unknown"]
-    PID_UNKNOWN,
-    #[doc = "Packet unexpected"]
-    PACKET_UNEXPECTED,
-    #[doc = "Token CRC error"]
-    TOKEN_CRC_ERROR,
-    #[doc = "Data CRC error"]
-    DATA_CRC_ERROR,
-    #[doc = "Time out"]
-    TIME_OUT,
-    #[doc = "Babble"]
-    BABBLE,
-    #[doc = "Truncated EOP"]
-    TRUNCATED_EOP,
-    #[doc = "Sent/Received NAK"]
-    SENTRECEIVED_NAK,
-    #[doc = "Sent Stall"]
-    SENT_STALL,
-    #[doc = "Overrun"]
-    OVERRUN,
-    #[doc = "Sent empty packet"]
-    SENT_EMPTY_PACKET,
-    #[doc = "Bitstuff error"]
-    BITSTUFF_ERROR,
-    #[doc = "Sync error"]
-    SYNC_ERROR,
-    #[doc = "Wrong data toggle"]
-    WRONG_DATA_TOGGLE,
-}
-impl ERR_CODEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            ERR_CODEW::NO_ERROR => 0,
-            ERR_CODEW::PID_ENCODING_ERROR => 1,
-            ERR_CODEW::PID_UNKNOWN => 2,
-            ERR_CODEW::PACKET_UNEXPECTED => 3,
-            ERR_CODEW::TOKEN_CRC_ERROR => 4,
-            ERR_CODEW::DATA_CRC_ERROR => 5,
-            ERR_CODEW::TIME_OUT => 6,
-            ERR_CODEW::BABBLE => 7,
-            ERR_CODEW::TRUNCATED_EOP => 8,
-            ERR_CODEW::SENTRECEIVED_NAK => 9,
-            ERR_CODEW::SENT_STALL => 10,
-            ERR_CODEW::OVERRUN => 11,
-            ERR_CODEW::SENT_EMPTY_PACKET => 12,
-            ERR_CODEW::BITSTUFF_ERROR => 13,
-            ERR_CODEW::SYNC_ERROR => 14,
-            ERR_CODEW::WRONG_DATA_TOGGLE => 15,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ERR_CODEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ERR_CODEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ERR_CODEW) -> &'a mut W {
+impl<'a> ERR_CODE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ERR_CODE_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "No error"]
-    #[inline]
+    #[inline(always)]
     pub fn no_error(self) -> &'a mut W {
-        self.variant(ERR_CODEW::NO_ERROR)
+        self.variant(ERR_CODE_A::NO_ERROR)
     }
     #[doc = "PID encoding error"]
-    #[inline]
+    #[inline(always)]
     pub fn pid_encoding_error(self) -> &'a mut W {
-        self.variant(ERR_CODEW::PID_ENCODING_ERROR)
+        self.variant(ERR_CODE_A::PID_ENCODING_ERROR)
     }
     #[doc = "PID unknown"]
-    #[inline]
+    #[inline(always)]
     pub fn pid_unknown(self) -> &'a mut W {
-        self.variant(ERR_CODEW::PID_UNKNOWN)
+        self.variant(ERR_CODE_A::PID_UNKNOWN)
     }
     #[doc = "Packet unexpected"]
-    #[inline]
+    #[inline(always)]
     pub fn packet_unexpected(self) -> &'a mut W {
-        self.variant(ERR_CODEW::PACKET_UNEXPECTED)
+        self.variant(ERR_CODE_A::PACKET_UNEXPECTED)
     }
     #[doc = "Token CRC error"]
-    #[inline]
+    #[inline(always)]
     pub fn token_crc_error(self) -> &'a mut W {
-        self.variant(ERR_CODEW::TOKEN_CRC_ERROR)
+        self.variant(ERR_CODE_A::TOKEN_CRC_ERROR)
     }
     #[doc = "Data CRC error"]
-    #[inline]
+    #[inline(always)]
     pub fn data_crc_error(self) -> &'a mut W {
-        self.variant(ERR_CODEW::DATA_CRC_ERROR)
+        self.variant(ERR_CODE_A::DATA_CRC_ERROR)
     }
     #[doc = "Time out"]
-    #[inline]
+    #[inline(always)]
     pub fn time_out(self) -> &'a mut W {
-        self.variant(ERR_CODEW::TIME_OUT)
+        self.variant(ERR_CODE_A::TIME_OUT)
     }
     #[doc = "Babble"]
-    #[inline]
+    #[inline(always)]
     pub fn babble(self) -> &'a mut W {
-        self.variant(ERR_CODEW::BABBLE)
+        self.variant(ERR_CODE_A::BABBLE)
     }
     #[doc = "Truncated EOP"]
-    #[inline]
+    #[inline(always)]
     pub fn truncated_eop(self) -> &'a mut W {
-        self.variant(ERR_CODEW::TRUNCATED_EOP)
+        self.variant(ERR_CODE_A::TRUNCATED_EOP)
     }
     #[doc = "Sent/Received NAK"]
-    #[inline]
+    #[inline(always)]
     pub fn sentreceived_nak(self) -> &'a mut W {
-        self.variant(ERR_CODEW::SENTRECEIVED_NAK)
+        self.variant(ERR_CODE_A::SENTRECEIVED_NAK)
     }
     #[doc = "Sent Stall"]
-    #[inline]
+    #[inline(always)]
     pub fn sent_stall(self) -> &'a mut W {
-        self.variant(ERR_CODEW::SENT_STALL)
+        self.variant(ERR_CODE_A::SENT_STALL)
     }
     #[doc = "Overrun"]
-    #[inline]
+    #[inline(always)]
     pub fn overrun(self) -> &'a mut W {
-        self.variant(ERR_CODEW::OVERRUN)
+        self.variant(ERR_CODE_A::OVERRUN)
     }
     #[doc = "Sent empty packet"]
-    #[inline]
+    #[inline(always)]
     pub fn sent_empty_packet(self) -> &'a mut W {
-        self.variant(ERR_CODEW::SENT_EMPTY_PACKET)
+        self.variant(ERR_CODE_A::SENT_EMPTY_PACKET)
     }
     #[doc = "Bitstuff error"]
-    #[inline]
+    #[inline(always)]
     pub fn bitstuff_error(self) -> &'a mut W {
-        self.variant(ERR_CODEW::BITSTUFF_ERROR)
+        self.variant(ERR_CODE_A::BITSTUFF_ERROR)
     }
     #[doc = "Sync error"]
-    #[inline]
+    #[inline(always)]
     pub fn sync_error(self) -> &'a mut W {
-        self.variant(ERR_CODEW::SYNC_ERROR)
+        self.variant(ERR_CODE_A::SYNC_ERROR)
     }
     #[doc = "Wrong data toggle"]
-    #[inline]
+    #[inline(always)]
     pub fn wrong_data_toggle(self) -> &'a mut W {
-        self.variant(ERR_CODEW::WRONG_DATA_TOGGLE)
+        self.variant(ERR_CODE_A::WRONG_DATA_TOGGLE)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x0f << 11)) | (((value as u32) & 0x0f) << 11);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:10 - Frame number. This contains the frame number of the last successfully received SOF. In case no SOF was received by the device at the beginning of a frame, the frame number returned is that of the last successfully received SOF. In case the SOF frame number contained a CRC error, the frame number returned will be the corrupted frame number as received by the device."]
-    #[inline]
-    pub fn frame_nr(&self) -> FRAME_NRR {
-        let bits = {
-            const MASK: u16 = 2047;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        FRAME_NRR { bits }
+    #[inline(always)]
+    pub fn frame_nr(&self) -> FRAME_NR_R {
+        FRAME_NR_R::new((self.bits & 0x07ff) as u16)
     }
     #[doc = "Bits 11:14 - The error code which last occurred:"]
-    #[inline]
-    pub fn err_code(&self) -> ERR_CODER {
-        ERR_CODER::_from({
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 11;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn err_code(&self) -> ERR_CODE_R {
+        ERR_CODE_R::new(((self.bits >> 11) & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:10 - Frame number. This contains the frame number of the last successfully received SOF. In case no SOF was received by the device at the beginning of a frame, the frame number returned is that of the last successfully received SOF. In case the SOF frame number contained a CRC error, the frame number returned will be the corrupted frame number as received by the device."]
-    #[inline]
-    pub fn frame_nr(&mut self) -> _FRAME_NRW {
-        _FRAME_NRW { w: self }
+    #[inline(always)]
+    pub fn frame_nr(&mut self) -> FRAME_NR_W {
+        FRAME_NR_W { w: self }
     }
     #[doc = "Bits 11:14 - The error code which last occurred:"]
-    #[inline]
-    pub fn err_code(&mut self) -> _ERR_CODEW {
-        _ERR_CODEW { w: self }
+    #[inline(always)]
+    pub fn err_code(&mut self) -> ERR_CODE_W {
+        ERR_CODE_W { w: self }
     }
 }

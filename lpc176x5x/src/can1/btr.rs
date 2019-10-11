@@ -1,347 +1,200 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::BTR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register BTR"]
+pub type R = crate::R<u32, super::BTR>;
+#[doc = "Writer for register BTR"]
+pub type W = crate::W<u32, super::BTR>;
+#[doc = "Register BTR `reset()`'s with value 0x001c_0000"]
+impl crate::ResetValue for super::BTR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x001c_0000
     }
 }
-#[doc = r" Value of the field"]
-pub struct BRPR {
-    bits: u16,
+#[doc = "Reader of field `BRP`"]
+pub type BRP_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `BRP`"]
+pub struct BRP_W<'a> {
+    w: &'a mut W,
 }
-impl BRPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
+impl<'a> BRP_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u16) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x03ff) | ((value as u32) & 0x03ff);
+        self.w
     }
 }
-#[doc = r" Value of the field"]
-pub struct SJWR {
-    bits: u8,
+#[doc = "Reader of field `SJW`"]
+pub type SJW_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `SJW`"]
+pub struct SJW_W<'a> {
+    w: &'a mut W,
 }
-impl SJWR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+impl<'a> SJW_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x03 << 14)) | (((value as u32) & 0x03) << 14);
+        self.w
     }
 }
-#[doc = r" Value of the field"]
-pub struct TESG1R {
-    bits: u8,
+#[doc = "Reader of field `TESG1`"]
+pub type TESG1_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `TESG1`"]
+pub struct TESG1_W<'a> {
+    w: &'a mut W,
 }
-impl TESG1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+impl<'a> TESG1_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
+        self.w
     }
 }
-#[doc = r" Value of the field"]
-pub struct TESG2R {
-    bits: u8,
+#[doc = "Reader of field `TESG2`"]
+pub type TESG2_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `TESG2`"]
+pub struct TESG2_W<'a> {
+    w: &'a mut W,
 }
-impl TESG2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+impl<'a> TESG2_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x07 << 20)) | (((value as u32) & 0x07) << 20);
+        self.w
     }
 }
-#[doc = "Possible values of the field `SAM`"]
+#[doc = "Sampling\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SAMR {
-    #[doc = "The bus is sampled once (recommended for high speed buses)"]
+pub enum SAM_A {
+    #[doc = "0: The bus is sampled once (recommended for high speed buses)"]
     THE_BUS_IS_SAMPLED_O,
-    #[doc = "The bus is sampled 3 times (recommended for low to medium speed buses to filter spikes on the bus-line)"]
+    #[doc = "1: The bus is sampled 3 times (recommended for low to medium speed buses to filter spikes on the bus-line)"]
     THE_BUS_IS_SAMPLED_3,
 }
-impl SAMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SAMR::THE_BUS_IS_SAMPLED_O => false,
-            SAMR::THE_BUS_IS_SAMPLED_3 => true,
+impl From<SAM_A> for bool {
+    #[inline(always)]
+    fn from(variant: SAM_A) -> Self {
+        match variant {
+            SAM_A::THE_BUS_IS_SAMPLED_O => false,
+            SAM_A::THE_BUS_IS_SAMPLED_3 => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SAMR {
-        match value {
-            false => SAMR::THE_BUS_IS_SAMPLED_O,
-            true => SAMR::THE_BUS_IS_SAMPLED_3,
+}
+#[doc = "Reader of field `SAM`"]
+pub type SAM_R = crate::R<bool, SAM_A>;
+impl SAM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SAM_A {
+        match self.bits {
+            false => SAM_A::THE_BUS_IS_SAMPLED_O,
+            true => SAM_A::THE_BUS_IS_SAMPLED_3,
         }
     }
     #[doc = "Checks if the value of the field is `THE_BUS_IS_SAMPLED_O`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_the_bus_is_sampled_o(&self) -> bool {
-        *self == SAMR::THE_BUS_IS_SAMPLED_O
+        *self == SAM_A::THE_BUS_IS_SAMPLED_O
     }
     #[doc = "Checks if the value of the field is `THE_BUS_IS_SAMPLED_3`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_the_bus_is_sampled_3(&self) -> bool {
-        *self == SAMR::THE_BUS_IS_SAMPLED_3
+        *self == SAM_A::THE_BUS_IS_SAMPLED_3
     }
 }
-#[doc = r" Proxy"]
-pub struct _BRPW<'a> {
+#[doc = "Write proxy for field `SAM`"]
+pub struct SAM_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BRPW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 1023;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SJWW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SJWW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TESG1W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TESG1W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 15;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TESG2W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TESG2W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SAM`"]
-pub enum SAMW {
-    #[doc = "The bus is sampled once (recommended for high speed buses)"]
-    THE_BUS_IS_SAMPLED_O,
-    #[doc = "The bus is sampled 3 times (recommended for low to medium speed buses to filter spikes on the bus-line)"]
-    THE_BUS_IS_SAMPLED_3,
-}
-impl SAMW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SAMW::THE_BUS_IS_SAMPLED_O => false,
-            SAMW::THE_BUS_IS_SAMPLED_3 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SAMW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SAMW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SAMW) -> &'a mut W {
+impl<'a> SAM_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SAM_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "The bus is sampled once (recommended for high speed buses)"]
-    #[inline]
+    #[inline(always)]
     pub fn the_bus_is_sampled_o(self) -> &'a mut W {
-        self.variant(SAMW::THE_BUS_IS_SAMPLED_O)
+        self.variant(SAM_A::THE_BUS_IS_SAMPLED_O)
     }
     #[doc = "The bus is sampled 3 times (recommended for low to medium speed buses to filter spikes on the bus-line)"]
-    #[inline]
+    #[inline(always)]
     pub fn the_bus_is_sampled_3(self) -> &'a mut W {
-        self.variant(SAMW::THE_BUS_IS_SAMPLED_3)
+        self.variant(SAM_A::THE_BUS_IS_SAMPLED_3)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:9 - Baud Rate Prescaler. The APB clock is divided by (this value plus one) to produce the CAN clock."]
-    #[inline]
-    pub fn brp(&self) -> BRPR {
-        let bits = {
-            const MASK: u16 = 1023;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        BRPR { bits }
+    #[inline(always)]
+    pub fn brp(&self) -> BRP_R {
+        BRP_R::new((self.bits & 0x03ff) as u16)
     }
     #[doc = "Bits 14:15 - The Synchronization Jump Width is (this value plus one) CAN clocks."]
-    #[inline]
-    pub fn sjw(&self) -> SJWR {
-        let bits = {
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SJWR { bits }
+    #[inline(always)]
+    pub fn sjw(&self) -> SJW_R {
+        SJW_R::new(((self.bits >> 14) & 0x03) as u8)
     }
     #[doc = "Bits 16:19 - The delay from the nominal Sync point to the sample point is (this value plus one) CAN clocks."]
-    #[inline]
-    pub fn tesg1(&self) -> TESG1R {
-        let bits = {
-            const MASK: u8 = 15;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        TESG1R { bits }
+    #[inline(always)]
+    pub fn tesg1(&self) -> TESG1_R {
+        TESG1_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bits 20:22 - The delay from the sample point to the next nominal sync point is (this value plus one) CAN clocks. The nominal CAN bit time is (this value plus the value in TSEG1 plus 3) CAN clocks."]
-    #[inline]
-    pub fn tesg2(&self) -> TESG2R {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        TESG2R { bits }
+    #[inline(always)]
+    pub fn tesg2(&self) -> TESG2_R {
+        TESG2_R::new(((self.bits >> 20) & 0x07) as u8)
     }
     #[doc = "Bit 23 - Sampling"]
-    #[inline]
-    pub fn sam(&self) -> SAMR {
-        SAMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn sam(&self) -> SAM_R {
+        SAM_R::new(((self.bits >> 23) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 1835008 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:9 - Baud Rate Prescaler. The APB clock is divided by (this value plus one) to produce the CAN clock."]
-    #[inline]
-    pub fn brp(&mut self) -> _BRPW {
-        _BRPW { w: self }
+    #[inline(always)]
+    pub fn brp(&mut self) -> BRP_W {
+        BRP_W { w: self }
     }
     #[doc = "Bits 14:15 - The Synchronization Jump Width is (this value plus one) CAN clocks."]
-    #[inline]
-    pub fn sjw(&mut self) -> _SJWW {
-        _SJWW { w: self }
+    #[inline(always)]
+    pub fn sjw(&mut self) -> SJW_W {
+        SJW_W { w: self }
     }
     #[doc = "Bits 16:19 - The delay from the nominal Sync point to the sample point is (this value plus one) CAN clocks."]
-    #[inline]
-    pub fn tesg1(&mut self) -> _TESG1W {
-        _TESG1W { w: self }
+    #[inline(always)]
+    pub fn tesg1(&mut self) -> TESG1_W {
+        TESG1_W { w: self }
     }
     #[doc = "Bits 20:22 - The delay from the sample point to the next nominal sync point is (this value plus one) CAN clocks. The nominal CAN bit time is (this value plus the value in TSEG1 plus 3) CAN clocks."]
-    #[inline]
-    pub fn tesg2(&mut self) -> _TESG2W {
-        _TESG2W { w: self }
+    #[inline(always)]
+    pub fn tesg2(&mut self) -> TESG2_W {
+        TESG2_W { w: self }
     }
     #[doc = "Bit 23 - Sampling"]
-    #[inline]
-    pub fn sam(&mut self) -> _SAMW {
-        _SAMW { w: self }
+    #[inline(always)]
+    pub fn sam(&mut self) -> SAM_W {
+        SAM_W { w: self }
     }
 }

@@ -1,141 +1,120 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CONCLR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register CONCLR"]
+pub type W = crate::W<u32, super::CONCLR>;
+#[doc = "Register CONCLR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CONCLR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Proxy"]
-pub struct _AACW<'a> {
+#[doc = "Write proxy for field `AAC`"]
+pub struct AAC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AACW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> AAC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SICW<'a> {
+#[doc = "Write proxy for field `SIC`"]
+pub struct SIC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SICW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> SIC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _STACW<'a> {
+#[doc = "Write proxy for field `STAC`"]
+pub struct STAC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _STACW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> STAC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _I2ENCW<'a> {
+#[doc = "Write proxy for field `I2ENC`"]
+pub struct I2ENC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _I2ENCW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> I2ENC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 2 - Assert acknowledge Clear bit."]
-    #[inline]
-    pub fn aac(&mut self) -> _AACW {
-        _AACW { w: self }
+    #[inline(always)]
+    pub fn aac(&mut self) -> AAC_W {
+        AAC_W { w: self }
     }
     #[doc = "Bit 3 - I2C interrupt Clear bit."]
-    #[inline]
-    pub fn sic(&mut self) -> _SICW {
-        _SICW { w: self }
+    #[inline(always)]
+    pub fn sic(&mut self) -> SIC_W {
+        SIC_W { w: self }
     }
     #[doc = "Bit 5 - START flag Clear bit."]
-    #[inline]
-    pub fn stac(&mut self) -> _STACW {
-        _STACW { w: self }
+    #[inline(always)]
+    pub fn stac(&mut self) -> STAC_W {
+        STAC_W { w: self }
     }
     #[doc = "Bit 6 - I2C interface Disable bit."]
-    #[inline]
-    pub fn i2enc(&mut self) -> _I2ENCW {
-        _I2ENCW { w: self }
+    #[inline(always)]
+    pub fn i2enc(&mut self) -> I2ENC_W {
+        I2ENC_W { w: self }
     }
 }

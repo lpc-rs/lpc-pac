@@ -1,1135 +1,808 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INTEN {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
+#[doc = "Reader of register INTEN"]
+pub type R = crate::R<u32, super::INTEN>;
+#[doc = "Writer for register INTEN"]
+pub type W = crate::W<u32, super::INTEN>;
+#[doc = "Register INTEN `reset()`'s with value 0x0100"]
+impl crate::ResetValue for super::INTEN {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0100
     }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
+}
+#[doc = "Interrupt enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ADINTEN0_A {
+    #[doc = "0: Completion of a conversion on ADC channel 0 will not generate an interrupt."]
+    DISABLE,
+    #[doc = "1: Completion of a conversion on ADC channel 0 will generate an interrupt."]
+    ENABLE,
+}
+impl From<ADINTEN0_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADINTEN0_A) -> Self {
+        match variant {
+            ADINTEN0_A::DISABLE => false,
+            ADINTEN0_A::ENABLE => true,
         }
     }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+}
+#[doc = "Reader of field `ADINTEN0`"]
+pub type ADINTEN0_R = crate::R<bool, ADINTEN0_A>;
+impl ADINTEN0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ADINTEN0_A {
+        match self.bits {
+            false => ADINTEN0_A::DISABLE,
+            true => ADINTEN0_A::ENABLE,
+        }
     }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        *self == ADINTEN0_A::DISABLE
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        *self == ADINTEN0_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `ADINTEN0`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADINTEN0R {
+#[doc = "Write proxy for field `ADINTEN0`"]
+pub struct ADINTEN0_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ADINTEN0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADINTEN0_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Completion of a conversion on ADC channel 0 will not generate an interrupt."]
-    DISABLE,
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ADINTEN0_A::DISABLE)
+    }
     #[doc = "Completion of a conversion on ADC channel 0 will generate an interrupt."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ADINTEN0_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Interrupt enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ADINTEN1_A {
+    #[doc = "0: Completion of a conversion on ADC channel 1 will not generate an interrupt."]
+    DISABLE,
+    #[doc = "1: Completion of a conversion on ADC channel 1 will generate an interrupt."]
     ENABLE,
 }
-impl ADINTEN0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ADINTEN0R::DISABLE => false,
-            ADINTEN0R::ENABLE => true,
+impl From<ADINTEN1_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADINTEN1_A) -> Self {
+        match variant {
+            ADINTEN1_A::DISABLE => false,
+            ADINTEN1_A::ENABLE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ADINTEN0R {
-        match value {
-            false => ADINTEN0R::DISABLE,
-            true => ADINTEN0R::ENABLE,
+}
+#[doc = "Reader of field `ADINTEN1`"]
+pub type ADINTEN1_R = crate::R<bool, ADINTEN1_A>;
+impl ADINTEN1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ADINTEN1_A {
+        match self.bits {
+            false => ADINTEN1_A::DISABLE,
+            true => ADINTEN1_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ADINTEN0R::DISABLE
+        *self == ADINTEN1_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == ADINTEN0R::ENABLE
+        *self == ADINTEN1_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `ADINTEN1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADINTEN1R {
+#[doc = "Write proxy for field `ADINTEN1`"]
+pub struct ADINTEN1_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ADINTEN1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADINTEN1_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Completion of a conversion on ADC channel 1 will not generate an interrupt."]
-    DISABLE,
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ADINTEN1_A::DISABLE)
+    }
     #[doc = "Completion of a conversion on ADC channel 1 will generate an interrupt."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ADINTEN1_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Interrupt enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ADINTEN2_A {
+    #[doc = "0: Completion of a conversion on ADC channel 2 will not generate an interrupt."]
+    DISABLE,
+    #[doc = "1: Completion of a conversion on ADC channel 2 will generate an interrupt."]
     ENABLE,
 }
-impl ADINTEN1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ADINTEN1R::DISABLE => false,
-            ADINTEN1R::ENABLE => true,
+impl From<ADINTEN2_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADINTEN2_A) -> Self {
+        match variant {
+            ADINTEN2_A::DISABLE => false,
+            ADINTEN2_A::ENABLE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ADINTEN1R {
-        match value {
-            false => ADINTEN1R::DISABLE,
-            true => ADINTEN1R::ENABLE,
+}
+#[doc = "Reader of field `ADINTEN2`"]
+pub type ADINTEN2_R = crate::R<bool, ADINTEN2_A>;
+impl ADINTEN2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ADINTEN2_A {
+        match self.bits {
+            false => ADINTEN2_A::DISABLE,
+            true => ADINTEN2_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ADINTEN1R::DISABLE
+        *self == ADINTEN2_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == ADINTEN1R::ENABLE
+        *self == ADINTEN2_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `ADINTEN2`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADINTEN2R {
+#[doc = "Write proxy for field `ADINTEN2`"]
+pub struct ADINTEN2_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ADINTEN2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADINTEN2_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Completion of a conversion on ADC channel 2 will not generate an interrupt."]
-    DISABLE,
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ADINTEN2_A::DISABLE)
+    }
     #[doc = "Completion of a conversion on ADC channel 2 will generate an interrupt."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ADINTEN2_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Interrupt enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ADINTEN3_A {
+    #[doc = "0: Completion of a conversion on ADC channel 3 will not generate an interrupt."]
+    DISABLE,
+    #[doc = "1: Completion of a conversion on ADC channel 3 will generate an interrupt."]
     ENABLE,
 }
-impl ADINTEN2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ADINTEN2R::DISABLE => false,
-            ADINTEN2R::ENABLE => true,
+impl From<ADINTEN3_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADINTEN3_A) -> Self {
+        match variant {
+            ADINTEN3_A::DISABLE => false,
+            ADINTEN3_A::ENABLE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ADINTEN2R {
-        match value {
-            false => ADINTEN2R::DISABLE,
-            true => ADINTEN2R::ENABLE,
+}
+#[doc = "Reader of field `ADINTEN3`"]
+pub type ADINTEN3_R = crate::R<bool, ADINTEN3_A>;
+impl ADINTEN3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ADINTEN3_A {
+        match self.bits {
+            false => ADINTEN3_A::DISABLE,
+            true => ADINTEN3_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ADINTEN2R::DISABLE
+        *self == ADINTEN3_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == ADINTEN2R::ENABLE
+        *self == ADINTEN3_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `ADINTEN3`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADINTEN3R {
+#[doc = "Write proxy for field `ADINTEN3`"]
+pub struct ADINTEN3_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ADINTEN3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADINTEN3_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Completion of a conversion on ADC channel 3 will not generate an interrupt."]
-    DISABLE,
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ADINTEN3_A::DISABLE)
+    }
     #[doc = "Completion of a conversion on ADC channel 3 will generate an interrupt."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ADINTEN3_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Interrupt enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ADINTEN4_A {
+    #[doc = "0: Completion of a conversion on ADC channel 4 will not generate an interrupt."]
+    DISABLE,
+    #[doc = "1: Completion of a conversion on ADC channel 4 will generate an interrupt."]
     ENABLE,
 }
-impl ADINTEN3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ADINTEN3R::DISABLE => false,
-            ADINTEN3R::ENABLE => true,
+impl From<ADINTEN4_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADINTEN4_A) -> Self {
+        match variant {
+            ADINTEN4_A::DISABLE => false,
+            ADINTEN4_A::ENABLE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ADINTEN3R {
-        match value {
-            false => ADINTEN3R::DISABLE,
-            true => ADINTEN3R::ENABLE,
+}
+#[doc = "Reader of field `ADINTEN4`"]
+pub type ADINTEN4_R = crate::R<bool, ADINTEN4_A>;
+impl ADINTEN4_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ADINTEN4_A {
+        match self.bits {
+            false => ADINTEN4_A::DISABLE,
+            true => ADINTEN4_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ADINTEN3R::DISABLE
+        *self == ADINTEN4_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == ADINTEN3R::ENABLE
+        *self == ADINTEN4_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `ADINTEN4`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADINTEN4R {
+#[doc = "Write proxy for field `ADINTEN4`"]
+pub struct ADINTEN4_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ADINTEN4_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADINTEN4_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Completion of a conversion on ADC channel 4 will not generate an interrupt."]
-    DISABLE,
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ADINTEN4_A::DISABLE)
+    }
     #[doc = "Completion of a conversion on ADC channel 4 will generate an interrupt."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ADINTEN4_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Interrupt enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ADINTEN5_A {
+    #[doc = "0: Completion of a conversion on ADC channel 5 will not generate an interrupt."]
+    DISABLE,
+    #[doc = "1: Completion of a conversion on ADC channel 5 will generate an interrupt."]
     ENABLE,
 }
-impl ADINTEN4R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ADINTEN4R::DISABLE => false,
-            ADINTEN4R::ENABLE => true,
+impl From<ADINTEN5_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADINTEN5_A) -> Self {
+        match variant {
+            ADINTEN5_A::DISABLE => false,
+            ADINTEN5_A::ENABLE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ADINTEN4R {
-        match value {
-            false => ADINTEN4R::DISABLE,
-            true => ADINTEN4R::ENABLE,
+}
+#[doc = "Reader of field `ADINTEN5`"]
+pub type ADINTEN5_R = crate::R<bool, ADINTEN5_A>;
+impl ADINTEN5_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ADINTEN5_A {
+        match self.bits {
+            false => ADINTEN5_A::DISABLE,
+            true => ADINTEN5_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ADINTEN4R::DISABLE
+        *self == ADINTEN5_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == ADINTEN4R::ENABLE
+        *self == ADINTEN5_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `ADINTEN5`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADINTEN5R {
+#[doc = "Write proxy for field `ADINTEN5`"]
+pub struct ADINTEN5_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ADINTEN5_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADINTEN5_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Completion of a conversion on ADC channel 5 will not generate an interrupt."]
-    DISABLE,
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ADINTEN5_A::DISABLE)
+    }
     #[doc = "Completion of a conversion on ADC channel 5 will generate an interrupt."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ADINTEN5_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "Interrupt enable\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ADINTEN6_A {
+    #[doc = "0: Completion of a conversion on ADC channel 6 will not generate an interrupt."]
+    DISABLE,
+    #[doc = "1: Completion of a conversion on ADC channel 6 will generate an interrupt."]
     ENABLE,
 }
-impl ADINTEN5R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ADINTEN5R::DISABLE => false,
-            ADINTEN5R::ENABLE => true,
+impl From<ADINTEN6_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADINTEN6_A) -> Self {
+        match variant {
+            ADINTEN6_A::DISABLE => false,
+            ADINTEN6_A::ENABLE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ADINTEN5R {
-        match value {
-            false => ADINTEN5R::DISABLE,
-            true => ADINTEN5R::ENABLE,
+}
+#[doc = "Reader of field `ADINTEN6`"]
+pub type ADINTEN6_R = crate::R<bool, ADINTEN6_A>;
+impl ADINTEN6_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ADINTEN6_A {
+        match self.bits {
+            false => ADINTEN6_A::DISABLE,
+            true => ADINTEN6_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ADINTEN5R::DISABLE
+        *self == ADINTEN6_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == ADINTEN5R::ENABLE
+        *self == ADINTEN6_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `ADINTEN6`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADINTEN6R {
+#[doc = "Write proxy for field `ADINTEN6`"]
+pub struct ADINTEN6_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ADINTEN6_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADINTEN6_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Completion of a conversion on ADC channel 6 will not generate an interrupt."]
-    DISABLE,
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ADINTEN6_A::DISABLE)
+    }
     #[doc = "Completion of a conversion on ADC channel 6 will generate an interrupt."]
-    ENABLE,
-}
-impl ADINTEN6R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ADINTEN6_A::ENABLE)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ADINTEN6R::DISABLE => false,
-            ADINTEN6R::ENABLE => true,
-        }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ADINTEN6R {
-        match value {
-            false => ADINTEN6R::DISABLE,
-            true => ADINTEN6R::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == ADINTEN6R::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == ADINTEN6R::ENABLE
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w
     }
 }
-#[doc = "Possible values of the field `ADINTEN7`"]
+#[doc = "Interrupt enable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADINTEN7R {
-    #[doc = "Completion of a conversion on ADC channel 7 will not generate an interrupt."]
+pub enum ADINTEN7_A {
+    #[doc = "0: Completion of a conversion on ADC channel 7 will not generate an interrupt."]
     DISABLE,
-    #[doc = "Completion of a conversion on ADC channel 7 will generate an interrupt."]
+    #[doc = "1: Completion of a conversion on ADC channel 7 will generate an interrupt."]
     ENABLE,
 }
-impl ADINTEN7R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ADINTEN7R::DISABLE => false,
-            ADINTEN7R::ENABLE => true,
+impl From<ADINTEN7_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADINTEN7_A) -> Self {
+        match variant {
+            ADINTEN7_A::DISABLE => false,
+            ADINTEN7_A::ENABLE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ADINTEN7R {
-        match value {
-            false => ADINTEN7R::DISABLE,
-            true => ADINTEN7R::ENABLE,
+}
+#[doc = "Reader of field `ADINTEN7`"]
+pub type ADINTEN7_R = crate::R<bool, ADINTEN7_A>;
+impl ADINTEN7_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ADINTEN7_A {
+        match self.bits {
+            false => ADINTEN7_A::DISABLE,
+            true => ADINTEN7_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ADINTEN7R::DISABLE
+        *self == ADINTEN7_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == ADINTEN7R::ENABLE
+        *self == ADINTEN7_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `ADGINTEN`"]
+#[doc = "Write proxy for field `ADINTEN7`"]
+pub struct ADINTEN7_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ADINTEN7_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADINTEN7_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Completion of a conversion on ADC channel 7 will not generate an interrupt."]
+    #[inline(always)]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(ADINTEN7_A::DISABLE)
+    }
+    #[doc = "Completion of a conversion on ADC channel 7 will generate an interrupt."]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(ADINTEN7_A::ENABLE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w
+    }
+}
+#[doc = "Interrupt enable\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ADGINTENR {
-    #[doc = "Only the individual ADC channels enabled by ADINTEN7:0 will generate interrupts."]
+pub enum ADGINTEN_A {
+    #[doc = "0: Only the individual ADC channels enabled by ADINTEN7:0 will generate interrupts."]
     CHANNELS,
-    #[doc = "The global DONE flag in ADDR is enabled to generate an interrupt in addition to any individual ADC channels that are enabled to generate interrupts."]
+    #[doc = "1: The global DONE flag in ADDR is enabled to generate an interrupt in addition to any individual ADC channels that are enabled to generate interrupts."]
     GLOBAL,
 }
-impl ADGINTENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ADGINTENR::CHANNELS => false,
-            ADGINTENR::GLOBAL => true,
+impl From<ADGINTEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: ADGINTEN_A) -> Self {
+        match variant {
+            ADGINTEN_A::CHANNELS => false,
+            ADGINTEN_A::GLOBAL => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ADGINTENR {
-        match value {
-            false => ADGINTENR::CHANNELS,
-            true => ADGINTENR::GLOBAL,
+}
+#[doc = "Reader of field `ADGINTEN`"]
+pub type ADGINTEN_R = crate::R<bool, ADGINTEN_A>;
+impl ADGINTEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ADGINTEN_A {
+        match self.bits {
+            false => ADGINTEN_A::CHANNELS,
+            true => ADGINTEN_A::GLOBAL,
         }
     }
     #[doc = "Checks if the value of the field is `CHANNELS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_channels(&self) -> bool {
-        *self == ADGINTENR::CHANNELS
+        *self == ADGINTEN_A::CHANNELS
     }
     #[doc = "Checks if the value of the field is `GLOBAL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_global(&self) -> bool {
-        *self == ADGINTENR::GLOBAL
+        *self == ADGINTEN_A::GLOBAL
     }
 }
-#[doc = "Values that can be written to the field `ADINTEN0`"]
-pub enum ADINTEN0W {
-    #[doc = "Completion of a conversion on ADC channel 0 will not generate an interrupt."]
-    DISABLE,
-    #[doc = "Completion of a conversion on ADC channel 0 will generate an interrupt."]
-    ENABLE,
-}
-impl ADINTEN0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ADINTEN0W::DISABLE => false,
-            ADINTEN0W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADINTEN0W<'a> {
+#[doc = "Write proxy for field `ADGINTEN`"]
+pub struct ADGINTEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ADINTEN0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADINTEN0W) -> &'a mut W {
+impl<'a> ADGINTEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ADGINTEN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Completion of a conversion on ADC channel 0 will not generate an interrupt."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ADINTEN0W::DISABLE)
-    }
-    #[doc = "Completion of a conversion on ADC channel 0 will generate an interrupt."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ADINTEN0W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ADINTEN1`"]
-pub enum ADINTEN1W {
-    #[doc = "Completion of a conversion on ADC channel 1 will not generate an interrupt."]
-    DISABLE,
-    #[doc = "Completion of a conversion on ADC channel 1 will generate an interrupt."]
-    ENABLE,
-}
-impl ADINTEN1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ADINTEN1W::DISABLE => false,
-            ADINTEN1W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADINTEN1W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADINTEN1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADINTEN1W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Completion of a conversion on ADC channel 1 will not generate an interrupt."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ADINTEN1W::DISABLE)
-    }
-    #[doc = "Completion of a conversion on ADC channel 1 will generate an interrupt."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ADINTEN1W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ADINTEN2`"]
-pub enum ADINTEN2W {
-    #[doc = "Completion of a conversion on ADC channel 2 will not generate an interrupt."]
-    DISABLE,
-    #[doc = "Completion of a conversion on ADC channel 2 will generate an interrupt."]
-    ENABLE,
-}
-impl ADINTEN2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ADINTEN2W::DISABLE => false,
-            ADINTEN2W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADINTEN2W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADINTEN2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADINTEN2W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Completion of a conversion on ADC channel 2 will not generate an interrupt."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ADINTEN2W::DISABLE)
-    }
-    #[doc = "Completion of a conversion on ADC channel 2 will generate an interrupt."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ADINTEN2W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ADINTEN3`"]
-pub enum ADINTEN3W {
-    #[doc = "Completion of a conversion on ADC channel 3 will not generate an interrupt."]
-    DISABLE,
-    #[doc = "Completion of a conversion on ADC channel 3 will generate an interrupt."]
-    ENABLE,
-}
-impl ADINTEN3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ADINTEN3W::DISABLE => false,
-            ADINTEN3W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADINTEN3W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADINTEN3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADINTEN3W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Completion of a conversion on ADC channel 3 will not generate an interrupt."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ADINTEN3W::DISABLE)
-    }
-    #[doc = "Completion of a conversion on ADC channel 3 will generate an interrupt."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ADINTEN3W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ADINTEN4`"]
-pub enum ADINTEN4W {
-    #[doc = "Completion of a conversion on ADC channel 4 will not generate an interrupt."]
-    DISABLE,
-    #[doc = "Completion of a conversion on ADC channel 4 will generate an interrupt."]
-    ENABLE,
-}
-impl ADINTEN4W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ADINTEN4W::DISABLE => false,
-            ADINTEN4W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADINTEN4W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADINTEN4W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADINTEN4W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Completion of a conversion on ADC channel 4 will not generate an interrupt."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ADINTEN4W::DISABLE)
-    }
-    #[doc = "Completion of a conversion on ADC channel 4 will generate an interrupt."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ADINTEN4W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ADINTEN5`"]
-pub enum ADINTEN5W {
-    #[doc = "Completion of a conversion on ADC channel 5 will not generate an interrupt."]
-    DISABLE,
-    #[doc = "Completion of a conversion on ADC channel 5 will generate an interrupt."]
-    ENABLE,
-}
-impl ADINTEN5W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ADINTEN5W::DISABLE => false,
-            ADINTEN5W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADINTEN5W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADINTEN5W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADINTEN5W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Completion of a conversion on ADC channel 5 will not generate an interrupt."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ADINTEN5W::DISABLE)
-    }
-    #[doc = "Completion of a conversion on ADC channel 5 will generate an interrupt."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ADINTEN5W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ADINTEN6`"]
-pub enum ADINTEN6W {
-    #[doc = "Completion of a conversion on ADC channel 6 will not generate an interrupt."]
-    DISABLE,
-    #[doc = "Completion of a conversion on ADC channel 6 will generate an interrupt."]
-    ENABLE,
-}
-impl ADINTEN6W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ADINTEN6W::DISABLE => false,
-            ADINTEN6W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADINTEN6W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADINTEN6W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADINTEN6W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Completion of a conversion on ADC channel 6 will not generate an interrupt."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ADINTEN6W::DISABLE)
-    }
-    #[doc = "Completion of a conversion on ADC channel 6 will generate an interrupt."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ADINTEN6W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ADINTEN7`"]
-pub enum ADINTEN7W {
-    #[doc = "Completion of a conversion on ADC channel 7 will not generate an interrupt."]
-    DISABLE,
-    #[doc = "Completion of a conversion on ADC channel 7 will generate an interrupt."]
-    ENABLE,
-}
-impl ADINTEN7W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ADINTEN7W::DISABLE => false,
-            ADINTEN7W::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADINTEN7W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADINTEN7W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADINTEN7W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Completion of a conversion on ADC channel 7 will not generate an interrupt."]
-    #[inline]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(ADINTEN7W::DISABLE)
-    }
-    #[doc = "Completion of a conversion on ADC channel 7 will generate an interrupt."]
-    #[inline]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(ADINTEN7W::ENABLE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ADGINTEN`"]
-pub enum ADGINTENW {
-    #[doc = "Only the individual ADC channels enabled by ADINTEN7:0 will generate interrupts."]
-    CHANNELS,
-    #[doc = "The global DONE flag in ADDR is enabled to generate an interrupt in addition to any individual ADC channels that are enabled to generate interrupts."]
-    GLOBAL,
-}
-impl ADGINTENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ADGINTENW::CHANNELS => false,
-            ADGINTENW::GLOBAL => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ADGINTENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ADGINTENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ADGINTENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Only the individual ADC channels enabled by ADINTEN7:0 will generate interrupts."]
-    #[inline]
+    #[inline(always)]
     pub fn channels(self) -> &'a mut W {
-        self.variant(ADGINTENW::CHANNELS)
+        self.variant(ADGINTEN_A::CHANNELS)
     }
     #[doc = "The global DONE flag in ADDR is enabled to generate an interrupt in addition to any individual ADC channels that are enabled to generate interrupts."]
-    #[inline]
+    #[inline(always)]
     pub fn global(self) -> &'a mut W {
-        self.variant(ADGINTENW::GLOBAL)
+        self.variant(ADGINTEN_A::GLOBAL)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Interrupt enable"]
-    #[inline]
-    pub fn adinten0(&self) -> ADINTEN0R {
-        ADINTEN0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn adinten0(&self) -> ADINTEN0_R {
+        ADINTEN0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Interrupt enable"]
-    #[inline]
-    pub fn adinten1(&self) -> ADINTEN1R {
-        ADINTEN1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn adinten1(&self) -> ADINTEN1_R {
+        ADINTEN1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Interrupt enable"]
-    #[inline]
-    pub fn adinten2(&self) -> ADINTEN2R {
-        ADINTEN2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn adinten2(&self) -> ADINTEN2_R {
+        ADINTEN2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Interrupt enable"]
-    #[inline]
-    pub fn adinten3(&self) -> ADINTEN3R {
-        ADINTEN3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn adinten3(&self) -> ADINTEN3_R {
+        ADINTEN3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Interrupt enable"]
-    #[inline]
-    pub fn adinten4(&self) -> ADINTEN4R {
-        ADINTEN4R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn adinten4(&self) -> ADINTEN4_R {
+        ADINTEN4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Interrupt enable"]
-    #[inline]
-    pub fn adinten5(&self) -> ADINTEN5R {
-        ADINTEN5R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn adinten5(&self) -> ADINTEN5_R {
+        ADINTEN5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Interrupt enable"]
-    #[inline]
-    pub fn adinten6(&self) -> ADINTEN6R {
-        ADINTEN6R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn adinten6(&self) -> ADINTEN6_R {
+        ADINTEN6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Interrupt enable"]
-    #[inline]
-    pub fn adinten7(&self) -> ADINTEN7R {
-        ADINTEN7R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn adinten7(&self) -> ADINTEN7_R {
+        ADINTEN7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Interrupt enable"]
-    #[inline]
-    pub fn adginten(&self) -> ADGINTENR {
-        ADGINTENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn adginten(&self) -> ADGINTEN_R {
+        ADGINTEN_R::new(((self.bits >> 8) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 256 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Interrupt enable"]
-    #[inline]
-    pub fn adinten0(&mut self) -> _ADINTEN0W {
-        _ADINTEN0W { w: self }
+    #[inline(always)]
+    pub fn adinten0(&mut self) -> ADINTEN0_W {
+        ADINTEN0_W { w: self }
     }
     #[doc = "Bit 1 - Interrupt enable"]
-    #[inline]
-    pub fn adinten1(&mut self) -> _ADINTEN1W {
-        _ADINTEN1W { w: self }
+    #[inline(always)]
+    pub fn adinten1(&mut self) -> ADINTEN1_W {
+        ADINTEN1_W { w: self }
     }
     #[doc = "Bit 2 - Interrupt enable"]
-    #[inline]
-    pub fn adinten2(&mut self) -> _ADINTEN2W {
-        _ADINTEN2W { w: self }
+    #[inline(always)]
+    pub fn adinten2(&mut self) -> ADINTEN2_W {
+        ADINTEN2_W { w: self }
     }
     #[doc = "Bit 3 - Interrupt enable"]
-    #[inline]
-    pub fn adinten3(&mut self) -> _ADINTEN3W {
-        _ADINTEN3W { w: self }
+    #[inline(always)]
+    pub fn adinten3(&mut self) -> ADINTEN3_W {
+        ADINTEN3_W { w: self }
     }
     #[doc = "Bit 4 - Interrupt enable"]
-    #[inline]
-    pub fn adinten4(&mut self) -> _ADINTEN4W {
-        _ADINTEN4W { w: self }
+    #[inline(always)]
+    pub fn adinten4(&mut self) -> ADINTEN4_W {
+        ADINTEN4_W { w: self }
     }
     #[doc = "Bit 5 - Interrupt enable"]
-    #[inline]
-    pub fn adinten5(&mut self) -> _ADINTEN5W {
-        _ADINTEN5W { w: self }
+    #[inline(always)]
+    pub fn adinten5(&mut self) -> ADINTEN5_W {
+        ADINTEN5_W { w: self }
     }
     #[doc = "Bit 6 - Interrupt enable"]
-    #[inline]
-    pub fn adinten6(&mut self) -> _ADINTEN6W {
-        _ADINTEN6W { w: self }
+    #[inline(always)]
+    pub fn adinten6(&mut self) -> ADINTEN6_W {
+        ADINTEN6_W { w: self }
     }
     #[doc = "Bit 7 - Interrupt enable"]
-    #[inline]
-    pub fn adinten7(&mut self) -> _ADINTEN7W {
-        _ADINTEN7W { w: self }
+    #[inline(always)]
+    pub fn adinten7(&mut self) -> ADINTEN7_W {
+        ADINTEN7_W { w: self }
     }
     #[doc = "Bit 8 - Interrupt enable"]
-    #[inline]
-    pub fn adginten(&mut self) -> _ADGINTENW {
-        _ADGINTENW { w: self }
+    #[inline(always)]
+    pub fn adginten(&mut self) -> ADGINTEN_W {
+        ADGINTEN_W { w: self }
     }
 }

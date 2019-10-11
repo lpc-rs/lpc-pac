@@ -1,303 +1,201 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CTCR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CTCR"]
+pub type R = crate::R<u32, super::CTCR>;
+#[doc = "Writer for register CTCR"]
+pub type W = crate::W<u32, super::CTCR>;
+#[doc = "Register CTCR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CTCR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CTMODE`"]
+#[doc = "Counter/Timer Mode This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). Timer Mode: the TC is incremented when the Prescale Counter matches the Prescale Register.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CTMODER {
-    #[doc = "Timer Mode: every rising PCLK edge"]
+pub enum CTMODE_A {
+    #[doc = "0: Timer Mode: every rising PCLK edge"]
     TIMER_MODE_EVERY_RI,
-    #[doc = "Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2."]
+    #[doc = "1: Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2."]
     RISING,
-    #[doc = "Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2."]
+    #[doc = "2: Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2."]
     FALLING,
-    #[doc = "Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2."]
+    #[doc = "3: Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2."]
     DUALEDGE,
 }
-impl CTMODER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            CTMODER::TIMER_MODE_EVERY_RI => 0,
-            CTMODER::RISING => 1,
-            CTMODER::FALLING => 2,
-            CTMODER::DUALEDGE => 3,
+impl From<CTMODE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CTMODE_A) -> Self {
+        match variant {
+            CTMODE_A::TIMER_MODE_EVERY_RI => 0,
+            CTMODE_A::RISING => 1,
+            CTMODE_A::FALLING => 2,
+            CTMODE_A::DUALEDGE => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> CTMODER {
-        match value {
-            0 => CTMODER::TIMER_MODE_EVERY_RI,
-            1 => CTMODER::RISING,
-            2 => CTMODER::FALLING,
-            3 => CTMODER::DUALEDGE,
+}
+#[doc = "Reader of field `CTMODE`"]
+pub type CTMODE_R = crate::R<u8, CTMODE_A>;
+impl CTMODE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CTMODE_A {
+        match self.bits {
+            0 => CTMODE_A::TIMER_MODE_EVERY_RI,
+            1 => CTMODE_A::RISING,
+            2 => CTMODE_A::FALLING,
+            3 => CTMODE_A::DUALEDGE,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `TIMER_MODE_EVERY_RI`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_timer_mode_every_ri(&self) -> bool {
-        *self == CTMODER::TIMER_MODE_EVERY_RI
+        *self == CTMODE_A::TIMER_MODE_EVERY_RI
     }
     #[doc = "Checks if the value of the field is `RISING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rising(&self) -> bool {
-        *self == CTMODER::RISING
+        *self == CTMODE_A::RISING
     }
     #[doc = "Checks if the value of the field is `FALLING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_falling(&self) -> bool {
-        *self == CTMODER::FALLING
+        *self == CTMODE_A::FALLING
     }
     #[doc = "Checks if the value of the field is `DUALEDGE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_dualedge(&self) -> bool {
-        *self == CTMODER::DUALEDGE
+        *self == CTMODE_A::DUALEDGE
     }
 }
-#[doc = "Possible values of the field `CINSEL`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CINSELR {
-    #[doc = "CAPn.0 for TIMERn"]
-    CAPN_0_FOR_TIMERN,
-    #[doc = "CAPn.1 for TIMERn"]
-    CAPN_1_FOR_TIMERN,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
-}
-impl CINSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            CINSELR::CAPN_0_FOR_TIMERN => 0,
-            CINSELR::CAPN_1_FOR_TIMERN => 1,
-            CINSELR::_Reserved(bits) => bits,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> CINSELR {
-        match value {
-            0 => CINSELR::CAPN_0_FOR_TIMERN,
-            1 => CINSELR::CAPN_1_FOR_TIMERN,
-            i => CINSELR::_Reserved(i),
-        }
-    }
-    #[doc = "Checks if the value of the field is `CAPN_0_FOR_TIMERN`"]
-    #[inline]
-    pub fn is_capn_0_for_timern(&self) -> bool {
-        *self == CINSELR::CAPN_0_FOR_TIMERN
-    }
-    #[doc = "Checks if the value of the field is `CAPN_1_FOR_TIMERN`"]
-    #[inline]
-    pub fn is_capn_1_for_timern(&self) -> bool {
-        *self == CINSELR::CAPN_1_FOR_TIMERN
-    }
-}
-#[doc = "Values that can be written to the field `CTMODE`"]
-pub enum CTMODEW {
-    #[doc = "Timer Mode: every rising PCLK edge"]
-    TIMER_MODE_EVERY_RI,
-    #[doc = "Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2."]
-    RISING,
-    #[doc = "Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2."]
-    FALLING,
-    #[doc = "Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2."]
-    DUALEDGE,
-}
-impl CTMODEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            CTMODEW::TIMER_MODE_EVERY_RI => 0,
-            CTMODEW::RISING => 1,
-            CTMODEW::FALLING => 2,
-            CTMODEW::DUALEDGE => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CTMODEW<'a> {
+#[doc = "Write proxy for field `CTMODE`"]
+pub struct CTMODE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CTMODEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CTMODEW) -> &'a mut W {
+impl<'a> CTMODE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CTMODE_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Timer Mode: every rising PCLK edge"]
-    #[inline]
+    #[inline(always)]
     pub fn timer_mode_every_ri(self) -> &'a mut W {
-        self.variant(CTMODEW::TIMER_MODE_EVERY_RI)
+        self.variant(CTMODE_A::TIMER_MODE_EVERY_RI)
     }
     #[doc = "Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2."]
-    #[inline]
+    #[inline(always)]
     pub fn rising(self) -> &'a mut W {
-        self.variant(CTMODEW::RISING)
+        self.variant(CTMODE_A::RISING)
     }
     #[doc = "Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2."]
-    #[inline]
+    #[inline(always)]
     pub fn falling(self) -> &'a mut W {
-        self.variant(CTMODEW::FALLING)
+        self.variant(CTMODE_A::FALLING)
     }
     #[doc = "Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2."]
-    #[inline]
+    #[inline(always)]
     pub fn dualedge(self) -> &'a mut W {
-        self.variant(CTMODEW::DUALEDGE)
+        self.variant(CTMODE_A::DUALEDGE)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CINSEL`"]
-pub enum CINSELW {
-    #[doc = "CAPn.0 for TIMERn"]
+#[doc = "Count Input Select When bits 1:0 in this register are not 00, these bits select which CAP pin is sampled for clocking. Note: If Counter mode is selected for a particular CAPn input in the TnCTCR, the 3 bits for that input in the Capture Control Register (TnCCR) must be programmed as 000. However, capture and/or interrupt can be selected for the other 3 CAPn inputs in the same timer.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CINSEL_A {
+    #[doc = "0: CAPn.0 for TIMERn"]
     CAPN_0_FOR_TIMERN,
-    #[doc = "CAPn.1 for TIMERn"]
+    #[doc = "1: CAPn.1 for TIMERn"]
     CAPN_1_FOR_TIMERN,
 }
-impl CINSELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            CINSELW::CAPN_0_FOR_TIMERN => 0,
-            CINSELW::CAPN_1_FOR_TIMERN => 1,
+impl From<CINSEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CINSEL_A) -> Self {
+        match variant {
+            CINSEL_A::CAPN_0_FOR_TIMERN => 0,
+            CINSEL_A::CAPN_1_FOR_TIMERN => 1,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CINSELW<'a> {
+#[doc = "Reader of field `CINSEL`"]
+pub type CINSEL_R = crate::R<u8, CINSEL_A>;
+impl CINSEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, CINSEL_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(CINSEL_A::CAPN_0_FOR_TIMERN),
+            1 => Val(CINSEL_A::CAPN_1_FOR_TIMERN),
+            i => Res(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `CAPN_0_FOR_TIMERN`"]
+    #[inline(always)]
+    pub fn is_capn_0_for_timern(&self) -> bool {
+        *self == CINSEL_A::CAPN_0_FOR_TIMERN
+    }
+    #[doc = "Checks if the value of the field is `CAPN_1_FOR_TIMERN`"]
+    #[inline(always)]
+    pub fn is_capn_1_for_timern(&self) -> bool {
+        *self == CINSEL_A::CAPN_1_FOR_TIMERN
+    }
+}
+#[doc = "Write proxy for field `CINSEL`"]
+pub struct CINSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CINSELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CINSELW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> CINSEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CINSEL_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "CAPn.0 for TIMERn"]
-    #[inline]
+    #[inline(always)]
     pub fn capn_0_for_timern(self) -> &'a mut W {
-        self.variant(CINSELW::CAPN_0_FOR_TIMERN)
+        self.variant(CINSEL_A::CAPN_0_FOR_TIMERN)
     }
     #[doc = "CAPn.1 for TIMERn"]
-    #[inline]
+    #[inline(always)]
     pub fn capn_1_for_timern(self) -> &'a mut W {
-        self.variant(CINSELW::CAPN_1_FOR_TIMERN)
+        self.variant(CINSEL_A::CAPN_1_FOR_TIMERN)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Counter/Timer Mode This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). Timer Mode: the TC is incremented when the Prescale Counter matches the Prescale Register."]
-    #[inline]
-    pub fn ctmode(&self) -> CTMODER {
-        CTMODER::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn ctmode(&self) -> CTMODE_R {
+        CTMODE_R::new((self.bits & 0x03) as u8)
     }
     #[doc = "Bits 2:3 - Count Input Select When bits 1:0 in this register are not 00, these bits select which CAP pin is sampled for clocking. Note: If Counter mode is selected for a particular CAPn input in the TnCTCR, the 3 bits for that input in the Capture Control Register (TnCCR) must be programmed as 000. However, capture and/or interrupt can be selected for the other 3 CAPn inputs in the same timer."]
-    #[inline]
-    pub fn cinsel(&self) -> CINSELR {
-        CINSELR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn cinsel(&self) -> CINSEL_R {
+        CINSEL_R::new(((self.bits >> 2) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Counter/Timer Mode This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). Timer Mode: the TC is incremented when the Prescale Counter matches the Prescale Register."]
-    #[inline]
-    pub fn ctmode(&mut self) -> _CTMODEW {
-        _CTMODEW { w: self }
+    #[inline(always)]
+    pub fn ctmode(&mut self) -> CTMODE_W {
+        CTMODE_W { w: self }
     }
     #[doc = "Bits 2:3 - Count Input Select When bits 1:0 in this register are not 00, these bits select which CAP pin is sampled for clocking. Note: If Counter mode is selected for a particular CAPn input in the TnCTCR, the 3 bits for that input in the Capture Control Register (TnCCR) must be programmed as 000. However, capture and/or interrupt can be selected for the other 3 CAPn inputs in the same timer."]
-    #[inline]
-    pub fn cinsel(&mut self) -> _CINSELW {
-        _CINSELW { w: self }
+    #[inline(always)]
+    pub fn cinsel(&mut self) -> CINSEL_W {
+        CINSEL_W { w: self }
     }
 }

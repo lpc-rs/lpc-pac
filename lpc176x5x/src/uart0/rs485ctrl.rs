@@ -1,659 +1,456 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::RS485CTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
+#[doc = "Reader of register RS485CTRL"]
+pub type R = crate::R<u32, super::RS485CTRL>;
+#[doc = "Writer for register RS485CTRL"]
+pub type W = crate::W<u32, super::RS485CTRL>;
+#[doc = "Register RS485CTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::RS485CTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
+}
+#[doc = "NMM enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum NMMEN_A {
+    #[doc = "0: RS-485/EIA-485 Normal Multidrop Mode (NMM) is disabled."]
+    DISABLED,
+    #[doc = "1: RS-485/EIA-485 Normal Multidrop Mode (NMM) is enabled. In this mode, an address is detected when a received byte has the parity bit = 1, generating a received data interrupt. See Section 18.6.16 RS-485/EIA-485 modes of operation."]
+    ENABLED,
+}
+impl From<NMMEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: NMMEN_A) -> Self {
+        match variant {
+            NMMEN_A::DISABLED => false,
+            NMMEN_A::ENABLED => true,
         }
     }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+}
+#[doc = "Reader of field `NMMEN`"]
+pub type NMMEN_R = crate::R<bool, NMMEN_A>;
+impl NMMEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> NMMEN_A {
+        match self.bits {
+            false => NMMEN_A::DISABLED,
+            true => NMMEN_A::ENABLED,
+        }
     }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == NMMEN_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == NMMEN_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `NMMEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum NMMENR {
+#[doc = "Write proxy for field `NMMEN`"]
+pub struct NMMEN_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> NMMEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: NMMEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "RS-485/EIA-485 Normal Multidrop Mode (NMM) is disabled."]
-    DISABLED,
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(NMMEN_A::DISABLED)
+    }
     #[doc = "RS-485/EIA-485 Normal Multidrop Mode (NMM) is enabled. In this mode, an address is detected when a received byte has the parity bit = 1, generating a received data interrupt. See Section 18.6.16 RS-485/EIA-485 modes of operation."]
-    ENABLED,
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(NMMEN_A::ENABLED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
 }
-impl NMMENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            NMMENR::DISABLED => false,
-            NMMENR::ENABLED => true,
+#[doc = "Receiver enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RXDIS_A {
+    #[doc = "0: The receiver is enabled."]
+    ENABLED,
+    #[doc = "1: The receiver is disabled."]
+    DISABLED,
+}
+impl From<RXDIS_A> for bool {
+    #[inline(always)]
+    fn from(variant: RXDIS_A) -> Self {
+        match variant {
+            RXDIS_A::ENABLED => false,
+            RXDIS_A::DISABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> NMMENR {
-        match value {
-            false => NMMENR::DISABLED,
-            true => NMMENR::ENABLED,
+}
+#[doc = "Reader of field `RXDIS`"]
+pub type RXDIS_R = crate::R<bool, RXDIS_A>;
+impl RXDIS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RXDIS_A {
+        match self.bits {
+            false => RXDIS_A::ENABLED,
+            true => RXDIS_A::DISABLED,
         }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == NMMENR::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == NMMENR::ENABLED
+        *self == RXDIS_A::ENABLED
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == RXDIS_A::DISABLED
     }
 }
-#[doc = "Possible values of the field `RXDIS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RXDISR {
+#[doc = "Write proxy for field `RXDIS`"]
+pub struct RXDIS_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> RXDIS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RXDIS_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "The receiver is enabled."]
-    ENABLED,
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(RXDIS_A::ENABLED)
+    }
     #[doc = "The receiver is disabled."]
-    DISABLED,
-}
-impl RXDISR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(RXDIS_A::DISABLED)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RXDISR::ENABLED => false,
-            RXDISR::DISABLED => true,
-        }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RXDISR {
-        match value {
-            false => RXDISR::ENABLED,
-            true => RXDISR::DISABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == RXDISR::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == RXDISR::DISABLED
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
     }
 }
-#[doc = "Possible values of the field `AADEN`"]
+#[doc = "AAD enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum AADENR {
-    #[doc = "Auto Address Detect (AAD) is disabled."]
+pub enum AADEN_A {
+    #[doc = "0: Auto Address Detect (AAD) is disabled."]
     DISABLED,
-    #[doc = "Auto Address Detect (AAD) is enabled."]
+    #[doc = "1: Auto Address Detect (AAD) is enabled."]
     ENABLED,
 }
-impl AADENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            AADENR::DISABLED => false,
-            AADENR::ENABLED => true,
+impl From<AADEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: AADEN_A) -> Self {
+        match variant {
+            AADEN_A::DISABLED => false,
+            AADEN_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> AADENR {
-        match value {
-            false => AADENR::DISABLED,
-            true => AADENR::ENABLED,
+}
+#[doc = "Reader of field `AADEN`"]
+pub type AADEN_R = crate::R<bool, AADEN_A>;
+impl AADEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> AADEN_A {
+        match self.bits {
+            false => AADEN_A::DISABLED,
+            true => AADEN_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == AADENR::DISABLED
+        *self == AADEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == AADENR::ENABLED
+        *self == AADEN_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `DCTRL`"]
+#[doc = "Write proxy for field `AADEN`"]
+pub struct AADEN_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> AADEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: AADEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Auto Address Detect (AAD) is disabled."]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(AADEN_A::DISABLED)
+    }
+    #[doc = "Auto Address Detect (AAD) is enabled."]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(AADEN_A::ENABLED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Direction control enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DCTRLR {
-    #[doc = "Disable Auto Direction Control."]
+pub enum DCTRL_A {
+    #[doc = "0: Disable Auto Direction Control."]
     DISABLE_AUTO_DIRECTI,
-    #[doc = "Enable Auto Direction Control."]
+    #[doc = "1: Enable Auto Direction Control."]
     ENABLE_AUTO_DIRECTIO,
 }
-impl DCTRLR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DCTRLR::DISABLE_AUTO_DIRECTI => false,
-            DCTRLR::ENABLE_AUTO_DIRECTIO => true,
+impl From<DCTRL_A> for bool {
+    #[inline(always)]
+    fn from(variant: DCTRL_A) -> Self {
+        match variant {
+            DCTRL_A::DISABLE_AUTO_DIRECTI => false,
+            DCTRL_A::ENABLE_AUTO_DIRECTIO => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DCTRLR {
-        match value {
-            false => DCTRLR::DISABLE_AUTO_DIRECTI,
-            true => DCTRLR::ENABLE_AUTO_DIRECTIO,
+}
+#[doc = "Reader of field `DCTRL`"]
+pub type DCTRL_R = crate::R<bool, DCTRL_A>;
+impl DCTRL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DCTRL_A {
+        match self.bits {
+            false => DCTRL_A::DISABLE_AUTO_DIRECTI,
+            true => DCTRL_A::ENABLE_AUTO_DIRECTIO,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_AUTO_DIRECTI`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_auto_directi(&self) -> bool {
-        *self == DCTRLR::DISABLE_AUTO_DIRECTI
+        *self == DCTRL_A::DISABLE_AUTO_DIRECTI
     }
     #[doc = "Checks if the value of the field is `ENABLE_AUTO_DIRECTIO`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_auto_directio(&self) -> bool {
-        *self == DCTRLR::ENABLE_AUTO_DIRECTIO
+        *self == DCTRL_A::ENABLE_AUTO_DIRECTIO
     }
 }
-#[doc = "Possible values of the field `OINV`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OINVR {
-    #[doc = "The direction control pin will be driven to logic 0 when the transmitter has data to be sent. It will be driven to logic 1 after the last bit of data has been transmitted."]
-    DIRLOW,
-    #[doc = "The direction control pin will be driven to logic 1 when the transmitter has data to be sent. It will be driven to logic 0 after the last bit of data has been transmitted."]
-    DIRHIGH,
+#[doc = "Write proxy for field `DCTRL`"]
+pub struct DCTRL_W<'a> {
+    w: &'a mut W,
 }
-impl OINVR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            OINVR::DIRLOW => false,
-            OINVR::DIRHIGH => true,
+impl<'a> DCTRL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DCTRL_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> OINVR {
-        match value {
-            false => OINVR::DIRLOW,
-            true => OINVR::DIRHIGH,
+    #[doc = "Disable Auto Direction Control."]
+    #[inline(always)]
+    pub fn disable_auto_directi(self) -> &'a mut W {
+        self.variant(DCTRL_A::DISABLE_AUTO_DIRECTI)
+    }
+    #[doc = "Enable Auto Direction Control."]
+    #[inline(always)]
+    pub fn enable_auto_directio(self) -> &'a mut W {
+        self.variant(DCTRL_A::ENABLE_AUTO_DIRECTIO)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Direction control pin polarity. This bit reverses the polarity of the direction control signal on the Un_OE pin.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum OINV_A {
+    #[doc = "0: The direction control pin will be driven to logic 0 when the transmitter has data to be sent. It will be driven to logic 1 after the last bit of data has been transmitted."]
+    DIRLOW,
+    #[doc = "1: The direction control pin will be driven to logic 1 when the transmitter has data to be sent. It will be driven to logic 0 after the last bit of data has been transmitted."]
+    DIRHIGH,
+}
+impl From<OINV_A> for bool {
+    #[inline(always)]
+    fn from(variant: OINV_A) -> Self {
+        match variant {
+            OINV_A::DIRLOW => false,
+            OINV_A::DIRHIGH => true,
+        }
+    }
+}
+#[doc = "Reader of field `OINV`"]
+pub type OINV_R = crate::R<bool, OINV_A>;
+impl OINV_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> OINV_A {
+        match self.bits {
+            false => OINV_A::DIRLOW,
+            true => OINV_A::DIRHIGH,
         }
     }
     #[doc = "Checks if the value of the field is `DIRLOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_dirlow(&self) -> bool {
-        *self == OINVR::DIRLOW
+        *self == OINV_A::DIRLOW
     }
     #[doc = "Checks if the value of the field is `DIRHIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_dirhigh(&self) -> bool {
-        *self == OINVR::DIRHIGH
+        *self == OINV_A::DIRHIGH
     }
 }
-#[doc = "Values that can be written to the field `NMMEN`"]
-pub enum NMMENW {
-    #[doc = "RS-485/EIA-485 Normal Multidrop Mode (NMM) is disabled."]
-    DISABLED,
-    #[doc = "RS-485/EIA-485 Normal Multidrop Mode (NMM) is enabled. In this mode, an address is detected when a received byte has the parity bit = 1, generating a received data interrupt. See Section 18.6.16 RS-485/EIA-485 modes of operation."]
-    ENABLED,
-}
-impl NMMENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            NMMENW::DISABLED => false,
-            NMMENW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _NMMENW<'a> {
+#[doc = "Write proxy for field `OINV`"]
+pub struct OINV_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _NMMENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: NMMENW) -> &'a mut W {
+impl<'a> OINV_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: OINV_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "RS-485/EIA-485 Normal Multidrop Mode (NMM) is disabled."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(NMMENW::DISABLED)
-    }
-    #[doc = "RS-485/EIA-485 Normal Multidrop Mode (NMM) is enabled. In this mode, an address is detected when a received byte has the parity bit = 1, generating a received data interrupt. See Section 18.6.16 RS-485/EIA-485 modes of operation."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(NMMENW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RXDIS`"]
-pub enum RXDISW {
-    #[doc = "The receiver is enabled."]
-    ENABLED,
-    #[doc = "The receiver is disabled."]
-    DISABLED,
-}
-impl RXDISW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RXDISW::ENABLED => false,
-            RXDISW::DISABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RXDISW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RXDISW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RXDISW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "The receiver is enabled."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(RXDISW::ENABLED)
-    }
-    #[doc = "The receiver is disabled."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(RXDISW::DISABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `AADEN`"]
-pub enum AADENW {
-    #[doc = "Auto Address Detect (AAD) is disabled."]
-    DISABLED,
-    #[doc = "Auto Address Detect (AAD) is enabled."]
-    ENABLED,
-}
-impl AADENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            AADENW::DISABLED => false,
-            AADENW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _AADENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _AADENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: AADENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Auto Address Detect (AAD) is disabled."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(AADENW::DISABLED)
-    }
-    #[doc = "Auto Address Detect (AAD) is enabled."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(AADENW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `DCTRL`"]
-pub enum DCTRLW {
-    #[doc = "Disable Auto Direction Control."]
-    DISABLE_AUTO_DIRECTI,
-    #[doc = "Enable Auto Direction Control."]
-    ENABLE_AUTO_DIRECTIO,
-}
-impl DCTRLW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            DCTRLW::DISABLE_AUTO_DIRECTI => false,
-            DCTRLW::ENABLE_AUTO_DIRECTIO => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DCTRLW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _DCTRLW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DCTRLW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable Auto Direction Control."]
-    #[inline]
-    pub fn disable_auto_directi(self) -> &'a mut W {
-        self.variant(DCTRLW::DISABLE_AUTO_DIRECTI)
-    }
-    #[doc = "Enable Auto Direction Control."]
-    #[inline]
-    pub fn enable_auto_directio(self) -> &'a mut W {
-        self.variant(DCTRLW::ENABLE_AUTO_DIRECTIO)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `OINV`"]
-pub enum OINVW {
-    #[doc = "The direction control pin will be driven to logic 0 when the transmitter has data to be sent. It will be driven to logic 1 after the last bit of data has been transmitted."]
-    DIRLOW,
-    #[doc = "The direction control pin will be driven to logic 1 when the transmitter has data to be sent. It will be driven to logic 0 after the last bit of data has been transmitted."]
-    DIRHIGH,
-}
-impl OINVW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            OINVW::DIRLOW => false,
-            OINVW::DIRHIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _OINVW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _OINVW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: OINVW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "The direction control pin will be driven to logic 0 when the transmitter has data to be sent. It will be driven to logic 1 after the last bit of data has been transmitted."]
-    #[inline]
+    #[inline(always)]
     pub fn dirlow(self) -> &'a mut W {
-        self.variant(OINVW::DIRLOW)
+        self.variant(OINV_A::DIRLOW)
     }
     #[doc = "The direction control pin will be driven to logic 1 when the transmitter has data to be sent. It will be driven to logic 0 after the last bit of data has been transmitted."]
-    #[inline]
+    #[inline(always)]
     pub fn dirhigh(self) -> &'a mut W {
-        self.variant(OINVW::DIRHIGH)
+        self.variant(OINV_A::DIRHIGH)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - NMM enable."]
-    #[inline]
-    pub fn nmmen(&self) -> NMMENR {
-        NMMENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn nmmen(&self) -> NMMEN_R {
+        NMMEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Receiver enable."]
-    #[inline]
-    pub fn rxdis(&self) -> RXDISR {
-        RXDISR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rxdis(&self) -> RXDIS_R {
+        RXDIS_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - AAD enable."]
-    #[inline]
-    pub fn aaden(&self) -> AADENR {
-        AADENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn aaden(&self) -> AADEN_R {
+        AADEN_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Direction control enable."]
-    #[inline]
-    pub fn dctrl(&self) -> DCTRLR {
-        DCTRLR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn dctrl(&self) -> DCTRL_R {
+        DCTRL_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Direction control pin polarity. This bit reverses the polarity of the direction control signal on the Un_OE pin."]
-    #[inline]
-    pub fn oinv(&self) -> OINVR {
-        OINVR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn oinv(&self) -> OINV_R {
+        OINV_R::new(((self.bits >> 5) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - NMM enable."]
-    #[inline]
-    pub fn nmmen(&mut self) -> _NMMENW {
-        _NMMENW { w: self }
+    #[inline(always)]
+    pub fn nmmen(&mut self) -> NMMEN_W {
+        NMMEN_W { w: self }
     }
     #[doc = "Bit 1 - Receiver enable."]
-    #[inline]
-    pub fn rxdis(&mut self) -> _RXDISW {
-        _RXDISW { w: self }
+    #[inline(always)]
+    pub fn rxdis(&mut self) -> RXDIS_W {
+        RXDIS_W { w: self }
     }
     #[doc = "Bit 2 - AAD enable."]
-    #[inline]
-    pub fn aaden(&mut self) -> _AADENW {
-        _AADENW { w: self }
+    #[inline(always)]
+    pub fn aaden(&mut self) -> AADEN_W {
+        AADEN_W { w: self }
     }
     #[doc = "Bit 4 - Direction control enable."]
-    #[inline]
-    pub fn dctrl(&mut self) -> _DCTRLW {
-        _DCTRLW { w: self }
+    #[inline(always)]
+    pub fn dctrl(&mut self) -> DCTRL_W {
+        DCTRL_W { w: self }
     }
     #[doc = "Bit 5 - Direction control pin polarity. This bit reverses the polarity of the direction control signal on the Un_OE pin."]
-    #[inline]
-    pub fn oinv(&mut self) -> _OINVW {
-        _OINVW { w: self }
+    #[inline(always)]
+    pub fn oinv(&mut self) -> OINV_W {
+        OINV_W { w: self }
     }
 }

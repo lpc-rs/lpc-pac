@@ -1,925 +1,876 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SYSERRINTSET {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register SYSERRINTSET"]
+pub type W = crate::W<u32, super::SYSERRINTSET>;
+#[doc = "Register SYSERRINTSET `reset()`'s with value 0"]
+impl crate::ResetValue for super::SYSERRINTSET {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET0W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET0`"]
+pub struct EPERRINTSET0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET0W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET0_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET1W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET1`"]
+pub struct EPERRINTSET1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET2W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET2`"]
+pub struct EPERRINTSET2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET3W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET3`"]
+pub struct EPERRINTSET3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET3W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET4W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET4`"]
+pub struct EPERRINTSET4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET4W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET4_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET5W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET5`"]
+pub struct EPERRINTSET5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET5W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET5_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET6W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET6`"]
+pub struct EPERRINTSET6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET6W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET6_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET7W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET7`"]
+pub struct EPERRINTSET7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET7W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET7_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET8W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET8`"]
+pub struct EPERRINTSET8_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET8W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET8_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET9W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET9`"]
+pub struct EPERRINTSET9_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET9W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET9_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET10W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET10`"]
+pub struct EPERRINTSET10_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET10W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET10_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET11W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET11`"]
+pub struct EPERRINTSET11_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET11W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET11_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET12W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET12`"]
+pub struct EPERRINTSET12_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET12W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET12_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET13W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET13`"]
+pub struct EPERRINTSET13_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET13W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET13_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET14W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET14`"]
+pub struct EPERRINTSET14_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET14W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET14_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET15W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET15`"]
+pub struct EPERRINTSET15_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET15W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET15_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET16W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET16`"]
+pub struct EPERRINTSET16_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET16W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET16_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET17W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET17`"]
+pub struct EPERRINTSET17_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET17W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET17_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET18W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET18`"]
+pub struct EPERRINTSET18_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET18W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET18_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET19W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET19`"]
+pub struct EPERRINTSET19_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET19W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET19_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET20W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET20`"]
+pub struct EPERRINTSET20_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET20W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET20_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET21W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET21`"]
+pub struct EPERRINTSET21_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET21W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET21_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 21;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET22W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET22`"]
+pub struct EPERRINTSET22_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET22W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET22_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 22;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET23W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET23`"]
+pub struct EPERRINTSET23_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET23W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET23_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET24W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET24`"]
+pub struct EPERRINTSET24_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET24W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET24_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET25W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET25`"]
+pub struct EPERRINTSET25_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET25W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET25_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 25;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET26W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET26`"]
+pub struct EPERRINTSET26_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET26W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET26_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 26;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET27W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET27`"]
+pub struct EPERRINTSET27_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET27W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET27_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 27;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET28W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET28`"]
+pub struct EPERRINTSET28_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET28W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET28_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET29W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET29`"]
+pub struct EPERRINTSET29_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET29W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET29_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 29;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET30W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET30`"]
+pub struct EPERRINTSET30_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET30W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET30_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 30;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPERRINTSET31W<'a> {
+#[doc = "Write proxy for field `EPERRINTSET31`"]
+pub struct EPERRINTSET31_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPERRINTSET31W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> EPERRINTSET31_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset0(&mut self) -> _EPERRINTSET0W {
-        _EPERRINTSET0W { w: self }
+    #[inline(always)]
+    pub fn eperrintset0(&mut self) -> EPERRINTSET0_W {
+        EPERRINTSET0_W { w: self }
     }
     #[doc = "Bit 1 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset1(&mut self) -> _EPERRINTSET1W {
-        _EPERRINTSET1W { w: self }
+    #[inline(always)]
+    pub fn eperrintset1(&mut self) -> EPERRINTSET1_W {
+        EPERRINTSET1_W { w: self }
     }
     #[doc = "Bit 2 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset2(&mut self) -> _EPERRINTSET2W {
-        _EPERRINTSET2W { w: self }
+    #[inline(always)]
+    pub fn eperrintset2(&mut self) -> EPERRINTSET2_W {
+        EPERRINTSET2_W { w: self }
     }
     #[doc = "Bit 3 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset3(&mut self) -> _EPERRINTSET3W {
-        _EPERRINTSET3W { w: self }
+    #[inline(always)]
+    pub fn eperrintset3(&mut self) -> EPERRINTSET3_W {
+        EPERRINTSET3_W { w: self }
     }
     #[doc = "Bit 4 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset4(&mut self) -> _EPERRINTSET4W {
-        _EPERRINTSET4W { w: self }
+    #[inline(always)]
+    pub fn eperrintset4(&mut self) -> EPERRINTSET4_W {
+        EPERRINTSET4_W { w: self }
     }
     #[doc = "Bit 5 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset5(&mut self) -> _EPERRINTSET5W {
-        _EPERRINTSET5W { w: self }
+    #[inline(always)]
+    pub fn eperrintset5(&mut self) -> EPERRINTSET5_W {
+        EPERRINTSET5_W { w: self }
     }
     #[doc = "Bit 6 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset6(&mut self) -> _EPERRINTSET6W {
-        _EPERRINTSET6W { w: self }
+    #[inline(always)]
+    pub fn eperrintset6(&mut self) -> EPERRINTSET6_W {
+        EPERRINTSET6_W { w: self }
     }
     #[doc = "Bit 7 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset7(&mut self) -> _EPERRINTSET7W {
-        _EPERRINTSET7W { w: self }
+    #[inline(always)]
+    pub fn eperrintset7(&mut self) -> EPERRINTSET7_W {
+        EPERRINTSET7_W { w: self }
     }
     #[doc = "Bit 8 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset8(&mut self) -> _EPERRINTSET8W {
-        _EPERRINTSET8W { w: self }
+    #[inline(always)]
+    pub fn eperrintset8(&mut self) -> EPERRINTSET8_W {
+        EPERRINTSET8_W { w: self }
     }
     #[doc = "Bit 9 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset9(&mut self) -> _EPERRINTSET9W {
-        _EPERRINTSET9W { w: self }
+    #[inline(always)]
+    pub fn eperrintset9(&mut self) -> EPERRINTSET9_W {
+        EPERRINTSET9_W { w: self }
     }
     #[doc = "Bit 10 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset10(&mut self) -> _EPERRINTSET10W {
-        _EPERRINTSET10W { w: self }
+    #[inline(always)]
+    pub fn eperrintset10(&mut self) -> EPERRINTSET10_W {
+        EPERRINTSET10_W { w: self }
     }
     #[doc = "Bit 11 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset11(&mut self) -> _EPERRINTSET11W {
-        _EPERRINTSET11W { w: self }
+    #[inline(always)]
+    pub fn eperrintset11(&mut self) -> EPERRINTSET11_W {
+        EPERRINTSET11_W { w: self }
     }
     #[doc = "Bit 12 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset12(&mut self) -> _EPERRINTSET12W {
-        _EPERRINTSET12W { w: self }
+    #[inline(always)]
+    pub fn eperrintset12(&mut self) -> EPERRINTSET12_W {
+        EPERRINTSET12_W { w: self }
     }
     #[doc = "Bit 13 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset13(&mut self) -> _EPERRINTSET13W {
-        _EPERRINTSET13W { w: self }
+    #[inline(always)]
+    pub fn eperrintset13(&mut self) -> EPERRINTSET13_W {
+        EPERRINTSET13_W { w: self }
     }
     #[doc = "Bit 14 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset14(&mut self) -> _EPERRINTSET14W {
-        _EPERRINTSET14W { w: self }
+    #[inline(always)]
+    pub fn eperrintset14(&mut self) -> EPERRINTSET14_W {
+        EPERRINTSET14_W { w: self }
     }
     #[doc = "Bit 15 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset15(&mut self) -> _EPERRINTSET15W {
-        _EPERRINTSET15W { w: self }
+    #[inline(always)]
+    pub fn eperrintset15(&mut self) -> EPERRINTSET15_W {
+        EPERRINTSET15_W { w: self }
     }
     #[doc = "Bit 16 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset16(&mut self) -> _EPERRINTSET16W {
-        _EPERRINTSET16W { w: self }
+    #[inline(always)]
+    pub fn eperrintset16(&mut self) -> EPERRINTSET16_W {
+        EPERRINTSET16_W { w: self }
     }
     #[doc = "Bit 17 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset17(&mut self) -> _EPERRINTSET17W {
-        _EPERRINTSET17W { w: self }
+    #[inline(always)]
+    pub fn eperrintset17(&mut self) -> EPERRINTSET17_W {
+        EPERRINTSET17_W { w: self }
     }
     #[doc = "Bit 18 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset18(&mut self) -> _EPERRINTSET18W {
-        _EPERRINTSET18W { w: self }
+    #[inline(always)]
+    pub fn eperrintset18(&mut self) -> EPERRINTSET18_W {
+        EPERRINTSET18_W { w: self }
     }
     #[doc = "Bit 19 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset19(&mut self) -> _EPERRINTSET19W {
-        _EPERRINTSET19W { w: self }
+    #[inline(always)]
+    pub fn eperrintset19(&mut self) -> EPERRINTSET19_W {
+        EPERRINTSET19_W { w: self }
     }
     #[doc = "Bit 20 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset20(&mut self) -> _EPERRINTSET20W {
-        _EPERRINTSET20W { w: self }
+    #[inline(always)]
+    pub fn eperrintset20(&mut self) -> EPERRINTSET20_W {
+        EPERRINTSET20_W { w: self }
     }
     #[doc = "Bit 21 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset21(&mut self) -> _EPERRINTSET21W {
-        _EPERRINTSET21W { w: self }
+    #[inline(always)]
+    pub fn eperrintset21(&mut self) -> EPERRINTSET21_W {
+        EPERRINTSET21_W { w: self }
     }
     #[doc = "Bit 22 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset22(&mut self) -> _EPERRINTSET22W {
-        _EPERRINTSET22W { w: self }
+    #[inline(always)]
+    pub fn eperrintset22(&mut self) -> EPERRINTSET22_W {
+        EPERRINTSET22_W { w: self }
     }
     #[doc = "Bit 23 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset23(&mut self) -> _EPERRINTSET23W {
-        _EPERRINTSET23W { w: self }
+    #[inline(always)]
+    pub fn eperrintset23(&mut self) -> EPERRINTSET23_W {
+        EPERRINTSET23_W { w: self }
     }
     #[doc = "Bit 24 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset24(&mut self) -> _EPERRINTSET24W {
-        _EPERRINTSET24W { w: self }
+    #[inline(always)]
+    pub fn eperrintset24(&mut self) -> EPERRINTSET24_W {
+        EPERRINTSET24_W { w: self }
     }
     #[doc = "Bit 25 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset25(&mut self) -> _EPERRINTSET25W {
-        _EPERRINTSET25W { w: self }
+    #[inline(always)]
+    pub fn eperrintset25(&mut self) -> EPERRINTSET25_W {
+        EPERRINTSET25_W { w: self }
     }
     #[doc = "Bit 26 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset26(&mut self) -> _EPERRINTSET26W {
-        _EPERRINTSET26W { w: self }
+    #[inline(always)]
+    pub fn eperrintset26(&mut self) -> EPERRINTSET26_W {
+        EPERRINTSET26_W { w: self }
     }
     #[doc = "Bit 27 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset27(&mut self) -> _EPERRINTSET27W {
-        _EPERRINTSET27W { w: self }
+    #[inline(always)]
+    pub fn eperrintset27(&mut self) -> EPERRINTSET27_W {
+        EPERRINTSET27_W { w: self }
     }
     #[doc = "Bit 28 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset28(&mut self) -> _EPERRINTSET28W {
-        _EPERRINTSET28W { w: self }
+    #[inline(always)]
+    pub fn eperrintset28(&mut self) -> EPERRINTSET28_W {
+        EPERRINTSET28_W { w: self }
     }
     #[doc = "Bit 29 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset29(&mut self) -> _EPERRINTSET29W {
-        _EPERRINTSET29W { w: self }
+    #[inline(always)]
+    pub fn eperrintset29(&mut self) -> EPERRINTSET29_W {
+        EPERRINTSET29_W { w: self }
     }
     #[doc = "Bit 30 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset30(&mut self) -> _EPERRINTSET30W {
-        _EPERRINTSET30W { w: self }
+    #[inline(always)]
+    pub fn eperrintset30(&mut self) -> EPERRINTSET30_W {
+        EPERRINTSET30_W { w: self }
     }
     #[doc = "Bit 31 - Set endpoint xx (2 <= xx <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register."]
-    #[inline]
-    pub fn eperrintset31(&mut self) -> _EPERRINTSET31W {
-        _EPERRINTSET31W { w: self }
+    #[inline(always)]
+    pub fn eperrintset31(&mut self) -> EPERRINTSET31_W {
+        EPERRINTSET31_W { w: self }
     }
 }

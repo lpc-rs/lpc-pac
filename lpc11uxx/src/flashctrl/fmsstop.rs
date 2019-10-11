@@ -1,224 +1,128 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::FMSSTOP {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register FMSSTOP"]
+pub type R = crate::R<u32, super::FMSSTOP>;
+#[doc = "Writer for register FMSSTOP"]
+pub type W = crate::W<u32, super::FMSSTOP>;
+#[doc = "Register FMSSTOP `reset()`'s with value 0"]
+impl crate::ResetValue for super::FMSSTOP {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct STOPR {
-    bits: u32,
-}
-impl STOPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
-}
-#[doc = "Possible values of the field `SIG_START`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SIG_STARTR {
-    #[doc = "Signature generation is stopped"]
-    SIGNATURE_GENERATION,
-    #[doc = "Initiate signature generation"]
-    INITIATE_SIGNATURE_G,
-}
-impl SIG_STARTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SIG_STARTR::SIGNATURE_GENERATION => false,
-            SIG_STARTR::INITIATE_SIGNATURE_G => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SIG_STARTR {
-        match value {
-            false => SIG_STARTR::SIGNATURE_GENERATION,
-            true => SIG_STARTR::INITIATE_SIGNATURE_G,
-        }
-    }
-    #[doc = "Checks if the value of the field is `SIGNATURE_GENERATION`"]
-    #[inline]
-    pub fn is_signature_generation(&self) -> bool {
-        *self == SIG_STARTR::SIGNATURE_GENERATION
-    }
-    #[doc = "Checks if the value of the field is `INITIATE_SIGNATURE_G`"]
-    #[inline]
-    pub fn is_initiate_signature_g(&self) -> bool {
-        *self == SIG_STARTR::INITIATE_SIGNATURE_G
-    }
-}
-#[doc = r" Proxy"]
-pub struct _STOPW<'a> {
+#[doc = "Reader of field `STOP`"]
+pub type STOP_R = crate::R<u32, u32>;
+#[doc = "Write proxy for field `STOP`"]
+pub struct STOP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _STOPW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> STOP_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        const MASK: u32 = 131071;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x0001_ffff) | ((value as u32) & 0x0001_ffff);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `SIG_START`"]
-pub enum SIG_STARTW {
-    #[doc = "Signature generation is stopped"]
+#[doc = "Start control bit for signature generation.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SIG_START_A {
+    #[doc = "0: Signature generation is stopped"]
     SIGNATURE_GENERATION,
-    #[doc = "Initiate signature generation"]
+    #[doc = "1: Initiate signature generation"]
     INITIATE_SIGNATURE_G,
 }
-impl SIG_STARTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SIG_STARTW::SIGNATURE_GENERATION => false,
-            SIG_STARTW::INITIATE_SIGNATURE_G => true,
+impl From<SIG_START_A> for bool {
+    #[inline(always)]
+    fn from(variant: SIG_START_A) -> Self {
+        match variant {
+            SIG_START_A::SIGNATURE_GENERATION => false,
+            SIG_START_A::INITIATE_SIGNATURE_G => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _SIG_STARTW<'a> {
+#[doc = "Reader of field `SIG_START`"]
+pub type SIG_START_R = crate::R<bool, SIG_START_A>;
+impl SIG_START_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SIG_START_A {
+        match self.bits {
+            false => SIG_START_A::SIGNATURE_GENERATION,
+            true => SIG_START_A::INITIATE_SIGNATURE_G,
+        }
+    }
+    #[doc = "Checks if the value of the field is `SIGNATURE_GENERATION`"]
+    #[inline(always)]
+    pub fn is_signature_generation(&self) -> bool {
+        *self == SIG_START_A::SIGNATURE_GENERATION
+    }
+    #[doc = "Checks if the value of the field is `INITIATE_SIGNATURE_G`"]
+    #[inline(always)]
+    pub fn is_initiate_signature_g(&self) -> bool {
+        *self == SIG_START_A::INITIATE_SIGNATURE_G
+    }
+}
+#[doc = "Write proxy for field `SIG_START`"]
+pub struct SIG_START_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SIG_STARTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SIG_STARTW) -> &'a mut W {
+impl<'a> SIG_START_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SIG_START_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Signature generation is stopped"]
-    #[inline]
+    #[inline(always)]
     pub fn signature_generation(self) -> &'a mut W {
-        self.variant(SIG_STARTW::SIGNATURE_GENERATION)
+        self.variant(SIG_START_A::SIGNATURE_GENERATION)
     }
     #[doc = "Initiate signature generation"]
-    #[inline]
+    #[inline(always)]
     pub fn initiate_signature_g(self) -> &'a mut W {
-        self.variant(SIG_STARTW::INITIATE_SIGNATURE_G)
+        self.variant(SIG_START_A::INITIATE_SIGNATURE_G)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:16 - BIST stop address divided by 16 (corresponds to AHB byte address \\[20:4\\])."]
-    #[inline]
-    pub fn stop(&self) -> STOPR {
-        let bits = {
-            const MASK: u32 = 131071;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        };
-        STOPR { bits }
+    #[inline(always)]
+    pub fn stop(&self) -> STOP_R {
+        STOP_R::new((self.bits & 0x0001_ffff) as u32)
     }
     #[doc = "Bit 17 - Start control bit for signature generation."]
-    #[inline]
-    pub fn sig_start(&self) -> SIG_STARTR {
-        SIG_STARTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn sig_start(&self) -> SIG_START_R {
+        SIG_START_R::new(((self.bits >> 17) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:16 - BIST stop address divided by 16 (corresponds to AHB byte address \\[20:4\\])."]
-    #[inline]
-    pub fn stop(&mut self) -> _STOPW {
-        _STOPW { w: self }
+    #[inline(always)]
+    pub fn stop(&mut self) -> STOP_W {
+        STOP_W { w: self }
     }
     #[doc = "Bit 17 - Start control bit for signature generation."]
-    #[inline]
-    pub fn sig_start(&mut self) -> _SIG_STARTW {
-        _SIG_STARTW { w: self }
+    #[inline(always)]
+    pub fn sig_start(&mut self) -> SIG_START_W {
+        SIG_START_W { w: self }
     }
 }

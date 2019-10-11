@@ -1,925 +1,876 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CLR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register CLR%s"]
+pub type W = crate::W<u32, super::CLR>;
+#[doc = "Register CLR%s `reset()`'s with value 0"]
+impl crate::ResetValue for super::CLR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP00W<'a> {
+#[doc = "Write proxy for field `CLRP00`"]
+pub struct CLRP00_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP00W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP00_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP01W<'a> {
+#[doc = "Write proxy for field `CLRP01`"]
+pub struct CLRP01_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP01W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP01_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP02W<'a> {
+#[doc = "Write proxy for field `CLRP02`"]
+pub struct CLRP02_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP02W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP02_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP03W<'a> {
+#[doc = "Write proxy for field `CLRP03`"]
+pub struct CLRP03_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP03W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP03_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP04W<'a> {
+#[doc = "Write proxy for field `CLRP04`"]
+pub struct CLRP04_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP04W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP04_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP05W<'a> {
+#[doc = "Write proxy for field `CLRP05`"]
+pub struct CLRP05_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP05W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP05_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP06W<'a> {
+#[doc = "Write proxy for field `CLRP06`"]
+pub struct CLRP06_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP06W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP06_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP07W<'a> {
+#[doc = "Write proxy for field `CLRP07`"]
+pub struct CLRP07_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP07W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP07_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP08W<'a> {
+#[doc = "Write proxy for field `CLRP08`"]
+pub struct CLRP08_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP08W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP08_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP09W<'a> {
+#[doc = "Write proxy for field `CLRP09`"]
+pub struct CLRP09_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP09W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP09_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP010W<'a> {
+#[doc = "Write proxy for field `CLRP010`"]
+pub struct CLRP010_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP010W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP010_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP011W<'a> {
+#[doc = "Write proxy for field `CLRP011`"]
+pub struct CLRP011_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP011W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP011_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 11;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP012W<'a> {
+#[doc = "Write proxy for field `CLRP012`"]
+pub struct CLRP012_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP012W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP012_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP013W<'a> {
+#[doc = "Write proxy for field `CLRP013`"]
+pub struct CLRP013_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP013W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP013_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 13;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP014W<'a> {
+#[doc = "Write proxy for field `CLRP014`"]
+pub struct CLRP014_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP014W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP014_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP015W<'a> {
+#[doc = "Write proxy for field `CLRP015`"]
+pub struct CLRP015_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP015W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP015_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 15;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP016W<'a> {
+#[doc = "Write proxy for field `CLRP016`"]
+pub struct CLRP016_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP016W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP016_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP017W<'a> {
+#[doc = "Write proxy for field `CLRP017`"]
+pub struct CLRP017_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP017W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP017_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP018W<'a> {
+#[doc = "Write proxy for field `CLRP018`"]
+pub struct CLRP018_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP018W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP018_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP019W<'a> {
+#[doc = "Write proxy for field `CLRP019`"]
+pub struct CLRP019_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP019W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP019_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP020W<'a> {
+#[doc = "Write proxy for field `CLRP020`"]
+pub struct CLRP020_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP020W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP020_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP021W<'a> {
+#[doc = "Write proxy for field `CLRP021`"]
+pub struct CLRP021_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP021W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP021_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 21;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP022W<'a> {
+#[doc = "Write proxy for field `CLRP022`"]
+pub struct CLRP022_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP022W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP022_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 22;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP023W<'a> {
+#[doc = "Write proxy for field `CLRP023`"]
+pub struct CLRP023_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP023W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP023_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP024W<'a> {
+#[doc = "Write proxy for field `CLRP024`"]
+pub struct CLRP024_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP024W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP024_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP025W<'a> {
+#[doc = "Write proxy for field `CLRP025`"]
+pub struct CLRP025_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP025W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP025_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 25;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP026W<'a> {
+#[doc = "Write proxy for field `CLRP026`"]
+pub struct CLRP026_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP026W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP026_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 26;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP027W<'a> {
+#[doc = "Write proxy for field `CLRP027`"]
+pub struct CLRP027_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP027W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP027_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 27;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP028W<'a> {
+#[doc = "Write proxy for field `CLRP028`"]
+pub struct CLRP028_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP028W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP028_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP029W<'a> {
+#[doc = "Write proxy for field `CLRP029`"]
+pub struct CLRP029_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP029W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP029_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 29;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP030W<'a> {
+#[doc = "Write proxy for field `CLRP030`"]
+pub struct CLRP030_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP030W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP030_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 30;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CLRP031W<'a> {
+#[doc = "Write proxy for field `CLRP031`"]
+pub struct CLRP031_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLRP031W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> CLRP031_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp00(&mut self) -> _CLRP00W {
-        _CLRP00W { w: self }
+    #[inline(always)]
+    pub fn clrp00(&mut self) -> CLRP00_W {
+        CLRP00_W { w: self }
     }
     #[doc = "Bit 1 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp01(&mut self) -> _CLRP01W {
-        _CLRP01W { w: self }
+    #[inline(always)]
+    pub fn clrp01(&mut self) -> CLRP01_W {
+        CLRP01_W { w: self }
     }
     #[doc = "Bit 2 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp02(&mut self) -> _CLRP02W {
-        _CLRP02W { w: self }
+    #[inline(always)]
+    pub fn clrp02(&mut self) -> CLRP02_W {
+        CLRP02_W { w: self }
     }
     #[doc = "Bit 3 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp03(&mut self) -> _CLRP03W {
-        _CLRP03W { w: self }
+    #[inline(always)]
+    pub fn clrp03(&mut self) -> CLRP03_W {
+        CLRP03_W { w: self }
     }
     #[doc = "Bit 4 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp04(&mut self) -> _CLRP04W {
-        _CLRP04W { w: self }
+    #[inline(always)]
+    pub fn clrp04(&mut self) -> CLRP04_W {
+        CLRP04_W { w: self }
     }
     #[doc = "Bit 5 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp05(&mut self) -> _CLRP05W {
-        _CLRP05W { w: self }
+    #[inline(always)]
+    pub fn clrp05(&mut self) -> CLRP05_W {
+        CLRP05_W { w: self }
     }
     #[doc = "Bit 6 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp06(&mut self) -> _CLRP06W {
-        _CLRP06W { w: self }
+    #[inline(always)]
+    pub fn clrp06(&mut self) -> CLRP06_W {
+        CLRP06_W { w: self }
     }
     #[doc = "Bit 7 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp07(&mut self) -> _CLRP07W {
-        _CLRP07W { w: self }
+    #[inline(always)]
+    pub fn clrp07(&mut self) -> CLRP07_W {
+        CLRP07_W { w: self }
     }
     #[doc = "Bit 8 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp08(&mut self) -> _CLRP08W {
-        _CLRP08W { w: self }
+    #[inline(always)]
+    pub fn clrp08(&mut self) -> CLRP08_W {
+        CLRP08_W { w: self }
     }
     #[doc = "Bit 9 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp09(&mut self) -> _CLRP09W {
-        _CLRP09W { w: self }
+    #[inline(always)]
+    pub fn clrp09(&mut self) -> CLRP09_W {
+        CLRP09_W { w: self }
     }
     #[doc = "Bit 10 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp010(&mut self) -> _CLRP010W {
-        _CLRP010W { w: self }
+    #[inline(always)]
+    pub fn clrp010(&mut self) -> CLRP010_W {
+        CLRP010_W { w: self }
     }
     #[doc = "Bit 11 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp011(&mut self) -> _CLRP011W {
-        _CLRP011W { w: self }
+    #[inline(always)]
+    pub fn clrp011(&mut self) -> CLRP011_W {
+        CLRP011_W { w: self }
     }
     #[doc = "Bit 12 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp012(&mut self) -> _CLRP012W {
-        _CLRP012W { w: self }
+    #[inline(always)]
+    pub fn clrp012(&mut self) -> CLRP012_W {
+        CLRP012_W { w: self }
     }
     #[doc = "Bit 13 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp013(&mut self) -> _CLRP013W {
-        _CLRP013W { w: self }
+    #[inline(always)]
+    pub fn clrp013(&mut self) -> CLRP013_W {
+        CLRP013_W { w: self }
     }
     #[doc = "Bit 14 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp014(&mut self) -> _CLRP014W {
-        _CLRP014W { w: self }
+    #[inline(always)]
+    pub fn clrp014(&mut self) -> CLRP014_W {
+        CLRP014_W { w: self }
     }
     #[doc = "Bit 15 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp015(&mut self) -> _CLRP015W {
-        _CLRP015W { w: self }
+    #[inline(always)]
+    pub fn clrp015(&mut self) -> CLRP015_W {
+        CLRP015_W { w: self }
     }
     #[doc = "Bit 16 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp016(&mut self) -> _CLRP016W {
-        _CLRP016W { w: self }
+    #[inline(always)]
+    pub fn clrp016(&mut self) -> CLRP016_W {
+        CLRP016_W { w: self }
     }
     #[doc = "Bit 17 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp017(&mut self) -> _CLRP017W {
-        _CLRP017W { w: self }
+    #[inline(always)]
+    pub fn clrp017(&mut self) -> CLRP017_W {
+        CLRP017_W { w: self }
     }
     #[doc = "Bit 18 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp018(&mut self) -> _CLRP018W {
-        _CLRP018W { w: self }
+    #[inline(always)]
+    pub fn clrp018(&mut self) -> CLRP018_W {
+        CLRP018_W { w: self }
     }
     #[doc = "Bit 19 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp019(&mut self) -> _CLRP019W {
-        _CLRP019W { w: self }
+    #[inline(always)]
+    pub fn clrp019(&mut self) -> CLRP019_W {
+        CLRP019_W { w: self }
     }
     #[doc = "Bit 20 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp020(&mut self) -> _CLRP020W {
-        _CLRP020W { w: self }
+    #[inline(always)]
+    pub fn clrp020(&mut self) -> CLRP020_W {
+        CLRP020_W { w: self }
     }
     #[doc = "Bit 21 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp021(&mut self) -> _CLRP021W {
-        _CLRP021W { w: self }
+    #[inline(always)]
+    pub fn clrp021(&mut self) -> CLRP021_W {
+        CLRP021_W { w: self }
     }
     #[doc = "Bit 22 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp022(&mut self) -> _CLRP022W {
-        _CLRP022W { w: self }
+    #[inline(always)]
+    pub fn clrp022(&mut self) -> CLRP022_W {
+        CLRP022_W { w: self }
     }
     #[doc = "Bit 23 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp023(&mut self) -> _CLRP023W {
-        _CLRP023W { w: self }
+    #[inline(always)]
+    pub fn clrp023(&mut self) -> CLRP023_W {
+        CLRP023_W { w: self }
     }
     #[doc = "Bit 24 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp024(&mut self) -> _CLRP024W {
-        _CLRP024W { w: self }
+    #[inline(always)]
+    pub fn clrp024(&mut self) -> CLRP024_W {
+        CLRP024_W { w: self }
     }
     #[doc = "Bit 25 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp025(&mut self) -> _CLRP025W {
-        _CLRP025W { w: self }
+    #[inline(always)]
+    pub fn clrp025(&mut self) -> CLRP025_W {
+        CLRP025_W { w: self }
     }
     #[doc = "Bit 26 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp026(&mut self) -> _CLRP026W {
-        _CLRP026W { w: self }
+    #[inline(always)]
+    pub fn clrp026(&mut self) -> CLRP026_W {
+        CLRP026_W { w: self }
     }
     #[doc = "Bit 27 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp027(&mut self) -> _CLRP027W {
-        _CLRP027W { w: self }
+    #[inline(always)]
+    pub fn clrp027(&mut self) -> CLRP027_W {
+        CLRP027_W { w: self }
     }
     #[doc = "Bit 28 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp028(&mut self) -> _CLRP028W {
-        _CLRP028W { w: self }
+    #[inline(always)]
+    pub fn clrp028(&mut self) -> CLRP028_W {
+        CLRP028_W { w: self }
     }
     #[doc = "Bit 29 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp029(&mut self) -> _CLRP029W {
-        _CLRP029W { w: self }
+    #[inline(always)]
+    pub fn clrp029(&mut self) -> CLRP029_W {
+        CLRP029_W { w: self }
     }
     #[doc = "Bit 30 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp030(&mut self) -> _CLRP030W {
-        _CLRP030W { w: self }
+    #[inline(always)]
+    pub fn clrp030(&mut self) -> CLRP030_W {
+        CLRP030_W { w: self }
     }
     #[doc = "Bit 31 - Clear output bits: 0 = No operation. 1 = Clear output bit."]
-    #[inline]
-    pub fn clrp031(&mut self) -> _CLRP031W {
-        _CLRP031W { w: self }
+    #[inline(always)]
+    pub fn clrp031(&mut self) -> CLRP031_W {
+        CLRP031_W { w: self }
     }
 }

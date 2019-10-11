@@ -1,897 +1,632 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::IER {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register IER"]
+pub type R = crate::R<u32, super::IER>;
+#[doc = "Writer for register IER"]
+pub type W = crate::W<u32, super::IER>;
+#[doc = "Register IER `reset()`'s with value 0"]
+impl crate::ResetValue for super::IER {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `RBRIE`"]
+#[doc = "RBR Interrupt Enable. Enables the Receive Data Available interrupt for UART1. It also controls the Character Receive Time-out interrupt.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RBRIER {
-    #[doc = "Disable the RDA interrupts."]
+pub enum RBRIE_A {
+    #[doc = "0: Disable the RDA interrupts."]
     DISABLE_THE_RDA_INTE,
-    #[doc = "Enable the RDA interrupts."]
+    #[doc = "1: Enable the RDA interrupts."]
     ENABLE_THE_RDA_INTER,
 }
-impl RBRIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RBRIER::DISABLE_THE_RDA_INTE => false,
-            RBRIER::ENABLE_THE_RDA_INTER => true,
+impl From<RBRIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: RBRIE_A) -> Self {
+        match variant {
+            RBRIE_A::DISABLE_THE_RDA_INTE => false,
+            RBRIE_A::ENABLE_THE_RDA_INTER => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RBRIER {
-        match value {
-            false => RBRIER::DISABLE_THE_RDA_INTE,
-            true => RBRIER::ENABLE_THE_RDA_INTER,
+}
+#[doc = "Reader of field `RBRIE`"]
+pub type RBRIE_R = crate::R<bool, RBRIE_A>;
+impl RBRIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RBRIE_A {
+        match self.bits {
+            false => RBRIE_A::DISABLE_THE_RDA_INTE,
+            true => RBRIE_A::ENABLE_THE_RDA_INTER,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_RDA_INTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_rda_inte(&self) -> bool {
-        *self == RBRIER::DISABLE_THE_RDA_INTE
+        *self == RBRIE_A::DISABLE_THE_RDA_INTE
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_RDA_INTER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_rda_inter(&self) -> bool {
-        *self == RBRIER::ENABLE_THE_RDA_INTER
+        *self == RBRIE_A::ENABLE_THE_RDA_INTER
     }
 }
-#[doc = "Possible values of the field `THREIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum THREIER {
-    #[doc = "Disable the THRE interrupts."]
-    DISABLE_THE_THRE_INT,
-    #[doc = "Enable the THRE interrupts."]
-    ENABLE_THE_THRE_INTE,
+#[doc = "Write proxy for field `RBRIE`"]
+pub struct RBRIE_W<'a> {
+    w: &'a mut W,
 }
-impl THREIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            THREIER::DISABLE_THE_THRE_INT => false,
-            THREIER::ENABLE_THE_THRE_INTE => true,
+impl<'a> RBRIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RBRIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> THREIER {
-        match value {
-            false => THREIER::DISABLE_THE_THRE_INT,
-            true => THREIER::ENABLE_THE_THRE_INTE,
+    #[doc = "Disable the RDA interrupts."]
+    #[inline(always)]
+    pub fn disable_the_rda_inte(self) -> &'a mut W {
+        self.variant(RBRIE_A::DISABLE_THE_RDA_INTE)
+    }
+    #[doc = "Enable the RDA interrupts."]
+    #[inline(always)]
+    pub fn enable_the_rda_inter(self) -> &'a mut W {
+        self.variant(RBRIE_A::ENABLE_THE_RDA_INTER)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "THRE Interrupt Enable. Enables the THRE interrupt for UART1. The status of this interrupt can be read from LSR\\[5\\].\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum THREIE_A {
+    #[doc = "0: Disable the THRE interrupts."]
+    DISABLE_THE_THRE_INT,
+    #[doc = "1: Enable the THRE interrupts."]
+    ENABLE_THE_THRE_INTE,
+}
+impl From<THREIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: THREIE_A) -> Self {
+        match variant {
+            THREIE_A::DISABLE_THE_THRE_INT => false,
+            THREIE_A::ENABLE_THE_THRE_INTE => true,
+        }
+    }
+}
+#[doc = "Reader of field `THREIE`"]
+pub type THREIE_R = crate::R<bool, THREIE_A>;
+impl THREIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> THREIE_A {
+        match self.bits {
+            false => THREIE_A::DISABLE_THE_THRE_INT,
+            true => THREIE_A::ENABLE_THE_THRE_INTE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_THRE_INT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_thre_int(&self) -> bool {
-        *self == THREIER::DISABLE_THE_THRE_INT
+        *self == THREIE_A::DISABLE_THE_THRE_INT
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_THRE_INTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_thre_inte(&self) -> bool {
-        *self == THREIER::ENABLE_THE_THRE_INTE
+        *self == THREIE_A::ENABLE_THE_THRE_INTE
     }
 }
-#[doc = "Possible values of the field `RXIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RXIER {
-    #[doc = "Disable the RX line status interrupts."]
-    DISABLE_THE_RX_LINE_,
-    #[doc = "Enable the RX line status interrupts."]
-    ENABLE_THE_RX_LINE_S,
+#[doc = "Write proxy for field `THREIE`"]
+pub struct THREIE_W<'a> {
+    w: &'a mut W,
 }
-impl RXIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RXIER::DISABLE_THE_RX_LINE_ => false,
-            RXIER::ENABLE_THE_RX_LINE_S => true,
+impl<'a> THREIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: THREIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RXIER {
-        match value {
-            false => RXIER::DISABLE_THE_RX_LINE_,
-            true => RXIER::ENABLE_THE_RX_LINE_S,
+    #[doc = "Disable the THRE interrupts."]
+    #[inline(always)]
+    pub fn disable_the_thre_int(self) -> &'a mut W {
+        self.variant(THREIE_A::DISABLE_THE_THRE_INT)
+    }
+    #[doc = "Enable the THRE interrupts."]
+    #[inline(always)]
+    pub fn enable_the_thre_inte(self) -> &'a mut W {
+        self.variant(THREIE_A::ENABLE_THE_THRE_INTE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "RX Line Interrupt Enable. Enables the UART1 RX line status interrupts. The status of this interrupt can be read from LSR\\[4:1\\].\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RXIE_A {
+    #[doc = "0: Disable the RX line status interrupts."]
+    DISABLE_THE_RX_LINE_,
+    #[doc = "1: Enable the RX line status interrupts."]
+    ENABLE_THE_RX_LINE_S,
+}
+impl From<RXIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: RXIE_A) -> Self {
+        match variant {
+            RXIE_A::DISABLE_THE_RX_LINE_ => false,
+            RXIE_A::ENABLE_THE_RX_LINE_S => true,
+        }
+    }
+}
+#[doc = "Reader of field `RXIE`"]
+pub type RXIE_R = crate::R<bool, RXIE_A>;
+impl RXIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RXIE_A {
+        match self.bits {
+            false => RXIE_A::DISABLE_THE_RX_LINE_,
+            true => RXIE_A::ENABLE_THE_RX_LINE_S,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_RX_LINE_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_rx_line_(&self) -> bool {
-        *self == RXIER::DISABLE_THE_RX_LINE_
+        *self == RXIE_A::DISABLE_THE_RX_LINE_
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_RX_LINE_S`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_rx_line_s(&self) -> bool {
-        *self == RXIER::ENABLE_THE_RX_LINE_S
+        *self == RXIE_A::ENABLE_THE_RX_LINE_S
     }
 }
-#[doc = "Possible values of the field `MSIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MSIER {
-    #[doc = "Disable the modem interrupt."]
-    DISABLE_THE_MODEM_IN,
-    #[doc = "Enable the modem interrupt."]
-    ENABLE_THE_MODEM_INT,
+#[doc = "Write proxy for field `RXIE`"]
+pub struct RXIE_W<'a> {
+    w: &'a mut W,
 }
-impl MSIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MSIER::DISABLE_THE_MODEM_IN => false,
-            MSIER::ENABLE_THE_MODEM_INT => true,
+impl<'a> RXIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RXIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MSIER {
-        match value {
-            false => MSIER::DISABLE_THE_MODEM_IN,
-            true => MSIER::ENABLE_THE_MODEM_INT,
+    #[doc = "Disable the RX line status interrupts."]
+    #[inline(always)]
+    pub fn disable_the_rx_line_(self) -> &'a mut W {
+        self.variant(RXIE_A::DISABLE_THE_RX_LINE_)
+    }
+    #[doc = "Enable the RX line status interrupts."]
+    #[inline(always)]
+    pub fn enable_the_rx_line_s(self) -> &'a mut W {
+        self.variant(RXIE_A::ENABLE_THE_RX_LINE_S)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Modem Status Interrupt Enable. Enables the modem interrupt. The status of this interrupt can be read from MSR\\[3:0\\].\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum MSIE_A {
+    #[doc = "0: Disable the modem interrupt."]
+    DISABLE_THE_MODEM_IN,
+    #[doc = "1: Enable the modem interrupt."]
+    ENABLE_THE_MODEM_INT,
+}
+impl From<MSIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: MSIE_A) -> Self {
+        match variant {
+            MSIE_A::DISABLE_THE_MODEM_IN => false,
+            MSIE_A::ENABLE_THE_MODEM_INT => true,
+        }
+    }
+}
+#[doc = "Reader of field `MSIE`"]
+pub type MSIE_R = crate::R<bool, MSIE_A>;
+impl MSIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> MSIE_A {
+        match self.bits {
+            false => MSIE_A::DISABLE_THE_MODEM_IN,
+            true => MSIE_A::ENABLE_THE_MODEM_INT,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_MODEM_IN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_modem_in(&self) -> bool {
-        *self == MSIER::DISABLE_THE_MODEM_IN
+        *self == MSIE_A::DISABLE_THE_MODEM_IN
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_MODEM_INT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_modem_int(&self) -> bool {
-        *self == MSIER::ENABLE_THE_MODEM_INT
+        *self == MSIE_A::ENABLE_THE_MODEM_INT
     }
 }
-#[doc = "Possible values of the field `CTSIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CTSIER {
-    #[doc = "Disable the CTS interrupt."]
-    DISABLE_THE_CTS_INTE,
-    #[doc = "Enable the CTS interrupt."]
-    ENABLE_THE_CTS_INTER,
+#[doc = "Write proxy for field `MSIE`"]
+pub struct MSIE_W<'a> {
+    w: &'a mut W,
 }
-impl CTSIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CTSIER::DISABLE_THE_CTS_INTE => false,
-            CTSIER::ENABLE_THE_CTS_INTER => true,
+impl<'a> MSIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: MSIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CTSIER {
-        match value {
-            false => CTSIER::DISABLE_THE_CTS_INTE,
-            true => CTSIER::ENABLE_THE_CTS_INTER,
+    #[doc = "Disable the modem interrupt."]
+    #[inline(always)]
+    pub fn disable_the_modem_in(self) -> &'a mut W {
+        self.variant(MSIE_A::DISABLE_THE_MODEM_IN)
+    }
+    #[doc = "Enable the modem interrupt."]
+    #[inline(always)]
+    pub fn enable_the_modem_int(self) -> &'a mut W {
+        self.variant(MSIE_A::ENABLE_THE_MODEM_INT)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "CTS Interrupt Enable. If auto-cts mode is enabled this bit enables/disables the modem status interrupt generation on a CTS1 signal transition. If auto-cts mode is disabled a CTS1 transition will generate an interrupt if Modem Status Interrupt Enable (IER\\[3\\]) is set. In normal operation a CTS1 signal transition will generate a Modem Status Interrupt unless the interrupt has been disabled by clearing the IER\\[3\\] bit in the IER register. In auto-cts mode a transition on the CTS1 bit will trigger an interrupt only if both the IER\\[3\\] and IER\\[7\\] bits are set.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CTSIE_A {
+    #[doc = "0: Disable the CTS interrupt."]
+    DISABLE_THE_CTS_INTE,
+    #[doc = "1: Enable the CTS interrupt."]
+    ENABLE_THE_CTS_INTER,
+}
+impl From<CTSIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: CTSIE_A) -> Self {
+        match variant {
+            CTSIE_A::DISABLE_THE_CTS_INTE => false,
+            CTSIE_A::ENABLE_THE_CTS_INTER => true,
+        }
+    }
+}
+#[doc = "Reader of field `CTSIE`"]
+pub type CTSIE_R = crate::R<bool, CTSIE_A>;
+impl CTSIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CTSIE_A {
+        match self.bits {
+            false => CTSIE_A::DISABLE_THE_CTS_INTE,
+            true => CTSIE_A::ENABLE_THE_CTS_INTER,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_THE_CTS_INTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_the_cts_inte(&self) -> bool {
-        *self == CTSIER::DISABLE_THE_CTS_INTE
+        *self == CTSIE_A::DISABLE_THE_CTS_INTE
     }
     #[doc = "Checks if the value of the field is `ENABLE_THE_CTS_INTER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_the_cts_inter(&self) -> bool {
-        *self == CTSIER::ENABLE_THE_CTS_INTER
+        *self == CTSIE_A::ENABLE_THE_CTS_INTER
     }
 }
-#[doc = "Possible values of the field `ABEOIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ABEOIER {
-    #[doc = "Disable end of auto-baud Interrupt."]
-    DISABLE_END_OF_AUTO_,
-    #[doc = "Enable end of auto-baud Interrupt."]
-    ENABLE_END_OF_AUTO_B,
+#[doc = "Write proxy for field `CTSIE`"]
+pub struct CTSIE_W<'a> {
+    w: &'a mut W,
 }
-impl ABEOIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ABEOIER::DISABLE_END_OF_AUTO_ => false,
-            ABEOIER::ENABLE_END_OF_AUTO_B => true,
+impl<'a> CTSIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CTSIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ABEOIER {
-        match value {
-            false => ABEOIER::DISABLE_END_OF_AUTO_,
-            true => ABEOIER::ENABLE_END_OF_AUTO_B,
+    #[doc = "Disable the CTS interrupt."]
+    #[inline(always)]
+    pub fn disable_the_cts_inte(self) -> &'a mut W {
+        self.variant(CTSIE_A::DISABLE_THE_CTS_INTE)
+    }
+    #[doc = "Enable the CTS interrupt."]
+    #[inline(always)]
+    pub fn enable_the_cts_inter(self) -> &'a mut W {
+        self.variant(CTSIE_A::ENABLE_THE_CTS_INTER)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w
+    }
+}
+#[doc = "Enables the end of auto-baud interrupt.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ABEOIE_A {
+    #[doc = "0: Disable end of auto-baud Interrupt."]
+    DISABLE_END_OF_AUTO_,
+    #[doc = "1: Enable end of auto-baud Interrupt."]
+    ENABLE_END_OF_AUTO_B,
+}
+impl From<ABEOIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: ABEOIE_A) -> Self {
+        match variant {
+            ABEOIE_A::DISABLE_END_OF_AUTO_ => false,
+            ABEOIE_A::ENABLE_END_OF_AUTO_B => true,
+        }
+    }
+}
+#[doc = "Reader of field `ABEOIE`"]
+pub type ABEOIE_R = crate::R<bool, ABEOIE_A>;
+impl ABEOIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ABEOIE_A {
+        match self.bits {
+            false => ABEOIE_A::DISABLE_END_OF_AUTO_,
+            true => ABEOIE_A::ENABLE_END_OF_AUTO_B,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_END_OF_AUTO_`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_end_of_auto_(&self) -> bool {
-        *self == ABEOIER::DISABLE_END_OF_AUTO_
+        *self == ABEOIE_A::DISABLE_END_OF_AUTO_
     }
     #[doc = "Checks if the value of the field is `ENABLE_END_OF_AUTO_B`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_end_of_auto_b(&self) -> bool {
-        *self == ABEOIER::ENABLE_END_OF_AUTO_B
+        *self == ABEOIE_A::ENABLE_END_OF_AUTO_B
     }
 }
-#[doc = "Possible values of the field `ABTOIE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ABTOIER {
-    #[doc = "Disable auto-baud time-out Interrupt."]
-    DISABLE_AUTO_BAUD_TI,
-    #[doc = "Enable auto-baud time-out Interrupt."]
-    ENABLE_AUTO_BAUD_TIM,
+#[doc = "Write proxy for field `ABEOIE`"]
+pub struct ABEOIE_W<'a> {
+    w: &'a mut W,
 }
-impl ABTOIER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ABTOIER::DISABLE_AUTO_BAUD_TI => false,
-            ABTOIER::ENABLE_AUTO_BAUD_TIM => true,
+impl<'a> ABEOIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ABEOIE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ABTOIER {
-        match value {
-            false => ABTOIER::DISABLE_AUTO_BAUD_TI,
-            true => ABTOIER::ENABLE_AUTO_BAUD_TIM,
+    #[doc = "Disable end of auto-baud Interrupt."]
+    #[inline(always)]
+    pub fn disable_end_of_auto_(self) -> &'a mut W {
+        self.variant(ABEOIE_A::DISABLE_END_OF_AUTO_)
+    }
+    #[doc = "Enable end of auto-baud Interrupt."]
+    #[inline(always)]
+    pub fn enable_end_of_auto_b(self) -> &'a mut W {
+        self.variant(ABEOIE_A::ENABLE_END_OF_AUTO_B)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w
+    }
+}
+#[doc = "Enables the auto-baud time-out interrupt.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ABTOIE_A {
+    #[doc = "0: Disable auto-baud time-out Interrupt."]
+    DISABLE_AUTO_BAUD_TI,
+    #[doc = "1: Enable auto-baud time-out Interrupt."]
+    ENABLE_AUTO_BAUD_TIM,
+}
+impl From<ABTOIE_A> for bool {
+    #[inline(always)]
+    fn from(variant: ABTOIE_A) -> Self {
+        match variant {
+            ABTOIE_A::DISABLE_AUTO_BAUD_TI => false,
+            ABTOIE_A::ENABLE_AUTO_BAUD_TIM => true,
+        }
+    }
+}
+#[doc = "Reader of field `ABTOIE`"]
+pub type ABTOIE_R = crate::R<bool, ABTOIE_A>;
+impl ABTOIE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ABTOIE_A {
+        match self.bits {
+            false => ABTOIE_A::DISABLE_AUTO_BAUD_TI,
+            true => ABTOIE_A::ENABLE_AUTO_BAUD_TIM,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE_AUTO_BAUD_TI`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable_auto_baud_ti(&self) -> bool {
-        *self == ABTOIER::DISABLE_AUTO_BAUD_TI
+        *self == ABTOIE_A::DISABLE_AUTO_BAUD_TI
     }
     #[doc = "Checks if the value of the field is `ENABLE_AUTO_BAUD_TIM`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_auto_baud_tim(&self) -> bool {
-        *self == ABTOIER::ENABLE_AUTO_BAUD_TIM
+        *self == ABTOIE_A::ENABLE_AUTO_BAUD_TIM
     }
 }
-#[doc = "Values that can be written to the field `RBRIE`"]
-pub enum RBRIEW {
-    #[doc = "Disable the RDA interrupts."]
-    DISABLE_THE_RDA_INTE,
-    #[doc = "Enable the RDA interrupts."]
-    ENABLE_THE_RDA_INTER,
-}
-impl RBRIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RBRIEW::DISABLE_THE_RDA_INTE => false,
-            RBRIEW::ENABLE_THE_RDA_INTER => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RBRIEW<'a> {
+#[doc = "Write proxy for field `ABTOIE`"]
+pub struct ABTOIE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RBRIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RBRIEW) -> &'a mut W {
+impl<'a> ABTOIE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ABTOIE_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the RDA interrupts."]
-    #[inline]
-    pub fn disable_the_rda_inte(self) -> &'a mut W {
-        self.variant(RBRIEW::DISABLE_THE_RDA_INTE)
-    }
-    #[doc = "Enable the RDA interrupts."]
-    #[inline]
-    pub fn enable_the_rda_inter(self) -> &'a mut W {
-        self.variant(RBRIEW::ENABLE_THE_RDA_INTER)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `THREIE`"]
-pub enum THREIEW {
-    #[doc = "Disable the THRE interrupts."]
-    DISABLE_THE_THRE_INT,
-    #[doc = "Enable the THRE interrupts."]
-    ENABLE_THE_THRE_INTE,
-}
-impl THREIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            THREIEW::DISABLE_THE_THRE_INT => false,
-            THREIEW::ENABLE_THE_THRE_INTE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _THREIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _THREIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: THREIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the THRE interrupts."]
-    #[inline]
-    pub fn disable_the_thre_int(self) -> &'a mut W {
-        self.variant(THREIEW::DISABLE_THE_THRE_INT)
-    }
-    #[doc = "Enable the THRE interrupts."]
-    #[inline]
-    pub fn enable_the_thre_inte(self) -> &'a mut W {
-        self.variant(THREIEW::ENABLE_THE_THRE_INTE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RXIE`"]
-pub enum RXIEW {
-    #[doc = "Disable the RX line status interrupts."]
-    DISABLE_THE_RX_LINE_,
-    #[doc = "Enable the RX line status interrupts."]
-    ENABLE_THE_RX_LINE_S,
-}
-impl RXIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RXIEW::DISABLE_THE_RX_LINE_ => false,
-            RXIEW::ENABLE_THE_RX_LINE_S => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RXIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RXIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RXIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the RX line status interrupts."]
-    #[inline]
-    pub fn disable_the_rx_line_(self) -> &'a mut W {
-        self.variant(RXIEW::DISABLE_THE_RX_LINE_)
-    }
-    #[doc = "Enable the RX line status interrupts."]
-    #[inline]
-    pub fn enable_the_rx_line_s(self) -> &'a mut W {
-        self.variant(RXIEW::ENABLE_THE_RX_LINE_S)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `MSIE`"]
-pub enum MSIEW {
-    #[doc = "Disable the modem interrupt."]
-    DISABLE_THE_MODEM_IN,
-    #[doc = "Enable the modem interrupt."]
-    ENABLE_THE_MODEM_INT,
-}
-impl MSIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            MSIEW::DISABLE_THE_MODEM_IN => false,
-            MSIEW::ENABLE_THE_MODEM_INT => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _MSIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _MSIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: MSIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the modem interrupt."]
-    #[inline]
-    pub fn disable_the_modem_in(self) -> &'a mut W {
-        self.variant(MSIEW::DISABLE_THE_MODEM_IN)
-    }
-    #[doc = "Enable the modem interrupt."]
-    #[inline]
-    pub fn enable_the_modem_int(self) -> &'a mut W {
-        self.variant(MSIEW::ENABLE_THE_MODEM_INT)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CTSIE`"]
-pub enum CTSIEW {
-    #[doc = "Disable the CTS interrupt."]
-    DISABLE_THE_CTS_INTE,
-    #[doc = "Enable the CTS interrupt."]
-    ENABLE_THE_CTS_INTER,
-}
-impl CTSIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CTSIEW::DISABLE_THE_CTS_INTE => false,
-            CTSIEW::ENABLE_THE_CTS_INTER => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CTSIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CTSIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CTSIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable the CTS interrupt."]
-    #[inline]
-    pub fn disable_the_cts_inte(self) -> &'a mut W {
-        self.variant(CTSIEW::DISABLE_THE_CTS_INTE)
-    }
-    #[doc = "Enable the CTS interrupt."]
-    #[inline]
-    pub fn enable_the_cts_inter(self) -> &'a mut W {
-        self.variant(CTSIEW::ENABLE_THE_CTS_INTER)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ABEOIE`"]
-pub enum ABEOIEW {
-    #[doc = "Disable end of auto-baud Interrupt."]
-    DISABLE_END_OF_AUTO_,
-    #[doc = "Enable end of auto-baud Interrupt."]
-    ENABLE_END_OF_AUTO_B,
-}
-impl ABEOIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ABEOIEW::DISABLE_END_OF_AUTO_ => false,
-            ABEOIEW::ENABLE_END_OF_AUTO_B => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ABEOIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ABEOIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ABEOIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disable end of auto-baud Interrupt."]
-    #[inline]
-    pub fn disable_end_of_auto_(self) -> &'a mut W {
-        self.variant(ABEOIEW::DISABLE_END_OF_AUTO_)
-    }
-    #[doc = "Enable end of auto-baud Interrupt."]
-    #[inline]
-    pub fn enable_end_of_auto_b(self) -> &'a mut W {
-        self.variant(ABEOIEW::ENABLE_END_OF_AUTO_B)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ABTOIE`"]
-pub enum ABTOIEW {
-    #[doc = "Disable auto-baud time-out Interrupt."]
-    DISABLE_AUTO_BAUD_TI,
-    #[doc = "Enable auto-baud time-out Interrupt."]
-    ENABLE_AUTO_BAUD_TIM,
-}
-impl ABTOIEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ABTOIEW::DISABLE_AUTO_BAUD_TI => false,
-            ABTOIEW::ENABLE_AUTO_BAUD_TIM => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ABTOIEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ABTOIEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ABTOIEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disable auto-baud time-out Interrupt."]
-    #[inline]
+    #[inline(always)]
     pub fn disable_auto_baud_ti(self) -> &'a mut W {
-        self.variant(ABTOIEW::DISABLE_AUTO_BAUD_TI)
+        self.variant(ABTOIE_A::DISABLE_AUTO_BAUD_TI)
     }
     #[doc = "Enable auto-baud time-out Interrupt."]
-    #[inline]
+    #[inline(always)]
     pub fn enable_auto_baud_tim(self) -> &'a mut W {
-        self.variant(ABTOIEW::ENABLE_AUTO_BAUD_TIM)
+        self.variant(ABTOIE_A::ENABLE_AUTO_BAUD_TIM)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 9;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - RBR Interrupt Enable. Enables the Receive Data Available interrupt for UART1. It also controls the Character Receive Time-out interrupt."]
-    #[inline]
-    pub fn rbrie(&self) -> RBRIER {
-        RBRIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rbrie(&self) -> RBRIE_R {
+        RBRIE_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - THRE Interrupt Enable. Enables the THRE interrupt for UART1. The status of this interrupt can be read from LSR\\[5\\]."]
-    #[inline]
-    pub fn threie(&self) -> THREIER {
-        THREIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn threie(&self) -> THREIE_R {
+        THREIE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - RX Line Interrupt Enable. Enables the UART1 RX line status interrupts. The status of this interrupt can be read from LSR\\[4:1\\]."]
-    #[inline]
-    pub fn rxie(&self) -> RXIER {
-        RXIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rxie(&self) -> RXIE_R {
+        RXIE_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Modem Status Interrupt Enable. Enables the modem interrupt. The status of this interrupt can be read from MSR\\[3:0\\]."]
-    #[inline]
-    pub fn msie(&self) -> MSIER {
-        MSIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn msie(&self) -> MSIE_R {
+        MSIE_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 7 - CTS Interrupt Enable. If auto-cts mode is enabled this bit enables/disables the modem status interrupt generation on a CTS1 signal transition. If auto-cts mode is disabled a CTS1 transition will generate an interrupt if Modem Status Interrupt Enable (IER\\[3\\]) is set. In normal operation a CTS1 signal transition will generate a Modem Status Interrupt unless the interrupt has been disabled by clearing the IER\\[3\\] bit in the IER register. In auto-cts mode a transition on the CTS1 bit will trigger an interrupt only if both the IER\\[3\\] and IER\\[7\\] bits are set."]
-    #[inline]
-    pub fn ctsie(&self) -> CTSIER {
-        CTSIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ctsie(&self) -> CTSIE_R {
+        CTSIE_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 8 - Enables the end of auto-baud interrupt."]
-    #[inline]
-    pub fn abeoie(&self) -> ABEOIER {
-        ABEOIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn abeoie(&self) -> ABEOIE_R {
+        ABEOIE_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Enables the auto-baud time-out interrupt."]
-    #[inline]
-    pub fn abtoie(&self) -> ABTOIER {
-        ABTOIER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn abtoie(&self) -> ABTOIE_R {
+        ABTOIE_R::new(((self.bits >> 9) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - RBR Interrupt Enable. Enables the Receive Data Available interrupt for UART1. It also controls the Character Receive Time-out interrupt."]
-    #[inline]
-    pub fn rbrie(&mut self) -> _RBRIEW {
-        _RBRIEW { w: self }
+    #[inline(always)]
+    pub fn rbrie(&mut self) -> RBRIE_W {
+        RBRIE_W { w: self }
     }
     #[doc = "Bit 1 - THRE Interrupt Enable. Enables the THRE interrupt for UART1. The status of this interrupt can be read from LSR\\[5\\]."]
-    #[inline]
-    pub fn threie(&mut self) -> _THREIEW {
-        _THREIEW { w: self }
+    #[inline(always)]
+    pub fn threie(&mut self) -> THREIE_W {
+        THREIE_W { w: self }
     }
     #[doc = "Bit 2 - RX Line Interrupt Enable. Enables the UART1 RX line status interrupts. The status of this interrupt can be read from LSR\\[4:1\\]."]
-    #[inline]
-    pub fn rxie(&mut self) -> _RXIEW {
-        _RXIEW { w: self }
+    #[inline(always)]
+    pub fn rxie(&mut self) -> RXIE_W {
+        RXIE_W { w: self }
     }
     #[doc = "Bit 3 - Modem Status Interrupt Enable. Enables the modem interrupt. The status of this interrupt can be read from MSR\\[3:0\\]."]
-    #[inline]
-    pub fn msie(&mut self) -> _MSIEW {
-        _MSIEW { w: self }
+    #[inline(always)]
+    pub fn msie(&mut self) -> MSIE_W {
+        MSIE_W { w: self }
     }
     #[doc = "Bit 7 - CTS Interrupt Enable. If auto-cts mode is enabled this bit enables/disables the modem status interrupt generation on a CTS1 signal transition. If auto-cts mode is disabled a CTS1 transition will generate an interrupt if Modem Status Interrupt Enable (IER\\[3\\]) is set. In normal operation a CTS1 signal transition will generate a Modem Status Interrupt unless the interrupt has been disabled by clearing the IER\\[3\\] bit in the IER register. In auto-cts mode a transition on the CTS1 bit will trigger an interrupt only if both the IER\\[3\\] and IER\\[7\\] bits are set."]
-    #[inline]
-    pub fn ctsie(&mut self) -> _CTSIEW {
-        _CTSIEW { w: self }
+    #[inline(always)]
+    pub fn ctsie(&mut self) -> CTSIE_W {
+        CTSIE_W { w: self }
     }
     #[doc = "Bit 8 - Enables the end of auto-baud interrupt."]
-    #[inline]
-    pub fn abeoie(&mut self) -> _ABEOIEW {
-        _ABEOIEW { w: self }
+    #[inline(always)]
+    pub fn abeoie(&mut self) -> ABEOIE_W {
+        ABEOIE_W { w: self }
     }
     #[doc = "Bit 9 - Enables the auto-baud time-out interrupt."]
-    #[inline]
-    pub fn abtoie(&mut self) -> _ABTOIEW {
-        _ABTOIEW { w: self }
+    #[inline(always)]
+    pub fn abtoie(&mut self) -> ABTOIE_W {
+        ABTOIE_W { w: self }
     }
 }

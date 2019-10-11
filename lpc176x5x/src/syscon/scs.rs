@@ -1,421 +1,280 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SCS {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SCS"]
+pub type R = crate::R<u32, super::SCS>;
+#[doc = "Writer for register SCS"]
+pub type W = crate::W<u32, super::SCS>;
+#[doc = "Register SCS `reset()`'s with value 0"]
+impl crate::ResetValue for super::SCS {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `OSCRANGE`"]
+#[doc = "Main oscillator range select.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OSCRANGER {
-    #[doc = "Low. The frequency range of the main oscillator is 1 MHz to 20 MHz."]
+pub enum OSCRANGE_A {
+    #[doc = "0: Low. The frequency range of the main oscillator is 1 MHz to 20 MHz."]
     LOW,
-    #[doc = "High. The frequency range of the main oscillator is 15 MHz to 25 MHz."]
+    #[doc = "1: High. The frequency range of the main oscillator is 15 MHz to 25 MHz."]
     HIGH,
 }
-impl OSCRANGER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            OSCRANGER::LOW => false,
-            OSCRANGER::HIGH => true,
+impl From<OSCRANGE_A> for bool {
+    #[inline(always)]
+    fn from(variant: OSCRANGE_A) -> Self {
+        match variant {
+            OSCRANGE_A::LOW => false,
+            OSCRANGE_A::HIGH => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> OSCRANGER {
-        match value {
-            false => OSCRANGER::LOW,
-            true => OSCRANGER::HIGH,
+}
+#[doc = "Reader of field `OSCRANGE`"]
+pub type OSCRANGE_R = crate::R<bool, OSCRANGE_A>;
+impl OSCRANGE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> OSCRANGE_A {
+        match self.bits {
+            false => OSCRANGE_A::LOW,
+            true => OSCRANGE_A::HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == OSCRANGER::LOW
+        *self == OSCRANGE_A::LOW
     }
     #[doc = "Checks if the value of the field is `HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == OSCRANGER::HIGH
+        *self == OSCRANGE_A::HIGH
     }
 }
-#[doc = "Possible values of the field `OSCEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OSCENR {
-    #[doc = "Disabled. The main oscillator is disabled."]
-    DISABLED,
-    #[doc = "Enabled.The main oscillator is enabled, and will start up if the correct external circuitry is connected to the XTAL1 and XTAL2 pins."]
-    ENABLED,
+#[doc = "Write proxy for field `OSCRANGE`"]
+pub struct OSCRANGE_W<'a> {
+    w: &'a mut W,
 }
-impl OSCENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            OSCENR::DISABLED => false,
-            OSCENR::ENABLED => true,
+impl<'a> OSCRANGE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: OSCRANGE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> OSCENR {
-        match value {
-            false => OSCENR::DISABLED,
-            true => OSCENR::ENABLED,
+    #[doc = "Low. The frequency range of the main oscillator is 1 MHz to 20 MHz."]
+    #[inline(always)]
+    pub fn low(self) -> &'a mut W {
+        self.variant(OSCRANGE_A::LOW)
+    }
+    #[doc = "High. The frequency range of the main oscillator is 15 MHz to 25 MHz."]
+    #[inline(always)]
+    pub fn high(self) -> &'a mut W {
+        self.variant(OSCRANGE_A::HIGH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Main oscillator enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum OSCEN_A {
+    #[doc = "0: Disabled. The main oscillator is disabled."]
+    DISABLED,
+    #[doc = "1: Enabled.The main oscillator is enabled, and will start up if the correct external circuitry is connected to the XTAL1 and XTAL2 pins."]
+    ENABLED,
+}
+impl From<OSCEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: OSCEN_A) -> Self {
+        match variant {
+            OSCEN_A::DISABLED => false,
+            OSCEN_A::ENABLED => true,
+        }
+    }
+}
+#[doc = "Reader of field `OSCEN`"]
+pub type OSCEN_R = crate::R<bool, OSCEN_A>;
+impl OSCEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> OSCEN_A {
+        match self.bits {
+            false => OSCEN_A::DISABLED,
+            true => OSCEN_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == OSCENR::DISABLED
+        *self == OSCEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == OSCENR::ENABLED
+        *self == OSCEN_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `OSCSTAT`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OSCSTATR {
-    #[doc = "Not ready. The main oscillator is not ready to be used as a clock source."]
-    NOT_READY,
-    #[doc = "Ready. The main oscillator is ready to be used as a clock source. The main oscillator must be enabled via the OSCEN bit."]
-    READY,
+#[doc = "Write proxy for field `OSCEN`"]
+pub struct OSCEN_W<'a> {
+    w: &'a mut W,
 }
-impl OSCSTATR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            OSCSTATR::NOT_READY => false,
-            OSCSTATR::READY => true,
+impl<'a> OSCEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: OSCEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> OSCSTATR {
-        match value {
-            false => OSCSTATR::NOT_READY,
-            true => OSCSTATR::READY,
+    #[doc = "Disabled. The main oscillator is disabled."]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(OSCEN_A::DISABLED)
+    }
+    #[doc = "Enabled.The main oscillator is enabled, and will start up if the correct external circuitry is connected to the XTAL1 and XTAL2 pins."]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(OSCEN_A::ENABLED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "Main oscillator status.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum OSCSTAT_A {
+    #[doc = "0: Not ready. The main oscillator is not ready to be used as a clock source."]
+    NOT_READY,
+    #[doc = "1: Ready. The main oscillator is ready to be used as a clock source. The main oscillator must be enabled via the OSCEN bit."]
+    READY,
+}
+impl From<OSCSTAT_A> for bool {
+    #[inline(always)]
+    fn from(variant: OSCSTAT_A) -> Self {
+        match variant {
+            OSCSTAT_A::NOT_READY => false,
+            OSCSTAT_A::READY => true,
+        }
+    }
+}
+#[doc = "Reader of field `OSCSTAT`"]
+pub type OSCSTAT_R = crate::R<bool, OSCSTAT_A>;
+impl OSCSTAT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> OSCSTAT_A {
+        match self.bits {
+            false => OSCSTAT_A::NOT_READY,
+            true => OSCSTAT_A::READY,
         }
     }
     #[doc = "Checks if the value of the field is `NOT_READY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_ready(&self) -> bool {
-        *self == OSCSTATR::NOT_READY
+        *self == OSCSTAT_A::NOT_READY
     }
     #[doc = "Checks if the value of the field is `READY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ready(&self) -> bool {
-        *self == OSCSTATR::READY
+        *self == OSCSTAT_A::READY
     }
 }
-#[doc = "Values that can be written to the field `OSCRANGE`"]
-pub enum OSCRANGEW {
-    #[doc = "Low. The frequency range of the main oscillator is 1 MHz to 20 MHz."]
-    LOW,
-    #[doc = "High. The frequency range of the main oscillator is 15 MHz to 25 MHz."]
-    HIGH,
-}
-impl OSCRANGEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            OSCRANGEW::LOW => false,
-            OSCRANGEW::HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _OSCRANGEW<'a> {
+#[doc = "Write proxy for field `OSCSTAT`"]
+pub struct OSCSTAT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _OSCRANGEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: OSCRANGEW) -> &'a mut W {
+impl<'a> OSCSTAT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: OSCSTAT_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Low. The frequency range of the main oscillator is 1 MHz to 20 MHz."]
-    #[inline]
-    pub fn low(self) -> &'a mut W {
-        self.variant(OSCRANGEW::LOW)
-    }
-    #[doc = "High. The frequency range of the main oscillator is 15 MHz to 25 MHz."]
-    #[inline]
-    pub fn high(self) -> &'a mut W {
-        self.variant(OSCRANGEW::HIGH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `OSCEN`"]
-pub enum OSCENW {
-    #[doc = "Disabled. The main oscillator is disabled."]
-    DISABLED,
-    #[doc = "Enabled.The main oscillator is enabled, and will start up if the correct external circuitry is connected to the XTAL1 and XTAL2 pins."]
-    ENABLED,
-}
-impl OSCENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            OSCENW::DISABLED => false,
-            OSCENW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _OSCENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _OSCENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: OSCENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. The main oscillator is disabled."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(OSCENW::DISABLED)
-    }
-    #[doc = "Enabled.The main oscillator is enabled, and will start up if the correct external circuitry is connected to the XTAL1 and XTAL2 pins."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(OSCENW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `OSCSTAT`"]
-pub enum OSCSTATW {
-    #[doc = "Not ready. The main oscillator is not ready to be used as a clock source."]
-    NOT_READY,
-    #[doc = "Ready. The main oscillator is ready to be used as a clock source. The main oscillator must be enabled via the OSCEN bit."]
-    READY,
-}
-impl OSCSTATW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            OSCSTATW::NOT_READY => false,
-            OSCSTATW::READY => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _OSCSTATW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _OSCSTATW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: OSCSTATW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not ready. The main oscillator is not ready to be used as a clock source."]
-    #[inline]
+    #[inline(always)]
     pub fn not_ready(self) -> &'a mut W {
-        self.variant(OSCSTATW::NOT_READY)
+        self.variant(OSCSTAT_A::NOT_READY)
     }
     #[doc = "Ready. The main oscillator is ready to be used as a clock source. The main oscillator must be enabled via the OSCEN bit."]
-    #[inline]
+    #[inline(always)]
     pub fn ready(self) -> &'a mut W {
-        self.variant(OSCSTATW::READY)
+        self.variant(OSCSTAT_A::READY)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 4 - Main oscillator range select."]
-    #[inline]
-    pub fn oscrange(&self) -> OSCRANGER {
-        OSCRANGER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn oscrange(&self) -> OSCRANGE_R {
+        OSCRANGE_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Main oscillator enable."]
-    #[inline]
-    pub fn oscen(&self) -> OSCENR {
-        OSCENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn oscen(&self) -> OSCEN_R {
+        OSCEN_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Main oscillator status."]
-    #[inline]
-    pub fn oscstat(&self) -> OSCSTATR {
-        OSCSTATR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn oscstat(&self) -> OSCSTAT_R {
+        OSCSTAT_R::new(((self.bits >> 6) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 4 - Main oscillator range select."]
-    #[inline]
-    pub fn oscrange(&mut self) -> _OSCRANGEW {
-        _OSCRANGEW { w: self }
+    #[inline(always)]
+    pub fn oscrange(&mut self) -> OSCRANGE_W {
+        OSCRANGE_W { w: self }
     }
     #[doc = "Bit 5 - Main oscillator enable."]
-    #[inline]
-    pub fn oscen(&mut self) -> _OSCENW {
-        _OSCENW { w: self }
+    #[inline(always)]
+    pub fn oscen(&mut self) -> OSCEN_W {
+        OSCEN_W { w: self }
     }
     #[doc = "Bit 6 - Main oscillator status."]
-    #[inline]
-    pub fn oscstat(&mut self) -> _OSCSTATW {
-        _OSCSTATW { w: self }
+    #[inline(always)]
+    pub fn oscstat(&mut self) -> OSCSTAT_W {
+        OSCSTAT_W { w: self }
     }
 }

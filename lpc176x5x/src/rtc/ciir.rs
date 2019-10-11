@@ -1,536 +1,288 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CIIR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CIIR"]
+pub type R = crate::R<u32, super::CIIR>;
+#[doc = "Writer for register CIIR"]
+pub type W = crate::W<u32, super::CIIR>;
+#[doc = "Register CIIR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CIIR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct IMSECR {
-    bits: bool,
-}
-impl IMSECR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IMMINR {
-    bits: bool,
-}
-impl IMMINR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IMHOURR {
-    bits: bool,
-}
-impl IMHOURR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IMDOMR {
-    bits: bool,
-}
-impl IMDOMR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IMDOWR {
-    bits: bool,
-}
-impl IMDOWR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IMDOYR {
-    bits: bool,
-}
-impl IMDOYR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IMMONR {
-    bits: bool,
-}
-impl IMMONR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct IMYEARR {
-    bits: bool,
-}
-impl IMYEARR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Proxy"]
-pub struct _IMSECW<'a> {
+#[doc = "Reader of field `IMSEC`"]
+pub type IMSEC_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `IMSEC`"]
+pub struct IMSEC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IMSECW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> IMSEC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IMMINW<'a> {
+#[doc = "Reader of field `IMMIN`"]
+pub type IMMIN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `IMMIN`"]
+pub struct IMMIN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IMMINW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> IMMIN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IMHOURW<'a> {
+#[doc = "Reader of field `IMHOUR`"]
+pub type IMHOUR_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `IMHOUR`"]
+pub struct IMHOUR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IMHOURW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> IMHOUR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IMDOMW<'a> {
+#[doc = "Reader of field `IMDOM`"]
+pub type IMDOM_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `IMDOM`"]
+pub struct IMDOM_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IMDOMW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> IMDOM_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IMDOWW<'a> {
+#[doc = "Reader of field `IMDOW`"]
+pub type IMDOW_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `IMDOW`"]
+pub struct IMDOW_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IMDOWW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> IMDOW_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IMDOYW<'a> {
+#[doc = "Reader of field `IMDOY`"]
+pub type IMDOY_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `IMDOY`"]
+pub struct IMDOY_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IMDOYW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> IMDOY_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IMMONW<'a> {
+#[doc = "Reader of field `IMMON`"]
+pub type IMMON_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `IMMON`"]
+pub struct IMMON_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IMMONW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> IMMON_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _IMYEARW<'a> {
+#[doc = "Reader of field `IMYEAR`"]
+pub type IMYEAR_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `IMYEAR`"]
+pub struct IMYEAR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IMYEARW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> IMYEAR_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - When 1, an increment of the Second value generates an interrupt."]
-    #[inline]
-    pub fn imsec(&self) -> IMSECR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        IMSECR { bits }
+    #[inline(always)]
+    pub fn imsec(&self) -> IMSEC_R {
+        IMSEC_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - When 1, an increment of the Minute value generates an interrupt."]
-    #[inline]
-    pub fn immin(&self) -> IMMINR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        IMMINR { bits }
+    #[inline(always)]
+    pub fn immin(&self) -> IMMIN_R {
+        IMMIN_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - When 1, an increment of the Hour value generates an interrupt."]
-    #[inline]
-    pub fn imhour(&self) -> IMHOURR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        IMHOURR { bits }
+    #[inline(always)]
+    pub fn imhour(&self) -> IMHOUR_R {
+        IMHOUR_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - When 1, an increment of the Day of Month value generates an interrupt."]
-    #[inline]
-    pub fn imdom(&self) -> IMDOMR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        IMDOMR { bits }
+    #[inline(always)]
+    pub fn imdom(&self) -> IMDOM_R {
+        IMDOM_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - When 1, an increment of the Day of Week value generates an interrupt."]
-    #[inline]
-    pub fn imdow(&self) -> IMDOWR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        IMDOWR { bits }
+    #[inline(always)]
+    pub fn imdow(&self) -> IMDOW_R {
+        IMDOW_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - When 1, an increment of the Day of Year value generates an interrupt."]
-    #[inline]
-    pub fn imdoy(&self) -> IMDOYR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        IMDOYR { bits }
+    #[inline(always)]
+    pub fn imdoy(&self) -> IMDOY_R {
+        IMDOY_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - When 1, an increment of the Month value generates an interrupt."]
-    #[inline]
-    pub fn immon(&self) -> IMMONR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        IMMONR { bits }
+    #[inline(always)]
+    pub fn immon(&self) -> IMMON_R {
+        IMMON_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - When 1, an increment of the Year value generates an interrupt."]
-    #[inline]
-    pub fn imyear(&self) -> IMYEARR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        IMYEARR { bits }
+    #[inline(always)]
+    pub fn imyear(&self) -> IMYEAR_R {
+        IMYEAR_R::new(((self.bits >> 7) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - When 1, an increment of the Second value generates an interrupt."]
-    #[inline]
-    pub fn imsec(&mut self) -> _IMSECW {
-        _IMSECW { w: self }
+    #[inline(always)]
+    pub fn imsec(&mut self) -> IMSEC_W {
+        IMSEC_W { w: self }
     }
     #[doc = "Bit 1 - When 1, an increment of the Minute value generates an interrupt."]
-    #[inline]
-    pub fn immin(&mut self) -> _IMMINW {
-        _IMMINW { w: self }
+    #[inline(always)]
+    pub fn immin(&mut self) -> IMMIN_W {
+        IMMIN_W { w: self }
     }
     #[doc = "Bit 2 - When 1, an increment of the Hour value generates an interrupt."]
-    #[inline]
-    pub fn imhour(&mut self) -> _IMHOURW {
-        _IMHOURW { w: self }
+    #[inline(always)]
+    pub fn imhour(&mut self) -> IMHOUR_W {
+        IMHOUR_W { w: self }
     }
     #[doc = "Bit 3 - When 1, an increment of the Day of Month value generates an interrupt."]
-    #[inline]
-    pub fn imdom(&mut self) -> _IMDOMW {
-        _IMDOMW { w: self }
+    #[inline(always)]
+    pub fn imdom(&mut self) -> IMDOM_W {
+        IMDOM_W { w: self }
     }
     #[doc = "Bit 4 - When 1, an increment of the Day of Week value generates an interrupt."]
-    #[inline]
-    pub fn imdow(&mut self) -> _IMDOWW {
-        _IMDOWW { w: self }
+    #[inline(always)]
+    pub fn imdow(&mut self) -> IMDOW_W {
+        IMDOW_W { w: self }
     }
     #[doc = "Bit 5 - When 1, an increment of the Day of Year value generates an interrupt."]
-    #[inline]
-    pub fn imdoy(&mut self) -> _IMDOYW {
-        _IMDOYW { w: self }
+    #[inline(always)]
+    pub fn imdoy(&mut self) -> IMDOY_W {
+        IMDOY_W { w: self }
     }
     #[doc = "Bit 6 - When 1, an increment of the Month value generates an interrupt."]
-    #[inline]
-    pub fn immon(&mut self) -> _IMMONW {
-        _IMMONW { w: self }
+    #[inline(always)]
+    pub fn immon(&mut self) -> IMMON_W {
+        IMMON_W { w: self }
     }
     #[doc = "Bit 7 - When 1, an increment of the Year value generates an interrupt."]
-    #[inline]
-    pub fn imyear(&mut self) -> _IMYEARW {
-        _IMYEARW { w: self }
+    #[inline(always)]
+    pub fn imyear(&mut self) -> IMYEAR_W {
+        IMYEAR_W { w: self }
     }
 }

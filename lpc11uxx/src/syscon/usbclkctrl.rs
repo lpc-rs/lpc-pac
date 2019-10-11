@@ -1,302 +1,192 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::USBCLKCTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register USBCLKCTRL"]
+pub type R = crate::R<u32, super::USBCLKCTRL>;
+#[doc = "Writer for register USBCLKCTRL"]
+pub type W = crate::W<u32, super::USBCLKCTRL>;
+#[doc = "Register USBCLKCTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::USBCLKCTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `AP_CLK`"]
+#[doc = "USB need_clock signal control\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum AP_CLKR {
-    #[doc = "Under hardware control."]
+pub enum AP_CLK_A {
+    #[doc = "0: Under hardware control."]
     UNDER_HARDWARE_CONTROL,
-    #[doc = "Forced HIGH."]
+    #[doc = "1: Forced HIGH."]
     FORCED_HIGH,
 }
-impl AP_CLKR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            AP_CLKR::UNDER_HARDWARE_CONTROL => false,
-            AP_CLKR::FORCED_HIGH => true,
+impl From<AP_CLK_A> for bool {
+    #[inline(always)]
+    fn from(variant: AP_CLK_A) -> Self {
+        match variant {
+            AP_CLK_A::UNDER_HARDWARE_CONTROL => false,
+            AP_CLK_A::FORCED_HIGH => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> AP_CLKR {
-        match value {
-            false => AP_CLKR::UNDER_HARDWARE_CONTROL,
-            true => AP_CLKR::FORCED_HIGH,
+}
+#[doc = "Reader of field `AP_CLK`"]
+pub type AP_CLK_R = crate::R<bool, AP_CLK_A>;
+impl AP_CLK_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> AP_CLK_A {
+        match self.bits {
+            false => AP_CLK_A::UNDER_HARDWARE_CONTROL,
+            true => AP_CLK_A::FORCED_HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `UNDER_HARDWARE_CONTROL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_under_hardware_control(&self) -> bool {
-        *self == AP_CLKR::UNDER_HARDWARE_CONTROL
+        *self == AP_CLK_A::UNDER_HARDWARE_CONTROL
     }
     #[doc = "Checks if the value of the field is `FORCED_HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_forced_high(&self) -> bool {
-        *self == AP_CLKR::FORCED_HIGH
+        *self == AP_CLK_A::FORCED_HIGH
     }
 }
-#[doc = "Possible values of the field `POL_CLK`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum POL_CLKR {
-    #[doc = "Falling edge of the USB need_clock triggers the USB wake-up (default)."]
-    FALLING_EDGE,
-    #[doc = "Rising edge of the USB need_clock triggers the USB wake-up."]
-    RISING_EDGE,
-}
-impl POL_CLKR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            POL_CLKR::FALLING_EDGE => false,
-            POL_CLKR::RISING_EDGE => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> POL_CLKR {
-        match value {
-            false => POL_CLKR::FALLING_EDGE,
-            true => POL_CLKR::RISING_EDGE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `FALLING_EDGE`"]
-    #[inline]
-    pub fn is_falling_edge(&self) -> bool {
-        *self == POL_CLKR::FALLING_EDGE
-    }
-    #[doc = "Checks if the value of the field is `RISING_EDGE`"]
-    #[inline]
-    pub fn is_rising_edge(&self) -> bool {
-        *self == POL_CLKR::RISING_EDGE
-    }
-}
-#[doc = "Values that can be written to the field `AP_CLK`"]
-pub enum AP_CLKW {
-    #[doc = "Under hardware control."]
-    UNDER_HARDWARE_CONTROL,
-    #[doc = "Forced HIGH."]
-    FORCED_HIGH,
-}
-impl AP_CLKW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            AP_CLKW::UNDER_HARDWARE_CONTROL => false,
-            AP_CLKW::FORCED_HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _AP_CLKW<'a> {
+#[doc = "Write proxy for field `AP_CLK`"]
+pub struct AP_CLK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _AP_CLKW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: AP_CLKW) -> &'a mut W {
+impl<'a> AP_CLK_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: AP_CLK_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Under hardware control."]
-    #[inline]
+    #[inline(always)]
     pub fn under_hardware_control(self) -> &'a mut W {
-        self.variant(AP_CLKW::UNDER_HARDWARE_CONTROL)
+        self.variant(AP_CLK_A::UNDER_HARDWARE_CONTROL)
     }
     #[doc = "Forced HIGH."]
-    #[inline]
+    #[inline(always)]
     pub fn forced_high(self) -> &'a mut W {
-        self.variant(AP_CLKW::FORCED_HIGH)
+        self.variant(AP_CLK_A::FORCED_HIGH)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `POL_CLK`"]
-pub enum POL_CLKW {
-    #[doc = "Falling edge of the USB need_clock triggers the USB wake-up (default)."]
+#[doc = "USB need_clock polarity for triggering the USB wake-up interrupt\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum POL_CLK_A {
+    #[doc = "0: Falling edge of the USB need_clock triggers the USB wake-up (default)."]
     FALLING_EDGE,
-    #[doc = "Rising edge of the USB need_clock triggers the USB wake-up."]
+    #[doc = "1: Rising edge of the USB need_clock triggers the USB wake-up."]
     RISING_EDGE,
 }
-impl POL_CLKW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            POL_CLKW::FALLING_EDGE => false,
-            POL_CLKW::RISING_EDGE => true,
+impl From<POL_CLK_A> for bool {
+    #[inline(always)]
+    fn from(variant: POL_CLK_A) -> Self {
+        match variant {
+            POL_CLK_A::FALLING_EDGE => false,
+            POL_CLK_A::RISING_EDGE => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _POL_CLKW<'a> {
+#[doc = "Reader of field `POL_CLK`"]
+pub type POL_CLK_R = crate::R<bool, POL_CLK_A>;
+impl POL_CLK_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> POL_CLK_A {
+        match self.bits {
+            false => POL_CLK_A::FALLING_EDGE,
+            true => POL_CLK_A::RISING_EDGE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `FALLING_EDGE`"]
+    #[inline(always)]
+    pub fn is_falling_edge(&self) -> bool {
+        *self == POL_CLK_A::FALLING_EDGE
+    }
+    #[doc = "Checks if the value of the field is `RISING_EDGE`"]
+    #[inline(always)]
+    pub fn is_rising_edge(&self) -> bool {
+        *self == POL_CLK_A::RISING_EDGE
+    }
+}
+#[doc = "Write proxy for field `POL_CLK`"]
+pub struct POL_CLK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _POL_CLKW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: POL_CLKW) -> &'a mut W {
+impl<'a> POL_CLK_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: POL_CLK_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Falling edge of the USB need_clock triggers the USB wake-up (default)."]
-    #[inline]
+    #[inline(always)]
     pub fn falling_edge(self) -> &'a mut W {
-        self.variant(POL_CLKW::FALLING_EDGE)
+        self.variant(POL_CLK_A::FALLING_EDGE)
     }
     #[doc = "Rising edge of the USB need_clock triggers the USB wake-up."]
-    #[inline]
+    #[inline(always)]
     pub fn rising_edge(self) -> &'a mut W {
-        self.variant(POL_CLKW::RISING_EDGE)
+        self.variant(POL_CLK_A::RISING_EDGE)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - USB need_clock signal control"]
-    #[inline]
-    pub fn ap_clk(&self) -> AP_CLKR {
-        AP_CLKR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ap_clk(&self) -> AP_CLK_R {
+        AP_CLK_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - USB need_clock polarity for triggering the USB wake-up interrupt"]
-    #[inline]
-    pub fn pol_clk(&self) -> POL_CLKR {
-        POL_CLKR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pol_clk(&self) -> POL_CLK_R {
+        POL_CLK_R::new(((self.bits >> 1) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - USB need_clock signal control"]
-    #[inline]
-    pub fn ap_clk(&mut self) -> _AP_CLKW {
-        _AP_CLKW { w: self }
+    #[inline(always)]
+    pub fn ap_clk(&mut self) -> AP_CLK_W {
+        AP_CLK_W { w: self }
     }
     #[doc = "Bit 1 - USB need_clock polarity for triggering the USB wake-up interrupt"]
-    #[inline]
-    pub fn pol_clk(&mut self) -> _POL_CLKW {
-        _POL_CLKW { w: self }
+    #[inline(always)]
+    pub fn pol_clk(&mut self) -> POL_CLK_W {
+        POL_CLK_W { w: self }
     }
 }

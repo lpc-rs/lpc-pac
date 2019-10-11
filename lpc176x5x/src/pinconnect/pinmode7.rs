@@ -1,336 +1,230 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PINMODE7 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PINMODE7"]
+pub type R = crate::R<u32, super::PINMODE7>;
+#[doc = "Writer for register PINMODE7"]
+pub type W = crate::W<u32, super::PINMODE7>;
+#[doc = "Register PINMODE7 `reset()`'s with value 0"]
+impl crate::ResetValue for super::PINMODE7 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `P3_25MODE`"]
+#[doc = "Port 3 pin 25 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum P3_25MODER {
-    #[doc = "Pull-up. P3.25 pin has a pull-up resistor enabled."]
+pub enum P3_25MODE_A {
+    #[doc = "0: Pull-up. P3.25 pin has a pull-up resistor enabled."]
     PULL_UP,
-    #[doc = "Repeater. P3.25 pin has repeater mode enabled."]
+    #[doc = "1: Repeater. P3.25 pin has repeater mode enabled."]
     REPEATER,
-    #[doc = "Disabled. P3.25 pin has neither pull-up nor pull-down."]
+    #[doc = "2: Disabled. P3.25 pin has neither pull-up nor pull-down."]
     DISABLED,
-    #[doc = "Pull-down. P3.25 has a pull-down resistor enabled."]
+    #[doc = "3: Pull-down. P3.25 has a pull-down resistor enabled."]
     PULL_DOWN,
 }
-impl P3_25MODER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            P3_25MODER::PULL_UP => 0,
-            P3_25MODER::REPEATER => 1,
-            P3_25MODER::DISABLED => 2,
-            P3_25MODER::PULL_DOWN => 3,
+impl From<P3_25MODE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: P3_25MODE_A) -> Self {
+        match variant {
+            P3_25MODE_A::PULL_UP => 0,
+            P3_25MODE_A::REPEATER => 1,
+            P3_25MODE_A::DISABLED => 2,
+            P3_25MODE_A::PULL_DOWN => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> P3_25MODER {
-        match value {
-            0 => P3_25MODER::PULL_UP,
-            1 => P3_25MODER::REPEATER,
-            2 => P3_25MODER::DISABLED,
-            3 => P3_25MODER::PULL_DOWN,
+}
+#[doc = "Reader of field `P3_25MODE`"]
+pub type P3_25MODE_R = crate::R<u8, P3_25MODE_A>;
+impl P3_25MODE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> P3_25MODE_A {
+        match self.bits {
+            0 => P3_25MODE_A::PULL_UP,
+            1 => P3_25MODE_A::REPEATER,
+            2 => P3_25MODE_A::DISABLED,
+            3 => P3_25MODE_A::PULL_DOWN,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `PULL_UP`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pull_up(&self) -> bool {
-        *self == P3_25MODER::PULL_UP
+        *self == P3_25MODE_A::PULL_UP
     }
     #[doc = "Checks if the value of the field is `REPEATER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_repeater(&self) -> bool {
-        *self == P3_25MODER::REPEATER
+        *self == P3_25MODE_A::REPEATER
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == P3_25MODER::DISABLED
+        *self == P3_25MODE_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `PULL_DOWN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pull_down(&self) -> bool {
-        *self == P3_25MODER::PULL_DOWN
+        *self == P3_25MODE_A::PULL_DOWN
     }
 }
-#[doc = "Possible values of the field `P3_26MODE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum P3_26MODER {
-    #[doc = "Pull-up. P3.26 pin has a pull-up resistor enabled."]
-    PULL_UP,
-    #[doc = "Repeater. P3.26 pin has repeater mode enabled."]
-    REPEATER,
-    #[doc = "Disabled. P3.26 pin has neither pull-up nor pull-down."]
-    DISABLED,
-    #[doc = "Pull-down. P3.26 has a pull-down resistor enabled."]
-    PULL_DOWN,
-}
-impl P3_26MODER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            P3_26MODER::PULL_UP => 0,
-            P3_26MODER::REPEATER => 1,
-            P3_26MODER::DISABLED => 2,
-            P3_26MODER::PULL_DOWN => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> P3_26MODER {
-        match value {
-            0 => P3_26MODER::PULL_UP,
-            1 => P3_26MODER::REPEATER,
-            2 => P3_26MODER::DISABLED,
-            3 => P3_26MODER::PULL_DOWN,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `PULL_UP`"]
-    #[inline]
-    pub fn is_pull_up(&self) -> bool {
-        *self == P3_26MODER::PULL_UP
-    }
-    #[doc = "Checks if the value of the field is `REPEATER`"]
-    #[inline]
-    pub fn is_repeater(&self) -> bool {
-        *self == P3_26MODER::REPEATER
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == P3_26MODER::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `PULL_DOWN`"]
-    #[inline]
-    pub fn is_pull_down(&self) -> bool {
-        *self == P3_26MODER::PULL_DOWN
-    }
-}
-#[doc = "Values that can be written to the field `P3_25MODE`"]
-pub enum P3_25MODEW {
-    #[doc = "Pull-up. P3.25 pin has a pull-up resistor enabled."]
-    PULL_UP,
-    #[doc = "Repeater. P3.25 pin has repeater mode enabled."]
-    REPEATER,
-    #[doc = "Disabled. P3.25 pin has neither pull-up nor pull-down."]
-    DISABLED,
-    #[doc = "Pull-down. P3.25 has a pull-down resistor enabled."]
-    PULL_DOWN,
-}
-impl P3_25MODEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            P3_25MODEW::PULL_UP => 0,
-            P3_25MODEW::REPEATER => 1,
-            P3_25MODEW::DISABLED => 2,
-            P3_25MODEW::PULL_DOWN => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _P3_25MODEW<'a> {
+#[doc = "Write proxy for field `P3_25MODE`"]
+pub struct P3_25MODE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _P3_25MODEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: P3_25MODEW) -> &'a mut W {
+impl<'a> P3_25MODE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: P3_25MODE_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Pull-up. P3.25 pin has a pull-up resistor enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn pull_up(self) -> &'a mut W {
-        self.variant(P3_25MODEW::PULL_UP)
+        self.variant(P3_25MODE_A::PULL_UP)
     }
     #[doc = "Repeater. P3.25 pin has repeater mode enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn repeater(self) -> &'a mut W {
-        self.variant(P3_25MODEW::REPEATER)
+        self.variant(P3_25MODE_A::REPEATER)
     }
     #[doc = "Disabled. P3.25 pin has neither pull-up nor pull-down."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(P3_25MODEW::DISABLED)
+        self.variant(P3_25MODE_A::DISABLED)
     }
     #[doc = "Pull-down. P3.25 has a pull-down resistor enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn pull_down(self) -> &'a mut W {
-        self.variant(P3_25MODEW::PULL_DOWN)
+        self.variant(P3_25MODE_A::PULL_DOWN)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 18)) | (((value as u32) & 0x03) << 18);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `P3_26MODE`"]
-pub enum P3_26MODEW {
-    #[doc = "Pull-up. P3.26 pin has a pull-up resistor enabled."]
+#[doc = "Port 3 pin 26 control.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum P3_26MODE_A {
+    #[doc = "0: Pull-up. P3.26 pin has a pull-up resistor enabled."]
     PULL_UP,
-    #[doc = "Repeater. P3.26 pin has repeater mode enabled."]
+    #[doc = "1: Repeater. P3.26 pin has repeater mode enabled."]
     REPEATER,
-    #[doc = "Disabled. P3.26 pin has neither pull-up nor pull-down."]
+    #[doc = "2: Disabled. P3.26 pin has neither pull-up nor pull-down."]
     DISABLED,
-    #[doc = "Pull-down. P3.26 has a pull-down resistor enabled."]
+    #[doc = "3: Pull-down. P3.26 has a pull-down resistor enabled."]
     PULL_DOWN,
 }
-impl P3_26MODEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            P3_26MODEW::PULL_UP => 0,
-            P3_26MODEW::REPEATER => 1,
-            P3_26MODEW::DISABLED => 2,
-            P3_26MODEW::PULL_DOWN => 3,
+impl From<P3_26MODE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: P3_26MODE_A) -> Self {
+        match variant {
+            P3_26MODE_A::PULL_UP => 0,
+            P3_26MODE_A::REPEATER => 1,
+            P3_26MODE_A::DISABLED => 2,
+            P3_26MODE_A::PULL_DOWN => 3,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _P3_26MODEW<'a> {
+#[doc = "Reader of field `P3_26MODE`"]
+pub type P3_26MODE_R = crate::R<u8, P3_26MODE_A>;
+impl P3_26MODE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> P3_26MODE_A {
+        match self.bits {
+            0 => P3_26MODE_A::PULL_UP,
+            1 => P3_26MODE_A::REPEATER,
+            2 => P3_26MODE_A::DISABLED,
+            3 => P3_26MODE_A::PULL_DOWN,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `PULL_UP`"]
+    #[inline(always)]
+    pub fn is_pull_up(&self) -> bool {
+        *self == P3_26MODE_A::PULL_UP
+    }
+    #[doc = "Checks if the value of the field is `REPEATER`"]
+    #[inline(always)]
+    pub fn is_repeater(&self) -> bool {
+        *self == P3_26MODE_A::REPEATER
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == P3_26MODE_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `PULL_DOWN`"]
+    #[inline(always)]
+    pub fn is_pull_down(&self) -> bool {
+        *self == P3_26MODE_A::PULL_DOWN
+    }
+}
+#[doc = "Write proxy for field `P3_26MODE`"]
+pub struct P3_26MODE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _P3_26MODEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: P3_26MODEW) -> &'a mut W {
+impl<'a> P3_26MODE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: P3_26MODE_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Pull-up. P3.26 pin has a pull-up resistor enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn pull_up(self) -> &'a mut W {
-        self.variant(P3_26MODEW::PULL_UP)
+        self.variant(P3_26MODE_A::PULL_UP)
     }
     #[doc = "Repeater. P3.26 pin has repeater mode enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn repeater(self) -> &'a mut W {
-        self.variant(P3_26MODEW::REPEATER)
+        self.variant(P3_26MODE_A::REPEATER)
     }
     #[doc = "Disabled. P3.26 pin has neither pull-up nor pull-down."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(P3_26MODEW::DISABLED)
+        self.variant(P3_26MODE_A::DISABLED)
     }
     #[doc = "Pull-down. P3.26 has a pull-down resistor enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn pull_down(self) -> &'a mut W {
-        self.variant(P3_26MODEW::PULL_DOWN)
+        self.variant(P3_26MODE_A::PULL_DOWN)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 20)) | (((value as u32) & 0x03) << 20);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 18:19 - Port 3 pin 25 control."]
-    #[inline]
-    pub fn p3_25mode(&self) -> P3_25MODER {
-        P3_25MODER::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn p3_25mode(&self) -> P3_25MODE_R {
+        P3_25MODE_R::new(((self.bits >> 18) & 0x03) as u8)
     }
     #[doc = "Bits 20:21 - Port 3 pin 26 control."]
-    #[inline]
-    pub fn p3_26mode(&self) -> P3_26MODER {
-        P3_26MODER::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn p3_26mode(&self) -> P3_26MODE_R {
+        P3_26MODE_R::new(((self.bits >> 20) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 18:19 - Port 3 pin 25 control."]
-    #[inline]
-    pub fn p3_25mode(&mut self) -> _P3_25MODEW {
-        _P3_25MODEW { w: self }
+    #[inline(always)]
+    pub fn p3_25mode(&mut self) -> P3_25MODE_W {
+        P3_25MODE_W { w: self }
     }
     #[doc = "Bits 20:21 - Port 3 pin 26 control."]
-    #[inline]
-    pub fn p3_26mode(&mut self) -> _P3_26MODEW {
-        _P3_26MODEW { w: self }
+    #[inline(always)]
+    pub fn p3_26mode(&mut self) -> P3_26MODE_W {
+        P3_26MODE_W { w: self }
     }
 }

@@ -1,302 +1,192 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PDSLEEPCFG {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PDSLEEPCFG"]
+pub type R = crate::R<u32, super::PDSLEEPCFG>;
+#[doc = "Writer for register PDSLEEPCFG"]
+pub type W = crate::W<u32, super::PDSLEEPCFG>;
+#[doc = "Register PDSLEEPCFG `reset()`'s with value 0xffff"]
+impl crate::ResetValue for super::PDSLEEPCFG {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0xffff
     }
 }
-#[doc = "Possible values of the field `BOD_PD`"]
+#[doc = "BOD power-down control for Deep-sleep and Power-down mode\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BOD_PDR {
-    #[doc = "Powered"]
+pub enum BOD_PD_A {
+    #[doc = "0: Powered"]
     POWERED,
-    #[doc = "Powered down"]
+    #[doc = "1: Powered down"]
     POWERED_DOWN,
 }
-impl BOD_PDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            BOD_PDR::POWERED => false,
-            BOD_PDR::POWERED_DOWN => true,
+impl From<BOD_PD_A> for bool {
+    #[inline(always)]
+    fn from(variant: BOD_PD_A) -> Self {
+        match variant {
+            BOD_PD_A::POWERED => false,
+            BOD_PD_A::POWERED_DOWN => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> BOD_PDR {
-        match value {
-            false => BOD_PDR::POWERED,
-            true => BOD_PDR::POWERED_DOWN,
+}
+#[doc = "Reader of field `BOD_PD`"]
+pub type BOD_PD_R = crate::R<bool, BOD_PD_A>;
+impl BOD_PD_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BOD_PD_A {
+        match self.bits {
+            false => BOD_PD_A::POWERED,
+            true => BOD_PD_A::POWERED_DOWN,
         }
     }
     #[doc = "Checks if the value of the field is `POWERED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_powered(&self) -> bool {
-        *self == BOD_PDR::POWERED
+        *self == BOD_PD_A::POWERED
     }
     #[doc = "Checks if the value of the field is `POWERED_DOWN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_powered_down(&self) -> bool {
-        *self == BOD_PDR::POWERED_DOWN
+        *self == BOD_PD_A::POWERED_DOWN
     }
 }
-#[doc = "Possible values of the field `WDTOSC_PD`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WDTOSC_PDR {
-    #[doc = "Powered"]
-    POWERED,
-    #[doc = "Powered down"]
-    POWERED_DOWN,
-}
-impl WDTOSC_PDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WDTOSC_PDR::POWERED => false,
-            WDTOSC_PDR::POWERED_DOWN => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WDTOSC_PDR {
-        match value {
-            false => WDTOSC_PDR::POWERED,
-            true => WDTOSC_PDR::POWERED_DOWN,
-        }
-    }
-    #[doc = "Checks if the value of the field is `POWERED`"]
-    #[inline]
-    pub fn is_powered(&self) -> bool {
-        *self == WDTOSC_PDR::POWERED
-    }
-    #[doc = "Checks if the value of the field is `POWERED_DOWN`"]
-    #[inline]
-    pub fn is_powered_down(&self) -> bool {
-        *self == WDTOSC_PDR::POWERED_DOWN
-    }
-}
-#[doc = "Values that can be written to the field `BOD_PD`"]
-pub enum BOD_PDW {
-    #[doc = "Powered"]
-    POWERED,
-    #[doc = "Powered down"]
-    POWERED_DOWN,
-}
-impl BOD_PDW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            BOD_PDW::POWERED => false,
-            BOD_PDW::POWERED_DOWN => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BOD_PDW<'a> {
+#[doc = "Write proxy for field `BOD_PD`"]
+pub struct BOD_PD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BOD_PDW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: BOD_PDW) -> &'a mut W {
+impl<'a> BOD_PD_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BOD_PD_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Powered"]
-    #[inline]
+    #[inline(always)]
     pub fn powered(self) -> &'a mut W {
-        self.variant(BOD_PDW::POWERED)
+        self.variant(BOD_PD_A::POWERED)
     }
     #[doc = "Powered down"]
-    #[inline]
+    #[inline(always)]
     pub fn powered_down(self) -> &'a mut W {
-        self.variant(BOD_PDW::POWERED_DOWN)
+        self.variant(BOD_PD_A::POWERED_DOWN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `WDTOSC_PD`"]
-pub enum WDTOSC_PDW {
-    #[doc = "Powered"]
+#[doc = "Watchdog oscillator power-down control for Deep-sleep and Power-down mode\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WDTOSC_PD_A {
+    #[doc = "0: Powered"]
     POWERED,
-    #[doc = "Powered down"]
+    #[doc = "1: Powered down"]
     POWERED_DOWN,
 }
-impl WDTOSC_PDW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WDTOSC_PDW::POWERED => false,
-            WDTOSC_PDW::POWERED_DOWN => true,
+impl From<WDTOSC_PD_A> for bool {
+    #[inline(always)]
+    fn from(variant: WDTOSC_PD_A) -> Self {
+        match variant {
+            WDTOSC_PD_A::POWERED => false,
+            WDTOSC_PD_A::POWERED_DOWN => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _WDTOSC_PDW<'a> {
+#[doc = "Reader of field `WDTOSC_PD`"]
+pub type WDTOSC_PD_R = crate::R<bool, WDTOSC_PD_A>;
+impl WDTOSC_PD_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WDTOSC_PD_A {
+        match self.bits {
+            false => WDTOSC_PD_A::POWERED,
+            true => WDTOSC_PD_A::POWERED_DOWN,
+        }
+    }
+    #[doc = "Checks if the value of the field is `POWERED`"]
+    #[inline(always)]
+    pub fn is_powered(&self) -> bool {
+        *self == WDTOSC_PD_A::POWERED
+    }
+    #[doc = "Checks if the value of the field is `POWERED_DOWN`"]
+    #[inline(always)]
+    pub fn is_powered_down(&self) -> bool {
+        *self == WDTOSC_PD_A::POWERED_DOWN
+    }
+}
+#[doc = "Write proxy for field `WDTOSC_PD`"]
+pub struct WDTOSC_PD_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _WDTOSC_PDW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WDTOSC_PDW) -> &'a mut W {
+impl<'a> WDTOSC_PD_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WDTOSC_PD_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Powered"]
-    #[inline]
+    #[inline(always)]
     pub fn powered(self) -> &'a mut W {
-        self.variant(WDTOSC_PDW::POWERED)
+        self.variant(WDTOSC_PD_A::POWERED)
     }
     #[doc = "Powered down"]
-    #[inline]
+    #[inline(always)]
     pub fn powered_down(self) -> &'a mut W {
-        self.variant(WDTOSC_PDW::POWERED_DOWN)
+        self.variant(WDTOSC_PD_A::POWERED_DOWN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 3 - BOD power-down control for Deep-sleep and Power-down mode"]
-    #[inline]
-    pub fn bod_pd(&self) -> BOD_PDR {
-        BOD_PDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn bod_pd(&self) -> BOD_PD_R {
+        BOD_PD_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Watchdog oscillator power-down control for Deep-sleep and Power-down mode"]
-    #[inline]
-    pub fn wdtosc_pd(&self) -> WDTOSC_PDR {
-        WDTOSC_PDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wdtosc_pd(&self) -> WDTOSC_PD_R {
+        WDTOSC_PD_R::new(((self.bits >> 6) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 65535 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 3 - BOD power-down control for Deep-sleep and Power-down mode"]
-    #[inline]
-    pub fn bod_pd(&mut self) -> _BOD_PDW {
-        _BOD_PDW { w: self }
+    #[inline(always)]
+    pub fn bod_pd(&mut self) -> BOD_PD_W {
+        BOD_PD_W { w: self }
     }
     #[doc = "Bit 6 - Watchdog oscillator power-down control for Deep-sleep and Power-down mode"]
-    #[inline]
-    pub fn wdtosc_pd(&mut self) -> _WDTOSC_PDW {
-        _WDTOSC_PDW { w: self }
+    #[inline(always)]
+    pub fn wdtosc_pd(&mut self) -> WDTOSC_PD_W {
+        WDTOSC_PD_W { w: self }
     }
 }

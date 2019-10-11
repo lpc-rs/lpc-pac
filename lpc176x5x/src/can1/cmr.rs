@@ -1,533 +1,500 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CMR {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register CMR"]
+pub type W = crate::W<u32, super::CMR>;
+#[doc = "Register CMR `reset()`'s with value 0"]
+impl crate::ResetValue for super::CMR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Values that can be written to the field `TR`"]
-pub enum TRW {
-    #[doc = "Absent.No transmission request."]
+#[doc = "Transmission Request.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TR_AW {
+    #[doc = "0: Absent.No transmission request."]
     ABSENT_NO_TRANSMISSI,
-    #[doc = "Present. The message, previously written to the CANxTFI, CANxTID, and optionally the CANxTDA and CANxTDB registers, is queued for transmission from the selected Transmit Buffer. If at two or all three of STB1, STB2 and STB3 bits are selected when TR=1 is written, Transmit Buffer will be selected based on the chosen priority scheme (for details see Section 21.5.3 Transmit Buffers (TXB))"]
+    #[doc = "1: Present. The message, previously written to the CANxTFI, CANxTID, and optionally the CANxTDA and CANxTDB registers, is queued for transmission from the selected Transmit Buffer. If at two or all three of STB1, STB2 and STB3 bits are selected when TR=1 is written, Transmit Buffer will be selected based on the chosen priority scheme (for details see Section 21.5.3 Transmit Buffers (TXB))"]
     PRESENT_THE_MESSAGE,
 }
-impl TRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TRW::ABSENT_NO_TRANSMISSI => false,
-            TRW::PRESENT_THE_MESSAGE => true,
+impl From<TR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: TR_AW) -> Self {
+        match variant {
+            TR_AW::ABSENT_NO_TRANSMISSI => false,
+            TR_AW::PRESENT_THE_MESSAGE => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _TRW<'a> {
+#[doc = "Write proxy for field `TR`"]
+pub struct TR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TRW) -> &'a mut W {
+impl<'a> TR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TR_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Absent.No transmission request."]
-    #[inline]
+    #[inline(always)]
     pub fn absent_no_transmissi(self) -> &'a mut W {
-        self.variant(TRW::ABSENT_NO_TRANSMISSI)
+        self.variant(TR_AW::ABSENT_NO_TRANSMISSI)
     }
     #[doc = "Present. The message, previously written to the CANxTFI, CANxTID, and optionally the CANxTDA and CANxTDB registers, is queued for transmission from the selected Transmit Buffer. If at two or all three of STB1, STB2 and STB3 bits are selected when TR=1 is written, Transmit Buffer will be selected based on the chosen priority scheme (for details see Section 21.5.3 Transmit Buffers (TXB))"]
-    #[inline]
+    #[inline(always)]
     pub fn present_the_message(self) -> &'a mut W {
-        self.variant(TRW::PRESENT_THE_MESSAGE)
+        self.variant(TR_AW::PRESENT_THE_MESSAGE)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `AT`"]
-pub enum ATW {
-    #[doc = "No action. Do not abort the transmission."]
+#[doc = "Abort Transmission.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum AT_AW {
+    #[doc = "0: No action. Do not abort the transmission."]
     NO_ACTION_DO_NOT_AB,
-    #[doc = "Present. if not already in progress, a pending Transmission Request for the selected Transmit Buffer is cancelled."]
+    #[doc = "1: Present. if not already in progress, a pending Transmission Request for the selected Transmit Buffer is cancelled."]
     PRESENT_IF_NOT_ALRE,
 }
-impl ATW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ATW::NO_ACTION_DO_NOT_AB => false,
-            ATW::PRESENT_IF_NOT_ALRE => true,
+impl From<AT_AW> for bool {
+    #[inline(always)]
+    fn from(variant: AT_AW) -> Self {
+        match variant {
+            AT_AW::NO_ACTION_DO_NOT_AB => false,
+            AT_AW::PRESENT_IF_NOT_ALRE => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _ATW<'a> {
+#[doc = "Write proxy for field `AT`"]
+pub struct AT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _ATW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ATW) -> &'a mut W {
+impl<'a> AT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: AT_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No action. Do not abort the transmission."]
-    #[inline]
+    #[inline(always)]
     pub fn no_action_do_not_ab(self) -> &'a mut W {
-        self.variant(ATW::NO_ACTION_DO_NOT_AB)
+        self.variant(AT_AW::NO_ACTION_DO_NOT_AB)
     }
     #[doc = "Present. if not already in progress, a pending Transmission Request for the selected Transmit Buffer is cancelled."]
-    #[inline]
+    #[inline(always)]
     pub fn present_if_not_alre(self) -> &'a mut W {
-        self.variant(ATW::PRESENT_IF_NOT_ALRE)
+        self.variant(AT_AW::PRESENT_IF_NOT_ALRE)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `RRB`"]
-pub enum RRBW {
-    #[doc = "No action. Do not release the receive buffer."]
+#[doc = "Release Receive Buffer.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RRB_AW {
+    #[doc = "0: No action. Do not release the receive buffer."]
     NO_ACTION_DO_NOT_RE,
-    #[doc = "Released. The information in the Receive Buffer (consisting of CANxRFS, CANxRID, and if applicable the CANxRDA and CANxRDB registers) is released, and becomes eligible for replacement by the next received frame. If the next received frame is not available, writing this command clears the RBS bit in the Status Register(s)."]
+    #[doc = "1: Released. The information in the Receive Buffer (consisting of CANxRFS, CANxRID, and if applicable the CANxRDA and CANxRDB registers) is released, and becomes eligible for replacement by the next received frame. If the next received frame is not available, writing this command clears the RBS bit in the Status Register(s)."]
     RELEASED_THE_INFORM,
 }
-impl RRBW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RRBW::NO_ACTION_DO_NOT_RE => false,
-            RRBW::RELEASED_THE_INFORM => true,
+impl From<RRB_AW> for bool {
+    #[inline(always)]
+    fn from(variant: RRB_AW) -> Self {
+        match variant {
+            RRB_AW::NO_ACTION_DO_NOT_RE => false,
+            RRB_AW::RELEASED_THE_INFORM => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _RRBW<'a> {
+#[doc = "Write proxy for field `RRB`"]
+pub struct RRB_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RRBW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RRBW) -> &'a mut W {
+impl<'a> RRB_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RRB_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No action. Do not release the receive buffer."]
-    #[inline]
+    #[inline(always)]
     pub fn no_action_do_not_re(self) -> &'a mut W {
-        self.variant(RRBW::NO_ACTION_DO_NOT_RE)
+        self.variant(RRB_AW::NO_ACTION_DO_NOT_RE)
     }
     #[doc = "Released. The information in the Receive Buffer (consisting of CANxRFS, CANxRID, and if applicable the CANxRDA and CANxRDB registers) is released, and becomes eligible for replacement by the next received frame. If the next received frame is not available, writing this command clears the RBS bit in the Status Register(s)."]
-    #[inline]
+    #[inline(always)]
     pub fn released_the_inform(self) -> &'a mut W {
-        self.variant(RRBW::RELEASED_THE_INFORM)
+        self.variant(RRB_AW::RELEASED_THE_INFORM)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CDO`"]
-pub enum CDOW {
-    #[doc = "No action. Do not clear the data overrun bit."]
+#[doc = "Clear Data Overrun.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CDO_AW {
+    #[doc = "0: No action. Do not clear the data overrun bit."]
     NO_ACTION_DO_NOT_CL,
-    #[doc = "Clear. The Data Overrun bit in Status Register(s) is cleared."]
+    #[doc = "1: Clear. The Data Overrun bit in Status Register(s) is cleared."]
     CLEAR_THE_DATA_OVER,
 }
-impl CDOW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CDOW::NO_ACTION_DO_NOT_CL => false,
-            CDOW::CLEAR_THE_DATA_OVER => true,
+impl From<CDO_AW> for bool {
+    #[inline(always)]
+    fn from(variant: CDO_AW) -> Self {
+        match variant {
+            CDO_AW::NO_ACTION_DO_NOT_CL => false,
+            CDO_AW::CLEAR_THE_DATA_OVER => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CDOW<'a> {
+#[doc = "Write proxy for field `CDO`"]
+pub struct CDO_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CDOW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CDOW) -> &'a mut W {
+impl<'a> CDO_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CDO_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No action. Do not clear the data overrun bit."]
-    #[inline]
+    #[inline(always)]
     pub fn no_action_do_not_cl(self) -> &'a mut W {
-        self.variant(CDOW::NO_ACTION_DO_NOT_CL)
+        self.variant(CDO_AW::NO_ACTION_DO_NOT_CL)
     }
     #[doc = "Clear. The Data Overrun bit in Status Register(s) is cleared."]
-    #[inline]
+    #[inline(always)]
     pub fn clear_the_data_over(self) -> &'a mut W {
-        self.variant(CDOW::CLEAR_THE_DATA_OVER)
+        self.variant(CDO_AW::CLEAR_THE_DATA_OVER)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `SRR`"]
-pub enum SRRW {
-    #[doc = "Absent. No self reception request."]
+#[doc = "Self Reception Request.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SRR_AW {
+    #[doc = "0: Absent. No self reception request."]
     ABSENT_NO_SELF_RECE,
-    #[doc = "Present. The message, previously written to the CANxTFS, CANxTID, and optionally the CANxTDA and CANxTDB registers, is queued for transmission from the selected Transmit Buffer and received simultaneously. This differs from the TR bit above in that the receiver is not disabled during the transmission, so that it receives the message if its Identifier is recognized by the Acceptance Filter."]
+    #[doc = "1: Present. The message, previously written to the CANxTFS, CANxTID, and optionally the CANxTDA and CANxTDB registers, is queued for transmission from the selected Transmit Buffer and received simultaneously. This differs from the TR bit above in that the receiver is not disabled during the transmission, so that it receives the message if its Identifier is recognized by the Acceptance Filter."]
     PRESENT_THE_MESSAGE,
 }
-impl SRRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SRRW::ABSENT_NO_SELF_RECE => false,
-            SRRW::PRESENT_THE_MESSAGE => true,
+impl From<SRR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: SRR_AW) -> Self {
+        match variant {
+            SRR_AW::ABSENT_NO_SELF_RECE => false,
+            SRR_AW::PRESENT_THE_MESSAGE => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _SRRW<'a> {
+#[doc = "Write proxy for field `SRR`"]
+pub struct SRR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SRRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SRRW) -> &'a mut W {
+impl<'a> SRR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SRR_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Absent. No self reception request."]
-    #[inline]
+    #[inline(always)]
     pub fn absent_no_self_rece(self) -> &'a mut W {
-        self.variant(SRRW::ABSENT_NO_SELF_RECE)
+        self.variant(SRR_AW::ABSENT_NO_SELF_RECE)
     }
     #[doc = "Present. The message, previously written to the CANxTFS, CANxTID, and optionally the CANxTDA and CANxTDB registers, is queued for transmission from the selected Transmit Buffer and received simultaneously. This differs from the TR bit above in that the receiver is not disabled during the transmission, so that it receives the message if its Identifier is recognized by the Acceptance Filter."]
-    #[inline]
+    #[inline(always)]
     pub fn present_the_message(self) -> &'a mut W {
-        self.variant(SRRW::PRESENT_THE_MESSAGE)
+        self.variant(SRR_AW::PRESENT_THE_MESSAGE)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `STB1`"]
-pub enum STB1W {
-    #[doc = "Not selected. Tx Buffer 1 is not selected for transmission."]
+#[doc = "Select Tx Buffer 1.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum STB1_AW {
+    #[doc = "0: Not selected. Tx Buffer 1 is not selected for transmission."]
     NOT_SELECTED_TX_BUF,
-    #[doc = "Selected. Tx Buffer 1 is selected for transmission."]
+    #[doc = "1: Selected. Tx Buffer 1 is selected for transmission."]
     SELECTED_TX_BUFFER_,
 }
-impl STB1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            STB1W::NOT_SELECTED_TX_BUF => false,
-            STB1W::SELECTED_TX_BUFFER_ => true,
+impl From<STB1_AW> for bool {
+    #[inline(always)]
+    fn from(variant: STB1_AW) -> Self {
+        match variant {
+            STB1_AW::NOT_SELECTED_TX_BUF => false,
+            STB1_AW::SELECTED_TX_BUFFER_ => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _STB1W<'a> {
+#[doc = "Write proxy for field `STB1`"]
+pub struct STB1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _STB1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: STB1W) -> &'a mut W {
+impl<'a> STB1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: STB1_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not selected. Tx Buffer 1 is not selected for transmission."]
-    #[inline]
+    #[inline(always)]
     pub fn not_selected_tx_buf(self) -> &'a mut W {
-        self.variant(STB1W::NOT_SELECTED_TX_BUF)
+        self.variant(STB1_AW::NOT_SELECTED_TX_BUF)
     }
     #[doc = "Selected. Tx Buffer 1 is selected for transmission."]
-    #[inline]
+    #[inline(always)]
     pub fn selected_tx_buffer_(self) -> &'a mut W {
-        self.variant(STB1W::SELECTED_TX_BUFFER_)
+        self.variant(STB1_AW::SELECTED_TX_BUFFER_)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `STB2`"]
-pub enum STB2W {
-    #[doc = "Not selected. Tx Buffer 2 is not selected for transmission."]
+#[doc = "Select Tx Buffer 2.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum STB2_AW {
+    #[doc = "0: Not selected. Tx Buffer 2 is not selected for transmission."]
     NOT_SELECTED_TX_BUF,
-    #[doc = "Selected. Tx Buffer 2 is selected for transmission."]
+    #[doc = "1: Selected. Tx Buffer 2 is selected for transmission."]
     SELECTED_TX_BUFFER_,
 }
-impl STB2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            STB2W::NOT_SELECTED_TX_BUF => false,
-            STB2W::SELECTED_TX_BUFFER_ => true,
+impl From<STB2_AW> for bool {
+    #[inline(always)]
+    fn from(variant: STB2_AW) -> Self {
+        match variant {
+            STB2_AW::NOT_SELECTED_TX_BUF => false,
+            STB2_AW::SELECTED_TX_BUFFER_ => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _STB2W<'a> {
+#[doc = "Write proxy for field `STB2`"]
+pub struct STB2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _STB2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: STB2W) -> &'a mut W {
+impl<'a> STB2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: STB2_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not selected. Tx Buffer 2 is not selected for transmission."]
-    #[inline]
+    #[inline(always)]
     pub fn not_selected_tx_buf(self) -> &'a mut W {
-        self.variant(STB2W::NOT_SELECTED_TX_BUF)
+        self.variant(STB2_AW::NOT_SELECTED_TX_BUF)
     }
     #[doc = "Selected. Tx Buffer 2 is selected for transmission."]
-    #[inline]
+    #[inline(always)]
     pub fn selected_tx_buffer_(self) -> &'a mut W {
-        self.variant(STB2W::SELECTED_TX_BUFFER_)
+        self.variant(STB2_AW::SELECTED_TX_BUFFER_)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `STB3`"]
-pub enum STB3W {
-    #[doc = "Not selected. Tx Buffer 3 is not selected for transmission."]
+#[doc = "Select Tx Buffer 3.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum STB3_AW {
+    #[doc = "0: Not selected. Tx Buffer 3 is not selected for transmission."]
     NOT_SELECTED_TX_BUF,
-    #[doc = "Selected. Tx Buffer 3 is selected for transmission."]
+    #[doc = "1: Selected. Tx Buffer 3 is selected for transmission."]
     SELECTED_TX_BUFFER_,
 }
-impl STB3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            STB3W::NOT_SELECTED_TX_BUF => false,
-            STB3W::SELECTED_TX_BUFFER_ => true,
+impl From<STB3_AW> for bool {
+    #[inline(always)]
+    fn from(variant: STB3_AW) -> Self {
+        match variant {
+            STB3_AW::NOT_SELECTED_TX_BUF => false,
+            STB3_AW::SELECTED_TX_BUFFER_ => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _STB3W<'a> {
+#[doc = "Write proxy for field `STB3`"]
+pub struct STB3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _STB3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: STB3W) -> &'a mut W {
+impl<'a> STB3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: STB3_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Not selected. Tx Buffer 3 is not selected for transmission."]
-    #[inline]
+    #[inline(always)]
     pub fn not_selected_tx_buf(self) -> &'a mut W {
-        self.variant(STB3W::NOT_SELECTED_TX_BUF)
+        self.variant(STB3_AW::NOT_SELECTED_TX_BUF)
     }
     #[doc = "Selected. Tx Buffer 3 is selected for transmission."]
-    #[inline]
+    #[inline(always)]
     pub fn selected_tx_buffer_(self) -> &'a mut W {
-        self.variant(STB3W::SELECTED_TX_BUFFER_)
+        self.variant(STB3_AW::SELECTED_TX_BUFFER_)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Transmission Request."]
-    #[inline]
-    pub fn tr(&mut self) -> _TRW {
-        _TRW { w: self }
+    #[inline(always)]
+    pub fn tr(&mut self) -> TR_W {
+        TR_W { w: self }
     }
     #[doc = "Bit 1 - Abort Transmission."]
-    #[inline]
-    pub fn at(&mut self) -> _ATW {
-        _ATW { w: self }
+    #[inline(always)]
+    pub fn at(&mut self) -> AT_W {
+        AT_W { w: self }
     }
     #[doc = "Bit 2 - Release Receive Buffer."]
-    #[inline]
-    pub fn rrb(&mut self) -> _RRBW {
-        _RRBW { w: self }
+    #[inline(always)]
+    pub fn rrb(&mut self) -> RRB_W {
+        RRB_W { w: self }
     }
     #[doc = "Bit 3 - Clear Data Overrun."]
-    #[inline]
-    pub fn cdo(&mut self) -> _CDOW {
-        _CDOW { w: self }
+    #[inline(always)]
+    pub fn cdo(&mut self) -> CDO_W {
+        CDO_W { w: self }
     }
     #[doc = "Bit 4 - Self Reception Request."]
-    #[inline]
-    pub fn srr(&mut self) -> _SRRW {
-        _SRRW { w: self }
+    #[inline(always)]
+    pub fn srr(&mut self) -> SRR_W {
+        SRR_W { w: self }
     }
     #[doc = "Bit 5 - Select Tx Buffer 1."]
-    #[inline]
-    pub fn stb1(&mut self) -> _STB1W {
-        _STB1W { w: self }
+    #[inline(always)]
+    pub fn stb1(&mut self) -> STB1_W {
+        STB1_W { w: self }
     }
     #[doc = "Bit 6 - Select Tx Buffer 2."]
-    #[inline]
-    pub fn stb2(&mut self) -> _STB2W {
-        _STB2W { w: self }
+    #[inline(always)]
+    pub fn stb2(&mut self) -> STB2_W {
+        STB2_W { w: self }
     }
     #[doc = "Bit 7 - Select Tx Buffer 3."]
-    #[inline]
-    pub fn stb3(&mut self) -> _STB3W {
-        _STB3W { w: self }
+    #[inline(always)]
+    pub fn stb3(&mut self) -> STB3_W {
+        STB3_W { w: self }
     }
 }

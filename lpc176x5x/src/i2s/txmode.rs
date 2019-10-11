@@ -1,285 +1,162 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::TXMODE {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register TXMODE"]
+pub type R = crate::R<u32, super::TXMODE>;
+#[doc = "Writer for register TXMODE"]
+pub type W = crate::W<u32, super::TXMODE>;
+#[doc = "Register TXMODE `reset()`'s with value 0"]
+impl crate::ResetValue for super::TXMODE {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `TXCLKSEL`"]
+#[doc = "Clock source selection for the transmit bit clock divider.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TXCLKSELR {
-    #[doc = "Select the TX fractional rate divider clock output as the source"]
+pub enum TXCLKSEL_A {
+    #[doc = "0: Select the TX fractional rate divider clock output as the source"]
     SELECT_THE_TX_FRACTI,
-    #[doc = "Select the RX_MCLK signal as the TX_MCLK clock source"]
+    #[doc = "2: Select the RX_MCLK signal as the TX_MCLK clock source"]
     SELECT_THE_RX_MCLK_S,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl TXCLKSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            TXCLKSELR::SELECT_THE_TX_FRACTI => 0,
-            TXCLKSELR::SELECT_THE_RX_MCLK_S => 2,
-            TXCLKSELR::_Reserved(bits) => bits,
+impl From<TXCLKSEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: TXCLKSEL_A) -> Self {
+        match variant {
+            TXCLKSEL_A::SELECT_THE_TX_FRACTI => 0,
+            TXCLKSEL_A::SELECT_THE_RX_MCLK_S => 2,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> TXCLKSELR {
-        match value {
-            0 => TXCLKSELR::SELECT_THE_TX_FRACTI,
-            2 => TXCLKSELR::SELECT_THE_RX_MCLK_S,
-            i => TXCLKSELR::_Reserved(i),
+}
+#[doc = "Reader of field `TXCLKSEL`"]
+pub type TXCLKSEL_R = crate::R<u8, TXCLKSEL_A>;
+impl TXCLKSEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, TXCLKSEL_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(TXCLKSEL_A::SELECT_THE_TX_FRACTI),
+            2 => Val(TXCLKSEL_A::SELECT_THE_RX_MCLK_S),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `SELECT_THE_TX_FRACTI`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_select_the_tx_fracti(&self) -> bool {
-        *self == TXCLKSELR::SELECT_THE_TX_FRACTI
+        *self == TXCLKSEL_A::SELECT_THE_TX_FRACTI
     }
     #[doc = "Checks if the value of the field is `SELECT_THE_RX_MCLK_S`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_select_the_rx_mclk_s(&self) -> bool {
-        *self == TXCLKSELR::SELECT_THE_RX_MCLK_S
+        *self == TXCLKSEL_A::SELECT_THE_RX_MCLK_S
     }
 }
-#[doc = r" Value of the field"]
-pub struct TX4PINR {
-    bits: bool,
-}
-impl TX4PINR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct TXMCENAR {
-    bits: bool,
-}
-impl TXMCENAR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = "Values that can be written to the field `TXCLKSEL`"]
-pub enum TXCLKSELW {
-    #[doc = "Select the TX fractional rate divider clock output as the source"]
-    SELECT_THE_TX_FRACTI,
-    #[doc = "Select the RX_MCLK signal as the TX_MCLK clock source"]
-    SELECT_THE_RX_MCLK_S,
-}
-impl TXCLKSELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            TXCLKSELW::SELECT_THE_TX_FRACTI => 0,
-            TXCLKSELW::SELECT_THE_RX_MCLK_S => 2,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TXCLKSELW<'a> {
+#[doc = "Write proxy for field `TXCLKSEL`"]
+pub struct TXCLKSEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXCLKSELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TXCLKSELW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> TXCLKSEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TXCLKSEL_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Select the TX fractional rate divider clock output as the source"]
-    #[inline]
+    #[inline(always)]
     pub fn select_the_tx_fracti(self) -> &'a mut W {
-        self.variant(TXCLKSELW::SELECT_THE_TX_FRACTI)
+        self.variant(TXCLKSEL_A::SELECT_THE_TX_FRACTI)
     }
     #[doc = "Select the RX_MCLK signal as the TX_MCLK clock source"]
-    #[inline]
+    #[inline(always)]
     pub fn select_the_rx_mclk_s(self) -> &'a mut W {
-        self.variant(TXCLKSELW::SELECT_THE_RX_MCLK_S)
+        self.variant(TXCLKSEL_A::SELECT_THE_RX_MCLK_S)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TX4PINW<'a> {
+#[doc = "Reader of field `TX4PIN`"]
+pub type TX4PIN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TX4PIN`"]
+pub struct TX4PIN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TX4PINW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TX4PIN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _TXMCENAW<'a> {
+#[doc = "Reader of field `TXMCENA`"]
+pub type TXMCENA_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TXMCENA`"]
+pub struct TXMCENA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _TXMCENAW<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> TXMCENA_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Clock source selection for the transmit bit clock divider."]
-    #[inline]
-    pub fn txclksel(&self) -> TXCLKSELR {
-        TXCLKSELR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn txclksel(&self) -> TXCLKSEL_R {
+        TXCLKSEL_R::new((self.bits & 0x03) as u8)
     }
     #[doc = "Bit 2 - Transmit 4-pin mode selection. When 1, enables 4-pin mode."]
-    #[inline]
-    pub fn tx4pin(&self) -> TX4PINR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TX4PINR { bits }
+    #[inline(always)]
+    pub fn tx4pin(&self) -> TX4PIN_R {
+        TX4PIN_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Enable for the TX_MCLK output. When 0, output of TX_MCLK is not enabled. When 1, output of TX_MCLK is enabled."]
-    #[inline]
-    pub fn txmcena(&self) -> TXMCENAR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        TXMCENAR { bits }
+    #[inline(always)]
+    pub fn txmcena(&self) -> TXMCENA_R {
+        TXMCENA_R::new(((self.bits >> 3) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Clock source selection for the transmit bit clock divider."]
-    #[inline]
-    pub fn txclksel(&mut self) -> _TXCLKSELW {
-        _TXCLKSELW { w: self }
+    #[inline(always)]
+    pub fn txclksel(&mut self) -> TXCLKSEL_W {
+        TXCLKSEL_W { w: self }
     }
     #[doc = "Bit 2 - Transmit 4-pin mode selection. When 1, enables 4-pin mode."]
-    #[inline]
-    pub fn tx4pin(&mut self) -> _TX4PINW {
-        _TX4PINW { w: self }
+    #[inline(always)]
+    pub fn tx4pin(&mut self) -> TX4PIN_W {
+        TX4PIN_W { w: self }
     }
     #[doc = "Bit 3 - Enable for the TX_MCLK output. When 0, output of TX_MCLK is not enabled. When 1, output of TX_MCLK is enabled."]
-    #[inline]
-    pub fn txmcena(&mut self) -> _TXMCENAW {
-        _TXMCENAW { w: self }
+    #[inline(always)]
+    pub fn txmcena(&mut self) -> TXMCENA_W {
+        TXMCENA_W { w: self }
     }
 }

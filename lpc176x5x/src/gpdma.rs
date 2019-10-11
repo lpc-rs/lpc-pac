@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - DMA Interrupt Status Register"]
@@ -118,117 +118,196 @@ pub struct RegisterBlock {
     #[doc = "0x1f0 - DMA Channel 0 Configuration Register\\[1\\]"]
     pub config7: CONFIG,
 }
-#[doc = "DMA Interrupt Status Register"]
-pub struct INTSTAT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intstat](intstat) module"]
+pub type INTSTAT = crate::Reg<u32, _INTSTAT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _INTSTAT;
+#[doc = "`read()` method returns [intstat::R](intstat::R) reader structure"]
+impl crate::Readable for INTSTAT {}
 #[doc = "DMA Interrupt Status Register"]
 pub mod intstat;
-#[doc = "DMA Interrupt Terminal Count Request Status Register"]
-pub struct INTTCSTAT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Interrupt Terminal Count Request Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [inttcstat](inttcstat) module"]
+pub type INTTCSTAT = crate::Reg<u32, _INTTCSTAT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _INTTCSTAT;
+#[doc = "`read()` method returns [inttcstat::R](inttcstat::R) reader structure"]
+impl crate::Readable for INTTCSTAT {}
 #[doc = "DMA Interrupt Terminal Count Request Status Register"]
 pub mod inttcstat;
-#[doc = "DMA Interrupt Terminal Count Request Clear Register"]
-pub struct INTTCCLEAR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Interrupt Terminal Count Request Clear Register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [inttcclear](inttcclear) module"]
+pub type INTTCCLEAR = crate::Reg<u32, _INTTCCLEAR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _INTTCCLEAR;
+#[doc = "`write(|w| ..)` method takes [inttcclear::W](inttcclear::W) writer structure"]
+impl crate::Writable for INTTCCLEAR {}
 #[doc = "DMA Interrupt Terminal Count Request Clear Register"]
 pub mod inttcclear;
-#[doc = "DMA Interrupt Error Status Register"]
-pub struct INTERRSTAT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Interrupt Error Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [interrstat](interrstat) module"]
+pub type INTERRSTAT = crate::Reg<u32, _INTERRSTAT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _INTERRSTAT;
+#[doc = "`read()` method returns [interrstat::R](interrstat::R) reader structure"]
+impl crate::Readable for INTERRSTAT {}
 #[doc = "DMA Interrupt Error Status Register"]
 pub mod interrstat;
-#[doc = "DMA Interrupt Error Clear Register"]
-pub struct INTERRCLR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Interrupt Error Clear Register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [interrclr](interrclr) module"]
+pub type INTERRCLR = crate::Reg<u32, _INTERRCLR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _INTERRCLR;
+#[doc = "`write(|w| ..)` method takes [interrclr::W](interrclr::W) writer structure"]
+impl crate::Writable for INTERRCLR {}
 #[doc = "DMA Interrupt Error Clear Register"]
 pub mod interrclr;
-#[doc = "DMA Raw Interrupt Terminal Count Status Register"]
-pub struct RAWINTTCSTAT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Raw Interrupt Terminal Count Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rawinttcstat](rawinttcstat) module"]
+pub type RAWINTTCSTAT = crate::Reg<u32, _RAWINTTCSTAT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _RAWINTTCSTAT;
+#[doc = "`read()` method returns [rawinttcstat::R](rawinttcstat::R) reader structure"]
+impl crate::Readable for RAWINTTCSTAT {}
 #[doc = "DMA Raw Interrupt Terminal Count Status Register"]
 pub mod rawinttcstat;
-#[doc = "DMA Raw Error Interrupt Status Register"]
-pub struct RAWINTERRSTAT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Raw Error Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rawinterrstat](rawinterrstat) module"]
+pub type RAWINTERRSTAT = crate::Reg<u32, _RAWINTERRSTAT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _RAWINTERRSTAT;
+#[doc = "`read()` method returns [rawinterrstat::R](rawinterrstat::R) reader structure"]
+impl crate::Readable for RAWINTERRSTAT {}
 #[doc = "DMA Raw Error Interrupt Status Register"]
 pub mod rawinterrstat;
-#[doc = "DMA Enabled Channel Register"]
-pub struct ENBLDCHNS {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Enabled Channel Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [enbldchns](enbldchns) module"]
+pub type ENBLDCHNS = crate::Reg<u32, _ENBLDCHNS>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _ENBLDCHNS;
+#[doc = "`read()` method returns [enbldchns::R](enbldchns::R) reader structure"]
+impl crate::Readable for ENBLDCHNS {}
 #[doc = "DMA Enabled Channel Register"]
 pub mod enbldchns;
-#[doc = "DMA Software Burst Request Register"]
-pub struct SOFTBREQ {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Software Burst Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [softbreq](softbreq) module"]
+pub type SOFTBREQ = crate::Reg<u32, _SOFTBREQ>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SOFTBREQ;
+#[doc = "`read()` method returns [softbreq::R](softbreq::R) reader structure"]
+impl crate::Readable for SOFTBREQ {}
+#[doc = "`write(|w| ..)` method takes [softbreq::W](softbreq::W) writer structure"]
+impl crate::Writable for SOFTBREQ {}
 #[doc = "DMA Software Burst Request Register"]
 pub mod softbreq;
-#[doc = "DMA Software Single Request Register"]
-pub struct SOFTSREQ {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Software Single Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [softsreq](softsreq) module"]
+pub type SOFTSREQ = crate::Reg<u32, _SOFTSREQ>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SOFTSREQ;
+#[doc = "`read()` method returns [softsreq::R](softsreq::R) reader structure"]
+impl crate::Readable for SOFTSREQ {}
+#[doc = "`write(|w| ..)` method takes [softsreq::W](softsreq::W) writer structure"]
+impl crate::Writable for SOFTSREQ {}
 #[doc = "DMA Software Single Request Register"]
 pub mod softsreq;
-#[doc = "DMA Software Last Burst Request Register"]
-pub struct SOFTLBREQ {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Software Last Burst Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [softlbreq](softlbreq) module"]
+pub type SOFTLBREQ = crate::Reg<u32, _SOFTLBREQ>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SOFTLBREQ;
+#[doc = "`read()` method returns [softlbreq::R](softlbreq::R) reader structure"]
+impl crate::Readable for SOFTLBREQ {}
+#[doc = "`write(|w| ..)` method takes [softlbreq::W](softlbreq::W) writer structure"]
+impl crate::Writable for SOFTLBREQ {}
 #[doc = "DMA Software Last Burst Request Register"]
 pub mod softlbreq;
-#[doc = "DMA Software Last Single Request Register"]
-pub struct SOFTLSREQ {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Software Last Single Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [softlsreq](softlsreq) module"]
+pub type SOFTLSREQ = crate::Reg<u32, _SOFTLSREQ>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SOFTLSREQ;
+#[doc = "`read()` method returns [softlsreq::R](softlsreq::R) reader structure"]
+impl crate::Readable for SOFTLSREQ {}
+#[doc = "`write(|w| ..)` method takes [softlsreq::W](softlsreq::W) writer structure"]
+impl crate::Writable for SOFTLSREQ {}
 #[doc = "DMA Software Last Single Request Register"]
 pub mod softlsreq;
-#[doc = "DMA Configuration Register"]
-pub struct CONFIG {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [config](config) module"]
+pub type CONFIG = crate::Reg<u32, _CONFIG>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CONFIG;
+#[doc = "`read()` method returns [config::R](config::R) reader structure"]
+impl crate::Readable for CONFIG {}
+#[doc = "`write(|w| ..)` method takes [config::W](config::W) writer structure"]
+impl crate::Writable for CONFIG {}
 #[doc = "DMA Configuration Register"]
 pub mod config;
-#[doc = "DMA Synchronization Register"]
-pub struct SYNC {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Synchronization Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sync](sync) module"]
+pub type SYNC = crate::Reg<u32, _SYNC>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SYNC;
+#[doc = "`read()` method returns [sync::R](sync::R) reader structure"]
+impl crate::Readable for SYNC {}
+#[doc = "`write(|w| ..)` method takes [sync::W](sync::W) writer structure"]
+impl crate::Writable for SYNC {}
 #[doc = "DMA Synchronization Register"]
 pub mod sync;
-#[doc = "DMA Channel 0 Source Address Register"]
-pub struct SRCADDR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Channel 0 Source Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [srcaddr](srcaddr) module"]
+pub type SRCADDR = crate::Reg<u32, _SRCADDR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _SRCADDR;
+#[doc = "`read()` method returns [srcaddr::R](srcaddr::R) reader structure"]
+impl crate::Readable for SRCADDR {}
+#[doc = "`write(|w| ..)` method takes [srcaddr::W](srcaddr::W) writer structure"]
+impl crate::Writable for SRCADDR {}
 #[doc = "DMA Channel 0 Source Address Register"]
 pub mod srcaddr;
-#[doc = "DMA Channel 0 Destination Address Register"]
-pub struct DESTADDR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Channel 0 Destination Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [destaddr](destaddr) module"]
+pub type DESTADDR = crate::Reg<u32, _DESTADDR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _DESTADDR;
+#[doc = "`read()` method returns [destaddr::R](destaddr::R) reader structure"]
+impl crate::Readable for DESTADDR {}
+#[doc = "`write(|w| ..)` method takes [destaddr::W](destaddr::W) writer structure"]
+impl crate::Writable for DESTADDR {}
 #[doc = "DMA Channel 0 Destination Address Register"]
 pub mod destaddr;
-#[doc = "DMA Channel 0 Linked List Item Register"]
-pub struct LLI {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Channel 0 Linked List Item Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [lli](lli) module"]
+pub type LLI = crate::Reg<u32, _LLI>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _LLI;
+#[doc = "`read()` method returns [lli::R](lli::R) reader structure"]
+impl crate::Readable for LLI {}
+#[doc = "`write(|w| ..)` method takes [lli::W](lli::W) writer structure"]
+impl crate::Writable for LLI {}
 #[doc = "DMA Channel 0 Linked List Item Register"]
 pub mod lli;
-#[doc = "DMA Channel 0 Control Register"]
-pub struct CONTROL {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Channel 0 Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [control](control) module"]
+pub type CONTROL = crate::Reg<u32, _CONTROL>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CONTROL;
+#[doc = "`read()` method returns [control::R](control::R) reader structure"]
+impl crate::Readable for CONTROL {}
+#[doc = "`write(|w| ..)` method takes [control::W](control::W) writer structure"]
+impl crate::Writable for CONTROL {}
 #[doc = "DMA Channel 0 Control Register"]
 pub mod control;
-#[doc = "DMA Channel 0 Configuration Register\\[1\\]"]
-pub struct CONFIG {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "DMA Channel 0 Configuration Register\\[1\\]\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [config](config) module"]
+pub type CONFIG = crate::Reg<u32, _CONFIG>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CONFIG;
+#[doc = "`read()` method returns [config::R](config::R) reader structure"]
+impl crate::Readable for CONFIG {}
+#[doc = "`write(|w| ..)` method takes [config::W](config::W) writer structure"]
+impl crate::Writable for CONFIG {}
 #[doc = "DMA Channel 0 Configuration Register\\[1\\]"]
 pub mod config;

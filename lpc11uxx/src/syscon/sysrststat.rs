@@ -1,659 +1,456 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SYSRSTSTAT {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SYSRSTSTAT"]
+pub type R = crate::R<u32, super::SYSRSTSTAT>;
+#[doc = "Writer for register SYSRSTSTAT"]
+pub type W = crate::W<u32, super::SYSRSTSTAT>;
+#[doc = "Register SYSRSTSTAT `reset()`'s with value 0x03"]
+impl crate::ResetValue for super::SYSRSTSTAT {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x03
     }
 }
-#[doc = "Possible values of the field `POR`"]
+#[doc = "POR reset status\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PORR {
-    #[doc = "No POR detected"]
+pub enum POR_A {
+    #[doc = "0: No POR detected"]
     NO_POR_DETECTED,
-    #[doc = "POR detected. Writing a one clears this reset."]
+    #[doc = "1: POR detected. Writing a one clears this reset."]
     POR_DETECTED_WRITIN,
 }
-impl PORR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PORR::NO_POR_DETECTED => false,
-            PORR::POR_DETECTED_WRITIN => true,
+impl From<POR_A> for bool {
+    #[inline(always)]
+    fn from(variant: POR_A) -> Self {
+        match variant {
+            POR_A::NO_POR_DETECTED => false,
+            POR_A::POR_DETECTED_WRITIN => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PORR {
-        match value {
-            false => PORR::NO_POR_DETECTED,
-            true => PORR::POR_DETECTED_WRITIN,
+}
+#[doc = "Reader of field `POR`"]
+pub type POR_R = crate::R<bool, POR_A>;
+impl POR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> POR_A {
+        match self.bits {
+            false => POR_A::NO_POR_DETECTED,
+            true => POR_A::POR_DETECTED_WRITIN,
         }
     }
     #[doc = "Checks if the value of the field is `NO_POR_DETECTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_por_detected(&self) -> bool {
-        *self == PORR::NO_POR_DETECTED
+        *self == POR_A::NO_POR_DETECTED
     }
     #[doc = "Checks if the value of the field is `POR_DETECTED_WRITIN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_por_detected_writin(&self) -> bool {
-        *self == PORR::POR_DETECTED_WRITIN
+        *self == POR_A::POR_DETECTED_WRITIN
     }
 }
-#[doc = "Possible values of the field `EXTRST`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EXTRSTR {
-    #[doc = "No reset event detected."]
-    NO_RESET_EVENT_DETEC,
-    #[doc = "Reset detected. Writing a one clears this reset."]
-    RESET_DETECTED_WRIT,
+#[doc = "Write proxy for field `POR`"]
+pub struct POR_W<'a> {
+    w: &'a mut W,
 }
-impl EXTRSTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EXTRSTR::NO_RESET_EVENT_DETEC => false,
-            EXTRSTR::RESET_DETECTED_WRIT => true,
+impl<'a> POR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: POR_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EXTRSTR {
-        match value {
-            false => EXTRSTR::NO_RESET_EVENT_DETEC,
-            true => EXTRSTR::RESET_DETECTED_WRIT,
+    #[doc = "No POR detected"]
+    #[inline(always)]
+    pub fn no_por_detected(self) -> &'a mut W {
+        self.variant(POR_A::NO_POR_DETECTED)
+    }
+    #[doc = "POR detected. Writing a one clears this reset."]
+    #[inline(always)]
+    pub fn por_detected_writin(self) -> &'a mut W {
+        self.variant(POR_A::POR_DETECTED_WRITIN)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "External reset status\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EXTRST_A {
+    #[doc = "0: No reset event detected."]
+    NO_RESET_EVENT_DETEC,
+    #[doc = "1: Reset detected. Writing a one clears this reset."]
+    RESET_DETECTED_WRIT,
+}
+impl From<EXTRST_A> for bool {
+    #[inline(always)]
+    fn from(variant: EXTRST_A) -> Self {
+        match variant {
+            EXTRST_A::NO_RESET_EVENT_DETEC => false,
+            EXTRST_A::RESET_DETECTED_WRIT => true,
+        }
+    }
+}
+#[doc = "Reader of field `EXTRST`"]
+pub type EXTRST_R = crate::R<bool, EXTRST_A>;
+impl EXTRST_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EXTRST_A {
+        match self.bits {
+            false => EXTRST_A::NO_RESET_EVENT_DETEC,
+            true => EXTRST_A::RESET_DETECTED_WRIT,
         }
     }
     #[doc = "Checks if the value of the field is `NO_RESET_EVENT_DETEC`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_reset_event_detec(&self) -> bool {
-        *self == EXTRSTR::NO_RESET_EVENT_DETEC
+        *self == EXTRST_A::NO_RESET_EVENT_DETEC
     }
     #[doc = "Checks if the value of the field is `RESET_DETECTED_WRIT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset_detected_writ(&self) -> bool {
-        *self == EXTRSTR::RESET_DETECTED_WRIT
+        *self == EXTRST_A::RESET_DETECTED_WRIT
     }
 }
-#[doc = "Possible values of the field `WDT`"]
+#[doc = "Write proxy for field `EXTRST`"]
+pub struct EXTRST_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> EXTRST_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EXTRST_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "No reset event detected."]
+    #[inline(always)]
+    pub fn no_reset_event_detec(self) -> &'a mut W {
+        self.variant(EXTRST_A::NO_RESET_EVENT_DETEC)
+    }
+    #[doc = "Reset detected. Writing a one clears this reset."]
+    #[inline(always)]
+    pub fn reset_detected_writ(self) -> &'a mut W {
+        self.variant(EXTRST_A::RESET_DETECTED_WRIT)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Status of the Watchdog reset\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WDTR {
+pub enum WDT_A {
+    #[doc = "0: No WDT reset detected"]
+    NO_RESET,
+    #[doc = "1: WDT reset detected. Writing a one clears this reset."]
+    RESET_CLEAR,
+}
+impl From<WDT_A> for bool {
+    #[inline(always)]
+    fn from(variant: WDT_A) -> Self {
+        match variant {
+            WDT_A::NO_RESET => false,
+            WDT_A::RESET_CLEAR => true,
+        }
+    }
+}
+#[doc = "Reader of field `WDT`"]
+pub type WDT_R = crate::R<bool, WDT_A>;
+impl WDT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WDT_A {
+        match self.bits {
+            false => WDT_A::NO_RESET,
+            true => WDT_A::RESET_CLEAR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_RESET`"]
+    #[inline(always)]
+    pub fn is_no_reset(&self) -> bool {
+        *self == WDT_A::NO_RESET
+    }
+    #[doc = "Checks if the value of the field is `RESET_CLEAR`"]
+    #[inline(always)]
+    pub fn is_reset_clear(&self) -> bool {
+        *self == WDT_A::RESET_CLEAR
+    }
+}
+#[doc = "Write proxy for field `WDT`"]
+pub struct WDT_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> WDT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WDT_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "No WDT reset detected"]
-    NO_RESET,
+    #[inline(always)]
+    pub fn no_reset(self) -> &'a mut W {
+        self.variant(WDT_A::NO_RESET)
+    }
     #[doc = "WDT reset detected. Writing a one clears this reset."]
-    RESET_CLEAR,
-}
-impl WDTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[inline(always)]
+    pub fn reset_clear(self) -> &'a mut W {
+        self.variant(WDT_A::RESET_CLEAR)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            WDTR::NO_RESET => false,
-            WDTR::RESET_CLEAR => true,
-        }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> WDTR {
-        match value {
-            false => WDTR::NO_RESET,
-            true => WDTR::RESET_CLEAR,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_RESET`"]
-    #[inline]
-    pub fn is_no_reset(&self) -> bool {
-        *self == WDTR::NO_RESET
-    }
-    #[doc = "Checks if the value of the field is `RESET_CLEAR`"]
-    #[inline]
-    pub fn is_reset_clear(&self) -> bool {
-        *self == WDTR::RESET_CLEAR
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
     }
 }
-#[doc = "Possible values of the field `BOD`"]
+#[doc = "Status of the Brown-out detect reset\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BODR {
-    #[doc = "No BOD reset detected"]
+pub enum BOD_A {
+    #[doc = "0: No BOD reset detected"]
     NO_RESET,
-    #[doc = "BOD reset detected. Writing a one clears this reset."]
+    #[doc = "1: BOD reset detected. Writing a one clears this reset."]
     RESET_CLEAR,
 }
-impl BODR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            BODR::NO_RESET => false,
-            BODR::RESET_CLEAR => true,
+impl From<BOD_A> for bool {
+    #[inline(always)]
+    fn from(variant: BOD_A) -> Self {
+        match variant {
+            BOD_A::NO_RESET => false,
+            BOD_A::RESET_CLEAR => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> BODR {
-        match value {
-            false => BODR::NO_RESET,
-            true => BODR::RESET_CLEAR,
+}
+#[doc = "Reader of field `BOD`"]
+pub type BOD_R = crate::R<bool, BOD_A>;
+impl BOD_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BOD_A {
+        match self.bits {
+            false => BOD_A::NO_RESET,
+            true => BOD_A::RESET_CLEAR,
         }
     }
     #[doc = "Checks if the value of the field is `NO_RESET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_reset(&self) -> bool {
-        *self == BODR::NO_RESET
+        *self == BOD_A::NO_RESET
     }
     #[doc = "Checks if the value of the field is `RESET_CLEAR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_reset_clear(&self) -> bool {
-        *self == BODR::RESET_CLEAR
+        *self == BOD_A::RESET_CLEAR
     }
 }
-#[doc = "Possible values of the field `SYSRST`"]
+#[doc = "Write proxy for field `BOD`"]
+pub struct BOD_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> BOD_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: BOD_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "No BOD reset detected"]
+    #[inline(always)]
+    pub fn no_reset(self) -> &'a mut W {
+        self.variant(BOD_A::NO_RESET)
+    }
+    #[doc = "BOD reset detected. Writing a one clears this reset."]
+    #[inline(always)]
+    pub fn reset_clear(self) -> &'a mut W {
+        self.variant(BOD_A::RESET_CLEAR)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Status of the software system reset\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SYSRSTR {
-    #[doc = "No System reset detected"]
+pub enum SYSRST_A {
+    #[doc = "0: No System reset detected"]
     NO_SYSTEM_RESET_DETE,
-    #[doc = "System reset detected. Writing a one clears this reset."]
+    #[doc = "1: System reset detected. Writing a one clears this reset."]
     SYSTEM_RESET_DETECTE,
 }
-impl SYSRSTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SYSRSTR::NO_SYSTEM_RESET_DETE => false,
-            SYSRSTR::SYSTEM_RESET_DETECTE => true,
+impl From<SYSRST_A> for bool {
+    #[inline(always)]
+    fn from(variant: SYSRST_A) -> Self {
+        match variant {
+            SYSRST_A::NO_SYSTEM_RESET_DETE => false,
+            SYSRST_A::SYSTEM_RESET_DETECTE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SYSRSTR {
-        match value {
-            false => SYSRSTR::NO_SYSTEM_RESET_DETE,
-            true => SYSRSTR::SYSTEM_RESET_DETECTE,
+}
+#[doc = "Reader of field `SYSRST`"]
+pub type SYSRST_R = crate::R<bool, SYSRST_A>;
+impl SYSRST_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SYSRST_A {
+        match self.bits {
+            false => SYSRST_A::NO_SYSTEM_RESET_DETE,
+            true => SYSRST_A::SYSTEM_RESET_DETECTE,
         }
     }
     #[doc = "Checks if the value of the field is `NO_SYSTEM_RESET_DETE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_system_reset_dete(&self) -> bool {
-        *self == SYSRSTR::NO_SYSTEM_RESET_DETE
+        *self == SYSRST_A::NO_SYSTEM_RESET_DETE
     }
     #[doc = "Checks if the value of the field is `SYSTEM_RESET_DETECTE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_system_reset_detecte(&self) -> bool {
-        *self == SYSRSTR::SYSTEM_RESET_DETECTE
+        *self == SYSRST_A::SYSTEM_RESET_DETECTE
     }
 }
-#[doc = "Values that can be written to the field `POR`"]
-pub enum PORW {
-    #[doc = "No POR detected"]
-    NO_POR_DETECTED,
-    #[doc = "POR detected. Writing a one clears this reset."]
-    POR_DETECTED_WRITIN,
-}
-impl PORW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PORW::NO_POR_DETECTED => false,
-            PORW::POR_DETECTED_WRITIN => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PORW<'a> {
+#[doc = "Write proxy for field `SYSRST`"]
+pub struct SYSRST_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PORW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PORW) -> &'a mut W {
+impl<'a> SYSRST_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SYSRST_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No POR detected"]
-    #[inline]
-    pub fn no_por_detected(self) -> &'a mut W {
-        self.variant(PORW::NO_POR_DETECTED)
-    }
-    #[doc = "POR detected. Writing a one clears this reset."]
-    #[inline]
-    pub fn por_detected_writin(self) -> &'a mut W {
-        self.variant(PORW::POR_DETECTED_WRITIN)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EXTRST`"]
-pub enum EXTRSTW {
-    #[doc = "No reset event detected."]
-    NO_RESET_EVENT_DETEC,
-    #[doc = "Reset detected. Writing a one clears this reset."]
-    RESET_DETECTED_WRIT,
-}
-impl EXTRSTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EXTRSTW::NO_RESET_EVENT_DETEC => false,
-            EXTRSTW::RESET_DETECTED_WRIT => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EXTRSTW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EXTRSTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EXTRSTW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No reset event detected."]
-    #[inline]
-    pub fn no_reset_event_detec(self) -> &'a mut W {
-        self.variant(EXTRSTW::NO_RESET_EVENT_DETEC)
-    }
-    #[doc = "Reset detected. Writing a one clears this reset."]
-    #[inline]
-    pub fn reset_detected_writ(self) -> &'a mut W {
-        self.variant(EXTRSTW::RESET_DETECTED_WRIT)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WDT`"]
-pub enum WDTW {
-    #[doc = "No WDT reset detected"]
-    NO_RESET,
-    #[doc = "WDT reset detected. Writing a one clears this reset."]
-    RESET_CLEAR,
-}
-impl WDTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            WDTW::NO_RESET => false,
-            WDTW::RESET_CLEAR => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WDTW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WDTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WDTW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No WDT reset detected"]
-    #[inline]
-    pub fn no_reset(self) -> &'a mut W {
-        self.variant(WDTW::NO_RESET)
-    }
-    #[doc = "WDT reset detected. Writing a one clears this reset."]
-    #[inline]
-    pub fn reset_clear(self) -> &'a mut W {
-        self.variant(WDTW::RESET_CLEAR)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `BOD`"]
-pub enum BODW {
-    #[doc = "No BOD reset detected"]
-    NO_RESET,
-    #[doc = "BOD reset detected. Writing a one clears this reset."]
-    RESET_CLEAR,
-}
-impl BODW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            BODW::NO_RESET => false,
-            BODW::RESET_CLEAR => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BODW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _BODW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: BODW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No BOD reset detected"]
-    #[inline]
-    pub fn no_reset(self) -> &'a mut W {
-        self.variant(BODW::NO_RESET)
-    }
-    #[doc = "BOD reset detected. Writing a one clears this reset."]
-    #[inline]
-    pub fn reset_clear(self) -> &'a mut W {
-        self.variant(BODW::RESET_CLEAR)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SYSRST`"]
-pub enum SYSRSTW {
-    #[doc = "No System reset detected"]
-    NO_SYSTEM_RESET_DETE,
-    #[doc = "System reset detected. Writing a one clears this reset."]
-    SYSTEM_RESET_DETECTE,
-}
-impl SYSRSTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SYSRSTW::NO_SYSTEM_RESET_DETE => false,
-            SYSRSTW::SYSTEM_RESET_DETECTE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SYSRSTW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SYSRSTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SYSRSTW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No System reset detected"]
-    #[inline]
+    #[inline(always)]
     pub fn no_system_reset_dete(self) -> &'a mut W {
-        self.variant(SYSRSTW::NO_SYSTEM_RESET_DETE)
+        self.variant(SYSRST_A::NO_SYSTEM_RESET_DETE)
     }
     #[doc = "System reset detected. Writing a one clears this reset."]
-    #[inline]
+    #[inline(always)]
     pub fn system_reset_detecte(self) -> &'a mut W {
-        self.variant(SYSRSTW::SYSTEM_RESET_DETECTE)
+        self.variant(SYSRST_A::SYSTEM_RESET_DETECTE)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - POR reset status"]
-    #[inline]
-    pub fn por(&self) -> PORR {
-        PORR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn por(&self) -> POR_R {
+        POR_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - External reset status"]
-    #[inline]
-    pub fn extrst(&self) -> EXTRSTR {
-        EXTRSTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn extrst(&self) -> EXTRST_R {
+        EXTRST_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Status of the Watchdog reset"]
-    #[inline]
-    pub fn wdt(&self) -> WDTR {
-        WDTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn wdt(&self) -> WDT_R {
+        WDT_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Status of the Brown-out detect reset"]
-    #[inline]
-    pub fn bod(&self) -> BODR {
-        BODR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn bod(&self) -> BOD_R {
+        BOD_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Status of the software system reset"]
-    #[inline]
-    pub fn sysrst(&self) -> SYSRSTR {
-        SYSRSTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn sysrst(&self) -> SYSRST_R {
+        SYSRST_R::new(((self.bits >> 4) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 3 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - POR reset status"]
-    #[inline]
-    pub fn por(&mut self) -> _PORW {
-        _PORW { w: self }
+    #[inline(always)]
+    pub fn por(&mut self) -> POR_W {
+        POR_W { w: self }
     }
     #[doc = "Bit 1 - External reset status"]
-    #[inline]
-    pub fn extrst(&mut self) -> _EXTRSTW {
-        _EXTRSTW { w: self }
+    #[inline(always)]
+    pub fn extrst(&mut self) -> EXTRST_W {
+        EXTRST_W { w: self }
     }
     #[doc = "Bit 2 - Status of the Watchdog reset"]
-    #[inline]
-    pub fn wdt(&mut self) -> _WDTW {
-        _WDTW { w: self }
+    #[inline(always)]
+    pub fn wdt(&mut self) -> WDT_W {
+        WDT_W { w: self }
     }
     #[doc = "Bit 3 - Status of the Brown-out detect reset"]
-    #[inline]
-    pub fn bod(&mut self) -> _BODW {
-        _BODW { w: self }
+    #[inline(always)]
+    pub fn bod(&mut self) -> BOD_W {
+        BOD_W { w: self }
     }
     #[doc = "Bit 4 - Status of the software system reset"]
-    #[inline]
-    pub fn sysrst(&mut self) -> _SYSRSTW {
-        _SYSRSTW { w: self }
+    #[inline(always)]
+    pub fn sysrst(&mut self) -> SYSRST_W {
+        SYSRST_W { w: self }
     }
 }
