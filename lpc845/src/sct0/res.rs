@@ -1,1016 +1,765 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::RES {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register RES"]
+pub type R = crate::R<u32, super::RES>;
+#[doc = "Writer for register RES"]
+pub type W = crate::W<u32, super::RES>;
+#[doc = "Register RES `reset()`'s with value 0"]
+impl crate::ResetValue for super::RES {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `O0RES`"]
+#[doc = "Effect of simultaneous set and clear on output 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum O0RESR {
-    #[doc = "No change."]
+pub enum O0RES_A {
+    #[doc = "0: No change."]
     NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR0 field in the OUTPUTDIRCTRL register)."]
+    #[doc = "1: Set output (or clear based on the SETCLR0 field in the OUTPUTDIRCTRL register)."]
     SET,
-    #[doc = "Clear output (or set based on the SETCLR0 field)."]
+    #[doc = "2: Clear output (or set based on the SETCLR0 field)."]
     CLEAR,
-    #[doc = "Toggle output."]
+    #[doc = "3: Toggle output."]
     TOGGLE_OUTPUT,
 }
-impl O0RESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            O0RESR::NO_CHANGE => 0,
-            O0RESR::SET => 1,
-            O0RESR::CLEAR => 2,
-            O0RESR::TOGGLE_OUTPUT => 3,
+impl From<O0RES_A> for u8 {
+    #[inline(always)]
+    fn from(variant: O0RES_A) -> Self {
+        match variant {
+            O0RES_A::NO_CHANGE => 0,
+            O0RES_A::SET => 1,
+            O0RES_A::CLEAR => 2,
+            O0RES_A::TOGGLE_OUTPUT => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> O0RESR {
-        match value {
-            0 => O0RESR::NO_CHANGE,
-            1 => O0RESR::SET,
-            2 => O0RESR::CLEAR,
-            3 => O0RESR::TOGGLE_OUTPUT,
+}
+#[doc = "Reader of field `O0RES`"]
+pub type O0RES_R = crate::R<u8, O0RES_A>;
+impl O0RES_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> O0RES_A {
+        match self.bits {
+            0 => O0RES_A::NO_CHANGE,
+            1 => O0RES_A::SET,
+            2 => O0RES_A::CLEAR,
+            3 => O0RES_A::TOGGLE_OUTPUT,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `NO_CHANGE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_change(&self) -> bool {
-        *self == O0RESR::NO_CHANGE
+        *self == O0RES_A::NO_CHANGE
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == O0RESR::SET
+        *self == O0RES_A::SET
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == O0RESR::CLEAR
+        *self == O0RES_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_toggle_output(&self) -> bool {
-        *self == O0RESR::TOGGLE_OUTPUT
+        *self == O0RES_A::TOGGLE_OUTPUT
     }
 }
-#[doc = "Possible values of the field `O1RES`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum O1RESR {
-    #[doc = "No change."]
-    NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR1 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output (or set based on the SETCLR1 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O1RESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            O1RESR::NO_CHANGE => 0,
-            O1RESR::SET => 1,
-            O1RESR::CLEAR => 2,
-            O1RESR::TOGGLE_OUTPUT => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> O1RESR {
-        match value {
-            0 => O1RESR::NO_CHANGE,
-            1 => O1RESR::SET,
-            2 => O1RESR::CLEAR,
-            3 => O1RESR::TOGGLE_OUTPUT,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
-    #[inline]
-    pub fn is_no_change(&self) -> bool {
-        *self == O1RESR::NO_CHANGE
-    }
-    #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
-    pub fn is_set(&self) -> bool {
-        *self == O1RESR::SET
-    }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
-    pub fn is_clear(&self) -> bool {
-        *self == O1RESR::CLEAR
-    }
-    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
-    #[inline]
-    pub fn is_toggle_output(&self) -> bool {
-        *self == O1RESR::TOGGLE_OUTPUT
-    }
-}
-#[doc = "Possible values of the field `O2RES`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum O2RESR {
-    #[doc = "No change."]
-    NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR2 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output n (or set based on the SETCLR2 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O2RESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            O2RESR::NO_CHANGE => 0,
-            O2RESR::SET => 1,
-            O2RESR::CLEAR => 2,
-            O2RESR::TOGGLE_OUTPUT => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> O2RESR {
-        match value {
-            0 => O2RESR::NO_CHANGE,
-            1 => O2RESR::SET,
-            2 => O2RESR::CLEAR,
-            3 => O2RESR::TOGGLE_OUTPUT,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
-    #[inline]
-    pub fn is_no_change(&self) -> bool {
-        *self == O2RESR::NO_CHANGE
-    }
-    #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
-    pub fn is_set(&self) -> bool {
-        *self == O2RESR::SET
-    }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
-    pub fn is_clear(&self) -> bool {
-        *self == O2RESR::CLEAR
-    }
-    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
-    #[inline]
-    pub fn is_toggle_output(&self) -> bool {
-        *self == O2RESR::TOGGLE_OUTPUT
-    }
-}
-#[doc = "Possible values of the field `O3RES`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum O3RESR {
-    #[doc = "No change."]
-    NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR3 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output (or set based on the SETCLR3 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O3RESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            O3RESR::NO_CHANGE => 0,
-            O3RESR::SET => 1,
-            O3RESR::CLEAR => 2,
-            O3RESR::TOGGLE_OUTPUT => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> O3RESR {
-        match value {
-            0 => O3RESR::NO_CHANGE,
-            1 => O3RESR::SET,
-            2 => O3RESR::CLEAR,
-            3 => O3RESR::TOGGLE_OUTPUT,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
-    #[inline]
-    pub fn is_no_change(&self) -> bool {
-        *self == O3RESR::NO_CHANGE
-    }
-    #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
-    pub fn is_set(&self) -> bool {
-        *self == O3RESR::SET
-    }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
-    pub fn is_clear(&self) -> bool {
-        *self == O3RESR::CLEAR
-    }
-    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
-    #[inline]
-    pub fn is_toggle_output(&self) -> bool {
-        *self == O3RESR::TOGGLE_OUTPUT
-    }
-}
-#[doc = "Possible values of the field `O4RES`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum O4RESR {
-    #[doc = "No change."]
-    NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR4 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output (or set based on the SETCLR4 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O4RESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            O4RESR::NO_CHANGE => 0,
-            O4RESR::SET => 1,
-            O4RESR::CLEAR => 2,
-            O4RESR::TOGGLE_OUTPUT => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> O4RESR {
-        match value {
-            0 => O4RESR::NO_CHANGE,
-            1 => O4RESR::SET,
-            2 => O4RESR::CLEAR,
-            3 => O4RESR::TOGGLE_OUTPUT,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
-    #[inline]
-    pub fn is_no_change(&self) -> bool {
-        *self == O4RESR::NO_CHANGE
-    }
-    #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
-    pub fn is_set(&self) -> bool {
-        *self == O4RESR::SET
-    }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
-    pub fn is_clear(&self) -> bool {
-        *self == O4RESR::CLEAR
-    }
-    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
-    #[inline]
-    pub fn is_toggle_output(&self) -> bool {
-        *self == O4RESR::TOGGLE_OUTPUT
-    }
-}
-#[doc = "Possible values of the field `O5RES`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum O5RESR {
-    #[doc = "No change."]
-    NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR5 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output (or set based on the SETCLR5 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O5RESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            O5RESR::NO_CHANGE => 0,
-            O5RESR::SET => 1,
-            O5RESR::CLEAR => 2,
-            O5RESR::TOGGLE_OUTPUT => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> O5RESR {
-        match value {
-            0 => O5RESR::NO_CHANGE,
-            1 => O5RESR::SET,
-            2 => O5RESR::CLEAR,
-            3 => O5RESR::TOGGLE_OUTPUT,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
-    #[inline]
-    pub fn is_no_change(&self) -> bool {
-        *self == O5RESR::NO_CHANGE
-    }
-    #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
-    pub fn is_set(&self) -> bool {
-        *self == O5RESR::SET
-    }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
-    pub fn is_clear(&self) -> bool {
-        *self == O5RESR::CLEAR
-    }
-    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
-    #[inline]
-    pub fn is_toggle_output(&self) -> bool {
-        *self == O5RESR::TOGGLE_OUTPUT
-    }
-}
-#[doc = "Possible values of the field `O6RES`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum O6RESR {
-    #[doc = "No change."]
-    NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR6 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output (or set based on the SETCLR6 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O6RESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            O6RESR::NO_CHANGE => 0,
-            O6RESR::SET => 1,
-            O6RESR::CLEAR => 2,
-            O6RESR::TOGGLE_OUTPUT => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> O6RESR {
-        match value {
-            0 => O6RESR::NO_CHANGE,
-            1 => O6RESR::SET,
-            2 => O6RESR::CLEAR,
-            3 => O6RESR::TOGGLE_OUTPUT,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
-    #[inline]
-    pub fn is_no_change(&self) -> bool {
-        *self == O6RESR::NO_CHANGE
-    }
-    #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
-    pub fn is_set(&self) -> bool {
-        *self == O6RESR::SET
-    }
-    #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
-    pub fn is_clear(&self) -> bool {
-        *self == O6RESR::CLEAR
-    }
-    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
-    #[inline]
-    pub fn is_toggle_output(&self) -> bool {
-        *self == O6RESR::TOGGLE_OUTPUT
-    }
-}
-#[doc = "Values that can be written to the field `O0RES`"]
-pub enum O0RESW {
-    #[doc = "No change."]
-    NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR0 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output (or set based on the SETCLR0 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O0RESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            O0RESW::NO_CHANGE => 0,
-            O0RESW::SET => 1,
-            O0RESW::CLEAR => 2,
-            O0RESW::TOGGLE_OUTPUT => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _O0RESW<'a> {
+#[doc = "Write proxy for field `O0RES`"]
+pub struct O0RES_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _O0RESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: O0RESW) -> &'a mut W {
+impl<'a> O0RES_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: O0RES_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "No change."]
-    #[inline]
+    #[inline(always)]
     pub fn no_change(self) -> &'a mut W {
-        self.variant(O0RESW::NO_CHANGE)
+        self.variant(O0RES_A::NO_CHANGE)
     }
     #[doc = "Set output (or clear based on the SETCLR0 field in the OUTPUTDIRCTRL register)."]
-    #[inline]
+    #[inline(always)]
     pub fn set(self) -> &'a mut W {
-        self.variant(O0RESW::SET)
+        self.variant(O0RES_A::SET)
     }
     #[doc = "Clear output (or set based on the SETCLR0 field)."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(O0RESW::CLEAR)
+        self.variant(O0RES_A::CLEAR)
     }
     #[doc = "Toggle output."]
-    #[inline]
+    #[inline(always)]
     pub fn toggle_output(self) -> &'a mut W {
-        self.variant(O0RESW::TOGGLE_OUTPUT)
+        self.variant(O0RES_A::TOGGLE_OUTPUT)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `O1RES`"]
-pub enum O1RESW {
-    #[doc = "No change."]
+#[doc = "Effect of simultaneous set and clear on output 1.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum O1RES_A {
+    #[doc = "0: No change."]
     NO_CHANGE,
+    #[doc = "1: Set output (or clear based on the SETCLR1 field in the OUTPUTDIRCTRL register)."]
+    SET,
+    #[doc = "2: Clear output (or set based on the SETCLR1 field)."]
+    CLEAR,
+    #[doc = "3: Toggle output."]
+    TOGGLE_OUTPUT,
+}
+impl From<O1RES_A> for u8 {
+    #[inline(always)]
+    fn from(variant: O1RES_A) -> Self {
+        match variant {
+            O1RES_A::NO_CHANGE => 0,
+            O1RES_A::SET => 1,
+            O1RES_A::CLEAR => 2,
+            O1RES_A::TOGGLE_OUTPUT => 3,
+        }
+    }
+}
+#[doc = "Reader of field `O1RES`"]
+pub type O1RES_R = crate::R<u8, O1RES_A>;
+impl O1RES_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> O1RES_A {
+        match self.bits {
+            0 => O1RES_A::NO_CHANGE,
+            1 => O1RES_A::SET,
+            2 => O1RES_A::CLEAR,
+            3 => O1RES_A::TOGGLE_OUTPUT,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
+    #[inline(always)]
+    pub fn is_no_change(&self) -> bool {
+        *self == O1RES_A::NO_CHANGE
+    }
+    #[doc = "Checks if the value of the field is `SET`"]
+    #[inline(always)]
+    pub fn is_set(&self) -> bool {
+        *self == O1RES_A::SET
+    }
+    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == O1RES_A::CLEAR
+    }
+    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
+    #[inline(always)]
+    pub fn is_toggle_output(&self) -> bool {
+        *self == O1RES_A::TOGGLE_OUTPUT
+    }
+}
+#[doc = "Write proxy for field `O1RES`"]
+pub struct O1RES_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> O1RES_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: O1RES_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
+        }
+    }
+    #[doc = "No change."]
+    #[inline(always)]
+    pub fn no_change(self) -> &'a mut W {
+        self.variant(O1RES_A::NO_CHANGE)
+    }
     #[doc = "Set output (or clear based on the SETCLR1 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output (or set based on the SETCLR1 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O1RESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            O1RESW::NO_CHANGE => 0,
-            O1RESW::SET => 1,
-            O1RESW::CLEAR => 2,
-            O1RESW::TOGGLE_OUTPUT => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _O1RESW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _O1RESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: O1RESW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "No change."]
-    #[inline]
-    pub fn no_change(self) -> &'a mut W {
-        self.variant(O1RESW::NO_CHANGE)
-    }
-    #[doc = "Set output (or clear based on the SETCLR1 field in the OUTPUTDIRCTRL register)."]
-    #[inline]
+    #[inline(always)]
     pub fn set(self) -> &'a mut W {
-        self.variant(O1RESW::SET)
+        self.variant(O1RES_A::SET)
     }
     #[doc = "Clear output (or set based on the SETCLR1 field)."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(O1RESW::CLEAR)
+        self.variant(O1RES_A::CLEAR)
     }
     #[doc = "Toggle output."]
-    #[inline]
+    #[inline(always)]
     pub fn toggle_output(self) -> &'a mut W {
-        self.variant(O1RESW::TOGGLE_OUTPUT)
+        self.variant(O1RES_A::TOGGLE_OUTPUT)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `O2RES`"]
-pub enum O2RESW {
-    #[doc = "No change."]
+#[doc = "Effect of simultaneous set and clear on output 2.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum O2RES_A {
+    #[doc = "0: No change."]
     NO_CHANGE,
+    #[doc = "1: Set output (or clear based on the SETCLR2 field in the OUTPUTDIRCTRL register)."]
+    SET,
+    #[doc = "2: Clear output n (or set based on the SETCLR2 field)."]
+    CLEAR,
+    #[doc = "3: Toggle output."]
+    TOGGLE_OUTPUT,
+}
+impl From<O2RES_A> for u8 {
+    #[inline(always)]
+    fn from(variant: O2RES_A) -> Self {
+        match variant {
+            O2RES_A::NO_CHANGE => 0,
+            O2RES_A::SET => 1,
+            O2RES_A::CLEAR => 2,
+            O2RES_A::TOGGLE_OUTPUT => 3,
+        }
+    }
+}
+#[doc = "Reader of field `O2RES`"]
+pub type O2RES_R = crate::R<u8, O2RES_A>;
+impl O2RES_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> O2RES_A {
+        match self.bits {
+            0 => O2RES_A::NO_CHANGE,
+            1 => O2RES_A::SET,
+            2 => O2RES_A::CLEAR,
+            3 => O2RES_A::TOGGLE_OUTPUT,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
+    #[inline(always)]
+    pub fn is_no_change(&self) -> bool {
+        *self == O2RES_A::NO_CHANGE
+    }
+    #[doc = "Checks if the value of the field is `SET`"]
+    #[inline(always)]
+    pub fn is_set(&self) -> bool {
+        *self == O2RES_A::SET
+    }
+    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == O2RES_A::CLEAR
+    }
+    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
+    #[inline(always)]
+    pub fn is_toggle_output(&self) -> bool {
+        *self == O2RES_A::TOGGLE_OUTPUT
+    }
+}
+#[doc = "Write proxy for field `O2RES`"]
+pub struct O2RES_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> O2RES_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: O2RES_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
+        }
+    }
+    #[doc = "No change."]
+    #[inline(always)]
+    pub fn no_change(self) -> &'a mut W {
+        self.variant(O2RES_A::NO_CHANGE)
+    }
     #[doc = "Set output (or clear based on the SETCLR2 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output n (or set based on the SETCLR2 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O2RESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            O2RESW::NO_CHANGE => 0,
-            O2RESW::SET => 1,
-            O2RESW::CLEAR => 2,
-            O2RESW::TOGGLE_OUTPUT => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _O2RESW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _O2RESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: O2RESW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "No change."]
-    #[inline]
-    pub fn no_change(self) -> &'a mut W {
-        self.variant(O2RESW::NO_CHANGE)
-    }
-    #[doc = "Set output (or clear based on the SETCLR2 field in the OUTPUTDIRCTRL register)."]
-    #[inline]
+    #[inline(always)]
     pub fn set(self) -> &'a mut W {
-        self.variant(O2RESW::SET)
+        self.variant(O2RES_A::SET)
     }
     #[doc = "Clear output n (or set based on the SETCLR2 field)."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(O2RESW::CLEAR)
+        self.variant(O2RES_A::CLEAR)
     }
     #[doc = "Toggle output."]
-    #[inline]
+    #[inline(always)]
     pub fn toggle_output(self) -> &'a mut W {
-        self.variant(O2RESW::TOGGLE_OUTPUT)
+        self.variant(O2RES_A::TOGGLE_OUTPUT)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `O3RES`"]
-pub enum O3RESW {
-    #[doc = "No change."]
+#[doc = "Effect of simultaneous set and clear on output 3.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum O3RES_A {
+    #[doc = "0: No change."]
     NO_CHANGE,
+    #[doc = "1: Set output (or clear based on the SETCLR3 field in the OUTPUTDIRCTRL register)."]
+    SET,
+    #[doc = "2: Clear output (or set based on the SETCLR3 field)."]
+    CLEAR,
+    #[doc = "3: Toggle output."]
+    TOGGLE_OUTPUT,
+}
+impl From<O3RES_A> for u8 {
+    #[inline(always)]
+    fn from(variant: O3RES_A) -> Self {
+        match variant {
+            O3RES_A::NO_CHANGE => 0,
+            O3RES_A::SET => 1,
+            O3RES_A::CLEAR => 2,
+            O3RES_A::TOGGLE_OUTPUT => 3,
+        }
+    }
+}
+#[doc = "Reader of field `O3RES`"]
+pub type O3RES_R = crate::R<u8, O3RES_A>;
+impl O3RES_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> O3RES_A {
+        match self.bits {
+            0 => O3RES_A::NO_CHANGE,
+            1 => O3RES_A::SET,
+            2 => O3RES_A::CLEAR,
+            3 => O3RES_A::TOGGLE_OUTPUT,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
+    #[inline(always)]
+    pub fn is_no_change(&self) -> bool {
+        *self == O3RES_A::NO_CHANGE
+    }
+    #[doc = "Checks if the value of the field is `SET`"]
+    #[inline(always)]
+    pub fn is_set(&self) -> bool {
+        *self == O3RES_A::SET
+    }
+    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == O3RES_A::CLEAR
+    }
+    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
+    #[inline(always)]
+    pub fn is_toggle_output(&self) -> bool {
+        *self == O3RES_A::TOGGLE_OUTPUT
+    }
+}
+#[doc = "Write proxy for field `O3RES`"]
+pub struct O3RES_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> O3RES_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: O3RES_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
+        }
+    }
+    #[doc = "No change."]
+    #[inline(always)]
+    pub fn no_change(self) -> &'a mut W {
+        self.variant(O3RES_A::NO_CHANGE)
+    }
     #[doc = "Set output (or clear based on the SETCLR3 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output (or set based on the SETCLR3 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O3RESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            O3RESW::NO_CHANGE => 0,
-            O3RESW::SET => 1,
-            O3RESW::CLEAR => 2,
-            O3RESW::TOGGLE_OUTPUT => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _O3RESW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _O3RESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: O3RESW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "No change."]
-    #[inline]
-    pub fn no_change(self) -> &'a mut W {
-        self.variant(O3RESW::NO_CHANGE)
-    }
-    #[doc = "Set output (or clear based on the SETCLR3 field in the OUTPUTDIRCTRL register)."]
-    #[inline]
+    #[inline(always)]
     pub fn set(self) -> &'a mut W {
-        self.variant(O3RESW::SET)
+        self.variant(O3RES_A::SET)
     }
     #[doc = "Clear output (or set based on the SETCLR3 field)."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(O3RESW::CLEAR)
+        self.variant(O3RES_A::CLEAR)
     }
     #[doc = "Toggle output."]
-    #[inline]
+    #[inline(always)]
     pub fn toggle_output(self) -> &'a mut W {
-        self.variant(O3RESW::TOGGLE_OUTPUT)
+        self.variant(O3RES_A::TOGGLE_OUTPUT)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `O4RES`"]
-pub enum O4RESW {
-    #[doc = "No change."]
+#[doc = "Effect of simultaneous set and clear on output 4.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum O4RES_A {
+    #[doc = "0: No change."]
     NO_CHANGE,
+    #[doc = "1: Set output (or clear based on the SETCLR4 field in the OUTPUTDIRCTRL register)."]
+    SET,
+    #[doc = "2: Clear output (or set based on the SETCLR4 field)."]
+    CLEAR,
+    #[doc = "3: Toggle output."]
+    TOGGLE_OUTPUT,
+}
+impl From<O4RES_A> for u8 {
+    #[inline(always)]
+    fn from(variant: O4RES_A) -> Self {
+        match variant {
+            O4RES_A::NO_CHANGE => 0,
+            O4RES_A::SET => 1,
+            O4RES_A::CLEAR => 2,
+            O4RES_A::TOGGLE_OUTPUT => 3,
+        }
+    }
+}
+#[doc = "Reader of field `O4RES`"]
+pub type O4RES_R = crate::R<u8, O4RES_A>;
+impl O4RES_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> O4RES_A {
+        match self.bits {
+            0 => O4RES_A::NO_CHANGE,
+            1 => O4RES_A::SET,
+            2 => O4RES_A::CLEAR,
+            3 => O4RES_A::TOGGLE_OUTPUT,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
+    #[inline(always)]
+    pub fn is_no_change(&self) -> bool {
+        *self == O4RES_A::NO_CHANGE
+    }
+    #[doc = "Checks if the value of the field is `SET`"]
+    #[inline(always)]
+    pub fn is_set(&self) -> bool {
+        *self == O4RES_A::SET
+    }
+    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == O4RES_A::CLEAR
+    }
+    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
+    #[inline(always)]
+    pub fn is_toggle_output(&self) -> bool {
+        *self == O4RES_A::TOGGLE_OUTPUT
+    }
+}
+#[doc = "Write proxy for field `O4RES`"]
+pub struct O4RES_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> O4RES_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: O4RES_A) -> &'a mut W {
+        {
+            self.bits(variant.into())
+        }
+    }
+    #[doc = "No change."]
+    #[inline(always)]
+    pub fn no_change(self) -> &'a mut W {
+        self.variant(O4RES_A::NO_CHANGE)
+    }
     #[doc = "Set output (or clear based on the SETCLR4 field in the OUTPUTDIRCTRL register)."]
-    SET,
-    #[doc = "Clear output (or set based on the SETCLR4 field)."]
-    CLEAR,
-    #[doc = "Toggle output."]
-    TOGGLE_OUTPUT,
-}
-impl O4RESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            O4RESW::NO_CHANGE => 0,
-            O4RESW::SET => 1,
-            O4RESW::CLEAR => 2,
-            O4RESW::TOGGLE_OUTPUT => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _O4RESW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _O4RESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: O4RESW) -> &'a mut W {
-        {
-            self.bits(variant._bits())
-        }
-    }
-    #[doc = "No change."]
-    #[inline]
-    pub fn no_change(self) -> &'a mut W {
-        self.variant(O4RESW::NO_CHANGE)
-    }
-    #[doc = "Set output (or clear based on the SETCLR4 field in the OUTPUTDIRCTRL register)."]
-    #[inline]
+    #[inline(always)]
     pub fn set(self) -> &'a mut W {
-        self.variant(O4RESW::SET)
+        self.variant(O4RES_A::SET)
     }
     #[doc = "Clear output (or set based on the SETCLR4 field)."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(O4RESW::CLEAR)
+        self.variant(O4RES_A::CLEAR)
     }
     #[doc = "Toggle output."]
-    #[inline]
+    #[inline(always)]
     pub fn toggle_output(self) -> &'a mut W {
-        self.variant(O4RESW::TOGGLE_OUTPUT)
+        self.variant(O4RES_A::TOGGLE_OUTPUT)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `O5RES`"]
-pub enum O5RESW {
-    #[doc = "No change."]
+#[doc = "Effect of simultaneous set and clear on output 5.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum O5RES_A {
+    #[doc = "0: No change."]
     NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR5 field in the OUTPUTDIRCTRL register)."]
+    #[doc = "1: Set output (or clear based on the SETCLR5 field in the OUTPUTDIRCTRL register)."]
     SET,
-    #[doc = "Clear output (or set based on the SETCLR5 field)."]
+    #[doc = "2: Clear output (or set based on the SETCLR5 field)."]
     CLEAR,
-    #[doc = "Toggle output."]
+    #[doc = "3: Toggle output."]
     TOGGLE_OUTPUT,
 }
-impl O5RESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            O5RESW::NO_CHANGE => 0,
-            O5RESW::SET => 1,
-            O5RESW::CLEAR => 2,
-            O5RESW::TOGGLE_OUTPUT => 3,
+impl From<O5RES_A> for u8 {
+    #[inline(always)]
+    fn from(variant: O5RES_A) -> Self {
+        match variant {
+            O5RES_A::NO_CHANGE => 0,
+            O5RES_A::SET => 1,
+            O5RES_A::CLEAR => 2,
+            O5RES_A::TOGGLE_OUTPUT => 3,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _O5RESW<'a> {
+#[doc = "Reader of field `O5RES`"]
+pub type O5RES_R = crate::R<u8, O5RES_A>;
+impl O5RES_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> O5RES_A {
+        match self.bits {
+            0 => O5RES_A::NO_CHANGE,
+            1 => O5RES_A::SET,
+            2 => O5RES_A::CLEAR,
+            3 => O5RES_A::TOGGLE_OUTPUT,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
+    #[inline(always)]
+    pub fn is_no_change(&self) -> bool {
+        *self == O5RES_A::NO_CHANGE
+    }
+    #[doc = "Checks if the value of the field is `SET`"]
+    #[inline(always)]
+    pub fn is_set(&self) -> bool {
+        *self == O5RES_A::SET
+    }
+    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == O5RES_A::CLEAR
+    }
+    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
+    #[inline(always)]
+    pub fn is_toggle_output(&self) -> bool {
+        *self == O5RES_A::TOGGLE_OUTPUT
+    }
+}
+#[doc = "Write proxy for field `O5RES`"]
+pub struct O5RES_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _O5RESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: O5RESW) -> &'a mut W {
+impl<'a> O5RES_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: O5RES_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "No change."]
-    #[inline]
+    #[inline(always)]
     pub fn no_change(self) -> &'a mut W {
-        self.variant(O5RESW::NO_CHANGE)
+        self.variant(O5RES_A::NO_CHANGE)
     }
     #[doc = "Set output (or clear based on the SETCLR5 field in the OUTPUTDIRCTRL register)."]
-    #[inline]
+    #[inline(always)]
     pub fn set(self) -> &'a mut W {
-        self.variant(O5RESW::SET)
+        self.variant(O5RES_A::SET)
     }
     #[doc = "Clear output (or set based on the SETCLR5 field)."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(O5RESW::CLEAR)
+        self.variant(O5RES_A::CLEAR)
     }
     #[doc = "Toggle output."]
-    #[inline]
+    #[inline(always)]
     pub fn toggle_output(self) -> &'a mut W {
-        self.variant(O5RESW::TOGGLE_OUTPUT)
+        self.variant(O5RES_A::TOGGLE_OUTPUT)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 10;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 10)) | (((value as u32) & 0x03) << 10);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `O6RES`"]
-pub enum O6RESW {
-    #[doc = "No change."]
+#[doc = "Effect of simultaneous set and clear on output 6.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum O6RES_A {
+    #[doc = "0: No change."]
     NO_CHANGE,
-    #[doc = "Set output (or clear based on the SETCLR6 field in the OUTPUTDIRCTRL register)."]
+    #[doc = "1: Set output (or clear based on the SETCLR6 field in the OUTPUTDIRCTRL register)."]
     SET,
-    #[doc = "Clear output (or set based on the SETCLR6 field)."]
+    #[doc = "2: Clear output (or set based on the SETCLR6 field)."]
     CLEAR,
-    #[doc = "Toggle output."]
+    #[doc = "3: Toggle output."]
     TOGGLE_OUTPUT,
 }
-impl O6RESW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            O6RESW::NO_CHANGE => 0,
-            O6RESW::SET => 1,
-            O6RESW::CLEAR => 2,
-            O6RESW::TOGGLE_OUTPUT => 3,
+impl From<O6RES_A> for u8 {
+    #[inline(always)]
+    fn from(variant: O6RES_A) -> Self {
+        match variant {
+            O6RES_A::NO_CHANGE => 0,
+            O6RES_A::SET => 1,
+            O6RES_A::CLEAR => 2,
+            O6RES_A::TOGGLE_OUTPUT => 3,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _O6RESW<'a> {
+#[doc = "Reader of field `O6RES`"]
+pub type O6RES_R = crate::R<u8, O6RES_A>;
+impl O6RES_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> O6RES_A {
+        match self.bits {
+            0 => O6RES_A::NO_CHANGE,
+            1 => O6RES_A::SET,
+            2 => O6RES_A::CLEAR,
+            3 => O6RES_A::TOGGLE_OUTPUT,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_CHANGE`"]
+    #[inline(always)]
+    pub fn is_no_change(&self) -> bool {
+        *self == O6RES_A::NO_CHANGE
+    }
+    #[doc = "Checks if the value of the field is `SET`"]
+    #[inline(always)]
+    pub fn is_set(&self) -> bool {
+        *self == O6RES_A::SET
+    }
+    #[doc = "Checks if the value of the field is `CLEAR`"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == O6RES_A::CLEAR
+    }
+    #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
+    #[inline(always)]
+    pub fn is_toggle_output(&self) -> bool {
+        *self == O6RES_A::TOGGLE_OUTPUT
+    }
+}
+#[doc = "Write proxy for field `O6RES`"]
+pub struct O6RES_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _O6RESW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: O6RESW) -> &'a mut W {
+impl<'a> O6RES_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: O6RES_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "No change."]
-    #[inline]
+    #[inline(always)]
     pub fn no_change(self) -> &'a mut W {
-        self.variant(O6RESW::NO_CHANGE)
+        self.variant(O6RES_A::NO_CHANGE)
     }
     #[doc = "Set output (or clear based on the SETCLR6 field in the OUTPUTDIRCTRL register)."]
-    #[inline]
+    #[inline(always)]
     pub fn set(self) -> &'a mut W {
-        self.variant(O6RESW::SET)
+        self.variant(O6RES_A::SET)
     }
     #[doc = "Clear output (or set based on the SETCLR6 field)."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(O6RESW::CLEAR)
+        self.variant(O6RES_A::CLEAR)
     }
     #[doc = "Toggle output."]
-    #[inline]
+    #[inline(always)]
     pub fn toggle_output(self) -> &'a mut W {
-        self.variant(O6RESW::TOGGLE_OUTPUT)
+        self.variant(O6RES_A::TOGGLE_OUTPUT)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 12)) | (((value as u32) & 0x03) << 12);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Effect of simultaneous set and clear on output 0."]
-    #[inline]
-    pub fn o0res(&self) -> O0RESR {
-        O0RESR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn o0res(&self) -> O0RES_R {
+        O0RES_R::new((self.bits & 0x03) as u8)
     }
     #[doc = "Bits 2:3 - Effect of simultaneous set and clear on output 1."]
-    #[inline]
-    pub fn o1res(&self) -> O1RESR {
-        O1RESR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn o1res(&self) -> O1RES_R {
+        O1RES_R::new(((self.bits >> 2) & 0x03) as u8)
     }
     #[doc = "Bits 4:5 - Effect of simultaneous set and clear on output 2."]
-    #[inline]
-    pub fn o2res(&self) -> O2RESR {
-        O2RESR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn o2res(&self) -> O2RES_R {
+        O2RES_R::new(((self.bits >> 4) & 0x03) as u8)
     }
     #[doc = "Bits 6:7 - Effect of simultaneous set and clear on output 3."]
-    #[inline]
-    pub fn o3res(&self) -> O3RESR {
-        O3RESR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn o3res(&self) -> O3RES_R {
+        O3RES_R::new(((self.bits >> 6) & 0x03) as u8)
     }
     #[doc = "Bits 8:9 - Effect of simultaneous set and clear on output 4."]
-    #[inline]
-    pub fn o4res(&self) -> O4RESR {
-        O4RESR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn o4res(&self) -> O4RES_R {
+        O4RES_R::new(((self.bits >> 8) & 0x03) as u8)
     }
     #[doc = "Bits 10:11 - Effect of simultaneous set and clear on output 5."]
-    #[inline]
-    pub fn o5res(&self) -> O5RESR {
-        O5RESR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn o5res(&self) -> O5RES_R {
+        O5RES_R::new(((self.bits >> 10) & 0x03) as u8)
     }
     #[doc = "Bits 12:13 - Effect of simultaneous set and clear on output 6."]
-    #[inline]
-    pub fn o6res(&self) -> O6RESR {
-        O6RESR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn o6res(&self) -> O6RES_R {
+        O6RES_R::new(((self.bits >> 12) & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Effect of simultaneous set and clear on output 0."]
-    #[inline]
-    pub fn o0res(&mut self) -> _O0RESW {
-        _O0RESW { w: self }
+    #[inline(always)]
+    pub fn o0res(&mut self) -> O0RES_W {
+        O0RES_W { w: self }
     }
     #[doc = "Bits 2:3 - Effect of simultaneous set and clear on output 1."]
-    #[inline]
-    pub fn o1res(&mut self) -> _O1RESW {
-        _O1RESW { w: self }
+    #[inline(always)]
+    pub fn o1res(&mut self) -> O1RES_W {
+        O1RES_W { w: self }
     }
     #[doc = "Bits 4:5 - Effect of simultaneous set and clear on output 2."]
-    #[inline]
-    pub fn o2res(&mut self) -> _O2RESW {
-        _O2RESW { w: self }
+    #[inline(always)]
+    pub fn o2res(&mut self) -> O2RES_W {
+        O2RES_W { w: self }
     }
     #[doc = "Bits 6:7 - Effect of simultaneous set and clear on output 3."]
-    #[inline]
-    pub fn o3res(&mut self) -> _O3RESW {
-        _O3RESW { w: self }
+    #[inline(always)]
+    pub fn o3res(&mut self) -> O3RES_W {
+        O3RES_W { w: self }
     }
     #[doc = "Bits 8:9 - Effect of simultaneous set and clear on output 4."]
-    #[inline]
-    pub fn o4res(&mut self) -> _O4RESW {
-        _O4RESW { w: self }
+    #[inline(always)]
+    pub fn o4res(&mut self) -> O4RES_W {
+        O4RES_W { w: self }
     }
     #[doc = "Bits 10:11 - Effect of simultaneous set and clear on output 5."]
-    #[inline]
-    pub fn o5res(&mut self) -> _O5RESW {
-        _O5RESW { w: self }
+    #[inline(always)]
+    pub fn o5res(&mut self) -> O5RES_W {
+        O5RES_W { w: self }
     }
     #[doc = "Bits 12:13 - Effect of simultaneous set and clear on output 6."]
-    #[inline]
-    pub fn o6res(&mut self) -> _O6RESW {
-        _O6RESW { w: self }
+    #[inline(always)]
+    pub fn o6res(&mut self) -> O6RES_W {
+        O6RES_W { w: self }
     }
 }

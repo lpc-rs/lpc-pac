@@ -1,360 +1,206 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::IRQ_FLAG {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register IRQ_FLAG"]
+pub type R = crate::R<u32, super::IRQ_FLAG>;
+#[doc = "Writer for register IRQ_FLAG"]
+pub type W = crate::W<u32, super::IRQ_FLAG>;
+#[doc = "Register IRQ_FLAG `reset()`'s with value 0"]
+impl crate::ResetValue for super::IRQ_FLAG {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `GFLAG0`"]
+#[doc = "Monitors the interrupt flag of TIMER0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum GFLAG0R {
-    #[doc = "No pending interrupt. Writing a zero is equivalent to no operation."]
+pub enum GFLAG0_A {
+    #[doc = "0: No pending interrupt. Writing a zero is equivalent to no operation."]
     NO_PENDING_INTERRUPT,
-    #[doc = "Pending interrupt. The interrupt is pending because TIMER0 has reached the end of the time interval. If the INTEN bit in the CONTROL0 register is also set to 1, the interrupt for timer channel 0 and the global interrupt are raised. Writing a 1 to this bit clears the interrupt request."]
+    #[doc = "1: Pending interrupt. The interrupt is pending because TIMER0 has reached the end of the time interval. If the INTEN bit in the CONTROL0 register is also set to 1, the interrupt for timer channel 0 and the global interrupt are raised. Writing a 1 to this bit clears the interrupt request."]
     PENDING_INTERRUPT,
 }
-impl GFLAG0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            GFLAG0R::NO_PENDING_INTERRUPT => false,
-            GFLAG0R::PENDING_INTERRUPT => true,
+impl From<GFLAG0_A> for bool {
+    #[inline(always)]
+    fn from(variant: GFLAG0_A) -> Self {
+        match variant {
+            GFLAG0_A::NO_PENDING_INTERRUPT => false,
+            GFLAG0_A::PENDING_INTERRUPT => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> GFLAG0R {
-        match value {
-            false => GFLAG0R::NO_PENDING_INTERRUPT,
-            true => GFLAG0R::PENDING_INTERRUPT,
+}
+#[doc = "Reader of field `GFLAG0`"]
+pub type GFLAG0_R = crate::R<bool, GFLAG0_A>;
+impl GFLAG0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> GFLAG0_A {
+        match self.bits {
+            false => GFLAG0_A::NO_PENDING_INTERRUPT,
+            true => GFLAG0_A::PENDING_INTERRUPT,
         }
     }
     #[doc = "Checks if the value of the field is `NO_PENDING_INTERRUPT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_pending_interrupt(&self) -> bool {
-        *self == GFLAG0R::NO_PENDING_INTERRUPT
+        *self == GFLAG0_A::NO_PENDING_INTERRUPT
     }
     #[doc = "Checks if the value of the field is `PENDING_INTERRUPT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending_interrupt(&self) -> bool {
-        *self == GFLAG0R::PENDING_INTERRUPT
+        *self == GFLAG0_A::PENDING_INTERRUPT
     }
 }
-#[doc = r" Value of the field"]
-pub struct GFLAG1R {
-    bits: bool,
-}
-impl GFLAG1R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GFLAG2R {
-    bits: bool,
-}
-impl GFLAG2R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct GFLAG3R {
-    bits: bool,
-}
-impl GFLAG3R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = "Values that can be written to the field `GFLAG0`"]
-pub enum GFLAG0W {
-    #[doc = "No pending interrupt. Writing a zero is equivalent to no operation."]
-    NO_PENDING_INTERRUPT,
-    #[doc = "Pending interrupt. The interrupt is pending because TIMER0 has reached the end of the time interval. If the INTEN bit in the CONTROL0 register is also set to 1, the interrupt for timer channel 0 and the global interrupt are raised. Writing a 1 to this bit clears the interrupt request."]
-    PENDING_INTERRUPT,
-}
-impl GFLAG0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            GFLAG0W::NO_PENDING_INTERRUPT => false,
-            GFLAG0W::PENDING_INTERRUPT => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _GFLAG0W<'a> {
+#[doc = "Write proxy for field `GFLAG0`"]
+pub struct GFLAG0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GFLAG0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: GFLAG0W) -> &'a mut W {
+impl<'a> GFLAG0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: GFLAG0_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No pending interrupt. Writing a zero is equivalent to no operation."]
-    #[inline]
+    #[inline(always)]
     pub fn no_pending_interrupt(self) -> &'a mut W {
-        self.variant(GFLAG0W::NO_PENDING_INTERRUPT)
+        self.variant(GFLAG0_A::NO_PENDING_INTERRUPT)
     }
     #[doc = "Pending interrupt. The interrupt is pending because TIMER0 has reached the end of the time interval. If the INTEN bit in the CONTROL0 register is also set to 1, the interrupt for timer channel 0 and the global interrupt are raised. Writing a 1 to this bit clears the interrupt request."]
-    #[inline]
+    #[inline(always)]
     pub fn pending_interrupt(self) -> &'a mut W {
-        self.variant(GFLAG0W::PENDING_INTERRUPT)
+        self.variant(GFLAG0_A::PENDING_INTERRUPT)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GFLAG1W<'a> {
+#[doc = "Reader of field `GFLAG1`"]
+pub type GFLAG1_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `GFLAG1`"]
+pub struct GFLAG1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GFLAG1W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> GFLAG1_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GFLAG2W<'a> {
+#[doc = "Reader of field `GFLAG2`"]
+pub type GFLAG2_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `GFLAG2`"]
+pub struct GFLAG2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GFLAG2W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> GFLAG2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _GFLAG3W<'a> {
+#[doc = "Reader of field `GFLAG3`"]
+pub type GFLAG3_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `GFLAG3`"]
+pub struct GFLAG3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _GFLAG3W<'a> {
-    #[doc = r" Sets the field bit"]
+impl<'a> GFLAG3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Monitors the interrupt flag of TIMER0."]
-    #[inline]
-    pub fn gflag0(&self) -> GFLAG0R {
-        GFLAG0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn gflag0(&self) -> GFLAG0_R {
+        GFLAG0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Monitors the interrupt flag of TIMER1. See description of channel 0."]
-    #[inline]
-    pub fn gflag1(&self) -> GFLAG1R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GFLAG1R { bits }
+    #[inline(always)]
+    pub fn gflag1(&self) -> GFLAG1_R {
+        GFLAG1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Monitors the interrupt flag of TIMER2. See description of channel 0."]
-    #[inline]
-    pub fn gflag2(&self) -> GFLAG2R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GFLAG2R { bits }
+    #[inline(always)]
+    pub fn gflag2(&self) -> GFLAG2_R {
+        GFLAG2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Monitors the interrupt flag of TIMER3. See description of channel 0."]
-    #[inline]
-    pub fn gflag3(&self) -> GFLAG3R {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        GFLAG3R { bits }
+    #[inline(always)]
+    pub fn gflag3(&self) -> GFLAG3_R {
+        GFLAG3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Monitors the interrupt flag of TIMER0."]
-    #[inline]
-    pub fn gflag0(&mut self) -> _GFLAG0W {
-        _GFLAG0W { w: self }
+    #[inline(always)]
+    pub fn gflag0(&mut self) -> GFLAG0_W {
+        GFLAG0_W { w: self }
     }
     #[doc = "Bit 1 - Monitors the interrupt flag of TIMER1. See description of channel 0."]
-    #[inline]
-    pub fn gflag1(&mut self) -> _GFLAG1W {
-        _GFLAG1W { w: self }
+    #[inline(always)]
+    pub fn gflag1(&mut self) -> GFLAG1_W {
+        GFLAG1_W { w: self }
     }
     #[doc = "Bit 2 - Monitors the interrupt flag of TIMER2. See description of channel 0."]
-    #[inline]
-    pub fn gflag2(&mut self) -> _GFLAG2W {
-        _GFLAG2W { w: self }
+    #[inline(always)]
+    pub fn gflag2(&mut self) -> GFLAG2_W {
+        GFLAG2_W { w: self }
     }
     #[doc = "Bit 3 - Monitors the interrupt flag of TIMER3. See description of channel 0."]
-    #[inline]
-    pub fn gflag3(&mut self) -> _GFLAG3W {
-        _GFLAG3W { w: self }
+    #[inline(always)]
+    pub fn gflag3(&mut self) -> GFLAG3_W {
+        GFLAG3_W { w: self }
     }
 }

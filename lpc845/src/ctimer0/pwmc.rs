@@ -1,540 +1,368 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::PWMC {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register PWMC"]
+pub type R = crate::R<u32, super::PWMC>;
+#[doc = "Writer for register PWMC"]
+pub type W = crate::W<u32, super::PWMC>;
+#[doc = "Register PWMC `reset()`'s with value 0"]
+impl crate::ResetValue for super::PWMC {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `PWMEN0`"]
+#[doc = "PWM mode enable for channel0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMEN0R {
-    #[doc = "Match. CTIMERn_MAT0 is controlled by EM0."]
+pub enum PWMEN0_A {
+    #[doc = "0: Match. CTIMERn_MAT0 is controlled by EM0."]
     MATCH,
-    #[doc = "PWM. PWM mode is enabled for CTIMERn_MAT0."]
+    #[doc = "1: PWM. PWM mode is enabled for CTIMERn_MAT0."]
     PWM,
 }
-impl PWMEN0R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMEN0R::MATCH => false,
-            PWMEN0R::PWM => true,
+impl From<PWMEN0_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMEN0_A) -> Self {
+        match variant {
+            PWMEN0_A::MATCH => false,
+            PWMEN0_A::PWM => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMEN0R {
-        match value {
-            false => PWMEN0R::MATCH,
-            true => PWMEN0R::PWM,
+}
+#[doc = "Reader of field `PWMEN0`"]
+pub type PWMEN0_R = crate::R<bool, PWMEN0_A>;
+impl PWMEN0_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMEN0_A {
+        match self.bits {
+            false => PWMEN0_A::MATCH,
+            true => PWMEN0_A::PWM,
         }
     }
     #[doc = "Checks if the value of the field is `MATCH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_match_(&self) -> bool {
-        *self == PWMEN0R::MATCH
+        *self == PWMEN0_A::MATCH
     }
     #[doc = "Checks if the value of the field is `PWM`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pwm(&self) -> bool {
-        *self == PWMEN0R::PWM
+        *self == PWMEN0_A::PWM
     }
 }
-#[doc = "Possible values of the field `PWMEN1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMEN1R {
-    #[doc = "Match. CTIMERn_MAT01 is controlled by EM1."]
-    MATCH,
-    #[doc = "PWM. PWM mode is enabled for CTIMERn_MAT1."]
-    PWM,
-}
-impl PWMEN1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMEN1R::MATCH => false,
-            PWMEN1R::PWM => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMEN1R {
-        match value {
-            false => PWMEN1R::MATCH,
-            true => PWMEN1R::PWM,
-        }
-    }
-    #[doc = "Checks if the value of the field is `MATCH`"]
-    #[inline]
-    pub fn is_match_(&self) -> bool {
-        *self == PWMEN1R::MATCH
-    }
-    #[doc = "Checks if the value of the field is `PWM`"]
-    #[inline]
-    pub fn is_pwm(&self) -> bool {
-        *self == PWMEN1R::PWM
-    }
-}
-#[doc = "Possible values of the field `PWMEN2`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMEN2R {
-    #[doc = "Match. CTIMERn_MAT2 is controlled by EM2."]
-    MATCH,
-    #[doc = "PWM. PWM mode is enabled for CTIMERn_MAT2."]
-    PWM,
-}
-impl PWMEN2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMEN2R::MATCH => false,
-            PWMEN2R::PWM => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMEN2R {
-        match value {
-            false => PWMEN2R::MATCH,
-            true => PWMEN2R::PWM,
-        }
-    }
-    #[doc = "Checks if the value of the field is `MATCH`"]
-    #[inline]
-    pub fn is_match_(&self) -> bool {
-        *self == PWMEN2R::MATCH
-    }
-    #[doc = "Checks if the value of the field is `PWM`"]
-    #[inline]
-    pub fn is_pwm(&self) -> bool {
-        *self == PWMEN2R::PWM
-    }
-}
-#[doc = "Possible values of the field `PWMEN3`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum PWMEN3R {
-    #[doc = "Match. CTIMERn_MAT3 is controlled by EM3."]
-    MATCH,
-    #[doc = "PWM. PWM mode is enabled for CT132Bn_MAT3."]
-    PWM,
-}
-impl PWMEN3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            PWMEN3R::MATCH => false,
-            PWMEN3R::PWM => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> PWMEN3R {
-        match value {
-            false => PWMEN3R::MATCH,
-            true => PWMEN3R::PWM,
-        }
-    }
-    #[doc = "Checks if the value of the field is `MATCH`"]
-    #[inline]
-    pub fn is_match_(&self) -> bool {
-        *self == PWMEN3R::MATCH
-    }
-    #[doc = "Checks if the value of the field is `PWM`"]
-    #[inline]
-    pub fn is_pwm(&self) -> bool {
-        *self == PWMEN3R::PWM
-    }
-}
-#[doc = "Values that can be written to the field `PWMEN0`"]
-pub enum PWMEN0W {
-    #[doc = "Match. CTIMERn_MAT0 is controlled by EM0."]
-    MATCH,
-    #[doc = "PWM. PWM mode is enabled for CTIMERn_MAT0."]
-    PWM,
-}
-impl PWMEN0W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMEN0W::MATCH => false,
-            PWMEN0W::PWM => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PWMEN0W<'a> {
+#[doc = "Write proxy for field `PWMEN0`"]
+pub struct PWMEN0_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMEN0W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMEN0W) -> &'a mut W {
+impl<'a> PWMEN0_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMEN0_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Match. CTIMERn_MAT0 is controlled by EM0."]
-    #[inline]
+    #[inline(always)]
     pub fn match_(self) -> &'a mut W {
-        self.variant(PWMEN0W::MATCH)
+        self.variant(PWMEN0_A::MATCH)
     }
     #[doc = "PWM. PWM mode is enabled for CTIMERn_MAT0."]
-    #[inline]
+    #[inline(always)]
     pub fn pwm(self) -> &'a mut W {
-        self.variant(PWMEN0W::PWM)
+        self.variant(PWMEN0_A::PWM)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PWMEN1`"]
-pub enum PWMEN1W {
+#[doc = "PWM mode enable for channel1.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMEN1_A {
+    #[doc = "0: Match. CTIMERn_MAT01 is controlled by EM1."]
+    MATCH,
+    #[doc = "1: PWM. PWM mode is enabled for CTIMERn_MAT1."]
+    PWM,
+}
+impl From<PWMEN1_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMEN1_A) -> Self {
+        match variant {
+            PWMEN1_A::MATCH => false,
+            PWMEN1_A::PWM => true,
+        }
+    }
+}
+#[doc = "Reader of field `PWMEN1`"]
+pub type PWMEN1_R = crate::R<bool, PWMEN1_A>;
+impl PWMEN1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMEN1_A {
+        match self.bits {
+            false => PWMEN1_A::MATCH,
+            true => PWMEN1_A::PWM,
+        }
+    }
+    #[doc = "Checks if the value of the field is `MATCH`"]
+    #[inline(always)]
+    pub fn is_match_(&self) -> bool {
+        *self == PWMEN1_A::MATCH
+    }
+    #[doc = "Checks if the value of the field is `PWM`"]
+    #[inline(always)]
+    pub fn is_pwm(&self) -> bool {
+        *self == PWMEN1_A::PWM
+    }
+}
+#[doc = "Write proxy for field `PWMEN1`"]
+pub struct PWMEN1_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> PWMEN1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMEN1_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "Match. CTIMERn_MAT01 is controlled by EM1."]
-    MATCH,
-    #[doc = "PWM. PWM mode is enabled for CTIMERn_MAT1."]
-    PWM,
-}
-impl PWMEN1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMEN1W::MATCH => false,
-            PWMEN1W::PWM => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _PWMEN1W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _PWMEN1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMEN1W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Match. CTIMERn_MAT01 is controlled by EM1."]
-    #[inline]
+    #[inline(always)]
     pub fn match_(self) -> &'a mut W {
-        self.variant(PWMEN1W::MATCH)
+        self.variant(PWMEN1_A::MATCH)
     }
     #[doc = "PWM. PWM mode is enabled for CTIMERn_MAT1."]
-    #[inline]
+    #[inline(always)]
     pub fn pwm(self) -> &'a mut W {
-        self.variant(PWMEN1W::PWM)
+        self.variant(PWMEN1_A::PWM)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PWMEN2`"]
-pub enum PWMEN2W {
-    #[doc = "Match. CTIMERn_MAT2 is controlled by EM2."]
+#[doc = "PWM mode enable for channel2.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMEN2_A {
+    #[doc = "0: Match. CTIMERn_MAT2 is controlled by EM2."]
     MATCH,
-    #[doc = "PWM. PWM mode is enabled for CTIMERn_MAT2."]
+    #[doc = "1: PWM. PWM mode is enabled for CTIMERn_MAT2."]
     PWM,
 }
-impl PWMEN2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMEN2W::MATCH => false,
-            PWMEN2W::PWM => true,
+impl From<PWMEN2_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMEN2_A) -> Self {
+        match variant {
+            PWMEN2_A::MATCH => false,
+            PWMEN2_A::PWM => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _PWMEN2W<'a> {
+#[doc = "Reader of field `PWMEN2`"]
+pub type PWMEN2_R = crate::R<bool, PWMEN2_A>;
+impl PWMEN2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMEN2_A {
+        match self.bits {
+            false => PWMEN2_A::MATCH,
+            true => PWMEN2_A::PWM,
+        }
+    }
+    #[doc = "Checks if the value of the field is `MATCH`"]
+    #[inline(always)]
+    pub fn is_match_(&self) -> bool {
+        *self == PWMEN2_A::MATCH
+    }
+    #[doc = "Checks if the value of the field is `PWM`"]
+    #[inline(always)]
+    pub fn is_pwm(&self) -> bool {
+        *self == PWMEN2_A::PWM
+    }
+}
+#[doc = "Write proxy for field `PWMEN2`"]
+pub struct PWMEN2_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMEN2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMEN2W) -> &'a mut W {
+impl<'a> PWMEN2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMEN2_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Match. CTIMERn_MAT2 is controlled by EM2."]
-    #[inline]
+    #[inline(always)]
     pub fn match_(self) -> &'a mut W {
-        self.variant(PWMEN2W::MATCH)
+        self.variant(PWMEN2_A::MATCH)
     }
     #[doc = "PWM. PWM mode is enabled for CTIMERn_MAT2."]
-    #[inline]
+    #[inline(always)]
     pub fn pwm(self) -> &'a mut W {
-        self.variant(PWMEN2W::PWM)
+        self.variant(PWMEN2_A::PWM)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `PWMEN3`"]
-pub enum PWMEN3W {
-    #[doc = "Match. CTIMERn_MAT3 is controlled by EM3."]
+#[doc = "PWM mode enable for channel3. Note: It is recommended to use match channel 3 to set the PWM cycle.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PWMEN3_A {
+    #[doc = "0: Match. CTIMERn_MAT3 is controlled by EM3."]
     MATCH,
-    #[doc = "PWM. PWM mode is enabled for CT132Bn_MAT3."]
+    #[doc = "1: PWM. PWM mode is enabled for CT132Bn_MAT3."]
     PWM,
 }
-impl PWMEN3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            PWMEN3W::MATCH => false,
-            PWMEN3W::PWM => true,
+impl From<PWMEN3_A> for bool {
+    #[inline(always)]
+    fn from(variant: PWMEN3_A) -> Self {
+        match variant {
+            PWMEN3_A::MATCH => false,
+            PWMEN3_A::PWM => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _PWMEN3W<'a> {
+#[doc = "Reader of field `PWMEN3`"]
+pub type PWMEN3_R = crate::R<bool, PWMEN3_A>;
+impl PWMEN3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PWMEN3_A {
+        match self.bits {
+            false => PWMEN3_A::MATCH,
+            true => PWMEN3_A::PWM,
+        }
+    }
+    #[doc = "Checks if the value of the field is `MATCH`"]
+    #[inline(always)]
+    pub fn is_match_(&self) -> bool {
+        *self == PWMEN3_A::MATCH
+    }
+    #[doc = "Checks if the value of the field is `PWM`"]
+    #[inline(always)]
+    pub fn is_pwm(&self) -> bool {
+        *self == PWMEN3_A::PWM
+    }
+}
+#[doc = "Write proxy for field `PWMEN3`"]
+pub struct PWMEN3_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _PWMEN3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: PWMEN3W) -> &'a mut W {
+impl<'a> PWMEN3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PWMEN3_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Match. CTIMERn_MAT3 is controlled by EM3."]
-    #[inline]
+    #[inline(always)]
     pub fn match_(self) -> &'a mut W {
-        self.variant(PWMEN3W::MATCH)
+        self.variant(PWMEN3_A::MATCH)
     }
     #[doc = "PWM. PWM mode is enabled for CT132Bn_MAT3."]
-    #[inline]
+    #[inline(always)]
     pub fn pwm(self) -> &'a mut W {
-        self.variant(PWMEN3W::PWM)
+        self.variant(PWMEN3_A::PWM)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - PWM mode enable for channel0."]
-    #[inline]
-    pub fn pwmen0(&self) -> PWMEN0R {
-        PWMEN0R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmen0(&self) -> PWMEN0_R {
+        PWMEN0_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - PWM mode enable for channel1."]
-    #[inline]
-    pub fn pwmen1(&self) -> PWMEN1R {
-        PWMEN1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmen1(&self) -> PWMEN1_R {
+        PWMEN1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - PWM mode enable for channel2."]
-    #[inline]
-    pub fn pwmen2(&self) -> PWMEN2R {
-        PWMEN2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmen2(&self) -> PWMEN2_R {
+        PWMEN2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - PWM mode enable for channel3. Note: It is recommended to use match channel 3 to set the PWM cycle."]
-    #[inline]
-    pub fn pwmen3(&self) -> PWMEN3R {
-        PWMEN3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn pwmen3(&self) -> PWMEN3_R {
+        PWMEN3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - PWM mode enable for channel0."]
-    #[inline]
-    pub fn pwmen0(&mut self) -> _PWMEN0W {
-        _PWMEN0W { w: self }
+    #[inline(always)]
+    pub fn pwmen0(&mut self) -> PWMEN0_W {
+        PWMEN0_W { w: self }
     }
     #[doc = "Bit 1 - PWM mode enable for channel1."]
-    #[inline]
-    pub fn pwmen1(&mut self) -> _PWMEN1W {
-        _PWMEN1W { w: self }
+    #[inline(always)]
+    pub fn pwmen1(&mut self) -> PWMEN1_W {
+        PWMEN1_W { w: self }
     }
     #[doc = "Bit 2 - PWM mode enable for channel2."]
-    #[inline]
-    pub fn pwmen2(&mut self) -> _PWMEN2W {
-        _PWMEN2W { w: self }
+    #[inline(always)]
+    pub fn pwmen2(&mut self) -> PWMEN2_W {
+        PWMEN2_W { w: self }
     }
     #[doc = "Bit 3 - PWM mode enable for channel3. Note: It is recommended to use match channel 3 to set the PWM cycle."]
-    #[inline]
-    pub fn pwmen3(&mut self) -> _PWMEN3W {
-        _PWMEN3W { w: self }
+    #[inline(always)]
+    pub fn pwmen3(&mut self) -> PWMEN3_W {
+        PWMEN3_W { w: self }
     }
 }

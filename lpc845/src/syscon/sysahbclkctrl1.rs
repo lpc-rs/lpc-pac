@@ -1,302 +1,192 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SYSAHBCLKCTRL1 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SYSAHBCLKCTRL1"]
+pub type R = crate::R<u32, super::SYSAHBCLKCTRL1>;
+#[doc = "Writer for register SYSAHBCLKCTRL1"]
+pub type W = crate::W<u32, super::SYSAHBCLKCTRL1>;
+#[doc = "Register SYSAHBCLKCTRL1 `reset()`'s with value 0"]
+impl crate::ResetValue for super::SYSAHBCLKCTRL1 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CAPT`"]
+#[doc = "Enables clock for CAPT.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CAPTR {
-    #[doc = "disable"]
+pub enum CAPT_A {
+    #[doc = "0: disable"]
     DISABLE,
-    #[doc = "enable"]
+    #[doc = "1: enable"]
     ENABLE,
 }
-impl CAPTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CAPTR::DISABLE => false,
-            CAPTR::ENABLE => true,
+impl From<CAPT_A> for bool {
+    #[inline(always)]
+    fn from(variant: CAPT_A) -> Self {
+        match variant {
+            CAPT_A::DISABLE => false,
+            CAPT_A::ENABLE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CAPTR {
-        match value {
-            false => CAPTR::DISABLE,
-            true => CAPTR::ENABLE,
+}
+#[doc = "Reader of field `CAPT`"]
+pub type CAPT_R = crate::R<bool, CAPT_A>;
+impl CAPT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CAPT_A {
+        match self.bits {
+            false => CAPT_A::DISABLE,
+            true => CAPT_A::ENABLE,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == CAPTR::DISABLE
+        *self == CAPT_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == CAPTR::ENABLE
+        *self == CAPT_A::ENABLE
     }
 }
-#[doc = "Possible values of the field `DAC1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DAC1R {
-    #[doc = "disable"]
-    DISABLE,
-    #[doc = "enable"]
-    ENABLE,
-}
-impl DAC1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DAC1R::DISABLE => false,
-            DAC1R::ENABLE => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DAC1R {
-        match value {
-            false => DAC1R::DISABLE,
-            true => DAC1R::ENABLE,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
-    #[inline]
-    pub fn is_disable(&self) -> bool {
-        *self == DAC1R::DISABLE
-    }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
-    #[inline]
-    pub fn is_enable(&self) -> bool {
-        *self == DAC1R::ENABLE
-    }
-}
-#[doc = "Values that can be written to the field `CAPT`"]
-pub enum CAPTW {
-    #[doc = "disable"]
-    DISABLE,
-    #[doc = "enable"]
-    ENABLE,
-}
-impl CAPTW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CAPTW::DISABLE => false,
-            CAPTW::ENABLE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CAPTW<'a> {
+#[doc = "Write proxy for field `CAPT`"]
+pub struct CAPT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CAPTW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CAPTW) -> &'a mut W {
+impl<'a> CAPT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CAPT_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "disable"]
-    #[inline]
+    #[inline(always)]
     pub fn disable(self) -> &'a mut W {
-        self.variant(CAPTW::DISABLE)
+        self.variant(CAPT_A::DISABLE)
     }
     #[doc = "enable"]
-    #[inline]
+    #[inline(always)]
     pub fn enable(self) -> &'a mut W {
-        self.variant(CAPTW::ENABLE)
+        self.variant(CAPT_A::ENABLE)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `DAC1`"]
-pub enum DAC1W {
-    #[doc = "disable"]
+#[doc = "Enables clock for DAC1.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DAC1_A {
+    #[doc = "0: disable"]
     DISABLE,
-    #[doc = "enable"]
+    #[doc = "1: enable"]
     ENABLE,
 }
-impl DAC1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            DAC1W::DISABLE => false,
-            DAC1W::ENABLE => true,
+impl From<DAC1_A> for bool {
+    #[inline(always)]
+    fn from(variant: DAC1_A) -> Self {
+        match variant {
+            DAC1_A::DISABLE => false,
+            DAC1_A::ENABLE => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _DAC1W<'a> {
+#[doc = "Reader of field `DAC1`"]
+pub type DAC1_R = crate::R<bool, DAC1_A>;
+impl DAC1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DAC1_A {
+        match self.bits {
+            false => DAC1_A::DISABLE,
+            true => DAC1_A::ENABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline(always)]
+    pub fn is_disable(&self) -> bool {
+        *self == DAC1_A::DISABLE
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        *self == DAC1_A::ENABLE
+    }
+}
+#[doc = "Write proxy for field `DAC1`"]
+pub struct DAC1_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DAC1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DAC1W) -> &'a mut W {
+impl<'a> DAC1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DAC1_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "disable"]
-    #[inline]
+    #[inline(always)]
     pub fn disable(self) -> &'a mut W {
-        self.variant(DAC1W::DISABLE)
+        self.variant(DAC1_A::DISABLE)
     }
     #[doc = "enable"]
-    #[inline]
+    #[inline(always)]
     pub fn enable(self) -> &'a mut W {
-        self.variant(DAC1W::ENABLE)
+        self.variant(DAC1_A::ENABLE)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Enables clock for CAPT."]
-    #[inline]
-    pub fn capt(&self) -> CAPTR {
-        CAPTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn capt(&self) -> CAPT_R {
+        CAPT_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Enables clock for DAC1."]
-    #[inline]
-    pub fn dac1(&self) -> DAC1R {
-        DAC1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn dac1(&self) -> DAC1_R {
+        DAC1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Enables clock for CAPT."]
-    #[inline]
-    pub fn capt(&mut self) -> _CAPTW {
-        _CAPTW { w: self }
+    #[inline(always)]
+    pub fn capt(&mut self) -> CAPT_W {
+        CAPT_W { w: self }
     }
     #[doc = "Bit 1 - Enables clock for DAC1."]
-    #[inline]
-    pub fn dac1(&mut self) -> _DAC1W {
-        _DAC1W { w: self }
+    #[inline(always)]
+    pub fn dac1(&mut self) -> DAC1_W {
+        DAC1_W { w: self }
     }
 }

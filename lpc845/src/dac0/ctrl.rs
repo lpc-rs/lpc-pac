@@ -1,540 +1,368 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CTRL"]
+pub type R = crate::R<u32, super::CTRL>;
+#[doc = "Writer for register CTRL"]
+pub type W = crate::W<u32, super::CTRL>;
+#[doc = "Register CTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::CTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `INT_DMA_REQ`"]
+#[doc = "DMA request\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum INT_DMA_REQR {
-    #[doc = "This bit is cleared on any write to the DACR register."]
+pub enum INT_DMA_REQ_A {
+    #[doc = "0: This bit is cleared on any write to the DACR register."]
     CLEAR,
-    #[doc = "This bit is set by hardware when the timer times out."]
+    #[doc = "1: This bit is set by hardware when the timer times out."]
     SET,
 }
-impl INT_DMA_REQR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            INT_DMA_REQR::CLEAR => false,
-            INT_DMA_REQR::SET => true,
+impl From<INT_DMA_REQ_A> for bool {
+    #[inline(always)]
+    fn from(variant: INT_DMA_REQ_A) -> Self {
+        match variant {
+            INT_DMA_REQ_A::CLEAR => false,
+            INT_DMA_REQ_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> INT_DMA_REQR {
-        match value {
-            false => INT_DMA_REQR::CLEAR,
-            true => INT_DMA_REQR::SET,
+}
+#[doc = "Reader of field `INT_DMA_REQ`"]
+pub type INT_DMA_REQ_R = crate::R<bool, INT_DMA_REQ_A>;
+impl INT_DMA_REQ_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> INT_DMA_REQ_A {
+        match self.bits {
+            false => INT_DMA_REQ_A::CLEAR,
+            true => INT_DMA_REQ_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == INT_DMA_REQR::CLEAR
+        *self == INT_DMA_REQ_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == INT_DMA_REQR::SET
+        *self == INT_DMA_REQ_A::SET
     }
 }
-#[doc = "Possible values of the field `DBLBUF_ENA`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DBLBUF_ENAR {
-    #[doc = "DACR double-buffering is disabled."]
-    DISABLED,
-    #[doc = "When this bit and the CNT_ENA bit are both set, the double-buffering feature in the DACR register will be enabled. Writes to the DACR register are written to a pre-buffer and then transferred to the DACR on the next time-out of the counter."]
-    ENABLED,
-}
-impl DBLBUF_ENAR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DBLBUF_ENAR::DISABLED => false,
-            DBLBUF_ENAR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DBLBUF_ENAR {
-        match value {
-            false => DBLBUF_ENAR::DISABLED,
-            true => DBLBUF_ENAR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == DBLBUF_ENAR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == DBLBUF_ENAR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `CNT_ENA`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CNT_ENAR {
-    #[doc = "Time-out counter operation is disabled."]
-    DISABLED,
-    #[doc = "Time-out counter operation is enabled."]
-    ENABLED,
-}
-impl CNT_ENAR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CNT_ENAR::DISABLED => false,
-            CNT_ENAR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CNT_ENAR {
-        match value {
-            false => CNT_ENAR::DISABLED,
-            true => CNT_ENAR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == CNT_ENAR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == CNT_ENAR::ENABLED
-    }
-}
-#[doc = "Possible values of the field `DMA_ENA`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DMA_ENAR {
-    #[doc = "DMA access is disabled."]
-    DISABLED,
-    #[doc = "DMA Burst Request Input 7 is enabled for the DAC"]
-    ENABLED,
-}
-impl DMA_ENAR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DMA_ENAR::DISABLED => false,
-            DMA_ENAR::ENABLED => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DMA_ENAR {
-        match value {
-            false => DMA_ENAR::DISABLED,
-            true => DMA_ENAR::ENABLED,
-        }
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == DMA_ENAR::DISABLED
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == DMA_ENAR::ENABLED
-    }
-}
-#[doc = "Values that can be written to the field `INT_DMA_REQ`"]
-pub enum INT_DMA_REQW {
-    #[doc = "This bit is cleared on any write to the DACR register."]
-    CLEAR,
-    #[doc = "This bit is set by hardware when the timer times out."]
-    SET,
-}
-impl INT_DMA_REQW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            INT_DMA_REQW::CLEAR => false,
-            INT_DMA_REQW::SET => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _INT_DMA_REQW<'a> {
+#[doc = "Write proxy for field `INT_DMA_REQ`"]
+pub struct INT_DMA_REQ_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _INT_DMA_REQW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: INT_DMA_REQW) -> &'a mut W {
+impl<'a> INT_DMA_REQ_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: INT_DMA_REQ_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "This bit is cleared on any write to the DACR register."]
-    #[inline]
+    #[inline(always)]
     pub fn clear(self) -> &'a mut W {
-        self.variant(INT_DMA_REQW::CLEAR)
+        self.variant(INT_DMA_REQ_A::CLEAR)
     }
     #[doc = "This bit is set by hardware when the timer times out."]
-    #[inline]
+    #[inline(always)]
     pub fn set(self) -> &'a mut W {
-        self.variant(INT_DMA_REQW::SET)
+        self.variant(INT_DMA_REQ_A::SET)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `DBLBUF_ENA`"]
-pub enum DBLBUF_ENAW {
+#[doc = "dacr double buffer\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DBLBUF_ENA_A {
+    #[doc = "0: DACR double-buffering is disabled."]
+    DISABLED,
+    #[doc = "1: When this bit and the CNT_ENA bit are both set, the double-buffering feature in the DACR register will be enabled. Writes to the DACR register are written to a pre-buffer and then transferred to the DACR on the next time-out of the counter."]
+    ENABLED,
+}
+impl From<DBLBUF_ENA_A> for bool {
+    #[inline(always)]
+    fn from(variant: DBLBUF_ENA_A) -> Self {
+        match variant {
+            DBLBUF_ENA_A::DISABLED => false,
+            DBLBUF_ENA_A::ENABLED => true,
+        }
+    }
+}
+#[doc = "Reader of field `DBLBUF_ENA`"]
+pub type DBLBUF_ENA_R = crate::R<bool, DBLBUF_ENA_A>;
+impl DBLBUF_ENA_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DBLBUF_ENA_A {
+        match self.bits {
+            false => DBLBUF_ENA_A::DISABLED,
+            true => DBLBUF_ENA_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == DBLBUF_ENA_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == DBLBUF_ENA_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `DBLBUF_ENA`"]
+pub struct DBLBUF_ENA_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> DBLBUF_ENA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DBLBUF_ENA_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
     #[doc = "DACR double-buffering is disabled."]
-    DISABLED,
-    #[doc = "When this bit and the CNT_ENA bit are both set, the double-buffering feature in the DACR register will be enabled. Writes to the DACR register are written to a pre-buffer and then transferred to the DACR on the next time-out of the counter."]
-    ENABLED,
-}
-impl DBLBUF_ENAW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            DBLBUF_ENAW::DISABLED => false,
-            DBLBUF_ENAW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _DBLBUF_ENAW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _DBLBUF_ENAW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DBLBUF_ENAW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "DACR double-buffering is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(DBLBUF_ENAW::DISABLED)
+        self.variant(DBLBUF_ENA_A::DISABLED)
     }
     #[doc = "When this bit and the CNT_ENA bit are both set, the double-buffering feature in the DACR register will be enabled. Writes to the DACR register are written to a pre-buffer and then transferred to the DACR on the next time-out of the counter."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(DBLBUF_ENAW::ENABLED)
+        self.variant(DBLBUF_ENA_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CNT_ENA`"]
-pub enum CNT_ENAW {
-    #[doc = "Time-out counter operation is disabled."]
+#[doc = "time-out counter operation\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CNT_ENA_A {
+    #[doc = "0: Time-out counter operation is disabled."]
     DISABLED,
-    #[doc = "Time-out counter operation is enabled."]
+    #[doc = "1: Time-out counter operation is enabled."]
     ENABLED,
 }
-impl CNT_ENAW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CNT_ENAW::DISABLED => false,
-            CNT_ENAW::ENABLED => true,
+impl From<CNT_ENA_A> for bool {
+    #[inline(always)]
+    fn from(variant: CNT_ENA_A) -> Self {
+        match variant {
+            CNT_ENA_A::DISABLED => false,
+            CNT_ENA_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CNT_ENAW<'a> {
+#[doc = "Reader of field `CNT_ENA`"]
+pub type CNT_ENA_R = crate::R<bool, CNT_ENA_A>;
+impl CNT_ENA_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CNT_ENA_A {
+        match self.bits {
+            false => CNT_ENA_A::DISABLED,
+            true => CNT_ENA_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == CNT_ENA_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == CNT_ENA_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `CNT_ENA`"]
+pub struct CNT_ENA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CNT_ENAW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CNT_ENAW) -> &'a mut W {
+impl<'a> CNT_ENA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CNT_ENA_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Time-out counter operation is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(CNT_ENAW::DISABLED)
+        self.variant(CNT_ENA_A::DISABLED)
     }
     #[doc = "Time-out counter operation is enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(CNT_ENAW::ENABLED)
+        self.variant(CNT_ENA_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `DMA_ENA`"]
-pub enum DMA_ENAW {
-    #[doc = "DMA access is disabled."]
+#[doc = "DMA access\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DMA_ENA_A {
+    #[doc = "0: DMA access is disabled."]
     DISABLED,
-    #[doc = "DMA Burst Request Input 7 is enabled for the DAC"]
+    #[doc = "1: DMA Burst Request Input 7 is enabled for the DAC"]
     ENABLED,
 }
-impl DMA_ENAW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            DMA_ENAW::DISABLED => false,
-            DMA_ENAW::ENABLED => true,
+impl From<DMA_ENA_A> for bool {
+    #[inline(always)]
+    fn from(variant: DMA_ENA_A) -> Self {
+        match variant {
+            DMA_ENA_A::DISABLED => false,
+            DMA_ENA_A::ENABLED => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _DMA_ENAW<'a> {
+#[doc = "Reader of field `DMA_ENA`"]
+pub type DMA_ENA_R = crate::R<bool, DMA_ENA_A>;
+impl DMA_ENA_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DMA_ENA_A {
+        match self.bits {
+            false => DMA_ENA_A::DISABLED,
+            true => DMA_ENA_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == DMA_ENA_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == DMA_ENA_A::ENABLED
+    }
+}
+#[doc = "Write proxy for field `DMA_ENA`"]
+pub struct DMA_ENA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DMA_ENAW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DMA_ENAW) -> &'a mut W {
+impl<'a> DMA_ENA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DMA_ENA_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "DMA access is disabled."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(DMA_ENAW::DISABLED)
+        self.variant(DMA_ENA_A::DISABLED)
     }
     #[doc = "DMA Burst Request Input 7 is enabled for the DAC"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(DMA_ENAW::ENABLED)
+        self.variant(DMA_ENA_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - DMA request"]
-    #[inline]
-    pub fn int_dma_req(&self) -> INT_DMA_REQR {
-        INT_DMA_REQR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn int_dma_req(&self) -> INT_DMA_REQ_R {
+        INT_DMA_REQ_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - dacr double buffer"]
-    #[inline]
-    pub fn dblbuf_ena(&self) -> DBLBUF_ENAR {
-        DBLBUF_ENAR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn dblbuf_ena(&self) -> DBLBUF_ENA_R {
+        DBLBUF_ENA_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - time-out counter operation"]
-    #[inline]
-    pub fn cnt_ena(&self) -> CNT_ENAR {
-        CNT_ENAR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cnt_ena(&self) -> CNT_ENA_R {
+        CNT_ENA_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - DMA access"]
-    #[inline]
-    pub fn dma_ena(&self) -> DMA_ENAR {
-        DMA_ENAR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn dma_ena(&self) -> DMA_ENA_R {
+        DMA_ENA_R::new(((self.bits >> 3) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - DMA request"]
-    #[inline]
-    pub fn int_dma_req(&mut self) -> _INT_DMA_REQW {
-        _INT_DMA_REQW { w: self }
+    #[inline(always)]
+    pub fn int_dma_req(&mut self) -> INT_DMA_REQ_W {
+        INT_DMA_REQ_W { w: self }
     }
     #[doc = "Bit 1 - dacr double buffer"]
-    #[inline]
-    pub fn dblbuf_ena(&mut self) -> _DBLBUF_ENAW {
-        _DBLBUF_ENAW { w: self }
+    #[inline(always)]
+    pub fn dblbuf_ena(&mut self) -> DBLBUF_ENA_W {
+        DBLBUF_ENA_W { w: self }
     }
     #[doc = "Bit 2 - time-out counter operation"]
-    #[inline]
-    pub fn cnt_ena(&mut self) -> _CNT_ENAW {
-        _CNT_ENAW { w: self }
+    #[inline(always)]
+    pub fn cnt_ena(&mut self) -> CNT_ENA_W {
+        CNT_ENA_W { w: self }
     }
     #[doc = "Bit 3 - DMA access"]
-    #[inline]
-    pub fn dma_ena(&mut self) -> _DMA_ENAW {
-        _DMA_ENAW { w: self }
+    #[inline(always)]
+    pub fn dma_ena(&mut self) -> DMA_ENA_W {
+        DMA_ENA_W { w: self }
     }
 }

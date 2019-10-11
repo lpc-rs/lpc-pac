@@ -1,209 +1,143 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::MONRXDAT {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct MONRXDATR {
-    bits: u8,
-}
-impl MONRXDATR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = "Possible values of the field `MONSTART`"]
+#[doc = "Reader of register MONRXDAT"]
+pub type R = crate::R<u32, super::MONRXDAT>;
+#[doc = "Reader of field `MONRXDAT`"]
+pub type MONRXDAT_R = crate::R<u8, u8>;
+#[doc = "Monitor Received Start.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MONSTARTR {
-    #[doc = "No start detected. The Monitor function has not detected a Start event on the I2C bus."]
+pub enum MONSTART_A {
+    #[doc = "0: No start detected. The Monitor function has not detected a Start event on the I2C bus."]
     NO_START_DETECTED,
-    #[doc = "Start detected. The Monitor function has detected a Start event on the I2C bus."]
+    #[doc = "1: Start detected. The Monitor function has detected a Start event on the I2C bus."]
     START_DETECTED,
 }
-impl MONSTARTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MONSTARTR::NO_START_DETECTED => false,
-            MONSTARTR::START_DETECTED => true,
+impl From<MONSTART_A> for bool {
+    #[inline(always)]
+    fn from(variant: MONSTART_A) -> Self {
+        match variant {
+            MONSTART_A::NO_START_DETECTED => false,
+            MONSTART_A::START_DETECTED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MONSTARTR {
-        match value {
-            false => MONSTARTR::NO_START_DETECTED,
-            true => MONSTARTR::START_DETECTED,
+}
+#[doc = "Reader of field `MONSTART`"]
+pub type MONSTART_R = crate::R<bool, MONSTART_A>;
+impl MONSTART_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> MONSTART_A {
+        match self.bits {
+            false => MONSTART_A::NO_START_DETECTED,
+            true => MONSTART_A::START_DETECTED,
         }
     }
     #[doc = "Checks if the value of the field is `NO_START_DETECTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_start_detected(&self) -> bool {
-        *self == MONSTARTR::NO_START_DETECTED
+        *self == MONSTART_A::NO_START_DETECTED
     }
     #[doc = "Checks if the value of the field is `START_DETECTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_start_detected(&self) -> bool {
-        *self == MONSTARTR::START_DETECTED
+        *self == MONSTART_A::START_DETECTED
     }
 }
-#[doc = "Possible values of the field `MONRESTART`"]
+#[doc = "Monitor Received Repeated Start.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MONRESTARTR {
-    #[doc = "No repeated start detected. The Monitor function has not detected a Repeated Start event on the I2C bus."]
+pub enum MONRESTART_A {
+    #[doc = "0: No repeated start detected. The Monitor function has not detected a Repeated Start event on the I2C bus."]
     NOT_DETECTED,
-    #[doc = "Repeated start detected. The Monitor function has detected a Repeated Start event on the I2C bus."]
+    #[doc = "1: Repeated start detected. The Monitor function has detected a Repeated Start event on the I2C bus."]
     DETECTED,
 }
-impl MONRESTARTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MONRESTARTR::NOT_DETECTED => false,
-            MONRESTARTR::DETECTED => true,
+impl From<MONRESTART_A> for bool {
+    #[inline(always)]
+    fn from(variant: MONRESTART_A) -> Self {
+        match variant {
+            MONRESTART_A::NOT_DETECTED => false,
+            MONRESTART_A::DETECTED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MONRESTARTR {
-        match value {
-            false => MONRESTARTR::NOT_DETECTED,
-            true => MONRESTARTR::DETECTED,
+}
+#[doc = "Reader of field `MONRESTART`"]
+pub type MONRESTART_R = crate::R<bool, MONRESTART_A>;
+impl MONRESTART_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> MONRESTART_A {
+        match self.bits {
+            false => MONRESTART_A::NOT_DETECTED,
+            true => MONRESTART_A::DETECTED,
         }
     }
     #[doc = "Checks if the value of the field is `NOT_DETECTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_detected(&self) -> bool {
-        *self == MONRESTARTR::NOT_DETECTED
+        *self == MONRESTART_A::NOT_DETECTED
     }
     #[doc = "Checks if the value of the field is `DETECTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_detected(&self) -> bool {
-        *self == MONRESTARTR::DETECTED
+        *self == MONRESTART_A::DETECTED
     }
 }
-#[doc = "Possible values of the field `MONNACK`"]
+#[doc = "Monitor Received NACK.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MONNACKR {
-    #[doc = "Acknowledged. The data currently being provided by the Monitor function was acknowledged by at least one master or slave receiver."]
+pub enum MONNACK_A {
+    #[doc = "0: Acknowledged. The data currently being provided by the Monitor function was acknowledged by at least one master or slave receiver."]
     ACKNOWLEDGED,
-    #[doc = "Not acknowledged. The data currently being provided by the Monitor function was not acknowledged by any receiver."]
+    #[doc = "1: Not acknowledged. The data currently being provided by the Monitor function was not acknowledged by any receiver."]
     NOT_ACKNOWLEDGED,
 }
-impl MONNACKR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MONNACKR::ACKNOWLEDGED => false,
-            MONNACKR::NOT_ACKNOWLEDGED => true,
+impl From<MONNACK_A> for bool {
+    #[inline(always)]
+    fn from(variant: MONNACK_A) -> Self {
+        match variant {
+            MONNACK_A::ACKNOWLEDGED => false,
+            MONNACK_A::NOT_ACKNOWLEDGED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MONNACKR {
-        match value {
-            false => MONNACKR::ACKNOWLEDGED,
-            true => MONNACKR::NOT_ACKNOWLEDGED,
+}
+#[doc = "Reader of field `MONNACK`"]
+pub type MONNACK_R = crate::R<bool, MONNACK_A>;
+impl MONNACK_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> MONNACK_A {
+        match self.bits {
+            false => MONNACK_A::ACKNOWLEDGED,
+            true => MONNACK_A::NOT_ACKNOWLEDGED,
         }
     }
     #[doc = "Checks if the value of the field is `ACKNOWLEDGED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_acknowledged(&self) -> bool {
-        *self == MONNACKR::ACKNOWLEDGED
+        *self == MONNACK_A::ACKNOWLEDGED
     }
     #[doc = "Checks if the value of the field is `NOT_ACKNOWLEDGED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_acknowledged(&self) -> bool {
-        *self == MONNACKR::NOT_ACKNOWLEDGED
+        *self == MONNACK_A::NOT_ACKNOWLEDGED
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - Monitor function Receiver Data. This reflects every data byte that passes on the I2C pins."]
-    #[inline]
-    pub fn monrxdat(&self) -> MONRXDATR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        MONRXDATR { bits }
+    #[inline(always)]
+    pub fn monrxdat(&self) -> MONRXDAT_R {
+        MONRXDAT_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bit 8 - Monitor Received Start."]
-    #[inline]
-    pub fn monstart(&self) -> MONSTARTR {
-        MONSTARTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn monstart(&self) -> MONSTART_R {
+        MONSTART_R::new(((self.bits >> 8) & 0x01) != 0)
     }
     #[doc = "Bit 9 - Monitor Received Repeated Start."]
-    #[inline]
-    pub fn monrestart(&self) -> MONRESTARTR {
-        MONRESTARTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 9;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn monrestart(&self) -> MONRESTART_R {
+        MONRESTART_R::new(((self.bits >> 9) & 0x01) != 0)
     }
     #[doc = "Bit 10 - Monitor Received NACK."]
-    #[inline]
-    pub fn monnack(&self) -> MONNACKR {
-        MONNACKR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 10;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn monnack(&self) -> MONNACK_R {
+        MONNACK_R::new(((self.bits >> 10) & 0x01) != 0)
     }
 }

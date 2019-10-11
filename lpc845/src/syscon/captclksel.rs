@@ -1,268 +1,179 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CAPTCLKSEL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CAPTCLKSEL"]
+pub type R = crate::R<u32, super::CAPTCLKSEL>;
+#[doc = "Writer for register CAPTCLKSEL"]
+pub type W = crate::W<u32, super::CAPTCLKSEL>;
+#[doc = "Register CAPTCLKSEL `reset()`'s with value 0x07"]
+impl crate::ResetValue for super::CAPTCLKSEL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x07
     }
 }
-#[doc = "Possible values of the field `SEL`"]
+#[doc = "Clock source for CAPT clock\n\nValue on reset: 7"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SELR {
-    #[doc = "FRO"]
+pub enum SEL_A {
+    #[doc = "0: FRO"]
     FRO,
-    #[doc = "main clock"]
+    #[doc = "1: main clock"]
     MAIN_CLK,
-    #[doc = "sys pll"]
+    #[doc = "2: sys pll"]
     SYS_PLL,
-    #[doc = "FRO_DIV"]
+    #[doc = "3: FRO_DIV"]
     FRO_DIV,
-    #[doc = "Watchdog oscillator"]
+    #[doc = "4: Watchdog oscillator"]
     WDTOSC,
-    #[doc = "None"]
+    #[doc = "5: None"]
     NONE,
-    #[doc = "None"]
+    #[doc = "6: None"]
     NONE1,
-    #[doc = "None"]
+    #[doc = "7: None"]
     NONE2,
 }
-impl SELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            SELR::FRO => 0,
-            SELR::MAIN_CLK => 1,
-            SELR::SYS_PLL => 2,
-            SELR::FRO_DIV => 3,
-            SELR::WDTOSC => 4,
-            SELR::NONE => 5,
-            SELR::NONE1 => 6,
-            SELR::NONE2 => 7,
+impl From<SEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SEL_A) -> Self {
+        match variant {
+            SEL_A::FRO => 0,
+            SEL_A::MAIN_CLK => 1,
+            SEL_A::SYS_PLL => 2,
+            SEL_A::FRO_DIV => 3,
+            SEL_A::WDTOSC => 4,
+            SEL_A::NONE => 5,
+            SEL_A::NONE1 => 6,
+            SEL_A::NONE2 => 7,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SELR {
-        match value {
-            0 => SELR::FRO,
-            1 => SELR::MAIN_CLK,
-            2 => SELR::SYS_PLL,
-            3 => SELR::FRO_DIV,
-            4 => SELR::WDTOSC,
-            5 => SELR::NONE,
-            6 => SELR::NONE1,
-            7 => SELR::NONE2,
+}
+#[doc = "Reader of field `SEL`"]
+pub type SEL_R = crate::R<u8, SEL_A>;
+impl SEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SEL_A {
+        match self.bits {
+            0 => SEL_A::FRO,
+            1 => SEL_A::MAIN_CLK,
+            2 => SEL_A::SYS_PLL,
+            3 => SEL_A::FRO_DIV,
+            4 => SEL_A::WDTOSC,
+            5 => SEL_A::NONE,
+            6 => SEL_A::NONE1,
+            7 => SEL_A::NONE2,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `FRO`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_fro(&self) -> bool {
-        *self == SELR::FRO
+        *self == SEL_A::FRO
     }
     #[doc = "Checks if the value of the field is `MAIN_CLK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_main_clk(&self) -> bool {
-        *self == SELR::MAIN_CLK
+        *self == SEL_A::MAIN_CLK
     }
     #[doc = "Checks if the value of the field is `SYS_PLL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_sys_pll(&self) -> bool {
-        *self == SELR::SYS_PLL
+        *self == SEL_A::SYS_PLL
     }
     #[doc = "Checks if the value of the field is `FRO_DIV`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_fro_div(&self) -> bool {
-        *self == SELR::FRO_DIV
+        *self == SEL_A::FRO_DIV
     }
     #[doc = "Checks if the value of the field is `WDTOSC`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_wdtosc(&self) -> bool {
-        *self == SELR::WDTOSC
+        *self == SEL_A::WDTOSC
     }
     #[doc = "Checks if the value of the field is `NONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == SELR::NONE
+        *self == SEL_A::NONE
     }
     #[doc = "Checks if the value of the field is `NONE1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_none1(&self) -> bool {
-        *self == SELR::NONE1
+        *self == SEL_A::NONE1
     }
     #[doc = "Checks if the value of the field is `NONE2`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_none2(&self) -> bool {
-        *self == SELR::NONE2
+        *self == SEL_A::NONE2
     }
 }
-#[doc = "Values that can be written to the field `SEL`"]
-pub enum SELW {
-    #[doc = "FRO"]
-    FRO,
-    #[doc = "main clock"]
-    MAIN_CLK,
-    #[doc = "sys pll"]
-    SYS_PLL,
-    #[doc = "FRO_DIV"]
-    FRO_DIV,
-    #[doc = "Watchdog oscillator"]
-    WDTOSC,
-    #[doc = "None"]
-    NONE,
-    #[doc = "None"]
-    NONE1,
-    #[doc = "None"]
-    NONE2,
-}
-impl SELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SELW::FRO => 0,
-            SELW::MAIN_CLK => 1,
-            SELW::SYS_PLL => 2,
-            SELW::FRO_DIV => 3,
-            SELW::WDTOSC => 4,
-            SELW::NONE => 5,
-            SELW::NONE1 => 6,
-            SELW::NONE2 => 7,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SELW<'a> {
+#[doc = "Write proxy for field `SEL`"]
+pub struct SEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SELW) -> &'a mut W {
+impl<'a> SEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SEL_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "FRO"]
-    #[inline]
+    #[inline(always)]
     pub fn fro(self) -> &'a mut W {
-        self.variant(SELW::FRO)
+        self.variant(SEL_A::FRO)
     }
     #[doc = "main clock"]
-    #[inline]
+    #[inline(always)]
     pub fn main_clk(self) -> &'a mut W {
-        self.variant(SELW::MAIN_CLK)
+        self.variant(SEL_A::MAIN_CLK)
     }
     #[doc = "sys pll"]
-    #[inline]
+    #[inline(always)]
     pub fn sys_pll(self) -> &'a mut W {
-        self.variant(SELW::SYS_PLL)
+        self.variant(SEL_A::SYS_PLL)
     }
     #[doc = "FRO_DIV"]
-    #[inline]
+    #[inline(always)]
     pub fn fro_div(self) -> &'a mut W {
-        self.variant(SELW::FRO_DIV)
+        self.variant(SEL_A::FRO_DIV)
     }
     #[doc = "Watchdog oscillator"]
-    #[inline]
+    #[inline(always)]
     pub fn wdtosc(self) -> &'a mut W {
-        self.variant(SELW::WDTOSC)
+        self.variant(SEL_A::WDTOSC)
     }
     #[doc = "None"]
-    #[inline]
+    #[inline(always)]
     pub fn none(self) -> &'a mut W {
-        self.variant(SELW::NONE)
+        self.variant(SEL_A::NONE)
     }
     #[doc = "None"]
-    #[inline]
+    #[inline(always)]
     pub fn none1(self) -> &'a mut W {
-        self.variant(SELW::NONE1)
+        self.variant(SEL_A::NONE1)
     }
     #[doc = "None"]
-    #[inline]
+    #[inline(always)]
     pub fn none2(self) -> &'a mut W {
-        self.variant(SELW::NONE2)
+        self.variant(SEL_A::NONE2)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:2 - Clock source for CAPT clock"]
-    #[inline]
-    pub fn sel(&self) -> SELR {
-        SELR::_from({
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn sel(&self) -> SEL_R {
+        SEL_R::new((self.bits & 0x07) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 7 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:2 - Clock source for CAPT clock"]
-    #[inline]
-    pub fn sel(&mut self) -> _SELW {
-        _SELW { w: self }
+    #[inline(always)]
+    pub fn sel(&mut self) -> SEL_W {
+        SEL_W { w: self }
     }
 }

@@ -1,540 +1,368 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CTRL"]
+pub type R = crate::R<u32, super::CTRL>;
+#[doc = "Writer for register CTRL"]
+pub type W = crate::W<u32, super::CTRL>;
+#[doc = "Register CTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::CTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CLKSEL`"]
+#[doc = "Select the self wake-up timer clock source. Remark: This bit only has an effect if the SEL_EXTCLK bit is not set.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CLKSELR {
-    #[doc = "Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
+pub enum CLKSEL_A {
+    #[doc = "0: Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
     DIVIDED_IRC_CLOCK,
-    #[doc = "This is the (nominally) 10 kHz clock and provides time-out periods of up to approximately 119 hours in 100 us increments. The accuracy of this clock is limited to +/- 40 % over temperature and processing. Remark: This clock is available in all power modes. Prior to use, the low-power oscillator must be enabled. The oscillator must also be set to remain active in Deep power-down if needed."]
+    #[doc = "1: This is the (nominally) 10 kHz clock and provides time-out periods of up to approximately 119 hours in 100 us increments. The accuracy of this clock is limited to +/- 40 % over temperature and processing. Remark: This clock is available in all power modes. Prior to use, the low-power oscillator must be enabled. The oscillator must also be set to remain active in Deep power-down if needed."]
     LOW_POWER_CLOCK,
 }
-impl CLKSELR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CLKSELR::DIVIDED_IRC_CLOCK => false,
-            CLKSELR::LOW_POWER_CLOCK => true,
+impl From<CLKSEL_A> for bool {
+    #[inline(always)]
+    fn from(variant: CLKSEL_A) -> Self {
+        match variant {
+            CLKSEL_A::DIVIDED_IRC_CLOCK => false,
+            CLKSEL_A::LOW_POWER_CLOCK => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CLKSELR {
-        match value {
-            false => CLKSELR::DIVIDED_IRC_CLOCK,
-            true => CLKSELR::LOW_POWER_CLOCK,
+}
+#[doc = "Reader of field `CLKSEL`"]
+pub type CLKSEL_R = crate::R<bool, CLKSEL_A>;
+impl CLKSEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CLKSEL_A {
+        match self.bits {
+            false => CLKSEL_A::DIVIDED_IRC_CLOCK,
+            true => CLKSEL_A::LOW_POWER_CLOCK,
         }
     }
     #[doc = "Checks if the value of the field is `DIVIDED_IRC_CLOCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_divided_irc_clock(&self) -> bool {
-        *self == CLKSELR::DIVIDED_IRC_CLOCK
+        *self == CLKSEL_A::DIVIDED_IRC_CLOCK
     }
     #[doc = "Checks if the value of the field is `LOW_POWER_CLOCK`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_power_clock(&self) -> bool {
-        *self == CLKSELR::LOW_POWER_CLOCK
+        *self == CLKSEL_A::LOW_POWER_CLOCK
     }
 }
-#[doc = "Possible values of the field `ALARMFLAG`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ALARMFLAGR {
-    #[doc = "No time-out. The self wake-up timer has not timed out. Writing a 0 to has no effect."]
-    NO_TIME_OUT,
-    #[doc = "Time-out. The self wake-up timer has timed out. This flag generates an interrupt request which can wake up the part from any reduced power mode including Deep power-down if the clock source is the low power oscillator. Writing a 1 clears this status bit."]
-    TIME_OUT,
+#[doc = "Write proxy for field `CLKSEL`"]
+pub struct CLKSEL_W<'a> {
+    w: &'a mut W,
 }
-impl ALARMFLAGR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ALARMFLAGR::NO_TIME_OUT => false,
-            ALARMFLAGR::TIME_OUT => true,
+impl<'a> CLKSEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CLKSEL_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ALARMFLAGR {
-        match value {
-            false => ALARMFLAGR::NO_TIME_OUT,
-            true => ALARMFLAGR::TIME_OUT,
+    #[doc = "Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
+    #[inline(always)]
+    pub fn divided_irc_clock(self) -> &'a mut W {
+        self.variant(CLKSEL_A::DIVIDED_IRC_CLOCK)
+    }
+    #[doc = "This is the (nominally) 10 kHz clock and provides time-out periods of up to approximately 119 hours in 100 us increments. The accuracy of this clock is limited to +/- 40 % over temperature and processing. Remark: This clock is available in all power modes. Prior to use, the low-power oscillator must be enabled. The oscillator must also be set to remain active in Deep power-down if needed."]
+    #[inline(always)]
+    pub fn low_power_clock(self) -> &'a mut W {
+        self.variant(CLKSEL_A::LOW_POWER_CLOCK)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Wake-up or alarm timer flag.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ALARMFLAG_A {
+    #[doc = "0: No time-out. The self wake-up timer has not timed out. Writing a 0 to has no effect."]
+    NO_TIME_OUT,
+    #[doc = "1: Time-out. The self wake-up timer has timed out. This flag generates an interrupt request which can wake up the part from any reduced power mode including Deep power-down if the clock source is the low power oscillator. Writing a 1 clears this status bit."]
+    TIME_OUT,
+}
+impl From<ALARMFLAG_A> for bool {
+    #[inline(always)]
+    fn from(variant: ALARMFLAG_A) -> Self {
+        match variant {
+            ALARMFLAG_A::NO_TIME_OUT => false,
+            ALARMFLAG_A::TIME_OUT => true,
+        }
+    }
+}
+#[doc = "Reader of field `ALARMFLAG`"]
+pub type ALARMFLAG_R = crate::R<bool, ALARMFLAG_A>;
+impl ALARMFLAG_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ALARMFLAG_A {
+        match self.bits {
+            false => ALARMFLAG_A::NO_TIME_OUT,
+            true => ALARMFLAG_A::TIME_OUT,
         }
     }
     #[doc = "Checks if the value of the field is `NO_TIME_OUT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_time_out(&self) -> bool {
-        *self == ALARMFLAGR::NO_TIME_OUT
+        *self == ALARMFLAG_A::NO_TIME_OUT
     }
     #[doc = "Checks if the value of the field is `TIME_OUT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_time_out(&self) -> bool {
-        *self == ALARMFLAGR::TIME_OUT
+        *self == ALARMFLAG_A::TIME_OUT
     }
 }
-#[doc = "Possible values of the field `CLEARCTR`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CLEARCTRR {
-    #[doc = "No effect. Reading this bit always returns 0."]
-    NO_EFFECT,
-    #[doc = "Clear the counter. Counting is halted until a new count value is loaded."]
-    CLEAR_THE_COUNTER,
+#[doc = "Write proxy for field `ALARMFLAG`"]
+pub struct ALARMFLAG_W<'a> {
+    w: &'a mut W,
 }
-impl CLEARCTRR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CLEARCTRR::NO_EFFECT => false,
-            CLEARCTRR::CLEAR_THE_COUNTER => true,
+impl<'a> ALARMFLAG_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ALARMFLAG_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CLEARCTRR {
-        match value {
-            false => CLEARCTRR::NO_EFFECT,
-            true => CLEARCTRR::CLEAR_THE_COUNTER,
+    #[doc = "No time-out. The self wake-up timer has not timed out. Writing a 0 to has no effect."]
+    #[inline(always)]
+    pub fn no_time_out(self) -> &'a mut W {
+        self.variant(ALARMFLAG_A::NO_TIME_OUT)
+    }
+    #[doc = "Time-out. The self wake-up timer has timed out. This flag generates an interrupt request which can wake up the part from any reduced power mode including Deep power-down if the clock source is the low power oscillator. Writing a 1 clears this status bit."]
+    #[inline(always)]
+    pub fn time_out(self) -> &'a mut W {
+        self.variant(ALARMFLAG_A::TIME_OUT)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Clears the self wake-up timer.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CLEARCTR_A {
+    #[doc = "0: No effect. Reading this bit always returns 0."]
+    NO_EFFECT,
+    #[doc = "1: Clear the counter. Counting is halted until a new count value is loaded."]
+    CLEAR_THE_COUNTER,
+}
+impl From<CLEARCTR_A> for bool {
+    #[inline(always)]
+    fn from(variant: CLEARCTR_A) -> Self {
+        match variant {
+            CLEARCTR_A::NO_EFFECT => false,
+            CLEARCTR_A::CLEAR_THE_COUNTER => true,
+        }
+    }
+}
+#[doc = "Reader of field `CLEARCTR`"]
+pub type CLEARCTR_R = crate::R<bool, CLEARCTR_A>;
+impl CLEARCTR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CLEARCTR_A {
+        match self.bits {
+            false => CLEARCTR_A::NO_EFFECT,
+            true => CLEARCTR_A::CLEAR_THE_COUNTER,
         }
     }
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == CLEARCTRR::NO_EFFECT
+        *self == CLEARCTR_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `CLEAR_THE_COUNTER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_clear_the_counter(&self) -> bool {
-        *self == CLEARCTRR::CLEAR_THE_COUNTER
+        *self == CLEARCTR_A::CLEAR_THE_COUNTER
     }
 }
-#[doc = "Possible values of the field `SEL_EXTCLK`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SEL_EXTCLKR {
-    #[doc = "Internal. The clock source is the internal clock selected by the CLKSEL bit."]
-    INTERNAL,
-    #[doc = "External. The self wake-up timer uses the external WKTCLKIN pin."]
-    EXTERNAL,
+#[doc = "Write proxy for field `CLEARCTR`"]
+pub struct CLEARCTR_W<'a> {
+    w: &'a mut W,
 }
-impl SEL_EXTCLKR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SEL_EXTCLKR::INTERNAL => false,
-            SEL_EXTCLKR::EXTERNAL => true,
+impl<'a> CLEARCTR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CLEARCTR_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SEL_EXTCLKR {
-        match value {
-            false => SEL_EXTCLKR::INTERNAL,
-            true => SEL_EXTCLKR::EXTERNAL,
+    #[doc = "No effect. Reading this bit always returns 0."]
+    #[inline(always)]
+    pub fn no_effect(self) -> &'a mut W {
+        self.variant(CLEARCTR_A::NO_EFFECT)
+    }
+    #[doc = "Clear the counter. Counting is halted until a new count value is loaded."]
+    #[inline(always)]
+    pub fn clear_the_counter(self) -> &'a mut W {
+        self.variant(CLEARCTR_A::CLEAR_THE_COUNTER)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Select external or internal clock source for the self wake-up timer. The internal clock source is selected by the CLKSEL bit in this register if SET_EXTCLK is set to internal.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SEL_EXTCLK_A {
+    #[doc = "0: Internal. The clock source is the internal clock selected by the CLKSEL bit."]
+    INTERNAL,
+    #[doc = "1: External. The self wake-up timer uses the external WKTCLKIN pin."]
+    EXTERNAL,
+}
+impl From<SEL_EXTCLK_A> for bool {
+    #[inline(always)]
+    fn from(variant: SEL_EXTCLK_A) -> Self {
+        match variant {
+            SEL_EXTCLK_A::INTERNAL => false,
+            SEL_EXTCLK_A::EXTERNAL => true,
+        }
+    }
+}
+#[doc = "Reader of field `SEL_EXTCLK`"]
+pub type SEL_EXTCLK_R = crate::R<bool, SEL_EXTCLK_A>;
+impl SEL_EXTCLK_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SEL_EXTCLK_A {
+        match self.bits {
+            false => SEL_EXTCLK_A::INTERNAL,
+            true => SEL_EXTCLK_A::EXTERNAL,
         }
     }
     #[doc = "Checks if the value of the field is `INTERNAL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_internal(&self) -> bool {
-        *self == SEL_EXTCLKR::INTERNAL
+        *self == SEL_EXTCLK_A::INTERNAL
     }
     #[doc = "Checks if the value of the field is `EXTERNAL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_external(&self) -> bool {
-        *self == SEL_EXTCLKR::EXTERNAL
+        *self == SEL_EXTCLK_A::EXTERNAL
     }
 }
-#[doc = "Values that can be written to the field `CLKSEL`"]
-pub enum CLKSELW {
-    #[doc = "Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
-    DIVIDED_IRC_CLOCK,
-    #[doc = "This is the (nominally) 10 kHz clock and provides time-out periods of up to approximately 119 hours in 100 us increments. The accuracy of this clock is limited to +/- 40 % over temperature and processing. Remark: This clock is available in all power modes. Prior to use, the low-power oscillator must be enabled. The oscillator must also be set to remain active in Deep power-down if needed."]
-    LOW_POWER_CLOCK,
-}
-impl CLKSELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CLKSELW::DIVIDED_IRC_CLOCK => false,
-            CLKSELW::LOW_POWER_CLOCK => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CLKSELW<'a> {
+#[doc = "Write proxy for field `SEL_EXTCLK`"]
+pub struct SEL_EXTCLK_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CLKSELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CLKSELW) -> &'a mut W {
+impl<'a> SEL_EXTCLK_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SEL_EXTCLK_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
-    #[inline]
-    pub fn divided_irc_clock(self) -> &'a mut W {
-        self.variant(CLKSELW::DIVIDED_IRC_CLOCK)
-    }
-    #[doc = "This is the (nominally) 10 kHz clock and provides time-out periods of up to approximately 119 hours in 100 us increments. The accuracy of this clock is limited to +/- 40 % over temperature and processing. Remark: This clock is available in all power modes. Prior to use, the low-power oscillator must be enabled. The oscillator must also be set to remain active in Deep power-down if needed."]
-    #[inline]
-    pub fn low_power_clock(self) -> &'a mut W {
-        self.variant(CLKSELW::LOW_POWER_CLOCK)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `ALARMFLAG`"]
-pub enum ALARMFLAGW {
-    #[doc = "No time-out. The self wake-up timer has not timed out. Writing a 0 to has no effect."]
-    NO_TIME_OUT,
-    #[doc = "Time-out. The self wake-up timer has timed out. This flag generates an interrupt request which can wake up the part from any reduced power mode including Deep power-down if the clock source is the low power oscillator. Writing a 1 clears this status bit."]
-    TIME_OUT,
-}
-impl ALARMFLAGW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            ALARMFLAGW::NO_TIME_OUT => false,
-            ALARMFLAGW::TIME_OUT => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _ALARMFLAGW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _ALARMFLAGW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: ALARMFLAGW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No time-out. The self wake-up timer has not timed out. Writing a 0 to has no effect."]
-    #[inline]
-    pub fn no_time_out(self) -> &'a mut W {
-        self.variant(ALARMFLAGW::NO_TIME_OUT)
-    }
-    #[doc = "Time-out. The self wake-up timer has timed out. This flag generates an interrupt request which can wake up the part from any reduced power mode including Deep power-down if the clock source is the low power oscillator. Writing a 1 clears this status bit."]
-    #[inline]
-    pub fn time_out(self) -> &'a mut W {
-        self.variant(ALARMFLAGW::TIME_OUT)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CLEARCTR`"]
-pub enum CLEARCTRW {
-    #[doc = "No effect. Reading this bit always returns 0."]
-    NO_EFFECT,
-    #[doc = "Clear the counter. Counting is halted until a new count value is loaded."]
-    CLEAR_THE_COUNTER,
-}
-impl CLEARCTRW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CLEARCTRW::NO_EFFECT => false,
-            CLEARCTRW::CLEAR_THE_COUNTER => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CLEARCTRW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CLEARCTRW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CLEARCTRW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No effect. Reading this bit always returns 0."]
-    #[inline]
-    pub fn no_effect(self) -> &'a mut W {
-        self.variant(CLEARCTRW::NO_EFFECT)
-    }
-    #[doc = "Clear the counter. Counting is halted until a new count value is loaded."]
-    #[inline]
-    pub fn clear_the_counter(self) -> &'a mut W {
-        self.variant(CLEARCTRW::CLEAR_THE_COUNTER)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SEL_EXTCLK`"]
-pub enum SEL_EXTCLKW {
-    #[doc = "Internal. The clock source is the internal clock selected by the CLKSEL bit."]
-    INTERNAL,
-    #[doc = "External. The self wake-up timer uses the external WKTCLKIN pin."]
-    EXTERNAL,
-}
-impl SEL_EXTCLKW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SEL_EXTCLKW::INTERNAL => false,
-            SEL_EXTCLKW::EXTERNAL => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SEL_EXTCLKW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SEL_EXTCLKW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SEL_EXTCLKW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Internal. The clock source is the internal clock selected by the CLKSEL bit."]
-    #[inline]
+    #[inline(always)]
     pub fn internal(self) -> &'a mut W {
-        self.variant(SEL_EXTCLKW::INTERNAL)
+        self.variant(SEL_EXTCLK_A::INTERNAL)
     }
     #[doc = "External. The self wake-up timer uses the external WKTCLKIN pin."]
-    #[inline]
+    #[inline(always)]
     pub fn external(self) -> &'a mut W {
-        self.variant(SEL_EXTCLKW::EXTERNAL)
+        self.variant(SEL_EXTCLK_A::EXTERNAL)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Select the self wake-up timer clock source. Remark: This bit only has an effect if the SEL_EXTCLK bit is not set."]
-    #[inline]
-    pub fn clksel(&self) -> CLKSELR {
-        CLKSELR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn clksel(&self) -> CLKSEL_R {
+        CLKSEL_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Wake-up or alarm timer flag."]
-    #[inline]
-    pub fn alarmflag(&self) -> ALARMFLAGR {
-        ALARMFLAGR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn alarmflag(&self) -> ALARMFLAG_R {
+        ALARMFLAG_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Clears the self wake-up timer."]
-    #[inline]
-    pub fn clearctr(&self) -> CLEARCTRR {
-        CLEARCTRR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn clearctr(&self) -> CLEARCTR_R {
+        CLEARCTR_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Select external or internal clock source for the self wake-up timer. The internal clock source is selected by the CLKSEL bit in this register if SET_EXTCLK is set to internal."]
-    #[inline]
-    pub fn sel_extclk(&self) -> SEL_EXTCLKR {
-        SEL_EXTCLKR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn sel_extclk(&self) -> SEL_EXTCLK_R {
+        SEL_EXTCLK_R::new(((self.bits >> 3) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Select the self wake-up timer clock source. Remark: This bit only has an effect if the SEL_EXTCLK bit is not set."]
-    #[inline]
-    pub fn clksel(&mut self) -> _CLKSELW {
-        _CLKSELW { w: self }
+    #[inline(always)]
+    pub fn clksel(&mut self) -> CLKSEL_W {
+        CLKSEL_W { w: self }
     }
     #[doc = "Bit 1 - Wake-up or alarm timer flag."]
-    #[inline]
-    pub fn alarmflag(&mut self) -> _ALARMFLAGW {
-        _ALARMFLAGW { w: self }
+    #[inline(always)]
+    pub fn alarmflag(&mut self) -> ALARMFLAG_W {
+        ALARMFLAG_W { w: self }
     }
     #[doc = "Bit 2 - Clears the self wake-up timer."]
-    #[inline]
-    pub fn clearctr(&mut self) -> _CLEARCTRW {
-        _CLEARCTRW { w: self }
+    #[inline(always)]
+    pub fn clearctr(&mut self) -> CLEARCTR_W {
+        CLEARCTR_W { w: self }
     }
     #[doc = "Bit 3 - Select external or internal clock source for the self wake-up timer. The internal clock source is selected by the CLKSEL bit in this register if SET_EXTCLK is set to internal."]
-    #[inline]
-    pub fn sel_extclk(&mut self) -> _SEL_EXTCLKW {
-        _SEL_EXTCLKW { w: self }
+    #[inline(always)]
+    pub fn sel_extclk(&mut self) -> SEL_EXTCLK_W {
+        SEL_EXTCLK_W { w: self }
     }
 }

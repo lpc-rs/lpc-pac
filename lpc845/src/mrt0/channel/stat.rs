@@ -1,302 +1,192 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::STAT {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register STAT"]
+pub type R = crate::R<u32, super::STAT>;
+#[doc = "Writer for register STAT"]
+pub type W = crate::W<u32, super::STAT>;
+#[doc = "Register STAT `reset()`'s with value 0"]
+impl crate::ResetValue for super::STAT {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `INTFLAG`"]
+#[doc = "Monitors the interrupt flag.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum INTFLAGR {
-    #[doc = "No pending interrupt. Writing a zero is equivalent to no operation."]
+pub enum INTFLAG_A {
+    #[doc = "0: No pending interrupt. Writing a zero is equivalent to no operation."]
     NO_PENDING_INTERRUPT,
-    #[doc = "Pending interrupt. The interrupt is pending because TIMERn has reached the end of the time interval. If the INTEN bit in the CONTROLn is also set to 1, the interrupt for timer channel n and the global interrupt are raised. Writing a 1 to this bit clears the interrupt request."]
+    #[doc = "1: Pending interrupt. The interrupt is pending because TIMERn has reached the end of the time interval. If the INTEN bit in the CONTROLn is also set to 1, the interrupt for timer channel n and the global interrupt are raised. Writing a 1 to this bit clears the interrupt request."]
     PENDING_INTERRUPT,
 }
-impl INTFLAGR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            INTFLAGR::NO_PENDING_INTERRUPT => false,
-            INTFLAGR::PENDING_INTERRUPT => true,
+impl From<INTFLAG_A> for bool {
+    #[inline(always)]
+    fn from(variant: INTFLAG_A) -> Self {
+        match variant {
+            INTFLAG_A::NO_PENDING_INTERRUPT => false,
+            INTFLAG_A::PENDING_INTERRUPT => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> INTFLAGR {
-        match value {
-            false => INTFLAGR::NO_PENDING_INTERRUPT,
-            true => INTFLAGR::PENDING_INTERRUPT,
+}
+#[doc = "Reader of field `INTFLAG`"]
+pub type INTFLAG_R = crate::R<bool, INTFLAG_A>;
+impl INTFLAG_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> INTFLAG_A {
+        match self.bits {
+            false => INTFLAG_A::NO_PENDING_INTERRUPT,
+            true => INTFLAG_A::PENDING_INTERRUPT,
         }
     }
     #[doc = "Checks if the value of the field is `NO_PENDING_INTERRUPT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_pending_interrupt(&self) -> bool {
-        *self == INTFLAGR::NO_PENDING_INTERRUPT
+        *self == INTFLAG_A::NO_PENDING_INTERRUPT
     }
     #[doc = "Checks if the value of the field is `PENDING_INTERRUPT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending_interrupt(&self) -> bool {
-        *self == INTFLAGR::PENDING_INTERRUPT
+        *self == INTFLAG_A::PENDING_INTERRUPT
     }
 }
-#[doc = "Possible values of the field `RUN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RUNR {
-    #[doc = "Idle state. TIMERn is stopped."]
-    IDLE_STATE,
-    #[doc = "Running. TIMERn is running."]
-    RUNNING,
-}
-impl RUNR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RUNR::IDLE_STATE => false,
-            RUNR::RUNNING => true,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RUNR {
-        match value {
-            false => RUNR::IDLE_STATE,
-            true => RUNR::RUNNING,
-        }
-    }
-    #[doc = "Checks if the value of the field is `IDLE_STATE`"]
-    #[inline]
-    pub fn is_idle_state(&self) -> bool {
-        *self == RUNR::IDLE_STATE
-    }
-    #[doc = "Checks if the value of the field is `RUNNING`"]
-    #[inline]
-    pub fn is_running(&self) -> bool {
-        *self == RUNR::RUNNING
-    }
-}
-#[doc = "Values that can be written to the field `INTFLAG`"]
-pub enum INTFLAGW {
-    #[doc = "No pending interrupt. Writing a zero is equivalent to no operation."]
-    NO_PENDING_INTERRUPT,
-    #[doc = "Pending interrupt. The interrupt is pending because TIMERn has reached the end of the time interval. If the INTEN bit in the CONTROLn is also set to 1, the interrupt for timer channel n and the global interrupt are raised. Writing a 1 to this bit clears the interrupt request."]
-    PENDING_INTERRUPT,
-}
-impl INTFLAGW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            INTFLAGW::NO_PENDING_INTERRUPT => false,
-            INTFLAGW::PENDING_INTERRUPT => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _INTFLAGW<'a> {
+#[doc = "Write proxy for field `INTFLAG`"]
+pub struct INTFLAG_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _INTFLAGW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: INTFLAGW) -> &'a mut W {
+impl<'a> INTFLAG_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: INTFLAG_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No pending interrupt. Writing a zero is equivalent to no operation."]
-    #[inline]
+    #[inline(always)]
     pub fn no_pending_interrupt(self) -> &'a mut W {
-        self.variant(INTFLAGW::NO_PENDING_INTERRUPT)
+        self.variant(INTFLAG_A::NO_PENDING_INTERRUPT)
     }
     #[doc = "Pending interrupt. The interrupt is pending because TIMERn has reached the end of the time interval. If the INTEN bit in the CONTROLn is also set to 1, the interrupt for timer channel n and the global interrupt are raised. Writing a 1 to this bit clears the interrupt request."]
-    #[inline]
+    #[inline(always)]
     pub fn pending_interrupt(self) -> &'a mut W {
-        self.variant(INTFLAGW::PENDING_INTERRUPT)
+        self.variant(INTFLAG_A::PENDING_INTERRUPT)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `RUN`"]
-pub enum RUNW {
-    #[doc = "Idle state. TIMERn is stopped."]
+#[doc = "Indicates the state of TIMERn. This bit is read-only.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RUN_A {
+    #[doc = "0: Idle state. TIMERn is stopped."]
     IDLE_STATE,
-    #[doc = "Running. TIMERn is running."]
+    #[doc = "1: Running. TIMERn is running."]
     RUNNING,
 }
-impl RUNW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RUNW::IDLE_STATE => false,
-            RUNW::RUNNING => true,
+impl From<RUN_A> for bool {
+    #[inline(always)]
+    fn from(variant: RUN_A) -> Self {
+        match variant {
+            RUN_A::IDLE_STATE => false,
+            RUN_A::RUNNING => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _RUNW<'a> {
+#[doc = "Reader of field `RUN`"]
+pub type RUN_R = crate::R<bool, RUN_A>;
+impl RUN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RUN_A {
+        match self.bits {
+            false => RUN_A::IDLE_STATE,
+            true => RUN_A::RUNNING,
+        }
+    }
+    #[doc = "Checks if the value of the field is `IDLE_STATE`"]
+    #[inline(always)]
+    pub fn is_idle_state(&self) -> bool {
+        *self == RUN_A::IDLE_STATE
+    }
+    #[doc = "Checks if the value of the field is `RUNNING`"]
+    #[inline(always)]
+    pub fn is_running(&self) -> bool {
+        *self == RUN_A::RUNNING
+    }
+}
+#[doc = "Write proxy for field `RUN`"]
+pub struct RUN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RUNW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RUNW) -> &'a mut W {
+impl<'a> RUN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RUN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Idle state. TIMERn is stopped."]
-    #[inline]
+    #[inline(always)]
     pub fn idle_state(self) -> &'a mut W {
-        self.variant(RUNW::IDLE_STATE)
+        self.variant(RUN_A::IDLE_STATE)
     }
     #[doc = "Running. TIMERn is running."]
-    #[inline]
+    #[inline(always)]
     pub fn running(self) -> &'a mut W {
-        self.variant(RUNW::RUNNING)
+        self.variant(RUN_A::RUNNING)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Monitors the interrupt flag."]
-    #[inline]
-    pub fn intflag(&self) -> INTFLAGR {
-        INTFLAGR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn intflag(&self) -> INTFLAG_R {
+        INTFLAG_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Indicates the state of TIMERn. This bit is read-only."]
-    #[inline]
-    pub fn run(&self) -> RUNR {
-        RUNR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn run(&self) -> RUN_R {
+        RUN_R::new(((self.bits >> 1) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Monitors the interrupt flag."]
-    #[inline]
-    pub fn intflag(&mut self) -> _INTFLAGW {
-        _INTFLAGW { w: self }
+    #[inline(always)]
+    pub fn intflag(&mut self) -> INTFLAG_W {
+        INTFLAG_W { w: self }
     }
     #[doc = "Bit 1 - Indicates the state of TIMERn. This bit is read-only."]
-    #[inline]
-    pub fn run(&mut self) -> _RUNW {
-        _RUNW { w: self }
+    #[inline(always)]
+    pub fn run(&mut self) -> RUN_W {
+        RUN_W { w: self }
     }
 }

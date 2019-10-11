@@ -1,918 +1,606 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SEQ_CTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SEQ_CTRL%s"]
+pub type R = crate::R<u32, super::SEQ_CTRL>;
+#[doc = "Writer for register SEQ_CTRL%s"]
+pub type W = crate::W<u32, super::SEQ_CTRL>;
+#[doc = "Register SEQ_CTRL%s `reset()`'s with value 0"]
+impl crate::ResetValue for super::SEQ_CTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct CHANNELSR {
-    bits: u16,
+#[doc = "Reader of field `CHANNELS`"]
+pub type CHANNELS_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `CHANNELS`"]
+pub struct CHANNELS_W<'a> {
+    w: &'a mut W,
 }
-impl CHANNELSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
+impl<'a> CHANNELS_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u16) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x0fff) | ((value as u32) & 0x0fff);
+        self.w
     }
 }
-#[doc = r" Value of the field"]
-pub struct TRIGGERR {
-    bits: u8,
+#[doc = "Reader of field `TRIGGER`"]
+pub type TRIGGER_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `TRIGGER`"]
+pub struct TRIGGER_W<'a> {
+    w: &'a mut W,
 }
-impl TRIGGERR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+impl<'a> TRIGGER_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x07 << 12)) | (((value as u32) & 0x07) << 12);
+        self.w
     }
 }
-#[doc = "Possible values of the field `TRIGPOL`"]
+#[doc = "Select the polarity of the selected input trigger for this conversion sequence. In order to avoid generating a spurious trigger, it is recommended writing to this field only when SEQA_ENA (bit 31) is low. It is safe to change this field and set bit 31 in the same write.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TRIGPOLR {
-    #[doc = "Negative edge. A negative edge launches the conversion sequence on the selected trigger input."]
+pub enum TRIGPOL_A {
+    #[doc = "0: Negative edge. A negative edge launches the conversion sequence on the selected trigger input."]
     NEGATIVE_EDGE,
-    #[doc = "Positive edge. A positive edge launches the conversion sequence on the selected trigger input."]
+    #[doc = "1: Positive edge. A positive edge launches the conversion sequence on the selected trigger input."]
     POSITIVE_EDGE,
 }
-impl TRIGPOLR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TRIGPOLR::NEGATIVE_EDGE => false,
-            TRIGPOLR::POSITIVE_EDGE => true,
+impl From<TRIGPOL_A> for bool {
+    #[inline(always)]
+    fn from(variant: TRIGPOL_A) -> Self {
+        match variant {
+            TRIGPOL_A::NEGATIVE_EDGE => false,
+            TRIGPOL_A::POSITIVE_EDGE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TRIGPOLR {
-        match value {
-            false => TRIGPOLR::NEGATIVE_EDGE,
-            true => TRIGPOLR::POSITIVE_EDGE,
+}
+#[doc = "Reader of field `TRIGPOL`"]
+pub type TRIGPOL_R = crate::R<bool, TRIGPOL_A>;
+impl TRIGPOL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TRIGPOL_A {
+        match self.bits {
+            false => TRIGPOL_A::NEGATIVE_EDGE,
+            true => TRIGPOL_A::POSITIVE_EDGE,
         }
     }
     #[doc = "Checks if the value of the field is `NEGATIVE_EDGE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_negative_edge(&self) -> bool {
-        *self == TRIGPOLR::NEGATIVE_EDGE
+        *self == TRIGPOL_A::NEGATIVE_EDGE
     }
     #[doc = "Checks if the value of the field is `POSITIVE_EDGE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_positive_edge(&self) -> bool {
-        *self == TRIGPOLR::POSITIVE_EDGE
+        *self == TRIGPOL_A::POSITIVE_EDGE
     }
 }
-#[doc = "Possible values of the field `SYNCBYPASS`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SYNCBYPASSR {
-    #[doc = "Enable trigger synchronization. The hardware trigger bypass is not enabled."]
-    ENABLE_TRIGGER_SYNCH,
-    #[doc = "Bypass trigger synchronization. The hardware trigger bypass is enabled."]
-    BYPASS_TRIGGER_SYNCH,
+#[doc = "Write proxy for field `TRIGPOL`"]
+pub struct TRIGPOL_W<'a> {
+    w: &'a mut W,
 }
-impl SYNCBYPASSR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SYNCBYPASSR::ENABLE_TRIGGER_SYNCH => false,
-            SYNCBYPASSR::BYPASS_TRIGGER_SYNCH => true,
+impl<'a> TRIGPOL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TRIGPOL_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SYNCBYPASSR {
-        match value {
-            false => SYNCBYPASSR::ENABLE_TRIGGER_SYNCH,
-            true => SYNCBYPASSR::BYPASS_TRIGGER_SYNCH,
+    #[doc = "Negative edge. A negative edge launches the conversion sequence on the selected trigger input."]
+    #[inline(always)]
+    pub fn negative_edge(self) -> &'a mut W {
+        self.variant(TRIGPOL_A::NEGATIVE_EDGE)
+    }
+    #[doc = "Positive edge. A positive edge launches the conversion sequence on the selected trigger input."]
+    #[inline(always)]
+    pub fn positive_edge(self) -> &'a mut W {
+        self.variant(TRIGPOL_A::POSITIVE_EDGE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w
+    }
+}
+#[doc = "Setting this bit allows the hardware trigger input to bypass synchronization flip-flop stages and therefore shorten the time between the trigger input signal and the start of a conversion. There are slightly different criteria for whether or not this bit can be set depending on the clock operating mode: Synchronous mode (the ASYNMODE in the CTRL register = 0): Synchronization may be bypassed (this bit may be set) if the selected trigger source is already synchronous with the main system clock (eg. coming from an on-chip, system-clock-based timer). Whether this bit is set or not, a trigger pulse must be maintained for at least one system clock period. Asynchronous mode (the ASYNMODE in the CTRL register = 1): Synchronization may be bypassed (this bit may be set) if it is certain that the duration of a trigger input pulse will be at least one cycle of the ADC clock (regardless of whether the trigger comes from and on-chip or off-chip source). If this bit is NOT set, the trigger pulse must at least be maintained for one system clock period.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SYNCBYPASS_A {
+    #[doc = "0: Enable trigger synchronization. The hardware trigger bypass is not enabled."]
+    ENABLE_TRIGGER_SYNCH,
+    #[doc = "1: Bypass trigger synchronization. The hardware trigger bypass is enabled."]
+    BYPASS_TRIGGER_SYNCH,
+}
+impl From<SYNCBYPASS_A> for bool {
+    #[inline(always)]
+    fn from(variant: SYNCBYPASS_A) -> Self {
+        match variant {
+            SYNCBYPASS_A::ENABLE_TRIGGER_SYNCH => false,
+            SYNCBYPASS_A::BYPASS_TRIGGER_SYNCH => true,
+        }
+    }
+}
+#[doc = "Reader of field `SYNCBYPASS`"]
+pub type SYNCBYPASS_R = crate::R<bool, SYNCBYPASS_A>;
+impl SYNCBYPASS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SYNCBYPASS_A {
+        match self.bits {
+            false => SYNCBYPASS_A::ENABLE_TRIGGER_SYNCH,
+            true => SYNCBYPASS_A::BYPASS_TRIGGER_SYNCH,
         }
     }
     #[doc = "Checks if the value of the field is `ENABLE_TRIGGER_SYNCH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enable_trigger_synch(&self) -> bool {
-        *self == SYNCBYPASSR::ENABLE_TRIGGER_SYNCH
+        *self == SYNCBYPASS_A::ENABLE_TRIGGER_SYNCH
     }
     #[doc = "Checks if the value of the field is `BYPASS_TRIGGER_SYNCH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_bypass_trigger_synch(&self) -> bool {
-        *self == SYNCBYPASSR::BYPASS_TRIGGER_SYNCH
+        *self == SYNCBYPASS_A::BYPASS_TRIGGER_SYNCH
     }
 }
-#[doc = r" Value of the field"]
-pub struct STARTR {
-    bits: bool,
+#[doc = "Write proxy for field `SYNCBYPASS`"]
+pub struct SYNCBYPASS_W<'a> {
+    w: &'a mut W,
 }
-impl STARTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BURSTR {
-    bits: bool,
-}
-impl BURSTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SINGLESTEPR {
-    bits: bool,
-}
-impl SINGLESTEPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
-    }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = "Possible values of the field `LOWPRIO`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LOWPRIOR {
-    #[doc = "Low priority. Any B trigger which occurs while an A conversion sequence is active will be ignored and lost."]
-    LOW_PRIORITY,
-    #[doc = "High priority. Setting this bit to a 1 will permit any enabled B sequence trigger (including a B sequence software start) to immediately interrupt sequence A and launch a B sequence in it's place. The conversion currently in progress will be terminated. The A sequence that was interrupted will automatically resume after the B sequence completes. The channel whose conversion was terminated will be re-sampled and the conversion sequence will resume from that point."]
-    HIGH_PRIORITY,
-}
-impl LOWPRIOR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LOWPRIOR::LOW_PRIORITY => false,
-            LOWPRIOR::HIGH_PRIORITY => true,
+impl<'a> SYNCBYPASS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SYNCBYPASS_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOWPRIOR {
-        match value {
-            false => LOWPRIOR::LOW_PRIORITY,
-            true => LOWPRIOR::HIGH_PRIORITY,
+    #[doc = "Enable trigger synchronization. The hardware trigger bypass is not enabled."]
+    #[inline(always)]
+    pub fn enable_trigger_synch(self) -> &'a mut W {
+        self.variant(SYNCBYPASS_A::ENABLE_TRIGGER_SYNCH)
+    }
+    #[doc = "Bypass trigger synchronization. The hardware trigger bypass is enabled."]
+    #[inline(always)]
+    pub fn bypass_trigger_synch(self) -> &'a mut W {
+        self.variant(SYNCBYPASS_A::BYPASS_TRIGGER_SYNCH)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w
+    }
+}
+#[doc = "Reader of field `START`"]
+pub type START_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `START`"]
+pub struct START_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> START_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w
+    }
+}
+#[doc = "Reader of field `BURST`"]
+pub type BURST_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `BURST`"]
+pub struct BURST_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> BURST_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w
+    }
+}
+#[doc = "Reader of field `SINGLESTEP`"]
+pub type SINGLESTEP_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SINGLESTEP`"]
+pub struct SINGLESTEP_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> SINGLESTEP_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w
+    }
+}
+#[doc = "Set priority for sequence A.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LOWPRIO_A {
+    #[doc = "0: Low priority. Any B trigger which occurs while an A conversion sequence is active will be ignored and lost."]
+    LOW_PRIORITY,
+    #[doc = "1: High priority. Setting this bit to a 1 will permit any enabled B sequence trigger (including a B sequence software start) to immediately interrupt sequence A and launch a B sequence in it's place. The conversion currently in progress will be terminated. The A sequence that was interrupted will automatically resume after the B sequence completes. The channel whose conversion was terminated will be re-sampled and the conversion sequence will resume from that point."]
+    HIGH_PRIORITY,
+}
+impl From<LOWPRIO_A> for bool {
+    #[inline(always)]
+    fn from(variant: LOWPRIO_A) -> Self {
+        match variant {
+            LOWPRIO_A::LOW_PRIORITY => false,
+            LOWPRIO_A::HIGH_PRIORITY => true,
+        }
+    }
+}
+#[doc = "Reader of field `LOWPRIO`"]
+pub type LOWPRIO_R = crate::R<bool, LOWPRIO_A>;
+impl LOWPRIO_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LOWPRIO_A {
+        match self.bits {
+            false => LOWPRIO_A::LOW_PRIORITY,
+            true => LOWPRIO_A::HIGH_PRIORITY,
         }
     }
     #[doc = "Checks if the value of the field is `LOW_PRIORITY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_priority(&self) -> bool {
-        *self == LOWPRIOR::LOW_PRIORITY
+        *self == LOWPRIO_A::LOW_PRIORITY
     }
     #[doc = "Checks if the value of the field is `HIGH_PRIORITY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high_priority(&self) -> bool {
-        *self == LOWPRIOR::HIGH_PRIORITY
+        *self == LOWPRIO_A::HIGH_PRIORITY
     }
 }
-#[doc = "Possible values of the field `MODE`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MODER {
-    #[doc = "End of conversion. The sequence A interrupt/DMA trigger will be set at the end of each individual ADC conversion performed under sequence A. This flag will mirror the DATAVALID bit in the SEQA_GDAT register. The OVERRUN bit in the SEQA_GDAT register will contribute to generation of an overrun interrupt/DMA trigger if enabled."]
-    END_OF_CONVERSION,
-    #[doc = "End of sequence. The sequence A interrupt/DMA trigger will be set when the entire set of sequence-A conversions completes. This flag will need to be explicitly cleared by software or by the DMA-clear signal in this mode. The OVERRUN bit in the SEQA_GDAT register will NOT contribute to generation of an overrun interrupt/DMA trigger since it is assumed this register may not be utilized in this mode."]
-    END_OF_SEQUENCE,
+#[doc = "Write proxy for field `LOWPRIO`"]
+pub struct LOWPRIO_W<'a> {
+    w: &'a mut W,
 }
-impl MODER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MODER::END_OF_CONVERSION => false,
-            MODER::END_OF_SEQUENCE => true,
+impl<'a> LOWPRIO_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LOWPRIO_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MODER {
-        match value {
-            false => MODER::END_OF_CONVERSION,
-            true => MODER::END_OF_SEQUENCE,
+    #[doc = "Low priority. Any B trigger which occurs while an A conversion sequence is active will be ignored and lost."]
+    #[inline(always)]
+    pub fn low_priority(self) -> &'a mut W {
+        self.variant(LOWPRIO_A::LOW_PRIORITY)
+    }
+    #[doc = "High priority. Setting this bit to a 1 will permit any enabled B sequence trigger (including a B sequence software start) to immediately interrupt sequence A and launch a B sequence in it's place. The conversion currently in progress will be terminated. The A sequence that was interrupted will automatically resume after the B sequence completes. The channel whose conversion was terminated will be re-sampled and the conversion sequence will resume from that point."]
+    #[inline(always)]
+    pub fn high_priority(self) -> &'a mut W {
+        self.variant(LOWPRIO_A::HIGH_PRIORITY)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w
+    }
+}
+#[doc = "Indicates whether the primary method for retrieving conversion results for this sequence will be accomplished via reading the global data register (SEQA_GDAT) at the end of each conversion, or the individual channel result registers at the end of the entire sequence. Impacts when conversion-complete interrupt/DMA trigger for sequence-A will be generated and which overrun conditions contribute to an overrun interrupt as described below.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum MODE_A {
+    #[doc = "0: End of conversion. The sequence A interrupt/DMA trigger will be set at the end of each individual ADC conversion performed under sequence A. This flag will mirror the DATAVALID bit in the SEQA_GDAT register. The OVERRUN bit in the SEQA_GDAT register will contribute to generation of an overrun interrupt/DMA trigger if enabled."]
+    END_OF_CONVERSION,
+    #[doc = "1: End of sequence. The sequence A interrupt/DMA trigger will be set when the entire set of sequence-A conversions completes. This flag will need to be explicitly cleared by software or by the DMA-clear signal in this mode. The OVERRUN bit in the SEQA_GDAT register will NOT contribute to generation of an overrun interrupt/DMA trigger since it is assumed this register may not be utilized in this mode."]
+    END_OF_SEQUENCE,
+}
+impl From<MODE_A> for bool {
+    #[inline(always)]
+    fn from(variant: MODE_A) -> Self {
+        match variant {
+            MODE_A::END_OF_CONVERSION => false,
+            MODE_A::END_OF_SEQUENCE => true,
+        }
+    }
+}
+#[doc = "Reader of field `MODE`"]
+pub type MODE_R = crate::R<bool, MODE_A>;
+impl MODE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> MODE_A {
+        match self.bits {
+            false => MODE_A::END_OF_CONVERSION,
+            true => MODE_A::END_OF_SEQUENCE,
         }
     }
     #[doc = "Checks if the value of the field is `END_OF_CONVERSION`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_end_of_conversion(&self) -> bool {
-        *self == MODER::END_OF_CONVERSION
+        *self == MODE_A::END_OF_CONVERSION
     }
     #[doc = "Checks if the value of the field is `END_OF_SEQUENCE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_end_of_sequence(&self) -> bool {
-        *self == MODER::END_OF_SEQUENCE
+        *self == MODE_A::END_OF_SEQUENCE
     }
 }
-#[doc = "Possible values of the field `SEQ_ENA`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SEQ_ENAR {
-    #[doc = "Disabled. Sequence n is disabled. Sequence n triggers are ignored. If this bit is cleared while sequence n is in progress, the sequence will be halted at the end of the current conversion. After the sequence is re-enabled, a new trigger will be required to restart the sequence beginning with the next enabled channel."]
-    DISABLED,
-    #[doc = "Enabled. Sequence n is enabled."]
-    ENABLED,
+#[doc = "Write proxy for field `MODE`"]
+pub struct MODE_W<'a> {
+    w: &'a mut W,
 }
-impl SEQ_ENAR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SEQ_ENAR::DISABLED => false,
-            SEQ_ENAR::ENABLED => true,
+impl<'a> MODE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: MODE_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SEQ_ENAR {
-        match value {
-            false => SEQ_ENAR::DISABLED,
-            true => SEQ_ENAR::ENABLED,
+    #[doc = "End of conversion. The sequence A interrupt/DMA trigger will be set at the end of each individual ADC conversion performed under sequence A. This flag will mirror the DATAVALID bit in the SEQA_GDAT register. The OVERRUN bit in the SEQA_GDAT register will contribute to generation of an overrun interrupt/DMA trigger if enabled."]
+    #[inline(always)]
+    pub fn end_of_conversion(self) -> &'a mut W {
+        self.variant(MODE_A::END_OF_CONVERSION)
+    }
+    #[doc = "End of sequence. The sequence A interrupt/DMA trigger will be set when the entire set of sequence-A conversions completes. This flag will need to be explicitly cleared by software or by the DMA-clear signal in this mode. The OVERRUN bit in the SEQA_GDAT register will NOT contribute to generation of an overrun interrupt/DMA trigger since it is assumed this register may not be utilized in this mode."]
+    #[inline(always)]
+    pub fn end_of_sequence(self) -> &'a mut W {
+        self.variant(MODE_A::END_OF_SEQUENCE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
+        self.w
+    }
+}
+#[doc = "Sequence Enable. In order to avoid spuriously triggering the sequence, care should be taken to only set the SEQn_ENA bit when the selected trigger input is in its INACTIVE state (as defined by the TRIGPOL bit). If this condition is not met, the sequence will be triggered immediately upon being enabled. In order to avoid spuriously triggering the sequence, care should be taken to only set the SEQn_ENA bit when the selected trigger input is in its INACTIVE state (as defined by the TRIGPOL bit). If this condition is not met, the sequence will be triggered immediately upon being enabled.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SEQ_ENA_A {
+    #[doc = "0: Disabled. Sequence n is disabled. Sequence n triggers are ignored. If this bit is cleared while sequence n is in progress, the sequence will be halted at the end of the current conversion. After the sequence is re-enabled, a new trigger will be required to restart the sequence beginning with the next enabled channel."]
+    DISABLED,
+    #[doc = "1: Enabled. Sequence n is enabled."]
+    ENABLED,
+}
+impl From<SEQ_ENA_A> for bool {
+    #[inline(always)]
+    fn from(variant: SEQ_ENA_A) -> Self {
+        match variant {
+            SEQ_ENA_A::DISABLED => false,
+            SEQ_ENA_A::ENABLED => true,
+        }
+    }
+}
+#[doc = "Reader of field `SEQ_ENA`"]
+pub type SEQ_ENA_R = crate::R<bool, SEQ_ENA_A>;
+impl SEQ_ENA_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SEQ_ENA_A {
+        match self.bits {
+            false => SEQ_ENA_A::DISABLED,
+            true => SEQ_ENA_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SEQ_ENAR::DISABLED
+        *self == SEQ_ENA_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SEQ_ENAR::ENABLED
+        *self == SEQ_ENA_A::ENABLED
     }
 }
-#[doc = r" Proxy"]
-pub struct _CHANNELSW<'a> {
+#[doc = "Write proxy for field `SEQ_ENA`"]
+pub struct SEQ_ENA_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CHANNELSW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 4095;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TRIGGERW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TRIGGERW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `TRIGPOL`"]
-pub enum TRIGPOLW {
-    #[doc = "Negative edge. A negative edge launches the conversion sequence on the selected trigger input."]
-    NEGATIVE_EDGE,
-    #[doc = "Positive edge. A positive edge launches the conversion sequence on the selected trigger input."]
-    POSITIVE_EDGE,
-}
-impl TRIGPOLW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TRIGPOLW::NEGATIVE_EDGE => false,
-            TRIGPOLW::POSITIVE_EDGE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TRIGPOLW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TRIGPOLW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TRIGPOLW) -> &'a mut W {
+impl<'a> SEQ_ENA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SEQ_ENA_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Negative edge. A negative edge launches the conversion sequence on the selected trigger input."]
-    #[inline]
-    pub fn negative_edge(self) -> &'a mut W {
-        self.variant(TRIGPOLW::NEGATIVE_EDGE)
-    }
-    #[doc = "Positive edge. A positive edge launches the conversion sequence on the selected trigger input."]
-    #[inline]
-    pub fn positive_edge(self) -> &'a mut W {
-        self.variant(TRIGPOLW::POSITIVE_EDGE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SYNCBYPASS`"]
-pub enum SYNCBYPASSW {
-    #[doc = "Enable trigger synchronization. The hardware trigger bypass is not enabled."]
-    ENABLE_TRIGGER_SYNCH,
-    #[doc = "Bypass trigger synchronization. The hardware trigger bypass is enabled."]
-    BYPASS_TRIGGER_SYNCH,
-}
-impl SYNCBYPASSW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SYNCBYPASSW::ENABLE_TRIGGER_SYNCH => false,
-            SYNCBYPASSW::BYPASS_TRIGGER_SYNCH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SYNCBYPASSW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SYNCBYPASSW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SYNCBYPASSW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Enable trigger synchronization. The hardware trigger bypass is not enabled."]
-    #[inline]
-    pub fn enable_trigger_synch(self) -> &'a mut W {
-        self.variant(SYNCBYPASSW::ENABLE_TRIGGER_SYNCH)
-    }
-    #[doc = "Bypass trigger synchronization. The hardware trigger bypass is enabled."]
-    #[inline]
-    pub fn bypass_trigger_synch(self) -> &'a mut W {
-        self.variant(SYNCBYPASSW::BYPASS_TRIGGER_SYNCH)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _STARTW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _STARTW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 26;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BURSTW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _BURSTW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 27;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SINGLESTEPW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SINGLESTEPW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 28;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `LOWPRIO`"]
-pub enum LOWPRIOW {
-    #[doc = "Low priority. Any B trigger which occurs while an A conversion sequence is active will be ignored and lost."]
-    LOW_PRIORITY,
-    #[doc = "High priority. Setting this bit to a 1 will permit any enabled B sequence trigger (including a B sequence software start) to immediately interrupt sequence A and launch a B sequence in it's place. The conversion currently in progress will be terminated. The A sequence that was interrupted will automatically resume after the B sequence completes. The channel whose conversion was terminated will be re-sampled and the conversion sequence will resume from that point."]
-    HIGH_PRIORITY,
-}
-impl LOWPRIOW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LOWPRIOW::LOW_PRIORITY => false,
-            LOWPRIOW::HIGH_PRIORITY => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LOWPRIOW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _LOWPRIOW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LOWPRIOW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Low priority. Any B trigger which occurs while an A conversion sequence is active will be ignored and lost."]
-    #[inline]
-    pub fn low_priority(self) -> &'a mut W {
-        self.variant(LOWPRIOW::LOW_PRIORITY)
-    }
-    #[doc = "High priority. Setting this bit to a 1 will permit any enabled B sequence trigger (including a B sequence software start) to immediately interrupt sequence A and launch a B sequence in it's place. The conversion currently in progress will be terminated. The A sequence that was interrupted will automatically resume after the B sequence completes. The channel whose conversion was terminated will be re-sampled and the conversion sequence will resume from that point."]
-    #[inline]
-    pub fn high_priority(self) -> &'a mut W {
-        self.variant(LOWPRIOW::HIGH_PRIORITY)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 29;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `MODE`"]
-pub enum MODEW {
-    #[doc = "End of conversion. The sequence A interrupt/DMA trigger will be set at the end of each individual ADC conversion performed under sequence A. This flag will mirror the DATAVALID bit in the SEQA_GDAT register. The OVERRUN bit in the SEQA_GDAT register will contribute to generation of an overrun interrupt/DMA trigger if enabled."]
-    END_OF_CONVERSION,
-    #[doc = "End of sequence. The sequence A interrupt/DMA trigger will be set when the entire set of sequence-A conversions completes. This flag will need to be explicitly cleared by software or by the DMA-clear signal in this mode. The OVERRUN bit in the SEQA_GDAT register will NOT contribute to generation of an overrun interrupt/DMA trigger since it is assumed this register may not be utilized in this mode."]
-    END_OF_SEQUENCE,
-}
-impl MODEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            MODEW::END_OF_CONVERSION => false,
-            MODEW::END_OF_SEQUENCE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _MODEW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _MODEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: MODEW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "End of conversion. The sequence A interrupt/DMA trigger will be set at the end of each individual ADC conversion performed under sequence A. This flag will mirror the DATAVALID bit in the SEQA_GDAT register. The OVERRUN bit in the SEQA_GDAT register will contribute to generation of an overrun interrupt/DMA trigger if enabled."]
-    #[inline]
-    pub fn end_of_conversion(self) -> &'a mut W {
-        self.variant(MODEW::END_OF_CONVERSION)
-    }
-    #[doc = "End of sequence. The sequence A interrupt/DMA trigger will be set when the entire set of sequence-A conversions completes. This flag will need to be explicitly cleared by software or by the DMA-clear signal in this mode. The OVERRUN bit in the SEQA_GDAT register will NOT contribute to generation of an overrun interrupt/DMA trigger since it is assumed this register may not be utilized in this mode."]
-    #[inline]
-    pub fn end_of_sequence(self) -> &'a mut W {
-        self.variant(MODEW::END_OF_SEQUENCE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 30;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SEQ_ENA`"]
-pub enum SEQ_ENAW {
-    #[doc = "Disabled. Sequence n is disabled. Sequence n triggers are ignored. If this bit is cleared while sequence n is in progress, the sequence will be halted at the end of the current conversion. After the sequence is re-enabled, a new trigger will be required to restart the sequence beginning with the next enabled channel."]
-    DISABLED,
-    #[doc = "Enabled. Sequence n is enabled."]
-    ENABLED,
-}
-impl SEQ_ENAW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SEQ_ENAW::DISABLED => false,
-            SEQ_ENAW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SEQ_ENAW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SEQ_ENAW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SEQ_ENAW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Disabled. Sequence n is disabled. Sequence n triggers are ignored. If this bit is cleared while sequence n is in progress, the sequence will be halted at the end of the current conversion. After the sequence is re-enabled, a new trigger will be required to restart the sequence beginning with the next enabled channel."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(SEQ_ENAW::DISABLED)
+        self.variant(SEQ_ENA_A::DISABLED)
     }
     #[doc = "Enabled. Sequence n is enabled."]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(SEQ_ENAW::ENABLED)
+        self.variant(SEQ_ENA_A::ENABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 31;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:11 - Selects which one or more of the ADC channels will be sampled and converted when this sequence is launched. A 1 in any bit of this field will cause the corresponding channel to be included in the conversion sequence, where bit 0 corresponds to channel 0, bit 1 to channel 1 and so forth. When this conversion sequence is triggered, either by a hardware trigger or via software command, ADC conversions will be performed on each enabled channel, in sequence, beginning with the lowest-ordered channel. This field can ONLY be changed while SEQA_ENA (bit 31) is LOW. It is allowed to change this field and set bit 31 in the same write."]
-    #[inline]
-    pub fn channels(&self) -> CHANNELSR {
-        let bits = {
-            const MASK: u16 = 4095;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        CHANNELSR { bits }
+    #[inline(always)]
+    pub fn channels(&self) -> CHANNELS_R {
+        CHANNELS_R::new((self.bits & 0x0fff) as u16)
     }
     #[doc = "Bits 12:14 - Selects which of the available hardware trigger sources will cause this conversion sequence to be initiated. Program the trigger input number in this field. See Table 476. In order to avoid generating a spurious trigger, it is recommended writing to this field only when SEQA_ENA (bit 31) is low. It is safe to change this field and set bit 31 in the same write."]
-    #[inline]
-    pub fn trigger(&self) -> TRIGGERR {
-        let bits = {
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        TRIGGERR { bits }
+    #[inline(always)]
+    pub fn trigger(&self) -> TRIGGER_R {
+        TRIGGER_R::new(((self.bits >> 12) & 0x07) as u8)
     }
     #[doc = "Bit 18 - Select the polarity of the selected input trigger for this conversion sequence. In order to avoid generating a spurious trigger, it is recommended writing to this field only when SEQA_ENA (bit 31) is low. It is safe to change this field and set bit 31 in the same write."]
-    #[inline]
-    pub fn trigpol(&self) -> TRIGPOLR {
-        TRIGPOLR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn trigpol(&self) -> TRIGPOL_R {
+        TRIGPOL_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Setting this bit allows the hardware trigger input to bypass synchronization flip-flop stages and therefore shorten the time between the trigger input signal and the start of a conversion. There are slightly different criteria for whether or not this bit can be set depending on the clock operating mode: Synchronous mode (the ASYNMODE in the CTRL register = 0): Synchronization may be bypassed (this bit may be set) if the selected trigger source is already synchronous with the main system clock (eg. coming from an on-chip, system-clock-based timer). Whether this bit is set or not, a trigger pulse must be maintained for at least one system clock period. Asynchronous mode (the ASYNMODE in the CTRL register = 1): Synchronization may be bypassed (this bit may be set) if it is certain that the duration of a trigger input pulse will be at least one cycle of the ADC clock (regardless of whether the trigger comes from and on-chip or off-chip source). If this bit is NOT set, the trigger pulse must at least be maintained for one system clock period."]
-    #[inline]
-    pub fn syncbypass(&self) -> SYNCBYPASSR {
-        SYNCBYPASSR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn syncbypass(&self) -> SYNCBYPASS_R {
+        SYNCBYPASS_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 26 - Writing a 1 to this field will launch one pass through this conversion sequence. The behavior will be identical to a sequence triggered by a hardware trigger. Do not write 1 to this bit if the BURST bit is set. This bit is only set to a 1 momentarily when written to launch a conversion sequence. It will consequently always read back as a zero."]
-    #[inline]
-    pub fn start(&self) -> STARTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 26;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        STARTR { bits }
+    #[inline(always)]
+    pub fn start(&self) -> START_R {
+        START_R::new(((self.bits >> 26) & 0x01) != 0)
     }
     #[doc = "Bit 27 - Writing a 1 to this bit will cause this conversion sequence to be continuously cycled through. Other sequence A triggers will be ignored while this bit is set. Repeated conversions can be halted by clearing this bit. The sequence currently in progress will be completed before conversions are terminated. Note that a new sequence could begin just before BURST is cleared."]
-    #[inline]
-    pub fn burst(&self) -> BURSTR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 27;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        BURSTR { bits }
+    #[inline(always)]
+    pub fn burst(&self) -> BURST_R {
+        BURST_R::new(((self.bits >> 27) & 0x01) != 0)
     }
     #[doc = "Bit 28 - When this bit is set, a hardware trigger or a write to the START bit will launch a single conversion on the next channel in the sequence instead of the default response of launching an entire sequence of conversions. Once all of the channels comprising a sequence have been converted, a subsequent trigger will repeat the sequence beginning with the first enabled channel. Interrupt generation will still occur either after each individual conversion or at the end of the entire sequence, depending on the state of the MODE bit."]
-    #[inline]
-    pub fn singlestep(&self) -> SINGLESTEPR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 28;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        SINGLESTEPR { bits }
+    #[inline(always)]
+    pub fn singlestep(&self) -> SINGLESTEP_R {
+        SINGLESTEP_R::new(((self.bits >> 28) & 0x01) != 0)
     }
     #[doc = "Bit 29 - Set priority for sequence A."]
-    #[inline]
-    pub fn lowprio(&self) -> LOWPRIOR {
-        LOWPRIOR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 29;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lowprio(&self) -> LOWPRIO_R {
+        LOWPRIO_R::new(((self.bits >> 29) & 0x01) != 0)
     }
     #[doc = "Bit 30 - Indicates whether the primary method for retrieving conversion results for this sequence will be accomplished via reading the global data register (SEQA_GDAT) at the end of each conversion, or the individual channel result registers at the end of the entire sequence. Impacts when conversion-complete interrupt/DMA trigger for sequence-A will be generated and which overrun conditions contribute to an overrun interrupt as described below."]
-    #[inline]
-    pub fn mode(&self) -> MODER {
-        MODER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 30;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn mode(&self) -> MODE_R {
+        MODE_R::new(((self.bits >> 30) & 0x01) != 0)
     }
     #[doc = "Bit 31 - Sequence Enable. In order to avoid spuriously triggering the sequence, care should be taken to only set the SEQn_ENA bit when the selected trigger input is in its INACTIVE state (as defined by the TRIGPOL bit). If this condition is not met, the sequence will be triggered immediately upon being enabled. In order to avoid spuriously triggering the sequence, care should be taken to only set the SEQn_ENA bit when the selected trigger input is in its INACTIVE state (as defined by the TRIGPOL bit). If this condition is not met, the sequence will be triggered immediately upon being enabled."]
-    #[inline]
-    pub fn seq_ena(&self) -> SEQ_ENAR {
-        SEQ_ENAR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 31;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn seq_ena(&self) -> SEQ_ENA_R {
+        SEQ_ENA_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:11 - Selects which one or more of the ADC channels will be sampled and converted when this sequence is launched. A 1 in any bit of this field will cause the corresponding channel to be included in the conversion sequence, where bit 0 corresponds to channel 0, bit 1 to channel 1 and so forth. When this conversion sequence is triggered, either by a hardware trigger or via software command, ADC conversions will be performed on each enabled channel, in sequence, beginning with the lowest-ordered channel. This field can ONLY be changed while SEQA_ENA (bit 31) is LOW. It is allowed to change this field and set bit 31 in the same write."]
-    #[inline]
-    pub fn channels(&mut self) -> _CHANNELSW {
-        _CHANNELSW { w: self }
+    #[inline(always)]
+    pub fn channels(&mut self) -> CHANNELS_W {
+        CHANNELS_W { w: self }
     }
     #[doc = "Bits 12:14 - Selects which of the available hardware trigger sources will cause this conversion sequence to be initiated. Program the trigger input number in this field. See Table 476. In order to avoid generating a spurious trigger, it is recommended writing to this field only when SEQA_ENA (bit 31) is low. It is safe to change this field and set bit 31 in the same write."]
-    #[inline]
-    pub fn trigger(&mut self) -> _TRIGGERW {
-        _TRIGGERW { w: self }
+    #[inline(always)]
+    pub fn trigger(&mut self) -> TRIGGER_W {
+        TRIGGER_W { w: self }
     }
     #[doc = "Bit 18 - Select the polarity of the selected input trigger for this conversion sequence. In order to avoid generating a spurious trigger, it is recommended writing to this field only when SEQA_ENA (bit 31) is low. It is safe to change this field and set bit 31 in the same write."]
-    #[inline]
-    pub fn trigpol(&mut self) -> _TRIGPOLW {
-        _TRIGPOLW { w: self }
+    #[inline(always)]
+    pub fn trigpol(&mut self) -> TRIGPOL_W {
+        TRIGPOL_W { w: self }
     }
     #[doc = "Bit 19 - Setting this bit allows the hardware trigger input to bypass synchronization flip-flop stages and therefore shorten the time between the trigger input signal and the start of a conversion. There are slightly different criteria for whether or not this bit can be set depending on the clock operating mode: Synchronous mode (the ASYNMODE in the CTRL register = 0): Synchronization may be bypassed (this bit may be set) if the selected trigger source is already synchronous with the main system clock (eg. coming from an on-chip, system-clock-based timer). Whether this bit is set or not, a trigger pulse must be maintained for at least one system clock period. Asynchronous mode (the ASYNMODE in the CTRL register = 1): Synchronization may be bypassed (this bit may be set) if it is certain that the duration of a trigger input pulse will be at least one cycle of the ADC clock (regardless of whether the trigger comes from and on-chip or off-chip source). If this bit is NOT set, the trigger pulse must at least be maintained for one system clock period."]
-    #[inline]
-    pub fn syncbypass(&mut self) -> _SYNCBYPASSW {
-        _SYNCBYPASSW { w: self }
+    #[inline(always)]
+    pub fn syncbypass(&mut self) -> SYNCBYPASS_W {
+        SYNCBYPASS_W { w: self }
     }
     #[doc = "Bit 26 - Writing a 1 to this field will launch one pass through this conversion sequence. The behavior will be identical to a sequence triggered by a hardware trigger. Do not write 1 to this bit if the BURST bit is set. This bit is only set to a 1 momentarily when written to launch a conversion sequence. It will consequently always read back as a zero."]
-    #[inline]
-    pub fn start(&mut self) -> _STARTW {
-        _STARTW { w: self }
+    #[inline(always)]
+    pub fn start(&mut self) -> START_W {
+        START_W { w: self }
     }
     #[doc = "Bit 27 - Writing a 1 to this bit will cause this conversion sequence to be continuously cycled through. Other sequence A triggers will be ignored while this bit is set. Repeated conversions can be halted by clearing this bit. The sequence currently in progress will be completed before conversions are terminated. Note that a new sequence could begin just before BURST is cleared."]
-    #[inline]
-    pub fn burst(&mut self) -> _BURSTW {
-        _BURSTW { w: self }
+    #[inline(always)]
+    pub fn burst(&mut self) -> BURST_W {
+        BURST_W { w: self }
     }
     #[doc = "Bit 28 - When this bit is set, a hardware trigger or a write to the START bit will launch a single conversion on the next channel in the sequence instead of the default response of launching an entire sequence of conversions. Once all of the channels comprising a sequence have been converted, a subsequent trigger will repeat the sequence beginning with the first enabled channel. Interrupt generation will still occur either after each individual conversion or at the end of the entire sequence, depending on the state of the MODE bit."]
-    #[inline]
-    pub fn singlestep(&mut self) -> _SINGLESTEPW {
-        _SINGLESTEPW { w: self }
+    #[inline(always)]
+    pub fn singlestep(&mut self) -> SINGLESTEP_W {
+        SINGLESTEP_W { w: self }
     }
     #[doc = "Bit 29 - Set priority for sequence A."]
-    #[inline]
-    pub fn lowprio(&mut self) -> _LOWPRIOW {
-        _LOWPRIOW { w: self }
+    #[inline(always)]
+    pub fn lowprio(&mut self) -> LOWPRIO_W {
+        LOWPRIO_W { w: self }
     }
     #[doc = "Bit 30 - Indicates whether the primary method for retrieving conversion results for this sequence will be accomplished via reading the global data register (SEQA_GDAT) at the end of each conversion, or the individual channel result registers at the end of the entire sequence. Impacts when conversion-complete interrupt/DMA trigger for sequence-A will be generated and which overrun conditions contribute to an overrun interrupt as described below."]
-    #[inline]
-    pub fn mode(&mut self) -> _MODEW {
-        _MODEW { w: self }
+    #[inline(always)]
+    pub fn mode(&mut self) -> MODE_W {
+        MODE_W { w: self }
     }
     #[doc = "Bit 31 - Sequence Enable. In order to avoid spuriously triggering the sequence, care should be taken to only set the SEQn_ENA bit when the selected trigger input is in its INACTIVE state (as defined by the TRIGPOL bit). If this condition is not met, the sequence will be triggered immediately upon being enabled. In order to avoid spuriously triggering the sequence, care should be taken to only set the SEQn_ENA bit when the selected trigger input is in its INACTIVE state (as defined by the TRIGPOL bit). If this condition is not met, the sequence will be triggered immediately upon being enabled."]
-    #[inline]
-    pub fn seq_ena(&mut self) -> _SEQ_ENAW {
-        _SEQ_ENAW { w: self }
+    #[inline(always)]
+    pub fn seq_ena(&mut self) -> SEQ_ENA_W {
+        SEQ_ENA_W { w: self }
     }
 }

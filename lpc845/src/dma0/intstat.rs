@@ -1,132 +1,92 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::INTSTAT {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `ACTIVEINT`"]
+#[doc = "Reader of register INTSTAT"]
+pub type R = crate::R<u32, super::INTSTAT>;
+#[doc = "Summarizes whether any enabled interrupts (other than error interrupts) are pending.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ACTIVEINTR {
-    #[doc = "Not pending. No enabled interrupts are pending."]
+pub enum ACTIVEINT_A {
+    #[doc = "0: Not pending. No enabled interrupts are pending."]
     NOT_PENDING,
-    #[doc = "Pending. At least one enabled interrupt is pending."]
+    #[doc = "1: Pending. At least one enabled interrupt is pending."]
     PENDING,
 }
-impl ACTIVEINTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ACTIVEINTR::NOT_PENDING => false,
-            ACTIVEINTR::PENDING => true,
+impl From<ACTIVEINT_A> for bool {
+    #[inline(always)]
+    fn from(variant: ACTIVEINT_A) -> Self {
+        match variant {
+            ACTIVEINT_A::NOT_PENDING => false,
+            ACTIVEINT_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ACTIVEINTR {
-        match value {
-            false => ACTIVEINTR::NOT_PENDING,
-            true => ACTIVEINTR::PENDING,
+}
+#[doc = "Reader of field `ACTIVEINT`"]
+pub type ACTIVEINT_R = crate::R<bool, ACTIVEINT_A>;
+impl ACTIVEINT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ACTIVEINT_A {
+        match self.bits {
+            false => ACTIVEINT_A::NOT_PENDING,
+            true => ACTIVEINT_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOT_PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == ACTIVEINTR::NOT_PENDING
+        *self == ACTIVEINT_A::NOT_PENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == ACTIVEINTR::PENDING
+        *self == ACTIVEINT_A::PENDING
     }
 }
-#[doc = "Possible values of the field `ACTIVEERRINT`"]
+#[doc = "Summarizes whether any error interrupts are pending.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum ACTIVEERRINTR {
-    #[doc = "Not pending. No error interrupts are pending."]
+pub enum ACTIVEERRINT_A {
+    #[doc = "0: Not pending. No error interrupts are pending."]
     NOT_PENDING,
-    #[doc = "Pending. At least one error interrupt is pending."]
+    #[doc = "1: Pending. At least one error interrupt is pending."]
     PENDING,
 }
-impl ACTIVEERRINTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            ACTIVEERRINTR::NOT_PENDING => false,
-            ACTIVEERRINTR::PENDING => true,
+impl From<ACTIVEERRINT_A> for bool {
+    #[inline(always)]
+    fn from(variant: ACTIVEERRINT_A) -> Self {
+        match variant {
+            ACTIVEERRINT_A::NOT_PENDING => false,
+            ACTIVEERRINT_A::PENDING => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> ACTIVEERRINTR {
-        match value {
-            false => ACTIVEERRINTR::NOT_PENDING,
-            true => ACTIVEERRINTR::PENDING,
+}
+#[doc = "Reader of field `ACTIVEERRINT`"]
+pub type ACTIVEERRINT_R = crate::R<bool, ACTIVEERRINT_A>;
+impl ACTIVEERRINT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ACTIVEERRINT_A {
+        match self.bits {
+            false => ACTIVEERRINT_A::NOT_PENDING,
+            true => ACTIVEERRINT_A::PENDING,
         }
     }
     #[doc = "Checks if the value of the field is `NOT_PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_pending(&self) -> bool {
-        *self == ACTIVEERRINTR::NOT_PENDING
+        *self == ACTIVEERRINT_A::NOT_PENDING
     }
     #[doc = "Checks if the value of the field is `PENDING`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_pending(&self) -> bool {
-        *self == ACTIVEERRINTR::PENDING
+        *self == ACTIVEERRINT_A::PENDING
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 1 - Summarizes whether any enabled interrupts (other than error interrupts) are pending."]
-    #[inline]
-    pub fn activeint(&self) -> ACTIVEINTR {
-        ACTIVEINTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn activeint(&self) -> ACTIVEINT_R {
+        ACTIVEINT_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Summarizes whether any error interrupts are pending."]
-    #[inline]
-    pub fn activeerrint(&self) -> ACTIVEERRINTR {
-        ACTIVEERRINTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn activeerrint(&self) -> ACTIVEERRINT_R {
+        ACTIVEERRINT_R::new(((self.bits >> 2) & 0x01) != 0)
     }
 }

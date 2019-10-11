@@ -1,778 +1,544 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::INTENSET {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register INTENSET"]
+pub type R = crate::R<u32, super::INTENSET>;
+#[doc = "Writer for register INTENSET"]
+pub type W = crate::W<u32, super::INTENSET>;
+#[doc = "Register INTENSET `reset()`'s with value 0"]
+impl crate::ResetValue for super::INTENSET {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `RXRDYEN`"]
+#[doc = "Determines whether an interrupt occurs when receiver data is available.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RXRDYENR {
-    #[doc = "No interrupt will be generated when receiver data is available."]
+pub enum RXRDYEN_A {
+    #[doc = "0: No interrupt will be generated when receiver data is available."]
     RXRDYEN_0,
-    #[doc = "An interrupt will be generated when receiver data is available in the RXDAT register."]
+    #[doc = "1: An interrupt will be generated when receiver data is available in the RXDAT register."]
     RXRDYEN_1,
 }
-impl RXRDYENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RXRDYENR::RXRDYEN_0 => false,
-            RXRDYENR::RXRDYEN_1 => true,
+impl From<RXRDYEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: RXRDYEN_A) -> Self {
+        match variant {
+            RXRDYEN_A::RXRDYEN_0 => false,
+            RXRDYEN_A::RXRDYEN_1 => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RXRDYENR {
-        match value {
-            false => RXRDYENR::RXRDYEN_0,
-            true => RXRDYENR::RXRDYEN_1,
+}
+#[doc = "Reader of field `RXRDYEN`"]
+pub type RXRDYEN_R = crate::R<bool, RXRDYEN_A>;
+impl RXRDYEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RXRDYEN_A {
+        match self.bits {
+            false => RXRDYEN_A::RXRDYEN_0,
+            true => RXRDYEN_A::RXRDYEN_1,
         }
     }
     #[doc = "Checks if the value of the field is `RXRDYEN_0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rxrdyen_0(&self) -> bool {
-        *self == RXRDYENR::RXRDYEN_0
+        *self == RXRDYEN_A::RXRDYEN_0
     }
     #[doc = "Checks if the value of the field is `RXRDYEN_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rxrdyen_1(&self) -> bool {
-        *self == RXRDYENR::RXRDYEN_1
+        *self == RXRDYEN_A::RXRDYEN_1
     }
 }
-#[doc = "Possible values of the field `TXRDYEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TXRDYENR {
-    #[doc = "No interrupt will be generated when the transmitter holding register is available."]
-    TXRDYEN_0,
-    #[doc = "An interrupt will be generated when data may be written to TXDAT."]
-    TXRDYEN_1,
+#[doc = "Write proxy for field `RXRDYEN`"]
+pub struct RXRDYEN_W<'a> {
+    w: &'a mut W,
 }
-impl TXRDYENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TXRDYENR::TXRDYEN_0 => false,
-            TXRDYENR::TXRDYEN_1 => true,
+impl<'a> RXRDYEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RXRDYEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TXRDYENR {
-        match value {
-            false => TXRDYENR::TXRDYEN_0,
-            true => TXRDYENR::TXRDYEN_1,
+    #[doc = "No interrupt will be generated when receiver data is available."]
+    #[inline(always)]
+    pub fn rxrdyen_0(self) -> &'a mut W {
+        self.variant(RXRDYEN_A::RXRDYEN_0)
+    }
+    #[doc = "An interrupt will be generated when receiver data is available in the RXDAT register."]
+    #[inline(always)]
+    pub fn rxrdyen_1(self) -> &'a mut W {
+        self.variant(RXRDYEN_A::RXRDYEN_1)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Determines whether an interrupt occurs when the transmitter holding register is available.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TXRDYEN_A {
+    #[doc = "0: No interrupt will be generated when the transmitter holding register is available."]
+    TXRDYEN_0,
+    #[doc = "1: An interrupt will be generated when data may be written to TXDAT."]
+    TXRDYEN_1,
+}
+impl From<TXRDYEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: TXRDYEN_A) -> Self {
+        match variant {
+            TXRDYEN_A::TXRDYEN_0 => false,
+            TXRDYEN_A::TXRDYEN_1 => true,
+        }
+    }
+}
+#[doc = "Reader of field `TXRDYEN`"]
+pub type TXRDYEN_R = crate::R<bool, TXRDYEN_A>;
+impl TXRDYEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TXRDYEN_A {
+        match self.bits {
+            false => TXRDYEN_A::TXRDYEN_0,
+            true => TXRDYEN_A::TXRDYEN_1,
         }
     }
     #[doc = "Checks if the value of the field is `TXRDYEN_0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_txrdyen_0(&self) -> bool {
-        *self == TXRDYENR::TXRDYEN_0
+        *self == TXRDYEN_A::TXRDYEN_0
     }
     #[doc = "Checks if the value of the field is `TXRDYEN_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_txrdyen_1(&self) -> bool {
-        *self == TXRDYENR::TXRDYEN_1
+        *self == TXRDYEN_A::TXRDYEN_1
     }
 }
-#[doc = "Possible values of the field `RXOVEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RXOVENR {
-    #[doc = "No interrupt will be generated when a receiver overrun occurs."]
-    RXOVEN_0,
-    #[doc = "An interrupt will be generated if a receiver overrun occurs."]
-    RXOVEN_1,
+#[doc = "Write proxy for field `TXRDYEN`"]
+pub struct TXRDYEN_W<'a> {
+    w: &'a mut W,
 }
-impl RXOVENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RXOVENR::RXOVEN_0 => false,
-            RXOVENR::RXOVEN_1 => true,
+impl<'a> TXRDYEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TXRDYEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RXOVENR {
-        match value {
-            false => RXOVENR::RXOVEN_0,
-            true => RXOVENR::RXOVEN_1,
+    #[doc = "No interrupt will be generated when the transmitter holding register is available."]
+    #[inline(always)]
+    pub fn txrdyen_0(self) -> &'a mut W {
+        self.variant(TXRDYEN_A::TXRDYEN_0)
+    }
+    #[doc = "An interrupt will be generated when data may be written to TXDAT."]
+    #[inline(always)]
+    pub fn txrdyen_1(self) -> &'a mut W {
+        self.variant(TXRDYEN_A::TXRDYEN_1)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Determines whether an interrupt occurs when a receiver overrun occurs. This happens in slave mode when there is a need for the receiver to move newly received data to the RXDAT register when it is already in use. The interface prevents receiver overrun in Master mode by not allowing a new transmission to begin when a receiver overrun would otherwise occur.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RXOVEN_A {
+    #[doc = "0: No interrupt will be generated when a receiver overrun occurs."]
+    RXOVEN_0,
+    #[doc = "1: An interrupt will be generated if a receiver overrun occurs."]
+    RXOVEN_1,
+}
+impl From<RXOVEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: RXOVEN_A) -> Self {
+        match variant {
+            RXOVEN_A::RXOVEN_0 => false,
+            RXOVEN_A::RXOVEN_1 => true,
+        }
+    }
+}
+#[doc = "Reader of field `RXOVEN`"]
+pub type RXOVEN_R = crate::R<bool, RXOVEN_A>;
+impl RXOVEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RXOVEN_A {
+        match self.bits {
+            false => RXOVEN_A::RXOVEN_0,
+            true => RXOVEN_A::RXOVEN_1,
         }
     }
     #[doc = "Checks if the value of the field is `RXOVEN_0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rxoven_0(&self) -> bool {
-        *self == RXOVENR::RXOVEN_0
+        *self == RXOVEN_A::RXOVEN_0
     }
     #[doc = "Checks if the value of the field is `RXOVEN_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_rxoven_1(&self) -> bool {
-        *self == RXOVENR::RXOVEN_1
+        *self == RXOVEN_A::RXOVEN_1
     }
 }
-#[doc = "Possible values of the field `TXUREN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TXURENR {
-    #[doc = "No interrupt will be generated when the transmitter underruns."]
-    TXUREN_0,
-    #[doc = "An interrupt will be generated if the transmitter underruns."]
-    TXUREN_1,
+#[doc = "Write proxy for field `RXOVEN`"]
+pub struct RXOVEN_W<'a> {
+    w: &'a mut W,
 }
-impl TXURENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            TXURENR::TXUREN_0 => false,
-            TXURENR::TXUREN_1 => true,
+impl<'a> RXOVEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RXOVEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> TXURENR {
-        match value {
-            false => TXURENR::TXUREN_0,
-            true => TXURENR::TXUREN_1,
+    #[doc = "No interrupt will be generated when a receiver overrun occurs."]
+    #[inline(always)]
+    pub fn rxoven_0(self) -> &'a mut W {
+        self.variant(RXOVEN_A::RXOVEN_0)
+    }
+    #[doc = "An interrupt will be generated if a receiver overrun occurs."]
+    #[inline(always)]
+    pub fn rxoven_1(self) -> &'a mut W {
+        self.variant(RXOVEN_A::RXOVEN_1)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Determines whether an interrupt occurs when a transmitter underrun occurs. This happens in slave mode when there is a need to transmit data when none is available.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum TXUREN_A {
+    #[doc = "0: No interrupt will be generated when the transmitter underruns."]
+    TXUREN_0,
+    #[doc = "1: An interrupt will be generated if the transmitter underruns."]
+    TXUREN_1,
+}
+impl From<TXUREN_A> for bool {
+    #[inline(always)]
+    fn from(variant: TXUREN_A) -> Self {
+        match variant {
+            TXUREN_A::TXUREN_0 => false,
+            TXUREN_A::TXUREN_1 => true,
+        }
+    }
+}
+#[doc = "Reader of field `TXUREN`"]
+pub type TXUREN_R = crate::R<bool, TXUREN_A>;
+impl TXUREN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> TXUREN_A {
+        match self.bits {
+            false => TXUREN_A::TXUREN_0,
+            true => TXUREN_A::TXUREN_1,
         }
     }
     #[doc = "Checks if the value of the field is `TXUREN_0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_txuren_0(&self) -> bool {
-        *self == TXURENR::TXUREN_0
+        *self == TXUREN_A::TXUREN_0
     }
     #[doc = "Checks if the value of the field is `TXUREN_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_txuren_1(&self) -> bool {
-        *self == TXURENR::TXUREN_1
+        *self == TXUREN_A::TXUREN_1
     }
 }
-#[doc = "Possible values of the field `SSAEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SSAENR {
-    #[doc = "No interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
-    SSAEN_0,
-    #[doc = "An interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
-    SSAEN_1,
+#[doc = "Write proxy for field `TXUREN`"]
+pub struct TXUREN_W<'a> {
+    w: &'a mut W,
 }
-impl SSAENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SSAENR::SSAEN_0 => false,
-            SSAENR::SSAEN_1 => true,
+impl<'a> TXUREN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: TXUREN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SSAENR {
-        match value {
-            false => SSAENR::SSAEN_0,
-            true => SSAENR::SSAEN_1,
+    #[doc = "No interrupt will be generated when the transmitter underruns."]
+    #[inline(always)]
+    pub fn txuren_0(self) -> &'a mut W {
+        self.variant(TXUREN_A::TXUREN_0)
+    }
+    #[doc = "An interrupt will be generated if the transmitter underruns."]
+    #[inline(always)]
+    pub fn txuren_1(self) -> &'a mut W {
+        self.variant(TXUREN_A::TXUREN_1)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Determines whether an interrupt occurs when the Slave Select is asserted.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SSAEN_A {
+    #[doc = "0: No interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
+    SSAEN_0,
+    #[doc = "1: An interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
+    SSAEN_1,
+}
+impl From<SSAEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: SSAEN_A) -> Self {
+        match variant {
+            SSAEN_A::SSAEN_0 => false,
+            SSAEN_A::SSAEN_1 => true,
+        }
+    }
+}
+#[doc = "Reader of field `SSAEN`"]
+pub type SSAEN_R = crate::R<bool, SSAEN_A>;
+impl SSAEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SSAEN_A {
+        match self.bits {
+            false => SSAEN_A::SSAEN_0,
+            true => SSAEN_A::SSAEN_1,
         }
     }
     #[doc = "Checks if the value of the field is `SSAEN_0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ssaen_0(&self) -> bool {
-        *self == SSAENR::SSAEN_0
+        *self == SSAEN_A::SSAEN_0
     }
     #[doc = "Checks if the value of the field is `SSAEN_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ssaen_1(&self) -> bool {
-        *self == SSAENR::SSAEN_1
+        *self == SSAEN_A::SSAEN_1
     }
 }
-#[doc = "Possible values of the field `SSDEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SSDENR {
-    #[doc = "No interrupt will be generated when all asserted Slave Selects transition to deasserted."]
-    SSDEN_0,
-    #[doc = "An interrupt will be generated when all asserted Slave Selects transition to deasserted."]
-    SSDEN_1,
+#[doc = "Write proxy for field `SSAEN`"]
+pub struct SSAEN_W<'a> {
+    w: &'a mut W,
 }
-impl SSDENR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SSDENR::SSDEN_0 => false,
-            SSDENR::SSDEN_1 => true,
+impl<'a> SSAEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SSAEN_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SSDENR {
-        match value {
-            false => SSDENR::SSDEN_0,
-            true => SSDENR::SSDEN_1,
+    #[doc = "No interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
+    #[inline(always)]
+    pub fn ssaen_0(self) -> &'a mut W {
+        self.variant(SSAEN_A::SSAEN_0)
+    }
+    #[doc = "An interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
+    #[inline(always)]
+    pub fn ssaen_1(self) -> &'a mut W {
+        self.variant(SSAEN_A::SSAEN_1)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Determines whether an interrupt occurs when the Slave Select is deasserted.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SSDEN_A {
+    #[doc = "0: No interrupt will be generated when all asserted Slave Selects transition to deasserted."]
+    SSDEN_0,
+    #[doc = "1: An interrupt will be generated when all asserted Slave Selects transition to deasserted."]
+    SSDEN_1,
+}
+impl From<SSDEN_A> for bool {
+    #[inline(always)]
+    fn from(variant: SSDEN_A) -> Self {
+        match variant {
+            SSDEN_A::SSDEN_0 => false,
+            SSDEN_A::SSDEN_1 => true,
+        }
+    }
+}
+#[doc = "Reader of field `SSDEN`"]
+pub type SSDEN_R = crate::R<bool, SSDEN_A>;
+impl SSDEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SSDEN_A {
+        match self.bits {
+            false => SSDEN_A::SSDEN_0,
+            true => SSDEN_A::SSDEN_1,
         }
     }
     #[doc = "Checks if the value of the field is `SSDEN_0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ssden_0(&self) -> bool {
-        *self == SSDENR::SSDEN_0
+        *self == SSDEN_A::SSDEN_0
     }
     #[doc = "Checks if the value of the field is `SSDEN_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ssden_1(&self) -> bool {
-        *self == SSDENR::SSDEN_1
+        *self == SSDEN_A::SSDEN_1
     }
 }
-#[doc = "Values that can be written to the field `RXRDYEN`"]
-pub enum RXRDYENW {
-    #[doc = "No interrupt will be generated when receiver data is available."]
-    RXRDYEN_0,
-    #[doc = "An interrupt will be generated when receiver data is available in the RXDAT register."]
-    RXRDYEN_1,
-}
-impl RXRDYENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RXRDYENW::RXRDYEN_0 => false,
-            RXRDYENW::RXRDYEN_1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RXRDYENW<'a> {
+#[doc = "Write proxy for field `SSDEN`"]
+pub struct SSDEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RXRDYENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RXRDYENW) -> &'a mut W {
+impl<'a> SSDEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SSDEN_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No interrupt will be generated when receiver data is available."]
-    #[inline]
-    pub fn rxrdyen_0(self) -> &'a mut W {
-        self.variant(RXRDYENW::RXRDYEN_0)
-    }
-    #[doc = "An interrupt will be generated when receiver data is available in the RXDAT register."]
-    #[inline]
-    pub fn rxrdyen_1(self) -> &'a mut W {
-        self.variant(RXRDYENW::RXRDYEN_1)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `TXRDYEN`"]
-pub enum TXRDYENW {
-    #[doc = "No interrupt will be generated when the transmitter holding register is available."]
-    TXRDYEN_0,
-    #[doc = "An interrupt will be generated when data may be written to TXDAT."]
-    TXRDYEN_1,
-}
-impl TXRDYENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TXRDYENW::TXRDYEN_0 => false,
-            TXRDYENW::TXRDYEN_1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TXRDYENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TXRDYENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TXRDYENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No interrupt will be generated when the transmitter holding register is available."]
-    #[inline]
-    pub fn txrdyen_0(self) -> &'a mut W {
-        self.variant(TXRDYENW::TXRDYEN_0)
-    }
-    #[doc = "An interrupt will be generated when data may be written to TXDAT."]
-    #[inline]
-    pub fn txrdyen_1(self) -> &'a mut W {
-        self.variant(TXRDYENW::TXRDYEN_1)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RXOVEN`"]
-pub enum RXOVENW {
-    #[doc = "No interrupt will be generated when a receiver overrun occurs."]
-    RXOVEN_0,
-    #[doc = "An interrupt will be generated if a receiver overrun occurs."]
-    RXOVEN_1,
-}
-impl RXOVENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RXOVENW::RXOVEN_0 => false,
-            RXOVENW::RXOVEN_1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RXOVENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RXOVENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RXOVENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No interrupt will be generated when a receiver overrun occurs."]
-    #[inline]
-    pub fn rxoven_0(self) -> &'a mut W {
-        self.variant(RXOVENW::RXOVEN_0)
-    }
-    #[doc = "An interrupt will be generated if a receiver overrun occurs."]
-    #[inline]
-    pub fn rxoven_1(self) -> &'a mut W {
-        self.variant(RXOVENW::RXOVEN_1)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `TXUREN`"]
-pub enum TXURENW {
-    #[doc = "No interrupt will be generated when the transmitter underruns."]
-    TXUREN_0,
-    #[doc = "An interrupt will be generated if the transmitter underruns."]
-    TXUREN_1,
-}
-impl TXURENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            TXURENW::TXUREN_0 => false,
-            TXURENW::TXUREN_1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _TXURENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _TXURENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: TXURENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No interrupt will be generated when the transmitter underruns."]
-    #[inline]
-    pub fn txuren_0(self) -> &'a mut W {
-        self.variant(TXURENW::TXUREN_0)
-    }
-    #[doc = "An interrupt will be generated if the transmitter underruns."]
-    #[inline]
-    pub fn txuren_1(self) -> &'a mut W {
-        self.variant(TXURENW::TXUREN_1)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SSAEN`"]
-pub enum SSAENW {
-    #[doc = "No interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
-    SSAEN_0,
-    #[doc = "An interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
-    SSAEN_1,
-}
-impl SSAENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SSAENW::SSAEN_0 => false,
-            SSAENW::SSAEN_1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SSAENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SSAENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SSAENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
-    #[inline]
-    pub fn ssaen_0(self) -> &'a mut W {
-        self.variant(SSAENW::SSAEN_0)
-    }
-    #[doc = "An interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
-    #[inline]
-    pub fn ssaen_1(self) -> &'a mut W {
-        self.variant(SSAENW::SSAEN_1)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SSDEN`"]
-pub enum SSDENW {
-    #[doc = "No interrupt will be generated when all asserted Slave Selects transition to deasserted."]
-    SSDEN_0,
-    #[doc = "An interrupt will be generated when all asserted Slave Selects transition to deasserted."]
-    SSDEN_1,
-}
-impl SSDENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SSDENW::SSDEN_0 => false,
-            SSDENW::SSDEN_1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SSDENW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SSDENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SSDENW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No interrupt will be generated when all asserted Slave Selects transition to deasserted."]
-    #[inline]
+    #[inline(always)]
     pub fn ssden_0(self) -> &'a mut W {
-        self.variant(SSDENW::SSDEN_0)
+        self.variant(SSDEN_A::SSDEN_0)
     }
     #[doc = "An interrupt will be generated when all asserted Slave Selects transition to deasserted."]
-    #[inline]
+    #[inline(always)]
     pub fn ssden_1(self) -> &'a mut W {
-        self.variant(SSDENW::SSDEN_1)
+        self.variant(SSDEN_A::SSDEN_1)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Determines whether an interrupt occurs when receiver data is available."]
-    #[inline]
-    pub fn rxrdyen(&self) -> RXRDYENR {
-        RXRDYENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rxrdyen(&self) -> RXRDYEN_R {
+        RXRDYEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Determines whether an interrupt occurs when the transmitter holding register is available."]
-    #[inline]
-    pub fn txrdyen(&self) -> TXRDYENR {
-        TXRDYENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn txrdyen(&self) -> TXRDYEN_R {
+        TXRDYEN_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Determines whether an interrupt occurs when a receiver overrun occurs. This happens in slave mode when there is a need for the receiver to move newly received data to the RXDAT register when it is already in use. The interface prevents receiver overrun in Master mode by not allowing a new transmission to begin when a receiver overrun would otherwise occur."]
-    #[inline]
-    pub fn rxoven(&self) -> RXOVENR {
-        RXOVENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn rxoven(&self) -> RXOVEN_R {
+        RXOVEN_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Determines whether an interrupt occurs when a transmitter underrun occurs. This happens in slave mode when there is a need to transmit data when none is available."]
-    #[inline]
-    pub fn txuren(&self) -> TXURENR {
-        TXURENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn txuren(&self) -> TXUREN_R {
+        TXUREN_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Determines whether an interrupt occurs when the Slave Select is asserted."]
-    #[inline]
-    pub fn ssaen(&self) -> SSAENR {
-        SSAENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ssaen(&self) -> SSAEN_R {
+        SSAEN_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Determines whether an interrupt occurs when the Slave Select is deasserted."]
-    #[inline]
-    pub fn ssden(&self) -> SSDENR {
-        SSDENR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ssden(&self) -> SSDEN_R {
+        SSDEN_R::new(((self.bits >> 5) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Determines whether an interrupt occurs when receiver data is available."]
-    #[inline]
-    pub fn rxrdyen(&mut self) -> _RXRDYENW {
-        _RXRDYENW { w: self }
+    #[inline(always)]
+    pub fn rxrdyen(&mut self) -> RXRDYEN_W {
+        RXRDYEN_W { w: self }
     }
     #[doc = "Bit 1 - Determines whether an interrupt occurs when the transmitter holding register is available."]
-    #[inline]
-    pub fn txrdyen(&mut self) -> _TXRDYENW {
-        _TXRDYENW { w: self }
+    #[inline(always)]
+    pub fn txrdyen(&mut self) -> TXRDYEN_W {
+        TXRDYEN_W { w: self }
     }
     #[doc = "Bit 2 - Determines whether an interrupt occurs when a receiver overrun occurs. This happens in slave mode when there is a need for the receiver to move newly received data to the RXDAT register when it is already in use. The interface prevents receiver overrun in Master mode by not allowing a new transmission to begin when a receiver overrun would otherwise occur."]
-    #[inline]
-    pub fn rxoven(&mut self) -> _RXOVENW {
-        _RXOVENW { w: self }
+    #[inline(always)]
+    pub fn rxoven(&mut self) -> RXOVEN_W {
+        RXOVEN_W { w: self }
     }
     #[doc = "Bit 3 - Determines whether an interrupt occurs when a transmitter underrun occurs. This happens in slave mode when there is a need to transmit data when none is available."]
-    #[inline]
-    pub fn txuren(&mut self) -> _TXURENW {
-        _TXURENW { w: self }
+    #[inline(always)]
+    pub fn txuren(&mut self) -> TXUREN_W {
+        TXUREN_W { w: self }
     }
     #[doc = "Bit 4 - Determines whether an interrupt occurs when the Slave Select is asserted."]
-    #[inline]
-    pub fn ssaen(&mut self) -> _SSAENW {
-        _SSAENW { w: self }
+    #[inline(always)]
+    pub fn ssaen(&mut self) -> SSAEN_W {
+        SSAEN_W { w: self }
     }
     #[doc = "Bit 5 - Determines whether an interrupt occurs when the Slave Select is deasserted."]
-    #[inline]
-    pub fn ssden(&mut self) -> _SSDENW {
-        _SSDENW { w: self }
+    #[inline(always)]
+    pub fn ssden(&mut self) -> SSDEN_W {
+        SSDEN_W { w: self }
     }
 }

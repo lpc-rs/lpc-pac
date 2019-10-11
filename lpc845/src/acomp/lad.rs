@@ -1,283 +1,162 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::LAD {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register LAD"]
+pub type R = crate::R<u32, super::LAD>;
+#[doc = "Writer for register LAD"]
+pub type W = crate::W<u32, super::LAD>;
+#[doc = "Register LAD `reset()`'s with value 0"]
+impl crate::ResetValue for super::LAD {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct LADENR {
-    bits: bool,
+#[doc = "Reader of field `LADEN`"]
+pub type LADEN_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `LADEN`"]
+pub struct LADEN_W<'a> {
+    w: &'a mut W,
 }
-impl LADENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        self.bits
+impl<'a> LADEN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-}
-#[doc = r" Value of the field"]
-pub struct LADSELR {
-    bits: u8,
-}
-impl LADSELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
     }
 }
-#[doc = "Possible values of the field `LADREF`"]
+#[doc = "Reader of field `LADSEL`"]
+pub type LADSEL_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `LADSEL`"]
+pub struct LADSEL_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> LADSEL_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x1f << 1)) | (((value as u32) & 0x1f) << 1);
+        self.w
+    }
+}
+#[doc = "Selects the reference voltage Vref for the voltage ladder.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LADREFR {
-    #[doc = "Supply pin VDD"]
+pub enum LADREF_A {
+    #[doc = "0: Supply pin VDD"]
     LADREF_0,
-    #[doc = "VDDCMP pin"]
+    #[doc = "1: VDDCMP pin"]
     LADREF_1,
 }
-impl LADREFR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LADREFR::LADREF_0 => false,
-            LADREFR::LADREF_1 => true,
+impl From<LADREF_A> for bool {
+    #[inline(always)]
+    fn from(variant: LADREF_A) -> Self {
+        match variant {
+            LADREF_A::LADREF_0 => false,
+            LADREF_A::LADREF_1 => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LADREFR {
-        match value {
-            false => LADREFR::LADREF_0,
-            true => LADREFR::LADREF_1,
+}
+#[doc = "Reader of field `LADREF`"]
+pub type LADREF_R = crate::R<bool, LADREF_A>;
+impl LADREF_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LADREF_A {
+        match self.bits {
+            false => LADREF_A::LADREF_0,
+            true => LADREF_A::LADREF_1,
         }
     }
     #[doc = "Checks if the value of the field is `LADREF_0`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ladref_0(&self) -> bool {
-        *self == LADREFR::LADREF_0
+        *self == LADREF_A::LADREF_0
     }
     #[doc = "Checks if the value of the field is `LADREF_1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ladref_1(&self) -> bool {
-        *self == LADREFR::LADREF_1
+        *self == LADREF_A::LADREF_1
     }
 }
-#[doc = r" Proxy"]
-pub struct _LADENW<'a> {
+#[doc = "Write proxy for field `LADREF`"]
+pub struct LADREF_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LADENW<'a> {
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LADSELW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _LADSELW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 31;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `LADREF`"]
-pub enum LADREFW {
-    #[doc = "Supply pin VDD"]
-    LADREF_0,
-    #[doc = "VDDCMP pin"]
-    LADREF_1,
-}
-impl LADREFW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LADREFW::LADREF_0 => false,
-            LADREFW::LADREF_1 => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LADREFW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _LADREFW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LADREFW) -> &'a mut W {
+impl<'a> LADREF_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LADREF_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Supply pin VDD"]
-    #[inline]
+    #[inline(always)]
     pub fn ladref_0(self) -> &'a mut W {
-        self.variant(LADREFW::LADREF_0)
+        self.variant(LADREF_A::LADREF_0)
     }
     #[doc = "VDDCMP pin"]
-    #[inline]
+    #[inline(always)]
     pub fn ladref_1(self) -> &'a mut W {
-        self.variant(LADREFW::LADREF_1)
+        self.variant(LADREF_A::LADREF_1)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Voltage ladder enable"]
-    #[inline]
-    pub fn laden(&self) -> LADENR {
-        let bits = {
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        };
-        LADENR { bits }
+    #[inline(always)]
+    pub fn laden(&self) -> LADEN_R {
+        LADEN_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bits 1:5 - Voltage ladder value. The reference voltage Vref depends on the LADREF bit below. 00000 = VSS 00001 = 1 x Vref/31 00010 = 2 x Vref/31 ... 11111 = Vref"]
-    #[inline]
-    pub fn ladsel(&self) -> LADSELR {
-        let bits = {
-            const MASK: u8 = 31;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        LADSELR { bits }
+    #[inline(always)]
+    pub fn ladsel(&self) -> LADSEL_R {
+        LADSEL_R::new(((self.bits >> 1) & 0x1f) as u8)
     }
     #[doc = "Bit 6 - Selects the reference voltage Vref for the voltage ladder."]
-    #[inline]
-    pub fn ladref(&self) -> LADREFR {
-        LADREFR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ladref(&self) -> LADREF_R {
+        LADREF_R::new(((self.bits >> 6) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Voltage ladder enable"]
-    #[inline]
-    pub fn laden(&mut self) -> _LADENW {
-        _LADENW { w: self }
+    #[inline(always)]
+    pub fn laden(&mut self) -> LADEN_W {
+        LADEN_W { w: self }
     }
     #[doc = "Bits 1:5 - Voltage ladder value. The reference voltage Vref depends on the LADREF bit below. 00000 = VSS 00001 = 1 x Vref/31 00010 = 2 x Vref/31 ... 11111 = Vref"]
-    #[inline]
-    pub fn ladsel(&mut self) -> _LADSELW {
-        _LADSELW { w: self }
+    #[inline(always)]
+    pub fn ladsel(&mut self) -> LADSEL_W {
+        LADSEL_W { w: self }
     }
     #[doc = "Bit 6 - Selects the reference voltage Vref for the voltage ladder."]
-    #[inline]
-    pub fn ladref(&mut self) -> _LADREFW {
-        _LADREFW { w: self }
+    #[inline(always)]
+    pub fn ladref(&mut self) -> LADREF_W {
+        LADREF_W { w: self }
     }
 }

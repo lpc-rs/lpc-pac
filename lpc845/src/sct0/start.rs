@@ -1,146 +1,64 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::START {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register START"]
+pub type R = crate::R<u32, super::START>;
+#[doc = "Writer for register START"]
+pub type W = crate::W<u32, super::START>;
+#[doc = "Register START `reset()`'s with value 0"]
+impl crate::ResetValue for super::START {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct STARTMSK_LR {
-    bits: u8,
-}
-impl STARTMSK_LR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct STARTMSK_HR {
-    bits: u8,
-}
-impl STARTMSK_HR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _STARTMSK_LW<'a> {
+#[doc = "Reader of field `STARTMSK_L`"]
+pub type STARTMSK_L_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `STARTMSK_L`"]
+pub struct STARTMSK_L_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _STARTMSK_LW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> STARTMSK_L_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _STARTMSK_HW<'a> {
+#[doc = "Reader of field `STARTMSK_H`"]
+pub type STARTMSK_H_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `STARTMSK_H`"]
+pub struct STARTMSK_H_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _STARTMSK_HW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> STARTMSK_H_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - If bit n is one, event n clears the STOP_L bit in the CTRL register (event 0 = bit 0, event 1 = bit 1, etc.). The number of bits = number of events in this SCT."]
-    #[inline]
-    pub fn startmsk_l(&self) -> STARTMSK_LR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        STARTMSK_LR { bits }
+    #[inline(always)]
+    pub fn startmsk_l(&self) -> STARTMSK_L_R {
+        STARTMSK_L_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - If bit n is one, event n clears the STOP_H bit in the CTRL register (event 0 = bit 16, event 1 = bit 17, etc.). The number of bits = number of events in this SCT."]
-    #[inline]
-    pub fn startmsk_h(&self) -> STARTMSK_HR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        STARTMSK_HR { bits }
+    #[inline(always)]
+    pub fn startmsk_h(&self) -> STARTMSK_H_R {
+        STARTMSK_H_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:7 - If bit n is one, event n clears the STOP_L bit in the CTRL register (event 0 = bit 0, event 1 = bit 1, etc.). The number of bits = number of events in this SCT."]
-    #[inline]
-    pub fn startmsk_l(&mut self) -> _STARTMSK_LW {
-        _STARTMSK_LW { w: self }
+    #[inline(always)]
+    pub fn startmsk_l(&mut self) -> STARTMSK_L_W {
+        STARTMSK_L_W { w: self }
     }
     #[doc = "Bits 16:23 - If bit n is one, event n clears the STOP_H bit in the CTRL register (event 0 = bit 16, event 1 = bit 17, etc.). The number of bits = number of events in this SCT."]
-    #[inline]
-    pub fn startmsk_h(&mut self) -> _STARTMSK_HW {
-        _STARTMSK_HW { w: self }
+    #[inline(always)]
+    pub fn startmsk_h(&mut self) -> STARTMSK_H_W {
+        STARTMSK_H_W { w: self }
     }
 }

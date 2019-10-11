@@ -1,1211 +1,874 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::XFERCFG {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register XFERCFG"]
+pub type R = crate::R<u32, super::XFERCFG>;
+#[doc = "Writer for register XFERCFG"]
+pub type W = crate::W<u32, super::XFERCFG>;
+#[doc = "Register XFERCFG `reset()`'s with value 0"]
+impl crate::ResetValue for super::XFERCFG {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CFGVALID`"]
+#[doc = "Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CFGVALIDR {
-    #[doc = "Not valid. The channel descriptor is not considered valid until validated by an associated SETVALID0 setting."]
+pub enum CFGVALID_A {
+    #[doc = "0: Not valid. The channel descriptor is not considered valid until validated by an associated SETVALID0 setting."]
     NOT_VALID,
-    #[doc = "Valid. The current channel descriptor is considered valid."]
+    #[doc = "1: Valid. The current channel descriptor is considered valid."]
     VALID,
 }
-impl CFGVALIDR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CFGVALIDR::NOT_VALID => false,
-            CFGVALIDR::VALID => true,
+impl From<CFGVALID_A> for bool {
+    #[inline(always)]
+    fn from(variant: CFGVALID_A) -> Self {
+        match variant {
+            CFGVALID_A::NOT_VALID => false,
+            CFGVALID_A::VALID => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CFGVALIDR {
-        match value {
-            false => CFGVALIDR::NOT_VALID,
-            true => CFGVALIDR::VALID,
+}
+#[doc = "Reader of field `CFGVALID`"]
+pub type CFGVALID_R = crate::R<bool, CFGVALID_A>;
+impl CFGVALID_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CFGVALID_A {
+        match self.bits {
+            false => CFGVALID_A::NOT_VALID,
+            true => CFGVALID_A::VALID,
         }
     }
     #[doc = "Checks if the value of the field is `NOT_VALID`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_valid(&self) -> bool {
-        *self == CFGVALIDR::NOT_VALID
+        *self == CFGVALID_A::NOT_VALID
     }
     #[doc = "Checks if the value of the field is `VALID`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_valid(&self) -> bool {
-        *self == CFGVALIDR::VALID
+        *self == CFGVALID_A::VALID
     }
 }
-#[doc = "Possible values of the field `RELOAD`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RELOADR {
-    #[doc = "Disabled. Do not reload the channels' control structure when the current descriptor is exhausted."]
-    DISABLED,
-    #[doc = "Enabled. Reload the channels' control structure when the current descriptor is exhausted."]
-    ENABLED,
+#[doc = "Write proxy for field `CFGVALID`"]
+pub struct CFGVALID_W<'a> {
+    w: &'a mut W,
 }
-impl RELOADR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RELOADR::DISABLED => false,
-            RELOADR::ENABLED => true,
+impl<'a> CFGVALID_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CFGVALID_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RELOADR {
-        match value {
-            false => RELOADR::DISABLED,
-            true => RELOADR::ENABLED,
+    #[doc = "Not valid. The channel descriptor is not considered valid until validated by an associated SETVALID0 setting."]
+    #[inline(always)]
+    pub fn not_valid(self) -> &'a mut W {
+        self.variant(CFGVALID_A::NOT_VALID)
+    }
+    #[doc = "Valid. The current channel descriptor is considered valid."]
+    #[inline(always)]
+    pub fn valid(self) -> &'a mut W {
+        self.variant(CFGVALID_A::VALID)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RELOAD_A {
+    #[doc = "0: Disabled. Do not reload the channels' control structure when the current descriptor is exhausted."]
+    DISABLED,
+    #[doc = "1: Enabled. Reload the channels' control structure when the current descriptor is exhausted."]
+    ENABLED,
+}
+impl From<RELOAD_A> for bool {
+    #[inline(always)]
+    fn from(variant: RELOAD_A) -> Self {
+        match variant {
+            RELOAD_A::DISABLED => false,
+            RELOAD_A::ENABLED => true,
+        }
+    }
+}
+#[doc = "Reader of field `RELOAD`"]
+pub type RELOAD_R = crate::R<bool, RELOAD_A>;
+impl RELOAD_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RELOAD_A {
+        match self.bits {
+            false => RELOAD_A::DISABLED,
+            true => RELOAD_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == RELOADR::DISABLED
+        *self == RELOAD_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == RELOADR::ENABLED
+        *self == RELOAD_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `SWTRIG`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SWTRIGR {
-    #[doc = "Not set. When written by software, the trigger for this channel is not set. A new trigger, as defined by the HWTRIGEN, TRIGPOL, and TRIGTYPE will be needed to start the channel."]
-    NOT_SET,
-    #[doc = "Set. When written by software, the trigger for this channel is set immediately. This feature should not be used with level triggering when TRIGBURST = 0."]
-    SET,
+#[doc = "Write proxy for field `RELOAD`"]
+pub struct RELOAD_W<'a> {
+    w: &'a mut W,
 }
-impl SWTRIGR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SWTRIGR::NOT_SET => false,
-            SWTRIGR::SET => true,
+impl<'a> RELOAD_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RELOAD_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SWTRIGR {
-        match value {
-            false => SWTRIGR::NOT_SET,
-            true => SWTRIGR::SET,
+    #[doc = "Disabled. Do not reload the channels' control structure when the current descriptor is exhausted."]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(RELOAD_A::DISABLED)
+    }
+    #[doc = "Enabled. Reload the channels' control structure when the current descriptor is exhausted."]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(RELOAD_A::ENABLED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Software Trigger.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SWTRIG_A {
+    #[doc = "0: Not set. When written by software, the trigger for this channel is not set. A new trigger, as defined by the HWTRIGEN, TRIGPOL, and TRIGTYPE will be needed to start the channel."]
+    NOT_SET,
+    #[doc = "1: Set. When written by software, the trigger for this channel is set immediately. This feature should not be used with level triggering when TRIGBURST = 0."]
+    SET,
+}
+impl From<SWTRIG_A> for bool {
+    #[inline(always)]
+    fn from(variant: SWTRIG_A) -> Self {
+        match variant {
+            SWTRIG_A::NOT_SET => false,
+            SWTRIG_A::SET => true,
+        }
+    }
+}
+#[doc = "Reader of field `SWTRIG`"]
+pub type SWTRIG_R = crate::R<bool, SWTRIG_A>;
+impl SWTRIG_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SWTRIG_A {
+        match self.bits {
+            false => SWTRIG_A::NOT_SET,
+            true => SWTRIG_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `NOT_SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_set(&self) -> bool {
-        *self == SWTRIGR::NOT_SET
+        *self == SWTRIG_A::NOT_SET
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == SWTRIGR::SET
+        *self == SWTRIG_A::SET
     }
 }
-#[doc = "Possible values of the field `CLRTRIG`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CLRTRIGR {
-    #[doc = "Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started."]
-    NOT_CLEARED,
-    #[doc = "Cleared. The trigger is cleared when this descriptor is exhausted"]
-    CLEARED,
+#[doc = "Write proxy for field `SWTRIG`"]
+pub struct SWTRIG_W<'a> {
+    w: &'a mut W,
 }
-impl CLRTRIGR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CLRTRIGR::NOT_CLEARED => false,
-            CLRTRIGR::CLEARED => true,
+impl<'a> SWTRIG_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SWTRIG_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CLRTRIGR {
-        match value {
-            false => CLRTRIGR::NOT_CLEARED,
-            true => CLRTRIGR::CLEARED,
+    #[doc = "Not set. When written by software, the trigger for this channel is not set. A new trigger, as defined by the HWTRIGEN, TRIGPOL, and TRIGTYPE will be needed to start the channel."]
+    #[inline(always)]
+    pub fn not_set(self) -> &'a mut W {
+        self.variant(SWTRIG_A::NOT_SET)
+    }
+    #[doc = "Set. When written by software, the trigger for this channel is set immediately. This feature should not be used with level triggering when TRIGBURST = 0."]
+    #[inline(always)]
+    pub fn set(self) -> &'a mut W {
+        self.variant(SWTRIG_A::SET)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Clear Trigger.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CLRTRIG_A {
+    #[doc = "0: Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started."]
+    NOT_CLEARED,
+    #[doc = "1: Cleared. The trigger is cleared when this descriptor is exhausted"]
+    CLEARED,
+}
+impl From<CLRTRIG_A> for bool {
+    #[inline(always)]
+    fn from(variant: CLRTRIG_A) -> Self {
+        match variant {
+            CLRTRIG_A::NOT_CLEARED => false,
+            CLRTRIG_A::CLEARED => true,
+        }
+    }
+}
+#[doc = "Reader of field `CLRTRIG`"]
+pub type CLRTRIG_R = crate::R<bool, CLRTRIG_A>;
+impl CLRTRIG_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CLRTRIG_A {
+        match self.bits {
+            false => CLRTRIG_A::NOT_CLEARED,
+            true => CLRTRIG_A::CLEARED,
         }
     }
     #[doc = "Checks if the value of the field is `NOT_CLEARED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_cleared(&self) -> bool {
-        *self == CLRTRIGR::NOT_CLEARED
+        *self == CLRTRIG_A::NOT_CLEARED
     }
     #[doc = "Checks if the value of the field is `CLEARED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_cleared(&self) -> bool {
-        *self == CLRTRIGR::CLEARED
+        *self == CLRTRIG_A::CLEARED
     }
 }
-#[doc = "Possible values of the field `SETINTA`"]
+#[doc = "Write proxy for field `CLRTRIG`"]
+pub struct CLRTRIG_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> CLRTRIG_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CLRTRIG_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started."]
+    #[inline(always)]
+    pub fn not_cleared(self) -> &'a mut W {
+        self.variant(CLRTRIG_A::NOT_CLEARED)
+    }
+    #[doc = "Cleared. The trigger is cleared when this descriptor is exhausted"]
+    #[inline(always)]
+    pub fn cleared(self) -> &'a mut W {
+        self.variant(CLRTRIG_A::CLEARED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SETINTAR {
-    #[doc = "No effect."]
+pub enum SETINTA_A {
+    #[doc = "0: No effect."]
     NO_EFFECT,
+    #[doc = "1: Set. The INTA flag for this channel will be set when the current descriptor is exhausted."]
+    SET,
+}
+impl From<SETINTA_A> for bool {
+    #[inline(always)]
+    fn from(variant: SETINTA_A) -> Self {
+        match variant {
+            SETINTA_A::NO_EFFECT => false,
+            SETINTA_A::SET => true,
+        }
+    }
+}
+#[doc = "Reader of field `SETINTA`"]
+pub type SETINTA_R = crate::R<bool, SETINTA_A>;
+impl SETINTA_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SETINTA_A {
+        match self.bits {
+            false => SETINTA_A::NO_EFFECT,
+            true => SETINTA_A::SET,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_EFFECT`"]
+    #[inline(always)]
+    pub fn is_no_effect(&self) -> bool {
+        *self == SETINTA_A::NO_EFFECT
+    }
+    #[doc = "Checks if the value of the field is `SET`"]
+    #[inline(always)]
+    pub fn is_set(&self) -> bool {
+        *self == SETINTA_A::SET
+    }
+}
+#[doc = "Write proxy for field `SETINTA`"]
+pub struct SETINTA_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> SETINTA_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SETINTA_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "No effect."]
+    #[inline(always)]
+    pub fn no_effect(self) -> &'a mut W {
+        self.variant(SETINTA_A::NO_EFFECT)
+    }
     #[doc = "Set. The INTA flag for this channel will be set when the current descriptor is exhausted."]
-    SET,
-}
-impl SETINTAR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
+    #[inline(always)]
+    pub fn set(self) -> &'a mut W {
+        self.variant(SETINTA_A::SET)
     }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
     }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SETINTAR::NO_EFFECT => false,
-            SETINTAR::SET => true,
-        }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SETINTAR {
-        match value {
-            false => SETINTAR::NO_EFFECT,
-            true => SETINTAR::SET,
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_EFFECT`"]
-    #[inline]
-    pub fn is_no_effect(&self) -> bool {
-        *self == SETINTAR::NO_EFFECT
-    }
-    #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
-    pub fn is_set(&self) -> bool {
-        *self == SETINTAR::SET
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
     }
 }
-#[doc = "Possible values of the field `SETINTB`"]
+#[doc = "Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SETINTBR {
-    #[doc = "No effect."]
+pub enum SETINTB_A {
+    #[doc = "0: No effect."]
     NO_EFFECT,
-    #[doc = "Set. The INTB flag for this channel will be set when the current descriptor is exhausted."]
+    #[doc = "1: Set. The INTB flag for this channel will be set when the current descriptor is exhausted."]
     SET,
 }
-impl SETINTBR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SETINTBR::NO_EFFECT => false,
-            SETINTBR::SET => true,
+impl From<SETINTB_A> for bool {
+    #[inline(always)]
+    fn from(variant: SETINTB_A) -> Self {
+        match variant {
+            SETINTB_A::NO_EFFECT => false,
+            SETINTB_A::SET => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SETINTBR {
-        match value {
-            false => SETINTBR::NO_EFFECT,
-            true => SETINTBR::SET,
+}
+#[doc = "Reader of field `SETINTB`"]
+pub type SETINTB_R = crate::R<bool, SETINTB_A>;
+impl SETINTB_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SETINTB_A {
+        match self.bits {
+            false => SETINTB_A::NO_EFFECT,
+            true => SETINTB_A::SET,
         }
     }
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == SETINTBR::NO_EFFECT
+        *self == SETINTB_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `SET`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == SETINTBR::SET
+        *self == SETINTB_A::SET
     }
 }
-#[doc = "Possible values of the field `WIDTH`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum WIDTHR {
-    #[doc = "8-bit. 8-bit transfers are performed (8-bit source reads and destination writes)."]
-    BIT_8,
-    #[doc = "16-bit. 6-bit transfers are performed (16-bit source reads and destination writes)."]
-    BIT_16,
-    #[doc = "32-bit. 32-bit transfers are performed (32-bit source reads and destination writes)."]
-    BIT_32,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
+#[doc = "Write proxy for field `SETINTB`"]
+pub struct SETINTB_W<'a> {
+    w: &'a mut W,
 }
-impl WIDTHR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            WIDTHR::BIT_8 => 0,
-            WIDTHR::BIT_16 => 1,
-            WIDTHR::BIT_32 => 2,
-            WIDTHR::_Reserved(bits) => bits,
+impl<'a> SETINTB_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SETINTB_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> WIDTHR {
-        match value {
-            0 => WIDTHR::BIT_8,
-            1 => WIDTHR::BIT_16,
-            2 => WIDTHR::BIT_32,
-            i => WIDTHR::_Reserved(i),
+    #[doc = "No effect."]
+    #[inline(always)]
+    pub fn no_effect(self) -> &'a mut W {
+        self.variant(SETINTB_A::NO_EFFECT)
+    }
+    #[doc = "Set. The INTB flag for this channel will be set when the current descriptor is exhausted."]
+    #[inline(always)]
+    pub fn set(self) -> &'a mut W {
+        self.variant(SETINTB_A::SET)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "Transfer width used for this DMA channel.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WIDTH_A {
+    #[doc = "0: 8-bit. 8-bit transfers are performed (8-bit source reads and destination writes)."]
+    BIT_8,
+    #[doc = "1: 16-bit. 6-bit transfers are performed (16-bit source reads and destination writes)."]
+    BIT_16,
+    #[doc = "2: 32-bit. 32-bit transfers are performed (32-bit source reads and destination writes)."]
+    BIT_32,
+}
+impl From<WIDTH_A> for u8 {
+    #[inline(always)]
+    fn from(variant: WIDTH_A) -> Self {
+        match variant {
+            WIDTH_A::BIT_8 => 0,
+            WIDTH_A::BIT_16 => 1,
+            WIDTH_A::BIT_32 => 2,
+        }
+    }
+}
+#[doc = "Reader of field `WIDTH`"]
+pub type WIDTH_R = crate::R<u8, WIDTH_A>;
+impl WIDTH_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, WIDTH_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(WIDTH_A::BIT_8),
+            1 => Val(WIDTH_A::BIT_16),
+            2 => Val(WIDTH_A::BIT_32),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `BIT_8`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_bit_8(&self) -> bool {
-        *self == WIDTHR::BIT_8
+        *self == WIDTH_A::BIT_8
     }
     #[doc = "Checks if the value of the field is `BIT_16`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_bit_16(&self) -> bool {
-        *self == WIDTHR::BIT_16
+        *self == WIDTH_A::BIT_16
     }
     #[doc = "Checks if the value of the field is `BIT_32`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_bit_32(&self) -> bool {
-        *self == WIDTHR::BIT_32
+        *self == WIDTH_A::BIT_32
     }
 }
-#[doc = "Possible values of the field `SRCINC`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SRCINCR {
-    #[doc = "No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device."]
-    NO_INCREMENT,
-    #[doc = "1 x width. The source address is incremented by the amount specified by Width for each transfer. This is the usual case when the source is memory."]
-    WIDTH_X_1,
-    #[doc = "2 x width. The source address is incremented by 2 times the amount specified by Width for each transfer."]
-    WIDTH_X_2,
-    #[doc = "4 x width. The source address is incremented by 4 times the amount specified by Width for each transfer."]
-    WIDTH_X_4,
-}
-impl SRCINCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            SRCINCR::NO_INCREMENT => 0,
-            SRCINCR::WIDTH_X_1 => 1,
-            SRCINCR::WIDTH_X_2 => 2,
-            SRCINCR::WIDTH_X_4 => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> SRCINCR {
-        match value {
-            0 => SRCINCR::NO_INCREMENT,
-            1 => SRCINCR::WIDTH_X_1,
-            2 => SRCINCR::WIDTH_X_2,
-            3 => SRCINCR::WIDTH_X_4,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_INCREMENT`"]
-    #[inline]
-    pub fn is_no_increment(&self) -> bool {
-        *self == SRCINCR::NO_INCREMENT
-    }
-    #[doc = "Checks if the value of the field is `WIDTH_X_1`"]
-    #[inline]
-    pub fn is_width_x_1(&self) -> bool {
-        *self == SRCINCR::WIDTH_X_1
-    }
-    #[doc = "Checks if the value of the field is `WIDTH_X_2`"]
-    #[inline]
-    pub fn is_width_x_2(&self) -> bool {
-        *self == SRCINCR::WIDTH_X_2
-    }
-    #[doc = "Checks if the value of the field is `WIDTH_X_4`"]
-    #[inline]
-    pub fn is_width_x_4(&self) -> bool {
-        *self == SRCINCR::WIDTH_X_4
-    }
-}
-#[doc = "Possible values of the field `DSTINC`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DSTINCR {
-    #[doc = "No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device."]
-    NO_INCREMENT,
-    #[doc = "1 x width. The destination address is incremented by the amount specified by Width for each transfer. This is the usual case when the destination is memory."]
-    WIDTH_X_1,
-    #[doc = "2 x width. The destination address is incremented by 2 times the amount specified by Width for each transfer."]
-    WIDTH_X_2,
-    #[doc = "4 x width. The destination address is incremented by 4 times the amount specified by Width for each transfer."]
-    WIDTH_X_4,
-}
-impl DSTINCR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            DSTINCR::NO_INCREMENT => 0,
-            DSTINCR::WIDTH_X_1 => 1,
-            DSTINCR::WIDTH_X_2 => 2,
-            DSTINCR::WIDTH_X_4 => 3,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> DSTINCR {
-        match value {
-            0 => DSTINCR::NO_INCREMENT,
-            1 => DSTINCR::WIDTH_X_1,
-            2 => DSTINCR::WIDTH_X_2,
-            3 => DSTINCR::WIDTH_X_4,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Checks if the value of the field is `NO_INCREMENT`"]
-    #[inline]
-    pub fn is_no_increment(&self) -> bool {
-        *self == DSTINCR::NO_INCREMENT
-    }
-    #[doc = "Checks if the value of the field is `WIDTH_X_1`"]
-    #[inline]
-    pub fn is_width_x_1(&self) -> bool {
-        *self == DSTINCR::WIDTH_X_1
-    }
-    #[doc = "Checks if the value of the field is `WIDTH_X_2`"]
-    #[inline]
-    pub fn is_width_x_2(&self) -> bool {
-        *self == DSTINCR::WIDTH_X_2
-    }
-    #[doc = "Checks if the value of the field is `WIDTH_X_4`"]
-    #[inline]
-    pub fn is_width_x_4(&self) -> bool {
-        *self == DSTINCR::WIDTH_X_4
-    }
-}
-#[doc = r" Value of the field"]
-pub struct XFERCOUNTR {
-    bits: u16,
-}
-impl XFERCOUNTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        self.bits
-    }
-}
-#[doc = "Values that can be written to the field `CFGVALID`"]
-pub enum CFGVALIDW {
-    #[doc = "Not valid. The channel descriptor is not considered valid until validated by an associated SETVALID0 setting."]
-    NOT_VALID,
-    #[doc = "Valid. The current channel descriptor is considered valid."]
-    VALID,
-}
-impl CFGVALIDW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CFGVALIDW::NOT_VALID => false,
-            CFGVALIDW::VALID => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CFGVALIDW<'a> {
+#[doc = "Write proxy for field `WIDTH`"]
+pub struct WIDTH_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CFGVALIDW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CFGVALIDW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Not valid. The channel descriptor is not considered valid until validated by an associated SETVALID0 setting."]
-    #[inline]
-    pub fn not_valid(self) -> &'a mut W {
-        self.variant(CFGVALIDW::NOT_VALID)
-    }
-    #[doc = "Valid. The current channel descriptor is considered valid."]
-    #[inline]
-    pub fn valid(self) -> &'a mut W {
-        self.variant(CFGVALIDW::VALID)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `RELOAD`"]
-pub enum RELOADW {
-    #[doc = "Disabled. Do not reload the channels' control structure when the current descriptor is exhausted."]
-    DISABLED,
-    #[doc = "Enabled. Reload the channels' control structure when the current descriptor is exhausted."]
-    ENABLED,
-}
-impl RELOADW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RELOADW::DISABLED => false,
-            RELOADW::ENABLED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RELOADW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _RELOADW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RELOADW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Disabled. Do not reload the channels' control structure when the current descriptor is exhausted."]
-    #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(RELOADW::DISABLED)
-    }
-    #[doc = "Enabled. Reload the channels' control structure when the current descriptor is exhausted."]
-    #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(RELOADW::ENABLED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SWTRIG`"]
-pub enum SWTRIGW {
-    #[doc = "Not set. When written by software, the trigger for this channel is not set. A new trigger, as defined by the HWTRIGEN, TRIGPOL, and TRIGTYPE will be needed to start the channel."]
-    NOT_SET,
-    #[doc = "Set. When written by software, the trigger for this channel is set immediately. This feature should not be used with level triggering when TRIGBURST = 0."]
-    SET,
-}
-impl SWTRIGW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SWTRIGW::NOT_SET => false,
-            SWTRIGW::SET => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SWTRIGW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SWTRIGW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SWTRIGW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Not set. When written by software, the trigger for this channel is not set. A new trigger, as defined by the HWTRIGEN, TRIGPOL, and TRIGTYPE will be needed to start the channel."]
-    #[inline]
-    pub fn not_set(self) -> &'a mut W {
-        self.variant(SWTRIGW::NOT_SET)
-    }
-    #[doc = "Set. When written by software, the trigger for this channel is set immediately. This feature should not be used with level triggering when TRIGBURST = 0."]
-    #[inline]
-    pub fn set(self) -> &'a mut W {
-        self.variant(SWTRIGW::SET)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `CLRTRIG`"]
-pub enum CLRTRIGW {
-    #[doc = "Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started."]
-    NOT_CLEARED,
-    #[doc = "Cleared. The trigger is cleared when this descriptor is exhausted"]
-    CLEARED,
-}
-impl CLRTRIGW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CLRTRIGW::NOT_CLEARED => false,
-            CLRTRIGW::CLEARED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CLRTRIGW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _CLRTRIGW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CLRTRIGW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started."]
-    #[inline]
-    pub fn not_cleared(self) -> &'a mut W {
-        self.variant(CLRTRIGW::NOT_CLEARED)
-    }
-    #[doc = "Cleared. The trigger is cleared when this descriptor is exhausted"]
-    #[inline]
-    pub fn cleared(self) -> &'a mut W {
-        self.variant(CLRTRIGW::CLEARED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SETINTA`"]
-pub enum SETINTAW {
-    #[doc = "No effect."]
-    NO_EFFECT,
-    #[doc = "Set. The INTA flag for this channel will be set when the current descriptor is exhausted."]
-    SET,
-}
-impl SETINTAW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SETINTAW::NO_EFFECT => false,
-            SETINTAW::SET => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SETINTAW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SETINTAW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SETINTAW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No effect."]
-    #[inline]
-    pub fn no_effect(self) -> &'a mut W {
-        self.variant(SETINTAW::NO_EFFECT)
-    }
-    #[doc = "Set. The INTA flag for this channel will be set when the current descriptor is exhausted."]
-    #[inline]
-    pub fn set(self) -> &'a mut W {
-        self.variant(SETINTAW::SET)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `SETINTB`"]
-pub enum SETINTBW {
-    #[doc = "No effect."]
-    NO_EFFECT,
-    #[doc = "Set. The INTB flag for this channel will be set when the current descriptor is exhausted."]
-    SET,
-}
-impl SETINTBW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SETINTBW::NO_EFFECT => false,
-            SETINTBW::SET => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SETINTBW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _SETINTBW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SETINTBW) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No effect."]
-    #[inline]
-    pub fn no_effect(self) -> &'a mut W {
-        self.variant(SETINTBW::NO_EFFECT)
-    }
-    #[doc = "Set. The INTB flag for this channel will be set when the current descriptor is exhausted."]
-    #[inline]
-    pub fn set(self) -> &'a mut W {
-        self.variant(SETINTBW::SET)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `WIDTH`"]
-pub enum WIDTHW {
-    #[doc = "8-bit. 8-bit transfers are performed (8-bit source reads and destination writes)."]
-    BIT_8,
-    #[doc = "16-bit. 6-bit transfers are performed (16-bit source reads and destination writes)."]
-    BIT_16,
-    #[doc = "32-bit. 32-bit transfers are performed (32-bit source reads and destination writes)."]
-    BIT_32,
-}
-impl WIDTHW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            WIDTHW::BIT_8 => 0,
-            WIDTHW::BIT_16 => 1,
-            WIDTHW::BIT_32 => 2,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _WIDTHW<'a> {
-    w: &'a mut W,
-}
-impl<'a> _WIDTHW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: WIDTHW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> WIDTH_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WIDTH_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "8-bit. 8-bit transfers are performed (8-bit source reads and destination writes)."]
-    #[inline]
+    #[inline(always)]
     pub fn bit_8(self) -> &'a mut W {
-        self.variant(WIDTHW::BIT_8)
+        self.variant(WIDTH_A::BIT_8)
     }
     #[doc = "16-bit. 6-bit transfers are performed (16-bit source reads and destination writes)."]
-    #[inline]
+    #[inline(always)]
     pub fn bit_16(self) -> &'a mut W {
-        self.variant(WIDTHW::BIT_16)
+        self.variant(WIDTH_A::BIT_16)
     }
     #[doc = "32-bit. 32-bit transfers are performed (32-bit source reads and destination writes)."]
-    #[inline]
+    #[inline(always)]
     pub fn bit_32(self) -> &'a mut W {
-        self.variant(WIDTHW::BIT_32)
+        self.variant(WIDTH_A::BIT_32)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `SRCINC`"]
-pub enum SRCINCW {
-    #[doc = "No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device."]
+#[doc = "Determines whether the source address is incremented for each DMA transfer.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SRCINC_A {
+    #[doc = "0: No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device."]
     NO_INCREMENT,
-    #[doc = "1 x width. The source address is incremented by the amount specified by Width for each transfer. This is the usual case when the source is memory."]
+    #[doc = "1: 1 x width. The source address is incremented by the amount specified by Width for each transfer. This is the usual case when the source is memory."]
     WIDTH_X_1,
-    #[doc = "2 x width. The source address is incremented by 2 times the amount specified by Width for each transfer."]
+    #[doc = "2: 2 x width. The source address is incremented by 2 times the amount specified by Width for each transfer."]
     WIDTH_X_2,
-    #[doc = "4 x width. The source address is incremented by 4 times the amount specified by Width for each transfer."]
+    #[doc = "3: 4 x width. The source address is incremented by 4 times the amount specified by Width for each transfer."]
     WIDTH_X_4,
 }
-impl SRCINCW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            SRCINCW::NO_INCREMENT => 0,
-            SRCINCW::WIDTH_X_1 => 1,
-            SRCINCW::WIDTH_X_2 => 2,
-            SRCINCW::WIDTH_X_4 => 3,
+impl From<SRCINC_A> for u8 {
+    #[inline(always)]
+    fn from(variant: SRCINC_A) -> Self {
+        match variant {
+            SRCINC_A::NO_INCREMENT => 0,
+            SRCINC_A::WIDTH_X_1 => 1,
+            SRCINC_A::WIDTH_X_2 => 2,
+            SRCINC_A::WIDTH_X_4 => 3,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _SRCINCW<'a> {
+#[doc = "Reader of field `SRCINC`"]
+pub type SRCINC_R = crate::R<u8, SRCINC_A>;
+impl SRCINC_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SRCINC_A {
+        match self.bits {
+            0 => SRCINC_A::NO_INCREMENT,
+            1 => SRCINC_A::WIDTH_X_1,
+            2 => SRCINC_A::WIDTH_X_2,
+            3 => SRCINC_A::WIDTH_X_4,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_INCREMENT`"]
+    #[inline(always)]
+    pub fn is_no_increment(&self) -> bool {
+        *self == SRCINC_A::NO_INCREMENT
+    }
+    #[doc = "Checks if the value of the field is `WIDTH_X_1`"]
+    #[inline(always)]
+    pub fn is_width_x_1(&self) -> bool {
+        *self == SRCINC_A::WIDTH_X_1
+    }
+    #[doc = "Checks if the value of the field is `WIDTH_X_2`"]
+    #[inline(always)]
+    pub fn is_width_x_2(&self) -> bool {
+        *self == SRCINC_A::WIDTH_X_2
+    }
+    #[doc = "Checks if the value of the field is `WIDTH_X_4`"]
+    #[inline(always)]
+    pub fn is_width_x_4(&self) -> bool {
+        *self == SRCINC_A::WIDTH_X_4
+    }
+}
+#[doc = "Write proxy for field `SRCINC`"]
+pub struct SRCINC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SRCINCW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SRCINCW) -> &'a mut W {
+impl<'a> SRCINC_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SRCINC_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device."]
-    #[inline]
+    #[inline(always)]
     pub fn no_increment(self) -> &'a mut W {
-        self.variant(SRCINCW::NO_INCREMENT)
+        self.variant(SRCINC_A::NO_INCREMENT)
     }
     #[doc = "1 x width. The source address is incremented by the amount specified by Width for each transfer. This is the usual case when the source is memory."]
-    #[inline]
+    #[inline(always)]
     pub fn width_x_1(self) -> &'a mut W {
-        self.variant(SRCINCW::WIDTH_X_1)
+        self.variant(SRCINC_A::WIDTH_X_1)
     }
     #[doc = "2 x width. The source address is incremented by 2 times the amount specified by Width for each transfer."]
-    #[inline]
+    #[inline(always)]
     pub fn width_x_2(self) -> &'a mut W {
-        self.variant(SRCINCW::WIDTH_X_2)
+        self.variant(SRCINC_A::WIDTH_X_2)
     }
     #[doc = "4 x width. The source address is incremented by 4 times the amount specified by Width for each transfer."]
-    #[inline]
+    #[inline(always)]
     pub fn width_x_4(self) -> &'a mut W {
-        self.variant(SRCINCW::WIDTH_X_4)
+        self.variant(SRCINC_A::WIDTH_X_4)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 12;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 12)) | (((value as u32) & 0x03) << 12);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `DSTINC`"]
-pub enum DSTINCW {
-    #[doc = "No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device."]
+#[doc = "Determines whether the destination address is incremented for each DMA transfer.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DSTINC_A {
+    #[doc = "0: No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device."]
     NO_INCREMENT,
-    #[doc = "1 x width. The destination address is incremented by the amount specified by Width for each transfer. This is the usual case when the destination is memory."]
+    #[doc = "1: 1 x width. The destination address is incremented by the amount specified by Width for each transfer. This is the usual case when the destination is memory."]
     WIDTH_X_1,
-    #[doc = "2 x width. The destination address is incremented by 2 times the amount specified by Width for each transfer."]
+    #[doc = "2: 2 x width. The destination address is incremented by 2 times the amount specified by Width for each transfer."]
     WIDTH_X_2,
-    #[doc = "4 x width. The destination address is incremented by 4 times the amount specified by Width for each transfer."]
+    #[doc = "3: 4 x width. The destination address is incremented by 4 times the amount specified by Width for each transfer."]
     WIDTH_X_4,
 }
-impl DSTINCW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            DSTINCW::NO_INCREMENT => 0,
-            DSTINCW::WIDTH_X_1 => 1,
-            DSTINCW::WIDTH_X_2 => 2,
-            DSTINCW::WIDTH_X_4 => 3,
+impl From<DSTINC_A> for u8 {
+    #[inline(always)]
+    fn from(variant: DSTINC_A) -> Self {
+        match variant {
+            DSTINC_A::NO_INCREMENT => 0,
+            DSTINC_A::WIDTH_X_1 => 1,
+            DSTINC_A::WIDTH_X_2 => 2,
+            DSTINC_A::WIDTH_X_4 => 3,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _DSTINCW<'a> {
+#[doc = "Reader of field `DSTINC`"]
+pub type DSTINC_R = crate::R<u8, DSTINC_A>;
+impl DSTINC_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DSTINC_A {
+        match self.bits {
+            0 => DSTINC_A::NO_INCREMENT,
+            1 => DSTINC_A::WIDTH_X_1,
+            2 => DSTINC_A::WIDTH_X_2,
+            3 => DSTINC_A::WIDTH_X_4,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Checks if the value of the field is `NO_INCREMENT`"]
+    #[inline(always)]
+    pub fn is_no_increment(&self) -> bool {
+        *self == DSTINC_A::NO_INCREMENT
+    }
+    #[doc = "Checks if the value of the field is `WIDTH_X_1`"]
+    #[inline(always)]
+    pub fn is_width_x_1(&self) -> bool {
+        *self == DSTINC_A::WIDTH_X_1
+    }
+    #[doc = "Checks if the value of the field is `WIDTH_X_2`"]
+    #[inline(always)]
+    pub fn is_width_x_2(&self) -> bool {
+        *self == DSTINC_A::WIDTH_X_2
+    }
+    #[doc = "Checks if the value of the field is `WIDTH_X_4`"]
+    #[inline(always)]
+    pub fn is_width_x_4(&self) -> bool {
+        *self == DSTINC_A::WIDTH_X_4
+    }
+}
+#[doc = "Write proxy for field `DSTINC`"]
+pub struct DSTINC_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _DSTINCW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: DSTINCW) -> &'a mut W {
+impl<'a> DSTINC_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: DSTINC_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device."]
-    #[inline]
+    #[inline(always)]
     pub fn no_increment(self) -> &'a mut W {
-        self.variant(DSTINCW::NO_INCREMENT)
+        self.variant(DSTINC_A::NO_INCREMENT)
     }
     #[doc = "1 x width. The destination address is incremented by the amount specified by Width for each transfer. This is the usual case when the destination is memory."]
-    #[inline]
+    #[inline(always)]
     pub fn width_x_1(self) -> &'a mut W {
-        self.variant(DSTINCW::WIDTH_X_1)
+        self.variant(DSTINC_A::WIDTH_X_1)
     }
     #[doc = "2 x width. The destination address is incremented by 2 times the amount specified by Width for each transfer."]
-    #[inline]
+    #[inline(always)]
     pub fn width_x_2(self) -> &'a mut W {
-        self.variant(DSTINCW::WIDTH_X_2)
+        self.variant(DSTINC_A::WIDTH_X_2)
     }
     #[doc = "4 x width. The destination address is incremented by 4 times the amount specified by Width for each transfer."]
-    #[inline]
+    #[inline(always)]
     pub fn width_x_4(self) -> &'a mut W {
-        self.variant(DSTINCW::WIDTH_X_4)
+        self.variant(DSTINC_A::WIDTH_X_4)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 14;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03 << 14)) | (((value as u32) & 0x03) << 14);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _XFERCOUNTW<'a> {
+#[doc = "Reader of field `XFERCOUNT`"]
+pub type XFERCOUNT_R = crate::R<u16, u16>;
+#[doc = "Write proxy for field `XFERCOUNT`"]
+pub struct XFERCOUNT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _XFERCOUNTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> XFERCOUNT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 1023;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x03ff << 16)) | (((value as u32) & 0x03ff) << 16);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled."]
-    #[inline]
-    pub fn cfgvalid(&self) -> CFGVALIDR {
-        CFGVALIDR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn cfgvalid(&self) -> CFGVALID_R {
+        CFGVALID_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers."]
-    #[inline]
-    pub fn reload(&self) -> RELOADR {
-        RELOADR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn reload(&self) -> RELOAD_R {
+        RELOAD_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Software Trigger."]
-    #[inline]
-    pub fn swtrig(&self) -> SWTRIGR {
-        SWTRIGR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn swtrig(&self) -> SWTRIG_R {
+        SWTRIG_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Clear Trigger."]
-    #[inline]
-    pub fn clrtrig(&self) -> CLRTRIGR {
-        CLRTRIGR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn clrtrig(&self) -> CLRTRIG_R {
+        CLRTRIG_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
-    #[inline]
-    pub fn setinta(&self) -> SETINTAR {
-        SETINTAR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn setinta(&self) -> SETINTA_R {
+        SETINTA_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
-    #[inline]
-    pub fn setintb(&self) -> SETINTBR {
-        SETINTBR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn setintb(&self) -> SETINTB_R {
+        SETINTB_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bits 8:9 - Transfer width used for this DMA channel."]
-    #[inline]
-    pub fn width(&self) -> WIDTHR {
-        WIDTHR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn width(&self) -> WIDTH_R {
+        WIDTH_R::new(((self.bits >> 8) & 0x03) as u8)
     }
     #[doc = "Bits 12:13 - Determines whether the source address is incremented for each DMA transfer."]
-    #[inline]
-    pub fn srcinc(&self) -> SRCINCR {
-        SRCINCR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 12;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn srcinc(&self) -> SRCINC_R {
+        SRCINC_R::new(((self.bits >> 12) & 0x03) as u8)
     }
     #[doc = "Bits 14:15 - Determines whether the destination address is incremented for each DMA transfer."]
-    #[inline]
-    pub fn dstinc(&self) -> DSTINCR {
-        DSTINCR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 14;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn dstinc(&self) -> DSTINC_R {
+        DSTINC_R::new(((self.bits >> 14) & 0x03) as u8)
     }
     #[doc = "Bits 16:25 - Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. 0x3FF = a total of 1,024 transfers will be performed."]
-    #[inline]
-    pub fn xfercount(&self) -> XFERCOUNTR {
-        let bits = {
-            const MASK: u16 = 1023;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        };
-        XFERCOUNTR { bits }
+    #[inline(always)]
+    pub fn xfercount(&self) -> XFERCOUNT_R {
+        XFERCOUNT_R::new(((self.bits >> 16) & 0x03ff) as u16)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled."]
-    #[inline]
-    pub fn cfgvalid(&mut self) -> _CFGVALIDW {
-        _CFGVALIDW { w: self }
+    #[inline(always)]
+    pub fn cfgvalid(&mut self) -> CFGVALID_W {
+        CFGVALID_W { w: self }
     }
     #[doc = "Bit 1 - Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers."]
-    #[inline]
-    pub fn reload(&mut self) -> _RELOADW {
-        _RELOADW { w: self }
+    #[inline(always)]
+    pub fn reload(&mut self) -> RELOAD_W {
+        RELOAD_W { w: self }
     }
     #[doc = "Bit 2 - Software Trigger."]
-    #[inline]
-    pub fn swtrig(&mut self) -> _SWTRIGW {
-        _SWTRIGW { w: self }
+    #[inline(always)]
+    pub fn swtrig(&mut self) -> SWTRIG_W {
+        SWTRIG_W { w: self }
     }
     #[doc = "Bit 3 - Clear Trigger."]
-    #[inline]
-    pub fn clrtrig(&mut self) -> _CLRTRIGW {
-        _CLRTRIGW { w: self }
+    #[inline(always)]
+    pub fn clrtrig(&mut self) -> CLRTRIG_W {
+        CLRTRIG_W { w: self }
     }
     #[doc = "Bit 4 - Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
-    #[inline]
-    pub fn setinta(&mut self) -> _SETINTAW {
-        _SETINTAW { w: self }
+    #[inline(always)]
+    pub fn setinta(&mut self) -> SETINTA_W {
+        SETINTA_W { w: self }
     }
     #[doc = "Bit 5 - Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
-    #[inline]
-    pub fn setintb(&mut self) -> _SETINTBW {
-        _SETINTBW { w: self }
+    #[inline(always)]
+    pub fn setintb(&mut self) -> SETINTB_W {
+        SETINTB_W { w: self }
     }
     #[doc = "Bits 8:9 - Transfer width used for this DMA channel."]
-    #[inline]
-    pub fn width(&mut self) -> _WIDTHW {
-        _WIDTHW { w: self }
+    #[inline(always)]
+    pub fn width(&mut self) -> WIDTH_W {
+        WIDTH_W { w: self }
     }
     #[doc = "Bits 12:13 - Determines whether the source address is incremented for each DMA transfer."]
-    #[inline]
-    pub fn srcinc(&mut self) -> _SRCINCW {
-        _SRCINCW { w: self }
+    #[inline(always)]
+    pub fn srcinc(&mut self) -> SRCINC_W {
+        SRCINC_W { w: self }
     }
     #[doc = "Bits 14:15 - Determines whether the destination address is incremented for each DMA transfer."]
-    #[inline]
-    pub fn dstinc(&mut self) -> _DSTINCW {
-        _DSTINCW { w: self }
+    #[inline(always)]
+    pub fn dstinc(&mut self) -> DSTINC_W {
+        DSTINC_W { w: self }
     }
     #[doc = "Bits 16:25 - Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. 0x3FF = a total of 1,024 transfers will be performed."]
-    #[inline]
-    pub fn xfercount(&mut self) -> _XFERCOUNTW {
-        _XFERCOUNTW { w: self }
+    #[inline(always)]
+    pub fn xfercount(&mut self) -> XFERCOUNT_W {
+        XFERCOUNT_W { w: self }
     }
 }
