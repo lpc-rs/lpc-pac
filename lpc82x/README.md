@@ -16,13 +16,13 @@ Please also check out [lpc82x-hal], a higher-level crate for interfacing with LP
 Add this to the `[dependencies]` section of your `Cargo.toml` to include `lpc82x-pac` in your Cargo project:
 
 ``` toml
-lpc82x-pac = "0.6"
+lpc82x-pac = "0.7"
 ```
 
 This crate includes an optional `rt` feature that can be activated by adding this instead:
 
 ``` toml
-lpc82x-pac = { version = "0.6", features = ["rt"] }
+lpc82x-pac = { version = "0.7", features = ["rt"] }
 ```
 
 The `rt` feature includes the [cortex-m-rt] crate and provides overridable interrupt handlers. Please refer to the [svd2rust documentation] for further details.
