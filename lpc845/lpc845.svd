@@ -5,7 +5,7 @@
   <version>1.0</version>
   <description>LPC845M301JBD48,LPC845M301JBD64,LPC845M301JHI33,LPC845M301JHI48</description>
   <licenseText>
-Copyright 2016-2018 NXP
+Copyright 2016-2019 NXP
 All rights reserved.
 
 SPDX-License-Identifier: BSD-3-Clause
@@ -33,6 +33,10 @@ SPDX-License-Identifier: BSD-3-Clause
         <size>0x1C</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>WDT</name>
+        <value>12</value>
+      </interrupt>
       <registers>
         <register>
           <name>MOD</name>
@@ -225,6 +229,10 @@ SPDX-License-Identifier: BSD-3-Clause
         <size>0xFC</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>MRT0</name>
+        <value>10</value>
+      </interrupt>
       <registers>
         <cluster>
           <dim>4</dim>
@@ -391,31 +399,6 @@ SPDX-License-Identifier: BSD-3-Clause
             </fields>
           </register>
         </cluster>
-        <register>
-          <name>MODCFG</name>
-          <description>Module Configuration register. This register provides information about this particular MRT instance.</description>
-          <addressOffset>0xF0</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0x1F4</resetValue>
-          <resetMask>0x1FF</resetMask>
-          <fields>
-            <field>
-              <name>NOC</name>
-              <description>Identifies the number of channels in this MRT.(4 channels on this device.)</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>NOB</name>
-              <description>Identifies the number of timer bits in this MRT. (31 bits wide on this device.)</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
         <register>
           <name>IDLE_CH</name>
           <description>Idle channel register. This register returns the number of the first idle channel.</description>
@@ -2793,8 +2776,8 @@ SPDX-License-Identifier: BSD-3-Clause
           <addressOffset>0</addressOffset>
           <size>32</size>
           <access>read-write</access>
-          <resetValue>0x600</resetValue>
-          <resetMask>0x7FFF</resetMask>
+          <resetValue>0</resetValue>
+          <resetMask>0x400005FF</resetMask>
           <fields>
             <field>
               <name>CLKDIV</name>
@@ -3992,6 +3975,10 @@ SPDX-License-Identifier: BSD-3-Clause
         <size>0x8</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>CMP_CAPT</name>
+        <value>11</value>
+      </interrupt>
       <registers>
         <register>
           <name>CTRL</name>
@@ -5035,6 +5022,16 @@ SPDX-License-Identifier: BSD-3-Clause
                   <description>Channel 2 Falling Edge. Falling edge of the signal on capture channel 2 clears the timer (if bit 4 is set).</description>
                   <value>0x5</value>
                 </enumeratedValue>
+                <enumeratedValue>
+                  <name>CHANNEL_3_RISING</name>
+                  <description>Channel 2 Rising Edge. Rising edge of the signal on capture channel 2 clears the timer (if bit 4 is set).</description>
+                  <value>0x6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>CHANNEL_3_FALLING</name>
+                  <description>Channel 2 Falling Edge. Falling edge of the signal on capture channel 2 clears the timer (if bit 4 is set).</description>
+                  <value>0x7</value>
+                </enumeratedValue>
               </enumeratedValues>
             </field>
           </fields>
@@ -5158,6 +5155,10 @@ SPDX-License-Identifier: BSD-3-Clause
         <size>0xFEC</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>FLASH</name>
+        <value>14</value>
+      </interrupt>
       <registers>
         <register>
           <name>FLASHCFG</name>
@@ -14429,6 +14430,10 @@ SPDX-License-Identifier: BSD-3-Clause
         <size>0x3FC</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>BOD</name>
+        <value>13</value>
+      </interrupt>
       <registers>
         <register>
           <name>SYSMEMREMAP</name>
@@ -16438,7 +16443,7 @@ SPDX-License-Identifier: BSD-3-Clause
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>FRO0CLK</name>
+                  <name>FRG0CLK</name>
                   <description>Frg0clk</description>
                   <value>0x2</value>
                 </enumeratedValue>
@@ -19806,25 +19811,6 @@ SPDX-License-Identifier: BSD-3-Clause
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>MSTIDLEEN</name>
-              <description>Determines whether an interrupt occurs when the MSTIDLE enable</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>MSTIDLEEN_0</name>
-                  <description>No interrupt will be generated when MSTIDLE enabled.</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>MSTIDLEEN_1</name>
-                  <description>An interrupt will be generated when MSTIDLE enabled.</description>
-                  <value>0x1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
           </fields>
         </register>
         <register>
@@ -19875,13 +19861,6 @@ SPDX-License-Identifier: BSD-3-Clause
               <name>SSDEN</name>
               <description>Writing 1 clears the corresponding bits in the INTENSET register.</description>
               <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>write-only</access>
-            </field>
-            <field>
-              <name>MSTIDLE</name>
-              <description>Writing 1 clears the corresponding bits in the INTENSET register.</description>
-              <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>write-only</access>
             </field>
@@ -21088,44 +21067,6 @@ SPDX-License-Identifier: BSD-3-Clause
               </enumeratedValues>
             </field>
             <field>
-              <name>MODE32K</name>
-              <description>Selects standard or 32 kHz clocking mode.</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>DISABLED</name>
-                  <description>Disabled. USART uses standard clocking.</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>ENABLED</name>
-                  <description>Enabled. USART uses the 32 kHz clock from the RTC oscillator as the clock source to the BRG, and uses a special bit clocking scheme.</description>
-                  <value>0x1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>LINMODE</name>
-              <description>LIN break mode enable.</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>DISABLED</name>
-                  <description>Disabled. Break detect and generate is configured for normal operation.</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>ENABLED</name>
-                  <description>Enabled. Break detect and generate is configured for LIN bus operation.</description>
-                  <value>0x1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
               <name>CTSEN</name>
               <description>CTS Enable. Determines whether CTS is used for flow control. CTS can be from the input pin, or from the USART's own RTS if loopback mode is enabled.</description>
               <bitOffset>9</bitOffset>
@@ -21216,25 +21157,6 @@ SPDX-License-Identifier: BSD-3-Clause
                 <enumeratedValue>
                   <name>LOOPBACK</name>
                   <description>Loopback mode. This provides a mechanism to perform diagnostic loopback testing for USART data. Serial data from the transmitter (Un_TXD) is connected internally to serial input of the receive (Un_RXD). Un_TXD and Un_RTS activity will also appear on external pins if these functions are configured to appear on device pins. The receiver RTS signal is also looped back to CTS and performs flow control if enabled by CTSEN.</description>
-                  <value>0x1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>IOMODE</name>
-              <description>I/O output mode.</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>STANDARD</name>
-                  <description>Standard. USART output and input operate in standard fashion.</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>IRDA</name>
-                  <description>IrDA. USART output and input operate in IrDA mode.</description>
                   <value>0x1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -24480,7 +24402,7 @@ SPDX-License-Identifier: BSD-3-Clause
           <size>32</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
+          <resetMask>0x3FFFFFF</resetMask>
           <fields>
             <field>
               <name>ENA</name>
@@ -24514,7 +24436,7 @@ SPDX-License-Identifier: BSD-3-Clause
           <description>Channel Active status for all DMA channels.</description>
           <addressOffset>0x30</addressOffset>
           <size>32</size>
-          <access>read-only</access>
+          <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
@@ -24522,7 +24444,7 @@ SPDX-License-Identifier: BSD-3-Clause
               <name>ACT</name>
               <description>Active flag for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = not active. 1 = active.</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
+              <bitWidth>25</bitWidth>
               <access>read-only</access>
             </field>
           </fields>
@@ -24532,7 +24454,7 @@ SPDX-License-Identifier: BSD-3-Clause
           <description>Channel Busy status for all DMA channels.</description>
           <addressOffset>0x38</addressOffset>
           <size>32</size>
-          <access>read-only</access>
+          <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
@@ -24540,7 +24462,7 @@ SPDX-License-Identifier: BSD-3-Clause
               <name>BSY</name>
               <description>Busy flag for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = not busy. 1 = busy.</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
+              <bitWidth>25</bitWidth>
               <access>read-only</access>
             </field>
           </fields>
@@ -24558,7 +24480,7 @@ SPDX-License-Identifier: BSD-3-Clause
               <name>ERR</name>
               <description>Error Interrupt flag for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = error interrupt is not active. 1 = error interrupt is active.</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
+              <bitWidth>25</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -24576,7 +24498,7 @@ SPDX-License-Identifier: BSD-3-Clause
               <name>INTEN</name>
               <description>Interrupt Enable read and set for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = interrupt for DMA channel is disabled. 1 = interrupt for DMA channel is enabled.</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
+              <bitWidth>25</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -24594,7 +24516,7 @@ SPDX-License-Identifier: BSD-3-Clause
               <name>CLR</name>
               <description>Writing ones to this register clears corresponding bits in the INTENSET0. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved.</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
+              <bitWidth>25</bitWidth>
               <access>write-only</access>
             </field>
           </fields>
@@ -24612,7 +24534,7 @@ SPDX-License-Identifier: BSD-3-Clause
               <name>IA</name>
               <description>Interrupt A status for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = the DMA channel interrupt A is not active. 1 = the DMA channel interrupt A is active.</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
+              <bitWidth>25</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -24630,7 +24552,7 @@ SPDX-License-Identifier: BSD-3-Clause
               <name>IB</name>
               <description>Interrupt B status for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = the DMA channel interrupt B is not active. 1 = the DMA channel interrupt B is active.</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
+              <bitWidth>25</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -25393,7 +25315,9 @@ SPDX-License-Identifier: BSD-3-Clause
           </fields>
         </register>
         <register>
-          <name>MPIN0</name>
+          <dim>2</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <name>MPIN[%s]</name>
           <description>Masked port register</description>
           <addressOffset>0x2180</addressOffset>
           <size>32</size>
