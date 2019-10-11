@@ -284,7 +284,7 @@ SPDX-License-Identifier: BSD-3-Clause
             <size>32</size>
             <access>read-only</access>
             <resetValue>0xFFFFFF</resetValue>
-            <resetMask>0xFFFFFF</resetMask>
+            <resetMask>0x7FFFFFFF</resetMask>
             <fields>
               <field>
                 <name>VALUE</name>
