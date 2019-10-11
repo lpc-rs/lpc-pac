@@ -1,4 +1,33 @@
-<a name="v0.4.0"></a>
+<a name="v0.7.0"></a>
+## 0.7.0 (2019-10-11)
+
+- Fix some documentation issues
+- Updated `cortex-m` to 0.6.1
+- Updated `svd2rust` to 0.16.1
+- Updated to SVD file from MCUXpresso SDK 2.6.0
+- Fixed numerous problems in SVD file (https://github.com/lpc-rs/lpc-pac/issues/40)
+
+
+<a name="v0.6.2"></a>
+## 0.6.2 (2019-02-26)
+
+- Fix more problems in the README
+
+
+<a name="v0.6.1"></a>
+## 0.6.1 (2019-02-26)
+
+- Fix some problems in the README
+
+
+<a name="v0.6.0"></a>
+## 0.6.0 (2019-02-26)
+
+- Moved to new Git repository at https://github.com/lpc-rs/lpc-pac
+- Update to svd2rust 0.14.0
+- Rename crate to `lpc82x-pac`
+
+<a name="v0.5.0"></a>
 ## v0.5.0 (2018-09-19)
 
 #### Features
