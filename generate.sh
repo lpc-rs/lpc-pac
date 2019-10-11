@@ -16,6 +16,7 @@ PACS=(
     "lpc11uxx:--nightly"
     "lpc176x5x:--nightly"
     "lpc82x"
+    "lpc845"
 )
 
 # everything is relative to the generate script
