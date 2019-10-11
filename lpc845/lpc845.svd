@@ -3660,7 +3660,7 @@ SPDX-License-Identifier: BSD-3-Clause
           <size>32</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
-          <resetMask>0x3</resetMask>
+          <resetMask>0x20</resetMask>
           <fields>
             <field>
               <name>VRANGE</name>
