@@ -1,105 +1,40 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::DMA_INMUX_INMUX {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register DMA_INMUX_INMUX[%s]"]
+pub type R = crate::R<u32, super::DMA_INMUX_INMUX>;
+#[doc = "Writer for register DMA_INMUX_INMUX[%s]"]
+pub type W = crate::W<u32, super::DMA_INMUX_INMUX>;
+#[doc = "Register DMA_INMUX_INMUX[%s] `reset()`'s with value 0x1f"]
+impl crate::ResetValue for super::DMA_INMUX_INMUX {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x1f
     }
 }
-#[doc = r" Value of the field"]
-pub struct INPR {
-    bits: u8,
-}
-impl INPR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _INPW<'a> {
+#[doc = "Reader of field `INP`"]
+pub type INP_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `INP`"]
+pub struct INP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _INPW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> INP_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 31;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x1f) | ((value as u32) & 0x1f);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:4 - DMA trigger output number (decimal value) for DMA channel n (n = 0 to 17)."]
-    #[inline]
-    pub fn inp(&self) -> INPR {
-        let bits = {
-            const MASK: u8 = 31;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        INPR { bits }
+    #[inline(always)]
+    pub fn inp(&self) -> INP_R {
+        INP_R::new((self.bits & 0x1f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 31 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:4 - DMA trigger output number (decimal value) for DMA channel n (n = 0 to 17)."]
-    #[inline]
-    pub fn inp(&mut self) -> _INPW {
-        _INPW { w: self }
+    #[inline(always)]
+    pub fn inp(&mut self) -> INP_W {
+        INP_W { w: self }
     }
 }

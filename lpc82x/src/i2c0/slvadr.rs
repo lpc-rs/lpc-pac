@@ -1,224 +1,128 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::SLVADR {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register SLVADR[%s]"]
+pub type R = crate::R<u32, super::SLVADR>;
+#[doc = "Writer for register SLVADR[%s]"]
+pub type W = crate::W<u32, super::SLVADR>;
+#[doc = "Register SLVADR[%s] `reset()`'s with value 0x01"]
+impl crate::ResetValue for super::SLVADR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x01
     }
 }
-#[doc = "Possible values of the field `SADISABLE`"]
+#[doc = "Slave Address n Disable.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SADISABLER {
-    #[doc = "Enabled. Slave Address n is enabled and will be recognized with any changes specified by the SLVQUAL0 register."]
+pub enum SADISABLE_A {
+    #[doc = "0: Enabled. Slave Address n is enabled."]
     ENABLED,
-    #[doc = "Ignored Slave Address n is ignored."]
-    IGNORED_SLAVE_ADDRES,
+    #[doc = "1: Ignored Slave Address n is ignored."]
+    DISABLED,
 }
-impl SADISABLER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            SADISABLER::ENABLED => false,
-            SADISABLER::IGNORED_SLAVE_ADDRES => true,
+impl From<SADISABLE_A> for bool {
+    #[inline(always)]
+    fn from(variant: SADISABLE_A) -> Self {
+        match variant {
+            SADISABLE_A::ENABLED => false,
+            SADISABLE_A::DISABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> SADISABLER {
-        match value {
-            false => SADISABLER::ENABLED,
-            true => SADISABLER::IGNORED_SLAVE_ADDRES,
+}
+#[doc = "Reader of field `SADISABLE`"]
+pub type SADISABLE_R = crate::R<bool, SADISABLE_A>;
+impl SADISABLE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SADISABLE_A {
+        match self.bits {
+            false => SADISABLE_A::ENABLED,
+            true => SADISABLE_A::DISABLED,
         }
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SADISABLER::ENABLED
+        *self == SADISABLE_A::ENABLED
     }
-    #[doc = "Checks if the value of the field is `IGNORED_SLAVE_ADDRES`"]
-    #[inline]
-    pub fn is_ignored_slave_addres(&self) -> bool {
-        *self == SADISABLER::IGNORED_SLAVE_ADDRES
-    }
-}
-#[doc = r" Value of the field"]
-pub struct SLVADRR {
-    bits: u8,
-}
-impl SLVADRR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == SADISABLE_A::DISABLED
     }
 }
-#[doc = "Values that can be written to the field `SADISABLE`"]
-pub enum SADISABLEW {
-    #[doc = "Enabled. Slave Address n is enabled and will be recognized with any changes specified by the SLVQUAL0 register."]
-    ENABLED,
-    #[doc = "Ignored Slave Address n is ignored."]
-    IGNORED_SLAVE_ADDRES,
-}
-impl SADISABLEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            SADISABLEW::ENABLED => false,
-            SADISABLEW::IGNORED_SLAVE_ADDRES => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SADISABLEW<'a> {
+#[doc = "Write proxy for field `SADISABLE`"]
+pub struct SADISABLE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SADISABLEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SADISABLEW) -> &'a mut W {
+impl<'a> SADISABLE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SADISABLE_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
-    #[doc = "Enabled. Slave Address n is enabled and will be recognized with any changes specified by the SLVQUAL0 register."]
-    #[inline]
+    #[doc = "Enabled. Slave Address n is enabled."]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(SADISABLEW::ENABLED)
+        self.variant(SADISABLE_A::ENABLED)
     }
     #[doc = "Ignored Slave Address n is ignored."]
-    #[inline]
-    pub fn ignored_slave_addres(self) -> &'a mut W {
-        self.variant(SADISABLEW::IGNORED_SLAVE_ADDRES)
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(SADISABLE_A::DISABLED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _SLVADRW<'a> {
+#[doc = "Reader of field `SLVADR`"]
+pub type SLVADR_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `SLVADR`"]
+pub struct SLVADR_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SLVADRW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> SLVADR_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 127;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x7f << 1)) | (((value as u32) & 0x7f) << 1);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Slave Address n Disable."]
-    #[inline]
-    pub fn sadisable(&self) -> SADISABLER {
-        SADISABLER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn sadisable(&self) -> SADISABLE_R {
+        SADISABLE_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bits 1:7 - Seven bit slave address that is compared to received addresses if enabled."]
-    #[inline]
-    pub fn slvadr(&self) -> SLVADRR {
-        let bits = {
-            const MASK: u8 = 127;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SLVADRR { bits }
+    #[doc = "Bits 1:7 - Slave Address. Seven bit slave address that is compared to received addresses if enabled."]
+    #[inline(always)]
+    pub fn slvadr(&self) -> SLVADR_R {
+        SLVADR_R::new(((self.bits >> 1) & 0x7f) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 1 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Slave Address n Disable."]
-    #[inline]
-    pub fn sadisable(&mut self) -> _SADISABLEW {
-        _SADISABLEW { w: self }
+    #[inline(always)]
+    pub fn sadisable(&mut self) -> SADISABLE_W {
+        SADISABLE_W { w: self }
     }
-    #[doc = "Bits 1:7 - Seven bit slave address that is compared to received addresses if enabled."]
-    #[inline]
-    pub fn slvadr(&mut self) -> _SLVADRW {
-        _SLVADRW { w: self }
+    #[doc = "Bits 1:7 - Slave Address. Seven bit slave address that is compared to received addresses if enabled."]
+    #[inline(always)]
+    pub fn slvadr(&mut self) -> SLVADR_W {
+        SLVADR_W { w: self }
     }
 }
