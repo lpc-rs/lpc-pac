@@ -24424,7 +24424,7 @@ SPDX-License-Identifier: BSD-3-Clause
           <description>Channel Active status for all DMA channels.</description>
           <addressOffset>0x30</addressOffset>
           <size>32</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
@@ -24442,7 +24442,7 @@ SPDX-License-Identifier: BSD-3-Clause
           <description>Channel Busy status for all DMA channels.</description>
           <addressOffset>0x38</addressOffset>
           <size>32</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
