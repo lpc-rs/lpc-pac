@@ -13,8 +13,8 @@ impl crate::ResetValue for super::CTRL {
 #[doc = "Select the self wake-up timer clock source. Remark: This bit only has an effect if the SEL_EXTCLK bit is not set.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CLKSEL_A {
-    #[doc = "0: Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
-    DIVIDED_IRC_CLOCK,
+    #[doc = "0: Divided FRO clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
+    DIVIDED_FRO_CLOCK,
     #[doc = "1: This is the (nominally) 10 kHz clock and provides time-out periods of up to approximately 119 hours in 100 us increments. The accuracy of this clock is limited to +/- 40 % over temperature and processing. Remark: This clock is available in all power modes. Prior to use, the low-power oscillator must be enabled. The oscillator must also be set to remain active in Deep power-down if needed."]
     LOW_POWER_CLOCK,
 }
@@ -22,7 +22,7 @@ impl From<CLKSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CLKSEL_A) -> Self {
         match variant {
-            CLKSEL_A::DIVIDED_IRC_CLOCK => false,
+            CLKSEL_A::DIVIDED_FRO_CLOCK => false,
             CLKSEL_A::LOW_POWER_CLOCK => true,
         }
     }
@@ -34,14 +34,14 @@ impl CLKSEL_R {
     #[inline(always)]
     pub fn variant(&self) -> CLKSEL_A {
         match self.bits {
-            false => CLKSEL_A::DIVIDED_IRC_CLOCK,
+            false => CLKSEL_A::DIVIDED_FRO_CLOCK,
             true => CLKSEL_A::LOW_POWER_CLOCK,
         }
     }
-    #[doc = "Checks if the value of the field is `DIVIDED_IRC_CLOCK`"]
+    #[doc = "Checks if the value of the field is `DIVIDED_FRO_CLOCK`"]
     #[inline(always)]
-    pub fn is_divided_irc_clock(&self) -> bool {
-        *self == CLKSEL_A::DIVIDED_IRC_CLOCK
+    pub fn is_divided_fro_clock(&self) -> bool {
+        *self == CLKSEL_A::DIVIDED_FRO_CLOCK
     }
     #[doc = "Checks if the value of the field is `LOW_POWER_CLOCK`"]
     #[inline(always)]
@@ -61,10 +61,10 @@ impl<'a> CLKSEL_W<'a> {
             self.bit(variant.into())
         }
     }
-    #[doc = "Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
+    #[doc = "Divided FRO clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
     #[inline(always)]
-    pub fn divided_irc_clock(self) -> &'a mut W {
-        self.variant(CLKSEL_A::DIVIDED_IRC_CLOCK)
+    pub fn divided_fro_clock(self) -> &'a mut W {
+        self.variant(CLKSEL_A::DIVIDED_FRO_CLOCK)
     }
     #[doc = "This is the (nominally) 10 kHz clock and provides time-out periods of up to approximately 119 hours in 100 us increments. The accuracy of this clock is limited to +/- 40 % over temperature and processing. Remark: This clock is available in all power modes. Prior to use, the low-power oscillator must be enabled. The oscillator must also be set to remain active in Deep power-down if needed."]
     #[inline(always)]
