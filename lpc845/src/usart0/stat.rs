@@ -20,6 +20,8 @@ pub type TXRDY_R = crate::R<bool, bool>;
 pub type TXIDLE_R = crate::R<bool, bool>;
 #[doc = "Reader of field `CTS`"]
 pub type CTS_R = crate::R<bool, bool>;
+#[doc = "Reader of field `DELTACTS`"]
+pub type DELTACTS_R = crate::R<bool, bool>;
 #[doc = "Write proxy for field `DELTACTS`"]
 pub struct DELTACTS_W<'a> {
     w: &'a mut W,
@@ -44,6 +46,8 @@ impl<'a> DELTACTS_W<'a> {
 }
 #[doc = "Reader of field `TXDISSTAT`"]
 pub type TXDISSTAT_R = crate::R<bool, bool>;
+#[doc = "Reader of field `OVERRUNINT`"]
+pub type OVERRUNINT_R = crate::R<bool, bool>;
 #[doc = "Write proxy for field `OVERRUNINT`"]
 pub struct OVERRUNINT_W<'a> {
     w: &'a mut W,
@@ -68,6 +72,8 @@ impl<'a> OVERRUNINT_W<'a> {
 }
 #[doc = "Reader of field `RXBRK`"]
 pub type RXBRK_R = crate::R<bool, bool>;
+#[doc = "Reader of field `DELTARXBRK`"]
+pub type DELTARXBRK_R = crate::R<bool, bool>;
 #[doc = "Write proxy for field `DELTARXBRK`"]
 pub struct DELTARXBRK_W<'a> {
     w: &'a mut W,
@@ -90,6 +96,8 @@ impl<'a> DELTARXBRK_W<'a> {
         self.w
     }
 }
+#[doc = "Reader of field `START`"]
+pub type START_R = crate::R<bool, bool>;
 #[doc = "Write proxy for field `START`"]
 pub struct START_W<'a> {
     w: &'a mut W,
@@ -112,6 +120,8 @@ impl<'a> START_W<'a> {
         self.w
     }
 }
+#[doc = "Reader of field `FRAMERRINT`"]
+pub type FRAMERRINT_R = crate::R<bool, bool>;
 #[doc = "Write proxy for field `FRAMERRINT`"]
 pub struct FRAMERRINT_W<'a> {
     w: &'a mut W,
@@ -134,6 +144,8 @@ impl<'a> FRAMERRINT_W<'a> {
         self.w
     }
 }
+#[doc = "Reader of field `PARITYERRINT`"]
+pub type PARITYERRINT_R = crate::R<bool, bool>;
 #[doc = "Write proxy for field `PARITYERRINT`"]
 pub struct PARITYERRINT_W<'a> {
     w: &'a mut W,
@@ -156,6 +168,8 @@ impl<'a> PARITYERRINT_W<'a> {
         self.w
     }
 }
+#[doc = "Reader of field `RXNOISEINT`"]
+pub type RXNOISEINT_R = crate::R<bool, bool>;
 #[doc = "Write proxy for field `RXNOISEINT`"]
 pub struct RXNOISEINT_W<'a> {
     w: &'a mut W,
@@ -178,6 +192,8 @@ impl<'a> RXNOISEINT_W<'a> {
         self.w
     }
 }
+#[doc = "Reader of field `ABERR`"]
+pub type ABERR_R = crate::R<bool, bool>;
 #[doc = "Write proxy for field `ABERR`"]
 pub struct ABERR_W<'a> {
     w: &'a mut W,
@@ -226,15 +242,55 @@ impl R {
     pub fn cts(&self) -> CTS_R {
         CTS_R::new(((self.bits >> 4) & 0x01) != 0)
     }
+    #[doc = "Bit 5 - This bit is set when a change in the state is detected for the CTS flag above. This bit is cleared by software."]
+    #[inline(always)]
+    pub fn deltacts(&self) -> DELTACTS_R {
+        DELTACTS_R::new(((self.bits >> 5) & 0x01) != 0)
+    }
     #[doc = "Bit 6 - Transmitter Disabled Interrupt flag. When 1, this bit indicates that the USART transmitter is fully idle after being disabled via the TXDIS in the CTL register (TXDIS = 1)."]
     #[inline(always)]
     pub fn txdisstat(&self) -> TXDISSTAT_R {
         TXDISSTAT_R::new(((self.bits >> 6) & 0x01) != 0)
     }
+    #[doc = "Bit 8 - Overrun Error interrupt flag. This flag is set when a new character is received while the receiver buffer is still in use. If this occurs, the newly received character in the shift register is lost."]
+    #[inline(always)]
+    pub fn overrunint(&self) -> OVERRUNINT_R {
+        OVERRUNINT_R::new(((self.bits >> 8) & 0x01) != 0)
+    }
     #[doc = "Bit 10 - Received Break. This bit reflects the current state of the receiver break detection logic. It is set when the Un_RXD pin remains low for 16 bit times. Note that FRAMERRINT will also be set when this condition occurs because the stop bit(s) for the character would be missing. RXBRK is cleared when the Un_RXD pin goes high."]
     #[inline(always)]
     pub fn rxbrk(&self) -> RXBRK_R {
         RXBRK_R::new(((self.bits >> 10) & 0x01) != 0)
+    }
+    #[doc = "Bit 11 - This bit is set when a change in the state of receiver break detection occurs.Cleared by software."]
+    #[inline(always)]
+    pub fn deltarxbrk(&self) -> DELTARXBRK_R {
+        DELTARXBRK_R::new(((self.bits >> 11) & 0x01) != 0)
+    }
+    #[doc = "Bit 12 - This bit is set when a start is detected on the receiver input. Its purpose is primarily to allow wake-up from Deep-sleep or Power-down mode immediately when a start is detected. Cleared by software."]
+    #[inline(always)]
+    pub fn start(&self) -> START_R {
+        START_R::new(((self.bits >> 12) & 0x01) != 0)
+    }
+    #[doc = "Bit 13 - Framing Error interrupt flag. This flag is set when a character is received with a missing stop bit at the expected location. This could be an indication of a baud rate or configuration mismatch with the transmitting source."]
+    #[inline(always)]
+    pub fn framerrint(&self) -> FRAMERRINT_R {
+        FRAMERRINT_R::new(((self.bits >> 13) & 0x01) != 0)
+    }
+    #[doc = "Bit 14 - Parity Error interrupt flag. This flag is set when a parity error is detected in a received character."]
+    #[inline(always)]
+    pub fn parityerrint(&self) -> PARITYERRINT_R {
+        PARITYERRINT_R::new(((self.bits >> 14) & 0x01) != 0)
+    }
+    #[doc = "Bit 15 - Received Noise interrupt flag. Three samples of received data are taken in order to determine the value of each received data bit, except in synchronous mode. This acts as a noise filter if one sample disagrees. This flag is set when a received data bit contains one disagreeing sample. This could indicate line noise, a baud rate or character format mismatch, or loss of synchronization during data reception."]
+    #[inline(always)]
+    pub fn rxnoiseint(&self) -> RXNOISEINT_R {
+        RXNOISEINT_R::new(((self.bits >> 15) & 0x01) != 0)
+    }
+    #[doc = "Bit 16 - Autobaud Error. An autobaud error can occur if the BRG counts to its limit before the end of the start bit that is being measured, essentially an autobaud time-out."]
+    #[inline(always)]
+    pub fn aberr(&self) -> ABERR_R {
+        ABERR_R::new(((self.bits >> 16) & 0x01) != 0)
     }
 }
 impl W {
