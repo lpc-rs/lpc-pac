@@ -39,13 +39,6 @@ Another problem that we inherit from the SVD file is that some register and fiel
 
 At this point, there is no guarantee of API stability. This means that we reserve the right to make changes to the API, that might break existing programs when they upgrade.
 
-## Update Procedure
-
-The repository contains an [update script], that can be used to re-generate the source code. This script updates all required tools ([svd2rust] and [rustfmt]), copies the SVD file, applies various patches to it, and then re-generates the code.
-
-The patches that are applied to the SVD file are relatively minimal, and are just intended to fix various problems with the file that otherwise would prevent code generation, or would lead to incorrect code being generated.
-
-
 ## License
 
 This project is open source software, licensed under the terms of the [Zero Clause BSD License][Zero Clause BSD License] (0BSD, for short). This basically means you can do anything with the software, without any restrictions, but you can't hold the authors liable for problems.
