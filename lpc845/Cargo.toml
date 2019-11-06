@@ -1,7 +1,7 @@
 [package]
 name    = "lpc845-pac"
 version = "0.2.0"
-authors = ["David Sawatke <d-lpc@sawatzke.dev>"]
+authors = ["David Sawatzke <d-lpc@sawatzke.dev>"]
 
 description   = "Low-level register mappings for the NXP LPC845 series of ARM Cortex-M0+ microcontrollers"
 documentation = "https://docs.rs/lpc845-pac"
