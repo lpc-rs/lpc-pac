@@ -1,3 +1,13 @@
+<a name="v0.3.0"></a>
+## v0.3.0 (2019-11-06)
+
+- Fix register value name in WKT.CTRL ([#43])
+- Fix access to STAT register in USART peripheral ([#44])
+
+[#43]: https://github.com/lpc-rs/lpc-pac/pull/43
+[#44]: https://github.com/lpc-rs/lpc-pac/pull/44
+
+
 <a name="v0.2.0"></a>
 ## v0.2.0 (2019-10-11)
 
