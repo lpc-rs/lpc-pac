@@ -1,9 +1,9 @@
-#[doc = "Reader of register SCTMATCHREL0"]
-pub type R = crate::R<u32, super::SCTMATCHREL0>;
-#[doc = "Writer for register SCTMATCHREL0"]
-pub type W = crate::W<u32, super::SCTMATCHREL0>;
-#[doc = "Register SCTMATCHREL0 `reset()`'s with value 0"]
-impl crate::ResetValue for super::SCTMATCHREL0 {
+#[doc = "Reader of register SCTMATCHREL[%s]"]
+pub type R = crate::R<u32, super::SCTMATCHREL>;
+#[doc = "Writer for register SCTMATCHREL[%s]"]
+pub type W = crate::W<u32, super::SCTMATCHREL>;
+#[doc = "Register SCTMATCHREL[%s] `reset()`'s with value 0"]
+impl crate::ResetValue for super::SCTMATCHREL {
     type Type = u32;
     #[inline(always)]
     fn reset_value() -> Self::Type {
