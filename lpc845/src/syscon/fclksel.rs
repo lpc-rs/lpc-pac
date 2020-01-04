@@ -23,12 +23,8 @@ pub enum SEL_A {
     FRG1CLK,
     #[doc = "4: FRO_DIV"]
     FRO_DIV,
-    #[doc = "5: none"]
-    NONE,
-    #[doc = "6: none"]
-    NONE1,
     #[doc = "7: none"]
-    NONE2,
+    NONE,
 }
 impl From<SEL_A> for u8 {
     #[inline(always)]
@@ -39,9 +35,7 @@ impl From<SEL_A> for u8 {
             SEL_A::FRG0CLK => 2,
             SEL_A::FRG1CLK => 3,
             SEL_A::FRO_DIV => 4,
-            SEL_A::NONE => 5,
-            SEL_A::NONE1 => 6,
-            SEL_A::NONE2 => 7,
+            SEL_A::NONE => 7,
         }
     }
 }
@@ -50,17 +44,16 @@ pub type SEL_R = crate::R<u8, SEL_A>;
 impl SEL_R {
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SEL_A {
+    pub fn variant(&self) -> crate::Variant<u8, SEL_A> {
+        use crate::Variant::*;
         match self.bits {
-            0 => SEL_A::FRO,
-            1 => SEL_A::MAIN_CLK,
-            2 => SEL_A::FRG0CLK,
-            3 => SEL_A::FRG1CLK,
-            4 => SEL_A::FRO_DIV,
-            5 => SEL_A::NONE,
-            6 => SEL_A::NONE1,
-            7 => SEL_A::NONE2,
-            _ => unreachable!(),
+            0 => Val(SEL_A::FRO),
+            1 => Val(SEL_A::MAIN_CLK),
+            2 => Val(SEL_A::FRG0CLK),
+            3 => Val(SEL_A::FRG1CLK),
+            4 => Val(SEL_A::FRO_DIV),
+            7 => Val(SEL_A::NONE),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `FRO`"]
@@ -93,16 +86,6 @@ impl SEL_R {
     pub fn is_none(&self) -> bool {
         *self == SEL_A::NONE
     }
-    #[doc = "Checks if the value of the field is `NONE1`"]
-    #[inline(always)]
-    pub fn is_none1(&self) -> bool {
-        *self == SEL_A::NONE1
-    }
-    #[doc = "Checks if the value of the field is `NONE2`"]
-    #[inline(always)]
-    pub fn is_none2(&self) -> bool {
-        *self == SEL_A::NONE2
-    }
 }
 #[doc = "Write proxy for field `SEL`"]
 pub struct SEL_W<'a> {
@@ -112,9 +95,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "FRO"]
     #[inline(always)]
@@ -146,19 +127,9 @@ impl<'a> SEL_W<'a> {
     pub fn none(self) -> &'a mut W {
         self.variant(SEL_A::NONE)
     }
-    #[doc = "none"]
-    #[inline(always)]
-    pub fn none1(self) -> &'a mut W {
-        self.variant(SEL_A::NONE1)
-    }
-    #[doc = "none"]
-    #[inline(always)]
-    pub fn none2(self) -> &'a mut W {
-        self.variant(SEL_A::NONE2)
-    }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub fn bits(self, value: u8) -> &'a mut W {
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
         self.w
     }

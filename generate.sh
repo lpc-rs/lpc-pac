@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Bash script to (re)generate Platform Access Crates (PACs) with svd2rust.
 # For PAC to be generated, the following items are required:

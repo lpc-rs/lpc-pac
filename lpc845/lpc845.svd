@@ -15841,16 +15841,6 @@ SPDX-License-Identifier: BSD-3-Clause
                 <enumeratedValue>
                   <name>NONE</name>
                   <description>none</description>
-                  <value>0x5</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>NONE1</name>
-                  <description>none</description>
-                  <value>0x6</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>NONE2</name>
-                  <description>none</description>
                   <value>0x7</value>
                 </enumeratedValue>
               </enumeratedValues>
