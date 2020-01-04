@@ -1,9 +1,9 @@
-#[doc = "Reader of register SCTCAPCTRL4"]
-pub type R = crate::R<u32, super::SCTCAPCTRL4>;
-#[doc = "Writer for register SCTCAPCTRL4"]
-pub type W = crate::W<u32, super::SCTCAPCTRL4>;
-#[doc = "Register SCTCAPCTRL4 `reset()`'s with value 0"]
-impl crate::ResetValue for super::SCTCAPCTRL4 {
+#[doc = "Reader of register SCTCAPCTRL[%s]"]
+pub type R = crate::R<u32, super::SCTCAPCTRL>;
+#[doc = "Writer for register SCTCAPCTRL[%s]"]
+pub type W = crate::W<u32, super::SCTCAPCTRL>;
+#[doc = "Register SCTCAPCTRL[%s] `reset()`'s with value 0"]
+impl crate::ResetValue for super::SCTCAPCTRL {
     type Type = u32;
     #[inline(always)]
     fn reset_value() -> Self::Type {
