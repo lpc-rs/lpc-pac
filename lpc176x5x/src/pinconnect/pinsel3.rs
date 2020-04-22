@@ -12,19 +12,17 @@ impl crate::ResetValue for super::PINSEL3 {
 }
 #[doc = "Pin function select P1.16.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_16_A {
     #[doc = "0: GPIO P1.16"]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: ENET_MDC"]
-    ENET_MDC,
+    ENET_MDC = 1,
 }
 impl From<P1_16_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_16_A) -> Self {
-        match variant {
-            P1_16_A::GPIO_P1 => 0,
-            P1_16_A::ENET_MDC => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_16`"]
@@ -79,19 +77,17 @@ impl<'a> P1_16_W<'a> {
 }
 #[doc = "Pin function select P1.17.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_17_A {
     #[doc = "0: GPIO P1.17"]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: ENET_MDIO"]
-    ENET_MDIO,
+    ENET_MDIO = 1,
 }
 impl From<P1_17_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_17_A) -> Self {
-        match variant {
-            P1_17_A::GPIO_P1 => 0,
-            P1_17_A::ENET_MDIO => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_17`"]
@@ -146,25 +142,21 @@ impl<'a> P1_17_W<'a> {
 }
 #[doc = "Pin function select P1.18.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_18_A {
     #[doc = "0: GPIO P1.18"]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: USB_UP_LED"]
-    USB_UP_LED,
+    USB_UP_LED = 1,
     #[doc = "2: PWM1.1"]
-    PWM1,
+    PWM1 = 2,
     #[doc = "3: CAP1.0"]
-    CAP1,
+    CAP1 = 3,
 }
 impl From<P1_18_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_18_A) -> Self {
-        match variant {
-            P1_18_A::GPIO_P1 => 0,
-            P1_18_A::USB_UP_LED => 1,
-            P1_18_A::PWM1 => 2,
-            P1_18_A::CAP1 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_18`"]
@@ -243,25 +235,21 @@ impl<'a> P1_18_W<'a> {
 }
 #[doc = "Pin function select P1.19.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_19_A {
     #[doc = "0: GPIO P1.19."]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCOA0"]
-    MCOA0,
+    MCOA0 = 1,
     #[doc = "2: USB_PPWR"]
-    USB_PPWR,
+    USB_PPWR = 2,
     #[doc = "3: CAP1.1"]
-    CAP1,
+    CAP1 = 3,
 }
 impl From<P1_19_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_19_A) -> Self {
-        match variant {
-            P1_19_A::GPIO_P1 => 0,
-            P1_19_A::MCOA0 => 1,
-            P1_19_A::USB_PPWR => 2,
-            P1_19_A::CAP1 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_19`"]
@@ -340,25 +328,21 @@ impl<'a> P1_19_W<'a> {
 }
 #[doc = "Pin function select P1.20.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_20_A {
     #[doc = "0: GPIO P1.20."]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCI0"]
-    MCI0,
+    MCI0 = 1,
     #[doc = "2: PWM1.2"]
-    PWM1,
+    PWM1 = 2,
     #[doc = "3: SCK0"]
-    SCK0,
+    SCK0 = 3,
 }
 impl From<P1_20_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_20_A) -> Self {
-        match variant {
-            P1_20_A::GPIO_P1 => 0,
-            P1_20_A::MCI0 => 1,
-            P1_20_A::PWM1 => 2,
-            P1_20_A::SCK0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_20`"]
@@ -437,25 +421,21 @@ impl<'a> P1_20_W<'a> {
 }
 #[doc = "Pin function select P1.21.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_21_A {
     #[doc = "0: GPIO P1.21."]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCABORT"]
-    MCABORT,
+    MCABORT = 1,
     #[doc = "2: PWM1.3"]
-    PWM1,
+    PWM1 = 2,
     #[doc = "3: SSEL0"]
-    SSEL0,
+    SSEL0 = 3,
 }
 impl From<P1_21_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_21_A) -> Self {
-        match variant {
-            P1_21_A::GPIO_P1 => 0,
-            P1_21_A::MCABORT => 1,
-            P1_21_A::PWM1 => 2,
-            P1_21_A::SSEL0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_21`"]
@@ -534,25 +514,21 @@ impl<'a> P1_21_W<'a> {
 }
 #[doc = "Pin function select P1.22\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_22_A {
     #[doc = "0: GPIO P1.22."]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCOB0"]
-    MCOB0,
+    MCOB0 = 1,
     #[doc = "2: USB_PWRD"]
-    USB_PWRD,
+    USB_PWRD = 2,
     #[doc = "3: MAT1.0"]
-    MAT1,
+    MAT1 = 3,
 }
 impl From<P1_22_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_22_A) -> Self {
-        match variant {
-            P1_22_A::GPIO_P1 => 0,
-            P1_22_A::MCOB0 => 1,
-            P1_22_A::USB_PWRD => 2,
-            P1_22_A::MAT1 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_22`"]
@@ -631,25 +607,21 @@ impl<'a> P1_22_W<'a> {
 }
 #[doc = "Pin function select P1.23.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_23_A {
     #[doc = "0: GPIO P1.23."]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCI1"]
-    MCI1,
+    MCI1 = 1,
     #[doc = "2: PWM1.4"]
-    PWM1,
+    PWM1 = 2,
     #[doc = "3: MISO0"]
-    MISO0,
+    MISO0 = 3,
 }
 impl From<P1_23_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_23_A) -> Self {
-        match variant {
-            P1_23_A::GPIO_P1 => 0,
-            P1_23_A::MCI1 => 1,
-            P1_23_A::PWM1 => 2,
-            P1_23_A::MISO0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_23`"]
@@ -728,25 +700,21 @@ impl<'a> P1_23_W<'a> {
 }
 #[doc = "Pin function select P1.24.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_24_A {
     #[doc = "0: GPIO P1.24."]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCI2"]
-    MCI2,
+    MCI2 = 1,
     #[doc = "2: PWM1.5"]
-    PWM1,
+    PWM1 = 2,
     #[doc = "3: MOSI0"]
-    MOSI0,
+    MOSI0 = 3,
 }
 impl From<P1_24_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_24_A) -> Self {
-        match variant {
-            P1_24_A::GPIO_P1 => 0,
-            P1_24_A::MCI2 => 1,
-            P1_24_A::PWM1 => 2,
-            P1_24_A::MOSI0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_24`"]
@@ -825,22 +793,19 @@ impl<'a> P1_24_W<'a> {
 }
 #[doc = "Pin function select P1.25.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_25_A {
     #[doc = "0: GPIO P1.25"]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCOA1"]
-    MCOA1,
+    MCOA1 = 1,
     #[doc = "3: MAT1.1"]
-    MAT1,
+    MAT1 = 3,
 }
 impl From<P1_25_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_25_A) -> Self {
-        match variant {
-            P1_25_A::GPIO_P1 => 0,
-            P1_25_A::MCOA1 => 1,
-            P1_25_A::MAT1 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_25`"]
@@ -906,25 +871,21 @@ impl<'a> P1_25_W<'a> {
 }
 #[doc = "Pin function select P1.26.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_26_A {
     #[doc = "0: GPIO P1.26"]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCOB1"]
-    MCOB1,
+    MCOB1 = 1,
     #[doc = "2: PWM1.6"]
-    PWM1,
+    PWM1 = 2,
     #[doc = "3: CAP0.0"]
-    CAP0,
+    CAP0 = 3,
 }
 impl From<P1_26_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_26_A) -> Self {
-        match variant {
-            P1_26_A::GPIO_P1 => 0,
-            P1_26_A::MCOB1 => 1,
-            P1_26_A::PWM1 => 2,
-            P1_26_A::CAP0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_26`"]
@@ -1003,25 +964,21 @@ impl<'a> P1_26_W<'a> {
 }
 #[doc = "Pin function select P1.27.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_27_A {
     #[doc = "0: GPIO P1.27"]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: CLKOUT"]
-    CLKOUT,
+    CLKOUT = 1,
     #[doc = "2: USB_OVRCR"]
-    USB_OVRCR,
+    USB_OVRCR = 2,
     #[doc = "3: CAP0.1"]
-    CAP0,
+    CAP0 = 3,
 }
 impl From<P1_27_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_27_A) -> Self {
-        match variant {
-            P1_27_A::GPIO_P1 => 0,
-            P1_27_A::CLKOUT => 1,
-            P1_27_A::USB_OVRCR => 2,
-            P1_27_A::CAP0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_27`"]
@@ -1100,25 +1057,21 @@ impl<'a> P1_27_W<'a> {
 }
 #[doc = "Pin function select P1.28.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_28_A {
     #[doc = "0: GPIO P1.28"]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCOA2"]
-    MCOA2,
+    MCOA2 = 1,
     #[doc = "2: PCAP1.0"]
-    PCAP1,
+    PCAP1 = 2,
     #[doc = "3: MAT0.0"]
-    MAT0,
+    MAT0 = 3,
 }
 impl From<P1_28_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_28_A) -> Self {
-        match variant {
-            P1_28_A::GPIO_P1 => 0,
-            P1_28_A::MCOA2 => 1,
-            P1_28_A::PCAP1 => 2,
-            P1_28_A::MAT0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_28`"]
@@ -1197,25 +1150,21 @@ impl<'a> P1_28_W<'a> {
 }
 #[doc = "Pin function select P1.29\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_29_A {
     #[doc = "0: GPIO P1.29"]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "1: MCOB2"]
-    MCOB2,
+    MCOB2 = 1,
     #[doc = "2: PCAP1.1"]
-    PCAP1,
+    PCAP1 = 2,
     #[doc = "3: MAT0.1"]
-    MAT0,
+    MAT0 = 3,
 }
 impl From<P1_29_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_29_A) -> Self {
-        match variant {
-            P1_29_A::GPIO_P1 => 0,
-            P1_29_A::MCOB2 => 1,
-            P1_29_A::PCAP1 => 2,
-            P1_29_A::MAT0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_29`"]
@@ -1294,22 +1243,19 @@ impl<'a> P1_29_W<'a> {
 }
 #[doc = "Pin function select P1.30.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_30_A {
     #[doc = "0: GPIO P1.30"]
-    GPIO_P1,
+    GPIO_P1 = 0,
     #[doc = "2: VBUS"]
-    VBUS,
+    VBUS = 2,
     #[doc = "3: AD0.4"]
-    AD0,
+    AD0 = 3,
 }
 impl From<P1_30_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_30_A) -> Self {
-        match variant {
-            P1_30_A::GPIO_P1 => 0,
-            P1_30_A::VBUS => 2,
-            P1_30_A::AD0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_30`"]
@@ -1375,22 +1321,19 @@ impl<'a> P1_30_W<'a> {
 }
 #[doc = "Pin function select P1.31.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P1_31_A {
     #[doc = "0: GPIO Port 1.31"]
-    GPIO_PORT_1,
+    GPIO_PORT_1 = 0,
     #[doc = "2: SCK1"]
-    SCK1,
+    SCK1 = 2,
     #[doc = "3: AD0.5"]
-    AD0,
+    AD0 = 3,
 }
 impl From<P1_31_A> for u8 {
     #[inline(always)]
     fn from(variant: P1_31_A) -> Self {
-        match variant {
-            P1_31_A::GPIO_PORT_1 => 0,
-            P1_31_A::SCK1 => 2,
-            P1_31_A::AD0 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P1_31`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::TRM {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum VRANGE_A {
     #[doc = "0: High voltage"]
-    HIGH_VOLTAGE,
+    HIGH_VOLTAGE = 0,
     #[doc = "1: Low voltage"]
-    LOW_VOLTAGE,
+    LOW_VOLTAGE = 1,
 }
 impl From<VRANGE_A> for bool {
     #[inline(always)]
     fn from(variant: VRANGE_A) -> Self {
-        match variant {
-            VRANGE_A::HIGH_VOLTAGE => false,
-            VRANGE_A::LOW_VOLTAGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `VRANGE`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::SYSAHBCLKCTRL1 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CAPT_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_A) -> Self {
-        match variant {
-            CAPT_A::DISABLE => false,
-            CAPT_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT`"]
@@ -92,17 +89,14 @@ impl<'a> CAPT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DAC1_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<DAC1_A> for bool {
     #[inline(always)]
     fn from(variant: DAC1_A) -> Self {
-        match variant {
-            DAC1_A::DISABLE => false,
-            DAC1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DAC1`"]

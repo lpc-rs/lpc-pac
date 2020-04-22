@@ -14,17 +14,14 @@ impl crate::ResetValue for super::I2CPADCFG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SDADRV0_A {
     #[doc = "0: Standard. The SDA0 pin is in the standard drive mode."]
-    STANDARD,
+    STANDARD = 0,
     #[doc = "1: Fast-mode plus. The SDA0 pin is in Fast Mode Plus drive mode."]
-    FAST_MODE_PLUS,
+    FAST_MODE_PLUS = 1,
 }
 impl From<SDADRV0_A> for bool {
     #[inline(always)]
     fn from(variant: SDADRV0_A) -> Self {
-        match variant {
-            SDADRV0_A::STANDARD => false,
-            SDADRV0_A::FAST_MODE_PLUS => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SDADRV0`"]
@@ -92,17 +89,14 @@ impl<'a> SDADRV0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SDAI2C0_A {
     #[doc = "0: Enabled. The SDA0 pin has I2C glitch filtering and slew rate control enabled."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: Disabled. The SDA0 pin has I2C glitch filtering and slew rate control disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<SDAI2C0_A> for bool {
     #[inline(always)]
     fn from(variant: SDAI2C0_A) -> Self {
-        match variant {
-            SDAI2C0_A::ENABLED => false,
-            SDAI2C0_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SDAI2C0`"]
@@ -170,17 +164,14 @@ impl<'a> SDAI2C0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SCLDRV0_A {
     #[doc = "0: Standard. The SCL0 pin is in the standard drive mode."]
-    STANDARD,
+    STANDARD = 0,
     #[doc = "1: Fast-mode plus. The SCL0 pin is in Fast Mode Plus drive mode."]
-    FAST_MODE_PLUS,
+    FAST_MODE_PLUS = 1,
 }
 impl From<SCLDRV0_A> for bool {
     #[inline(always)]
     fn from(variant: SCLDRV0_A) -> Self {
-        match variant {
-            SCLDRV0_A::STANDARD => false,
-            SCLDRV0_A::FAST_MODE_PLUS => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SCLDRV0`"]
@@ -248,17 +239,14 @@ impl<'a> SCLDRV0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SCLI2C0_A {
     #[doc = "0: Enabled. The SCL0 pin has I2C glitch filtering and slew rate control enabled."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: Disabled. The SCL0 pin has I2C glitch filtering and slew rate control disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<SCLI2C0_A> for bool {
     #[inline(always)]
     fn from(variant: SCLI2C0_A) -> Self {
-        match variant {
-            SCLI2C0_A::ENABLED => false,
-            SCLI2C0_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SCLI2C0`"]

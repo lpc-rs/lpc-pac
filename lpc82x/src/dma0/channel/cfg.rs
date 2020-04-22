@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CFG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PERIPHREQEN_A {
     #[doc = "0: Disabled. Peripheral DMA requests are disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. Peripheral DMA requests are enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PERIPHREQEN_A> for bool {
     #[inline(always)]
     fn from(variant: PERIPHREQEN_A) -> Self {
-        match variant {
-            PERIPHREQEN_A::DISABLED => false,
-            PERIPHREQEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PERIPHREQEN`"]
@@ -92,17 +89,14 @@ impl<'a> PERIPHREQEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HWTRIGEN_A {
     #[doc = "0: Disabled. Hardware triggering is not used."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. Use hardware triggering."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<HWTRIGEN_A> for bool {
     #[inline(always)]
     fn from(variant: HWTRIGEN_A) -> Self {
-        match variant {
-            HWTRIGEN_A::DISABLED => false,
-            HWTRIGEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HWTRIGEN`"]
@@ -170,17 +164,14 @@ impl<'a> HWTRIGEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGPOL_A {
     #[doc = "0: Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE."]
-    ACTIVE_LOW_FALLING,
+    ACTIVE_LOW_FALLING = 0,
     #[doc = "1: Active high - rising edge. Hardware trigger is active high or rising edge triggered, based on TRIGTYPE."]
-    ACTIVE_HIGH_RISING,
+    ACTIVE_HIGH_RISING = 1,
 }
 impl From<TRIGPOL_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGPOL_A) -> Self {
-        match variant {
-            TRIGPOL_A::ACTIVE_LOW_FALLING => false,
-            TRIGPOL_A::ACTIVE_HIGH_RISING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGPOL`"]
@@ -248,17 +239,14 @@ impl<'a> TRIGPOL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGTYPE_A {
     #[doc = "0: Edge. Hardware trigger is edge triggered. Transfers will be initiated and completed, as specified for a single trigger."]
-    EDGE,
+    EDGE = 0,
     #[doc = "1: Level. Hardware trigger is level triggered. Note that when level triggering without burst (BURSTPOWER = 0) is selected, only hardware triggers should be used on that channel. Transfers continue as long as the trigger level is asserted. Once the trigger is de-asserted, the transfer will be paused until the trigger is, again, asserted. However, the transfer will not be paused until any remaining transfers within the current BURSTPOWER length are completed."]
-    LEVEL,
+    LEVEL = 1,
 }
 impl From<TRIGTYPE_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGTYPE_A) -> Self {
-        match variant {
-            TRIGTYPE_A::EDGE => false,
-            TRIGTYPE_A::LEVEL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGTYPE`"]
@@ -326,17 +314,14 @@ impl<'a> TRIGTYPE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGBURST_A {
     #[doc = "0: Single transfer. Hardware trigger causes a single transfer."]
-    SINGLE,
+    SINGLE = 0,
     #[doc = "1: Burst transfer. When the trigger for this channel is set to edge triggered, a hardware trigger causes a burst transfer, as defined by BURSTPOWER. When the trigger for this channel is set to level triggered, a hardware trigger causes transfers to continue as long as the trigger is asserted, unless the transfer is complete."]
-    BURST,
+    BURST = 1,
 }
 impl From<TRIGBURST_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGBURST_A) -> Self {
-        match variant {
-            TRIGBURST_A::SINGLE => false,
-            TRIGBURST_A::BURST => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGBURST`"]
@@ -418,17 +403,14 @@ impl<'a> BURSTPOWER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SRCBURSTWRAP_A {
     #[doc = "0: Disabled. Source burst wrapping is not enabled for this DMA channel."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. Source burst wrapping is enabled for this DMA channel."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SRCBURSTWRAP_A> for bool {
     #[inline(always)]
     fn from(variant: SRCBURSTWRAP_A) -> Self {
-        match variant {
-            SRCBURSTWRAP_A::DISABLED => false,
-            SRCBURSTWRAP_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SRCBURSTWRAP`"]
@@ -496,17 +478,14 @@ impl<'a> SRCBURSTWRAP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DSTBURSTWRAP_A {
     #[doc = "0: Disabled. Destination burst wrapping is not enabled for this DMA channel."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. Destination burst wrapping is enabled for this DMA channel."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<DSTBURSTWRAP_A> for bool {
     #[inline(always)]
     fn from(variant: DSTBURSTWRAP_A) -> Self {
-        match variant {
-            DSTBURSTWRAP_A::DISABLED => false,
-            DSTBURSTWRAP_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DSTBURSTWRAP`"]

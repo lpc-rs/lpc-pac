@@ -12,25 +12,21 @@ impl crate::ResetValue for super::PIO1_11 {
 }
 #[doc = "Selects function mode (on-chip pull-up/pull-down resistor control).\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MODE_A {
     #[doc = "0: Inactive. Inactive (no pull-down/pull-up resistor enabled)."]
-    INACTIVE,
+    INACTIVE = 0,
     #[doc = "1: Pull-down. Pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 1,
     #[doc = "2: Pull-up. Pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 2,
     #[doc = "3: Repeater. Repeater mode."]
-    REPEATER,
+    REPEATER = 3,
 }
 impl From<MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::INACTIVE => 0,
-            MODE_A::PULL_DOWN => 1,
-            MODE_A::PULL_UP => 2,
-            MODE_A::REPEATER => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MODE`"]
@@ -111,17 +107,14 @@ impl<'a> MODE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HYS_A {
     #[doc = "0: Disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<HYS_A> for bool {
     #[inline(always)]
     fn from(variant: HYS_A) -> Self {
-        match variant {
-            HYS_A::DISABLE => false,
-            HYS_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HYS`"]
@@ -189,17 +182,14 @@ impl<'a> HYS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INV_A {
     #[doc = "0: Input not inverted (HIGH on pin reads as 1; LOW on pin reads as 0)."]
-    NOT_INVERTED,
+    NOT_INVERTED = 0,
     #[doc = "1: Input inverted (HIGH on pin reads as 0, LOW on pin reads as 1)."]
-    INVERTED,
+    INVERTED = 1,
 }
 impl From<INV_A> for bool {
     #[inline(always)]
     fn from(variant: INV_A) -> Self {
-        match variant {
-            INV_A::NOT_INVERTED => false,
-            INV_A::INVERTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INV`"]
@@ -267,17 +257,14 @@ impl<'a> INV_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OD_A {
     #[doc = "0: Disable."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Open-drain mode enabled. Remark: This is not a true open-drain mode."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<OD_A> for bool {
     #[inline(always)]
     fn from(variant: OD_A) -> Self {
-        match variant {
-            OD_A::DISABLE => false,
-            OD_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OD`"]
@@ -343,25 +330,21 @@ impl<'a> OD_W<'a> {
 }
 #[doc = "Digital filter sample mode.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum S_MODE_A {
     #[doc = "0: Bypass input filter."]
-    S_MODE_0,
+    S_MODE_0 = 0,
     #[doc = "1: 1 clock cycle. Input pulses shorter than one filter clock are rejected."]
-    S_MODE_1,
+    S_MODE_1 = 1,
     #[doc = "2: 2 clock cycles. Input pulses shorter than two filter clocks are rejected."]
-    S_MODE_2,
+    S_MODE_2 = 2,
     #[doc = "3: 3 clock cycles. Input pulses shorter than three filter clocks are rejected."]
-    S_MODE_3,
+    S_MODE_3 = 3,
 }
 impl From<S_MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: S_MODE_A) -> Self {
-        match variant {
-            S_MODE_A::S_MODE_0 => 0,
-            S_MODE_A::S_MODE_1 => 1,
-            S_MODE_A::S_MODE_2 => 2,
-            S_MODE_A::S_MODE_3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `S_MODE`"]
@@ -440,34 +423,27 @@ impl<'a> S_MODE_W<'a> {
 }
 #[doc = "Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CLK_DIV_A {
     #[doc = "0: IOCONCLKDIV0"]
-    CLK_DIV_0,
+    CLK_DIV_0 = 0,
     #[doc = "1: IOCONCLKDIV1"]
-    CLK_DIV_1,
+    CLK_DIV_1 = 1,
     #[doc = "2: IOCONCLKDIV2"]
-    CLK_DIV_2,
+    CLK_DIV_2 = 2,
     #[doc = "3: IOCONCLKDIV3"]
-    CLK_DIV_3,
+    CLK_DIV_3 = 3,
     #[doc = "4: IOCONCLKDIV4"]
-    CLK_DIV_4,
+    CLK_DIV_4 = 4,
     #[doc = "5: IOCONCLKDIV5"]
-    CLK_DIV_5,
+    CLK_DIV_5 = 5,
     #[doc = "6: IOCONCLKDIV6"]
-    CLK_DIV_6,
+    CLK_DIV_6 = 6,
 }
 impl From<CLK_DIV_A> for u8 {
     #[inline(always)]
     fn from(variant: CLK_DIV_A) -> Self {
-        match variant {
-            CLK_DIV_A::CLK_DIV_0 => 0,
-            CLK_DIV_A::CLK_DIV_1 => 1,
-            CLK_DIV_A::CLK_DIV_2 => 2,
-            CLK_DIV_A::CLK_DIV_3 => 3,
-            CLK_DIV_A::CLK_DIV_4 => 4,
-            CLK_DIV_A::CLK_DIV_5 => 5,
-            CLK_DIV_A::CLK_DIV_6 => 6,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CLK_DIV`"]

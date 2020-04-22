@@ -12,25 +12,21 @@ impl crate::ResetValue for super::CTCR {
 }
 #[doc = "Counter/Timer Mode This field selects which rising APB bus clock edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). Timer Mode: the TC is incremented when the Prescale Counter matches the Prescale Register.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CTMODE_A {
     #[doc = "0: Timer Mode. Incremented every rising APB bus clock edge."]
-    TIMER,
+    TIMER = 0,
     #[doc = "1: Counter Mode rising edge. TC is incremented on rising edges on the CAP input selected by bits 3:2."]
-    COUNTER_RISING_EDGE,
+    COUNTER_RISING_EDGE = 1,
     #[doc = "2: Counter Mode falling edge. TC is incremented on falling edges on the CAP input selected by bits 3:2."]
-    COUNTER_FALLING_EDGE,
+    COUNTER_FALLING_EDGE = 2,
     #[doc = "3: Counter Mode dual edge. TC is incremented on both edges on the CAP input selected by bits 3:2."]
-    COUNTER_DUAL_EDGE,
+    COUNTER_DUAL_EDGE = 3,
 }
 impl From<CTMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: CTMODE_A) -> Self {
-        match variant {
-            CTMODE_A::TIMER => 0,
-            CTMODE_A::COUNTER_RISING_EDGE => 1,
-            CTMODE_A::COUNTER_FALLING_EDGE => 2,
-            CTMODE_A::COUNTER_DUAL_EDGE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CTMODE`"]
@@ -109,25 +105,21 @@ impl<'a> CTMODE_W<'a> {
 }
 #[doc = "Count Input Select When bits 1:0 in this register are not 00, these bits select which CAP pin is sampled for clocking. Note: If Counter mode is selected for a particular CAPn input in the CTCR, the 3 bits for that input in the Capture Control Register (CCR) must be programmed as 000. However, capture and/or interrupt can be selected for the other 3 CAPn inputs in the same timer.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CINSEL_A {
     #[doc = "0: Channel 0. CAPn.0 for CTIMERn"]
-    CHANNEL_0,
+    CHANNEL_0 = 0,
     #[doc = "1: Channel 1. CAPn.1 for CTIMERn"]
-    CHANNEL_1,
+    CHANNEL_1 = 1,
     #[doc = "2: Channel 2. CAPn.2 for CTIMERn"]
-    CHANNEL_2,
+    CHANNEL_2 = 2,
     #[doc = "3: Channel 3. CAPn.3 for CTIMERn"]
-    CHANNEL_3,
+    CHANNEL_3 = 3,
 }
 impl From<CINSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: CINSEL_A) -> Self {
-        match variant {
-            CINSEL_A::CHANNEL_0 => 0,
-            CINSEL_A::CHANNEL_1 => 1,
-            CINSEL_A::CHANNEL_2 => 2,
-            CINSEL_A::CHANNEL_3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CINSEL`"]
@@ -230,37 +222,29 @@ impl<'a> ENCC_W<'a> {
 }
 #[doc = "Edge select. When bit 4 is 1, these bits select which capture input edge will cause the timer and prescaler to be cleared. These bits have no effect when bit 4 is low. Values 0x2 to 0x3 and 0x6 to 0x7 are reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SELCC_A {
     #[doc = "0: Channel 0 Rising Edge. Rising edge of the signal on capture channel 0 clears the timer (if bit 4 is set)."]
-    CHANNEL_0_RISING,
+    CHANNEL_0_RISING = 0,
     #[doc = "1: Channel 0 Falling Edge. Falling edge of the signal on capture channel 0 clears the timer (if bit 4 is set)."]
-    CHANNEL_0_FALLING,
+    CHANNEL_0_FALLING = 1,
     #[doc = "2: Channel 1 Rising Edge. Rising edge of the signal on capture channel 1 clears the timer (if bit 4 is set)."]
-    CHANNEL_1_RISING,
+    CHANNEL_1_RISING = 2,
     #[doc = "3: Channel 1 Falling Edge. Falling edge of the signal on capture channel 1 clears the timer (if bit 4 is set)."]
-    CHANNEL_1_FALLING,
+    CHANNEL_1_FALLING = 3,
     #[doc = "4: Channel 2 Rising Edge. Rising edge of the signal on capture channel 2 clears the timer (if bit 4 is set)."]
-    CHANNEL_2_RISING,
+    CHANNEL_2_RISING = 4,
     #[doc = "5: Channel 2 Falling Edge. Falling edge of the signal on capture channel 2 clears the timer (if bit 4 is set)."]
-    CHANNEL_2_FALLING,
+    CHANNEL_2_FALLING = 5,
     #[doc = "6: Channel 2 Rising Edge. Rising edge of the signal on capture channel 2 clears the timer (if bit 4 is set)."]
-    CHANNEL_3_RISING,
+    CHANNEL_3_RISING = 6,
     #[doc = "7: Channel 2 Falling Edge. Falling edge of the signal on capture channel 2 clears the timer (if bit 4 is set)."]
-    CHANNEL_3_FALLING,
+    CHANNEL_3_FALLING = 7,
 }
 impl From<SELCC_A> for u8 {
     #[inline(always)]
     fn from(variant: SELCC_A) -> Self {
-        match variant {
-            SELCC_A::CHANNEL_0_RISING => 0,
-            SELCC_A::CHANNEL_0_FALLING => 1,
-            SELCC_A::CHANNEL_1_RISING => 2,
-            SELCC_A::CHANNEL_1_FALLING => 3,
-            SELCC_A::CHANNEL_2_RISING => 4,
-            SELCC_A::CHANNEL_2_FALLING => 5,
-            SELCC_A::CHANNEL_3_RISING => 6,
-            SELCC_A::CHANNEL_3_FALLING => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SELCC`"]

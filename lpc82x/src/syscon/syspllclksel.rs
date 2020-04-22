@@ -12,22 +12,19 @@ impl crate::ResetValue for super::SYSPLLCLKSEL {
 }
 #[doc = "System PLL clock source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
     #[doc = "0: IRC"]
-    IRC,
+    IRC = 0,
     #[doc = "1: Crystal Oscillator (SYSOSC)"]
-    SYSOSC,
+    SYSOSC = 1,
     #[doc = "3: CLKIN. External clock input."]
-    CLKIN,
+    CLKIN = 3,
 }
 impl From<SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::IRC => 0,
-            SEL_A::SYSOSC => 1,
-            SEL_A::CLKIN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]

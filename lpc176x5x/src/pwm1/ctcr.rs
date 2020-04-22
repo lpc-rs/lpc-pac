@@ -12,25 +12,21 @@ impl crate::ResetValue for super::CTCR {
 }
 #[doc = "Counter/ Timer Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MOD_A {
     #[doc = "0: Timer Mode: the TC is incremented when the Prescale Counter matches the Prescale register."]
-    TIMER_MODE_THE_TC_I,
+    TIMER_MODE_THE_TC_I = 0,
     #[doc = "1: Rising edge counter Mode: the TC is incremented on rising edges of the PWM_CAP input selected by bits 3:2."]
-    RISING_EDGE_COUNTER_,
+    RISING_EDGE_COUNTER_ = 1,
     #[doc = "2: Falling edge counter Mode: the TC is incremented on falling edges of the PWM_CAP input selected by bits 3:2."]
-    FALLING_EDGE_COUNTER,
+    FALLING_EDGE_COUNTER = 2,
     #[doc = "3: Dual edge counter Mode: the TC is incremented on both edges of the PWM_CAP input selected by bits 3:2."]
-    DUAL_EDGE_COUNTER_MO,
+    DUAL_EDGE_COUNTER_MO = 3,
 }
 impl From<MOD_A> for u8 {
     #[inline(always)]
     fn from(variant: MOD_A) -> Self {
-        match variant {
-            MOD_A::TIMER_MODE_THE_TC_I => 0,
-            MOD_A::RISING_EDGE_COUNTER_ => 1,
-            MOD_A::FALLING_EDGE_COUNTER => 2,
-            MOD_A::DUAL_EDGE_COUNTER_MO => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MOD`"]
@@ -109,16 +105,15 @@ impl<'a> MOD_W<'a> {
 }
 #[doc = "Count Input Select. When bits 1:0 are not 00, these bits select which PWM_CAP pin carries the signal used to increment the TC. Other combinations are reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CIS_A {
     #[doc = "0: For PWM0: 00 = PWM0_CAP0 (Other combinations are reserved) For PWM1: 00 = PWM1_CAP0, 01 = PWM1_CAP1 (Other combinations are reserved)"]
-    FOR_PWM0_00_EQ_PWM0_,
+    FOR_PWM0_00_EQ_PWM0_ = 0,
 }
 impl From<CIS_A> for u8 {
     #[inline(always)]
     fn from(variant: CIS_A) -> Self {
-        match variant {
-            CIS_A::FOR_PWM0_00_EQ_PWM0_ => 0,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CIS`"]

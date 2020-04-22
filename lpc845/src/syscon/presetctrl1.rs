@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PRESETCTRL1 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_RST_N_A {
     #[doc = "0: Assert the capacitive touch reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the capacitive touch reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<CAPT_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_RST_N_A) -> Self {
-        match variant {
-            CAPT_RST_N_A::ASSERT => false,
-            CAPT_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_RST_N`"]
@@ -92,17 +89,14 @@ impl<'a> CAPT_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DAC1_RST_N_A {
     #[doc = "0: Assert the DAC1 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the DAC1 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<DAC1_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: DAC1_RST_N_A) -> Self {
-        match variant {
-            DAC1_RST_N_A::ASSERT => false,
-            DAC1_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DAC1_RST_N`"]
@@ -170,17 +164,14 @@ impl<'a> DAC1_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FRG0_RST_N_A {
     #[doc = "0: Assert the FRG0 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the FRG0 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<FRG0_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: FRG0_RST_N_A) -> Self {
-        match variant {
-            FRG0_RST_N_A::ASSERT => false,
-            FRG0_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FRG0_RST_N`"]
@@ -248,17 +239,14 @@ impl<'a> FRG0_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FRG1_RST_N_A {
     #[doc = "0: Assert the FRG1 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the FRG1 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<FRG1_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: FRG1_RST_N_A) -> Self {
-        match variant {
-            FRG1_RST_N_A::ASSERT => false,
-            FRG1_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FRG1_RST_N`"]

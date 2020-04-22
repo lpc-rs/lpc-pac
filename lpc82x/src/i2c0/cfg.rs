@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CFG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTEN_A {
     #[doc = "0: Disabled. The I2C Master function is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The I2C Master function is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MSTEN_A> for bool {
     #[inline(always)]
     fn from(variant: MSTEN_A) -> Self {
-        match variant {
-            MSTEN_A::DISABLED => false,
-            MSTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTEN`"]
@@ -92,17 +89,14 @@ impl<'a> MSTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVEN_A {
     #[doc = "0: Disabled. The I2C slave function is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The I2C slave function is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SLVEN_A> for bool {
     #[inline(always)]
     fn from(variant: SLVEN_A) -> Self {
-        match variant {
-            SLVEN_A::DISABLED => false,
-            SLVEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVEN`"]
@@ -170,17 +164,14 @@ impl<'a> SLVEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONEN_A {
     #[doc = "0: Disabled. The I2C Monitor function is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The I2C Monitor function is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MONEN_A> for bool {
     #[inline(always)]
     fn from(variant: MONEN_A) -> Self {
-        match variant {
-            MONEN_A::DISABLED => false,
-            MONEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONEN`"]
@@ -248,17 +239,14 @@ impl<'a> MONEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TIMEOUTEN_A {
     #[doc = "0: Disabled. Time-out function is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. Time-out function is enabled. Both types of time-out flags will be generated and will cause interrupts if they are enabled. Typically, only one time-out will be used in a system."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TIMEOUTEN_A> for bool {
     #[inline(always)]
     fn from(variant: TIMEOUTEN_A) -> Self {
-        match variant {
-            TIMEOUTEN_A::DISABLED => false,
-            TIMEOUTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TIMEOUTEN`"]
@@ -326,17 +314,14 @@ impl<'a> TIMEOUTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONCLKSTR_A {
     #[doc = "0: Disabled. The Monitor function will not perform clock stretching. Software or DMA may not always be able to read data provided by the Monitor function before it is overwritten. This mode may be used when non-invasive monitoring is critical."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The Monitor function will perform clock stretching in order to ensure that software or DMA can read all incoming data supplied by the Monitor function."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MONCLKSTR_A> for bool {
     #[inline(always)]
     fn from(variant: MONCLKSTR_A) -> Self {
-        match variant {
-            MONCLKSTR_A::DISABLED => false,
-            MONCLKSTR_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONCLKSTR`"]

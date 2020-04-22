@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RITINT_A {
     #[doc = "1: This bit is set to 1 by hardware whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. Writing a 1 to this bit will clear it to 0. Writing a 0 has no effect."]
-    THIS_BIT_IS_SET_TO_1,
+    THIS_BIT_IS_SET_TO_1 = 1,
     #[doc = "0: The counter value does not equal the masked compare value."]
-    THE_COUNTER_VALUE_DO,
+    THE_COUNTER_VALUE_DO = 0,
 }
 impl From<RITINT_A> for bool {
     #[inline(always)]
     fn from(variant: RITINT_A) -> Self {
-        match variant {
-            RITINT_A::THIS_BIT_IS_SET_TO_1 => true,
-            RITINT_A::THE_COUNTER_VALUE_DO => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RITINT`"]
@@ -92,17 +89,14 @@ impl<'a> RITINT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RITENCLR_A {
     #[doc = "1: The timer will be cleared to 0 whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. This will occur on the same clock that sets the interrupt flag."]
-    THE_TIMER_WILL_BE_CL,
+    THE_TIMER_WILL_BE_CL = 1,
     #[doc = "0: The timer will not be cleared to 0."]
-    THE_TIMER_WILL_NOT_B,
+    THE_TIMER_WILL_NOT_B = 0,
 }
 impl From<RITENCLR_A> for bool {
     #[inline(always)]
     fn from(variant: RITENCLR_A) -> Self {
-        match variant {
-            RITENCLR_A::THE_TIMER_WILL_BE_CL => true,
-            RITENCLR_A::THE_TIMER_WILL_NOT_B => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RITENCLR`"]
@@ -170,17 +164,14 @@ impl<'a> RITENCLR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RITENBR_A {
     #[doc = "1: The timer is halted when the processor is halted for debugging."]
-    THE_TIMER_IS_HALTED_,
+    THE_TIMER_IS_HALTED_ = 1,
     #[doc = "0: Debug has no effect on the timer operation."]
-    DEBUG_HAS_NO_EFFECT_,
+    DEBUG_HAS_NO_EFFECT_ = 0,
 }
 impl From<RITENBR_A> for bool {
     #[inline(always)]
     fn from(variant: RITENBR_A) -> Self {
-        match variant {
-            RITENBR_A::THE_TIMER_IS_HALTED_ => true,
-            RITENBR_A::DEBUG_HAS_NO_EFFECT_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RITENBR`"]
@@ -248,17 +239,14 @@ impl<'a> RITENBR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RITEN_A {
     #[doc = "1: Timer enabled. This can be overruled by a debug halt if enabled in bit 2."]
-    TIMER_ENABLED_THIS_,
+    TIMER_ENABLED_THIS_ = 1,
     #[doc = "0: Timer disabled."]
-    TIMER_DISABLED_,
+    TIMER_DISABLED_ = 0,
 }
 impl From<RITEN_A> for bool {
     #[inline(always)]
     fn from(variant: RITEN_A) -> Self {
-        match variant {
-            RITEN_A::TIMER_ENABLED_THIS_ => true,
-            RITEN_A::TIMER_DISABLED_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RITEN`"]

@@ -10,7 +10,7 @@ pub struct RegisterBlock {
     #[doc = "0x4020 - input select register for SCT"]
     pub sct0_inmux: [SCT0_INMUX; 4],
 }
-#[doc = "Trigger select register for DMA channel\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dma_itrig_inmux](dma_itrig_inmux) module"]
+#[doc = "Trigger select register for DMA channel\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_itrig_inmux](dma_itrig_inmux) module"]
 pub type DMA_ITRIG_INMUX = crate::Reg<u32, _DMA_ITRIG_INMUX>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -21,7 +21,7 @@ impl crate::Readable for DMA_ITRIG_INMUX {}
 impl crate::Writable for DMA_ITRIG_INMUX {}
 #[doc = "Trigger select register for DMA channel"]
 pub mod dma_itrig_inmux;
-#[doc = "DMA output trigger selection to become DMA trigger 7 and DMA trigger 8\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dma_inmux_inmux](dma_inmux_inmux) module"]
+#[doc = "DMA output trigger selection to become DMA trigger 7 and DMA trigger 8\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_inmux_inmux](dma_inmux_inmux) module"]
 pub type DMA_INMUX_INMUX = crate::Reg<u32, _DMA_INMUX_INMUX>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -32,7 +32,7 @@ impl crate::Readable for DMA_INMUX_INMUX {}
 impl crate::Writable for DMA_INMUX_INMUX {}
 #[doc = "DMA output trigger selection to become DMA trigger 7 and DMA trigger 8"]
 pub mod dma_inmux_inmux;
-#[doc = "input select register for SCT\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sct0_inmux](sct0_inmux) module"]
+#[doc = "input select register for SCT\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sct0_inmux](sct0_inmux) module"]
 pub type SCT0_INMUX = crate::Reg<u32, _SCT0_INMUX>;
 #[allow(missing_docs)]
 #[doc(hidden)]

@@ -1,6 +1,7 @@
 #[doc = "Writer for register NOT[%s]"]
 pub type W = crate::W<u32, super::NOT>;
-#[doc = "Register NOT[%s] `reset()`'s with value 0"]
+#[doc = "Register NOT[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::NOT {
     type Type = u32;
     #[inline(always)]

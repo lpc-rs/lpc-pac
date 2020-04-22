@@ -12,25 +12,21 @@ impl crate::ResetValue for super::CLKOUTSEL {
 }
 #[doc = "CLKOUT clock source.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
     #[doc = "0: IRC oscillator"]
-    IRC_OSC,
+    IRC_OSC = 0,
     #[doc = "1: Crystal oscillator (SYSOSC)"]
-    SYSOSC,
+    SYSOSC = 1,
     #[doc = "2: Watchdog oscillator"]
-    WDTOSC,
+    WDTOSC = 2,
     #[doc = "3: Main clock"]
-    MAIN_CLK,
+    MAIN_CLK = 3,
 }
 impl From<SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::IRC_OSC => 0,
-            SEL_A::SYSOSC => 1,
-            SEL_A::WDTOSC => 2,
-            SEL_A::MAIN_CLK => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]

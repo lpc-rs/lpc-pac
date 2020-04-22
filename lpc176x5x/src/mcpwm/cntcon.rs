@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::CNTCON>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC0MCI0_RE_A {
     #[doc = "0: A rising edge on MCI0 does not affect counter 0."]
-    A_RISING_EDGE_ON_MCI,
+    A_RISING_EDGE_ON_MCI = 0,
     #[doc = "1: If MODE0 is 1, counter 0 advances on a rising edge on MCI0."]
-    RISING,
+    RISING = 1,
 }
 impl From<TC0MCI0_RE_A> for bool {
     #[inline(always)]
     fn from(variant: TC0MCI0_RE_A) -> Self {
-        match variant {
-            TC0MCI0_RE_A::A_RISING_EDGE_ON_MCI => false,
-            TC0MCI0_RE_A::RISING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC0MCI0_RE`"]
@@ -43,17 +40,14 @@ impl TC0MCI0_RE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC0MCI0_FE_A {
     #[doc = "0: A falling edge on MCI0 does not affect counter 0."]
-    A_FALLING_EDGE_ON_MC,
+    A_FALLING_EDGE_ON_MC = 0,
     #[doc = "1: If MODE0 is 1, counter 0 advances on a falling edge on MCI0."]
-    FALLING,
+    FALLING = 1,
 }
 impl From<TC0MCI0_FE_A> for bool {
     #[inline(always)]
     fn from(variant: TC0MCI0_FE_A) -> Self {
-        match variant {
-            TC0MCI0_FE_A::A_FALLING_EDGE_ON_MC => false,
-            TC0MCI0_FE_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC0MCI0_FE`"]
@@ -82,17 +76,14 @@ impl TC0MCI0_FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC0MCI1_RE_A {
     #[doc = "0: A rising edge on MCI1 does not affect counter 0."]
-    A_RISING_EDGE_ON_MCI,
+    A_RISING_EDGE_ON_MCI = 0,
     #[doc = "1: If MODE0 is 1, counter 0 advances on a rising edge on MCI1."]
-    RISING,
+    RISING = 1,
 }
 impl From<TC0MCI1_RE_A> for bool {
     #[inline(always)]
     fn from(variant: TC0MCI1_RE_A) -> Self {
-        match variant {
-            TC0MCI1_RE_A::A_RISING_EDGE_ON_MCI => false,
-            TC0MCI1_RE_A::RISING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC0MCI1_RE`"]
@@ -121,17 +112,14 @@ impl TC0MCI1_RE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC0MCI1_FE_A {
     #[doc = "0: A falling edge on MCI1 does not affect counter 0."]
-    A_FALLING_EDGE_ON_MC,
+    A_FALLING_EDGE_ON_MC = 0,
     #[doc = "1: If MODE0 is 1, counter 0 advances on a falling edge on MCI1."]
-    FALLING,
+    FALLING = 1,
 }
 impl From<TC0MCI1_FE_A> for bool {
     #[inline(always)]
     fn from(variant: TC0MCI1_FE_A) -> Self {
-        match variant {
-            TC0MCI1_FE_A::A_FALLING_EDGE_ON_MC => false,
-            TC0MCI1_FE_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC0MCI1_FE`"]
@@ -160,17 +148,14 @@ impl TC0MCI1_FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC0MCI2_RE_A {
     #[doc = "0: A rising edge on MCI0 does not affect counter 0."]
-    A_RISING_EDGE_ON_MCI,
+    A_RISING_EDGE_ON_MCI = 0,
     #[doc = "1: If MODE0 is 1, counter 0 advances on a rising edge on MCI2."]
-    RISING,
+    RISING = 1,
 }
 impl From<TC0MCI2_RE_A> for bool {
     #[inline(always)]
     fn from(variant: TC0MCI2_RE_A) -> Self {
-        match variant {
-            TC0MCI2_RE_A::A_RISING_EDGE_ON_MCI => false,
-            TC0MCI2_RE_A::RISING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC0MCI2_RE`"]
@@ -199,17 +184,14 @@ impl TC0MCI2_RE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC0MCI2_FE_A {
     #[doc = "0: A falling edge on MCI0 does not affect counter 0."]
-    A_FALLING_EDGE_ON_MC,
+    A_FALLING_EDGE_ON_MC = 0,
     #[doc = "1: If MODE0 is 1, counter 0 advances on a falling edge on MCI2."]
-    FALLLING,
+    FALLLING = 1,
 }
 impl From<TC0MCI2_FE_A> for bool {
     #[inline(always)]
     fn from(variant: TC0MCI2_FE_A) -> Self {
-        match variant {
-            TC0MCI2_FE_A::A_FALLING_EDGE_ON_MC => false,
-            TC0MCI2_FE_A::FALLLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC0MCI2_FE`"]
@@ -238,17 +220,14 @@ impl TC0MCI2_FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC1MCI0_RE_A {
     #[doc = "0: A rising edge on MCI0 does not affect counter 1."]
-    A_RISING_EDGE_ON_MCI,
+    A_RISING_EDGE_ON_MCI = 0,
     #[doc = "1: If MODE1 is 1, counter 1 advances on a rising edge on MCI0."]
-    RISING,
+    RISING = 1,
 }
 impl From<TC1MCI0_RE_A> for bool {
     #[inline(always)]
     fn from(variant: TC1MCI0_RE_A) -> Self {
-        match variant {
-            TC1MCI0_RE_A::A_RISING_EDGE_ON_MCI => false,
-            TC1MCI0_RE_A::RISING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC1MCI0_RE`"]
@@ -277,17 +256,14 @@ impl TC1MCI0_RE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC1MCI0_FE_A {
     #[doc = "0: A falling edge on MCI0 does not affect counter 1."]
-    A_FALLING_EDGE_ON_MC,
+    A_FALLING_EDGE_ON_MC = 0,
     #[doc = "1: If MODE1 is 1, counter 1 advances on a falling edge on MCI0."]
-    FALLING,
+    FALLING = 1,
 }
 impl From<TC1MCI0_FE_A> for bool {
     #[inline(always)]
     fn from(variant: TC1MCI0_FE_A) -> Self {
-        match variant {
-            TC1MCI0_FE_A::A_FALLING_EDGE_ON_MC => false,
-            TC1MCI0_FE_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC1MCI0_FE`"]
@@ -316,17 +292,14 @@ impl TC1MCI0_FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC1MCI1_RE_A {
     #[doc = "0: A rising edge on MCI1 does not affect counter 1."]
-    A_RISING_EDGE_ON_MCI,
+    A_RISING_EDGE_ON_MCI = 0,
     #[doc = "1: If MODE1 is 1, counter 1 advances on a rising edge on MCI1."]
-    RISING,
+    RISING = 1,
 }
 impl From<TC1MCI1_RE_A> for bool {
     #[inline(always)]
     fn from(variant: TC1MCI1_RE_A) -> Self {
-        match variant {
-            TC1MCI1_RE_A::A_RISING_EDGE_ON_MCI => false,
-            TC1MCI1_RE_A::RISING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC1MCI1_RE`"]
@@ -355,17 +328,14 @@ impl TC1MCI1_RE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC1MCI1_FE_A {
     #[doc = "0: A falling edge on MCI0 does not affect counter 1."]
-    A_FALLING_EDGE_ON_MC,
+    A_FALLING_EDGE_ON_MC = 0,
     #[doc = "1: If MODE1 is 1, counter 1 advances on a falling edge on MCI1."]
-    FALLING,
+    FALLING = 1,
 }
 impl From<TC1MCI1_FE_A> for bool {
     #[inline(always)]
     fn from(variant: TC1MCI1_FE_A) -> Self {
-        match variant {
-            TC1MCI1_FE_A::A_FALLING_EDGE_ON_MC => false,
-            TC1MCI1_FE_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC1MCI1_FE`"]
@@ -394,17 +364,14 @@ impl TC1MCI1_FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC1MCI2_RE_A {
     #[doc = "0: A rising edge on MCI2 does not affect counter 1."]
-    A_RISING_EDGE_ON_MCI,
+    A_RISING_EDGE_ON_MCI = 0,
     #[doc = "1: If MODE1 is 1, counter 1 advances on a rising edge on MCI2."]
-    RISING,
+    RISING = 1,
 }
 impl From<TC1MCI2_RE_A> for bool {
     #[inline(always)]
     fn from(variant: TC1MCI2_RE_A) -> Self {
-        match variant {
-            TC1MCI2_RE_A::A_RISING_EDGE_ON_MCI => false,
-            TC1MCI2_RE_A::RISING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC1MCI2_RE`"]
@@ -433,17 +400,14 @@ impl TC1MCI2_RE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC1MCI2_FE_A {
     #[doc = "0: A falling edge on MCI2 does not affect counter 1."]
-    A_FALLING_EDGE_ON_MC,
+    A_FALLING_EDGE_ON_MC = 0,
     #[doc = "1: If MODE1 is 1, counter 1 advances on a falling edge on MCI2."]
-    FALLING,
+    FALLING = 1,
 }
 impl From<TC1MCI2_FE_A> for bool {
     #[inline(always)]
     fn from(variant: TC1MCI2_FE_A) -> Self {
-        match variant {
-            TC1MCI2_FE_A::A_FALLING_EDGE_ON_MC => false,
-            TC1MCI2_FE_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC1MCI2_FE`"]
@@ -472,17 +436,14 @@ impl TC1MCI2_FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC2MCI0_RE_A {
     #[doc = "0: A rising edge on MCI0 does not affect counter 2."]
-    A_RISING_EDGE_ON_MCI,
+    A_RISING_EDGE_ON_MCI = 0,
     #[doc = "1: If MODE2 is 1, counter 2 advances on a rising edge on MCI0."]
-    RISING,
+    RISING = 1,
 }
 impl From<TC2MCI0_RE_A> for bool {
     #[inline(always)]
     fn from(variant: TC2MCI0_RE_A) -> Self {
-        match variant {
-            TC2MCI0_RE_A::A_RISING_EDGE_ON_MCI => false,
-            TC2MCI0_RE_A::RISING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC2MCI0_RE`"]
@@ -511,17 +472,14 @@ impl TC2MCI0_RE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC2MCI0_FE_A {
     #[doc = "0: A falling edge on MCI0 does not affect counter 2."]
-    A_FALLING_EDGE_ON_MC,
+    A_FALLING_EDGE_ON_MC = 0,
     #[doc = "1: If MODE2 is 1, counter 2 advances on a falling edge on MCI0."]
-    FALLING,
+    FALLING = 1,
 }
 impl From<TC2MCI0_FE_A> for bool {
     #[inline(always)]
     fn from(variant: TC2MCI0_FE_A) -> Self {
-        match variant {
-            TC2MCI0_FE_A::A_FALLING_EDGE_ON_MC => false,
-            TC2MCI0_FE_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC2MCI0_FE`"]
@@ -550,17 +508,14 @@ impl TC2MCI0_FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC2MCI1_RE_A {
     #[doc = "0: A rising edge on MCI1 does not affect counter 2."]
-    A_RISING_EDGE_ON_MCI,
+    A_RISING_EDGE_ON_MCI = 0,
     #[doc = "1: If MODE2 is 1, counter 2 advances on a rising edge on MCI1."]
-    RISING,
+    RISING = 1,
 }
 impl From<TC2MCI1_RE_A> for bool {
     #[inline(always)]
     fn from(variant: TC2MCI1_RE_A) -> Self {
-        match variant {
-            TC2MCI1_RE_A::A_RISING_EDGE_ON_MCI => false,
-            TC2MCI1_RE_A::RISING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC2MCI1_RE`"]
@@ -589,17 +544,14 @@ impl TC2MCI1_RE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC2MCI1_FE_A {
     #[doc = "0: A falling edge on MCI1 does not affect counter 2."]
-    A_FALLING_EDGE_ON_MC,
+    A_FALLING_EDGE_ON_MC = 0,
     #[doc = "1: If MODE2 is 1, counter 2 advances on a falling edge on MCI1."]
-    FALLING,
+    FALLING = 1,
 }
 impl From<TC2MCI1_FE_A> for bool {
     #[inline(always)]
     fn from(variant: TC2MCI1_FE_A) -> Self {
-        match variant {
-            TC2MCI1_FE_A::A_FALLING_EDGE_ON_MC => false,
-            TC2MCI1_FE_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC2MCI1_FE`"]
@@ -628,17 +580,14 @@ impl TC2MCI1_FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC2MCI2_RE_A {
     #[doc = "0: A rising edge on MCI2 does not affect counter 2."]
-    A_RISING_EDGE_ON_MCI,
+    A_RISING_EDGE_ON_MCI = 0,
     #[doc = "1: If MODE2 is 1, counter 2 advances on a rising edge on MCI2."]
-    RISIING,
+    RISIING = 1,
 }
 impl From<TC2MCI2_RE_A> for bool {
     #[inline(always)]
     fn from(variant: TC2MCI2_RE_A) -> Self {
-        match variant {
-            TC2MCI2_RE_A::A_RISING_EDGE_ON_MCI => false,
-            TC2MCI2_RE_A::RISIING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC2MCI2_RE`"]
@@ -667,17 +616,14 @@ impl TC2MCI2_RE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TC2MCI2_FE_A {
     #[doc = "0: A falling edge on MCI2 does not affect counter 2."]
-    A_FALLING_EDGE_ON_MC,
+    A_FALLING_EDGE_ON_MC = 0,
     #[doc = "1: If MODE2 is 1, counter 2 advances on a falling edge on MCI2."]
-    FALLING,
+    FALLING = 1,
 }
 impl From<TC2MCI2_FE_A> for bool {
     #[inline(always)]
     fn from(variant: TC2MCI2_FE_A) -> Self {
-        match variant {
-            TC2MCI2_FE_A::A_FALLING_EDGE_ON_MC => false,
-            TC2MCI2_FE_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TC2MCI2_FE`"]
@@ -706,17 +652,14 @@ impl TC2MCI2_FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CNTR0_A {
     #[doc = "0: Channel 0 is in timer mode."]
-    CHANNEL_0_IS_IN_TIME,
+    CHANNEL_0_IS_IN_TIME = 0,
     #[doc = "1: Channel 0 is in counter mode."]
-    CHANNEL_0_IS_IN_COUN,
+    CHANNEL_0_IS_IN_COUN = 1,
 }
 impl From<CNTR0_A> for bool {
     #[inline(always)]
     fn from(variant: CNTR0_A) -> Self {
-        match variant {
-            CNTR0_A::CHANNEL_0_IS_IN_TIME => false,
-            CNTR0_A::CHANNEL_0_IS_IN_COUN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CNTR0`"]
@@ -745,17 +688,14 @@ impl CNTR0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CNTR1_A {
     #[doc = "0: Channel 1 is in timer mode."]
-    CHANNEL_1_IS_IN_TIME,
+    CHANNEL_1_IS_IN_TIME = 0,
     #[doc = "1: Channel 1 is in counter mode."]
-    CHANNEL_1_IS_IN_COUN,
+    CHANNEL_1_IS_IN_COUN = 1,
 }
 impl From<CNTR1_A> for bool {
     #[inline(always)]
     fn from(variant: CNTR1_A) -> Self {
-        match variant {
-            CNTR1_A::CHANNEL_1_IS_IN_TIME => false,
-            CNTR1_A::CHANNEL_1_IS_IN_COUN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CNTR1`"]
@@ -784,17 +724,14 @@ impl CNTR1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CNTR2_A {
     #[doc = "0: Channel 2 is in timer mode."]
-    CHANNEL_2_IS_IN_TIME,
+    CHANNEL_2_IS_IN_TIME = 0,
     #[doc = "1: Channel 2 is in counter mode."]
-    CHANNEL_2_IS_IN_COUN,
+    CHANNEL_2_IS_IN_COUN = 1,
 }
 impl From<CNTR2_A> for bool {
     #[inline(always)]
     fn from(variant: CNTR2_A) -> Self {
-        match variant {
-            CNTR2_A::CHANNEL_2_IS_IN_TIME => false,
-            CNTR2_A::CHANNEL_2_IS_IN_COUN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CNTR2`"]

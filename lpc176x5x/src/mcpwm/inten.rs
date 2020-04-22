@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::INTEN>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ILIM0_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<ILIM0_A> for bool {
     #[inline(always)]
     fn from(variant: ILIM0_A) -> Self {
-        match variant {
-            ILIM0_A::INTERRUPT_DISABLED_ => false,
-            ILIM0_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ILIM0`"]
@@ -43,17 +40,14 @@ impl ILIM0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IMAT0_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<IMAT0_A> for bool {
     #[inline(always)]
     fn from(variant: IMAT0_A) -> Self {
-        match variant {
-            IMAT0_A::INTERRUPT_DISABLED_ => false,
-            IMAT0_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IMAT0`"]
@@ -82,17 +76,14 @@ impl IMAT0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ICAP0_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<ICAP0_A> for bool {
     #[inline(always)]
     fn from(variant: ICAP0_A) -> Self {
-        match variant {
-            ICAP0_A::INTERRUPT_DISABLED_ => false,
-            ICAP0_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ICAP0`"]
@@ -121,17 +112,14 @@ impl ICAP0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ILIM1_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<ILIM1_A> for bool {
     #[inline(always)]
     fn from(variant: ILIM1_A) -> Self {
-        match variant {
-            ILIM1_A::INTERRUPT_DISABLED_ => false,
-            ILIM1_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ILIM1`"]
@@ -160,17 +148,14 @@ impl ILIM1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IMAT1_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<IMAT1_A> for bool {
     #[inline(always)]
     fn from(variant: IMAT1_A) -> Self {
-        match variant {
-            IMAT1_A::INTERRUPT_DISABLED_ => false,
-            IMAT1_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IMAT1`"]
@@ -199,17 +184,14 @@ impl IMAT1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ICAP1_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<ICAP1_A> for bool {
     #[inline(always)]
     fn from(variant: ICAP1_A) -> Self {
-        match variant {
-            ICAP1_A::INTERRUPT_DISABLED_ => false,
-            ICAP1_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ICAP1`"]
@@ -238,17 +220,14 @@ impl ICAP1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ILIM2_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<ILIM2_A> for bool {
     #[inline(always)]
     fn from(variant: ILIM2_A) -> Self {
-        match variant {
-            ILIM2_A::INTERRUPT_DISABLED_ => false,
-            ILIM2_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ILIM2`"]
@@ -277,17 +256,14 @@ impl ILIM2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IMAT2_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<IMAT2_A> for bool {
     #[inline(always)]
     fn from(variant: IMAT2_A) -> Self {
-        match variant {
-            IMAT2_A::INTERRUPT_DISABLED_ => false,
-            IMAT2_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IMAT2`"]
@@ -316,17 +292,14 @@ impl IMAT2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ICAP2_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<ICAP2_A> for bool {
     #[inline(always)]
     fn from(variant: ICAP2_A) -> Self {
-        match variant {
-            ICAP2_A::INTERRUPT_DISABLED_ => false,
-            ICAP2_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ICAP2`"]
@@ -355,17 +328,14 @@ impl ICAP2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABORT_A {
     #[doc = "0: Interrupt disabled."]
-    INTERRUPT_DISABLED_,
+    INTERRUPT_DISABLED_ = 0,
     #[doc = "1: Interrupt enabled."]
-    INTERRUPT_ENABLED_,
+    INTERRUPT_ENABLED_ = 1,
 }
 impl From<ABORT_A> for bool {
     #[inline(always)]
     fn from(variant: ABORT_A) -> Self {
-        match variant {
-            ABORT_A::INTERRUPT_DISABLED_ => false,
-            ABORT_A::INTERRUPT_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ABORT`"]

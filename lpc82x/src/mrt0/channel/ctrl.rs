@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INTEN_A {
     #[doc = "0: Disabled. TIMERn interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. TIMERn interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<INTEN_A> for bool {
     #[inline(always)]
     fn from(variant: INTEN_A) -> Self {
-        match variant {
-            INTEN_A::DISABLED => false,
-            INTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INTEN`"]
@@ -90,22 +87,19 @@ impl<'a> INTEN_W<'a> {
 }
 #[doc = "Selects timer mode.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MODE_A {
     #[doc = "0: Repeat interrupt mode."]
-    REPEAT_INTERRUPT_MODE,
+    REPEAT_INTERRUPT_MODE = 0,
     #[doc = "1: One-shot interrupt mode."]
-    ONE_SHOT_INTERRUPT_MODE,
+    ONE_SHOT_INTERRUPT_MODE = 1,
     #[doc = "2: One-shot stall mode."]
-    ONE_SHOT_STALL_MODE,
+    ONE_SHOT_STALL_MODE = 2,
 }
 impl From<MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::REPEAT_INTERRUPT_MODE => 0,
-            MODE_A::ONE_SHOT_INTERRUPT_MODE => 1,
-            MODE_A::ONE_SHOT_STALL_MODE => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MODE`"]

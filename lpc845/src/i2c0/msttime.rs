@@ -12,37 +12,29 @@ impl crate::ResetValue for super::MSTTIME {
 }
 #[doc = "Master SCL Low time. Specifies the minimum low time that will be asserted by this master on SCL. Other devices on the bus (masters or slaves) could lengthen this time. This corresponds to the parameter t LOW in the I2C bus specification. I2C bus specification parameters tBUF and tSU;STA have the same values and are also controlled by MSTSCLLOW.\n\nValue on reset: 7"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MSTSCLLOW_A {
     #[doc = "0: 2 clocks. Minimum SCL low time is 2 clocks of the I2C clock pre-divider."]
-    CLOCKS_2,
+    CLOCKS_2 = 0,
     #[doc = "1: 3 clocks. Minimum SCL low time is 3 clocks of the I2C clock pre-divider."]
-    CLOCKS_3,
+    CLOCKS_3 = 1,
     #[doc = "2: 4 clocks. Minimum SCL low time is 4 clocks of the I2C clock pre-divider."]
-    CLOCKS_4,
+    CLOCKS_4 = 2,
     #[doc = "3: 5 clocks. Minimum SCL low time is 5 clocks of the I2C clock pre-divider."]
-    CLOCKS_5,
+    CLOCKS_5 = 3,
     #[doc = "4: 6 clocks. Minimum SCL low time is 6 clocks of the I2C clock pre-divider."]
-    CLOCKS_6,
+    CLOCKS_6 = 4,
     #[doc = "5: 7 clocks. Minimum SCL low time is 7 clocks of the I2C clock pre-divider."]
-    CLOCKS_7,
+    CLOCKS_7 = 5,
     #[doc = "6: 8 clocks. Minimum SCL low time is 8 clocks of the I2C clock pre-divider."]
-    CLOCKS_8,
+    CLOCKS_8 = 6,
     #[doc = "7: 9 clocks. Minimum SCL low time is 9 clocks of the I2C clock pre-divider."]
-    CLOCKS_9,
+    CLOCKS_9 = 7,
 }
 impl From<MSTSCLLOW_A> for u8 {
     #[inline(always)]
     fn from(variant: MSTSCLLOW_A) -> Self {
-        match variant {
-            MSTSCLLOW_A::CLOCKS_2 => 0,
-            MSTSCLLOW_A::CLOCKS_3 => 1,
-            MSTSCLLOW_A::CLOCKS_4 => 2,
-            MSTSCLLOW_A::CLOCKS_5 => 3,
-            MSTSCLLOW_A::CLOCKS_6 => 4,
-            MSTSCLLOW_A::CLOCKS_7 => 5,
-            MSTSCLLOW_A::CLOCKS_8 => 6,
-            MSTSCLLOW_A::CLOCKS_9 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MSTSCLLOW`"]
@@ -165,37 +157,29 @@ impl<'a> MSTSCLLOW_W<'a> {
 }
 #[doc = "Master SCL High time. Specifies the minimum high time that will be asserted by this master on SCL. Other masters in a multi-master system could shorten this time. This corresponds to the parameter tHIGH in the I2C bus specification. I2C bus specification parameters tSU;STO and tHD;STA have the same values and are also controlled by MSTSCLHIGH.\n\nValue on reset: 7"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MSTSCLHIGH_A {
     #[doc = "0: 2 clocks. Minimum SCL high time is 2 clock of the I2C clock pre-divider."]
-    CLOCKS_2,
+    CLOCKS_2 = 0,
     #[doc = "1: 3 clocks. Minimum SCL high time is 3 clocks of the I2C clock pre-divider ."]
-    CLOCKS_3,
+    CLOCKS_3 = 1,
     #[doc = "2: 4 clocks. Minimum SCL high time is 4 clock of the I2C clock pre-divider."]
-    CLOCKS_4,
+    CLOCKS_4 = 2,
     #[doc = "3: 5 clocks. Minimum SCL high time is 5 clock of the I2C clock pre-divider."]
-    CLOCKS_5,
+    CLOCKS_5 = 3,
     #[doc = "4: 6 clocks. Minimum SCL high time is 6 clock of the I2C clock pre-divider."]
-    CLOCKS_6,
+    CLOCKS_6 = 4,
     #[doc = "5: 7 clocks. Minimum SCL high time is 7 clock of the I2C clock pre-divider."]
-    CLOCKS_7,
+    CLOCKS_7 = 5,
     #[doc = "6: 8 clocks. Minimum SCL high time is 8 clock of the I2C clock pre-divider."]
-    CLOCKS_8,
+    CLOCKS_8 = 6,
     #[doc = "7: 9 clocks. Minimum SCL high time is 9 clocks of the I2C clock pre-divider."]
-    CLOCKS_9,
+    CLOCKS_9 = 7,
 }
 impl From<MSTSCLHIGH_A> for u8 {
     #[inline(always)]
     fn from(variant: MSTSCLHIGH_A) -> Self {
-        match variant {
-            MSTSCLHIGH_A::CLOCKS_2 => 0,
-            MSTSCLHIGH_A::CLOCKS_3 => 1,
-            MSTSCLHIGH_A::CLOCKS_4 => 2,
-            MSTSCLHIGH_A::CLOCKS_5 => 3,
-            MSTSCLHIGH_A::CLOCKS_6 => 4,
-            MSTSCLHIGH_A::CLOCKS_7 => 5,
-            MSTSCLHIGH_A::CLOCKS_8 => 6,
-            MSTSCLHIGH_A::CLOCKS_9 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MSTSCLHIGH`"]

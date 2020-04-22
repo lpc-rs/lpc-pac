@@ -28,17 +28,14 @@ impl<'a> CALVAL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CALDIR_A {
     #[doc = "1: Backward calibration. When CALVAL is equal to the calibration counter, the RTC timers will stop incrementing for 1 second."]
-    BACKWARD_CALIBRATION,
+    BACKWARD_CALIBRATION = 1,
     #[doc = "0: Forward calibration. When CALVAL is equal to the calibration counter, the RTC timers will jump by 2 seconds."]
-    FORWARD_CALIBRATION_,
+    FORWARD_CALIBRATION_ = 0,
 }
 impl From<CALDIR_A> for bool {
     #[inline(always)]
     fn from(variant: CALDIR_A) -> Self {
-        match variant {
-            CALDIR_A::BACKWARD_CALIBRATION => true,
-            CALDIR_A::FORWARD_CALIBRATION_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CALDIR`"]

@@ -12,22 +12,19 @@ impl crate::ResetValue for super::SYSMEMREMAP {
 }
 #[doc = "System memory remap. Value 0x3 is reserved.\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MAP_A {
     #[doc = "0: Boot Loader Mode. Interrupt vectors are re-mapped to Boot ROM."]
-    BOOT_LOADER_MODE_IN,
+    BOOT_LOADER_MODE_IN = 0,
     #[doc = "1: User RAM Mode. Interrupt vectors are re-mapped to Static RAM."]
-    USER_RAM_MODE_INTER,
+    USER_RAM_MODE_INTER = 1,
     #[doc = "2: User Flash Mode. Interrupt vectors are not re-mapped and reside in Flash."]
-    USER_FLASH_MODE_INT,
+    USER_FLASH_MODE_INT = 2,
 }
 impl From<MAP_A> for u8 {
     #[inline(always)]
     fn from(variant: MAP_A) -> Self {
-        match variant {
-            MAP_A::BOOT_LOADER_MODE_IN => 0,
-            MAP_A::USER_RAM_MODE_INTER => 1,
-            MAP_A::USER_FLASH_MODE_INT => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MAP`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PINMODE_OD1 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_00OD_A {
     #[doc = "0: Normal. P1.0 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.0 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_00OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_00OD_A) -> Self {
-        match variant {
-            P1_00OD_A::NORMAL => false,
-            P1_00OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_00OD`"]
@@ -92,17 +89,14 @@ impl<'a> P1_00OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_01OD_A {
     #[doc = "0: Normal. P1.1 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.1 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_01OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_01OD_A) -> Self {
-        match variant {
-            P1_01OD_A::NORMAL => false,
-            P1_01OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_01OD`"]
@@ -170,17 +164,14 @@ impl<'a> P1_01OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_04OD_A {
     #[doc = "0: Normal. P1.4 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.4 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_04OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_04OD_A) -> Self {
-        match variant {
-            P1_04OD_A::NORMAL => false,
-            P1_04OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_04OD`"]
@@ -248,17 +239,14 @@ impl<'a> P1_04OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_08OD_A {
     #[doc = "0: Normal. P1.8 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.8 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_08OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_08OD_A) -> Self {
-        match variant {
-            P1_08OD_A::NORMAL => false,
-            P1_08OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_08OD`"]
@@ -326,17 +314,14 @@ impl<'a> P1_08OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_09OD_A {
     #[doc = "0: Normal. P1.9 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.9 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_09OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_09OD_A) -> Self {
-        match variant {
-            P1_09OD_A::NORMAL => false,
-            P1_09OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_09OD`"]
@@ -404,17 +389,14 @@ impl<'a> P1_09OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_10OD_A {
     #[doc = "0: Normal. P1.10 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.10 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_10OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_10OD_A) -> Self {
-        match variant {
-            P1_10OD_A::NORMAL => false,
-            P1_10OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_10OD`"]
@@ -482,17 +464,14 @@ impl<'a> P1_10OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_14OD_A {
     #[doc = "0: Normal. P1.14 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.14 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_14OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_14OD_A) -> Self {
-        match variant {
-            P1_14OD_A::NORMAL => false,
-            P1_14OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_14OD`"]
@@ -560,17 +539,14 @@ impl<'a> P1_14OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_15OD_A {
     #[doc = "0: Normal. P1.15 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.15 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_15OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_15OD_A) -> Self {
-        match variant {
-            P1_15OD_A::NORMAL => false,
-            P1_15OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_15OD`"]
@@ -638,17 +614,14 @@ impl<'a> P1_15OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_16OD_A {
     #[doc = "0: Normal. P1.16 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.16 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_16OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_16OD_A) -> Self {
-        match variant {
-            P1_16OD_A::NORMAL => false,
-            P1_16OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_16OD`"]
@@ -716,17 +689,14 @@ impl<'a> P1_16OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_17OD_A {
     #[doc = "0: Normal. P1.17 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.17 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_17OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_17OD_A) -> Self {
-        match variant {
-            P1_17OD_A::NORMAL => false,
-            P1_17OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_17OD`"]
@@ -794,17 +764,14 @@ impl<'a> P1_17OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_18OD_A {
     #[doc = "0: Normal. P1.18 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.18 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_18OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_18OD_A) -> Self {
-        match variant {
-            P1_18OD_A::NORMAL => false,
-            P1_18OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_18OD`"]
@@ -872,17 +839,14 @@ impl<'a> P1_18OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_19OD_A {
     #[doc = "0: Normal. P1.19 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.19 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_19OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_19OD_A) -> Self {
-        match variant {
-            P1_19OD_A::NORMAL => false,
-            P1_19OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_19OD`"]
@@ -950,17 +914,14 @@ impl<'a> P1_19OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_20OD_A {
     #[doc = "0: Normal. P1.20 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.20 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_20OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_20OD_A) -> Self {
-        match variant {
-            P1_20OD_A::NORMAL => false,
-            P1_20OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_20OD`"]
@@ -1028,17 +989,14 @@ impl<'a> P1_20OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_21OD_A {
     #[doc = "0: Normal. P1.21 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.21 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_21OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_21OD_A) -> Self {
-        match variant {
-            P1_21OD_A::NORMAL => false,
-            P1_21OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_21OD`"]
@@ -1106,17 +1064,14 @@ impl<'a> P1_21OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_22OD_A {
     #[doc = "0: Normal. P1.22 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.22 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_22OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_22OD_A) -> Self {
-        match variant {
-            P1_22OD_A::NORMAL => false,
-            P1_22OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_22OD`"]
@@ -1184,17 +1139,14 @@ impl<'a> P1_22OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_23OD_A {
     #[doc = "0: Normal. P1.23 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.23 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_23OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_23OD_A) -> Self {
-        match variant {
-            P1_23OD_A::NORMAL => false,
-            P1_23OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_23OD`"]
@@ -1262,17 +1214,14 @@ impl<'a> P1_23OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_24OD_A {
     #[doc = "0: Normal. P1.24 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.24 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_24OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_24OD_A) -> Self {
-        match variant {
-            P1_24OD_A::NORMAL => false,
-            P1_24OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_24OD`"]
@@ -1340,17 +1289,14 @@ impl<'a> P1_24OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_25OD_A {
     #[doc = "0: Normal. P1.25 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.25 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_25OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_25OD_A) -> Self {
-        match variant {
-            P1_25OD_A::NORMAL => false,
-            P1_25OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_25OD`"]
@@ -1418,17 +1364,14 @@ impl<'a> P1_25OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_26OD_A {
     #[doc = "0: Normal. P1.26 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.26 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_26OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_26OD_A) -> Self {
-        match variant {
-            P1_26OD_A::NORMAL => false,
-            P1_26OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_26OD`"]
@@ -1496,17 +1439,14 @@ impl<'a> P1_26OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_27OD_A {
     #[doc = "0: Normal. P1.27 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.27 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_27OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_27OD_A) -> Self {
-        match variant {
-            P1_27OD_A::NORMAL => false,
-            P1_27OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_27OD`"]
@@ -1574,17 +1514,14 @@ impl<'a> P1_27OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_28OD_A {
     #[doc = "0: Normal. P1.28 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.28 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_28OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_28OD_A) -> Self {
-        match variant {
-            P1_28OD_A::NORMAL => false,
-            P1_28OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_28OD`"]
@@ -1652,17 +1589,14 @@ impl<'a> P1_28OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_29OD_A {
     #[doc = "0: Normal. P1.29 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.29 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_29OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_29OD_A) -> Self {
-        match variant {
-            P1_29OD_A::NORMAL => false,
-            P1_29OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_29OD`"]
@@ -1730,17 +1664,14 @@ impl<'a> P1_29OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_30OD_A {
     #[doc = "0: Normal. P1.30 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.30 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_30OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_30OD_A) -> Self {
-        match variant {
-            P1_30OD_A::NORMAL => false,
-            P1_30OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_30OD`"]
@@ -1808,17 +1739,14 @@ impl<'a> P1_30OD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P1_31OD_A {
     #[doc = "0: Normal. P1.31 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P1.31 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P1_31OD_A> for bool {
     #[inline(always)]
     fn from(variant: P1_31OD_A) -> Self {
-        match variant {
-            P1_31OD_A::NORMAL => false,
-            P1_31OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P1_31OD`"]

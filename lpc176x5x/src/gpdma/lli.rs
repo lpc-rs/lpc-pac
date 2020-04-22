@@ -25,14 +25,18 @@ impl<'a> LLI_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 2:31 - Linked list item. Bits \\[31:2\\] of the address for the next LLI. Address bits \\[1:0\\] are 0."]
+    #[doc = "Bits 2:31 - Linked list item. Bits \\[31:2\\]
+of the address for the next LLI. Address bits \\[1:0\\]
+are 0."]
     #[inline(always)]
     pub fn lli(&self) -> LLI_R {
         LLI_R::new(((self.bits >> 2) & 0x3fff_ffff) as u32)
     }
 }
 impl W {
-    #[doc = "Bits 2:31 - Linked list item. Bits \\[31:2\\] of the address for the next LLI. Address bits \\[1:0\\] are 0."]
+    #[doc = "Bits 2:31 - Linked list item. Bits \\[31:2\\]
+of the address for the next LLI. Address bits \\[1:0\\]
+are 0."]
     #[inline(always)]
     pub fn lli(&mut self) -> LLI_W {
         LLI_W { w: self }

@@ -118,7 +118,7 @@ pub struct RegisterBlock {
     #[doc = "0x1f0 - DMA Channel 0 Configuration Register\\[1\\]"]
     pub config7: CONFIG,
 }
-#[doc = "DMA Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intstat](intstat) module"]
+#[doc = "DMA Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intstat](intstat) module"]
 pub type INTSTAT = crate::Reg<u32, _INTSTAT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -127,7 +127,7 @@ pub struct _INTSTAT;
 impl crate::Readable for INTSTAT {}
 #[doc = "DMA Interrupt Status Register"]
 pub mod intstat;
-#[doc = "DMA Interrupt Terminal Count Request Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [inttcstat](inttcstat) module"]
+#[doc = "DMA Interrupt Terminal Count Request Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [inttcstat](inttcstat) module"]
 pub type INTTCSTAT = crate::Reg<u32, _INTTCSTAT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -136,7 +136,7 @@ pub struct _INTTCSTAT;
 impl crate::Readable for INTTCSTAT {}
 #[doc = "DMA Interrupt Terminal Count Request Status Register"]
 pub mod inttcstat;
-#[doc = "DMA Interrupt Terminal Count Request Clear Register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [inttcclear](inttcclear) module"]
+#[doc = "DMA Interrupt Terminal Count Request Clear Register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [inttcclear](inttcclear) module"]
 pub type INTTCCLEAR = crate::Reg<u32, _INTTCCLEAR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -145,7 +145,7 @@ pub struct _INTTCCLEAR;
 impl crate::Writable for INTTCCLEAR {}
 #[doc = "DMA Interrupt Terminal Count Request Clear Register"]
 pub mod inttcclear;
-#[doc = "DMA Interrupt Error Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [interrstat](interrstat) module"]
+#[doc = "DMA Interrupt Error Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [interrstat](interrstat) module"]
 pub type INTERRSTAT = crate::Reg<u32, _INTERRSTAT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -154,7 +154,7 @@ pub struct _INTERRSTAT;
 impl crate::Readable for INTERRSTAT {}
 #[doc = "DMA Interrupt Error Status Register"]
 pub mod interrstat;
-#[doc = "DMA Interrupt Error Clear Register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [interrclr](interrclr) module"]
+#[doc = "DMA Interrupt Error Clear Register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [interrclr](interrclr) module"]
 pub type INTERRCLR = crate::Reg<u32, _INTERRCLR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -163,7 +163,7 @@ pub struct _INTERRCLR;
 impl crate::Writable for INTERRCLR {}
 #[doc = "DMA Interrupt Error Clear Register"]
 pub mod interrclr;
-#[doc = "DMA Raw Interrupt Terminal Count Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rawinttcstat](rawinttcstat) module"]
+#[doc = "DMA Raw Interrupt Terminal Count Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rawinttcstat](rawinttcstat) module"]
 pub type RAWINTTCSTAT = crate::Reg<u32, _RAWINTTCSTAT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -172,7 +172,7 @@ pub struct _RAWINTTCSTAT;
 impl crate::Readable for RAWINTTCSTAT {}
 #[doc = "DMA Raw Interrupt Terminal Count Status Register"]
 pub mod rawinttcstat;
-#[doc = "DMA Raw Error Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rawinterrstat](rawinterrstat) module"]
+#[doc = "DMA Raw Error Interrupt Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rawinterrstat](rawinterrstat) module"]
 pub type RAWINTERRSTAT = crate::Reg<u32, _RAWINTERRSTAT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -181,7 +181,7 @@ pub struct _RAWINTERRSTAT;
 impl crate::Readable for RAWINTERRSTAT {}
 #[doc = "DMA Raw Error Interrupt Status Register"]
 pub mod rawinterrstat;
-#[doc = "DMA Enabled Channel Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [enbldchns](enbldchns) module"]
+#[doc = "DMA Enabled Channel Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [enbldchns](enbldchns) module"]
 pub type ENBLDCHNS = crate::Reg<u32, _ENBLDCHNS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -190,7 +190,7 @@ pub struct _ENBLDCHNS;
 impl crate::Readable for ENBLDCHNS {}
 #[doc = "DMA Enabled Channel Register"]
 pub mod enbldchns;
-#[doc = "DMA Software Burst Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [softbreq](softbreq) module"]
+#[doc = "DMA Software Burst Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [softbreq](softbreq) module"]
 pub type SOFTBREQ = crate::Reg<u32, _SOFTBREQ>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -201,7 +201,7 @@ impl crate::Readable for SOFTBREQ {}
 impl crate::Writable for SOFTBREQ {}
 #[doc = "DMA Software Burst Request Register"]
 pub mod softbreq;
-#[doc = "DMA Software Single Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [softsreq](softsreq) module"]
+#[doc = "DMA Software Single Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [softsreq](softsreq) module"]
 pub type SOFTSREQ = crate::Reg<u32, _SOFTSREQ>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -212,7 +212,7 @@ impl crate::Readable for SOFTSREQ {}
 impl crate::Writable for SOFTSREQ {}
 #[doc = "DMA Software Single Request Register"]
 pub mod softsreq;
-#[doc = "DMA Software Last Burst Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [softlbreq](softlbreq) module"]
+#[doc = "DMA Software Last Burst Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [softlbreq](softlbreq) module"]
 pub type SOFTLBREQ = crate::Reg<u32, _SOFTLBREQ>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -223,7 +223,7 @@ impl crate::Readable for SOFTLBREQ {}
 impl crate::Writable for SOFTLBREQ {}
 #[doc = "DMA Software Last Burst Request Register"]
 pub mod softlbreq;
-#[doc = "DMA Software Last Single Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [softlsreq](softlsreq) module"]
+#[doc = "DMA Software Last Single Request Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [softlsreq](softlsreq) module"]
 pub type SOFTLSREQ = crate::Reg<u32, _SOFTLSREQ>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -234,7 +234,7 @@ impl crate::Readable for SOFTLSREQ {}
 impl crate::Writable for SOFTLSREQ {}
 #[doc = "DMA Software Last Single Request Register"]
 pub mod softlsreq;
-#[doc = "DMA Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [config](config) module"]
+#[doc = "DMA Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [config](config) module"]
 pub type CONFIG = crate::Reg<u32, _CONFIG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -245,7 +245,7 @@ impl crate::Readable for CONFIG {}
 impl crate::Writable for CONFIG {}
 #[doc = "DMA Configuration Register"]
 pub mod config;
-#[doc = "DMA Synchronization Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sync](sync) module"]
+#[doc = "DMA Synchronization Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sync](sync) module"]
 pub type SYNC = crate::Reg<u32, _SYNC>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -256,7 +256,7 @@ impl crate::Readable for SYNC {}
 impl crate::Writable for SYNC {}
 #[doc = "DMA Synchronization Register"]
 pub mod sync;
-#[doc = "DMA Channel 0 Source Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [srcaddr](srcaddr) module"]
+#[doc = "DMA Channel 0 Source Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [srcaddr](srcaddr) module"]
 pub type SRCADDR = crate::Reg<u32, _SRCADDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -267,7 +267,7 @@ impl crate::Readable for SRCADDR {}
 impl crate::Writable for SRCADDR {}
 #[doc = "DMA Channel 0 Source Address Register"]
 pub mod srcaddr;
-#[doc = "DMA Channel 0 Destination Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [destaddr](destaddr) module"]
+#[doc = "DMA Channel 0 Destination Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [destaddr](destaddr) module"]
 pub type DESTADDR = crate::Reg<u32, _DESTADDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -278,7 +278,7 @@ impl crate::Readable for DESTADDR {}
 impl crate::Writable for DESTADDR {}
 #[doc = "DMA Channel 0 Destination Address Register"]
 pub mod destaddr;
-#[doc = "DMA Channel 0 Linked List Item Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [lli](lli) module"]
+#[doc = "DMA Channel 0 Linked List Item Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lli](lli) module"]
 pub type LLI = crate::Reg<u32, _LLI>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -289,7 +289,7 @@ impl crate::Readable for LLI {}
 impl crate::Writable for LLI {}
 #[doc = "DMA Channel 0 Linked List Item Register"]
 pub mod lli;
-#[doc = "DMA Channel 0 Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [control](control) module"]
+#[doc = "DMA Channel 0 Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [control](control) module"]
 pub type CONTROL = crate::Reg<u32, _CONTROL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -300,7 +300,7 @@ impl crate::Readable for CONTROL {}
 impl crate::Writable for CONTROL {}
 #[doc = "DMA Channel 0 Control Register"]
 pub mod control;
-#[doc = "DMA Channel 0 Configuration Register\\[1\\]\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [config](config) module"]
+#[doc = "DMA Channel 0 Configuration Register\\[1\\]\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [config](config) module"]
 pub type CONFIG = crate::Reg<u32, _CONFIG>;
 #[allow(missing_docs)]
 #[doc(hidden)]

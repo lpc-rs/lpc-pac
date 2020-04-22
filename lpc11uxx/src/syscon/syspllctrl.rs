@@ -26,25 +26,21 @@ impl<'a> MSEL_W<'a> {
 }
 #[doc = "Post divider ratio P. The division ratio is 2 x P.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PSEL_A {
     #[doc = "0: P = 1"]
-    P_EQ_1,
+    P_EQ_1 = 0,
     #[doc = "1: P = 2"]
-    P_EQ_2,
+    P_EQ_2 = 1,
     #[doc = "2: P = 4"]
-    P_EQ_4,
+    P_EQ_4 = 2,
     #[doc = "3: P = 8"]
-    P_EQ_8,
+    P_EQ_8 = 3,
 }
 impl From<PSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: PSEL_A) -> Self {
-        match variant {
-            PSEL_A::P_EQ_1 => 0,
-            PSEL_A::P_EQ_2 => 1,
-            PSEL_A::P_EQ_4 => 2,
-            PSEL_A::P_EQ_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PSEL`"]

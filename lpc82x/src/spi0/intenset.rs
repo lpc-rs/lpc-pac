@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTENSET {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RXRDYEN_A {
     #[doc = "0: No interrupt will be generated when receiver data is available."]
-    RXRDYEN_0,
+    RXRDYEN_0 = 0,
     #[doc = "1: An interrupt will be generated when receiver data is available in the RXDAT register."]
-    RXRDYEN_1,
+    RXRDYEN_1 = 1,
 }
 impl From<RXRDYEN_A> for bool {
     #[inline(always)]
     fn from(variant: RXRDYEN_A) -> Self {
-        match variant {
-            RXRDYEN_A::RXRDYEN_0 => false,
-            RXRDYEN_A::RXRDYEN_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RXRDYEN`"]
@@ -92,17 +89,14 @@ impl<'a> RXRDYEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXRDYEN_A {
     #[doc = "0: No interrupt will be generated when the transmitter holding register is available."]
-    TXRDYEN_0,
+    TXRDYEN_0 = 0,
     #[doc = "1: An interrupt will be generated when data may be written to TXDAT."]
-    TXRDYEN_1,
+    TXRDYEN_1 = 1,
 }
 impl From<TXRDYEN_A> for bool {
     #[inline(always)]
     fn from(variant: TXRDYEN_A) -> Self {
-        match variant {
-            TXRDYEN_A::TXRDYEN_0 => false,
-            TXRDYEN_A::TXRDYEN_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TXRDYEN`"]
@@ -170,17 +164,14 @@ impl<'a> TXRDYEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RXOVEN_A {
     #[doc = "0: No interrupt will be generated when a receiver overrun occurs."]
-    RXOVEN_0,
+    RXOVEN_0 = 0,
     #[doc = "1: An interrupt will be generated if a receiver overrun occurs."]
-    RXOVEN_1,
+    RXOVEN_1 = 1,
 }
 impl From<RXOVEN_A> for bool {
     #[inline(always)]
     fn from(variant: RXOVEN_A) -> Self {
-        match variant {
-            RXOVEN_A::RXOVEN_0 => false,
-            RXOVEN_A::RXOVEN_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RXOVEN`"]
@@ -248,17 +239,14 @@ impl<'a> RXOVEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXUREN_A {
     #[doc = "0: No interrupt will be generated when the transmitter underruns."]
-    TXUREN_0,
+    TXUREN_0 = 0,
     #[doc = "1: An interrupt will be generated if the transmitter underruns."]
-    TXUREN_1,
+    TXUREN_1 = 1,
 }
 impl From<TXUREN_A> for bool {
     #[inline(always)]
     fn from(variant: TXUREN_A) -> Self {
-        match variant {
-            TXUREN_A::TXUREN_0 => false,
-            TXUREN_A::TXUREN_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TXUREN`"]
@@ -326,17 +314,14 @@ impl<'a> TXUREN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SSAEN_A {
     #[doc = "0: No interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
-    SSAEN_0,
+    SSAEN_0 = 0,
     #[doc = "1: An interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
-    SSAEN_1,
+    SSAEN_1 = 1,
 }
 impl From<SSAEN_A> for bool {
     #[inline(always)]
     fn from(variant: SSAEN_A) -> Self {
-        match variant {
-            SSAEN_A::SSAEN_0 => false,
-            SSAEN_A::SSAEN_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SSAEN`"]
@@ -404,17 +389,14 @@ impl<'a> SSAEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SSDEN_A {
     #[doc = "0: No interrupt will be generated when all asserted Slave Selects transition to deasserted."]
-    SSDEN_0,
+    SSDEN_0 = 0,
     #[doc = "1: An interrupt will be generated when all asserted Slave Selects transition to deasserted."]
-    SSDEN_1,
+    SSDEN_1 = 1,
 }
 impl From<SSDEN_A> for bool {
     #[inline(always)]
     fn from(variant: SSDEN_A) -> Self {
-        match variant {
-            SSDEN_A::SSDEN_0 => false,
-            SSDEN_A::SSDEN_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SSDEN`"]
@@ -482,17 +464,14 @@ impl<'a> SSDEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTIDLEEN_A {
     #[doc = "0: No interrupt will be generated when MSTIDLE enabled."]
-    MSTIDLEEN_0,
+    MSTIDLEEN_0 = 0,
     #[doc = "1: An interrupt will be generated when MSTIDLE enabled."]
-    MSTIDLEEN_1,
+    MSTIDLEEN_1 = 1,
 }
 impl From<MSTIDLEEN_A> for bool {
     #[inline(always)]
     fn from(variant: MSTIDLEEN_A) -> Self {
-        match variant {
-            MSTIDLEEN_A::MSTIDLEEN_0 => false,
-            MSTIDLEEN_A::MSTIDLEEN_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTIDLEEN`"]

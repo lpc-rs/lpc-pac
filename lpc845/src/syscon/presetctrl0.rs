@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PRESETCTRL0 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FLASH_RST_N_A {
     #[doc = "0: Assert the flash controller reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the flash controller reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<FLASH_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: FLASH_RST_N_A) -> Self {
-        match variant {
-            FLASH_RST_N_A::ASSERT => false,
-            FLASH_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FLASH_RST_N`"]
@@ -92,17 +89,14 @@ impl<'a> FLASH_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C0_RST_N_A {
     #[doc = "0: Assert the I2C0 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the I2C0 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<I2C0_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: I2C0_RST_N_A) -> Self {
-        match variant {
-            I2C0_RST_N_A::ASSERT => false,
-            I2C0_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C0_RST_N`"]
@@ -170,17 +164,14 @@ impl<'a> I2C0_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GPIO0_RST_N_A {
     #[doc = "0: Assert the GPIO0 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the GPIO0 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<GPIO0_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: GPIO0_RST_N_A) -> Self {
-        match variant {
-            GPIO0_RST_N_A::ASSERT => false,
-            GPIO0_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `GPIO0_RST_N`"]
@@ -248,17 +239,14 @@ impl<'a> GPIO0_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SWM_RST_N_A {
     #[doc = "0: Assert the SWM reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the SWM reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<SWM_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: SWM_RST_N_A) -> Self {
-        match variant {
-            SWM_RST_N_A::ASSERT => false,
-            SWM_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SWM_RST_N`"]
@@ -326,17 +314,14 @@ impl<'a> SWM_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SCT_RST_N_A {
     #[doc = "0: Assert the SCT reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the SCT reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<SCT_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: SCT_RST_N_A) -> Self {
-        match variant {
-            SCT_RST_N_A::ASSERT => false,
-            SCT_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SCT_RST_N`"]
@@ -404,17 +389,14 @@ impl<'a> SCT_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKT_RST_N_A {
     #[doc = "0: Assert the WKT reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the WKT reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<WKT_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: WKT_RST_N_A) -> Self {
-        match variant {
-            WKT_RST_N_A::ASSERT => false,
-            WKT_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKT_RST_N`"]
@@ -482,17 +464,14 @@ impl<'a> WKT_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MRT_RST_N_A {
     #[doc = "0: Assert the MRT reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the MRT reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<MRT_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: MRT_RST_N_A) -> Self {
-        match variant {
-            MRT_RST_N_A::ASSERT => false,
-            MRT_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MRT_RST_N`"]
@@ -560,17 +539,14 @@ impl<'a> MRT_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPI0_RST_N_A {
     #[doc = "0: Assert the SPI0 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the SPI0 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<SPI0_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: SPI0_RST_N_A) -> Self {
-        match variant {
-            SPI0_RST_N_A::ASSERT => false,
-            SPI0_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPI0_RST_N`"]
@@ -638,17 +614,14 @@ impl<'a> SPI0_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPI1_RST_N_A {
     #[doc = "0: Assert the SPI1 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the SPI1 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<SPI1_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: SPI1_RST_N_A) -> Self {
-        match variant {
-            SPI1_RST_N_A::ASSERT => false,
-            SPI1_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPI1_RST_N`"]
@@ -716,17 +689,14 @@ impl<'a> SPI1_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CRC_RST_N_A {
     #[doc = "0: Assert the CRC reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the CRC reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<CRC_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: CRC_RST_N_A) -> Self {
-        match variant {
-            CRC_RST_N_A::ASSERT => false,
-            CRC_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CRC_RST_N`"]
@@ -794,17 +764,14 @@ impl<'a> CRC_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART0_RST_N_A {
     #[doc = "0: Assert the UART0 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the UART0 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<UART0_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: UART0_RST_N_A) -> Self {
-        match variant {
-            UART0_RST_N_A::ASSERT => false,
-            UART0_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART0_RST_N`"]
@@ -872,17 +839,14 @@ impl<'a> UART0_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART1_RST_N_A {
     #[doc = "0: Assert the UART1 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the UART1 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<UART1_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: UART1_RST_N_A) -> Self {
-        match variant {
-            UART1_RST_N_A::ASSERT => false,
-            UART1_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART1_RST_N`"]
@@ -950,17 +914,14 @@ impl<'a> UART1_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART2_RST_N_A {
     #[doc = "0: Assert the UART2 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the UART2 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<UART2_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: UART2_RST_N_A) -> Self {
-        match variant {
-            UART2_RST_N_A::ASSERT => false,
-            UART2_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART2_RST_N`"]
@@ -1028,17 +989,14 @@ impl<'a> UART2_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IOCON_RST_N_A {
     #[doc = "0: Assert the IOCON reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the IOCON reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<IOCON_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: IOCON_RST_N_A) -> Self {
-        match variant {
-            IOCON_RST_N_A::ASSERT => false,
-            IOCON_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IOCON_RST_N`"]
@@ -1106,17 +1064,14 @@ impl<'a> IOCON_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACMP_RST_N_A {
     #[doc = "0: Assert the analog comparator reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the analog comparator reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<ACMP_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: ACMP_RST_N_A) -> Self {
-        match variant {
-            ACMP_RST_N_A::ASSERT => false,
-            ACMP_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACMP_RST_N`"]
@@ -1184,17 +1139,14 @@ impl<'a> ACMP_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GPIO1_RST_N_A {
     #[doc = "0: Assert the GPIO1 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the GPIO1 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<GPIO1_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: GPIO1_RST_N_A) -> Self {
-        match variant {
-            GPIO1_RST_N_A::ASSERT => false,
-            GPIO1_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `GPIO1_RST_N`"]
@@ -1262,17 +1214,14 @@ impl<'a> GPIO1_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C1_RST_N_A {
     #[doc = "0: Assert the I2C1 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the I2C1 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<I2C1_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: I2C1_RST_N_A) -> Self {
-        match variant {
-            I2C1_RST_N_A::ASSERT => false,
-            I2C1_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C1_RST_N`"]
@@ -1340,17 +1289,14 @@ impl<'a> I2C1_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C2_RST_N_A {
     #[doc = "0: Assert the I2C2 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the I2C2 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<I2C2_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: I2C2_RST_N_A) -> Self {
-        match variant {
-            I2C2_RST_N_A::ASSERT => false,
-            I2C2_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C2_RST_N`"]
@@ -1418,17 +1364,14 @@ impl<'a> I2C2_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C3_RST_N_A {
     #[doc = "0: Assert the I2C3 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the I2C3 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<I2C3_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: I2C3_RST_N_A) -> Self {
-        match variant {
-            I2C3_RST_N_A::ASSERT => false,
-            I2C3_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C3_RST_N`"]
@@ -1496,17 +1439,14 @@ impl<'a> I2C3_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_RST_N_A {
     #[doc = "0: Assert the ADC reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the ADC reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<ADC_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_RST_N_A) -> Self {
-        match variant {
-            ADC_RST_N_A::ASSERT => false,
-            ADC_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_RST_N`"]
@@ -1574,17 +1514,14 @@ impl<'a> ADC_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CTIMER_RST_N_A {
     #[doc = "0: Assert the CTIMER reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the CTIMER reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<CTIMER_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: CTIMER_RST_N_A) -> Self {
-        match variant {
-            CTIMER_RST_N_A::ASSERT => false,
-            CTIMER_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CTIMER_RST_N`"]
@@ -1652,17 +1589,14 @@ impl<'a> CTIMER_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DAC0_RST_N_A {
     #[doc = "0: Assert the DAC0 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the DAC0 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<DAC0_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: DAC0_RST_N_A) -> Self {
-        match variant {
-            DAC0_RST_N_A::ASSERT => false,
-            DAC0_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DAC0_RST_N`"]
@@ -1730,17 +1664,14 @@ impl<'a> DAC0_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GPIOINT_RST_N_A {
     #[doc = "0: Assert the GPIOINT reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the GPIOINT reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<GPIOINT_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: GPIOINT_RST_N_A) -> Self {
-        match variant {
-            GPIOINT_RST_N_A::ASSERT => false,
-            GPIOINT_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `GPIOINT_RST_N`"]
@@ -1808,17 +1739,14 @@ impl<'a> GPIOINT_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DMA_RST_N_A {
     #[doc = "0: Assert the DMA reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the DMA reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<DMA_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: DMA_RST_N_A) -> Self {
-        match variant {
-            DMA_RST_N_A::ASSERT => false,
-            DMA_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DMA_RST_N`"]
@@ -1886,17 +1814,14 @@ impl<'a> DMA_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART3_RST_N_A {
     #[doc = "0: Assert the UART3 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the UART3 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<UART3_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: UART3_RST_N_A) -> Self {
-        match variant {
-            UART3_RST_N_A::ASSERT => false,
-            UART3_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART3_RST_N`"]
@@ -1964,17 +1889,14 @@ impl<'a> UART3_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART4_RST_N_A {
     #[doc = "0: Assert the UART4 reset."]
-    ASSERT,
+    ASSERT = 0,
     #[doc = "1: Clear the UART4 reset."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<UART4_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: UART4_RST_N_A) -> Self {
-        match variant {
-            UART4_RST_N_A::ASSERT => false,
-            UART4_RST_N_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART4_RST_N`"]

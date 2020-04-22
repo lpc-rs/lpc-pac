@@ -10,22 +10,19 @@ impl crate::ResetValue for super::CMDCODE {
 }
 #[doc = "The command phase:\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CMD_PHASE_AW {
     #[doc = "2: Read"]
-    READ,
+    READ = 2,
     #[doc = "1: Write"]
-    WRITE,
+    WRITE = 1,
     #[doc = "5: Command"]
-    COMMAND,
+    COMMAND = 5,
 }
 impl From<CMD_PHASE_AW> for u8 {
     #[inline(always)]
     fn from(variant: CMD_PHASE_AW) -> Self {
-        match variant {
-            CMD_PHASE_AW::READ => 2,
-            CMD_PHASE_AW::WRITE => 1,
-            CMD_PHASE_AW::COMMAND => 5,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `CMD_PHASE`"]

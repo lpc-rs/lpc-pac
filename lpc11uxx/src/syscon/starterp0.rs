@@ -14,17 +14,14 @@ impl crate::ResetValue for super::STARTERP0 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PINT0_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PINT0_A> for bool {
     #[inline(always)]
     fn from(variant: PINT0_A) -> Self {
-        match variant {
-            PINT0_A::DISABLED => false,
-            PINT0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PINT0`"]
@@ -92,17 +89,14 @@ impl<'a> PINT0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PINT1_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PINT1_A> for bool {
     #[inline(always)]
     fn from(variant: PINT1_A) -> Self {
-        match variant {
-            PINT1_A::DISABLED => false,
-            PINT1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PINT1`"]
@@ -170,17 +164,14 @@ impl<'a> PINT1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PINT2_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PINT2_A> for bool {
     #[inline(always)]
     fn from(variant: PINT2_A) -> Self {
-        match variant {
-            PINT2_A::DISABLED => false,
-            PINT2_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PINT2`"]
@@ -248,17 +239,14 @@ impl<'a> PINT2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PINT3_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PINT3_A> for bool {
     #[inline(always)]
     fn from(variant: PINT3_A) -> Self {
-        match variant {
-            PINT3_A::DISABLED => false,
-            PINT3_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PINT3`"]
@@ -326,17 +314,14 @@ impl<'a> PINT3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PINT4_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PINT4_A> for bool {
     #[inline(always)]
     fn from(variant: PINT4_A) -> Self {
-        match variant {
-            PINT4_A::DISABLED => false,
-            PINT4_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PINT4`"]
@@ -404,17 +389,14 @@ impl<'a> PINT4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PINT5_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PINT5_A> for bool {
     #[inline(always)]
     fn from(variant: PINT5_A) -> Self {
-        match variant {
-            PINT5_A::DISABLED => false,
-            PINT5_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PINT5`"]
@@ -482,17 +464,14 @@ impl<'a> PINT5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PINT6_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PINT6_A> for bool {
     #[inline(always)]
     fn from(variant: PINT6_A) -> Self {
-        match variant {
-            PINT6_A::DISABLED => false,
-            PINT6_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PINT6`"]
@@ -560,17 +539,14 @@ impl<'a> PINT6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PINT7_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PINT7_A> for bool {
     #[inline(always)]
     fn from(variant: PINT7_A) -> Self {
-        match variant {
-            PINT7_A::DISABLED => false,
-            PINT7_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PINT7`"]

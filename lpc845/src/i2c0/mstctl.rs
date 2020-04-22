@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MSTCTL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTCONTINUE_A {
     #[doc = "0: No effect."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: Informs the Master function to continue to the next operation."]
-    CONTINUE,
+    CONTINUE = 1,
 }
 impl From<MSTCONTINUE_A> for bool {
     #[inline(always)]
     fn from(variant: MSTCONTINUE_A) -> Self {
-        match variant {
-            MSTCONTINUE_A::NO_EFFECT => false,
-            MSTCONTINUE_A::CONTINUE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTCONTINUE`"]
@@ -92,17 +89,14 @@ impl<'a> MSTCONTINUE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTSTART_A {
     #[doc = "0: No effect."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: Start. A Start will be generated on the I2C bus at the next allowed time."]
-    START,
+    START = 1,
 }
 impl From<MSTSTART_A> for bool {
     #[inline(always)]
     fn from(variant: MSTSTART_A) -> Self {
-        match variant {
-            MSTSTART_A::NO_EFFECT => false,
-            MSTSTART_A::START => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTSTART`"]
@@ -170,17 +164,14 @@ impl<'a> MSTSTART_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTSTOP_A {
     #[doc = "0: No effect."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: Stop. A Stop will be generated on the I2C bus at the next allowed time, preceded by a NACK to the slave if the master is receiving data from the slave (Master Receiver mode)."]
-    STOP,
+    STOP = 1,
 }
 impl From<MSTSTOP_A> for bool {
     #[inline(always)]
     fn from(variant: MSTSTOP_A) -> Self {
-        match variant {
-            MSTSTOP_A::NO_EFFECT => false,
-            MSTSTOP_A::STOP => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTSTOP`"]
@@ -248,17 +239,14 @@ impl<'a> MSTSTOP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTDMA_A {
     #[doc = "0: Disable. No DMA requests are generated for master operation."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable. A DMA request is generated for I2C master data operations. When this I2C master is generating Acknowledge bits in Master Receiver mode, the acknowledge is generated automatically."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MSTDMA_A> for bool {
     #[inline(always)]
     fn from(variant: MSTDMA_A) -> Self {
-        match variant {
-            MSTDMA_A::DISABLED => false,
-            MSTDMA_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTDMA`"]

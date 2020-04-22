@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::GSR>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RBS_A {
     #[doc = "0: Empty. No message is available."]
-    EMPTY_NO_MESSAGE_IS,
+    EMPTY_NO_MESSAGE_IS = 0,
     #[doc = "1: Full. At least one complete message is received by the Double Receive Buffer and available in the CANxRFS, CANxRID, and if applicable the CANxRDA and CANxRDB registers. This bit is cleared by the Release Receive Buffer command in CANxCMR, if no subsequent received message is available."]
-    FULL_AT_LEAST_ONE_C,
+    FULL_AT_LEAST_ONE_C = 1,
 }
 impl From<RBS_A> for bool {
     #[inline(always)]
     fn from(variant: RBS_A) -> Self {
-        match variant {
-            RBS_A::EMPTY_NO_MESSAGE_IS => false,
-            RBS_A::FULL_AT_LEAST_ONE_C => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RBS`"]
@@ -43,17 +40,14 @@ impl RBS_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DOS_A {
     #[doc = "0: Absent. No data overrun has occurred since the last Clear Data Overrun command was given/written to CANxCMR (or since Reset)."]
-    ABSENT_NO_DATA_OVER,
+    ABSENT_NO_DATA_OVER = 0,
     #[doc = "1: Overrun. A message was lost because the preceding message to this CAN controller was not read and released quickly enough (there was not enough space for a new message in the Double Receive Buffer)."]
-    OVERRUN_A_MESSAGE_W,
+    OVERRUN_A_MESSAGE_W = 1,
 }
 impl From<DOS_A> for bool {
     #[inline(always)]
     fn from(variant: DOS_A) -> Self {
-        match variant {
-            DOS_A::ABSENT_NO_DATA_OVER => false,
-            DOS_A::OVERRUN_A_MESSAGE_W => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DOS`"]
@@ -82,17 +76,14 @@ impl DOS_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TBS_A {
     #[doc = "0: Locked. At least one of the Transmit Buffers is not available for the CPU, i.e. at least one previously queued message for this CAN controller has not yet been sent, and therefore software should not write to the CANxTFI, CANxTID, CANxTDA, nor CANxTDB registers of that (those) Tx buffer(s)."]
-    LOCKED_AT_LEAST_ONE,
+    LOCKED_AT_LEAST_ONE = 0,
     #[doc = "1: Released. All three Transmit Buffers are available for the CPU. No transmit message is pending for this CAN controller (in any of the 3 Tx buffers), and software may write to any of the CANxTFI, CANxTID, CANxTDA, and CANxTDB registers."]
-    RELEASED_ALL_THREE_,
+    RELEASED_ALL_THREE_ = 1,
 }
 impl From<TBS_A> for bool {
     #[inline(always)]
     fn from(variant: TBS_A) -> Self {
-        match variant {
-            TBS_A::LOCKED_AT_LEAST_ONE => false,
-            TBS_A::RELEASED_ALL_THREE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TBS`"]
@@ -121,17 +112,14 @@ impl TBS_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TCS_A {
     #[doc = "0: Incomplete. At least one requested transmission has not been successfully completed yet."]
-    INCOMPLETE_AT_LEAST,
+    INCOMPLETE_AT_LEAST = 0,
     #[doc = "1: Complete. All requested transmission(s) has (have) been successfully completed."]
-    COMPLETE_ALL_REQUES,
+    COMPLETE_ALL_REQUES = 1,
 }
 impl From<TCS_A> for bool {
     #[inline(always)]
     fn from(variant: TCS_A) -> Self {
-        match variant {
-            TCS_A::INCOMPLETE_AT_LEAST => false,
-            TCS_A::COMPLETE_ALL_REQUES => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TCS`"]
@@ -160,17 +148,14 @@ impl TCS_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RS_A {
     #[doc = "0: Idle. The CAN controller is idle."]
-    IDLE_THE_CAN_CONTRO,
+    IDLE_THE_CAN_CONTRO = 0,
     #[doc = "1: Receive. The CAN controller is receiving a message."]
-    RECEIVE_THE_CAN_CON,
+    RECEIVE_THE_CAN_CON = 1,
 }
 impl From<RS_A> for bool {
     #[inline(always)]
     fn from(variant: RS_A) -> Self {
-        match variant {
-            RS_A::IDLE_THE_CAN_CONTRO => false,
-            RS_A::RECEIVE_THE_CAN_CON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RS`"]
@@ -199,17 +184,14 @@ impl RS_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TS_A {
     #[doc = "0: Idle. The CAN controller is idle."]
-    IDLE_THE_CAN_CONTRO,
+    IDLE_THE_CAN_CONTRO = 0,
     #[doc = "1: Transmit. The CAN controller is sending a message."]
-    TRANSMIT_THE_CAN_CO,
+    TRANSMIT_THE_CAN_CO = 1,
 }
 impl From<TS_A> for bool {
     #[inline(always)]
     fn from(variant: TS_A) -> Self {
-        match variant {
-            TS_A::IDLE_THE_CAN_CONTRO => false,
-            TS_A::TRANSMIT_THE_CAN_CO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TS`"]
@@ -238,17 +220,14 @@ impl TS_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ES_A {
     #[doc = "0: OK. Both error counters are below the Error Warning Limit."]
-    OK_BOTH_ERROR_COUNT,
+    OK_BOTH_ERROR_COUNT = 0,
     #[doc = "1: Error. One or both of the Transmit and Receive Error Counters has reached the limit set in the Error Warning Limit register."]
-    ERROR_ONE_OR_BOTH_O,
+    ERROR_ONE_OR_BOTH_O = 1,
 }
 impl From<ES_A> for bool {
     #[inline(always)]
     fn from(variant: ES_A) -> Self {
-        match variant {
-            ES_A::OK_BOTH_ERROR_COUNT => false,
-            ES_A::ERROR_ONE_OR_BOTH_O => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ES`"]
@@ -277,17 +256,14 @@ impl ES_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BS_A {
     #[doc = "0: Bus-on. The CAN Controller is involved in bus activities"]
-    BUS_ON_THE_CAN_CONT,
+    BUS_ON_THE_CAN_CONT = 0,
     #[doc = "1: Bus-off. The CAN controller is currently not involved/prohibited from bus activity because the Transmit Error Counter reached its limiting value of 255."]
-    BUS_OFF_THE_CAN_CON,
+    BUS_OFF_THE_CAN_CON = 1,
 }
 impl From<BS_A> for bool {
     #[inline(always)]
     fn from(variant: BS_A) -> Self {
-        match variant {
-            BS_A::BUS_ON_THE_CAN_CONT => false,
-            BS_A::BUS_OFF_THE_CAN_CON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BS`"]

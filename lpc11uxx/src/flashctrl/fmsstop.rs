@@ -28,17 +28,14 @@ impl<'a> STOP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SIG_START_A {
     #[doc = "0: Signature generation is stopped"]
-    SIGNATURE_GENERATION,
+    SIGNATURE_GENERATION = 0,
     #[doc = "1: Initiate signature generation"]
-    INITIATE_SIGNATURE_G,
+    INITIATE_SIGNATURE_G = 1,
 }
 impl From<SIG_START_A> for bool {
     #[inline(always)]
     fn from(variant: SIG_START_A) -> Self {
-        match variant {
-            SIG_START_A::SIGNATURE_GENERATION => false,
-            SIG_START_A::INITIATE_SIGNATURE_G => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SIG_START`"]

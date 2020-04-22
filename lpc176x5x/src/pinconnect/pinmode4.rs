@@ -12,25 +12,21 @@ impl crate::ResetValue for super::PINMODE4 {
 }
 #[doc = "Port 2 pin 0 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_00MODE_A {
     #[doc = "0: Pull-up. P2.0 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.0 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.0 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.0 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_00MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_00MODE_A) -> Self {
-        match variant {
-            P2_00MODE_A::PULL_UP => 0,
-            P2_00MODE_A::REPEATER => 1,
-            P2_00MODE_A::DISABLED => 2,
-            P2_00MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_00MODE`"]
@@ -109,25 +105,21 @@ impl<'a> P2_00MODE_W<'a> {
 }
 #[doc = "Port 2 pin 1 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_01MODE_A {
     #[doc = "0: Pull-up. P2.1 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.1 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.1 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.1 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_01MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_01MODE_A) -> Self {
-        match variant {
-            P2_01MODE_A::PULL_UP => 0,
-            P2_01MODE_A::REPEATER => 1,
-            P2_01MODE_A::DISABLED => 2,
-            P2_01MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_01MODE`"]
@@ -206,25 +198,21 @@ impl<'a> P2_01MODE_W<'a> {
 }
 #[doc = "Port 2 pin 2 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_02MODE_A {
     #[doc = "0: Pull-up. P2.2 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.2 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.2 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.2 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_02MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_02MODE_A) -> Self {
-        match variant {
-            P2_02MODE_A::PULL_UP => 0,
-            P2_02MODE_A::REPEATER => 1,
-            P2_02MODE_A::DISABLED => 2,
-            P2_02MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_02MODE`"]
@@ -303,25 +291,21 @@ impl<'a> P2_02MODE_W<'a> {
 }
 #[doc = "Port 2 pin 3 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_03MODE_A {
     #[doc = "0: Pull-up. P2.3 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.3 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.3 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.3 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_03MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_03MODE_A) -> Self {
-        match variant {
-            P2_03MODE_A::PULL_UP => 0,
-            P2_03MODE_A::REPEATER => 1,
-            P2_03MODE_A::DISABLED => 2,
-            P2_03MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_03MODE`"]
@@ -400,25 +384,21 @@ impl<'a> P2_03MODE_W<'a> {
 }
 #[doc = "Port 2 pin 4 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_04MODE_A {
     #[doc = "0: Pull-up. P2.4 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.4 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.4 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.4 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_04MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_04MODE_A) -> Self {
-        match variant {
-            P2_04MODE_A::PULL_UP => 0,
-            P2_04MODE_A::REPEATER => 1,
-            P2_04MODE_A::DISABLED => 2,
-            P2_04MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_04MODE`"]
@@ -497,25 +477,21 @@ impl<'a> P2_04MODE_W<'a> {
 }
 #[doc = "Port 2 pin 5 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_05MODE_A {
     #[doc = "0: Pull-up. P2.5 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.5 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.5 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.5 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_05MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_05MODE_A) -> Self {
-        match variant {
-            P2_05MODE_A::PULL_UP => 0,
-            P2_05MODE_A::REPEATER => 1,
-            P2_05MODE_A::DISABLED => 2,
-            P2_05MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_05MODE`"]
@@ -594,25 +570,21 @@ impl<'a> P2_05MODE_W<'a> {
 }
 #[doc = "Port 2 pin 6 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_06MODE_A {
     #[doc = "0: Pull-up. P2.6 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.6 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.6 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.6 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_06MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_06MODE_A) -> Self {
-        match variant {
-            P2_06MODE_A::PULL_UP => 0,
-            P2_06MODE_A::REPEATER => 1,
-            P2_06MODE_A::DISABLED => 2,
-            P2_06MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_06MODE`"]
@@ -691,25 +663,21 @@ impl<'a> P2_06MODE_W<'a> {
 }
 #[doc = "Port 2 pin 7 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_07MODE_A {
     #[doc = "0: Pull-up. P2.7 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.7 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.7 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.7 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_07MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_07MODE_A) -> Self {
-        match variant {
-            P2_07MODE_A::PULL_UP => 0,
-            P2_07MODE_A::REPEATER => 1,
-            P2_07MODE_A::DISABLED => 2,
-            P2_07MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_07MODE`"]
@@ -788,25 +756,21 @@ impl<'a> P2_07MODE_W<'a> {
 }
 #[doc = "Port 2 pin 8 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_08MODE_A {
     #[doc = "0: Pull-up. P2.8 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.8 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.8 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.8 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_08MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_08MODE_A) -> Self {
-        match variant {
-            P2_08MODE_A::PULL_UP => 0,
-            P2_08MODE_A::REPEATER => 1,
-            P2_08MODE_A::DISABLED => 2,
-            P2_08MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_08MODE`"]
@@ -885,25 +849,21 @@ impl<'a> P2_08MODE_W<'a> {
 }
 #[doc = "Port 2 pin 9 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_09MODE_A {
     #[doc = "0: Pull-up. P2.9 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.9 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.9 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.9 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_09MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_09MODE_A) -> Self {
-        match variant {
-            P2_09MODE_A::PULL_UP => 0,
-            P2_09MODE_A::REPEATER => 1,
-            P2_09MODE_A::DISABLED => 2,
-            P2_09MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_09MODE`"]
@@ -982,25 +942,21 @@ impl<'a> P2_09MODE_W<'a> {
 }
 #[doc = "Port 2 pin 10 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_10MODE_A {
     #[doc = "0: Pull-up. P2.10 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.10 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.10 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.10 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_10MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_10MODE_A) -> Self {
-        match variant {
-            P2_10MODE_A::PULL_UP => 0,
-            P2_10MODE_A::REPEATER => 1,
-            P2_10MODE_A::DISABLED => 2,
-            P2_10MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_10MODE`"]
@@ -1079,25 +1035,21 @@ impl<'a> P2_10MODE_W<'a> {
 }
 #[doc = "Port 2 pin 11 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_11MODE_A {
     #[doc = "0: Pull-up. P2.11 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.11 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.11 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.11 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_11MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_11MODE_A) -> Self {
-        match variant {
-            P2_11MODE_A::PULL_UP => 0,
-            P2_11MODE_A::REPEATER => 1,
-            P2_11MODE_A::DISABLED => 2,
-            P2_11MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_11MODE`"]
@@ -1176,25 +1128,21 @@ impl<'a> P2_11MODE_W<'a> {
 }
 #[doc = "Port 2 pin 12 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_12MODE_A {
     #[doc = "0: Pull-up. P2.12 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.12 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.12 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.12 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_12MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_12MODE_A) -> Self {
-        match variant {
-            P2_12MODE_A::PULL_UP => 0,
-            P2_12MODE_A::REPEATER => 1,
-            P2_12MODE_A::DISABLED => 2,
-            P2_12MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_12MODE`"]
@@ -1273,25 +1221,21 @@ impl<'a> P2_12MODE_W<'a> {
 }
 #[doc = "Port 2 pin 13 control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P2_13MODE_A {
     #[doc = "0: Pull-up. P2.13 pin has a pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 0,
     #[doc = "1: Repeater. P2.13 pin has repeater mode enabled."]
-    REPEATER,
+    REPEATER = 1,
     #[doc = "2: Disabled. P2.13 pin has neither pull-up nor pull-down."]
-    DISABLED,
+    DISABLED = 2,
     #[doc = "3: Pull-down. P2.13 has a pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 3,
 }
 impl From<P2_13MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: P2_13MODE_A) -> Self {
-        match variant {
-            P2_13MODE_A::PULL_UP => 0,
-            P2_13MODE_A::REPEATER => 1,
-            P2_13MODE_A::DISABLED => 2,
-            P2_13MODE_A::PULL_DOWN => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P2_13MODE`"]

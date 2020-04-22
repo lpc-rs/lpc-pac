@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CFG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENABLE_A {
     #[doc = "0: Disabled. The SPI is disabled and the internal state machine and counters are reset."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The SPI is enabled for operation."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENABLE_A> for bool {
     #[inline(always)]
     fn from(variant: ENABLE_A) -> Self {
-        match variant {
-            ENABLE_A::DISABLED => false,
-            ENABLE_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENABLE`"]
@@ -92,17 +89,14 @@ impl<'a> ENABLE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MASTER_A {
     #[doc = "0: Slave mode. The SPI will operate in slave mode. SCK, MOSI, and the SSEL signals are inputs, MISO is an output."]
-    SLAVE_MODE,
+    SLAVE_MODE = 0,
     #[doc = "1: Master mode. The SPI will operate in master mode. SCK, MOSI, and the SSEL signals are outputs, MISO is an input."]
-    MASTER_MODE,
+    MASTER_MODE = 1,
 }
 impl From<MASTER_A> for bool {
     #[inline(always)]
     fn from(variant: MASTER_A) -> Self {
-        match variant {
-            MASTER_A::SLAVE_MODE => false,
-            MASTER_A::MASTER_MODE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MASTER`"]
@@ -170,17 +164,14 @@ impl<'a> MASTER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LSBF_A {
     #[doc = "0: Standard. Data is transmitted and received in standard MSB first order."]
-    STANDARD,
+    STANDARD = 0,
     #[doc = "1: Reverse. Data is transmitted and received in reverse order (LSB first)."]
-    REVERSE,
+    REVERSE = 1,
 }
 impl From<LSBF_A> for bool {
     #[inline(always)]
     fn from(variant: LSBF_A) -> Self {
-        match variant {
-            LSBF_A::STANDARD => false,
-            LSBF_A::REVERSE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LSBF`"]
@@ -248,17 +239,14 @@ impl<'a> LSBF_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CPHA_A {
     #[doc = "0: Change. The SPI captures serial data on the first clock transition of the transfer (when the clock changes away from the rest state). Data is changed on the following edge."]
-    CHANGE,
+    CHANGE = 0,
     #[doc = "1: Capture. The SPI changes serial data on the first clock transition of the transfer (when the clock changes away from the rest state). Data is captured on the following edge."]
-    CAPTURE,
+    CAPTURE = 1,
 }
 impl From<CPHA_A> for bool {
     #[inline(always)]
     fn from(variant: CPHA_A) -> Self {
-        match variant {
-            CPHA_A::CHANGE => false,
-            CPHA_A::CAPTURE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CPHA`"]
@@ -326,17 +314,14 @@ impl<'a> CPHA_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CPOL_A {
     #[doc = "0: Low. The rest state of the clock (between transfers) is low."]
-    LOW,
+    LOW = 0,
     #[doc = "1: High. The rest state of the clock (between transfers) is high."]
-    HIGH,
+    HIGH = 1,
 }
 impl From<CPOL_A> for bool {
     #[inline(always)]
     fn from(variant: CPOL_A) -> Self {
-        match variant {
-            CPOL_A::LOW => false,
-            CPOL_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CPOL`"]
@@ -404,17 +389,14 @@ impl<'a> CPOL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOOP_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<LOOP_A> for bool {
     #[inline(always)]
     fn from(variant: LOOP_A) -> Self {
-        match variant {
-            LOOP_A::DISABLED => false,
-            LOOP_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOOP`"]
@@ -482,17 +464,14 @@ impl<'a> LOOP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPOL0_A {
     #[doc = "0: Low. The SSEL0 pin is active low."]
-    LOW,
+    LOW = 0,
     #[doc = "1: High. The SSEL0 pin is active high."]
-    HIGH,
+    HIGH = 1,
 }
 impl From<SPOL0_A> for bool {
     #[inline(always)]
     fn from(variant: SPOL0_A) -> Self {
-        match variant {
-            SPOL0_A::LOW => false,
-            SPOL0_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPOL0`"]
@@ -560,17 +539,14 @@ impl<'a> SPOL0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPOL1_A {
     #[doc = "0: Low. The SSEL1 pin is active low."]
-    LOW,
+    LOW = 0,
     #[doc = "1: High. The SSEL1 pin is active high."]
-    HIGH,
+    HIGH = 1,
 }
 impl From<SPOL1_A> for bool {
     #[inline(always)]
     fn from(variant: SPOL1_A) -> Self {
-        match variant {
-            SPOL1_A::LOW => false,
-            SPOL1_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPOL1`"]
@@ -638,17 +614,14 @@ impl<'a> SPOL1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPOL2_A {
     #[doc = "0: Low. The SSEL2 pin is active low."]
-    LOW,
+    LOW = 0,
     #[doc = "1: High. The SSEL2 pin is active high."]
-    HIGH,
+    HIGH = 1,
 }
 impl From<SPOL2_A> for bool {
     #[inline(always)]
     fn from(variant: SPOL2_A) -> Self {
-        match variant {
-            SPOL2_A::LOW => false,
-            SPOL2_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPOL2`"]
@@ -716,17 +689,14 @@ impl<'a> SPOL2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPOL3_A {
     #[doc = "0: Low. The SSEL3 pin is active low."]
-    LOW,
+    LOW = 0,
     #[doc = "1: High. The SSEL3 pin is active high."]
-    HIGH,
+    HIGH = 1,
 }
 impl From<SPOL3_A> for bool {
     #[inline(always)]
     fn from(variant: SPOL3_A) -> Self {
-        match variant {
-            SPOL3_A::LOW => false,
-            SPOL3_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPOL3`"]

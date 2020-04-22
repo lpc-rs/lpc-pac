@@ -12,25 +12,21 @@ impl crate::ResetValue for super::FRGCLKSEL {
 }
 #[doc = "Clock source for frgN_src clock\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
     #[doc = "0: FRO"]
-    FRO,
+    FRO = 0,
     #[doc = "1: main clock"]
-    MAIN_CLK,
+    MAIN_CLK = 1,
     #[doc = "2: sys pll"]
-    SYS_PLL,
+    SYS_PLL = 2,
     #[doc = "3: None"]
-    NONE,
+    NONE = 3,
 }
 impl From<SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::FRO => 0,
-            SEL_A::MAIN_CLK => 1,
-            SEL_A::SYS_PLL => 2,
-            SEL_A::NONE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]

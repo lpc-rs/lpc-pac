@@ -14,17 +14,14 @@ impl crate::ResetValue for super::SLVCTL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVCONTINUE_A {
     #[doc = "0: No effect."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: Informs the Slave function to continue to the next operation."]
-    CONTINUE,
+    CONTINUE = 1,
 }
 impl From<SLVCONTINUE_A> for bool {
     #[inline(always)]
     fn from(variant: SLVCONTINUE_A) -> Self {
-        match variant {
-            SLVCONTINUE_A::NO_EFFECT => false,
-            SLVCONTINUE_A::CONTINUE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVCONTINUE`"]
@@ -92,17 +89,14 @@ impl<'a> SLVCONTINUE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVNACK_A {
     #[doc = "0: No effect."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: NACK. Causes the Slave function to NACK the master when the slave is receiving data from the master (Slave Receiver mode)."]
-    NACK,
+    NACK = 1,
 }
 impl From<SLVNACK_A> for bool {
     #[inline(always)]
     fn from(variant: SLVNACK_A) -> Self {
-        match variant {
-            SLVNACK_A::NO_EFFECT => false,
-            SLVNACK_A::NACK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVNACK`"]
@@ -170,17 +164,14 @@ impl<'a> SLVNACK_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVDMA_A {
     #[doc = "0: Disabled. No DMA requests are issued for Slave mode operation."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. DMA requests are issued for I2C slave data transmission and reception."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SLVDMA_A> for bool {
     #[inline(always)]
     fn from(variant: SLVDMA_A) -> Self {
-        match variant {
-            SLVDMA_A::DISABLED => false,
-            SLVDMA_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVDMA`"]

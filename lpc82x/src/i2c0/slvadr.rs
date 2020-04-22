@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::SLVADR>;
 #[doc = "Writer for register SLVADR[%s]"]
 pub type W = crate::W<u32, super::SLVADR>;
-#[doc = "Register SLVADR[%s] `reset()`'s with value 0x01"]
+#[doc = "Register SLVADR[%s]
+`reset()`'s with value 0x01"]
 impl crate::ResetValue for super::SLVADR {
     type Type = u32;
     #[inline(always)]
@@ -14,17 +15,14 @@ impl crate::ResetValue for super::SLVADR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SADISABLE_A {
     #[doc = "0: Enabled. Slave Address n is enabled."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: Ignored Slave Address n is ignored."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<SADISABLE_A> for bool {
     #[inline(always)]
     fn from(variant: SADISABLE_A) -> Self {
-        match variant {
-            SADISABLE_A::ENABLED => false,
-            SADISABLE_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SADISABLE`"]

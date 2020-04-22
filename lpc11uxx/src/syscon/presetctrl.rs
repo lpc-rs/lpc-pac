@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PRESETCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SSP0_RST_N_A {
     #[doc = "0: Resets the SSP0 peripheral."]
-    RESETS_THE_SSP0_PERI,
+    RESETS_THE_SSP0_PERI = 0,
     #[doc = "1: SSP0 reset de-asserted."]
-    SSP0_RESET_DE_ASSERT,
+    SSP0_RESET_DE_ASSERT = 1,
 }
 impl From<SSP0_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: SSP0_RST_N_A) -> Self {
-        match variant {
-            SSP0_RST_N_A::RESETS_THE_SSP0_PERI => false,
-            SSP0_RST_N_A::SSP0_RESET_DE_ASSERT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SSP0_RST_N`"]
@@ -92,17 +89,14 @@ impl<'a> SSP0_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C_RST_N_A {
     #[doc = "0: Resets the I2C peripheral."]
-    RESETS_THE_I2C_PERIP,
+    RESETS_THE_I2C_PERIP = 0,
     #[doc = "1: I2C reset de-asserted."]
-    I2C_RESET_DE_ASSERTE,
+    I2C_RESET_DE_ASSERTE = 1,
 }
 impl From<I2C_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: I2C_RST_N_A) -> Self {
-        match variant {
-            I2C_RST_N_A::RESETS_THE_I2C_PERIP => false,
-            I2C_RST_N_A::I2C_RESET_DE_ASSERTE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C_RST_N`"]
@@ -170,17 +164,14 @@ impl<'a> I2C_RST_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SSP1_RST_N_A {
     #[doc = "0: Resets the SSP1 peripheral."]
-    RESETS_THE_SSP1_PERI,
+    RESETS_THE_SSP1_PERI = 0,
     #[doc = "1: SSP1 reset de-asserted."]
-    SSP1_RESET_DE_ASSERT,
+    SSP1_RESET_DE_ASSERT = 1,
 }
 impl From<SSP1_RST_N_A> for bool {
     #[inline(always)]
     fn from(variant: SSP1_RST_N_A) -> Self {
-        match variant {
-            SSP1_RST_N_A::RESETS_THE_SSP1_PERI => false,
-            SSP1_RST_N_A::SSP1_RESET_DE_ASSERT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SSP1_RST_N`"]

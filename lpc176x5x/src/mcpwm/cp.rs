@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CP {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCPA0_A {
     #[doc = "0: MCOA0 passive."]
-    MCOA0_PASSIVE_,
+    MCOA0_PASSIVE_ = 0,
     #[doc = "1: internal MCOA0."]
-    INTERNAL_MCOA0_,
+    INTERNAL_MCOA0_ = 1,
 }
 impl From<CCPA0_A> for bool {
     #[inline(always)]
     fn from(variant: CCPA0_A) -> Self {
-        match variant {
-            CCPA0_A::MCOA0_PASSIVE_ => false,
-            CCPA0_A::INTERNAL_MCOA0_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CCPA0`"]
@@ -92,17 +89,14 @@ impl<'a> CCPA0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCPB0_A {
     #[doc = "0: MCOB0 passive."]
-    MCOB0_PASSIVE_,
+    MCOB0_PASSIVE_ = 0,
     #[doc = "1: MCOB0 tracks internal MCOA0."]
-    MCOB0_TRACKS_INTERNA,
+    MCOB0_TRACKS_INTERNA = 1,
 }
 impl From<CCPB0_A> for bool {
     #[inline(always)]
     fn from(variant: CCPB0_A) -> Self {
-        match variant {
-            CCPB0_A::MCOB0_PASSIVE_ => false,
-            CCPB0_A::MCOB0_TRACKS_INTERNA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CCPB0`"]
@@ -170,17 +164,14 @@ impl<'a> CCPB0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCPA1_A {
     #[doc = "0: MCOA1 passive."]
-    MCOA1_PASSIVE_,
+    MCOA1_PASSIVE_ = 0,
     #[doc = "1: MCOA1 tracks internal MCOA0."]
-    MCOA1_TRACKS_INTERNA,
+    MCOA1_TRACKS_INTERNA = 1,
 }
 impl From<CCPA1_A> for bool {
     #[inline(always)]
     fn from(variant: CCPA1_A) -> Self {
-        match variant {
-            CCPA1_A::MCOA1_PASSIVE_ => false,
-            CCPA1_A::MCOA1_TRACKS_INTERNA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CCPA1`"]
@@ -248,17 +239,14 @@ impl<'a> CCPA1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCPB1_A {
     #[doc = "0: MCOB1 passive."]
-    MCOB1_PASSIVE_,
+    MCOB1_PASSIVE_ = 0,
     #[doc = "1: MCOB1 tracks internal MCOA0."]
-    MCOB1_TRACKS_INTERNA,
+    MCOB1_TRACKS_INTERNA = 1,
 }
 impl From<CCPB1_A> for bool {
     #[inline(always)]
     fn from(variant: CCPB1_A) -> Self {
-        match variant {
-            CCPB1_A::MCOB1_PASSIVE_ => false,
-            CCPB1_A::MCOB1_TRACKS_INTERNA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CCPB1`"]
@@ -326,17 +314,14 @@ impl<'a> CCPB1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCPA2_A {
     #[doc = "0: MCOA2 passive."]
-    MCOA2_PASSIVE_,
+    MCOA2_PASSIVE_ = 0,
     #[doc = "1: MCOA2 tracks internal MCOA0."]
-    MCOA2_TRACKS_INTERNA,
+    MCOA2_TRACKS_INTERNA = 1,
 }
 impl From<CCPA2_A> for bool {
     #[inline(always)]
     fn from(variant: CCPA2_A) -> Self {
-        match variant {
-            CCPA2_A::MCOA2_PASSIVE_ => false,
-            CCPA2_A::MCOA2_TRACKS_INTERNA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CCPA2`"]
@@ -404,17 +389,14 @@ impl<'a> CCPA2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCPB2_A {
     #[doc = "0: MCOB2 passive."]
-    MCOB2_PASSIVE_,
+    MCOB2_PASSIVE_ = 0,
     #[doc = "1: MCOB2 tracks internal MCOA0."]
-    MCOB2_TRACKS_INTERNA,
+    MCOB2_TRACKS_INTERNA = 1,
 }
 impl From<CCPB2_A> for bool {
     #[inline(always)]
     fn from(variant: CCPB2_A) -> Self {
-        match variant {
-            CCPB2_A::MCOB2_PASSIVE_ => false,
-            CCPB2_A::MCOB2_TRACKS_INTERNA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CCPB2`"]

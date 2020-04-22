@@ -28,17 +28,14 @@ impl<'a> MATCHSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HEVENT_A {
     #[doc = "0: Selects the L state and the L match register selected by MATCHSEL."]
-    L_COUNTER,
+    L_COUNTER = 0,
     #[doc = "1: Selects the H state and the H match register selected by MATCHSEL."]
-    H_COUNTER,
+    H_COUNTER = 1,
 }
 impl From<HEVENT_A> for bool {
     #[inline(always)]
     fn from(variant: HEVENT_A) -> Self {
-        match variant {
-            HEVENT_A::L_COUNTER => false,
-            HEVENT_A::H_COUNTER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HEVENT`"]
@@ -106,17 +103,14 @@ impl<'a> HEVENT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUTSEL_A {
     #[doc = "0: Selects the inputs selected by IOSEL."]
-    INPUT,
+    INPUT = 0,
     #[doc = "1: Selects the outputs selected by IOSEL."]
-    OUTPUT,
+    OUTPUT = 1,
 }
 impl From<OUTSEL_A> for bool {
     #[inline(always)]
     fn from(variant: OUTSEL_A) -> Self {
-        match variant {
-            OUTSEL_A::INPUT => false,
-            OUTSEL_A::OUTPUT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUTSEL`"]
@@ -196,25 +190,21 @@ impl<'a> IOSEL_W<'a> {
 }
 #[doc = "Selects the I/O condition for event n. (The detection of edges on outputs lag the conditions that switch the outputs by one SCT clock). In order to guarantee proper edge/state detection, an input must have a minimum pulse width of at least one SCT clock period .\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum IOCOND_A {
     #[doc = "0: LOW"]
-    LOW,
+    LOW = 0,
     #[doc = "1: Rise"]
-    RISE,
+    RISE = 1,
     #[doc = "2: Fall"]
-    FALL,
+    FALL = 2,
     #[doc = "3: HIGH"]
-    HIGH,
+    HIGH = 3,
 }
 impl From<IOCOND_A> for u8 {
     #[inline(always)]
     fn from(variant: IOCOND_A) -> Self {
-        match variant {
-            IOCOND_A::LOW => 0,
-            IOCOND_A::RISE => 1,
-            IOCOND_A::FALL => 2,
-            IOCOND_A::HIGH => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `IOCOND`"]
@@ -293,25 +283,21 @@ impl<'a> IOCOND_W<'a> {
 }
 #[doc = "Selects how the specified match and I/O condition are used and combined.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum COMBMODE_A {
     #[doc = "0: OR. The event occurs when either the specified match or I/O condition occurs."]
-    OR,
+    OR = 0,
     #[doc = "1: MATCH. Uses the specified match only."]
-    MATCH,
+    MATCH = 1,
     #[doc = "2: IO. Uses the specified I/O condition only."]
-    IO,
+    IO = 2,
     #[doc = "3: AND. The event occurs when the specified match and I/O condition occur simultaneously."]
-    AND,
+    AND = 3,
 }
 impl From<COMBMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: COMBMODE_A) -> Self {
-        match variant {
-            COMBMODE_A::OR => 0,
-            COMBMODE_A::MATCH => 1,
-            COMBMODE_A::IO => 2,
-            COMBMODE_A::AND => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `COMBMODE`"]
@@ -392,17 +378,14 @@ impl<'a> COMBMODE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STATELD_A {
     #[doc = "0: STATEV value is added into STATE (the carry-out is ignored)."]
-    ADD,
+    ADD = 0,
     #[doc = "1: STATEV value is loaded into STATE."]
-    LOAD,
+    LOAD = 1,
 }
 impl From<STATELD_A> for bool {
     #[inline(always)]
     fn from(variant: STATELD_A) -> Self {
-        match variant {
-            STATELD_A::ADD => false,
-            STATELD_A::LOAD => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `STATELD`"]
@@ -506,22 +489,19 @@ impl<'a> MATCHMEM_W<'a> {
 }
 #[doc = "Direction qualifier for event generation. This field only applies when the counters are operating in BIDIR mode. If BIDIR = 0, the SCT ignores this field. Value 0x3 is reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DIRECTION_A {
     #[doc = "0: Direction independent. This event is triggered regardless of the count direction."]
-    DIRECTION_INDEPENDENT,
+    DIRECTION_INDEPENDENT = 0,
     #[doc = "1: Counting up. This event is triggered only during up-counting when BIDIR = 1."]
-    COUNTING_UP,
+    COUNTING_UP = 1,
     #[doc = "2: Counting down. This event is triggered only during down-counting when BIDIR = 1."]
-    COUNTING_DOWN,
+    COUNTING_DOWN = 2,
 }
 impl From<DIRECTION_A> for u8 {
     #[inline(always)]
     fn from(variant: DIRECTION_A) -> Self {
-        match variant {
-            DIRECTION_A::DIRECTION_INDEPENDENT => 0,
-            DIRECTION_A::COUNTING_UP => 1,
-            DIRECTION_A::COUNTING_DOWN => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DIRECTION`"]

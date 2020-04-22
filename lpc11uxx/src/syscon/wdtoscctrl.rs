@@ -26,58 +26,43 @@ impl<'a> DIVSEL_W<'a> {
 }
 #[doc = "Select watchdog oscillator analog output frequency (Fclkana).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FREQSEL_A {
     #[doc = "1: 0.6 MHz"]
-    _0_6_MHZ,
+    _0_6_MHZ = 1,
     #[doc = "2: 1.05 MHz"]
-    _1_05_MHZ,
+    _1_05_MHZ = 2,
     #[doc = "3: 1.4 MHz"]
-    _1_4_MHZ,
+    _1_4_MHZ = 3,
     #[doc = "4: 1.75 MHz"]
-    _1_75_MHZ,
+    _1_75_MHZ = 4,
     #[doc = "5: 2.1 MHz"]
-    _2_1_MHZ,
+    _2_1_MHZ = 5,
     #[doc = "6: 2.4 MHz"]
-    _2_4_MHZ,
+    _2_4_MHZ = 6,
     #[doc = "7: 2.7 MHz"]
-    _2_7_MHZ,
+    _2_7_MHZ = 7,
     #[doc = "8: 3.0 MHz"]
-    _3_0_MHZ,
+    _3_0_MHZ = 8,
     #[doc = "9: 3.25 MHz"]
-    _3_25_MHZ,
+    _3_25_MHZ = 9,
     #[doc = "10: 3.5 MHz"]
-    _3_5_MHZ,
+    _3_5_MHZ = 10,
     #[doc = "11: 3.75 MHz"]
-    _3_75_MHZ,
+    _3_75_MHZ = 11,
     #[doc = "12: 4.0 MHz"]
-    _4_0_MHZ,
+    _4_0_MHZ = 12,
     #[doc = "13: 4.2 MHz"]
-    _4_2_MHZ,
+    _4_2_MHZ = 13,
     #[doc = "14: 4.4 MHz"]
-    _4_4_MHZ,
+    _4_4_MHZ = 14,
     #[doc = "15: 4.6 MHz"]
-    _4_6_MHZ,
+    _4_6_MHZ = 15,
 }
 impl From<FREQSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: FREQSEL_A) -> Self {
-        match variant {
-            FREQSEL_A::_0_6_MHZ => 1,
-            FREQSEL_A::_1_05_MHZ => 2,
-            FREQSEL_A::_1_4_MHZ => 3,
-            FREQSEL_A::_1_75_MHZ => 4,
-            FREQSEL_A::_2_1_MHZ => 5,
-            FREQSEL_A::_2_4_MHZ => 6,
-            FREQSEL_A::_2_7_MHZ => 7,
-            FREQSEL_A::_3_0_MHZ => 8,
-            FREQSEL_A::_3_25_MHZ => 9,
-            FREQSEL_A::_3_5_MHZ => 10,
-            FREQSEL_A::_3_75_MHZ => 11,
-            FREQSEL_A::_4_0_MHZ => 12,
-            FREQSEL_A::_4_2_MHZ => 13,
-            FREQSEL_A::_4_4_MHZ => 14,
-            FREQSEL_A::_4_6_MHZ => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FREQSEL`"]

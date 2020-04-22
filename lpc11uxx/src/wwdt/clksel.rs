@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CLKSEL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CLKSEL_A {
     #[doc = "0: IRC"]
-    IRC,
+    IRC = 0,
     #[doc = "1: Watchdog oscillator (WDOSC)"]
-    WATCHDOG_OSCILLATOR,
+    WATCHDOG_OSCILLATOR = 1,
 }
 impl From<CLKSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CLKSEL_A) -> Self {
-        match variant {
-            CLKSEL_A::IRC => false,
-            CLKSEL_A::WATCHDOG_OSCILLATOR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CLKSEL`"]

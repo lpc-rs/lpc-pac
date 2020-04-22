@@ -14,17 +14,14 @@ impl crate::ResetValue for super::IER {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RBRIE_A {
     #[doc = "0: Disable the RDA interrupts."]
-    DISABLE_THE_RDA_INTE,
+    DISABLE_THE_RDA_INTE = 0,
     #[doc = "1: Enable the RDA interrupts."]
-    ENABLE_THE_RDA_INTER,
+    ENABLE_THE_RDA_INTER = 1,
 }
 impl From<RBRIE_A> for bool {
     #[inline(always)]
     fn from(variant: RBRIE_A) -> Self {
-        match variant {
-            RBRIE_A::DISABLE_THE_RDA_INTE => false,
-            RBRIE_A::ENABLE_THE_RDA_INTER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RBRIE`"]
@@ -92,17 +89,14 @@ impl<'a> RBRIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum THREIE_A {
     #[doc = "0: Disable the THRE interrupts."]
-    DISABLE_THE_THRE_INT,
+    DISABLE_THE_THRE_INT = 0,
     #[doc = "1: Enable the THRE interrupts."]
-    ENABLE_THE_THRE_INTE,
+    ENABLE_THE_THRE_INTE = 1,
 }
 impl From<THREIE_A> for bool {
     #[inline(always)]
     fn from(variant: THREIE_A) -> Self {
-        match variant {
-            THREIE_A::DISABLE_THE_THRE_INT => false,
-            THREIE_A::ENABLE_THE_THRE_INTE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `THREIE`"]
@@ -170,17 +164,14 @@ impl<'a> THREIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RXIE_A {
     #[doc = "0: Disable the RX line status interrupts."]
-    DISABLE_THE_RX_LINE_,
+    DISABLE_THE_RX_LINE_ = 0,
     #[doc = "1: Enable the RX line status interrupts."]
-    ENABLE_THE_RX_LINE_S,
+    ENABLE_THE_RX_LINE_S = 1,
 }
 impl From<RXIE_A> for bool {
     #[inline(always)]
     fn from(variant: RXIE_A) -> Self {
-        match variant {
-            RXIE_A::DISABLE_THE_RX_LINE_ => false,
-            RXIE_A::ENABLE_THE_RX_LINE_S => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RXIE`"]
@@ -248,17 +239,14 @@ impl<'a> RXIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSIE_A {
     #[doc = "0: Disable the modem interrupt."]
-    DISABLE_THE_MODEM_IN,
+    DISABLE_THE_MODEM_IN = 0,
     #[doc = "1: Enable the modem interrupt."]
-    ENABLE_THE_MODEM_INT,
+    ENABLE_THE_MODEM_INT = 1,
 }
 impl From<MSIE_A> for bool {
     #[inline(always)]
     fn from(variant: MSIE_A) -> Self {
-        match variant {
-            MSIE_A::DISABLE_THE_MODEM_IN => false,
-            MSIE_A::ENABLE_THE_MODEM_INT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSIE`"]
@@ -322,21 +310,21 @@ impl<'a> MSIE_W<'a> {
         self.w
     }
 }
-#[doc = "CTS Interrupt Enable. If auto-cts mode is enabled this bit enables/disables the modem status interrupt generation on a CTS1 signal transition. If auto-cts mode is disabled a CTS1 transition will generate an interrupt if Modem Status Interrupt Enable (IER\\[3\\]) is set. In normal operation a CTS1 signal transition will generate a Modem Status Interrupt unless the interrupt has been disabled by clearing the IER\\[3\\] bit in the IER register. In auto-cts mode a transition on the CTS1 bit will trigger an interrupt only if both the IER\\[3\\] and IER\\[7\\] bits are set.\n\nValue on reset: 0"]
+#[doc = "CTS Interrupt Enable. If auto-cts mode is enabled this bit enables/disables the modem status interrupt generation on a CTS1 signal transition. If auto-cts mode is disabled a CTS1 transition will generate an interrupt if Modem Status Interrupt Enable (IER\\[3\\]) is set. In normal operation a CTS1 signal transition will generate a Modem Status Interrupt unless the interrupt has been disabled by clearing the IER\\[3\\]
+bit in the IER register. In auto-cts mode a transition on the CTS1 bit will trigger an interrupt only if both the IER\\[3\\]
+and IER\\[7\\]
+bits are set.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CTSIE_A {
     #[doc = "0: Disable the CTS interrupt."]
-    DISABLE_THE_CTS_INTE,
+    DISABLE_THE_CTS_INTE = 0,
     #[doc = "1: Enable the CTS interrupt."]
-    ENABLE_THE_CTS_INTER,
+    ENABLE_THE_CTS_INTER = 1,
 }
 impl From<CTSIE_A> for bool {
     #[inline(always)]
     fn from(variant: CTSIE_A) -> Self {
-        match variant {
-            CTSIE_A::DISABLE_THE_CTS_INTE => false,
-            CTSIE_A::ENABLE_THE_CTS_INTER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CTSIE`"]
@@ -404,17 +392,14 @@ impl<'a> CTSIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABEOIE_A {
     #[doc = "0: Disable end of auto-baud Interrupt."]
-    DISABLE_END_OF_AUTO_,
+    DISABLE_END_OF_AUTO_ = 0,
     #[doc = "1: Enable end of auto-baud Interrupt."]
-    ENABLE_END_OF_AUTO_B,
+    ENABLE_END_OF_AUTO_B = 1,
 }
 impl From<ABEOIE_A> for bool {
     #[inline(always)]
     fn from(variant: ABEOIE_A) -> Self {
-        match variant {
-            ABEOIE_A::DISABLE_END_OF_AUTO_ => false,
-            ABEOIE_A::ENABLE_END_OF_AUTO_B => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ABEOIE`"]
@@ -482,17 +467,14 @@ impl<'a> ABEOIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABTOIE_A {
     #[doc = "0: Disable auto-baud time-out Interrupt."]
-    DISABLE_AUTO_BAUD_TI,
+    DISABLE_AUTO_BAUD_TI = 0,
     #[doc = "1: Enable auto-baud time-out Interrupt."]
-    ENABLE_AUTO_BAUD_TIM,
+    ENABLE_AUTO_BAUD_TIM = 1,
 }
 impl From<ABTOIE_A> for bool {
     #[inline(always)]
     fn from(variant: ABTOIE_A) -> Self {
-        match variant {
-            ABTOIE_A::DISABLE_AUTO_BAUD_TI => false,
-            ABTOIE_A::ENABLE_AUTO_BAUD_TIM => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ABTOIE`"]
@@ -577,7 +559,10 @@ impl R {
     pub fn msie(&self) -> MSIE_R {
         MSIE_R::new(((self.bits >> 3) & 0x01) != 0)
     }
-    #[doc = "Bit 7 - CTS Interrupt Enable. If auto-cts mode is enabled this bit enables/disables the modem status interrupt generation on a CTS1 signal transition. If auto-cts mode is disabled a CTS1 transition will generate an interrupt if Modem Status Interrupt Enable (IER\\[3\\]) is set. In normal operation a CTS1 signal transition will generate a Modem Status Interrupt unless the interrupt has been disabled by clearing the IER\\[3\\] bit in the IER register. In auto-cts mode a transition on the CTS1 bit will trigger an interrupt only if both the IER\\[3\\] and IER\\[7\\] bits are set."]
+    #[doc = "Bit 7 - CTS Interrupt Enable. If auto-cts mode is enabled this bit enables/disables the modem status interrupt generation on a CTS1 signal transition. If auto-cts mode is disabled a CTS1 transition will generate an interrupt if Modem Status Interrupt Enable (IER\\[3\\]) is set. In normal operation a CTS1 signal transition will generate a Modem Status Interrupt unless the interrupt has been disabled by clearing the IER\\[3\\]
+bit in the IER register. In auto-cts mode a transition on the CTS1 bit will trigger an interrupt only if both the IER\\[3\\]
+and IER\\[7\\]
+bits are set."]
     #[inline(always)]
     pub fn ctsie(&self) -> CTSIE_R {
         CTSIE_R::new(((self.bits >> 7) & 0x01) != 0)
@@ -614,7 +599,10 @@ impl W {
     pub fn msie(&mut self) -> MSIE_W {
         MSIE_W { w: self }
     }
-    #[doc = "Bit 7 - CTS Interrupt Enable. If auto-cts mode is enabled this bit enables/disables the modem status interrupt generation on a CTS1 signal transition. If auto-cts mode is disabled a CTS1 transition will generate an interrupt if Modem Status Interrupt Enable (IER\\[3\\]) is set. In normal operation a CTS1 signal transition will generate a Modem Status Interrupt unless the interrupt has been disabled by clearing the IER\\[3\\] bit in the IER register. In auto-cts mode a transition on the CTS1 bit will trigger an interrupt only if both the IER\\[3\\] and IER\\[7\\] bits are set."]
+    #[doc = "Bit 7 - CTS Interrupt Enable. If auto-cts mode is enabled this bit enables/disables the modem status interrupt generation on a CTS1 signal transition. If auto-cts mode is disabled a CTS1 transition will generate an interrupt if Modem Status Interrupt Enable (IER\\[3\\]) is set. In normal operation a CTS1 signal transition will generate a Modem Status Interrupt unless the interrupt has been disabled by clearing the IER\\[3\\]
+bit in the IER register. In auto-cts mode a transition on the CTS1 bit will trigger an interrupt only if both the IER\\[3\\]
+and IER\\[7\\]
+bits are set."]
     #[inline(always)]
     pub fn ctsie(&mut self) -> CTSIE_W {
         CTSIE_W { w: self }

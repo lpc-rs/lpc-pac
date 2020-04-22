@@ -14,17 +14,14 @@ impl crate::ResetValue for super::SLVQUAL0 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum QUALMODE0_A {
     #[doc = "0: Mask. The SLVQUAL0 field is used as a logical mask for matching address 0."]
-    MASK,
+    MASK = 0,
     #[doc = "1: Extend. The SLVQUAL0 field is used to extend address 0 matching in a range of addresses."]
-    EXTEND,
+    EXTEND = 1,
 }
 impl From<QUALMODE0_A> for bool {
     #[inline(always)]
     fn from(variant: QUALMODE0_A) -> Self {
-        match variant {
-            QUALMODE0_A::MASK => false,
-            QUALMODE0_A::EXTEND => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `QUALMODE0`"]
@@ -108,7 +105,8 @@ impl R {
     pub fn qualmode0(&self) -> QUALMODE0_R {
         QUALMODE0_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bits 1:7 - Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0\\[7:1\\] <= received address <= SLVQUAL0\\[7:1\\])."]
+    #[doc = "Bits 1:7 - Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0\\[7:1\\]
+<= received address <= SLVQUAL0\\[7:1\\])."]
     #[inline(always)]
     pub fn slvqual0(&self) -> SLVQUAL0_R {
         SLVQUAL0_R::new(((self.bits >> 1) & 0x7f) as u8)
@@ -120,7 +118,8 @@ impl W {
     pub fn qualmode0(&mut self) -> QUALMODE0_W {
         QUALMODE0_W { w: self }
     }
-    #[doc = "Bits 1:7 - Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0\\[7:1\\] <= received address <= SLVQUAL0\\[7:1\\])."]
+    #[doc = "Bits 1:7 - Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0\\[7:1\\]
+<= received address <= SLVQUAL0\\[7:1\\])."]
     #[inline(always)]
     pub fn slvqual0(&mut self) -> SLVQUAL0_W {
         SLVQUAL0_W { w: self }

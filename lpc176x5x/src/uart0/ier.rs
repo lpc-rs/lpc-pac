@@ -14,17 +14,14 @@ impl crate::ResetValue for super::IER {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RBRIE_A {
     #[doc = "0: Disable the RDA interrupts."]
-    DISABLE_THE_RDA_INTE,
+    DISABLE_THE_RDA_INTE = 0,
     #[doc = "1: Enable the RDA interrupts."]
-    ENABLE_THE_RDA_INTER,
+    ENABLE_THE_RDA_INTER = 1,
 }
 impl From<RBRIE_A> for bool {
     #[inline(always)]
     fn from(variant: RBRIE_A) -> Self {
-        match variant {
-            RBRIE_A::DISABLE_THE_RDA_INTE => false,
-            RBRIE_A::ENABLE_THE_RDA_INTER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RBRIE`"]
@@ -92,17 +89,14 @@ impl<'a> RBRIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum THREIE_A {
     #[doc = "0: Disable the THRE interrupts."]
-    DISABLE_THE_THRE_INT,
+    DISABLE_THE_THRE_INT = 0,
     #[doc = "1: Enable the THRE interrupts."]
-    ENABLE_THE_THRE_INTE,
+    ENABLE_THE_THRE_INTE = 1,
 }
 impl From<THREIE_A> for bool {
     #[inline(always)]
     fn from(variant: THREIE_A) -> Self {
-        match variant {
-            THREIE_A::DISABLE_THE_THRE_INT => false,
-            THREIE_A::ENABLE_THE_THRE_INTE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `THREIE`"]
@@ -170,17 +164,14 @@ impl<'a> THREIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RXIE_A {
     #[doc = "0: Disable the RX line status interrupts."]
-    DISABLE_THE_RX_LINE_,
+    DISABLE_THE_RX_LINE_ = 0,
     #[doc = "1: Enable the RX line status interrupts."]
-    ENABLE_THE_RX_LINE_S,
+    ENABLE_THE_RX_LINE_S = 1,
 }
 impl From<RXIE_A> for bool {
     #[inline(always)]
     fn from(variant: RXIE_A) -> Self {
-        match variant {
-            RXIE_A::DISABLE_THE_RX_LINE_ => false,
-            RXIE_A::ENABLE_THE_RX_LINE_S => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RXIE`"]
@@ -248,17 +239,14 @@ impl<'a> RXIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABEOINTEN_A {
     #[doc = "0: Disable end of auto-baud Interrupt."]
-    DISABLE_END_OF_AUTO_,
+    DISABLE_END_OF_AUTO_ = 0,
     #[doc = "1: Enable end of auto-baud Interrupt."]
-    ENABLE_END_OF_AUTO_B,
+    ENABLE_END_OF_AUTO_B = 1,
 }
 impl From<ABEOINTEN_A> for bool {
     #[inline(always)]
     fn from(variant: ABEOINTEN_A) -> Self {
-        match variant {
-            ABEOINTEN_A::DISABLE_END_OF_AUTO_ => false,
-            ABEOINTEN_A::ENABLE_END_OF_AUTO_B => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ABEOINTEN`"]
@@ -326,17 +314,14 @@ impl<'a> ABEOINTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABTOINTEN_A {
     #[doc = "0: Disable auto-baud time-out Interrupt."]
-    DISABLE_AUTO_BAUD_TI,
+    DISABLE_AUTO_BAUD_TI = 0,
     #[doc = "1: Enable auto-baud time-out Interrupt."]
-    ENABLE_AUTO_BAUD_TIM,
+    ENABLE_AUTO_BAUD_TIM = 1,
 }
 impl From<ABTOINTEN_A> for bool {
     #[inline(always)]
     fn from(variant: ABTOINTEN_A) -> Self {
-        match variant {
-            ABTOINTEN_A::DISABLE_AUTO_BAUD_TI => false,
-            ABTOINTEN_A::ENABLE_AUTO_BAUD_TIM => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ABTOINTEN`"]

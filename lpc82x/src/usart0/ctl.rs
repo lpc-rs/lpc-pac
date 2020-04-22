@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CTL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXBRKEN_A {
     #[doc = "0: Normal operation."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Continuous break. Continuous break is sent immediately when this bit is set, and remains until this bit is cleared. A break may be sent without danger of corrupting any currently transmitting character if the transmitter is first disabled (TXDIS in CTL is set) and then waiting for the transmitter to be disabled (TXDISINT in STAT = 1) before writing 1 to TXBRKEN."]
-    CONTINOUS,
+    CONTINOUS = 1,
 }
 impl From<TXBRKEN_A> for bool {
     #[inline(always)]
     fn from(variant: TXBRKEN_A) -> Self {
-        match variant {
-            TXBRKEN_A::NORMAL => false,
-            TXBRKEN_A::CONTINOUS => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TXBRKEN`"]
@@ -92,17 +89,14 @@ impl<'a> TXBRKEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADDRDET_A {
     #[doc = "0: Disabled. The USART presents all incoming data."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The USART receiver ignores incoming data that does not have the most significant bit of the data (typically the 9th bit) = 1. When the data MSB bit = 1, the receiver treats the incoming data normally, generating a received data interrupt. Software can then check the data to see if this is an address that should be handled. If it is, the ADDRDET bit is cleared by software and further incoming data is handled normally."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ADDRDET_A> for bool {
     #[inline(always)]
     fn from(variant: ADDRDET_A) -> Self {
-        match variant {
-            ADDRDET_A::DISABLED => false,
-            ADDRDET_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADDRDET`"]
@@ -170,17 +164,14 @@ impl<'a> ADDRDET_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXDIS_A {
     #[doc = "0: Not disabled. USART transmitter is not disabled."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: Disabled. USART transmitter is disabled after any character currently being transmitted is complete. This feature can be used to facilitate software flow control."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<TXDIS_A> for bool {
     #[inline(always)]
     fn from(variant: TXDIS_A) -> Self {
-        match variant {
-            TXDIS_A::ENABLED => false,
-            TXDIS_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TXDIS`"]
@@ -248,17 +239,14 @@ impl<'a> TXDIS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CC_A {
     #[doc = "0: Clock on character. In synchronous mode, SCLK cycles only when characters are being sent on Un_TXD or to complete a character that is being received."]
-    CLOCK_ON_CHARACTER,
+    CLOCK_ON_CHARACTER = 0,
     #[doc = "1: Continuous clock. SCLK runs continuously in synchronous mode, allowing characters to be received on Un_RxD independently from transmission on Un_TXD)."]
-    CONTINOUS_CLOCK,
+    CONTINOUS_CLOCK = 1,
 }
 impl From<CC_A> for bool {
     #[inline(always)]
     fn from(variant: CC_A) -> Self {
-        match variant {
-            CC_A::CLOCK_ON_CHARACTER => false,
-            CC_A::CONTINOUS_CLOCK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CC`"]
@@ -326,17 +314,14 @@ impl<'a> CC_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CLRCCONRX_A {
     #[doc = "0: No effect. No effect on the CC bit."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: Auto-clear. The CC bit is automatically cleared when a complete character has been received. This bit is cleared at the same time."]
-    AUTO_CLEAR,
+    AUTO_CLEAR = 1,
 }
 impl From<CLRCCONRX_A> for bool {
     #[inline(always)]
     fn from(variant: CLRCCONRX_A) -> Self {
-        match variant {
-            CLRCCONRX_A::NO_EFFECT => false,
-            CLRCCONRX_A::AUTO_CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CLRCCONRX`"]
@@ -404,17 +389,14 @@ impl<'a> CLRCCONRX_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AUTOBAUD_A {
     #[doc = "0: Disabled. USART is in normal operating mode."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. USART is in autobaud mode. This bit should only be set when the USART receiver is idle. The first start bit of RX is measured and used the update the BRG register to match the received data rate. AUTOBAUD is cleared once this process is complete, or if there is an AERR."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<AUTOBAUD_A> for bool {
     #[inline(always)]
     fn from(variant: AUTOBAUD_A) -> Self {
-        match variant {
-            AUTOBAUD_A::DISABLED => false,
-            AUTOBAUD_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `AUTOBAUD`"]

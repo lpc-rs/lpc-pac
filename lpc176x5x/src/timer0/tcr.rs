@@ -64,7 +64,8 @@ impl R {
     pub fn cen(&self) -> CEN_R {
         CEN_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 1 - When one, the Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
+    #[doc = "Bit 1 - When one, the Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\]
+is returned to zero."]
     #[inline(always)]
     pub fn crst(&self) -> CRST_R {
         CRST_R::new(((self.bits >> 1) & 0x01) != 0)
@@ -76,7 +77,8 @@ impl W {
     pub fn cen(&mut self) -> CEN_W {
         CEN_W { w: self }
     }
-    #[doc = "Bit 1 - When one, the Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
+    #[doc = "Bit 1 - When one, the Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\]
+is returned to zero."]
     #[inline(always)]
     pub fn crst(&mut self) -> CRST_W {
         CRST_W { w: self }

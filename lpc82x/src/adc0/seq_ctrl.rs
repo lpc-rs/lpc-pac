@@ -42,17 +42,14 @@ impl<'a> TRIGGER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGPOL_A {
     #[doc = "0: Negative edge. A negative edge launches the conversion sequence on the selected trigger input."]
-    NEGATIVE_EDGE,
+    NEGATIVE_EDGE = 0,
     #[doc = "1: Positive edge. A positive edge launches the conversion sequence on the selected trigger input."]
-    POSITIVE_EDGE,
+    POSITIVE_EDGE = 1,
 }
 impl From<TRIGPOL_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGPOL_A) -> Self {
-        match variant {
-            TRIGPOL_A::NEGATIVE_EDGE => false,
-            TRIGPOL_A::POSITIVE_EDGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGPOL`"]
@@ -120,17 +117,14 @@ impl<'a> TRIGPOL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SYNCBYPASS_A {
     #[doc = "0: Enable trigger synchronization. The hardware trigger bypass is not enabled."]
-    ENABLE_TRIGGER_SYNCH,
+    ENABLE_TRIGGER_SYNCH = 0,
     #[doc = "1: Bypass trigger synchronization. The hardware trigger bypass is enabled."]
-    BYPASS_TRIGGER_SYNCH,
+    BYPASS_TRIGGER_SYNCH = 1,
 }
 impl From<SYNCBYPASS_A> for bool {
     #[inline(always)]
     fn from(variant: SYNCBYPASS_A) -> Self {
-        match variant {
-            SYNCBYPASS_A::ENABLE_TRIGGER_SYNCH => false,
-            SYNCBYPASS_A::BYPASS_TRIGGER_SYNCH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SYNCBYPASS`"]
@@ -270,17 +264,14 @@ impl<'a> SINGLESTEP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOWPRIO_A {
     #[doc = "0: Low priority. Any B trigger which occurs while an A conversion sequence is active will be ignored and lost."]
-    LOW_PRIORITY,
+    LOW_PRIORITY = 0,
     #[doc = "1: High priority. Setting this bit to a 1 will permit any enabled B sequence trigger (including a B sequence software start) to immediately interrupt sequence A and launch a B sequence in it's place. The conversion currently in progress will be terminated. The A sequence that was interrupted will automatically resume after the B sequence completes. The channel whose conversion was terminated will be re-sampled and the conversion sequence will resume from that point."]
-    HIGH_PRIORITY,
+    HIGH_PRIORITY = 1,
 }
 impl From<LOWPRIO_A> for bool {
     #[inline(always)]
     fn from(variant: LOWPRIO_A) -> Self {
-        match variant {
-            LOWPRIO_A::LOW_PRIORITY => false,
-            LOWPRIO_A::HIGH_PRIORITY => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOWPRIO`"]
@@ -348,17 +339,14 @@ impl<'a> LOWPRIO_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODE_A {
     #[doc = "0: End of conversion. The sequence A interrupt/DMA trigger will be set at the end of each individual ADC conversion performed under sequence A. This flag will mirror the DATAVALID bit in the SEQA_GDAT register. The OVERRUN bit in the SEQA_GDAT register will contribute to generation of an overrun interrupt/DMA trigger if enabled."]
-    END_OF_CONVERSION,
+    END_OF_CONVERSION = 0,
     #[doc = "1: End of sequence. The sequence A interrupt/DMA trigger will be set when the entire set of sequence-A conversions completes. This flag will need to be explicitly cleared by software or by the DMA-clear signal in this mode. The OVERRUN bit in the SEQA_GDAT register will NOT contribute to generation of an overrun interrupt/DMA trigger since it is assumed this register may not be utilized in this mode."]
-    END_OF_SEQUENCE,
+    END_OF_SEQUENCE = 1,
 }
 impl From<MODE_A> for bool {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::END_OF_CONVERSION => false,
-            MODE_A::END_OF_SEQUENCE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MODE`"]
@@ -426,17 +414,14 @@ impl<'a> MODE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEQ_ENA_A {
     #[doc = "0: Disabled. Sequence n is disabled. Sequence n triggers are ignored. If this bit is cleared while sequence n is in progress, the sequence will be halted at the end of the current conversion. After the sequence is re-enabled, a new trigger will be required to restart the sequence beginning with the next enabled channel."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. Sequence n is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SEQ_ENA_A> for bool {
     #[inline(always)]
     fn from(variant: SEQ_ENA_A) -> Self {
-        match variant {
-            SEQ_ENA_A::DISABLED => false,
-            SEQ_ENA_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEQ_ENA`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PDSLEEPCFG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BOD_PD_A {
     #[doc = "0: Powered"]
-    POWERED,
+    POWERED = 0,
     #[doc = "1: Powered down"]
-    POWERED_DOWN,
+    POWERED_DOWN = 1,
 }
 impl From<BOD_PD_A> for bool {
     #[inline(always)]
     fn from(variant: BOD_PD_A) -> Self {
-        match variant {
-            BOD_PD_A::POWERED => false,
-            BOD_PD_A::POWERED_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BOD_PD`"]
@@ -92,17 +89,14 @@ impl<'a> BOD_PD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WDTOSC_PD_A {
     #[doc = "0: Powered"]
-    POWERED,
+    POWERED = 0,
     #[doc = "1: Powered down"]
-    POWERED_DOWN,
+    POWERED_DOWN = 1,
 }
 impl From<WDTOSC_PD_A> for bool {
     #[inline(always)]
     fn from(variant: WDTOSC_PD_A) -> Self {
-        match variant {
-            WDTOSC_PD_A::POWERED => false,
-            WDTOSC_PD_A::POWERED_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WDTOSC_PD`"]

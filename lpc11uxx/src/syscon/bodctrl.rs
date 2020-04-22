@@ -12,25 +12,21 @@ impl crate::ResetValue for super::BODCTRL {
 }
 #[doc = "BOD reset level\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BODRSTLEV_A {
     #[doc = "0: Level 0: The reset assertion threshold voltage is 1.46 V; the reset de-assertion threshold voltage is 1.63 V."]
-    LEVEL_0_THE_RESET_A,
+    LEVEL_0_THE_RESET_A = 0,
     #[doc = "1: Level 1: The reset assertion threshold voltage is 2.06 V; the reset de-assertion threshold voltage is 2.15 V."]
-    LEVEL_1_THE_RESET_A,
+    LEVEL_1_THE_RESET_A = 1,
     #[doc = "2: Level 2: The reset assertion threshold voltage is 2.35 V; the reset de-assertion threshold voltage is 2.43 V."]
-    LEVEL_2_THE_RESET_A,
+    LEVEL_2_THE_RESET_A = 2,
     #[doc = "3: Level 3: The reset assertion threshold voltage is 2.63 V; the reset de-assertion threshold voltage is 2.71 V."]
-    LEVEL_3_THE_RESET_A,
+    LEVEL_3_THE_RESET_A = 3,
 }
 impl From<BODRSTLEV_A> for u8 {
     #[inline(always)]
     fn from(variant: BODRSTLEV_A) -> Self {
-        match variant {
-            BODRSTLEV_A::LEVEL_0_THE_RESET_A => 0,
-            BODRSTLEV_A::LEVEL_1_THE_RESET_A => 1,
-            BODRSTLEV_A::LEVEL_2_THE_RESET_A => 2,
-            BODRSTLEV_A::LEVEL_3_THE_RESET_A => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BODRSTLEV`"]
@@ -109,25 +105,21 @@ impl<'a> BODRSTLEV_W<'a> {
 }
 #[doc = "BOD interrupt level\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BODINTVAL_A {
     #[doc = "0: Level 0: Reserved."]
-    LEVEL_0_RESERVED,
+    LEVEL_0_RESERVED = 0,
     #[doc = "1: Level 1:The interrupt assertion threshold voltage is 2.22 V; the interrupt de-assertion threshold voltage is 2.35 V."]
-    LEVEL_1THE_INTERRUP,
+    LEVEL_1THE_INTERRUP = 1,
     #[doc = "2: Level 2: The interrupt assertion threshold voltage is 2.52 V; the interrupt de-assertion threshold voltage is 2.66 V."]
-    LEVEL_2_THE_INTERRU,
+    LEVEL_2_THE_INTERRU = 2,
     #[doc = "3: Level 3: The interrupt assertion threshold voltage is 2.80 V; the interrupt de-assertion threshold voltage is 2.90 V."]
-    LEVEL_3_THE_INTERRU,
+    LEVEL_3_THE_INTERRU = 3,
 }
 impl From<BODINTVAL_A> for u8 {
     #[inline(always)]
     fn from(variant: BODINTVAL_A) -> Self {
-        match variant {
-            BODINTVAL_A::LEVEL_0_RESERVED => 0,
-            BODINTVAL_A::LEVEL_1THE_INTERRUP => 1,
-            BODINTVAL_A::LEVEL_2_THE_INTERRU => 2,
-            BODINTVAL_A::LEVEL_3_THE_INTERRU => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BODINTVAL`"]
@@ -208,17 +200,14 @@ impl<'a> BODINTVAL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BODRSTENA_A {
     #[doc = "0: Disable reset function."]
-    DISABLE_RESET_FUNCTI,
+    DISABLE_RESET_FUNCTI = 0,
     #[doc = "1: Enable reset function."]
-    ENABLE_RESET_FUNCTIO,
+    ENABLE_RESET_FUNCTIO = 1,
 }
 impl From<BODRSTENA_A> for bool {
     #[inline(always)]
     fn from(variant: BODRSTENA_A) -> Self {
-        match variant {
-            BODRSTENA_A::DISABLE_RESET_FUNCTI => false,
-            BODRSTENA_A::ENABLE_RESET_FUNCTIO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BODRSTENA`"]

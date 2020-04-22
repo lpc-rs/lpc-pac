@@ -14,17 +14,14 @@ impl crate::ResetValue for super::ACR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum START_A {
     #[doc = "0: Auto-baud stop (auto-baud is not running)."]
-    AUTO_BAUD_STOP_AUTO,
+    AUTO_BAUD_STOP_AUTO = 0,
     #[doc = "1: Auto-baud start (auto-baud is running). Auto-baud run bit. This bit is automatically cleared after auto-baud completion."]
-    AUTO_BAUD_START_AUT,
+    AUTO_BAUD_START_AUT = 1,
 }
 impl From<START_A> for bool {
     #[inline(always)]
     fn from(variant: START_A) -> Self {
-        match variant {
-            START_A::AUTO_BAUD_STOP_AUTO => false,
-            START_A::AUTO_BAUD_START_AUT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `START`"]
@@ -92,17 +89,14 @@ impl<'a> START_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODE_A {
     #[doc = "0: Mode 0."]
-    MODE0,
+    MODE0 = 0,
     #[doc = "1: Mode 1."]
-    MODE1,
+    MODE1 = 1,
 }
 impl From<MODE_A> for bool {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::MODE0 => false,
-            MODE_A::MODE1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MODE`"]
@@ -170,17 +164,14 @@ impl<'a> MODE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AUTORESTART_A {
     #[doc = "0: No restart"]
-    NO_RESTART,
+    NO_RESTART = 0,
     #[doc = "1: Restart in case of time-out (counter restarts at next USART Rx falling edge)"]
-    RESTART_IN_CASE_OF_T,
+    RESTART_IN_CASE_OF_T = 1,
 }
 impl From<AUTORESTART_A> for bool {
     #[inline(always)]
     fn from(variant: AUTORESTART_A) -> Self {
-        match variant {
-            AUTORESTART_A::NO_RESTART => false,
-            AUTORESTART_A::RESTART_IN_CASE_OF_T => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `AUTORESTART`"]
@@ -248,17 +239,14 @@ impl<'a> AUTORESTART_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABEOINTCLR_A {
     #[doc = "0: Writing a 0 has no impact."]
-    NO_IMPACT,
+    NO_IMPACT = 0,
     #[doc = "1: Writing a 1 will clear the corresponding interrupt in the IIR."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<ABEOINTCLR_A> for bool {
     #[inline(always)]
     fn from(variant: ABEOINTCLR_A) -> Self {
-        match variant {
-            ABEOINTCLR_A::NO_IMPACT => false,
-            ABEOINTCLR_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ABEOINTCLR`"]
@@ -326,17 +314,14 @@ impl<'a> ABEOINTCLR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABTOINTCLR_A {
     #[doc = "0: Writing a 0 has no impact."]
-    NO_IMPACT,
+    NO_IMPACT = 0,
     #[doc = "1: Writing a 1 will clear the corresponding interrupt in the IIR."]
-    CLEAR,
+    CLEAR = 1,
 }
 impl From<ABTOINTCLR_A> for bool {
     #[inline(always)]
     fn from(variant: ABTOINTCLR_A) -> Self {
-        match variant {
-            ABTOINTCLR_A::NO_IMPACT => false,
-            ABTOINTCLR_A::CLEAR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ABTOINTCLR`"]

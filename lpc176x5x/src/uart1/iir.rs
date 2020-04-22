@@ -1,20 +1,18 @@
 #[doc = "Reader of register IIR"]
 pub type R = crate::R<u32, super::IIR>;
-#[doc = "Interrupt status. Note that IIR\\[0\\] is active low. The pending interrupt can be determined by evaluating IIR\\[3:1\\].\n\nValue on reset: 1"]
+#[doc = "Interrupt status. Note that IIR\\[0\\]
+is active low. The pending interrupt can be determined by evaluating IIR\\[3:1\\].\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INTSTATUS_A {
     #[doc = "0: At least one interrupt is pending."]
-    AT_LEAST_ONE_INTERRU,
+    AT_LEAST_ONE_INTERRU = 0,
     #[doc = "1: No interrupt is pending."]
-    NO_INTERRUPT_IS_PEND,
+    NO_INTERRUPT_IS_PEND = 1,
 }
 impl From<INTSTATUS_A> for bool {
     #[inline(always)]
     fn from(variant: INTSTATUS_A) -> Self {
-        match variant {
-            INTSTATUS_A::AT_LEAST_ONE_INTERRU => false,
-            INTSTATUS_A::NO_INTERRUPT_IS_PEND => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INTSTATUS`"]
@@ -39,30 +37,27 @@ impl INTSTATUS_R {
         *self == INTSTATUS_A::NO_INTERRUPT_IS_PEND
     }
 }
-#[doc = "Interrupt identification. IER\\[3:1\\] identifies an interrupt corresponding to the UART1 Rx or TX FIFO. All other combinations of IER\\[3:1\\] not listed below are reserved (100,101,111).\n\nValue on reset: 0"]
+#[doc = "Interrupt identification. IER\\[3:1\\]
+identifies an interrupt corresponding to the UART1 Rx or TX FIFO. All other combinations of IER\\[3:1\\]
+not listed below are reserved (100,101,111).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum INTID_A {
     #[doc = "3: 1   - Receive Line Status (RLS)."]
-    RLS,
+    RLS = 3,
     #[doc = "2: 2a - Receive Data Available (RDA)."]
-    RDA,
+    RDA = 2,
     #[doc = "6: 2b - Character Time-out Indicator (CTI)."]
-    CTI,
+    CTI = 6,
     #[doc = "1: 3   - THRE Interrupt."]
-    THRE,
+    THRE = 1,
     #[doc = "0: 4   - Modem Interrupt."]
-    MODEM,
+    MODEM = 0,
 }
 impl From<INTID_A> for u8 {
     #[inline(always)]
     fn from(variant: INTID_A) -> Self {
-        match variant {
-            INTID_A::RLS => 3,
-            INTID_A::RDA => 2,
-            INTID_A::CTI => 6,
-            INTID_A::THRE => 1,
-            INTID_A::MODEM => 0,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `INTID`"]
@@ -114,12 +109,15 @@ pub type ABEOINT_R = crate::R<bool, bool>;
 #[doc = "Reader of field `ABTOINT`"]
 pub type ABTOINT_R = crate::R<bool, bool>;
 impl R {
-    #[doc = "Bit 0 - Interrupt status. Note that IIR\\[0\\] is active low. The pending interrupt can be determined by evaluating IIR\\[3:1\\]."]
+    #[doc = "Bit 0 - Interrupt status. Note that IIR\\[0\\]
+is active low. The pending interrupt can be determined by evaluating IIR\\[3:1\\]."]
     #[inline(always)]
     pub fn intstatus(&self) -> INTSTATUS_R {
         INTSTATUS_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bits 1:3 - Interrupt identification. IER\\[3:1\\] identifies an interrupt corresponding to the UART1 Rx or TX FIFO. All other combinations of IER\\[3:1\\] not listed below are reserved (100,101,111)."]
+    #[doc = "Bits 1:3 - Interrupt identification. IER\\[3:1\\]
+identifies an interrupt corresponding to the UART1 Rx or TX FIFO. All other combinations of IER\\[3:1\\]
+not listed below are reserved (100,101,111)."]
     #[inline(always)]
     pub fn intid(&self) -> INTID_R {
         INTID_R::new(((self.bits >> 1) & 0x07) as u8)

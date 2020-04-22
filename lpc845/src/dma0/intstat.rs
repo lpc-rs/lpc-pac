@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::INTSTAT>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACTIVEINT_A {
     #[doc = "0: Not pending. No enabled interrupts are pending."]
-    NOT_PENDING,
+    NOT_PENDING = 0,
     #[doc = "1: Pending. At least one enabled interrupt is pending."]
-    PENDING,
+    PENDING = 1,
 }
 impl From<ACTIVEINT_A> for bool {
     #[inline(always)]
     fn from(variant: ACTIVEINT_A) -> Self {
-        match variant {
-            ACTIVEINT_A::NOT_PENDING => false,
-            ACTIVEINT_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACTIVEINT`"]
@@ -43,17 +40,14 @@ impl ACTIVEINT_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACTIVEERRINT_A {
     #[doc = "0: Not pending. No error interrupts are pending."]
-    NOT_PENDING,
+    NOT_PENDING = 0,
     #[doc = "1: Pending. At least one error interrupt is pending."]
-    PENDING,
+    PENDING = 1,
 }
 impl From<ACTIVEERRINT_A> for bool {
     #[inline(always)]
     fn from(variant: ACTIVEERRINT_A) -> Self {
-        match variant {
-            ACTIVEERRINT_A::NOT_PENDING => false,
-            ACTIVEERRINT_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACTIVEERRINT`"]

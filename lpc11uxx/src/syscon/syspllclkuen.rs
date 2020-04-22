@@ -14,17 +14,14 @@ impl crate::ResetValue for super::SYSPLLCLKUEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENA_A {
     #[doc = "0: No change"]
-    NO_CHANGE,
+    NO_CHANGE = 0,
     #[doc = "1: Update clock source"]
-    UPDATE_CLOCK_SOURCE,
+    UPDATE_CLOCK_SOURCE = 1,
 }
 impl From<ENA_A> for bool {
     #[inline(always)]
     fn from(variant: ENA_A) -> Self {
-        match variant {
-            ENA_A::NO_CHANGE => false,
-            ENA_A::UPDATE_CLOCK_SOURCE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENA`"]

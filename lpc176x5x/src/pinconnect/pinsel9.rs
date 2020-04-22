@@ -12,25 +12,21 @@ impl crate::ResetValue for super::PINSEL9 {
 }
 #[doc = "Pin function select P4.28.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P4_28_A {
     #[doc = "0: GPIO P4.28"]
-    GPIO_P4,
+    GPIO_P4 = 0,
     #[doc = "1: RX_MCLK"]
-    RX_MCLK,
+    RX_MCLK = 1,
     #[doc = "2: MAT2.0"]
-    MAT2,
+    MAT2 = 2,
     #[doc = "3: TXD3"]
-    TXD3,
+    TXD3 = 3,
 }
 impl From<P4_28_A> for u8 {
     #[inline(always)]
     fn from(variant: P4_28_A) -> Self {
-        match variant {
-            P4_28_A::GPIO_P4 => 0,
-            P4_28_A::RX_MCLK => 1,
-            P4_28_A::MAT2 => 2,
-            P4_28_A::TXD3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P4_28`"]
@@ -109,25 +105,21 @@ impl<'a> P4_28_W<'a> {
 }
 #[doc = "Pin function select P4.29.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P4_29_A {
     #[doc = "0: GPIO P4.29"]
-    GPIO_P4,
+    GPIO_P4 = 0,
     #[doc = "1: TX_MCLK"]
-    TX_MCLK,
+    TX_MCLK = 1,
     #[doc = "2: MAT2.1"]
-    MAT2,
+    MAT2 = 2,
     #[doc = "3: RXD3"]
-    RXD3,
+    RXD3 = 3,
 }
 impl From<P4_29_A> for u8 {
     #[inline(always)]
     fn from(variant: P4_29_A) -> Self {
-        match variant {
-            P4_29_A::GPIO_P4 => 0,
-            P4_29_A::TX_MCLK => 1,
-            P4_29_A::MAT2 => 2,
-            P4_29_A::RXD3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P4_29`"]

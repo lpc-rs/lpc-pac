@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PINSEL10 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TPIUCTRL_A {
     #[doc = "0: Disabled. TPIU interface is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. TPIU interface is enabled. TPIU signals are available on the pins hosting them regardless of the PINSEL4 content."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<TPIUCTRL_A> for bool {
     #[inline(always)]
     fn from(variant: TPIUCTRL_A) -> Self {
-        match variant {
-            TPIUCTRL_A::DISABLED => false,
-            TPIUCTRL_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TPIUCTRL`"]

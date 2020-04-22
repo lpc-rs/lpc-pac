@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PINMODE_OD3 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P3_25OD_A {
     #[doc = "0: Normal. P3.25 pin is in the normal (not open drain) mode."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Open-drain. P3.25 pin is in the open drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<P3_25OD_A> for bool {
     #[inline(always)]
     fn from(variant: P3_25OD_A) -> Self {
-        match variant {
-            P3_25OD_A::NORMAL => false,
-            P3_25OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P3_25OD`"]

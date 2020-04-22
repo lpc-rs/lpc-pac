@@ -30,7 +30,7 @@ pub struct RegisterBlock {
     #[doc = "0x34 - I2S Receive mode control."]
     pub rxmode: RXMODE,
 }
-#[doc = "I2S Digital Audio Output Register. Contains control bits for the I2S transmit channel.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dao](dao) module"]
+#[doc = "I2S Digital Audio Output Register. Contains control bits for the I2S transmit channel.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dao](dao) module"]
 pub type DAO = crate::Reg<u32, _DAO>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -41,7 +41,7 @@ impl crate::Readable for DAO {}
 impl crate::Writable for DAO {}
 #[doc = "I2S Digital Audio Output Register. Contains control bits for the I2S transmit channel."]
 pub mod dao;
-#[doc = "I2S Digital Audio Input Register. Contains control bits for the I2S receive channel.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dai](dai) module"]
+#[doc = "I2S Digital Audio Input Register. Contains control bits for the I2S receive channel.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dai](dai) module"]
 pub type DAI = crate::Reg<u32, _DAI>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -52,7 +52,7 @@ impl crate::Readable for DAI {}
 impl crate::Writable for DAI {}
 #[doc = "I2S Digital Audio Input Register. Contains control bits for the I2S receive channel."]
 pub mod dai;
-#[doc = "I2S Transmit FIFO. Access register for the 8 x 32-bit transmitter FIFO.\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [txfifo](txfifo) module"]
+#[doc = "I2S Transmit FIFO. Access register for the 8 x 32-bit transmitter FIFO.\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [txfifo](txfifo) module"]
 pub type TXFIFO = crate::Reg<u32, _TXFIFO>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -61,7 +61,7 @@ pub struct _TXFIFO;
 impl crate::Writable for TXFIFO {}
 #[doc = "I2S Transmit FIFO. Access register for the 8 x 32-bit transmitter FIFO."]
 pub mod txfifo;
-#[doc = "I2S Receive FIFO. Access register for the 8 x 32-bit receiver FIFO.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rxfifo](rxfifo) module"]
+#[doc = "I2S Receive FIFO. Access register for the 8 x 32-bit receiver FIFO.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rxfifo](rxfifo) module"]
 pub type RXFIFO = crate::Reg<u32, _RXFIFO>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ pub struct _RXFIFO;
 impl crate::Readable for RXFIFO {}
 #[doc = "I2S Receive FIFO. Access register for the 8 x 32-bit receiver FIFO."]
 pub mod rxfifo;
-#[doc = "I2S Status Feedback Register. Contains status information about the I2S interface.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [state](state) module"]
+#[doc = "I2S Status Feedback Register. Contains status information about the I2S interface.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [state](state) module"]
 pub type STATE = crate::Reg<u32, _STATE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -79,7 +79,7 @@ pub struct _STATE;
 impl crate::Readable for STATE {}
 #[doc = "I2S Status Feedback Register. Contains status information about the I2S interface."]
 pub mod state;
-#[doc = "I2S DMA Configuration Register 1. Contains control information for DMA request 1.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dma1](dma1) module"]
+#[doc = "I2S DMA Configuration Register 1. Contains control information for DMA request 1.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma1](dma1) module"]
 pub type DMA1 = crate::Reg<u32, _DMA1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -90,7 +90,7 @@ impl crate::Readable for DMA1 {}
 impl crate::Writable for DMA1 {}
 #[doc = "I2S DMA Configuration Register 1. Contains control information for DMA request 1."]
 pub mod dma1;
-#[doc = "I2S DMA Configuration Register 2. Contains control information for DMA request 2.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dma2](dma2) module"]
+#[doc = "I2S DMA Configuration Register 2. Contains control information for DMA request 2.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma2](dma2) module"]
 pub type DMA2 = crate::Reg<u32, _DMA2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -101,7 +101,7 @@ impl crate::Readable for DMA2 {}
 impl crate::Writable for DMA2 {}
 #[doc = "I2S DMA Configuration Register 2. Contains control information for DMA request 2."]
 pub mod dma2;
-#[doc = "I2S Interrupt Request Control Register. Contains bits that control how the I2S interrupt request is generated.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [irq](irq) module"]
+#[doc = "I2S Interrupt Request Control Register. Contains bits that control how the I2S interrupt request is generated.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [irq](irq) module"]
 pub type IRQ = crate::Reg<u32, _IRQ>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -112,7 +112,7 @@ impl crate::Readable for IRQ {}
 impl crate::Writable for IRQ {}
 #[doc = "I2S Interrupt Request Control Register. Contains bits that control how the I2S interrupt request is generated."]
 pub mod irq;
-#[doc = "I2S Transmit MCLK divider. This register determines the I2S TX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [txrate](txrate) module"]
+#[doc = "I2S Transmit MCLK divider. This register determines the I2S TX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [txrate](txrate) module"]
 pub type TXRATE = crate::Reg<u32, _TXRATE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -123,7 +123,7 @@ impl crate::Readable for TXRATE {}
 impl crate::Writable for TXRATE {}
 #[doc = "I2S Transmit MCLK divider. This register determines the I2S TX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK."]
 pub mod txrate;
-#[doc = "I2S Receive MCLK divider. This register determines the I2S RX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rxrate](rxrate) module"]
+#[doc = "I2S Receive MCLK divider. This register determines the I2S RX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rxrate](rxrate) module"]
 pub type RXRATE = crate::Reg<u32, _RXRATE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -134,7 +134,7 @@ impl crate::Readable for RXRATE {}
 impl crate::Writable for RXRATE {}
 #[doc = "I2S Receive MCLK divider. This register determines the I2S RX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK."]
 pub mod rxrate;
-#[doc = "I2S Transmit bit rate divider. This register determines the I2S transmit bit rate by specifying the value to divide TX_MCLK by in order to produce the transmit bit clock.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [txbitrate](txbitrate) module"]
+#[doc = "I2S Transmit bit rate divider. This register determines the I2S transmit bit rate by specifying the value to divide TX_MCLK by in order to produce the transmit bit clock.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [txbitrate](txbitrate) module"]
 pub type TXBITRATE = crate::Reg<u32, _TXBITRATE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -145,7 +145,7 @@ impl crate::Readable for TXBITRATE {}
 impl crate::Writable for TXBITRATE {}
 #[doc = "I2S Transmit bit rate divider. This register determines the I2S transmit bit rate by specifying the value to divide TX_MCLK by in order to produce the transmit bit clock."]
 pub mod txbitrate;
-#[doc = "I2S Receive bit rate divider. This register determines the I2S receive bit rate by specifying the value to divide RX_MCLK by in order to produce the receive bit clock.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rxbitrate](rxbitrate) module"]
+#[doc = "I2S Receive bit rate divider. This register determines the I2S receive bit rate by specifying the value to divide RX_MCLK by in order to produce the receive bit clock.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rxbitrate](rxbitrate) module"]
 pub type RXBITRATE = crate::Reg<u32, _RXBITRATE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -156,7 +156,7 @@ impl crate::Readable for RXBITRATE {}
 impl crate::Writable for RXBITRATE {}
 #[doc = "I2S Receive bit rate divider. This register determines the I2S receive bit rate by specifying the value to divide RX_MCLK by in order to produce the receive bit clock."]
 pub mod rxbitrate;
-#[doc = "I2S Transmit mode control.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [txmode](txmode) module"]
+#[doc = "I2S Transmit mode control.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [txmode](txmode) module"]
 pub type TXMODE = crate::Reg<u32, _TXMODE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -167,7 +167,7 @@ impl crate::Readable for TXMODE {}
 impl crate::Writable for TXMODE {}
 #[doc = "I2S Transmit mode control."]
 pub mod txmode;
-#[doc = "I2S Receive mode control.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rxmode](rxmode) module"]
+#[doc = "I2S Receive mode control.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rxmode](rxmode) module"]
 pub type RXMODE = crate::Reg<u32, _RXMODE>;
 #[allow(missing_docs)]
 #[doc(hidden)]

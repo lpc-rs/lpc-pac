@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::STATUS>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P0INT_A {
     #[doc = "0: No pending interrupts on Port 0."]
-    NO_PENDING_INTERRUPT,
+    NO_PENDING_INTERRUPT = 0,
     #[doc = "1: At least one pending interrupt on Port 0."]
-    AT_LEAST_ONE_PENDING,
+    AT_LEAST_ONE_PENDING = 1,
 }
 impl From<P0INT_A> for bool {
     #[inline(always)]
     fn from(variant: P0INT_A) -> Self {
-        match variant {
-            P0INT_A::NO_PENDING_INTERRUPT => false,
-            P0INT_A::AT_LEAST_ONE_PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P0INT`"]
@@ -43,17 +40,14 @@ impl P0INT_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum P2INT_A {
     #[doc = "0: No pending interrupts on Port 2."]
-    NO_PENDING_INTERRUPT,
+    NO_PENDING_INTERRUPT = 0,
     #[doc = "1: At least one pending interrupt on Port 2."]
-    AT_LEAST_ONE_PENDING,
+    AT_LEAST_ONE_PENDING = 1,
 }
 impl From<P2INT_A> for bool {
     #[inline(always)]
     fn from(variant: P2INT_A) -> Self {
-        match variant {
-            P2INT_A::NO_PENDING_INTERRUPT => false,
-            P2INT_A::AT_LEAST_ONE_PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `P2INT`"]

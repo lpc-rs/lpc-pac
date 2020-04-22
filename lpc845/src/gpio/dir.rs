@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::DIR>;
 #[doc = "Writer for register DIR[%s]"]
 pub type W = crate::W<u32, super::DIR>;
-#[doc = "Register DIR[%s] `reset()`'s with value 0"]
+#[doc = "Register DIR[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::DIR {
     type Type = u32;
     #[inline(always)]

@@ -70,17 +70,14 @@ impl<'a> TESG2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SAM_A {
     #[doc = "0: The bus is sampled once (recommended for high speed buses)"]
-    THE_BUS_IS_SAMPLED_O,
+    THE_BUS_IS_SAMPLED_O = 0,
     #[doc = "1: The bus is sampled 3 times (recommended for low to medium speed buses to filter spikes on the bus-line)"]
-    THE_BUS_IS_SAMPLED_3,
+    THE_BUS_IS_SAMPLED_3 = 1,
 }
 impl From<SAM_A> for bool {
     #[inline(always)]
     fn from(variant: SAM_A) -> Self {
-        match variant {
-            SAM_A::THE_BUS_IS_SAMPLED_O => false,
-            SAM_A::THE_BUS_IS_SAMPLED_3 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SAM`"]

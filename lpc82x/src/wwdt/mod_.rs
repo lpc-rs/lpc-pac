@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MOD {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WDEN_A {
     #[doc = "0: Stop. The watchdog timer is stopped."]
-    STOP,
+    STOP = 0,
     #[doc = "1: Run. The watchdog timer is running."]
-    RUN,
+    RUN = 1,
 }
 impl From<WDEN_A> for bool {
     #[inline(always)]
     fn from(variant: WDEN_A) -> Self {
-        match variant {
-            WDEN_A::STOP => false,
-            WDEN_A::RUN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WDEN`"]
@@ -92,17 +89,14 @@ impl<'a> WDEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WDRESET_A {
     #[doc = "0: Interrupt. A watchdog time-out will not cause a chip reset."]
-    INTERRUPT,
+    INTERRUPT = 0,
     #[doc = "1: Reset. A watchdog time-out will cause a chip reset."]
-    RESET,
+    RESET = 1,
 }
 impl From<WDRESET_A> for bool {
     #[inline(always)]
     fn from(variant: WDRESET_A) -> Self {
-        match variant {
-            WDRESET_A::INTERRUPT => false,
-            WDRESET_A::RESET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WDRESET`"]
@@ -218,17 +212,14 @@ impl<'a> WDINT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WDPROTECT_A {
     #[doc = "0: Flexible. The watchdog time-out value (TC) can be changed at any time."]
-    FLEXIBLE,
+    FLEXIBLE = 0,
     #[doc = "1: Threshold. The watchdog time-out value (TC) can be changed only after the counter is below the value of WDWARNINT and WDWINDOW."]
-    THRESHOLD,
+    THRESHOLD = 1,
 }
 impl From<WDPROTECT_A> for bool {
     #[inline(always)]
     fn from(variant: WDPROTECT_A) -> Self {
-        match variant {
-            WDPROTECT_A::FLEXIBLE => false,
-            WDPROTECT_A::THRESHOLD => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WDPROTECT`"]

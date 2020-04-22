@@ -169,7 +169,9 @@ impl<'a> EN_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:4 - This value determines the maximum size of the trace buffer in SRAM. It specifies the most-significant bit of the POSITION.POINTER field that can be updated by automatic increment. If the trace tries to advance past this power of two, the POSITION.WRAP bit is set to 1, the POSITION.POINTER\\[MASK:0\\] bits are set to zero, and the POSITION.POINTER\\[AWIDTH-4:MASK+1\\] bits remain unchanged. This field causes the trace packet information to be stored in a circular buffer of size 2(MASK+4) bytes, that can be positioned in memory at multiples of this size. Valid values of this field are zero to AWIDTH-4. Values greater than the maximum have the same effect as the maximum."]
+    #[doc = "Bits 0:4 - This value determines the maximum size of the trace buffer in SRAM. It specifies the most-significant bit of the POSITION.POINTER field that can be updated by automatic increment. If the trace tries to advance past this power of two, the POSITION.WRAP bit is set to 1, the POSITION.POINTER\\[MASK:0\\]
+bits are set to zero, and the POSITION.POINTER\\[AWIDTH-4:MASK+1\\]
+bits remain unchanged. This field causes the trace packet information to be stored in a circular buffer of size 2(MASK+4) bytes, that can be positioned in memory at multiples of this size. Valid values of this field are zero to AWIDTH-4. Values greater than the maximum have the same effect as the maximum."]
     #[inline(always)]
     pub fn mask(&self) -> MASK_R {
         MASK_R::new((self.bits & 0x1f) as u8)
@@ -184,12 +186,14 @@ impl R {
     pub fn tstopen(&self) -> TSTOPEN_R {
         TSTOPEN_R::new(((self.bits >> 6) & 0x01) != 0)
     }
-    #[doc = "Bit 7 - Special Function Register Write Privilege bit. If this bit is 0, then User or Privileged AHB-Lite read and write accesses to the Special Function Registers are permitted. If this bit is 1, then only Privileged write accesses are permitted and User write accesses are ignored. The HPROT\\[1\\] signal determines if an access is User or Privileged."]
+    #[doc = "Bit 7 - Special Function Register Write Privilege bit. If this bit is 0, then User or Privileged AHB-Lite read and write accesses to the Special Function Registers are permitted. If this bit is 1, then only Privileged write accesses are permitted and User write accesses are ignored. The HPROT\\[1\\]
+signal determines if an access is User or Privileged."]
     #[inline(always)]
     pub fn sfrwpriv(&self) -> SFRWPRIV_R {
         SFRWPRIV_R::new(((self.bits >> 7) & 0x01) != 0)
     }
-    #[doc = "Bit 8 - SRAM Privilege bit. If this bit is 0, then User or Privileged AHB-Lite read and write accesses to the SRAM are permitted. If this bit is 1, then only Privileged AHB-Lite read and write accesses to the SRAM are permitted and User accesses are RAZ/WI. The HPROT\\[1\\] signal determines if an access is User or Privileged."]
+    #[doc = "Bit 8 - SRAM Privilege bit. If this bit is 0, then User or Privileged AHB-Lite read and write accesses to the SRAM are permitted. If this bit is 1, then only Privileged AHB-Lite read and write accesses to the SRAM are permitted and User accesses are RAZ/WI. The HPROT\\[1\\]
+signal determines if an access is User or Privileged."]
     #[inline(always)]
     pub fn rampriv(&self) -> RAMPRIV_R {
         RAMPRIV_R::new(((self.bits >> 8) & 0x01) != 0)
@@ -206,7 +210,9 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bits 0:4 - This value determines the maximum size of the trace buffer in SRAM. It specifies the most-significant bit of the POSITION.POINTER field that can be updated by automatic increment. If the trace tries to advance past this power of two, the POSITION.WRAP bit is set to 1, the POSITION.POINTER\\[MASK:0\\] bits are set to zero, and the POSITION.POINTER\\[AWIDTH-4:MASK+1\\] bits remain unchanged. This field causes the trace packet information to be stored in a circular buffer of size 2(MASK+4) bytes, that can be positioned in memory at multiples of this size. Valid values of this field are zero to AWIDTH-4. Values greater than the maximum have the same effect as the maximum."]
+    #[doc = "Bits 0:4 - This value determines the maximum size of the trace buffer in SRAM. It specifies the most-significant bit of the POSITION.POINTER field that can be updated by automatic increment. If the trace tries to advance past this power of two, the POSITION.WRAP bit is set to 1, the POSITION.POINTER\\[MASK:0\\]
+bits are set to zero, and the POSITION.POINTER\\[AWIDTH-4:MASK+1\\]
+bits remain unchanged. This field causes the trace packet information to be stored in a circular buffer of size 2(MASK+4) bytes, that can be positioned in memory at multiples of this size. Valid values of this field are zero to AWIDTH-4. Values greater than the maximum have the same effect as the maximum."]
     #[inline(always)]
     pub fn mask(&mut self) -> MASK_W {
         MASK_W { w: self }
@@ -221,12 +227,14 @@ impl W {
     pub fn tstopen(&mut self) -> TSTOPEN_W {
         TSTOPEN_W { w: self }
     }
-    #[doc = "Bit 7 - Special Function Register Write Privilege bit. If this bit is 0, then User or Privileged AHB-Lite read and write accesses to the Special Function Registers are permitted. If this bit is 1, then only Privileged write accesses are permitted and User write accesses are ignored. The HPROT\\[1\\] signal determines if an access is User or Privileged."]
+    #[doc = "Bit 7 - Special Function Register Write Privilege bit. If this bit is 0, then User or Privileged AHB-Lite read and write accesses to the Special Function Registers are permitted. If this bit is 1, then only Privileged write accesses are permitted and User write accesses are ignored. The HPROT\\[1\\]
+signal determines if an access is User or Privileged."]
     #[inline(always)]
     pub fn sfrwpriv(&mut self) -> SFRWPRIV_W {
         SFRWPRIV_W { w: self }
     }
-    #[doc = "Bit 8 - SRAM Privilege bit. If this bit is 0, then User or Privileged AHB-Lite read and write accesses to the SRAM are permitted. If this bit is 1, then only Privileged AHB-Lite read and write accesses to the SRAM are permitted and User accesses are RAZ/WI. The HPROT\\[1\\] signal determines if an access is User or Privileged."]
+    #[doc = "Bit 8 - SRAM Privilege bit. If this bit is 0, then User or Privileged AHB-Lite read and write accesses to the SRAM are permitted. If this bit is 1, then only Privileged AHB-Lite read and write accesses to the SRAM are permitted and User accesses are RAZ/WI. The HPROT\\[1\\]
+signal determines if an access is User or Privileged."]
     #[inline(always)]
     pub fn rampriv(&mut self) -> RAMPRIV_W {
         RAMPRIV_W { w: self }

@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::CON>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RUN0_A {
     #[doc = "0: Stop."]
-    STOP_,
+    STOP_ = 0,
     #[doc = "1: Run."]
-    RUN_,
+    RUN_ = 1,
 }
 impl From<RUN0_A> for bool {
     #[inline(always)]
     fn from(variant: RUN0_A) -> Self {
-        match variant {
-            RUN0_A::STOP_ => false,
-            RUN0_A::RUN_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RUN0`"]
@@ -43,17 +40,14 @@ impl RUN0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CENTER0_A {
     #[doc = "0: Edge-aligned."]
-    EDGE_ALIGNED_,
+    EDGE_ALIGNED_ = 0,
     #[doc = "1: Center-aligned."]
-    CENTER_ALIGNED_,
+    CENTER_ALIGNED_ = 1,
 }
 impl From<CENTER0_A> for bool {
     #[inline(always)]
     fn from(variant: CENTER0_A) -> Self {
-        match variant {
-            CENTER0_A::EDGE_ALIGNED_ => false,
-            CENTER0_A::CENTER_ALIGNED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CENTER0`"]
@@ -82,17 +76,14 @@ impl CENTER0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POLA0_A {
     #[doc = "0: Passive state is LOW, active state is HIGH."]
-    PASSIVE_STATE_IS_LOW,
+    PASSIVE_STATE_IS_LOW = 0,
     #[doc = "1: Passive state is HIGH, active state is LOW."]
-    PASSIVE_STATE_IS_HIG,
+    PASSIVE_STATE_IS_HIG = 1,
 }
 impl From<POLA0_A> for bool {
     #[inline(always)]
     fn from(variant: POLA0_A) -> Self {
-        match variant {
-            POLA0_A::PASSIVE_STATE_IS_LOW => false,
-            POLA0_A::PASSIVE_STATE_IS_HIG => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `POLA0`"]
@@ -121,17 +112,14 @@ impl POLA0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DTE0_A {
     #[doc = "0: Dead-time disabled."]
-    DEAD_TIME_DISABLED_,
+    DEAD_TIME_DISABLED_ = 0,
     #[doc = "1: Dead-time enabled."]
-    DEAD_TIME_ENABLED_,
+    DEAD_TIME_ENABLED_ = 1,
 }
 impl From<DTE0_A> for bool {
     #[inline(always)]
     fn from(variant: DTE0_A) -> Self {
-        match variant {
-            DTE0_A::DEAD_TIME_DISABLED_ => false,
-            DTE0_A::DEAD_TIME_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DTE0`"]
@@ -160,17 +148,14 @@ impl DTE0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DISUP0_A {
     #[doc = "0: Functional registers are updated from the write registers at the end of each PWM cycle."]
-    UPDATE,
+    UPDATE = 0,
     #[doc = "1: Functional registers remain the same as long as the timer is running."]
-    NOUPDATE,
+    NOUPDATE = 1,
 }
 impl From<DISUP0_A> for bool {
     #[inline(always)]
     fn from(variant: DISUP0_A) -> Self {
-        match variant {
-            DISUP0_A::UPDATE => false,
-            DISUP0_A::NOUPDATE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DISUP0`"]
@@ -199,17 +184,14 @@ impl DISUP0_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RUN1_A {
     #[doc = "0: Stop."]
-    STOP_,
+    STOP_ = 0,
     #[doc = "1: Run."]
-    RUN_,
+    RUN_ = 1,
 }
 impl From<RUN1_A> for bool {
     #[inline(always)]
     fn from(variant: RUN1_A) -> Self {
-        match variant {
-            RUN1_A::STOP_ => false,
-            RUN1_A::RUN_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RUN1`"]
@@ -238,17 +220,14 @@ impl RUN1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CENTER1_A {
     #[doc = "0: Edge-aligned."]
-    EDGE_ALIGNED_,
+    EDGE_ALIGNED_ = 0,
     #[doc = "1: Center-aligned."]
-    CENTER_ALIGNED_,
+    CENTER_ALIGNED_ = 1,
 }
 impl From<CENTER1_A> for bool {
     #[inline(always)]
     fn from(variant: CENTER1_A) -> Self {
-        match variant {
-            CENTER1_A::EDGE_ALIGNED_ => false,
-            CENTER1_A::CENTER_ALIGNED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CENTER1`"]
@@ -277,17 +256,14 @@ impl CENTER1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POLA1_A {
     #[doc = "0: Passive state is LOW, active state is HIGH."]
-    PASSIVE_STATE_IS_LOW,
+    PASSIVE_STATE_IS_LOW = 0,
     #[doc = "1: Passive state is HIGH, active state is LOW."]
-    PASSIVE_STATE_IS_HIG,
+    PASSIVE_STATE_IS_HIG = 1,
 }
 impl From<POLA1_A> for bool {
     #[inline(always)]
     fn from(variant: POLA1_A) -> Self {
-        match variant {
-            POLA1_A::PASSIVE_STATE_IS_LOW => false,
-            POLA1_A::PASSIVE_STATE_IS_HIG => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `POLA1`"]
@@ -316,17 +292,14 @@ impl POLA1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DTE1_A {
     #[doc = "0: Dead-time disabled."]
-    DEAD_TIME_DISABLED_,
+    DEAD_TIME_DISABLED_ = 0,
     #[doc = "1: Dead-time enabled."]
-    DEAD_TIME_ENABLED_,
+    DEAD_TIME_ENABLED_ = 1,
 }
 impl From<DTE1_A> for bool {
     #[inline(always)]
     fn from(variant: DTE1_A) -> Self {
-        match variant {
-            DTE1_A::DEAD_TIME_DISABLED_ => false,
-            DTE1_A::DEAD_TIME_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DTE1`"]
@@ -355,17 +328,14 @@ impl DTE1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DISUP1_A {
     #[doc = "0: Functional registers are updated from the write registers at the end of each PWM cycle."]
-    UPDATE,
+    UPDATE = 0,
     #[doc = "1: Functional registers remain the same as long as the timer is running."]
-    NOUPDATE,
+    NOUPDATE = 1,
 }
 impl From<DISUP1_A> for bool {
     #[inline(always)]
     fn from(variant: DISUP1_A) -> Self {
-        match variant {
-            DISUP1_A::UPDATE => false,
-            DISUP1_A::NOUPDATE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DISUP1`"]
@@ -394,17 +364,14 @@ impl DISUP1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RUN2_A {
     #[doc = "0: Stop."]
-    STOP_,
+    STOP_ = 0,
     #[doc = "1: Run."]
-    RUN_,
+    RUN_ = 1,
 }
 impl From<RUN2_A> for bool {
     #[inline(always)]
     fn from(variant: RUN2_A) -> Self {
-        match variant {
-            RUN2_A::STOP_ => false,
-            RUN2_A::RUN_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RUN2`"]
@@ -433,17 +400,14 @@ impl RUN2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CENTER2_A {
     #[doc = "0: Edge-aligned."]
-    EDGE_ALIGNED_,
+    EDGE_ALIGNED_ = 0,
     #[doc = "1: Center-aligned."]
-    CENTER_ALIGNED_,
+    CENTER_ALIGNED_ = 1,
 }
 impl From<CENTER2_A> for bool {
     #[inline(always)]
     fn from(variant: CENTER2_A) -> Self {
-        match variant {
-            CENTER2_A::EDGE_ALIGNED_ => false,
-            CENTER2_A::CENTER_ALIGNED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CENTER2`"]
@@ -472,17 +436,14 @@ impl CENTER2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POLA2_A {
     #[doc = "0: Passive state is LOW, active state is HIGH."]
-    PASSIVE_STATE_IS_LOW,
+    PASSIVE_STATE_IS_LOW = 0,
     #[doc = "1: Passive state is HIGH, active state is LOW."]
-    PASSIVE_STATE_IS_HIG,
+    PASSIVE_STATE_IS_HIG = 1,
 }
 impl From<POLA2_A> for bool {
     #[inline(always)]
     fn from(variant: POLA2_A) -> Self {
-        match variant {
-            POLA2_A::PASSIVE_STATE_IS_LOW => false,
-            POLA2_A::PASSIVE_STATE_IS_HIG => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `POLA2`"]
@@ -511,17 +472,14 @@ impl POLA2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DTE2_A {
     #[doc = "0: Dead-time disabled."]
-    DEAD_TIME_DISABLED_,
+    DEAD_TIME_DISABLED_ = 0,
     #[doc = "1: Dead-time enabled."]
-    DEAD_TIME_ENABLED_,
+    DEAD_TIME_ENABLED_ = 1,
 }
 impl From<DTE2_A> for bool {
     #[inline(always)]
     fn from(variant: DTE2_A) -> Self {
-        match variant {
-            DTE2_A::DEAD_TIME_DISABLED_ => false,
-            DTE2_A::DEAD_TIME_ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DTE2`"]
@@ -550,17 +508,14 @@ impl DTE2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DISUP2_A {
     #[doc = "0: Functional registers are updated from the write registers at the end of each PWM cycle."]
-    UPDATE,
+    UPDATE = 0,
     #[doc = "1: Functional registers remain the same as long as the timer is running."]
-    NOUPDATE,
+    NOUPDATE = 1,
 }
 impl From<DISUP2_A> for bool {
     #[inline(always)]
     fn from(variant: DISUP2_A) -> Self {
-        match variant {
-            DISUP2_A::UPDATE => false,
-            DISUP2_A::NOUPDATE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DISUP2`"]
@@ -589,17 +544,14 @@ impl DISUP2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INVBDC_A {
     #[doc = "0: The MCOB outputs have opposite polarity from the MCOA outputs (aside from dead time)."]
-    OPPOSITE,
+    OPPOSITE = 0,
     #[doc = "1: The MCOB outputs have the same basic polarity as the MCOA outputs. (see Section 24.8.6)"]
-    SAME,
+    SAME = 1,
 }
 impl From<INVBDC_A> for bool {
     #[inline(always)]
     fn from(variant: INVBDC_A) -> Self {
-        match variant {
-            INVBDC_A::OPPOSITE => false,
-            INVBDC_A::SAME => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INVBDC`"]
@@ -628,17 +580,14 @@ impl INVBDC_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACMODE_A {
     #[doc = "0: 3-phase AC-mode off: Each PWM channel uses its own timer-counter and period register."]
-    _3_PHASE_AC_MODE_OFF,
+    _3_PHASE_AC_MODE_OFF = 0,
     #[doc = "1: 3-phase AC-mode on: All PWM channels use the timer-counter and period register of channel 0."]
-    _3_PHASE_AC_MODE_ON_,
+    _3_PHASE_AC_MODE_ON_ = 1,
 }
 impl From<ACMODE_A> for bool {
     #[inline(always)]
     fn from(variant: ACMODE_A) -> Self {
-        match variant {
-            ACMODE_A::_3_PHASE_AC_MODE_OFF => false,
-            ACMODE_A::_3_PHASE_AC_MODE_ON_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACMODE`"]
@@ -667,17 +616,14 @@ impl ACMODE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DCMODE_A {
     #[doc = "0: 3-phase DC mode off: PWM channels are independent (unless bit ACMODE = 1)"]
-    _3_PHASE_DC_MODE_OFF,
+    _3_PHASE_DC_MODE_OFF = 0,
     #[doc = "1: 3-phase DC mode on: The internal MCOA0 output is routed through the CP register (i.e. a mask) register to all six PWM outputs."]
-    _3_PHASE_DC_MODE_ON_,
+    _3_PHASE_DC_MODE_ON_ = 1,
 }
 impl From<DCMODE_A> for bool {
     #[inline(always)]
     fn from(variant: DCMODE_A) -> Self {
-        match variant {
-            DCMODE_A::_3_PHASE_DC_MODE_OFF => false,
-            DCMODE_A::_3_PHASE_DC_MODE_ON_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DCMODE`"]

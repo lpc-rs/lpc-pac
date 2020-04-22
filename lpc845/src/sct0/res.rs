@@ -12,25 +12,21 @@ impl crate::ResetValue for super::RES {
 }
 #[doc = "Effect of simultaneous set and clear on output 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum O0RES_A {
     #[doc = "0: No change."]
-    NO_CHANGE,
+    NO_CHANGE = 0,
     #[doc = "1: Set output (or clear based on the SETCLR0 field in the OUTPUTDIRCTRL register)."]
-    SET,
+    SET = 1,
     #[doc = "2: Clear output (or set based on the SETCLR0 field)."]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle output."]
-    TOGGLE_OUTPUT,
+    TOGGLE_OUTPUT = 3,
 }
 impl From<O0RES_A> for u8 {
     #[inline(always)]
     fn from(variant: O0RES_A) -> Self {
-        match variant {
-            O0RES_A::NO_CHANGE => 0,
-            O0RES_A::SET => 1,
-            O0RES_A::CLEAR => 2,
-            O0RES_A::TOGGLE_OUTPUT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `O0RES`"]
@@ -109,25 +105,21 @@ impl<'a> O0RES_W<'a> {
 }
 #[doc = "Effect of simultaneous set and clear on output 1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum O1RES_A {
     #[doc = "0: No change."]
-    NO_CHANGE,
+    NO_CHANGE = 0,
     #[doc = "1: Set output (or clear based on the SETCLR1 field in the OUTPUTDIRCTRL register)."]
-    SET,
+    SET = 1,
     #[doc = "2: Clear output (or set based on the SETCLR1 field)."]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle output."]
-    TOGGLE_OUTPUT,
+    TOGGLE_OUTPUT = 3,
 }
 impl From<O1RES_A> for u8 {
     #[inline(always)]
     fn from(variant: O1RES_A) -> Self {
-        match variant {
-            O1RES_A::NO_CHANGE => 0,
-            O1RES_A::SET => 1,
-            O1RES_A::CLEAR => 2,
-            O1RES_A::TOGGLE_OUTPUT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `O1RES`"]
@@ -206,25 +198,21 @@ impl<'a> O1RES_W<'a> {
 }
 #[doc = "Effect of simultaneous set and clear on output 2.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum O2RES_A {
     #[doc = "0: No change."]
-    NO_CHANGE,
+    NO_CHANGE = 0,
     #[doc = "1: Set output (or clear based on the SETCLR2 field in the OUTPUTDIRCTRL register)."]
-    SET,
+    SET = 1,
     #[doc = "2: Clear output n (or set based on the SETCLR2 field)."]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle output."]
-    TOGGLE_OUTPUT,
+    TOGGLE_OUTPUT = 3,
 }
 impl From<O2RES_A> for u8 {
     #[inline(always)]
     fn from(variant: O2RES_A) -> Self {
-        match variant {
-            O2RES_A::NO_CHANGE => 0,
-            O2RES_A::SET => 1,
-            O2RES_A::CLEAR => 2,
-            O2RES_A::TOGGLE_OUTPUT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `O2RES`"]
@@ -303,25 +291,21 @@ impl<'a> O2RES_W<'a> {
 }
 #[doc = "Effect of simultaneous set and clear on output 3.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum O3RES_A {
     #[doc = "0: No change."]
-    NO_CHANGE,
+    NO_CHANGE = 0,
     #[doc = "1: Set output (or clear based on the SETCLR3 field in the OUTPUTDIRCTRL register)."]
-    SET,
+    SET = 1,
     #[doc = "2: Clear output (or set based on the SETCLR3 field)."]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle output."]
-    TOGGLE_OUTPUT,
+    TOGGLE_OUTPUT = 3,
 }
 impl From<O3RES_A> for u8 {
     #[inline(always)]
     fn from(variant: O3RES_A) -> Self {
-        match variant {
-            O3RES_A::NO_CHANGE => 0,
-            O3RES_A::SET => 1,
-            O3RES_A::CLEAR => 2,
-            O3RES_A::TOGGLE_OUTPUT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `O3RES`"]
@@ -400,25 +384,21 @@ impl<'a> O3RES_W<'a> {
 }
 #[doc = "Effect of simultaneous set and clear on output 4.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum O4RES_A {
     #[doc = "0: No change."]
-    NO_CHANGE,
+    NO_CHANGE = 0,
     #[doc = "1: Set output (or clear based on the SETCLR4 field in the OUTPUTDIRCTRL register)."]
-    SET,
+    SET = 1,
     #[doc = "2: Clear output (or set based on the SETCLR4 field)."]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle output."]
-    TOGGLE_OUTPUT,
+    TOGGLE_OUTPUT = 3,
 }
 impl From<O4RES_A> for u8 {
     #[inline(always)]
     fn from(variant: O4RES_A) -> Self {
-        match variant {
-            O4RES_A::NO_CHANGE => 0,
-            O4RES_A::SET => 1,
-            O4RES_A::CLEAR => 2,
-            O4RES_A::TOGGLE_OUTPUT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `O4RES`"]
@@ -497,25 +477,21 @@ impl<'a> O4RES_W<'a> {
 }
 #[doc = "Effect of simultaneous set and clear on output 5.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum O5RES_A {
     #[doc = "0: No change."]
-    NO_CHANGE,
+    NO_CHANGE = 0,
     #[doc = "1: Set output (or clear based on the SETCLR5 field in the OUTPUTDIRCTRL register)."]
-    SET,
+    SET = 1,
     #[doc = "2: Clear output (or set based on the SETCLR5 field)."]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle output."]
-    TOGGLE_OUTPUT,
+    TOGGLE_OUTPUT = 3,
 }
 impl From<O5RES_A> for u8 {
     #[inline(always)]
     fn from(variant: O5RES_A) -> Self {
-        match variant {
-            O5RES_A::NO_CHANGE => 0,
-            O5RES_A::SET => 1,
-            O5RES_A::CLEAR => 2,
-            O5RES_A::TOGGLE_OUTPUT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `O5RES`"]
@@ -594,25 +570,21 @@ impl<'a> O5RES_W<'a> {
 }
 #[doc = "Effect of simultaneous set and clear on output 6.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum O6RES_A {
     #[doc = "0: No change."]
-    NO_CHANGE,
+    NO_CHANGE = 0,
     #[doc = "1: Set output (or clear based on the SETCLR6 field in the OUTPUTDIRCTRL register)."]
-    SET,
+    SET = 1,
     #[doc = "2: Clear output (or set based on the SETCLR6 field)."]
-    CLEAR,
+    CLEAR = 2,
     #[doc = "3: Toggle output."]
-    TOGGLE_OUTPUT,
+    TOGGLE_OUTPUT = 3,
 }
 impl From<O6RES_A> for u8 {
     #[inline(always)]
     fn from(variant: O6RES_A) -> Self {
-        match variant {
-            O6RES_A::NO_CHANGE => 0,
-            O6RES_A::SET => 1,
-            O6RES_A::CLEAR => 2,
-            O6RES_A::TOGGLE_OUTPUT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `O6RES`"]

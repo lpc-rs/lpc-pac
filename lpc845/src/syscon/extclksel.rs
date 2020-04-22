@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EXTCLKSEL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEL_A {
     #[doc = "0: System oscillator"]
-    SYS_OSC,
+    SYS_OSC = 0,
     #[doc = "1: Clk_in"]
-    CLK_IN,
+    CLK_IN = 1,
 }
 impl From<SEL_A> for bool {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::SYS_OSC => false,
-            SEL_A::CLK_IN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEL`"]

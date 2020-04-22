@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PWMC {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN0_A {
     #[doc = "0: Match. CTIMERn_MAT0 is controlled by EM0."]
-    MATCH,
+    MATCH = 0,
     #[doc = "1: PWM. PWM mode is enabled for CTIMERn_MAT0."]
-    PWM,
+    PWM = 1,
 }
 impl From<PWMEN0_A> for bool {
     #[inline(always)]
     fn from(variant: PWMEN0_A) -> Self {
-        match variant {
-            PWMEN0_A::MATCH => false,
-            PWMEN0_A::PWM => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMEN0`"]
@@ -92,17 +89,14 @@ impl<'a> PWMEN0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN1_A {
     #[doc = "0: Match. CTIMERn_MAT01 is controlled by EM1."]
-    MATCH,
+    MATCH = 0,
     #[doc = "1: PWM. PWM mode is enabled for CTIMERn_MAT1."]
-    PWM,
+    PWM = 1,
 }
 impl From<PWMEN1_A> for bool {
     #[inline(always)]
     fn from(variant: PWMEN1_A) -> Self {
-        match variant {
-            PWMEN1_A::MATCH => false,
-            PWMEN1_A::PWM => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMEN1`"]
@@ -170,17 +164,14 @@ impl<'a> PWMEN1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN2_A {
     #[doc = "0: Match. CTIMERn_MAT2 is controlled by EM2."]
-    MATCH,
+    MATCH = 0,
     #[doc = "1: PWM. PWM mode is enabled for CTIMERn_MAT2."]
-    PWM,
+    PWM = 1,
 }
 impl From<PWMEN2_A> for bool {
     #[inline(always)]
     fn from(variant: PWMEN2_A) -> Self {
-        match variant {
-            PWMEN2_A::MATCH => false,
-            PWMEN2_A::PWM => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMEN2`"]
@@ -248,17 +239,14 @@ impl<'a> PWMEN2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN3_A {
     #[doc = "0: Match. CTIMERn_MAT3 is controlled by EM3."]
-    MATCH,
+    MATCH = 0,
     #[doc = "1: PWM. PWM mode is enabled for CT132Bn_MAT3."]
-    PWM,
+    PWM = 1,
 }
 impl From<PWMEN3_A> for bool {
     #[inline(always)]
     fn from(variant: PWMEN3_A) -> Self {
-        match variant {
-            PWMEN3_A::MATCH => false,
-            PWMEN3_A::PWM => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMEN3`"]

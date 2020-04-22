@@ -14,17 +14,14 @@ impl crate::ResetValue for super::STAT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTPENDING_A {
     #[doc = "0: In progress. Communication is in progress and the Master function is busy and cannot currently accept a command."]
-    IN_PROGRESS,
+    IN_PROGRESS = 0,
     #[doc = "1: Pending. The Master function needs software service or is in the idle state. If the master is not in the idle state, it is waiting to receive or transmit data or the NACK bit."]
-    PENDING,
+    PENDING = 1,
 }
 impl From<MSTPENDING_A> for bool {
     #[inline(always)]
     fn from(variant: MSTPENDING_A) -> Self {
-        match variant {
-            MSTPENDING_A::IN_PROGRESS => false,
-            MSTPENDING_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTPENDING`"]
@@ -51,28 +48,23 @@ impl MSTPENDING_R {
 }
 #[doc = "Master State code. The master state code reflects the master state when the MSTPENDING bit is set, that is the master is pending or in the idle state. Each value of this field indicates a specific required service for the Master function. All other values are reserved. See Table 400 for details of state values and appropriate responses.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MSTSTATE_A {
     #[doc = "0: Idle. The Master function is available to be used for a new transaction."]
-    IDLE,
+    IDLE = 0,
     #[doc = "1: Receive ready. Received data available (Master Receiver mode). Address plus Read was previously sent and Acknowledged by slave."]
-    RECEIVE_READY,
+    RECEIVE_READY = 1,
     #[doc = "2: Transmit ready. Data can be transmitted (Master Transmitter mode). Address plus Write was previously sent and Acknowledged by slave."]
-    TRANSMIT_READY,
+    TRANSMIT_READY = 2,
     #[doc = "3: NACK Address. Slave NACKed address."]
-    NACK_ADDRESS,
+    NACK_ADDRESS = 3,
     #[doc = "4: NACK Data. Slave NACKed transmitted data."]
-    NACK_DATA,
+    NACK_DATA = 4,
 }
 impl From<MSTSTATE_A> for u8 {
     #[inline(always)]
     fn from(variant: MSTSTATE_A) -> Self {
-        match variant {
-            MSTSTATE_A::IDLE => 0,
-            MSTSTATE_A::RECEIVE_READY => 1,
-            MSTSTATE_A::TRANSMIT_READY => 2,
-            MSTSTATE_A::NACK_ADDRESS => 3,
-            MSTSTATE_A::NACK_DATA => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MSTSTATE`"]
@@ -121,17 +113,14 @@ impl MSTSTATE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTARBLOSS_A {
     #[doc = "0: No Arbitration Loss has occurred."]
-    NO_LOSS,
+    NO_LOSS = 0,
     #[doc = "1: Arbitration loss. The Master function has experienced an Arbitration Loss. At this point, the Master function has already stopped driving the bus and gone to an idle state. Software can respond by doing nothing, or by sending a Start in order to attempt to gain control of the bus when it next becomes idle."]
-    ARBITRATION_LOSS,
+    ARBITRATION_LOSS = 1,
 }
 impl From<MSTARBLOSS_A> for bool {
     #[inline(always)]
     fn from(variant: MSTARBLOSS_A) -> Self {
-        match variant {
-            MSTARBLOSS_A::NO_LOSS => false,
-            MSTARBLOSS_A::ARBITRATION_LOSS => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTARBLOSS`"]
@@ -199,17 +188,14 @@ impl<'a> MSTARBLOSS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTSTSTPERR_A {
     #[doc = "0: No Start/Stop Error has occurred."]
-    NO_ERROR,
+    NO_ERROR = 0,
     #[doc = "1: The Master function has experienced a Start/Stop Error. A Start or Stop was detected at a time when it is not allowed by the I2C specification. The Master interface has stopped driving the bus and gone to an idle state, no action is required. A request for a Start could be made, or software could attempt to insure that the bus has not stalled."]
-    ERROR,
+    ERROR = 1,
 }
 impl From<MSTSTSTPERR_A> for bool {
     #[inline(always)]
     fn from(variant: MSTSTSTPERR_A) -> Self {
-        match variant {
-            MSTSTSTPERR_A::NO_ERROR => false,
-            MSTSTSTPERR_A::ERROR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTSTSTPERR`"]
@@ -277,17 +263,14 @@ impl<'a> MSTSTSTPERR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVPENDING_A {
     #[doc = "0: In progress. The Slave function does not currently need service."]
-    IN_PROGRESS,
+    IN_PROGRESS = 0,
     #[doc = "1: Pending. The Slave function needs service. Information on what is needed can be found in the adjacent SLVSTATE field."]
-    PENDING,
+    PENDING = 1,
 }
 impl From<SLVPENDING_A> for bool {
     #[inline(always)]
     fn from(variant: SLVPENDING_A) -> Self {
-        match variant {
-            SLVPENDING_A::IN_PROGRESS => false,
-            SLVPENDING_A::PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVPENDING`"]
@@ -314,22 +297,19 @@ impl SLVPENDING_R {
 }
 #[doc = "Slave State code. Each value of this field indicates a specific required service for the Slave function. All other values are reserved. See Table 401 for state values and actions. note that the occurrence of some states and how they are handled are affected by DMA mode and Automatic Operation modes.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SLVSTATE_A {
     #[doc = "0: Slave address. Address plus R/W received. At least one of the four slave addresses has been matched by hardware."]
-    SLAVE_ADDRESS,
+    SLAVE_ADDRESS = 0,
     #[doc = "1: Slave receive. Received data is available (Slave Receiver mode)."]
-    SLAVE_RECEIVE,
+    SLAVE_RECEIVE = 1,
     #[doc = "2: Slave transmit. Data can be transmitted (Slave Transmitter mode)."]
-    SLAVE_TRANSMIT,
+    SLAVE_TRANSMIT = 2,
 }
 impl From<SLVSTATE_A> for u8 {
     #[inline(always)]
     fn from(variant: SLVSTATE_A) -> Self {
-        match variant {
-            SLVSTATE_A::SLAVE_ADDRESS => 0,
-            SLVSTATE_A::SLAVE_RECEIVE => 1,
-            SLVSTATE_A::SLAVE_TRANSMIT => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SLVSTATE`"]
@@ -366,17 +346,14 @@ impl SLVSTATE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVNOTSTR_A {
     #[doc = "0: Stretching. The slave function is currently stretching the I2C bus clock. Deep-Sleep or Power-down mode cannot be entered at this time."]
-    STRETCHING,
+    STRETCHING = 0,
     #[doc = "1: Not stretching. The slave function is not currently stretching the I 2C bus clock. Deep-sleep or Power-down mode could be entered at this time."]
-    NOT_STRETCHING,
+    NOT_STRETCHING = 1,
 }
 impl From<SLVNOTSTR_A> for bool {
     #[inline(always)]
     fn from(variant: SLVNOTSTR_A) -> Self {
-        match variant {
-            SLVNOTSTR_A::STRETCHING => false,
-            SLVNOTSTR_A::NOT_STRETCHING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVNOTSTR`"]
@@ -403,25 +380,21 @@ impl SLVNOTSTR_R {
 }
 #[doc = "Slave address match Index. This field is valid when the I2C slave function has been selected by receiving an address that matches one of the slave addresses defined by any enabled slave address registers, and provides an identification of the address that was matched. It is possible that more than one address could be matched, but only one match can be reported here.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SLVIDX_A {
     #[doc = "0: Address 0. Slave address 0 was matched."]
-    ADDRESS0,
+    ADDRESS0 = 0,
     #[doc = "1: Address 1. Slave address 1 was matched."]
-    ADDRESS1,
+    ADDRESS1 = 1,
     #[doc = "2: Address 2. Slave address 2 was matched."]
-    ADDRESS2,
+    ADDRESS2 = 2,
     #[doc = "3: Address 3. Slave address 3 was matched."]
-    ADDRESS3,
+    ADDRESS3 = 3,
 }
 impl From<SLVIDX_A> for u8 {
     #[inline(always)]
     fn from(variant: SLVIDX_A) -> Self {
-        match variant {
-            SLVIDX_A::ADDRESS0 => 0,
-            SLVIDX_A::ADDRESS1 => 1,
-            SLVIDX_A::ADDRESS2 => 2,
-            SLVIDX_A::ADDRESS3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SLVIDX`"]
@@ -463,17 +436,14 @@ impl SLVIDX_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVSEL_A {
     #[doc = "0: Not selected. The Slave function is not currently selected."]
-    NOT_SELECTED,
+    NOT_SELECTED = 0,
     #[doc = "1: Selected. The Slave function is currently selected."]
-    SELECTED,
+    SELECTED = 1,
 }
 impl From<SLVSEL_A> for bool {
     #[inline(always)]
     fn from(variant: SLVSEL_A) -> Self {
-        match variant {
-            SLVSEL_A::NOT_SELECTED => false,
-            SLVSEL_A::SELECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVSEL`"]
@@ -502,17 +472,14 @@ impl SLVSEL_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVDESEL_A {
     #[doc = "0: Not deselected. The Slave function has not become deselected. This does not mean that it is currently selected. That information can be found in the SLVSEL flag."]
-    NOT_DESELECTED,
+    NOT_DESELECTED = 0,
     #[doc = "1: Deselected. The Slave function has become deselected. This is specifically caused by the SLVSEL flag changing from 1 to 0. See the description of SLVSEL for details on when that event occurs."]
-    DESELECTED,
+    DESELECTED = 1,
 }
 impl From<SLVDESEL_A> for bool {
     #[inline(always)]
     fn from(variant: SLVDESEL_A) -> Self {
-        match variant {
-            SLVDESEL_A::NOT_DESELECTED => false,
-            SLVDESEL_A::DESELECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVDESEL`"]
@@ -580,17 +547,14 @@ impl<'a> SLVDESEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONRDY_A {
     #[doc = "0: No data. The Monitor function does not currently have data available."]
-    NO_DATA,
+    NO_DATA = 0,
     #[doc = "1: Data waiting. The Monitor function has data waiting to be read."]
-    DATA_WAITING,
+    DATA_WAITING = 1,
 }
 impl From<MONRDY_A> for bool {
     #[inline(always)]
     fn from(variant: MONRDY_A) -> Self {
-        match variant {
-            MONRDY_A::NO_DATA => false,
-            MONRDY_A::DATA_WAITING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONRDY`"]
@@ -619,17 +583,14 @@ impl MONRDY_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONOV_A {
     #[doc = "0: No overrun. Monitor data has not overrun."]
-    NO_OVERRUN,
+    NO_OVERRUN = 0,
     #[doc = "1: Overrun. A Monitor data overrun has occurred. This can only happen when Monitor clock stretching not enabled via the MONCLKSTR bit in the CFG register. Writing 1 to this bit clears the flag."]
-    OVERRUN,
+    OVERRUN = 1,
 }
 impl From<MONOV_A> for bool {
     #[inline(always)]
     fn from(variant: MONOV_A) -> Self {
-        match variant {
-            MONOV_A::NO_OVERRUN => false,
-            MONOV_A::OVERRUN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONOV`"]
@@ -697,17 +658,14 @@ impl<'a> MONOV_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONACTIVE_A {
     #[doc = "0: Inactive. The Monitor function considers the I2C bus to be inactive."]
-    INACTIVE,
+    INACTIVE = 0,
     #[doc = "1: Active. The Monitor function considers the I2C bus to be active."]
-    ACTIVE,
+    ACTIVE = 1,
 }
 impl From<MONACTIVE_A> for bool {
     #[inline(always)]
     fn from(variant: MONACTIVE_A) -> Self {
-        match variant {
-            MONACTIVE_A::INACTIVE => false,
-            MONACTIVE_A::ACTIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONACTIVE`"]
@@ -736,17 +694,14 @@ impl MONACTIVE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONIDLE_A {
     #[doc = "0: Not idle. The I2C bus is not idle, or this flag has been cleared by software."]
-    NOT_IDLE,
+    NOT_IDLE = 0,
     #[doc = "1: Idle. The I2C bus has gone idle at least once since the last time this flag was cleared by software."]
-    IDLE,
+    IDLE = 1,
 }
 impl From<MONIDLE_A> for bool {
     #[inline(always)]
     fn from(variant: MONIDLE_A) -> Self {
-        match variant {
-            MONIDLE_A::NOT_IDLE => false,
-            MONIDLE_A::IDLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONIDLE`"]
@@ -814,17 +769,14 @@ impl<'a> MONIDLE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EVENTTIMEOUT_A {
     #[doc = "0: No time-out. I2C bus events have not caused a time-out."]
-    NO_TIMEOUT,
+    NO_TIMEOUT = 0,
     #[doc = "1: Event time-out. The time between I2C bus events has been longer than the time specified by the TIMEOUT register."]
-    EVEN_TIMEOUT,
+    EVEN_TIMEOUT = 1,
 }
 impl From<EVENTTIMEOUT_A> for bool {
     #[inline(always)]
     fn from(variant: EVENTTIMEOUT_A) -> Self {
-        match variant {
-            EVENTTIMEOUT_A::NO_TIMEOUT => false,
-            EVENTTIMEOUT_A::EVEN_TIMEOUT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EVENTTIMEOUT`"]
@@ -892,17 +844,14 @@ impl<'a> EVENTTIMEOUT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SCLTIMEOUT_A {
     #[doc = "0: No time-out. SCL low time has not caused a time-out."]
-    NO_TIMEOUT,
+    NO_TIMEOUT = 0,
     #[doc = "1: Time-out. SCL low time has caused a time-out."]
-    TIMEOUT,
+    TIMEOUT = 1,
 }
 impl From<SCLTIMEOUT_A> for bool {
     #[inline(always)]
     fn from(variant: SCLTIMEOUT_A) -> Self {
-        match variant {
-            SCLTIMEOUT_A::NO_TIMEOUT => false,
-            SCLTIMEOUT_A::TIMEOUT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SCLTIMEOUT`"]

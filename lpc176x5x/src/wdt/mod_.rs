@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MOD {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WDEN_A {
     #[doc = "0: The watchdog timer is stopped."]
-    STOP,
+    STOP = 0,
     #[doc = "1: The watchdog timer is running."]
-    RUN,
+    RUN = 1,
 }
 impl From<WDEN_A> for bool {
     #[inline(always)]
     fn from(variant: WDEN_A) -> Self {
-        match variant {
-            WDEN_A::STOP => false,
-            WDEN_A::RUN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WDEN`"]
@@ -92,17 +89,14 @@ impl<'a> WDEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WDRESET_A {
     #[doc = "0: A watchdog timeout will not cause a chip reset."]
-    NORESET,
+    NORESET = 0,
     #[doc = "1: A watchdog timeout will cause a chip reset."]
-    RESET,
+    RESET = 1,
 }
 impl From<WDRESET_A> for bool {
     #[inline(always)]
     fn from(variant: WDRESET_A) -> Self {
-        match variant {
-            WDRESET_A::NORESET => false,
-            WDRESET_A::RESET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WDRESET`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR0I_A {
     #[doc = "1: Interrupt is generated when MR0 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT_IS_GENERAT = 1,
     #[doc = "0: Interrupt is disabled"]
-    INTERRUPT_IS_DISABLE,
+    INTERRUPT_IS_DISABLE = 0,
 }
 impl From<MR0I_A> for bool {
     #[inline(always)]
     fn from(variant: MR0I_A) -> Self {
-        match variant {
-            MR0I_A::INTERRUPT_IS_GENERAT => true,
-            MR0I_A::INTERRUPT_IS_DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR0I`"]
@@ -92,17 +89,14 @@ impl<'a> MR0I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR0R_A {
     #[doc = "1: TC will be reset if MR0 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    TC_WILL_BE_RESET_IF_ = 1,
     #[doc = "0: Feature disabled."]
-    FEATURE_DISABLED_,
+    FEATURE_DISABLED_ = 0,
 }
 impl From<MR0R_A> for bool {
     #[inline(always)]
     fn from(variant: MR0R_A) -> Self {
-        match variant {
-            MR0R_A::TC_WILL_BE_RESET_IF_ => true,
-            MR0R_A::FEATURE_DISABLED_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR0R`"]
@@ -169,18 +163,16 @@ impl<'a> MR0R_W<'a> {
 #[doc = "Stop on MR0\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR0S_A {
-    #[doc = "1: TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC."]
-    TC_AND_PC_WILL_BE_ST,
+    #[doc = "1: TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR0 matches the TC."]
+    TC_AND_PC_WILL_BE_ST = 1,
     #[doc = "0: Feature disabled."]
-    FEATURE_DISABLED_,
+    FEATURE_DISABLED_ = 0,
 }
 impl From<MR0S_A> for bool {
     #[inline(always)]
     fn from(variant: MR0S_A) -> Self {
-        match variant {
-            MR0S_A::TC_AND_PC_WILL_BE_ST => true,
-            MR0S_A::FEATURE_DISABLED_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR0S`"]
@@ -217,7 +209,8 @@ impl<'a> MR0S_W<'a> {
             self.bit(variant.into())
         }
     }
-    #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC."]
+    #[doc = "TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR0 matches the TC."]
     #[inline(always)]
     pub fn tc_and_pc_will_be_st(self) -> &'a mut W {
         self.variant(MR0S_A::TC_AND_PC_WILL_BE_ST)
@@ -248,17 +241,14 @@ impl<'a> MR0S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR1I_A {
     #[doc = "1: Interrupt is generated when MR1 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT_IS_GENERAT = 1,
     #[doc = "0: Interrupt is disabled."]
-    INTERRUPT_IS_DISABLE,
+    INTERRUPT_IS_DISABLE = 0,
 }
 impl From<MR1I_A> for bool {
     #[inline(always)]
     fn from(variant: MR1I_A) -> Self {
-        match variant {
-            MR1I_A::INTERRUPT_IS_GENERAT => true,
-            MR1I_A::INTERRUPT_IS_DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR1I`"]
@@ -326,17 +316,14 @@ impl<'a> MR1I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR1R_A {
     #[doc = "1: TC will be reset if MR1 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    TC_WILL_BE_RESET_IF_ = 1,
     #[doc = "0: Feature disabled."]
-    FEATURE_DISABLED_,
+    FEATURE_DISABLED_ = 0,
 }
 impl From<MR1R_A> for bool {
     #[inline(always)]
     fn from(variant: MR1R_A) -> Self {
-        match variant {
-            MR1R_A::TC_WILL_BE_RESET_IF_ => true,
-            MR1R_A::FEATURE_DISABLED_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR1R`"]
@@ -403,18 +390,16 @@ impl<'a> MR1R_W<'a> {
 #[doc = "Stop on MR1\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR1S_A {
-    #[doc = "1: TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC."]
-    TC_AND_PC_WILL_BE_ST,
+    #[doc = "1: TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR1 matches the TC."]
+    TC_AND_PC_WILL_BE_ST = 1,
     #[doc = "0: Feature disabled."]
-    FEATURE_DISABLED_,
+    FEATURE_DISABLED_ = 0,
 }
 impl From<MR1S_A> for bool {
     #[inline(always)]
     fn from(variant: MR1S_A) -> Self {
-        match variant {
-            MR1S_A::TC_AND_PC_WILL_BE_ST => true,
-            MR1S_A::FEATURE_DISABLED_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR1S`"]
@@ -451,7 +436,8 @@ impl<'a> MR1S_W<'a> {
             self.bit(variant.into())
         }
     }
-    #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC."]
+    #[doc = "TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR1 matches the TC."]
     #[inline(always)]
     pub fn tc_and_pc_will_be_st(self) -> &'a mut W {
         self.variant(MR1S_A::TC_AND_PC_WILL_BE_ST)
@@ -482,17 +468,14 @@ impl<'a> MR1S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR2I_A {
     #[doc = "1: Interrupt is generated when MR2 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT_IS_GENERAT = 1,
     #[doc = "0: Interrupt is disabled"]
-    INTERRUPT_IS_DISABLE,
+    INTERRUPT_IS_DISABLE = 0,
 }
 impl From<MR2I_A> for bool {
     #[inline(always)]
     fn from(variant: MR2I_A) -> Self {
-        match variant {
-            MR2I_A::INTERRUPT_IS_GENERAT => true,
-            MR2I_A::INTERRUPT_IS_DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR2I`"]
@@ -560,17 +543,14 @@ impl<'a> MR2I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR2R_A {
     #[doc = "1: TC will be reset if MR2 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    TC_WILL_BE_RESET_IF_ = 1,
     #[doc = "0: Feature disabled."]
-    FEATURE_DISABLED_,
+    FEATURE_DISABLED_ = 0,
 }
 impl From<MR2R_A> for bool {
     #[inline(always)]
     fn from(variant: MR2R_A) -> Self {
-        match variant {
-            MR2R_A::TC_WILL_BE_RESET_IF_ => true,
-            MR2R_A::FEATURE_DISABLED_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR2R`"]
@@ -637,18 +617,16 @@ impl<'a> MR2R_W<'a> {
 #[doc = "Stop on MR2.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR2S_A {
-    #[doc = "1: TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC"]
-    TC_AND_PC_WILL_BE_ST,
+    #[doc = "1: TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR2 matches the TC"]
+    TC_AND_PC_WILL_BE_ST = 1,
     #[doc = "0: Feature disabled."]
-    FEATURE_DISABLED_,
+    FEATURE_DISABLED_ = 0,
 }
 impl From<MR2S_A> for bool {
     #[inline(always)]
     fn from(variant: MR2S_A) -> Self {
-        match variant {
-            MR2S_A::TC_AND_PC_WILL_BE_ST => true,
-            MR2S_A::FEATURE_DISABLED_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR2S`"]
@@ -685,7 +663,8 @@ impl<'a> MR2S_W<'a> {
             self.bit(variant.into())
         }
     }
-    #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC"]
+    #[doc = "TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR2 matches the TC"]
     #[inline(always)]
     pub fn tc_and_pc_will_be_st(self) -> &'a mut W {
         self.variant(MR2S_A::TC_AND_PC_WILL_BE_ST)
@@ -716,17 +695,14 @@ impl<'a> MR2S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR3I_A {
     #[doc = "1: Interrupt is generated when MR3 matches the value in the TC."]
-    INTERRUPT_IS_GENERAT,
+    INTERRUPT_IS_GENERAT = 1,
     #[doc = "0: This interrupt is disabled"]
-    THIS_INTERRUPT_IS_DI,
+    THIS_INTERRUPT_IS_DI = 0,
 }
 impl From<MR3I_A> for bool {
     #[inline(always)]
     fn from(variant: MR3I_A) -> Self {
-        match variant {
-            MR3I_A::INTERRUPT_IS_GENERAT => true,
-            MR3I_A::THIS_INTERRUPT_IS_DI => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR3I`"]
@@ -794,17 +770,14 @@ impl<'a> MR3I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR3R_A {
     #[doc = "1: TC will be reset if MR3 matches it."]
-    TC_WILL_BE_RESET_IF_,
+    TC_WILL_BE_RESET_IF_ = 1,
     #[doc = "0: Feature disabled."]
-    FEATURE_DISABLED_,
+    FEATURE_DISABLED_ = 0,
 }
 impl From<MR3R_A> for bool {
     #[inline(always)]
     fn from(variant: MR3R_A) -> Self {
-        match variant {
-            MR3R_A::TC_WILL_BE_RESET_IF_ => true,
-            MR3R_A::FEATURE_DISABLED_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR3R`"]
@@ -871,18 +844,16 @@ impl<'a> MR3R_W<'a> {
 #[doc = "Stop on MR3\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR3S_A {
-    #[doc = "1: TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC."]
-    TC_AND_PC_WILL_BE_ST,
+    #[doc = "1: TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR3 matches the TC."]
+    TC_AND_PC_WILL_BE_ST = 1,
     #[doc = "0: Feature disabled."]
-    FEATURE_DISABLED_,
+    FEATURE_DISABLED_ = 0,
 }
 impl From<MR3S_A> for bool {
     #[inline(always)]
     fn from(variant: MR3S_A) -> Self {
-        match variant {
-            MR3S_A::TC_AND_PC_WILL_BE_ST => true,
-            MR3S_A::FEATURE_DISABLED_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR3S`"]
@@ -919,7 +890,8 @@ impl<'a> MR3S_W<'a> {
             self.bit(variant.into())
         }
     }
-    #[doc = "TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC."]
+    #[doc = "TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR3 matches the TC."]
     #[inline(always)]
     pub fn tc_and_pc_will_be_st(self) -> &'a mut W {
         self.variant(MR3S_A::TC_AND_PC_WILL_BE_ST)

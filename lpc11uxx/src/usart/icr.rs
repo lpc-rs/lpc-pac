@@ -14,17 +14,14 @@ impl crate::ResetValue for super::ICR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IRDAEN_A {
     #[doc = "0: IrDA mode is disabled, USARTn acts as a standard USART."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: IrDA mode is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<IRDAEN_A> for bool {
     #[inline(always)]
     fn from(variant: IRDAEN_A) -> Self {
-        match variant {
-            IRDAEN_A::DISABLED => false,
-            IRDAEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IRDAEN`"]
@@ -92,17 +89,14 @@ impl<'a> IRDAEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IRDAINV_A {
     #[doc = "0: The serial input is not inverted."]
-    INVERTED,
+    INVERTED = 0,
     #[doc = "1: The serial input is inverted. This has no effect on the serial output."]
-    NOT_INVERTED,
+    NOT_INVERTED = 1,
 }
 impl From<IRDAINV_A> for bool {
     #[inline(always)]
     fn from(variant: IRDAINV_A) -> Self {
-        match variant {
-            IRDAINV_A::INVERTED => false,
-            IRDAINV_A::NOT_INVERTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IRDAINV`"]
@@ -170,17 +164,14 @@ impl<'a> IRDAINV_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FIXPULSEEN_A {
     #[doc = "0: IrDA fixed pulse width mode disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: IrDA fixed pulse width mode enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<FIXPULSEEN_A> for bool {
     #[inline(always)]
     fn from(variant: FIXPULSEEN_A) -> Self {
-        match variant {
-            FIXPULSEEN_A::DISABLED => false,
-            FIXPULSEEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FIXPULSEEN`"]
@@ -246,37 +237,29 @@ impl<'a> FIXPULSEEN_W<'a> {
 }
 #[doc = "Configures the pulse width when FixPulseEn = 1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PULSEDIV_A {
     #[doc = "0: 3 / (16 x baud rate)"]
-    _3_DIV_16_X_BAUD_RATE,
+    _3_DIV_16_X_BAUD_RATE = 0,
     #[doc = "1: 2 x TPCLK"]
-    _2_X_TPCLK,
+    _2_X_TPCLK = 1,
     #[doc = "2: 4 x TPCLK"]
-    _4_X_TPCLK,
+    _4_X_TPCLK = 2,
     #[doc = "3: 8 x TPCLK"]
-    _8_X_TPCLK,
+    _8_X_TPCLK = 3,
     #[doc = "4: 16 x TPCLK"]
-    _16_X_TPCLK,
+    _16_X_TPCLK = 4,
     #[doc = "5: 32 x TPCLK"]
-    _32_X_TPCLK,
+    _32_X_TPCLK = 5,
     #[doc = "6: 64 x TPCLK"]
-    _64_X_TPCLK,
+    _64_X_TPCLK = 6,
     #[doc = "7: 128 x TPCLK"]
-    _128_X_TPCLK,
+    _128_X_TPCLK = 7,
 }
 impl From<PULSEDIV_A> for u8 {
     #[inline(always)]
     fn from(variant: PULSEDIV_A) -> Self {
-        match variant {
-            PULSEDIV_A::_3_DIV_16_X_BAUD_RATE => 0,
-            PULSEDIV_A::_2_X_TPCLK => 1,
-            PULSEDIV_A::_4_X_TPCLK => 2,
-            PULSEDIV_A::_8_X_TPCLK => 3,
-            PULSEDIV_A::_16_X_TPCLK => 4,
-            PULSEDIV_A::_32_X_TPCLK => 5,
-            PULSEDIV_A::_64_X_TPCLK => 6,
-            PULSEDIV_A::_128_X_TPCLK => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PULSEDIV`"]

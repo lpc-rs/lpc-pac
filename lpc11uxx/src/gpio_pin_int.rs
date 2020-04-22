@@ -22,7 +22,7 @@ pub struct RegisterBlock {
     #[doc = "0x24 - Pin Interrupt Status register"]
     pub ist: IST,
 }
-#[doc = "Pin Interrupt Mode register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [isel](isel) module"]
+#[doc = "Pin Interrupt Mode register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [isel](isel) module"]
 pub type ISEL = crate::Reg<u32, _ISEL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -33,7 +33,7 @@ impl crate::Readable for ISEL {}
 impl crate::Writable for ISEL {}
 #[doc = "Pin Interrupt Mode register"]
 pub mod isel;
-#[doc = "Pin Interrupt Enable (Rising) register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ienr](ienr) module"]
+#[doc = "Pin Interrupt Enable (Rising) register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ienr](ienr) module"]
 pub type IENR = crate::Reg<u32, _IENR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -44,7 +44,7 @@ impl crate::Readable for IENR {}
 impl crate::Writable for IENR {}
 #[doc = "Pin Interrupt Enable (Rising) register"]
 pub mod ienr;
-#[doc = "Set Pin Interrupt Enable (Rising) register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sienr](sienr) module"]
+#[doc = "Set Pin Interrupt Enable (Rising) register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sienr](sienr) module"]
 pub type SIENR = crate::Reg<u32, _SIENR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -53,7 +53,7 @@ pub struct _SIENR;
 impl crate::Writable for SIENR {}
 #[doc = "Set Pin Interrupt Enable (Rising) register"]
 pub mod sienr;
-#[doc = "Clear Pin Interrupt Enable (Rising) register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cienr](cienr) module"]
+#[doc = "Clear Pin Interrupt Enable (Rising) register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cienr](cienr) module"]
 pub type CIENR = crate::Reg<u32, _CIENR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -62,7 +62,7 @@ pub struct _CIENR;
 impl crate::Writable for CIENR {}
 #[doc = "Clear Pin Interrupt Enable (Rising) register"]
 pub mod cienr;
-#[doc = "Pin Interrupt Enable Falling Edge / Active Level register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ienf](ienf) module"]
+#[doc = "Pin Interrupt Enable Falling Edge / Active Level register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ienf](ienf) module"]
 pub type IENF = crate::Reg<u32, _IENF>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -73,7 +73,7 @@ impl crate::Readable for IENF {}
 impl crate::Writable for IENF {}
 #[doc = "Pin Interrupt Enable Falling Edge / Active Level register"]
 pub mod ienf;
-#[doc = "Set Pin Interrupt Enable Falling Edge / Active Level register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sienf](sienf) module"]
+#[doc = "Set Pin Interrupt Enable Falling Edge / Active Level register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sienf](sienf) module"]
 pub type SIENF = crate::Reg<u32, _SIENF>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -82,7 +82,7 @@ pub struct _SIENF;
 impl crate::Writable for SIENF {}
 #[doc = "Set Pin Interrupt Enable Falling Edge / Active Level register"]
 pub mod sienf;
-#[doc = "Clear Pin Interrupt Enable Falling Edge / Active Level address\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [cienf](cienf) module"]
+#[doc = "Clear Pin Interrupt Enable Falling Edge / Active Level address\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cienf](cienf) module"]
 pub type CIENF = crate::Reg<u32, _CIENF>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -91,7 +91,7 @@ pub struct _CIENF;
 impl crate::Writable for CIENF {}
 #[doc = "Clear Pin Interrupt Enable Falling Edge / Active Level address"]
 pub mod cienf;
-#[doc = "Pin Interrupt Rising Edge register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rise](rise) module"]
+#[doc = "Pin Interrupt Rising Edge register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rise](rise) module"]
 pub type RISE = crate::Reg<u32, _RISE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -102,7 +102,7 @@ impl crate::Readable for RISE {}
 impl crate::Writable for RISE {}
 #[doc = "Pin Interrupt Rising Edge register"]
 pub mod rise;
-#[doc = "Pin Interrupt Falling Edge register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fall](fall) module"]
+#[doc = "Pin Interrupt Falling Edge register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fall](fall) module"]
 pub type FALL = crate::Reg<u32, _FALL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -113,7 +113,7 @@ impl crate::Readable for FALL {}
 impl crate::Writable for FALL {}
 #[doc = "Pin Interrupt Falling Edge register"]
 pub mod fall;
-#[doc = "Pin Interrupt Status register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ist](ist) module"]
+#[doc = "Pin Interrupt Status register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ist](ist) module"]
 pub type IST = crate::Reg<u32, _IST>;
 #[allow(missing_docs)]
 #[doc(hidden)]

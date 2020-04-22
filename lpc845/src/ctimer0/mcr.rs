@@ -405,7 +405,8 @@ impl R {
     pub fn mr0r(&self) -> MR0R_R {
         MR0R_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - Stop on MR0: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC. 0 = disabled. 1 = enabled."]
+    #[doc = "Bit 2 - Stop on MR0: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR0 matches the TC. 0 = disabled. 1 = enabled."]
     #[inline(always)]
     pub fn mr0s(&self) -> MR0S_R {
         MR0S_R::new(((self.bits >> 2) & 0x01) != 0)
@@ -420,7 +421,8 @@ impl R {
     pub fn mr1r(&self) -> MR1R_R {
         MR1R_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bit 5 - Stop on MR1: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC. 0 = disabled. 1 = enabled."]
+    #[doc = "Bit 5 - Stop on MR1: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR1 matches the TC. 0 = disabled. 1 = enabled."]
     #[inline(always)]
     pub fn mr1s(&self) -> MR1S_R {
         MR1S_R::new(((self.bits >> 5) & 0x01) != 0)
@@ -435,7 +437,8 @@ impl R {
     pub fn mr2r(&self) -> MR2R_R {
         MR2R_R::new(((self.bits >> 7) & 0x01) != 0)
     }
-    #[doc = "Bit 8 - Stop on MR2: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC. 0 = disabled. 1 = enabled."]
+    #[doc = "Bit 8 - Stop on MR2: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR2 matches the TC. 0 = disabled. 1 = enabled."]
     #[inline(always)]
     pub fn mr2s(&self) -> MR2S_R {
         MR2S_R::new(((self.bits >> 8) & 0x01) != 0)
@@ -450,7 +453,8 @@ impl R {
     pub fn mr3r(&self) -> MR3R_R {
         MR3R_R::new(((self.bits >> 10) & 0x01) != 0)
     }
-    #[doc = "Bit 11 - Stop on MR3: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC. 0 = disabled. 1 = enabled."]
+    #[doc = "Bit 11 - Stop on MR3: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR3 matches the TC. 0 = disabled. 1 = enabled."]
     #[inline(always)]
     pub fn mr3s(&self) -> MR3S_R {
         MR3S_R::new(((self.bits >> 11) & 0x01) != 0)
@@ -487,7 +491,8 @@ impl W {
     pub fn mr0r(&mut self) -> MR0R_W {
         MR0R_W { w: self }
     }
-    #[doc = "Bit 2 - Stop on MR0: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC. 0 = disabled. 1 = enabled."]
+    #[doc = "Bit 2 - Stop on MR0: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR0 matches the TC. 0 = disabled. 1 = enabled."]
     #[inline(always)]
     pub fn mr0s(&mut self) -> MR0S_W {
         MR0S_W { w: self }
@@ -502,7 +507,8 @@ impl W {
     pub fn mr1r(&mut self) -> MR1R_W {
         MR1R_W { w: self }
     }
-    #[doc = "Bit 5 - Stop on MR1: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC. 0 = disabled. 1 = enabled."]
+    #[doc = "Bit 5 - Stop on MR1: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR1 matches the TC. 0 = disabled. 1 = enabled."]
     #[inline(always)]
     pub fn mr1s(&mut self) -> MR1S_W {
         MR1S_W { w: self }
@@ -517,7 +523,8 @@ impl W {
     pub fn mr2r(&mut self) -> MR2R_W {
         MR2R_W { w: self }
     }
-    #[doc = "Bit 8 - Stop on MR2: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC. 0 = disabled. 1 = enabled."]
+    #[doc = "Bit 8 - Stop on MR2: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR2 matches the TC. 0 = disabled. 1 = enabled."]
     #[inline(always)]
     pub fn mr2s(&mut self) -> MR2S_W {
         MR2S_W { w: self }
@@ -532,7 +539,8 @@ impl W {
     pub fn mr3r(&mut self) -> MR3R_W {
         MR3R_W { w: self }
     }
-    #[doc = "Bit 11 - Stop on MR3: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC. 0 = disabled. 1 = enabled."]
+    #[doc = "Bit 11 - Stop on MR3: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR3 matches the TC. 0 = disabled. 1 = enabled."]
     #[inline(always)]
     pub fn mr3s(&mut self) -> MR3S_W {
         MR3S_W { w: self }

@@ -42,17 +42,14 @@ impl<'a> CLKDIV_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BURST_A {
     #[doc = "0: Software-controlled mode: Conversions are software-controlled and require 11 clocks."]
-    SOFTWARE_CONTROLLED,
+    SOFTWARE_CONTROLLED = 0,
     #[doc = "1: Hardware scan mode: The AD converter does repeated conversions at the rate selected by the CLKS field, scanning (if necessary) through the pins selected by 1s in the SEL field. The first conversion after the start corresponds to the least-significant bit set to 1 in the SEL field, then the next higher  bits (pins) set to 1 are scanned if applicable. Repeated conversions can be terminated by clearing this bit, but the conversion in progress when this bit is cleared will be completed. Important: START bits must be 000 when BURST = 1 or conversions will not start."]
-    HARDWARE_SCAN,
+    HARDWARE_SCAN = 1,
 }
 impl From<BURST_A> for bool {
     #[inline(always)]
     fn from(variant: BURST_A) -> Self {
-        match variant {
-            BURST_A::SOFTWARE_CONTROLLED => false,
-            BURST_A::HARDWARE_SCAN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BURST`"]
@@ -118,37 +115,29 @@ impl<'a> BURST_W<'a> {
 }
 #[doc = "This field selects the number of clocks used for each conversion in Burst mode, and the number of bits of accuracy of the result in the LS bits of ADDR, between 11 clocks (10 bits) and 4 clocks (3 bits).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CLKS_A {
     #[doc = "0: 11 clocks / 10 bits"]
-    _11_CLOCKS_10_BITS,
+    _11_CLOCKS_10_BITS = 0,
     #[doc = "1: 10 clocks / 9 bits"]
-    _10_CLOCKS_9_BITS,
+    _10_CLOCKS_9_BITS = 1,
     #[doc = "2: 9 clocks / 8 bits"]
-    _9_CLOCKS_8_BITS,
+    _9_CLOCKS_8_BITS = 2,
     #[doc = "3: 8 clocks / 7 bits"]
-    _8_CLOCKS_7_BITS,
+    _8_CLOCKS_7_BITS = 3,
     #[doc = "4: 7 clocks / 6 bits"]
-    _7_CLOCKS_6_BITS,
+    _7_CLOCKS_6_BITS = 4,
     #[doc = "5: 6 clocks / 5 bits"]
-    _6_CLOCKS_5_BITS,
+    _6_CLOCKS_5_BITS = 5,
     #[doc = "6: 5 clocks / 4 bits"]
-    _5_CLOCKS_4_BITS,
+    _5_CLOCKS_4_BITS = 6,
     #[doc = "7: 4 clocks / 3 bits"]
-    _4_CLOCKS_3_BITS,
+    _4_CLOCKS_3_BITS = 7,
 }
 impl From<CLKS_A> for u8 {
     #[inline(always)]
     fn from(variant: CLKS_A) -> Self {
-        match variant {
-            CLKS_A::_11_CLOCKS_10_BITS => 0,
-            CLKS_A::_10_CLOCKS_9_BITS => 1,
-            CLKS_A::_9_CLOCKS_8_BITS => 2,
-            CLKS_A::_8_CLOCKS_7_BITS => 3,
-            CLKS_A::_7_CLOCKS_6_BITS => 4,
-            CLKS_A::_6_CLOCKS_5_BITS => 5,
-            CLKS_A::_5_CLOCKS_4_BITS => 6,
-            CLKS_A::_4_CLOCKS_3_BITS => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CLKS`"]
@@ -271,37 +260,29 @@ impl<'a> CLKS_W<'a> {
 }
 #[doc = "When the BURST bit is 0, these bits control whether and when an A/D conversion is started:\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum START_A {
     #[doc = "0: No start (this value should be used when clearing PDN to 0)."]
-    NO_START_THIS_VALUE,
+    NO_START_THIS_VALUE = 0,
     #[doc = "1: Start conversion now."]
-    START_CONVERSION_NOW,
+    START_CONVERSION_NOW = 1,
     #[doc = "2: Start conversion when the edge selected by bit 27 occurs on PIO0_2/SSEL/CT16B0_CAP0."]
-    PIO0_2,
+    PIO0_2 = 2,
     #[doc = "3: Start conversion when the edge selected by bit 27 occurs on PIO1_5/DIR/CT32B0_CAP0."]
-    PIO1_5,
+    PIO1_5 = 3,
     #[doc = "4: Start conversion when the edge selected by bit 27 occurs on CT32B0_MAT0\\[1\\]."]
-    CT32B0_MAT0,
+    CT32B0_MAT0 = 4,
     #[doc = "5: Start conversion when the edge selected by bit 27 occurs on CT32B0_MAT1\\[1\\]."]
-    CT32B0_MAT1,
+    CT32B0_MAT1 = 5,
     #[doc = "6: Start conversion when the edge selected by bit 27 occurs on CT16B0_MAT0\\[1\\]."]
-    CT16B0_MAT0,
+    CT16B0_MAT0 = 6,
     #[doc = "7: Start conversion when the edge selected by bit 27 occurs on CT16B0_MAT1\\[1\\]."]
-    CT16B0_MAT1,
+    CT16B0_MAT1 = 7,
 }
 impl From<START_A> for u8 {
     #[inline(always)]
     fn from(variant: START_A) -> Self {
-        match variant {
-            START_A::NO_START_THIS_VALUE => 0,
-            START_A::START_CONVERSION_NOW => 1,
-            START_A::PIO0_2 => 2,
-            START_A::PIO1_5 => 3,
-            START_A::CT32B0_MAT0 => 4,
-            START_A::CT32B0_MAT1 => 5,
-            START_A::CT16B0_MAT0 => 6,
-            START_A::CT16B0_MAT1 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `START`"]
@@ -426,17 +407,14 @@ impl<'a> START_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EDGE_A {
     #[doc = "0: Start conversion on a rising edge on the selected CAP/MAT signal."]
-    RISING,
+    RISING = 0,
     #[doc = "1: Start conversion on a falling edge on the selected CAP/MAT signal."]
-    FALLING,
+    FALLING = 1,
 }
 impl From<EDGE_A> for bool {
     #[inline(always)]
     fn from(variant: EDGE_A) -> Self {
-        match variant {
-            EDGE_A::RISING => false,
-            EDGE_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EDGE`"]

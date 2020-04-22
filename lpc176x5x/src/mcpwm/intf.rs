@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::INTF>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ILIM0_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<ILIM0_F_A> for bool {
     #[inline(always)]
     fn from(variant: ILIM0_F_A) -> Self {
-        match variant {
-            ILIM0_F_A::THIS_INTERRUPT_SOURC => false,
-            ILIM0_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ILIM0_F`"]
@@ -43,17 +40,14 @@ impl ILIM0_F_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IMAT0_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<IMAT0_F_A> for bool {
     #[inline(always)]
     fn from(variant: IMAT0_F_A) -> Self {
-        match variant {
-            IMAT0_F_A::THIS_INTERRUPT_SOURC => false,
-            IMAT0_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IMAT0_F`"]
@@ -82,17 +76,14 @@ impl IMAT0_F_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ICAP0_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<ICAP0_F_A> for bool {
     #[inline(always)]
     fn from(variant: ICAP0_F_A) -> Self {
-        match variant {
-            ICAP0_F_A::THIS_INTERRUPT_SOURC => false,
-            ICAP0_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ICAP0_F`"]
@@ -121,17 +112,14 @@ impl ICAP0_F_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ILIM1_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<ILIM1_F_A> for bool {
     #[inline(always)]
     fn from(variant: ILIM1_F_A) -> Self {
-        match variant {
-            ILIM1_F_A::THIS_INTERRUPT_SOURC => false,
-            ILIM1_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ILIM1_F`"]
@@ -160,17 +148,14 @@ impl ILIM1_F_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IMAT1_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<IMAT1_F_A> for bool {
     #[inline(always)]
     fn from(variant: IMAT1_F_A) -> Self {
-        match variant {
-            IMAT1_F_A::THIS_INTERRUPT_SOURC => false,
-            IMAT1_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IMAT1_F`"]
@@ -199,17 +184,14 @@ impl IMAT1_F_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ICAP1_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<ICAP1_F_A> for bool {
     #[inline(always)]
     fn from(variant: ICAP1_F_A) -> Self {
-        match variant {
-            ICAP1_F_A::THIS_INTERRUPT_SOURC => false,
-            ICAP1_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ICAP1_F`"]
@@ -238,17 +220,14 @@ impl ICAP1_F_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ILIM2_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<ILIM2_F_A> for bool {
     #[inline(always)]
     fn from(variant: ILIM2_F_A) -> Self {
-        match variant {
-            ILIM2_F_A::THIS_INTERRUPT_SOURC => false,
-            ILIM2_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ILIM2_F`"]
@@ -277,17 +256,14 @@ impl ILIM2_F_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IMAT2_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<IMAT2_F_A> for bool {
     #[inline(always)]
     fn from(variant: IMAT2_F_A) -> Self {
-        match variant {
-            IMAT2_F_A::THIS_INTERRUPT_SOURC => false,
-            IMAT2_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IMAT2_F`"]
@@ -316,17 +292,14 @@ impl IMAT2_F_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ICAP2_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<ICAP2_F_A> for bool {
     #[inline(always)]
     fn from(variant: ICAP2_F_A) -> Self {
-        match variant {
-            ICAP2_F_A::THIS_INTERRUPT_SOURC => false,
-            ICAP2_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ICAP2_F`"]
@@ -355,17 +328,14 @@ impl ICAP2_F_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ABORT_F_A {
     #[doc = "0: This interrupt source is not contributing to the MCPWM interrupt request."]
-    THIS_INTERRUPT_SOURC,
+    THIS_INTERRUPT_SOURC = 0,
     #[doc = "1: If the corresponding bit in INTEN is 1, the MCPWM module is asserting its interrupt request to the Interrupt Controller."]
-    IF_THE_CORRESPONDING,
+    IF_THE_CORRESPONDING = 1,
 }
 impl From<ABORT_F_A> for bool {
     #[inline(always)]
     fn from(variant: ABORT_F_A) -> Self {
-        match variant {
-            ABORT_F_A::THIS_INTERRUPT_SOURC => false,
-            ABORT_F_A::IF_THE_CORRESPONDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ABORT_F`"]

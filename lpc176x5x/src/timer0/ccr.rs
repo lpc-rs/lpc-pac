@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP0RE_A {
     #[doc = "1: A sequence of 0 then 1 on CAPn.0 will cause CR0 to be loaded with the contents of TC."]
-    ENABLE,
+    ENABLE = 1,
     #[doc = "0: This feature is disabled."]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<CAP0RE_A> for bool {
     #[inline(always)]
     fn from(variant: CAP0RE_A) -> Self {
-        match variant {
-            CAP0RE_A::ENABLE => true,
-            CAP0RE_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP0RE`"]
@@ -92,17 +89,14 @@ impl<'a> CAP0RE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP0FE_A {
     #[doc = "1: A sequence of 1 then 0 on CAPn.0 will cause CR0 to be loaded with the contents of TC."]
-    ENABLE,
+    ENABLE = 1,
     #[doc = "0: This feature is disabled."]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<CAP0FE_A> for bool {
     #[inline(always)]
     fn from(variant: CAP0FE_A) -> Self {
-        match variant {
-            CAP0FE_A::ENABLE => true,
-            CAP0FE_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP0FE`"]
@@ -170,17 +164,14 @@ impl<'a> CAP0FE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP0I_A {
     #[doc = "1: A CR0 load due to a CAPn.0 event will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
     #[doc = "0: This feature is disabled."]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<CAP0I_A> for bool {
     #[inline(always)]
     fn from(variant: CAP0I_A) -> Self {
-        match variant {
-            CAP0I_A::ENABLE => true,
-            CAP0I_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP0I`"]
@@ -248,17 +239,14 @@ impl<'a> CAP0I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP1RE_A {
     #[doc = "1: A sequence of 0 then 1 on CAPn.1 will cause CR1 to be loaded with the contents of TC."]
-    ENABLE,
+    ENABLE = 1,
     #[doc = "0: This feature is disabled."]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<CAP1RE_A> for bool {
     #[inline(always)]
     fn from(variant: CAP1RE_A) -> Self {
-        match variant {
-            CAP1RE_A::ENABLE => true,
-            CAP1RE_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP1RE`"]
@@ -326,17 +314,14 @@ impl<'a> CAP1RE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP1FE_A {
     #[doc = "1: A sequence of 1 then 0 on CAPn.1 will cause CR1 to be loaded with the contents of TC."]
-    ENABLE,
+    ENABLE = 1,
     #[doc = "0: This feature is disabled."]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<CAP1FE_A> for bool {
     #[inline(always)]
     fn from(variant: CAP1FE_A) -> Self {
-        match variant {
-            CAP1FE_A::ENABLE => true,
-            CAP1FE_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP1FE`"]
@@ -404,17 +389,14 @@ impl<'a> CAP1FE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP1I_A {
     #[doc = "1: A CR1 load due to a CAPn.1 event will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
     #[doc = "0: This feature is disabled."]
-    DISABLE,
+    DISABLE = 0,
 }
 impl From<CAP1I_A> for bool {
     #[inline(always)]
     fn from(variant: CAP1I_A) -> Self {
-        match variant {
-            CAP1I_A::ENABLE => true,
-            CAP1I_A::DISABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP1I`"]

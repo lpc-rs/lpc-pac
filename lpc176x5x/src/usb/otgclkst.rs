@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::OTGCLKST>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HOST_CLK_ON_A {
     #[doc = "0: Host clock is not available."]
-    HOST_CLOCK_IS_NOT_AV,
+    HOST_CLOCK_IS_NOT_AV = 0,
     #[doc = "1: Host clock is available."]
-    HOST_CLOCK_IS_AVAILA,
+    HOST_CLOCK_IS_AVAILA = 1,
 }
 impl From<HOST_CLK_ON_A> for bool {
     #[inline(always)]
     fn from(variant: HOST_CLK_ON_A) -> Self {
-        match variant {
-            HOST_CLK_ON_A::HOST_CLOCK_IS_NOT_AV => false,
-            HOST_CLK_ON_A::HOST_CLOCK_IS_AVAILA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HOST_CLK_ON`"]
@@ -43,17 +40,14 @@ impl HOST_CLK_ON_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DEV_CLK_ON_A {
     #[doc = "0: Device clock is not available."]
-    DEVICE_CLOCK_IS_NOT_,
+    DEVICE_CLOCK_IS_NOT_ = 0,
     #[doc = "1: Device clock is available."]
-    DEVICE_CLOCK_IS_AVAI,
+    DEVICE_CLOCK_IS_AVAI = 1,
 }
 impl From<DEV_CLK_ON_A> for bool {
     #[inline(always)]
     fn from(variant: DEV_CLK_ON_A) -> Self {
-        match variant {
-            DEV_CLK_ON_A::DEVICE_CLOCK_IS_NOT_ => false,
-            DEV_CLK_ON_A::DEVICE_CLOCK_IS_AVAI => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DEV_CLK_ON`"]
@@ -82,17 +76,14 @@ impl DEV_CLK_ON_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C_CLK_ON_A {
     #[doc = "0: I2C clock is not available."]
-    I2C_CLOCK_IS_NOT_AVA,
+    I2C_CLOCK_IS_NOT_AVA = 0,
     #[doc = "1: I2C clock is available."]
-    I2C_CLOCK_IS_AVAILAB,
+    I2C_CLOCK_IS_AVAILAB = 1,
 }
 impl From<I2C_CLK_ON_A> for bool {
     #[inline(always)]
     fn from(variant: I2C_CLK_ON_A) -> Self {
-        match variant {
-            I2C_CLK_ON_A::I2C_CLOCK_IS_NOT_AVA => false,
-            I2C_CLK_ON_A::I2C_CLOCK_IS_AVAILAB => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C_CLK_ON`"]
@@ -121,17 +112,14 @@ impl I2C_CLK_ON_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OTG_CLK_ON_A {
     #[doc = "0: OTG clock is not available."]
-    OTG_CLOCK_IS_NOT_AVA,
+    OTG_CLOCK_IS_NOT_AVA = 0,
     #[doc = "1: OTG clock is available."]
-    OTG_CLOCK_IS_AVAILAB,
+    OTG_CLOCK_IS_AVAILAB = 1,
 }
 impl From<OTG_CLK_ON_A> for bool {
     #[inline(always)]
     fn from(variant: OTG_CLK_ON_A) -> Self {
-        match variant {
-            OTG_CLK_ON_A::OTG_CLOCK_IS_NOT_AVA => false,
-            OTG_CLK_ON_A::OTG_CLOCK_IS_AVAILAB => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OTG_CLK_ON`"]
@@ -160,17 +148,14 @@ impl OTG_CLK_ON_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AHB_CLK_ON_A {
     #[doc = "0: AHB clock is not available."]
-    AHB_CLOCK_IS_NOT_AVA,
+    AHB_CLOCK_IS_NOT_AVA = 0,
     #[doc = "1: AHB clock is available."]
-    AHB_CLOCK_IS_AVAILAB,
+    AHB_CLOCK_IS_AVAILAB = 1,
 }
 impl From<AHB_CLK_ON_A> for bool {
     #[inline(always)]
     fn from(variant: AHB_CLK_ON_A) -> Self {
-        match variant {
-            AHB_CLK_ON_A::AHB_CLOCK_IS_NOT_AVA => false,
-            AHB_CLK_ON_A::AHB_CLOCK_IS_AVAILAB => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `AHB_CLK_ON`"]

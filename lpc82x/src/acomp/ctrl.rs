@@ -12,25 +12,21 @@ impl crate::ResetValue for super::CTRL {
 }
 #[doc = "This field controls which edges on the comparator output set the COMPEDGE bit (bit 23 below):\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EDGESEL_A {
     #[doc = "0: Falling edges"]
-    FALLING_EDGES,
+    FALLING_EDGES = 0,
     #[doc = "1: Rising edges"]
-    RISING_EDGES,
+    RISING_EDGES = 1,
     #[doc = "2: Both edges"]
-    BOTH_EDGES0,
+    BOTH_EDGES0 = 2,
     #[doc = "3: Both edges"]
-    BOTH_EDGES1,
+    BOTH_EDGES1 = 3,
 }
 impl From<EDGESEL_A> for u8 {
     #[inline(always)]
     fn from(variant: EDGESEL_A) -> Self {
-        match variant {
-            EDGESEL_A::FALLING_EDGES => 0,
-            EDGESEL_A::RISING_EDGES => 1,
-            EDGESEL_A::BOTH_EDGES0 => 2,
-            EDGESEL_A::BOTH_EDGES1 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EDGESEL`"]
@@ -111,17 +107,14 @@ impl<'a> EDGESEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum COMPSA_A {
     #[doc = "0: Comparator output is used directly."]
-    COMPSA_0,
+    COMPSA_0 = 0,
     #[doc = "1: Comparator output is synchronized to the bus clock for output to other modules."]
-    COMPSA_1,
+    COMPSA_1 = 1,
 }
 impl From<COMPSA_A> for bool {
     #[inline(always)]
     fn from(variant: COMPSA_A) -> Self {
-        match variant {
-            COMPSA_A::COMPSA_0 => false,
-            COMPSA_A::COMPSA_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `COMPSA`"]
@@ -187,34 +180,27 @@ impl<'a> COMPSA_W<'a> {
 }
 #[doc = "Selects positive voltage input\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum COMP_VP_SEL_A {
     #[doc = "0: VOLTAGE_LADDER_OUTPUT"]
-    VOLTAGE_LADDER_OUTPUT,
+    VOLTAGE_LADDER_OUTPUT = 0,
     #[doc = "1: ACMP_I1"]
-    ACMP_I1,
+    ACMP_I1 = 1,
     #[doc = "2: ACMP_I2"]
-    ACMP_I2,
+    ACMP_I2 = 2,
     #[doc = "3: ACMP_I3"]
-    ACMP_I3,
+    ACMP_I3 = 3,
     #[doc = "4: ACMP_I4"]
-    ACMP_I4,
+    ACMP_I4 = 4,
     #[doc = "5: Band gap. Internal reference voltage."]
-    BAND_GAP,
+    BAND_GAP = 5,
     #[doc = "6: ADC channel 0 input"]
-    ADC_0,
+    ADC_0 = 6,
 }
 impl From<COMP_VP_SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: COMP_VP_SEL_A) -> Self {
-        match variant {
-            COMP_VP_SEL_A::VOLTAGE_LADDER_OUTPUT => 0,
-            COMP_VP_SEL_A::ACMP_I1 => 1,
-            COMP_VP_SEL_A::ACMP_I2 => 2,
-            COMP_VP_SEL_A::ACMP_I3 => 3,
-            COMP_VP_SEL_A::ACMP_I4 => 4,
-            COMP_VP_SEL_A::BAND_GAP => 5,
-            COMP_VP_SEL_A::ADC_0 => 6,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `COMP_VP_SEL`"]
@@ -325,34 +311,27 @@ impl<'a> COMP_VP_SEL_W<'a> {
 }
 #[doc = "Selects negative voltage input\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum COMP_VM_SEL_A {
     #[doc = "0: VOLTAGE_LADDER_OUTPUT"]
-    VOLTAGE_LADDER_OUTPUT,
+    VOLTAGE_LADDER_OUTPUT = 0,
     #[doc = "1: ACMP_I1"]
-    ACMP_I1,
+    ACMP_I1 = 1,
     #[doc = "2: ACMP_I2"]
-    ACMP_I2,
+    ACMP_I2 = 2,
     #[doc = "3: ACMP_I3"]
-    ACMP_I3,
+    ACMP_I3 = 3,
     #[doc = "4: ACMP_I4"]
-    ACMP_I4,
+    ACMP_I4 = 4,
     #[doc = "5: Band gap. Internal reference voltage."]
-    BAND_GAP,
+    BAND_GAP = 5,
     #[doc = "6: ADC channel 0 input"]
-    ADC_0,
+    ADC_0 = 6,
 }
 impl From<COMP_VM_SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: COMP_VM_SEL_A) -> Self {
-        match variant {
-            COMP_VM_SEL_A::VOLTAGE_LADDER_OUTPUT => 0,
-            COMP_VM_SEL_A::ACMP_I1 => 1,
-            COMP_VM_SEL_A::ACMP_I2 => 2,
-            COMP_VM_SEL_A::ACMP_I3 => 3,
-            COMP_VM_SEL_A::ACMP_I4 => 4,
-            COMP_VM_SEL_A::BAND_GAP => 5,
-            COMP_VM_SEL_A::ADC_0 => 6,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `COMP_VM_SEL`"]
@@ -535,25 +514,21 @@ impl<'a> COMPEDGE_W<'a> {
 }
 #[doc = "Controls the hysteresis of the comparator. When the comparator is outputting a certain state, this is the difference between the selected signals, in the opposite direction from the state being output, that will switch the output.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum HYS_A {
     #[doc = "0: None (the output will switch as the voltages cross)"]
-    HYS_0,
+    HYS_0 = 0,
     #[doc = "1: 5 mv"]
-    HYS_1,
+    HYS_1 = 1,
     #[doc = "2: 10 mv"]
-    HYS_2,
+    HYS_2 = 2,
     #[doc = "3: 20 mv"]
-    HYS_3,
+    HYS_3 = 3,
 }
 impl From<HYS_A> for u8 {
     #[inline(always)]
     fn from(variant: HYS_A) -> Self {
-        match variant {
-            HYS_A::HYS_0 => 0,
-            HYS_A::HYS_1 => 1,
-            HYS_A::HYS_2 => 2,
-            HYS_A::HYS_3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `HYS`"]

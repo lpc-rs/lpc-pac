@@ -42,17 +42,14 @@ impl<'a> CLKDIV_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BURST_A {
     #[doc = "1: The AD converter does repeated conversions at up to 400 kHz, scanning (if necessary) through the pins selected by bits set to ones in the SEL field. The first conversion after the start corresponds to the least-significant 1 in the SEL field, then higher numbered 1-bits (pins) if applicable. Repeated conversions can be terminated by clearing this bit, but the conversion that's in progress when this bit is cleared will be completed. START bits must be 000 when BURST = 1 or conversions will not start."]
-    BURST,
+    BURST = 1,
     #[doc = "0: Conversions are software controlled and require 31 clocks."]
-    SW,
+    SW = 0,
 }
 impl From<BURST_A> for bool {
     #[inline(always)]
     fn from(variant: BURST_A) -> Self {
-        match variant {
-            BURST_A::BURST => true,
-            BURST_A::SW => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BURST`"]
@@ -120,17 +117,14 @@ impl<'a> BURST_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PDN_A {
     #[doc = "1: The A/D converter is operational."]
-    POWERED,
+    POWERED = 1,
     #[doc = "0: The A/D converter is in power-down mode."]
-    POWERDOWN,
+    POWERDOWN = 0,
 }
 impl From<PDN_A> for bool {
     #[inline(always)]
     fn from(variant: PDN_A) -> Self {
-        match variant {
-            PDN_A::POWERED => true,
-            PDN_A::POWERDOWN => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PDN`"]
@@ -196,37 +190,31 @@ impl<'a> PDN_W<'a> {
 }
 #[doc = "When the BURST bit is 0, these bits control whether and when an A/D conversion is started:\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum START_A {
     #[doc = "0: No start (this value should be used when clearing PDN to 0)."]
-    NO_START_THIS_VALUE,
+    NO_START_THIS_VALUE = 0,
     #[doc = "1: Start conversion now."]
-    START_CONVERSION_NOW,
-    #[doc = "2: Start conversion when the edge selected by bit 27 occurs on the P2\\[10\\] pin."]
-    P2_10,
-    #[doc = "3: Start conversion when the edge selected by bit 27 occurs on the P1\\[27\\] pin."]
-    P1_27,
+    START_CONVERSION_NOW = 1,
+    #[doc = "2: Start conversion when the edge selected by bit 27 occurs on the P2\\[10\\]
+pin."]
+    P2_10 = 2,
+    #[doc = "3: Start conversion when the edge selected by bit 27 occurs on the P1\\[27\\]
+pin."]
+    P1_27 = 3,
     #[doc = "4: Start conversion when the edge selected by bit 27 occurs on MAT0.1. Note that this does not require that the MAT0.1 function appear on a device pin."]
-    MAT0_1,
+    MAT0_1 = 4,
     #[doc = "5: Start conversion when the edge selected by bit 27 occurs on MAT0.3. Note that it is not possible to cause the MAT0.3 function to appear on a device pin."]
-    MAT0_3,
+    MAT0_3 = 5,
     #[doc = "6: Start conversion when the edge selected by bit 27 occurs on MAT1.0. Note that this does not require that the MAT1.0 function appear on a device pin."]
-    MAT1_0,
+    MAT1_0 = 6,
     #[doc = "7: Start conversion when the edge selected by bit 27 occurs on MAT1.1. Note that this does not require that the MAT1.1 function appear on a device pin."]
-    MAT1_1,
+    MAT1_1 = 7,
 }
 impl From<START_A> for u8 {
     #[inline(always)]
     fn from(variant: START_A) -> Self {
-        match variant {
-            START_A::NO_START_THIS_VALUE => 0,
-            START_A::START_CONVERSION_NOW => 1,
-            START_A::P2_10 => 2,
-            START_A::P1_27 => 3,
-            START_A::MAT0_1 => 4,
-            START_A::MAT0_3 => 5,
-            START_A::MAT1_0 => 6,
-            START_A::MAT1_1 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `START`"]
@@ -310,12 +298,14 @@ impl<'a> START_W<'a> {
     pub fn start_conversion_now(self) -> &'a mut W {
         self.variant(START_A::START_CONVERSION_NOW)
     }
-    #[doc = "Start conversion when the edge selected by bit 27 occurs on the P2\\[10\\] pin."]
+    #[doc = "Start conversion when the edge selected by bit 27 occurs on the P2\\[10\\]
+pin."]
     #[inline(always)]
     pub fn p2_10(self) -> &'a mut W {
         self.variant(START_A::P2_10)
     }
-    #[doc = "Start conversion when the edge selected by bit 27 occurs on the P1\\[27\\] pin."]
+    #[doc = "Start conversion when the edge selected by bit 27 occurs on the P1\\[27\\]
+pin."]
     #[inline(always)]
     pub fn p1_27(self) -> &'a mut W {
         self.variant(START_A::P1_27)
@@ -351,17 +341,14 @@ impl<'a> START_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EDGE_A {
     #[doc = "1: Start conversion on a falling edge on the selected CAP/MAT signal."]
-    FALLLING,
+    FALLLING = 1,
     #[doc = "0: Start conversion on a rising edge on the selected CAP/MAT signal."]
-    RISING,
+    RISING = 0,
 }
 impl From<EDGE_A> for bool {
     #[inline(always)]
     fn from(variant: EDGE_A) -> Self {
-        match variant {
-            EDGE_A::FALLLING => true,
-            EDGE_A::RISING => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EDGE`"]
@@ -426,7 +413,8 @@ impl<'a> EDGE_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - Selects which of the AD0\\[7:0\\] pins is (are) to be sampled and converted. For AD0, bit 0 selects Pin AD0\\[0\\], and bit 7 selects pin AD0\\[7\\]. In software-controlled mode, only one of these bits should be 1. In hardware scan mode, any value containing 1 to 8 ones is allowed. All zeroes is equivalent to 0x01."]
+    #[doc = "Bits 0:7 - Selects which of the AD0\\[7:0\\]
+pins is (are) to be sampled and converted. For AD0, bit 0 selects Pin AD0\\[0\\], and bit 7 selects pin AD0\\[7\\]. In software-controlled mode, only one of these bits should be 1. In hardware scan mode, any value containing 1 to 8 ones is allowed. All zeroes is equivalent to 0x01."]
     #[inline(always)]
     pub fn sel(&self) -> SEL_R {
         SEL_R::new((self.bits & 0xff) as u8)
@@ -458,7 +446,8 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - Selects which of the AD0\\[7:0\\] pins is (are) to be sampled and converted. For AD0, bit 0 selects Pin AD0\\[0\\], and bit 7 selects pin AD0\\[7\\]. In software-controlled mode, only one of these bits should be 1. In hardware scan mode, any value containing 1 to 8 ones is allowed. All zeroes is equivalent to 0x01."]
+    #[doc = "Bits 0:7 - Selects which of the AD0\\[7:0\\]
+pins is (are) to be sampled and converted. For AD0, bit 0 selects Pin AD0\\[0\\], and bit 7 selects pin AD0\\[7\\]. In software-controlled mode, only one of these bits should be 1. In hardware scan mode, any value containing 1 to 8 ones is allowed. All zeroes is equivalent to 0x01."]
     #[inline(always)]
     pub fn sel(&mut self) -> SEL_W {
         SEL_W { w: self }

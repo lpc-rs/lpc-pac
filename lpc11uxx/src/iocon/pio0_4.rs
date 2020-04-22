@@ -12,19 +12,17 @@ impl crate::ResetValue for super::PIO0_4 {
 }
 #[doc = "Selects pin function. Values 0x2 to 0x7 are reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FUNC_A {
     #[doc = "0: PIO0_4 (open-drain pin)."]
-    PIO0_4,
+    PIO0_4 = 0,
     #[doc = "1: I2C SCL (open-drain pin)."]
-    I2C_SCL,
+    I2C_SCL = 1,
 }
 impl From<FUNC_A> for u8 {
     #[inline(always)]
     fn from(variant: FUNC_A) -> Self {
-        match variant {
-            FUNC_A::PIO0_4 => 0,
-            FUNC_A::I2C_SCL => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FUNC`"]
@@ -80,22 +78,19 @@ impl<'a> FUNC_W<'a> {
 }
 #[doc = "Selects I2C mode (see Section 7.3.8). Select Standard mode (I2CMODE = 00, default) or Standard I/O functionality (I2CMODE = 01) if the pin function is GPIO (FUNC = 000).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum I2CMODE_A {
     #[doc = "0: Standard mode/ Fast-mode I2C."]
-    STANDARD_MODE,
+    STANDARD_MODE = 0,
     #[doc = "1: Standard I/O functionality"]
-    STANDARD_IO,
+    STANDARD_IO = 1,
     #[doc = "2: Fast-mode Plus I2C"]
-    FAST_MODE_PLUS,
+    FAST_MODE_PLUS = 2,
 }
 impl From<I2CMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: I2CMODE_A) -> Self {
-        match variant {
-            I2CMODE_A::STANDARD_MODE => 0,
-            I2CMODE_A::STANDARD_IO => 1,
-            I2CMODE_A::FAST_MODE_PLUS => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `I2CMODE`"]

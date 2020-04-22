@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PMCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEL_PMATCH_A {
     #[doc = "0: Pin interrupt. Interrupts are driven in response to the standard pin interrupt function."]
-    PIN_INTERRUPT,
+    PIN_INTERRUPT = 0,
     #[doc = "1: Pattern match. Interrupts are driven in response to pattern matches."]
-    PATTERN_MATCH,
+    PATTERN_MATCH = 1,
 }
 impl From<SEL_PMATCH_A> for bool {
     #[inline(always)]
     fn from(variant: SEL_PMATCH_A) -> Self {
-        match variant {
-            SEL_PMATCH_A::PIN_INTERRUPT => false,
-            SEL_PMATCH_A::PATTERN_MATCH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEL_PMATCH`"]
@@ -92,17 +89,14 @@ impl<'a> SEL_PMATCH_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENA_RXEV_A {
     #[doc = "0: Disabled. RXEV output to the CPU is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. RXEV output to the CPU is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENA_RXEV_A> for bool {
     #[inline(always)]
     fn from(variant: ENA_RXEV_A) -> Self {
-        match variant {
-            ENA_RXEV_A::DISABLED => false,
-            ENA_RXEV_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENA_RXEV`"]

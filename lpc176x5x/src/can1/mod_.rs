@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MOD {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RM_A {
     #[doc = "0: Normal.The CAN Controller is in the Operating Mode, and certain registers can not be written."]
-    NORMAL_THE_CAN_CONTR,
+    NORMAL_THE_CAN_CONTR = 0,
     #[doc = "1: Reset. CAN operation is disabled, writable registers can be written and the current transmission/reception of a message is aborted."]
-    RESET_CAN_OPERATION,
+    RESET_CAN_OPERATION = 1,
 }
 impl From<RM_A> for bool {
     #[inline(always)]
     fn from(variant: RM_A) -> Self {
-        match variant {
-            RM_A::NORMAL_THE_CAN_CONTR => false,
-            RM_A::RESET_CAN_OPERATION => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RM`"]
@@ -92,17 +89,14 @@ impl<'a> RM_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOM_A {
     #[doc = "0: Normal. The CAN controller acknowledges a successfully received message on the CAN bus. The error counters are stopped at the current value."]
-    NORMAL_THE_CAN_CONT,
+    NORMAL_THE_CAN_CONT = 0,
     #[doc = "1: Listen only. The controller gives no acknowledgment, even if a message is successfully received. Messages cannot be sent, and the controller operates in error passive mode. This mode is intended for software bit rate detection and hot plugging."]
-    LISTEN_ONLY_THE_CON,
+    LISTEN_ONLY_THE_CON = 1,
 }
 impl From<LOM_A> for bool {
     #[inline(always)]
     fn from(variant: LOM_A) -> Self {
-        match variant {
-            LOM_A::NORMAL_THE_CAN_CONT => false,
-            LOM_A::LISTEN_ONLY_THE_CON => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOM`"]
@@ -170,17 +164,14 @@ impl<'a> LOM_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STM_A {
     #[doc = "0: Normal. A transmitted message must be acknowledged to be considered successful."]
-    NORMAL_A_TRANSMITTE,
+    NORMAL_A_TRANSMITTE = 0,
     #[doc = "1: Self test. The controller will consider a Tx message successful even if there is no acknowledgment received. In this mode a full node test is possible without any other active node on the bus using the SRR bit in CANxCMR."]
-    SELF_TEST_THE_CONTR,
+    SELF_TEST_THE_CONTR = 1,
 }
 impl From<STM_A> for bool {
     #[inline(always)]
     fn from(variant: STM_A) -> Self {
-        match variant {
-            STM_A::NORMAL_A_TRANSMITTE => false,
-            STM_A::SELF_TEST_THE_CONTR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `STM`"]
@@ -248,17 +239,14 @@ impl<'a> STM_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TPM_A {
     #[doc = "0: CAN ID. The transmit priority for 3 Transmit Buffers depends on the CAN Identifier."]
-    CAN_ID_THE_TRANSMIT,
+    CAN_ID_THE_TRANSMIT = 0,
     #[doc = "1: Local priority. The transmit priority for 3 Transmit Buffers depends on the contents of the Tx Priority register within the Transmit Buffer."]
-    LOCAL_PRIORITY_THE_,
+    LOCAL_PRIORITY_THE_ = 1,
 }
 impl From<TPM_A> for bool {
     #[inline(always)]
     fn from(variant: TPM_A) -> Self {
-        match variant {
-            TPM_A::CAN_ID_THE_TRANSMIT => false,
-            TPM_A::LOCAL_PRIORITY_THE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TPM`"]
@@ -326,17 +314,14 @@ impl<'a> TPM_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SM_A {
     #[doc = "0: Wake-up. Normal operation."]
-    WAKE_UP_NORMAL_OPER,
+    WAKE_UP_NORMAL_OPER = 0,
     #[doc = "1: Sleep. The CAN controller enters Sleep Mode if no CAN interrupt is pending and there is no bus activity. See the Sleep Mode description Section 21.8.2 on page 565."]
-    SLEEP_THE_CAN_CONTR,
+    SLEEP_THE_CAN_CONTR = 1,
 }
 impl From<SM_A> for bool {
     #[inline(always)]
     fn from(variant: SM_A) -> Self {
-        match variant {
-            SM_A::WAKE_UP_NORMAL_OPER => false,
-            SM_A::SLEEP_THE_CAN_CONTR => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SM`"]
@@ -404,17 +389,14 @@ impl<'a> SM_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RPM_A {
     #[doc = "0: Low active. RD input is active Low (dominant bit = 0)."]
-    LOW_ACTIVE_RD_INPUT,
+    LOW_ACTIVE_RD_INPUT = 0,
     #[doc = "1: High active. RD input is active High (dominant bit = 1) -- reverse polarity."]
-    HIGH_ACTIVE_RD_INPU,
+    HIGH_ACTIVE_RD_INPU = 1,
 }
 impl From<RPM_A> for bool {
     #[inline(always)]
     fn from(variant: RPM_A) -> Self {
-        match variant {
-            RPM_A::LOW_ACTIVE_RD_INPUT => false,
-            RPM_A::HIGH_ACTIVE_RD_INPU => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RPM`"]
@@ -482,17 +464,14 @@ impl<'a> RPM_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TM_A {
     #[doc = "0: Disabled. Normal operation."]
-    DISABLED_NORMAL_OPE,
+    DISABLED_NORMAL_OPE = 0,
     #[doc = "1: Enabled. The TD pin will reflect the bit, detected on RD pin, with the next positive edge of the system clock."]
-    ENABLED_THE_TD_PIN_,
+    ENABLED_THE_TD_PIN_ = 1,
 }
 impl From<TM_A> for bool {
     #[inline(always)]
     fn from(variant: TM_A) -> Self {
-        match variant {
-            TM_A::DISABLED_NORMAL_OPE => false,
-            TM_A::ENABLED_THE_TD_PIN_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TM`"]

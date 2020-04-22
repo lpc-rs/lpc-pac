@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PDRUNCFG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FROOUT_PD_A {
     #[doc = "0: powered"]
-    POWERED,
+    POWERED = 0,
     #[doc = "1: powered down"]
-    POWERED_DOWN,
+    POWERED_DOWN = 1,
 }
 impl From<FROOUT_PD_A> for bool {
     #[inline(always)]
     fn from(variant: FROOUT_PD_A) -> Self {
-        match variant {
-            FROOUT_PD_A::POWERED => false,
-            FROOUT_PD_A::POWERED_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FROOUT_PD`"]
@@ -92,17 +89,14 @@ impl<'a> FROOUT_PD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FRO_PD_A {
     #[doc = "0: powered"]
-    POWERED,
+    POWERED = 0,
     #[doc = "1: powered down"]
-    POWERED_DOWN,
+    POWERED_DOWN = 1,
 }
 impl From<FRO_PD_A> for bool {
     #[inline(always)]
     fn from(variant: FRO_PD_A) -> Self {
-        match variant {
-            FRO_PD_A::POWERED => false,
-            FRO_PD_A::POWERED_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FRO_PD`"]
@@ -170,17 +164,14 @@ impl<'a> FRO_PD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FLASH_PD_A {
     #[doc = "0: powered"]
-    POWERED,
+    POWERED = 0,
     #[doc = "1: powered down"]
-    POWERED_DOWN,
+    POWERED_DOWN = 1,
 }
 impl From<FLASH_PD_A> for bool {
     #[inline(always)]
     fn from(variant: FLASH_PD_A) -> Self {
-        match variant {
-            FLASH_PD_A::POWERED => false,
-            FLASH_PD_A::POWERED_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FLASH_PD`"]
@@ -248,17 +239,14 @@ impl<'a> FLASH_PD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BOD_PD_A {
     #[doc = "0: powered"]
-    POWERED,
+    POWERED = 0,
     #[doc = "1: powered down"]
-    POWERED_DOWN,
+    POWERED_DOWN = 1,
 }
 impl From<BOD_PD_A> for bool {
     #[inline(always)]
     fn from(variant: BOD_PD_A) -> Self {
-        match variant {
-            BOD_PD_A::POWERED => false,
-            BOD_PD_A::POWERED_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BOD_PD`"]
@@ -326,17 +314,14 @@ impl<'a> BOD_PD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_PD_A {
     #[doc = "0: powered"]
-    POWERED,
+    POWERED = 0,
     #[doc = "1: powered down"]
-    POWERED_DOWN,
+    POWERED_DOWN = 1,
 }
 impl From<ADC_PD_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_PD_A) -> Self {
-        match variant {
-            ADC_PD_A::POWERED => false,
-            ADC_PD_A::POWERED_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_PD`"]
@@ -404,17 +389,14 @@ impl<'a> ADC_PD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SYSOSC_PD_A {
     #[doc = "0: powered"]
-    POWERED,
+    POWERED = 0,
     #[doc = "1: powered down"]
-    POWERED_DOWN,
+    POWERED_DOWN = 1,
 }
 impl From<SYSOSC_PD_A> for bool {
     #[inline(always)]
     fn from(variant: SYSOSC_PD_A) -> Self {
-        match variant {
-            SYSOSC_PD_A::POWERED => false,
-            SYSOSC_PD_A::POWERED_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SYSOSC_PD`"]
@@ -482,17 +464,14 @@ impl<'a> SYSOSC_PD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WDTOSC_PD_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<WDTOSC_PD_A> for bool {
     #[inline(always)]
     fn from(variant: WDTOSC_PD_A) -> Self {
-        match variant {
-            WDTOSC_PD_A::DISABLED => false,
-            WDTOSC_PD_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WDTOSC_PD`"]
@@ -560,17 +539,14 @@ impl<'a> WDTOSC_PD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SYSPLL_PD_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SYSPLL_PD_A> for bool {
     #[inline(always)]
     fn from(variant: SYSPLL_PD_A) -> Self {
-        match variant {
-            SYSPLL_PD_A::DISABLED => false,
-            SYSPLL_PD_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SYSPLL_PD`"]
@@ -638,17 +614,14 @@ impl<'a> SYSPLL_PD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DAC0_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<DAC0_A> for bool {
     #[inline(always)]
     fn from(variant: DAC0_A) -> Self {
-        match variant {
-            DAC0_A::DISABLED => false,
-            DAC0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DAC0`"]
@@ -716,17 +689,14 @@ impl<'a> DAC0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DAC1_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<DAC1_A> for bool {
     #[inline(always)]
     fn from(variant: DAC1_A) -> Self {
-        match variant {
-            DAC1_A::DISABLED => false,
-            DAC1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DAC1`"]
@@ -794,17 +764,14 @@ impl<'a> DAC1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACMP_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ACMP_A> for bool {
     #[inline(always)]
     fn from(variant: ACMP_A) -> Self {
-        match variant {
-            ACMP_A::DISABLED => false,
-            ACMP_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACMP`"]

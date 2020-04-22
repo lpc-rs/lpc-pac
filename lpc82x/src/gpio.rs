@@ -149,7 +149,7 @@ pub struct RegisterBlock {
     #[doc = "0x2480 - Toggle pin direction bits for port"]
     pub dirnot0: DIRNOT0,
 }
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_0](b0_0) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_0](b0_0) module"]
 pub type B0_0 = crate::Reg<u8, _B0_0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -160,7 +160,7 @@ impl crate::Readable for B0_0 {}
 impl crate::Writable for B0_0 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_0;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_1](b0_1) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_1](b0_1) module"]
 pub type B0_1 = crate::Reg<u8, _B0_1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -171,7 +171,7 @@ impl crate::Readable for B0_1 {}
 impl crate::Writable for B0_1 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_1;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_2](b0_2) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_2](b0_2) module"]
 pub type B0_2 = crate::Reg<u8, _B0_2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -182,7 +182,7 @@ impl crate::Readable for B0_2 {}
 impl crate::Writable for B0_2 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_2;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_3](b0_3) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_3](b0_3) module"]
 pub type B0_3 = crate::Reg<u8, _B0_3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -193,7 +193,7 @@ impl crate::Readable for B0_3 {}
 impl crate::Writable for B0_3 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_3;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_4](b0_4) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_4](b0_4) module"]
 pub type B0_4 = crate::Reg<u8, _B0_4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -204,7 +204,7 @@ impl crate::Readable for B0_4 {}
 impl crate::Writable for B0_4 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_4;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_5](b0_5) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_5](b0_5) module"]
 pub type B0_5 = crate::Reg<u8, _B0_5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -215,7 +215,7 @@ impl crate::Readable for B0_5 {}
 impl crate::Writable for B0_5 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_5;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_6](b0_6) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_6](b0_6) module"]
 pub type B0_6 = crate::Reg<u8, _B0_6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -226,7 +226,7 @@ impl crate::Readable for B0_6 {}
 impl crate::Writable for B0_6 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_6;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_7](b0_7) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_7](b0_7) module"]
 pub type B0_7 = crate::Reg<u8, _B0_7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -237,7 +237,7 @@ impl crate::Readable for B0_7 {}
 impl crate::Writable for B0_7 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_7;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_8](b0_8) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_8](b0_8) module"]
 pub type B0_8 = crate::Reg<u8, _B0_8>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -248,7 +248,7 @@ impl crate::Readable for B0_8 {}
 impl crate::Writable for B0_8 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_8;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_9](b0_9) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_9](b0_9) module"]
 pub type B0_9 = crate::Reg<u8, _B0_9>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -259,7 +259,7 @@ impl crate::Readable for B0_9 {}
 impl crate::Writable for B0_9 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_9;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_10](b0_10) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_10](b0_10) module"]
 pub type B0_10 = crate::Reg<u8, _B0_10>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -270,7 +270,7 @@ impl crate::Readable for B0_10 {}
 impl crate::Writable for B0_10 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_10;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_11](b0_11) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_11](b0_11) module"]
 pub type B0_11 = crate::Reg<u8, _B0_11>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -281,7 +281,7 @@ impl crate::Readable for B0_11 {}
 impl crate::Writable for B0_11 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_11;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_12](b0_12) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_12](b0_12) module"]
 pub type B0_12 = crate::Reg<u8, _B0_12>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -292,7 +292,7 @@ impl crate::Readable for B0_12 {}
 impl crate::Writable for B0_12 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_12;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_13](b0_13) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_13](b0_13) module"]
 pub type B0_13 = crate::Reg<u8, _B0_13>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -303,7 +303,7 @@ impl crate::Readable for B0_13 {}
 impl crate::Writable for B0_13 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_13;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_14](b0_14) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_14](b0_14) module"]
 pub type B0_14 = crate::Reg<u8, _B0_14>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -314,7 +314,7 @@ impl crate::Readable for B0_14 {}
 impl crate::Writable for B0_14 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_14;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_15](b0_15) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_15](b0_15) module"]
 pub type B0_15 = crate::Reg<u8, _B0_15>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -325,7 +325,7 @@ impl crate::Readable for B0_15 {}
 impl crate::Writable for B0_15 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_15;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_16](b0_16) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_16](b0_16) module"]
 pub type B0_16 = crate::Reg<u8, _B0_16>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -336,7 +336,7 @@ impl crate::Readable for B0_16 {}
 impl crate::Writable for B0_16 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_16;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_17](b0_17) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_17](b0_17) module"]
 pub type B0_17 = crate::Reg<u8, _B0_17>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -347,7 +347,7 @@ impl crate::Readable for B0_17 {}
 impl crate::Writable for B0_17 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_17;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_18](b0_18) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_18](b0_18) module"]
 pub type B0_18 = crate::Reg<u8, _B0_18>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -358,7 +358,7 @@ impl crate::Readable for B0_18 {}
 impl crate::Writable for B0_18 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_18;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_19](b0_19) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_19](b0_19) module"]
 pub type B0_19 = crate::Reg<u8, _B0_19>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -369,7 +369,7 @@ impl crate::Readable for B0_19 {}
 impl crate::Writable for B0_19 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_19;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_20](b0_20) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_20](b0_20) module"]
 pub type B0_20 = crate::Reg<u8, _B0_20>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -380,7 +380,7 @@ impl crate::Readable for B0_20 {}
 impl crate::Writable for B0_20 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_20;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_21](b0_21) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_21](b0_21) module"]
 pub type B0_21 = crate::Reg<u8, _B0_21>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -391,7 +391,7 @@ impl crate::Readable for B0_21 {}
 impl crate::Writable for B0_21 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_21;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_22](b0_22) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_22](b0_22) module"]
 pub type B0_22 = crate::Reg<u8, _B0_22>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -402,7 +402,7 @@ impl crate::Readable for B0_22 {}
 impl crate::Writable for B0_22 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_22;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_23](b0_23) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_23](b0_23) module"]
 pub type B0_23 = crate::Reg<u8, _B0_23>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -413,7 +413,7 @@ impl crate::Readable for B0_23 {}
 impl crate::Writable for B0_23 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_23;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_24](b0_24) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_24](b0_24) module"]
 pub type B0_24 = crate::Reg<u8, _B0_24>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -424,7 +424,7 @@ impl crate::Readable for B0_24 {}
 impl crate::Writable for B0_24 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_24;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_25](b0_25) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_25](b0_25) module"]
 pub type B0_25 = crate::Reg<u8, _B0_25>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -435,7 +435,7 @@ impl crate::Readable for B0_25 {}
 impl crate::Writable for B0_25 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_25;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_26](b0_26) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_26](b0_26) module"]
 pub type B0_26 = crate::Reg<u8, _B0_26>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -446,7 +446,7 @@ impl crate::Readable for B0_26 {}
 impl crate::Writable for B0_26 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_26;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_27](b0_27) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_27](b0_27) module"]
 pub type B0_27 = crate::Reg<u8, _B0_27>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -457,7 +457,7 @@ impl crate::Readable for B0_27 {}
 impl crate::Writable for B0_27 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_27;
-#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [b0_28](b0_28) module"]
+#[doc = "Byte pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [b0_28](b0_28) module"]
 pub type B0_28 = crate::Reg<u8, _B0_28>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -468,7 +468,7 @@ impl crate::Readable for B0_28 {}
 impl crate::Writable for B0_28 {}
 #[doc = "Byte pin registers for all port 0 and 1 GPIO pins"]
 pub mod b0_28;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_0](w0_0) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_0](w0_0) module"]
 pub type W0_0 = crate::Reg<u32, _W0_0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -479,7 +479,7 @@ impl crate::Readable for W0_0 {}
 impl crate::Writable for W0_0 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_0;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_1](w0_1) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_1](w0_1) module"]
 pub type W0_1 = crate::Reg<u32, _W0_1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -490,7 +490,7 @@ impl crate::Readable for W0_1 {}
 impl crate::Writable for W0_1 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_1;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_2](w0_2) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_2](w0_2) module"]
 pub type W0_2 = crate::Reg<u32, _W0_2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -501,7 +501,7 @@ impl crate::Readable for W0_2 {}
 impl crate::Writable for W0_2 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_2;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_3](w0_3) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_3](w0_3) module"]
 pub type W0_3 = crate::Reg<u32, _W0_3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -512,7 +512,7 @@ impl crate::Readable for W0_3 {}
 impl crate::Writable for W0_3 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_3;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_4](w0_4) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_4](w0_4) module"]
 pub type W0_4 = crate::Reg<u32, _W0_4>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -523,7 +523,7 @@ impl crate::Readable for W0_4 {}
 impl crate::Writable for W0_4 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_4;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_5](w0_5) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_5](w0_5) module"]
 pub type W0_5 = crate::Reg<u32, _W0_5>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -534,7 +534,7 @@ impl crate::Readable for W0_5 {}
 impl crate::Writable for W0_5 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_5;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_6](w0_6) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_6](w0_6) module"]
 pub type W0_6 = crate::Reg<u32, _W0_6>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -545,7 +545,7 @@ impl crate::Readable for W0_6 {}
 impl crate::Writable for W0_6 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_6;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_7](w0_7) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_7](w0_7) module"]
 pub type W0_7 = crate::Reg<u32, _W0_7>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -556,7 +556,7 @@ impl crate::Readable for W0_7 {}
 impl crate::Writable for W0_7 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_7;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_8](w0_8) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_8](w0_8) module"]
 pub type W0_8 = crate::Reg<u32, _W0_8>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -567,7 +567,7 @@ impl crate::Readable for W0_8 {}
 impl crate::Writable for W0_8 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_8;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_9](w0_9) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_9](w0_9) module"]
 pub type W0_9 = crate::Reg<u32, _W0_9>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -578,7 +578,7 @@ impl crate::Readable for W0_9 {}
 impl crate::Writable for W0_9 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_9;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_10](w0_10) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_10](w0_10) module"]
 pub type W0_10 = crate::Reg<u32, _W0_10>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -589,7 +589,7 @@ impl crate::Readable for W0_10 {}
 impl crate::Writable for W0_10 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_10;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_11](w0_11) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_11](w0_11) module"]
 pub type W0_11 = crate::Reg<u32, _W0_11>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -600,7 +600,7 @@ impl crate::Readable for W0_11 {}
 impl crate::Writable for W0_11 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_11;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_12](w0_12) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_12](w0_12) module"]
 pub type W0_12 = crate::Reg<u32, _W0_12>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -611,7 +611,7 @@ impl crate::Readable for W0_12 {}
 impl crate::Writable for W0_12 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_12;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_13](w0_13) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_13](w0_13) module"]
 pub type W0_13 = crate::Reg<u32, _W0_13>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -622,7 +622,7 @@ impl crate::Readable for W0_13 {}
 impl crate::Writable for W0_13 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_13;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_14](w0_14) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_14](w0_14) module"]
 pub type W0_14 = crate::Reg<u32, _W0_14>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -633,7 +633,7 @@ impl crate::Readable for W0_14 {}
 impl crate::Writable for W0_14 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_14;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_15](w0_15) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_15](w0_15) module"]
 pub type W0_15 = crate::Reg<u32, _W0_15>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -644,7 +644,7 @@ impl crate::Readable for W0_15 {}
 impl crate::Writable for W0_15 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_15;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_16](w0_16) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_16](w0_16) module"]
 pub type W0_16 = crate::Reg<u32, _W0_16>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -655,7 +655,7 @@ impl crate::Readable for W0_16 {}
 impl crate::Writable for W0_16 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_16;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_17](w0_17) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_17](w0_17) module"]
 pub type W0_17 = crate::Reg<u32, _W0_17>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -666,7 +666,7 @@ impl crate::Readable for W0_17 {}
 impl crate::Writable for W0_17 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_17;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_18](w0_18) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_18](w0_18) module"]
 pub type W0_18 = crate::Reg<u32, _W0_18>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -677,7 +677,7 @@ impl crate::Readable for W0_18 {}
 impl crate::Writable for W0_18 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_18;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_19](w0_19) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_19](w0_19) module"]
 pub type W0_19 = crate::Reg<u32, _W0_19>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -688,7 +688,7 @@ impl crate::Readable for W0_19 {}
 impl crate::Writable for W0_19 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_19;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_20](w0_20) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_20](w0_20) module"]
 pub type W0_20 = crate::Reg<u32, _W0_20>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -699,7 +699,7 @@ impl crate::Readable for W0_20 {}
 impl crate::Writable for W0_20 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_20;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_21](w0_21) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_21](w0_21) module"]
 pub type W0_21 = crate::Reg<u32, _W0_21>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -710,7 +710,7 @@ impl crate::Readable for W0_21 {}
 impl crate::Writable for W0_21 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_21;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_22](w0_22) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_22](w0_22) module"]
 pub type W0_22 = crate::Reg<u32, _W0_22>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -721,7 +721,7 @@ impl crate::Readable for W0_22 {}
 impl crate::Writable for W0_22 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_22;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_23](w0_23) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_23](w0_23) module"]
 pub type W0_23 = crate::Reg<u32, _W0_23>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -732,7 +732,7 @@ impl crate::Readable for W0_23 {}
 impl crate::Writable for W0_23 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_23;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_24](w0_24) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_24](w0_24) module"]
 pub type W0_24 = crate::Reg<u32, _W0_24>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -743,7 +743,7 @@ impl crate::Readable for W0_24 {}
 impl crate::Writable for W0_24 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_24;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_25](w0_25) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_25](w0_25) module"]
 pub type W0_25 = crate::Reg<u32, _W0_25>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -754,7 +754,7 @@ impl crate::Readable for W0_25 {}
 impl crate::Writable for W0_25 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_25;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_26](w0_26) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_26](w0_26) module"]
 pub type W0_26 = crate::Reg<u32, _W0_26>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -765,7 +765,7 @@ impl crate::Readable for W0_26 {}
 impl crate::Writable for W0_26 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_26;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_27](w0_27) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_27](w0_27) module"]
 pub type W0_27 = crate::Reg<u32, _W0_27>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -776,7 +776,7 @@ impl crate::Readable for W0_27 {}
 impl crate::Writable for W0_27 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_27;
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [w0_28](w0_28) module"]
+#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w0_28](w0_28) module"]
 pub type W0_28 = crate::Reg<u32, _W0_28>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -787,7 +787,7 @@ impl crate::Readable for W0_28 {}
 impl crate::Writable for W0_28 {}
 #[doc = "Word pin registers for all port 0 and 1 GPIO pins"]
 pub mod w0_28;
-#[doc = "Direction registers\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dir0](dir0) module"]
+#[doc = "Direction registers\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dir0](dir0) module"]
 pub type DIR0 = crate::Reg<u32, _DIR0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -798,7 +798,7 @@ impl crate::Readable for DIR0 {}
 impl crate::Writable for DIR0 {}
 #[doc = "Direction registers"]
 pub mod dir0;
-#[doc = "Mask register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [mask0](mask0) module"]
+#[doc = "Mask register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mask0](mask0) module"]
 pub type MASK0 = crate::Reg<u32, _MASK0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -809,7 +809,7 @@ impl crate::Readable for MASK0 {}
 impl crate::Writable for MASK0 {}
 #[doc = "Mask register"]
 pub mod mask0;
-#[doc = "Port pin register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pin0](pin0) module"]
+#[doc = "Port pin register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pin0](pin0) module"]
 pub type PIN0 = crate::Reg<u32, _PIN0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -820,7 +820,7 @@ impl crate::Readable for PIN0 {}
 impl crate::Writable for PIN0 {}
 #[doc = "Port pin register"]
 pub mod pin0;
-#[doc = "Masked port register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [mpin0](mpin0) module"]
+#[doc = "Masked port register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mpin0](mpin0) module"]
 pub type MPIN0 = crate::Reg<u32, _MPIN0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -831,7 +831,7 @@ impl crate::Readable for MPIN0 {}
 impl crate::Writable for MPIN0 {}
 #[doc = "Masked port register"]
 pub mod mpin0;
-#[doc = "Write: Set register for port Read: output bits for port\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [set0](set0) module"]
+#[doc = "Write: Set register for port Read: output bits for port\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [set0](set0) module"]
 pub type SET0 = crate::Reg<u32, _SET0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -842,7 +842,7 @@ impl crate::Readable for SET0 {}
 impl crate::Writable for SET0 {}
 #[doc = "Write: Set register for port Read: output bits for port"]
 pub mod set0;
-#[doc = "Clear port\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [clr0](clr0) module"]
+#[doc = "Clear port\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clr0](clr0) module"]
 pub type CLR0 = crate::Reg<u32, _CLR0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -853,7 +853,7 @@ impl crate::Readable for CLR0 {}
 impl crate::Writable for CLR0 {}
 #[doc = "Clear port"]
 pub mod clr0;
-#[doc = "Toggle port\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [not0](not0) module"]
+#[doc = "Toggle port\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [not0](not0) module"]
 pub type NOT0 = crate::Reg<u32, _NOT0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -864,7 +864,7 @@ impl crate::Readable for NOT0 {}
 impl crate::Writable for NOT0 {}
 #[doc = "Toggle port"]
 pub mod not0;
-#[doc = "Set pin direction bits for port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dirset0](dirset0) module"]
+#[doc = "Set pin direction bits for port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dirset0](dirset0) module"]
 pub type DIRSET0 = crate::Reg<u32, _DIRSET0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -873,7 +873,7 @@ pub struct _DIRSET0;
 impl crate::Writable for DIRSET0 {}
 #[doc = "Set pin direction bits for port"]
 pub mod dirset0;
-#[doc = "Clear pin direction bits for port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dirclr0](dirclr0) module"]
+#[doc = "Clear pin direction bits for port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dirclr0](dirclr0) module"]
 pub type DIRCLR0 = crate::Reg<u32, _DIRCLR0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -882,7 +882,7 @@ pub struct _DIRCLR0;
 impl crate::Writable for DIRCLR0 {}
 #[doc = "Clear pin direction bits for port"]
 pub mod dirclr0;
-#[doc = "Toggle pin direction bits for port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dirnot0](dirnot0) module"]
+#[doc = "Toggle pin direction bits for port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dirnot0](dirnot0) module"]
 pub type DIRNOT0 = crate::Reg<u32, _DIRNOT0>;
 #[allow(missing_docs)]
 #[doc(hidden)]

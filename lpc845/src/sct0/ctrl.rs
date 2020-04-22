@@ -110,17 +110,14 @@ impl<'a> CLRCTR_L_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BIDIR_L_A {
     #[doc = "0: Up. The counter counts up to a limit condition, then is cleared to zero."]
-    UP,
+    UP = 0,
     #[doc = "1: Up-down. The counter counts up to a limit, then counts down to a limit condition or to 0."]
-    UP_DOWN,
+    UP_DOWN = 1,
 }
 impl From<BIDIR_L_A> for bool {
     #[inline(always)]
     fn from(variant: BIDIR_L_A) -> Self {
-        match variant {
-            BIDIR_L_A::UP => false,
-            BIDIR_L_A::UP_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BIDIR_L`"]
@@ -298,17 +295,14 @@ impl<'a> CLRCTR_H_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BIDIR_H_A {
     #[doc = "0: The H counter counts up to its limit condition, then is cleared to zero."]
-    UP,
+    UP = 0,
     #[doc = "1: The H counter counts up to its limit, then counts down to a limit condition or to 0."]
-    UP_DOWN,
+    UP_DOWN = 1,
 }
 impl From<BIDIR_H_A> for bool {
     #[inline(always)]
     fn from(variant: BIDIR_H_A) -> Self {
-        match variant {
-            BIDIR_H_A::UP => false,
-            BIDIR_H_A::UP_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BIDIR_H`"]

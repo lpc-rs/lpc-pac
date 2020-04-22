@@ -14,17 +14,14 @@ impl crate::ResetValue for super::SCICTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SCIEN_A {
     #[doc = "0: Smart card interface disabled."]
-    SMART_CARD_INTERFACE,
+    SMART_CARD_INTERFACE = 0,
     #[doc = "1: Asynchronous half duplex smart card interface is enabled."]
-    ASYNCHRONOUS_HALF_DU,
+    ASYNCHRONOUS_HALF_DU = 1,
 }
 impl From<SCIEN_A> for bool {
     #[inline(always)]
     fn from(variant: SCIEN_A) -> Self {
-        match variant {
-            SCIEN_A::SMART_CARD_INTERFACE => false,
-            SCIEN_A::ASYNCHRONOUS_HALF_DU => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SCIEN`"]
@@ -92,17 +89,14 @@ impl<'a> SCIEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum NACKDIS_A {
     #[doc = "0: A NACK response is enabled."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: A NACK response is inhibited."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<NACKDIS_A> for bool {
     #[inline(always)]
     fn from(variant: NACKDIS_A) -> Self {
-        match variant {
-            NACKDIS_A::ENABLED => false,
-            NACKDIS_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `NACKDIS`"]
@@ -170,17 +164,14 @@ impl<'a> NACKDIS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PROTSEL_A {
     #[doc = "0: T = 0"]
-    T_EQ_0,
+    T_EQ_0 = 0,
     #[doc = "1: T = 1"]
-    T_EQ_1,
+    T_EQ_1 = 1,
 }
 impl From<PROTSEL_A> for bool {
     #[inline(always)]
     fn from(variant: PROTSEL_A) -> Self {
-        match variant {
-            PROTSEL_A::T_EQ_0 => false,
-            PROTSEL_A::T_EQ_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PROTSEL`"]

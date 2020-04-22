@@ -12,19 +12,17 @@ impl crate::ResetValue for super::TXMODE {
 }
 #[doc = "Clock source selection for the transmit bit clock divider.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TXCLKSEL_A {
     #[doc = "0: Select the TX fractional rate divider clock output as the source"]
-    SELECT_THE_TX_FRACTI,
+    SELECT_THE_TX_FRACTI = 0,
     #[doc = "2: Select the RX_MCLK signal as the TX_MCLK clock source"]
-    SELECT_THE_RX_MCLK_S,
+    SELECT_THE_RX_MCLK_S = 2,
 }
 impl From<TXCLKSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: TXCLKSEL_A) -> Self {
-        match variant {
-            TXCLKSEL_A::SELECT_THE_TX_FRACTI => 0,
-            TXCLKSEL_A::SELECT_THE_RX_MCLK_S => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TXCLKSEL`"]

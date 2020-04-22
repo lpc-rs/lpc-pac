@@ -12,25 +12,21 @@ impl crate::ResetValue for super::LCR {
 }
 #[doc = "Word Length Select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WLS_A {
     #[doc = "0: 5-bit character length."]
-    _5_BIT_CHARACTER_LENG,
+    _5_BIT_CHARACTER_LENG = 0,
     #[doc = "1: 6-bit character length."]
-    _6_BIT_CHARACTER_LENG,
+    _6_BIT_CHARACTER_LENG = 1,
     #[doc = "2: 7-bit character length."]
-    _7_BIT_CHARACTER_LENG,
+    _7_BIT_CHARACTER_LENG = 2,
     #[doc = "3: 8-bit character length."]
-    _8_BIT_CHARACTER_LENG,
+    _8_BIT_CHARACTER_LENG = 3,
 }
 impl From<WLS_A> for u8 {
     #[inline(always)]
     fn from(variant: WLS_A) -> Self {
-        match variant {
-            WLS_A::_5_BIT_CHARACTER_LENG => 0,
-            WLS_A::_6_BIT_CHARACTER_LENG => 1,
-            WLS_A::_7_BIT_CHARACTER_LENG => 2,
-            WLS_A::_8_BIT_CHARACTER_LENG => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `WLS`"]
@@ -111,17 +107,14 @@ impl<'a> WLS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SBS_A {
     #[doc = "0: 1 stop bit."]
-    _1_STOP_BIT,
+    _1_STOP_BIT = 0,
     #[doc = "1: 2 stop bits (1.5 if LCR\\[1:0\\]=00)."]
-    _2_STOP_BITS_1_5_IF,
+    _2_STOP_BITS_1_5_IF = 1,
 }
 impl From<SBS_A> for bool {
     #[inline(always)]
     fn from(variant: SBS_A) -> Self {
-        match variant {
-            SBS_A::_1_STOP_BIT => false,
-            SBS_A::_2_STOP_BITS_1_5_IF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SBS`"]
@@ -189,17 +182,14 @@ impl<'a> SBS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PE_A {
     #[doc = "0: Disable parity generation and checking."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable parity generation and checking."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PE_A> for bool {
     #[inline(always)]
     fn from(variant: PE_A) -> Self {
-        match variant {
-            PE_A::DISABLED => false,
-            PE_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PE`"]
@@ -265,25 +255,21 @@ impl<'a> PE_W<'a> {
 }
 #[doc = "Parity Select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PS_A {
     #[doc = "0: Odd parity. Number of 1s in the transmitted character and the attached parity bit will be odd."]
-    ODD,
+    ODD = 0,
     #[doc = "1: Even Parity. Number of 1s in the transmitted character and the attached parity bit will be even."]
-    EVEN,
+    EVEN = 1,
     #[doc = "2: Forced 1 stick parity."]
-    FORCED_1_STICK,
+    FORCED_1_STICK = 2,
     #[doc = "3: Forced 0 stick parity."]
-    FORCED_0_STICK,
+    FORCED_0_STICK = 3,
 }
 impl From<PS_A> for u8 {
     #[inline(always)]
     fn from(variant: PS_A) -> Self {
-        match variant {
-            PS_A::ODD => 0,
-            PS_A::EVEN => 1,
-            PS_A::FORCED_1_STICK => 2,
-            PS_A::FORCED_0_STICK => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PS`"]
@@ -364,17 +350,15 @@ impl<'a> PS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BC_A {
     #[doc = "0: Disable break transmission."]
-    DISABLE_BREAK_TRANSM,
-    #[doc = "1: Enable break transmission. Output pin USART TXD is forced to logic 0 when LCR\\[6\\] is active high."]
-    ENABLE_BREAK_TRANSMI,
+    DISABLE_BREAK_TRANSM = 0,
+    #[doc = "1: Enable break transmission. Output pin USART TXD is forced to logic 0 when LCR\\[6\\]
+is active high."]
+    ENABLE_BREAK_TRANSMI = 1,
 }
 impl From<BC_A> for bool {
     #[inline(always)]
     fn from(variant: BC_A) -> Self {
-        match variant {
-            BC_A::DISABLE_BREAK_TRANSM => false,
-            BC_A::ENABLE_BREAK_TRANSMI => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BC`"]
@@ -416,7 +400,8 @@ impl<'a> BC_W<'a> {
     pub fn disable_break_transm(self) -> &'a mut W {
         self.variant(BC_A::DISABLE_BREAK_TRANSM)
     }
-    #[doc = "Enable break transmission. Output pin USART TXD is forced to logic 0 when LCR\\[6\\] is active high."]
+    #[doc = "Enable break transmission. Output pin USART TXD is forced to logic 0 when LCR\\[6\\]
+is active high."]
     #[inline(always)]
     pub fn enable_break_transmi(self) -> &'a mut W {
         self.variant(BC_A::ENABLE_BREAK_TRANSMI)
@@ -442,17 +427,14 @@ impl<'a> BC_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DLAB_A {
     #[doc = "0: Disable access to Divisor Latches."]
-    DISABLE_ACCESS_TO_DI,
+    DISABLE_ACCESS_TO_DI = 0,
     #[doc = "1: Enable access to Divisor Latches."]
-    ENABLE_ACCESS_TO_DIV,
+    ENABLE_ACCESS_TO_DIV = 1,
 }
 impl From<DLAB_A> for bool {
     #[inline(always)]
     fn from(variant: DLAB_A) -> Self {
-        match variant {
-            DLAB_A::DISABLE_ACCESS_TO_DI => false,
-            DLAB_A::ENABLE_ACCESS_TO_DIV => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DLAB`"]

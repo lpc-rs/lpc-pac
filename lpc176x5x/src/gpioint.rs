@@ -25,7 +25,7 @@ pub struct RegisterBlock {
     #[doc = "0x34 - GPIO Interrupt Enable for Falling edge for Port 0."]
     pub enf2: ENF2,
 }
-#[doc = "GPIO overall Interrupt Status.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [status](status) module"]
+#[doc = "GPIO overall Interrupt Status.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](status) module"]
 pub type STATUS = crate::Reg<u32, _STATUS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -34,7 +34,7 @@ pub struct _STATUS;
 impl crate::Readable for STATUS {}
 #[doc = "GPIO overall Interrupt Status."]
 pub mod status;
-#[doc = "GPIO Interrupt Status for Rising edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [statr0](statr0) module"]
+#[doc = "GPIO Interrupt Status for Rising edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [statr0](statr0) module"]
 pub type STATR0 = crate::Reg<u32, _STATR0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct _STATR0;
 impl crate::Readable for STATR0 {}
 #[doc = "GPIO Interrupt Status for Rising edge for Port 0."]
 pub mod statr0;
-#[doc = "GPIO Interrupt Status for Falling edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [statf0](statf0) module"]
+#[doc = "GPIO Interrupt Status for Falling edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [statf0](statf0) module"]
 pub type STATF0 = crate::Reg<u32, _STATF0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -52,7 +52,7 @@ pub struct _STATF0;
 impl crate::Readable for STATF0 {}
 #[doc = "GPIO Interrupt Status for Falling edge for Port 0."]
 pub mod statf0;
-#[doc = "GPIO Interrupt Clear.\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [clr0](clr0) module"]
+#[doc = "GPIO Interrupt Clear.\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clr0](clr0) module"]
 pub type CLR0 = crate::Reg<u32, _CLR0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -61,7 +61,7 @@ pub struct _CLR0;
 impl crate::Writable for CLR0 {}
 #[doc = "GPIO Interrupt Clear."]
 pub mod clr0;
-#[doc = "GPIO Interrupt Enable for Rising edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [enr0](enr0) module"]
+#[doc = "GPIO Interrupt Enable for Rising edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [enr0](enr0) module"]
 pub type ENR0 = crate::Reg<u32, _ENR0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -72,7 +72,7 @@ impl crate::Readable for ENR0 {}
 impl crate::Writable for ENR0 {}
 #[doc = "GPIO Interrupt Enable for Rising edge for Port 0."]
 pub mod enr0;
-#[doc = "GPIO Interrupt Enable for Falling edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [enf0](enf0) module"]
+#[doc = "GPIO Interrupt Enable for Falling edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [enf0](enf0) module"]
 pub type ENF0 = crate::Reg<u32, _ENF0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -83,7 +83,7 @@ impl crate::Readable for ENF0 {}
 impl crate::Writable for ENF0 {}
 #[doc = "GPIO Interrupt Enable for Falling edge for Port 0."]
 pub mod enf0;
-#[doc = "GPIO Interrupt Status for Rising edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [statr2](statr2) module"]
+#[doc = "GPIO Interrupt Status for Rising edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [statr2](statr2) module"]
 pub type STATR2 = crate::Reg<u32, _STATR2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -92,7 +92,7 @@ pub struct _STATR2;
 impl crate::Readable for STATR2 {}
 #[doc = "GPIO Interrupt Status for Rising edge for Port 0."]
 pub mod statr2;
-#[doc = "GPIO Interrupt Status for Falling edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [statf2](statf2) module"]
+#[doc = "GPIO Interrupt Status for Falling edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [statf2](statf2) module"]
 pub type STATF2 = crate::Reg<u32, _STATF2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -101,7 +101,7 @@ pub struct _STATF2;
 impl crate::Readable for STATF2 {}
 #[doc = "GPIO Interrupt Status for Falling edge for Port 0."]
 pub mod statf2;
-#[doc = "GPIO Interrupt Clear.\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [clr2](clr2) module"]
+#[doc = "GPIO Interrupt Clear.\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clr2](clr2) module"]
 pub type CLR2 = crate::Reg<u32, _CLR2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -110,7 +110,7 @@ pub struct _CLR2;
 impl crate::Writable for CLR2 {}
 #[doc = "GPIO Interrupt Clear."]
 pub mod clr2;
-#[doc = "GPIO Interrupt Enable for Rising edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [enr2](enr2) module"]
+#[doc = "GPIO Interrupt Enable for Rising edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [enr2](enr2) module"]
 pub type ENR2 = crate::Reg<u32, _ENR2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -121,7 +121,7 @@ impl crate::Readable for ENR2 {}
 impl crate::Writable for ENR2 {}
 #[doc = "GPIO Interrupt Enable for Rising edge for Port 0."]
 pub mod enr2;
-#[doc = "GPIO Interrupt Enable for Falling edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [enf2](enf2) module"]
+#[doc = "GPIO Interrupt Enable for Falling edge for Port 0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [enf2](enf2) module"]
 pub type ENF2 = crate::Reg<u32, _ENF2>;
 #[allow(missing_docs)]
 #[doc(hidden)]

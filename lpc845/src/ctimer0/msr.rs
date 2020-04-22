@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::MSR>;
 #[doc = "Writer for register MSR[%s]"]
 pub type W = crate::W<u32, super::MSR>;
-#[doc = "Register MSR[%s] `reset()`'s with value 0"]
+#[doc = "Register MSR[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::MSR {
     type Type = u32;
     #[inline(always)]

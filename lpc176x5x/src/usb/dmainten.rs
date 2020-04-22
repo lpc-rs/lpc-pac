@@ -14,17 +14,14 @@ impl crate::ResetValue for super::DMAINTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EOT_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Enabled."]
-    ENABLED_,
+    ENABLED_ = 1,
 }
 impl From<EOT_A> for bool {
     #[inline(always)]
     fn from(variant: EOT_A) -> Self {
-        match variant {
-            EOT_A::DISABLED_ => false,
-            EOT_A::ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EOT`"]
@@ -92,17 +89,14 @@ impl<'a> EOT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum NDDR_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Enabled."]
-    ENABLED_,
+    ENABLED_ = 1,
 }
 impl From<NDDR_A> for bool {
     #[inline(always)]
     fn from(variant: NDDR_A) -> Self {
-        match variant {
-            NDDR_A::DISABLED_ => false,
-            NDDR_A::ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `NDDR`"]
@@ -170,17 +164,14 @@ impl<'a> NDDR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ERR_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Enabled."]
-    ENABLED_,
+    ENABLED_ = 1,
 }
 impl From<ERR_A> for bool {
     #[inline(always)]
     fn from(variant: ERR_A) -> Self {
-        match variant {
-            ERR_A::DISABLED_ => false,
-            ERR_A::ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ERR`"]

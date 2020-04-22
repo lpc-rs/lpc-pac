@@ -6,17 +6,14 @@ pub type PKT_LNGTH_R = crate::R<u16, u16>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DV_A {
     #[doc = "0: Data is invalid."]
-    DATA_IS_INVALID_,
+    DATA_IS_INVALID_ = 0,
     #[doc = "1: Data is valid."]
-    DATA_IS_VALID_,
+    DATA_IS_VALID_ = 1,
 }
 impl From<DV_A> for bool {
     #[inline(always)]
     fn from(variant: DV_A) -> Self {
-        match variant {
-            DV_A::DATA_IS_INVALID_ => false,
-            DV_A::DATA_IS_VALID_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DV`"]

@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::USBCLKST>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum NEED_CLKST_A {
     #[doc = "0: LOW"]
-    LOW,
+    LOW = 0,
     #[doc = "1: HIGH"]
-    HIGH,
+    HIGH = 1,
 }
 impl From<NEED_CLKST_A> for bool {
     #[inline(always)]
     fn from(variant: NEED_CLKST_A) -> Self {
-        match variant {
-            NEED_CLKST_A::LOW => false,
-            NEED_CLKST_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `NEED_CLKST`"]

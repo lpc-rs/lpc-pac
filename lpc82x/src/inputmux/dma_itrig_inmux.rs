@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::DMA_ITRIG_INMUX>;
 #[doc = "Writer for register DMA_ITRIG_INMUX[%s]"]
 pub type W = crate::W<u32, super::DMA_ITRIG_INMUX>;
-#[doc = "Register DMA_ITRIG_INMUX[%s] `reset()`'s with value 0x0f"]
+#[doc = "Register DMA_ITRIG_INMUX[%s]
+`reset()`'s with value 0x0f"]
 impl crate::ResetValue for super::DMA_ITRIG_INMUX {
     type Type = u32;
     #[inline(always)]
@@ -12,40 +13,31 @@ impl crate::ResetValue for super::DMA_ITRIG_INMUX {
 }
 #[doc = "Input mux register for trigger inputs 0 to 23 connected to DMA channel 0. Selects from ADC, SCT, ACMP, pin interrupts, and DMA requests.\n\nValue on reset: 15"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum INP_A {
     #[doc = "0: ADC_SEQA_IRQ"]
-    ADC_SEQA_IRQ,
+    ADC_SEQA_IRQ = 0,
     #[doc = "1: ADC_SEQB_IRQ"]
-    ADC_SEQB_IRQ,
+    ADC_SEQB_IRQ = 1,
     #[doc = "2: SCT_DMA0"]
-    SCT_DMA0,
+    SCT_DMA0 = 2,
     #[doc = "3: SCT_DMA1"]
-    SCT_DMA1,
+    SCT_DMA1 = 3,
     #[doc = "4: ACMP_O"]
-    ACMP_O,
+    ACMP_O = 4,
     #[doc = "5: PININT0"]
-    PININT0,
+    PININT0 = 5,
     #[doc = "6: PININT1"]
-    PININT1,
+    PININT1 = 6,
     #[doc = "7: DMA trigger mux 0"]
-    DMA_INMUX_INMUX0,
+    DMA_INMUX_INMUX0 = 7,
     #[doc = "8: DMA trigger mux 1"]
-    DMA_INMUX_INMUX1,
+    DMA_INMUX_INMUX1 = 8,
 }
 impl From<INP_A> for u8 {
     #[inline(always)]
     fn from(variant: INP_A) -> Self {
-        match variant {
-            INP_A::ADC_SEQA_IRQ => 0,
-            INP_A::ADC_SEQB_IRQ => 1,
-            INP_A::SCT_DMA0 => 2,
-            INP_A::SCT_DMA1 => 3,
-            INP_A::ACMP_O => 4,
-            INP_A::PININT0 => 5,
-            INP_A::PININT1 => 6,
-            INP_A::DMA_INMUX_INMUX0 => 7,
-            INP_A::DMA_INMUX_INMUX1 => 8,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `INP`"]

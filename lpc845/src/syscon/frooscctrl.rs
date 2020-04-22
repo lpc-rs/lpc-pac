@@ -14,17 +14,14 @@ impl crate::ResetValue for super::FROOSCCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FRO_DIRECT_A {
     #[doc = "0: fro clock is divider by 2 or 16,depend on FAIM slow boot value"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: fro clock is direct from FRO oscillator"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<FRO_DIRECT_A> for bool {
     #[inline(always)]
     fn from(variant: FRO_DIRECT_A) -> Self {
-        match variant {
-            FRO_DIRECT_A::DISABLED => false,
-            FRO_DIRECT_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FRO_DIRECT`"]

@@ -26,7 +26,7 @@ pub struct CHANNEL {
 #[doc = r"Register block"]
 #[doc = "no description available"]
 pub mod channel;
-#[doc = "Module Configuration register. This register provides information about this particular MRT instance.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [modcfg](modcfg) module"]
+#[doc = "Module Configuration register. This register provides information about this particular MRT instance.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [modcfg](modcfg) module"]
 pub type MODCFG = crate::Reg<u32, _MODCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -37,7 +37,7 @@ impl crate::Readable for MODCFG {}
 impl crate::Writable for MODCFG {}
 #[doc = "Module Configuration register. This register provides information about this particular MRT instance."]
 pub mod modcfg;
-#[doc = "Idle channel register. This register returns the number of the first idle channel.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [idle_ch](idle_ch) module"]
+#[doc = "Idle channel register. This register returns the number of the first idle channel.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [idle_ch](idle_ch) module"]
 pub type IDLE_CH = crate::Reg<u32, _IDLE_CH>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -46,7 +46,7 @@ pub struct _IDLE_CH;
 impl crate::Readable for IDLE_CH {}
 #[doc = "Idle channel register. This register returns the number of the first idle channel."]
 pub mod idle_ch;
-#[doc = "Global interrupt flag register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [irq_flag](irq_flag) module"]
+#[doc = "Global interrupt flag register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [irq_flag](irq_flag) module"]
 pub type IRQ_FLAG = crate::Reg<u32, _IRQ_FLAG>;
 #[allow(missing_docs)]
 #[doc(hidden)]

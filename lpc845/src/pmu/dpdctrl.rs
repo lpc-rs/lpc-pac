@@ -14,17 +14,14 @@ impl crate::ResetValue for super::DPDCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WAKEUPHYS_A {
     #[doc = "0: Disabled. Hysteresis for WAKEUP pin disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. Hysteresis for WAKEUP pin enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<WAKEUPHYS_A> for bool {
     #[inline(always)]
     fn from(variant: WAKEUPHYS_A) -> Self {
-        match variant {
-            WAKEUPHYS_A::DISABLED => false,
-            WAKEUPHYS_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WAKEUPHYS`"]
@@ -92,17 +89,14 @@ impl<'a> WAKEUPHYS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WAKEPAD_DISABLE_A {
     #[doc = "0: Enabled. The wake-up function is enabled on pin PIO0_4."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: Disabled. Setting this bit disables the wake-up function on pin PIO0_4."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<WAKEPAD_DISABLE_A> for bool {
     #[inline(always)]
     fn from(variant: WAKEPAD_DISABLE_A) -> Self {
-        match variant {
-            WAKEPAD_DISABLE_A::ENABLED => false,
-            WAKEPAD_DISABLE_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WAKEPAD_DISABLE`"]
@@ -170,17 +164,14 @@ impl<'a> WAKEPAD_DISABLE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LPOSCEN_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<LPOSCEN_A> for bool {
     #[inline(always)]
     fn from(variant: LPOSCEN_A) -> Self {
-        match variant {
-            LPOSCEN_A::DISABLED => false,
-            LPOSCEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LPOSCEN`"]
@@ -248,17 +239,14 @@ impl<'a> LPOSCEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LPOSCDPDEN_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<LPOSCDPDEN_A> for bool {
     #[inline(always)]
     fn from(variant: LPOSCDPDEN_A) -> Self {
-        match variant {
-            LPOSCDPDEN_A::DISABLED => false,
-            LPOSCDPDEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LPOSCDPDEN`"]
@@ -326,17 +314,14 @@ impl<'a> LPOSCDPDEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WAKEUPCLKHYS_A {
     #[doc = "0: Disabled. Hysteresis for WAKEUP clock pin disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. Hysteresis for WAKEUP clock pin enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<WAKEUPCLKHYS_A> for bool {
     #[inline(always)]
     fn from(variant: WAKEUPCLKHYS_A) -> Self {
-        match variant {
-            WAKEUPCLKHYS_A::DISABLED => false,
-            WAKEUPCLKHYS_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WAKEUPCLKHYS`"]
@@ -404,17 +389,14 @@ impl<'a> WAKEUPCLKHYS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WAKECLKPAD_DISABLE_A {
     #[doc = "0: Disabled. Setting this bit disables external clock input on pin PIO0_28."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The external clock input for the self wake-up timer is enabled on pin PIO0_28."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<WAKECLKPAD_DISABLE_A> for bool {
     #[inline(always)]
     fn from(variant: WAKECLKPAD_DISABLE_A) -> Self {
-        match variant {
-            WAKECLKPAD_DISABLE_A::DISABLED => false,
-            WAKECLKPAD_DISABLE_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WAKECLKPAD_DISABLE`"]
@@ -482,17 +464,14 @@ impl<'a> WAKECLKPAD_DISABLE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RESETHYS_A {
     #[doc = "0: Disabled. Hysteresis for RESET pin disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. Hysteresis for RESET pin enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<RESETHYS_A> for bool {
     #[inline(always)]
     fn from(variant: RESETHYS_A) -> Self {
-        match variant {
-            RESETHYS_A::DISABLED => false,
-            RESETHYS_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RESETHYS`"]
@@ -560,17 +539,14 @@ impl<'a> RESETHYS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RESET_DISABLE_A {
     #[doc = "0: Enabled. The reset wake-up function is enabled on pin PIO0_5."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: Disabled. Setting this bit disables the wake-up function on pin PIO0_5."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<RESET_DISABLE_A> for bool {
     #[inline(always)]
     fn from(variant: RESET_DISABLE_A) -> Self {
-        match variant {
-            RESET_DISABLE_A::ENABLED => false,
-            RESET_DISABLE_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RESET_DISABLE`"]

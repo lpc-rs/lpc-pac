@@ -14,17 +14,14 @@ impl crate::ResetValue for super::SYNCCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SYNC_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SYNC_A> for bool {
     #[inline(always)]
     fn from(variant: SYNC_A) -> Self {
-        match variant {
-            SYNC_A::DISABLED => false,
-            SYNC_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SYNC`"]
@@ -92,17 +89,14 @@ impl<'a> SYNC_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CSRC_A {
     #[doc = "0: Synchronous slave mode (SCLK in)"]
-    SYNCHRONOUS_SLAVE_MO,
+    SYNCHRONOUS_SLAVE_MO = 0,
     #[doc = "1: Synchronous master mode (SCLK out)"]
-    SYNCHRONOUS_MASTER_M,
+    SYNCHRONOUS_MASTER_M = 1,
 }
 impl From<CSRC_A> for bool {
     #[inline(always)]
     fn from(variant: CSRC_A) -> Self {
-        match variant {
-            CSRC_A::SYNCHRONOUS_SLAVE_MO => false,
-            CSRC_A::SYNCHRONOUS_MASTER_M => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CSRC`"]
@@ -170,17 +164,14 @@ impl<'a> CSRC_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FES_A {
     #[doc = "0: RxD is sampled on the rising edge of SCLK "]
-    RISING,
+    RISING = 0,
     #[doc = "1: RxD is sampled on the falling edge of SCLK"]
-    FALLING,
+    FALLING = 1,
 }
 impl From<FES_A> for bool {
     #[inline(always)]
     fn from(variant: FES_A) -> Self {
-        match variant {
-            FES_A::RISING => false,
-            FES_A::FALLING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FES`"]
@@ -248,17 +239,14 @@ impl<'a> FES_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TSBYPASS_A {
     #[doc = "0: The input clock is synchronized prior to being used in clock edge detection logic"]
-    SYNC,
+    SYNC = 0,
     #[doc = "1: The input clock is not synchronized prior to being used in clock edge detection logic. This allows for a high er input clock rate at the expense of potential metastability."]
-    NOSYNC,
+    NOSYNC = 1,
 }
 impl From<TSBYPASS_A> for bool {
     #[inline(always)]
     fn from(variant: TSBYPASS_A) -> Self {
-        match variant {
-            TSBYPASS_A::SYNC => false,
-            TSBYPASS_A::NOSYNC => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TSBYPASS`"]
@@ -326,17 +314,14 @@ impl<'a> TSBYPASS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CSCEN_A {
     #[doc = "0: SCLK cycles only when characters are being sent on TxD"]
-    SCLK_CYCLES_ONLY_WHE,
+    SCLK_CYCLES_ONLY_WHE = 0,
     #[doc = "1: SCLK runs continuously (characters can be received on RxD independently from transmission on TxD)"]
-    SCLK_RUNS_CONTINUOUS,
+    SCLK_RUNS_CONTINUOUS = 1,
 }
 impl From<CSCEN_A> for bool {
     #[inline(always)]
     fn from(variant: CSCEN_A) -> Self {
-        match variant {
-            CSCEN_A::SCLK_CYCLES_ONLY_WHE => false,
-            CSCEN_A::SCLK_RUNS_CONTINUOUS => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CSCEN`"]
@@ -404,17 +389,14 @@ impl<'a> CSCEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SSDIS_A {
     #[doc = "0: Send start and stop bits as in other modes."]
-    SEND_START_STOP,
+    SEND_START_STOP = 0,
     #[doc = "1: Do not send start/stop bits."]
-    DONT_SEND_START_STOP,
+    DONT_SEND_START_STOP = 1,
 }
 impl From<SSDIS_A> for bool {
     #[inline(always)]
     fn from(variant: SSDIS_A) -> Self {
-        match variant {
-            SSDIS_A::SEND_START_STOP => false,
-            SSDIS_A::DONT_SEND_START_STOP => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SSDIS`"]
@@ -482,17 +464,14 @@ impl<'a> SSDIS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCCLR_A {
     #[doc = "0: CSCEN is under software control."]
-    SOFTWARE,
+    SOFTWARE = 0,
     #[doc = "1: Hardware clears CSCEN after each character is received."]
-    HARDWARE,
+    HARDWARE = 1,
 }
 impl From<CCCLR_A> for bool {
     #[inline(always)]
     fn from(variant: CCCLR_A) -> Self {
-        match variant {
-            CCCLR_A::SOFTWARE => false,
-            CCCLR_A::HARDWARE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CCCLR`"]

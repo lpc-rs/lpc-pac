@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CLKEN_A {
     #[doc = "1: The time counters are enabled."]
-    THE_TIME_COUNTERS_AR,
+    THE_TIME_COUNTERS_AR = 1,
     #[doc = "0: The time counters are disabled so that they may be initialized."]
-    THE_TIME_COUNTERS_AR,
+    THE_TIME_COUNTERS_AR = 0,
 }
 impl From<CLKEN_A> for bool {
     #[inline(always)]
     fn from(variant: CLKEN_A) -> Self {
-        match variant {
-            CLKEN_A::THE_TIME_COUNTERS_AR => true,
-            CLKEN_A::THE_TIME_COUNTERS_AR => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CLKEN`"]
@@ -91,18 +88,16 @@ impl<'a> CLKEN_W<'a> {
 #[doc = "CTC Reset.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CTCRST_A {
-    #[doc = "1: When one, the elements in the internal oscillator divider are reset, and remain reset until CCR\\[1\\] is changed to zero. This is the divider that generates the 1 Hz clock from the 32.768 kHz crystal. The state of the divider is not visible to software."]
-    RESET,
+    #[doc = "1: When one, the elements in the internal oscillator divider are reset, and remain reset until CCR\\[1\\]
+is changed to zero. This is the divider that generates the 1 Hz clock from the 32.768 kHz crystal. The state of the divider is not visible to software."]
+    RESET = 1,
     #[doc = "0: No effect."]
-    NO_EFFECT_,
+    NO_EFFECT_ = 0,
 }
 impl From<CTCRST_A> for bool {
     #[inline(always)]
     fn from(variant: CTCRST_A) -> Self {
-        match variant {
-            CTCRST_A::RESET => true,
-            CTCRST_A::NO_EFFECT_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CTCRST`"]
@@ -139,7 +134,8 @@ impl<'a> CTCRST_W<'a> {
             self.bit(variant.into())
         }
     }
-    #[doc = "When one, the elements in the internal oscillator divider are reset, and remain reset until CCR\\[1\\] is changed to zero. This is the divider that generates the 1 Hz clock from the 32.768 kHz crystal. The state of the divider is not visible to software."]
+    #[doc = "When one, the elements in the internal oscillator divider are reset, and remain reset until CCR\\[1\\]
+is changed to zero. This is the divider that generates the 1 Hz clock from the 32.768 kHz crystal. The state of the divider is not visible to software."]
     #[inline(always)]
     pub fn reset(self) -> &'a mut W {
         self.variant(CTCRST_A::RESET)
@@ -170,17 +166,14 @@ impl<'a> CTCRST_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCALEN_A {
     #[doc = "1: The calibration counter is disabled and reset to zero."]
-    THE_CALIBRATION_COUN,
+    THE_CALIBRATION_COUN = 1,
     #[doc = "0: The calibration counter is enabled and counting, using the 1 Hz clock. When the calibration counter is equal to the value of the CALIBRATION register, the counter resets and repeats counting up to the value of the CALIBRATION register. See Section 30.6.4.2 and  Section 30.6.5."]
-    THE_CALIBRATION_COUN,
+    THE_CALIBRATION_COUN = 0,
 }
 impl From<CCALEN_A> for bool {
     #[inline(always)]
     fn from(variant: CCALEN_A) -> Self {
-        match variant {
-            CCALEN_A::THE_CALIBRATION_COUN => true,
-            CCALEN_A::THE_CALIBRATION_COUN => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CCALEN`"]

@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::DMAINTST>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EOT_A {
     #[doc = "0: All bits in the USBEoTIntSt register are 0."]
-    ALL_BITS_IN_THE_USBE,
+    ALL_BITS_IN_THE_USBE = 0,
     #[doc = "1: At least one bit in the USBEoTIntSt is set."]
-    AT_LEAST_ONE_BIT_IN_,
+    AT_LEAST_ONE_BIT_IN_ = 1,
 }
 impl From<EOT_A> for bool {
     #[inline(always)]
     fn from(variant: EOT_A) -> Self {
-        match variant {
-            EOT_A::ALL_BITS_IN_THE_USBE => false,
-            EOT_A::AT_LEAST_ONE_BIT_IN_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EOT`"]
@@ -43,17 +40,14 @@ impl EOT_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum NDDR_A {
     #[doc = "0: All bits in the USBNDDRIntSt register are 0."]
-    ALL_BITS_IN_THE_USBN,
+    ALL_BITS_IN_THE_USBN = 0,
     #[doc = "1: At least one bit in the USBNDDRIntSt is set."]
-    AT_LEAST_ONE_BIT_IN_,
+    AT_LEAST_ONE_BIT_IN_ = 1,
 }
 impl From<NDDR_A> for bool {
     #[inline(always)]
     fn from(variant: NDDR_A) -> Self {
-        match variant {
-            NDDR_A::ALL_BITS_IN_THE_USBN => false,
-            NDDR_A::AT_LEAST_ONE_BIT_IN_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `NDDR`"]
@@ -82,17 +76,14 @@ impl NDDR_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ERR_A {
     #[doc = "0: All bits in the USBSysErrIntSt register are 0."]
-    ALL_BITS_IN_THE_USBS,
+    ALL_BITS_IN_THE_USBS = 0,
     #[doc = "1: At least one bit in the USBSysErrIntSt is set."]
-    AT_LEAST_ONE_BIT_IN_,
+    AT_LEAST_ONE_BIT_IN_ = 1,
 }
 impl From<ERR_A> for bool {
     #[inline(always)]
     fn from(variant: ERR_A) -> Self {
-        match variant {
-            ERR_A::ALL_BITS_IN_THE_USBS => false,
-            ERR_A::AT_LEAST_ONE_BIT_IN_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ERR`"]

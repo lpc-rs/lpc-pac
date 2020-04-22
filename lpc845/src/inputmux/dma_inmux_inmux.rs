@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::DMA_INMUX_INMUX>;
 #[doc = "Writer for register DMA_INMUX_INMUX[%s]"]
 pub type W = crate::W<u32, super::DMA_INMUX_INMUX>;
-#[doc = "Register DMA_INMUX_INMUX[%s] `reset()`'s with value 0x1f"]
+#[doc = "Register DMA_INMUX_INMUX[%s]
+`reset()`'s with value 0x1f"]
 impl crate::ResetValue for super::DMA_INMUX_INMUX {
     type Type = u32;
     #[inline(always)]

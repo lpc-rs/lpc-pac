@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::I2C_STS>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TDI_A {
     #[doc = "0: Transaction has not completed."]
-    NOT_COMPLETE,
+    NOT_COMPLETE = 0,
     #[doc = "1: Transaction completed."]
-    COMPLETE,
+    COMPLETE = 1,
 }
 impl From<TDI_A> for bool {
     #[inline(always)]
     fn from(variant: TDI_A) -> Self {
-        match variant {
-            TDI_A::NOT_COMPLETE => false,
-            TDI_A::COMPLETE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TDI`"]
@@ -43,17 +40,14 @@ impl TDI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AFI_A {
     #[doc = "0: No arbitration failure on last transmission."]
-    NO_ARBITRATION_FAILU,
+    NO_ARBITRATION_FAILU = 0,
     #[doc = "1: Arbitration failure occurred on last transmission."]
-    ARBITRATION_FAILURE_,
+    ARBITRATION_FAILURE_ = 1,
 }
 impl From<AFI_A> for bool {
     #[inline(always)]
     fn from(variant: AFI_A) -> Self {
-        match variant {
-            AFI_A::NO_ARBITRATION_FAILU => false,
-            AFI_A::ARBITRATION_FAILURE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `AFI`"]
@@ -82,17 +76,14 @@ impl AFI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum NAI_A {
     #[doc = "0: Last transmission received an acknowledge."]
-    ACKNOWLEDGE_RCVD,
+    ACKNOWLEDGE_RCVD = 0,
     #[doc = "1: Last transmission did not receive an acknowledge."]
-    NO_ACKNOWLEDGE_RCVD,
+    NO_ACKNOWLEDGE_RCVD = 1,
 }
 impl From<NAI_A> for bool {
     #[inline(always)]
     fn from(variant: NAI_A) -> Self {
-        match variant {
-            NAI_A::ACKNOWLEDGE_RCVD => false,
-            NAI_A::NO_ACKNOWLEDGE_RCVD => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `NAI`"]
@@ -121,17 +112,14 @@ impl NAI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DRMI_A {
     #[doc = "0: Master transmitter does not need data."]
-    BUSY,
+    BUSY = 0,
     #[doc = "1: Master transmitter needs data."]
-    NEED_DATA,
+    NEED_DATA = 1,
 }
 impl From<DRMI_A> for bool {
     #[inline(always)]
     fn from(variant: DRMI_A) -> Self {
-        match variant {
-            DRMI_A::BUSY => false,
-            DRMI_A::NEED_DATA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DRMI`"]
@@ -160,17 +148,14 @@ impl DRMI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DRSI_A {
     #[doc = "0: Slave transmitter does not need data."]
-    BUSY,
+    BUSY = 0,
     #[doc = "1: Slave transmitter needs data."]
-    NEED_DATA,
+    NEED_DATA = 1,
 }
 impl From<DRSI_A> for bool {
     #[inline(always)]
     fn from(variant: DRSI_A) -> Self {
-        match variant {
-            DRSI_A::BUSY => false,
-            DRSI_A::NEED_DATA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DRSI`"]
@@ -205,17 +190,14 @@ pub type SDA_R = crate::R<bool, bool>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RFF_A {
     #[doc = "0: RX FIFO is not full"]
-    RX_FIFO_IS_NOT_FULL,
+    RX_FIFO_IS_NOT_FULL = 0,
     #[doc = "1: RX FIFO is full"]
-    RX_FIFO_IS_FULL,
+    RX_FIFO_IS_FULL = 1,
 }
 impl From<RFF_A> for bool {
     #[inline(always)]
     fn from(variant: RFF_A) -> Self {
-        match variant {
-            RFF_A::RX_FIFO_IS_NOT_FULL => false,
-            RFF_A::RX_FIFO_IS_FULL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RFF`"]
@@ -244,17 +226,14 @@ impl RFF_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RFE_A {
     #[doc = "0: RX FIFO contains data."]
-    DATA,
+    DATA = 0,
     #[doc = "1: RX FIFO is empty"]
-    EMPTY,
+    EMPTY = 1,
 }
 impl From<RFE_A> for bool {
     #[inline(always)]
     fn from(variant: RFE_A) -> Self {
-        match variant {
-            RFE_A::DATA => false,
-            RFE_A::EMPTY => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RFE`"]
@@ -283,17 +262,14 @@ impl RFE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TFF_A {
     #[doc = "0: TX FIFO is not full."]
-    TX_FIFO_IS_NOT_FULL_,
+    TX_FIFO_IS_NOT_FULL_ = 0,
     #[doc = "1: TX FIFO is full"]
-    TX_FIFO_IS_FULL,
+    TX_FIFO_IS_FULL = 1,
 }
 impl From<TFF_A> for bool {
     #[inline(always)]
     fn from(variant: TFF_A) -> Self {
-        match variant {
-            TFF_A::TX_FIFO_IS_NOT_FULL_ => false,
-            TFF_A::TX_FIFO_IS_FULL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TFF`"]
@@ -322,17 +298,14 @@ impl TFF_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TFE_A {
     #[doc = "0: TX FIFO contains valid data."]
-    VALID_DATA,
+    VALID_DATA = 0,
     #[doc = "1: TX FIFO is empty"]
-    EMPTY,
+    EMPTY = 1,
 }
 impl From<TFE_A> for bool {
     #[inline(always)]
     fn from(variant: TFE_A) -> Self {
-        match variant {
-            TFE_A::VALID_DATA => false,
-            TFE_A::EMPTY => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TFE`"]

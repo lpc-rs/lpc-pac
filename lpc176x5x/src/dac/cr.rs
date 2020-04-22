@@ -28,17 +28,14 @@ impl<'a> VALUE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BIAS_A {
     #[doc = "0: The settling time of the DAC is 1 us max, and the maximum current is 700 uA. This allows a maximum update rate of 1 MHz."]
-    FAST,
+    FAST = 0,
     #[doc = "1: The settling time of the DAC is 2.5 us and the maximum current is 350 uA. This allows a maximum update rate of 400 kHz."]
-    SLOW,
+    SLOW = 1,
 }
 impl From<BIAS_A> for bool {
     #[inline(always)]
     fn from(variant: BIAS_A) -> Self {
-        match variant {
-            BIAS_A::FAST => false,
-            BIAS_A::SLOW => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BIAS`"]

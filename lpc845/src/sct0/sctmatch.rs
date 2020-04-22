@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::SCTMATCH>;
 #[doc = "Writer for register SCTMATCH[%s]"]
 pub type W = crate::W<u32, super::SCTMATCH>;
-#[doc = "Register SCTMATCH[%s] `reset()`'s with value 0"]
+#[doc = "Register SCTMATCH[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::SCTMATCH {
     type Type = u32;
     #[inline(always)]

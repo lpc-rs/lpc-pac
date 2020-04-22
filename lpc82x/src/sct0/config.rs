@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CONFIG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UNIFY_A {
     #[doc = "0: The SCT operates as two 16-bit counters named COUNTER_L and COUNTER_H."]
-    DUAL_COUNTER,
+    DUAL_COUNTER = 0,
     #[doc = "1: The SCT operates as a unified 32-bit counter."]
-    UNIFIED_COUNTER,
+    UNIFIED_COUNTER = 1,
 }
 impl From<UNIFY_A> for bool {
     #[inline(always)]
     fn from(variant: UNIFY_A) -> Self {
-        match variant {
-            UNIFY_A::DUAL_COUNTER => false,
-            UNIFY_A::UNIFIED_COUNTER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UNIFY`"]
@@ -90,25 +87,21 @@ impl<'a> UNIFY_W<'a> {
 }
 #[doc = "SCT clock mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CLKMODE_A {
     #[doc = "0: System Clock Mode. The system clock clocks the entire SCT module including the counter(s) and counter prescalers."]
-    SYSTEM_CLOCK_MODE,
+    SYSTEM_CLOCK_MODE = 0,
     #[doc = "1: Sampled System Clock Mode. The system clock clocks the SCT module, but the counter and prescalers are only enabled to count when the designated edge is detected on the input selected by the CKSEL field. The minimum pulse width on the selected clock-gate input is 1 bus clock period. This mode is the high-performance, sampled-clock mode."]
-    SAMPLED_SYSTEM_CLOCK_MODE,
+    SAMPLED_SYSTEM_CLOCK_MODE = 1,
     #[doc = "2: SCT Input Clock Mode. The input/edge selected by the CKSEL field clocks the SCT module, including the counters and prescalers, after first being synchronized to the system clock. The minimum pulse width on the clock input is 1 bus clock period. This mode is the low-power, sampled-clock mode."]
-    SCT_INPUT_CLOCK_MODE,
+    SCT_INPUT_CLOCK_MODE = 2,
     #[doc = "3: Asynchronous Mode. The entire SCT module is clocked directly by the input/edge selected by the CKSEL field. In this mode, the SCT outputs are switched synchronously to the SCT input clock - not the system clock. The input clock rate must be at least half the system clock rate and can be the same or faster than the system clock."]
-    ASYNCHRONOUS_MODE,
+    ASYNCHRONOUS_MODE = 3,
 }
 impl From<CLKMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: CLKMODE_A) -> Self {
-        match variant {
-            CLKMODE_A::SYSTEM_CLOCK_MODE => 0,
-            CLKMODE_A::SAMPLED_SYSTEM_CLOCK_MODE => 1,
-            CLKMODE_A::SCT_INPUT_CLOCK_MODE => 2,
-            CLKMODE_A::ASYNCHRONOUS_MODE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CLKMODE`"]
@@ -187,37 +180,29 @@ impl<'a> CLKMODE_W<'a> {
 }
 #[doc = "SCT clock select. The specific functionality of the designated input/edge is dependent on the CLKMODE bit selection in this register.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CKSEL_A {
     #[doc = "0: Rising edges on input 0."]
-    INPUT_0_RISING_EDGES,
+    INPUT_0_RISING_EDGES = 0,
     #[doc = "1: Falling edges on input 0."]
-    INPUT_0_FALLING_EDGE,
+    INPUT_0_FALLING_EDGE = 1,
     #[doc = "2: Rising edges on input 1."]
-    INPUT_1_RISING_EDGES,
+    INPUT_1_RISING_EDGES = 2,
     #[doc = "3: Falling edges on input 1."]
-    INPUT_1_FALLING_EDGE,
+    INPUT_1_FALLING_EDGE = 3,
     #[doc = "4: Rising edges on input 2."]
-    INPUT_2_RISING_EDGES,
+    INPUT_2_RISING_EDGES = 4,
     #[doc = "5: Falling edges on input 2."]
-    INPUT_2_FALLING_EDGE,
+    INPUT_2_FALLING_EDGE = 5,
     #[doc = "6: Rising edges on input 3."]
-    INPUT_3_RISING_EDGES,
+    INPUT_3_RISING_EDGES = 6,
     #[doc = "7: Falling edges on input 3."]
-    INPUT_3_FALLING_EDGE,
+    INPUT_3_FALLING_EDGE = 7,
 }
 impl From<CKSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: CKSEL_A) -> Self {
-        match variant {
-            CKSEL_A::INPUT_0_RISING_EDGES => 0,
-            CKSEL_A::INPUT_0_FALLING_EDGE => 1,
-            CKSEL_A::INPUT_1_RISING_EDGES => 2,
-            CKSEL_A::INPUT_1_FALLING_EDGE => 3,
-            CKSEL_A::INPUT_2_RISING_EDGES => 4,
-            CKSEL_A::INPUT_2_FALLING_EDGE => 5,
-            CKSEL_A::INPUT_3_RISING_EDGES => 6,
-            CKSEL_A::INPUT_3_FALLING_EDGE => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CKSEL`"]

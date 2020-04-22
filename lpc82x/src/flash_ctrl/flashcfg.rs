@@ -12,19 +12,17 @@ impl crate::ResetValue for super::FLASHCFG {
 }
 #[doc = "Flash memory access time. FLASHTIM +1 is equal to the number of system clocks used for flash access.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FLASHTIM_A {
     #[doc = "0: 1 system clock flash access time."]
-    ONE_SYSTEM_CLOCK_FLASH_ACCESS,
+    ONE_SYSTEM_CLOCK_FLASH_ACCESS = 0,
     #[doc = "1: 2 system clock flash access time."]
-    TWO_SYSTEM_CLOCK_FLASH_ACCESS,
+    TWO_SYSTEM_CLOCK_FLASH_ACCESS = 1,
 }
 impl From<FLASHTIM_A> for u8 {
     #[inline(always)]
     fn from(variant: FLASHTIM_A) -> Self {
-        match variant {
-            FLASHTIM_A::ONE_SYSTEM_CLOCK_FLASH_ACCESS => 0,
-            FLASHTIM_A::TWO_SYSTEM_CLOCK_FLASH_ACCESS => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FLASHTIM`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RD_EN_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Enabled."]
-    ENABLED_,
+    ENABLED_ = 1,
 }
 impl From<RD_EN_A> for bool {
     #[inline(always)]
     fn from(variant: RD_EN_A) -> Self {
-        match variant {
-            RD_EN_A::DISABLED_ => false,
-            RD_EN_A::ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RD_EN`"]
@@ -92,17 +89,14 @@ impl<'a> RD_EN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WR_EN_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Enabled."]
-    ENABLED_,
+    ENABLED_ = 1,
 }
 impl From<WR_EN_A> for bool {
     #[inline(always)]
     fn from(variant: WR_EN_A) -> Self {
-        match variant {
-            WR_EN_A::DISABLED_ => false,
-            WR_EN_A::ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WR_EN`"]

@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::SYSPLLSTAT>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_A {
     #[doc = "0: PLL not locked"]
-    PLL_NOT_LOCKED,
+    PLL_NOT_LOCKED = 0,
     #[doc = "1: PLL locked"]
-    PLL_LOCKED,
+    PLL_LOCKED = 1,
 }
 impl From<LOCK_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_A) -> Self {
-        match variant {
-            LOCK_A::PLL_NOT_LOCKED => false,
-            LOCK_A::PLL_LOCKED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK`"]
