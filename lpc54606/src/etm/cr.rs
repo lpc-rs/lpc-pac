@@ -1,0 +1,421 @@
+#[doc = "Reader of register CR"]
+pub type R = crate::R<u32, super::CR>;
+#[doc = "Writer for register CR"]
+pub type W = crate::W<u32, super::CR>;
+#[doc = "Register CR `reset()`'s with value 0x0411"]
+impl crate::ResetValue for super::CR {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0x0411
+    }
+}
+#[doc = "Reader of field `ETMPD`"]
+pub type ETMPD_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ETMPD`"]
+pub struct ETMPD_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ETMPD_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+#[doc = "Reader of field `PS`"]
+pub type PS_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PS`"]
+pub struct PS_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> PS_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x07 << 4)) | (((value as u32) & 0x07) << 4);
+        self.w
+    }
+}
+#[doc = "Reader of field `SP`"]
+pub type SP_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `SP`"]
+pub struct SP_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> SP_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w
+    }
+}
+#[doc = "Reader of field `BO`"]
+pub type BO_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `BO`"]
+pub struct BO_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> BO_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w
+    }
+}
+#[doc = "Reader of field `DRC`"]
+pub type DRC_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `DRC`"]
+pub struct DRC_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> DRC_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w
+    }
+}
+#[doc = "Reader of field `ETMP`"]
+pub type ETMP_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `ETMP`"]
+pub struct ETMP_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ETMP_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w
+    }
+}
+#[doc = "ETM port selection. This bit can be used to control other trace components in an implementation. This bit must be set by the trace software tools to ensure that trace output is enabled from this ETM. An ETM reset sets this bit to 0.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum ETMPS_A {
+    #[doc = "0: ETMEN is LOW."]
+    ETMPS_0 = 0,
+    #[doc = "1: ETMEN is HIGH."]
+    ETMPS_1 = 1,
+}
+impl From<ETMPS_A> for bool {
+    #[inline(always)]
+    fn from(variant: ETMPS_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Reader of field `ETMPS`"]
+pub type ETMPS_R = crate::R<bool, ETMPS_A>;
+impl ETMPS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> ETMPS_A {
+        match self.bits {
+            false => ETMPS_A::ETMPS_0,
+            true => ETMPS_A::ETMPS_1,
+        }
+    }
+    #[doc = "Checks if the value of the field is `ETMPS_0`"]
+    #[inline(always)]
+    pub fn is_etmps_0(&self) -> bool {
+        *self == ETMPS_A::ETMPS_0
+    }
+    #[doc = "Checks if the value of the field is `ETMPS_1`"]
+    #[inline(always)]
+    pub fn is_etmps_1(&self) -> bool {
+        *self == ETMPS_A::ETMPS_1
+    }
+}
+#[doc = "Write proxy for field `ETMPS`"]
+pub struct ETMPS_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> ETMPS_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: ETMPS_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "ETMEN is LOW."]
+    #[inline(always)]
+    pub fn etmps_0(self) -> &'a mut W {
+        self.variant(ETMPS_A::ETMPS_0)
+    }
+    #[doc = "ETMEN is HIGH."]
+    #[inline(always)]
+    pub fn etmps_1(self) -> &'a mut W {
+        self.variant(ETMPS_A::ETMPS_1)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w
+    }
+}
+#[doc = "Reader of field `PM2`"]
+pub type PM2_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PM2`"]
+pub struct PM2_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> PM2_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w
+    }
+}
+#[doc = "Reader of field `PM`"]
+pub type PM_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PM`"]
+pub struct PM_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> PM_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x03 << 16)) | (((value as u32) & 0x03) << 16);
+        self.w
+    }
+}
+#[doc = "Reader of field `PS3`"]
+pub type PS3_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PS3`"]
+pub struct PS3_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> PS3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w
+    }
+}
+#[doc = "Reader of field `TE`"]
+pub type TE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `TE`"]
+pub struct TE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> TE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w
+    }
+}
+impl R {
+    #[doc = "Bit 0 - ETM power down. This bit can be used by an implementation to control if the ETM is in a low power state. This bit must be cleared by the trace software tools at the beginning of a debug session. When this bit is set to 1, writes to some registers and fields might be ignored."]
+    #[inline(always)]
+    pub fn etmpd(&self) -> ETMPD_R {
+        ETMPD_R::new((self.bits & 0x01) != 0)
+    }
+    #[doc = "Bits 4:6 - Port size. The ETM-M4 has no influence over the external pins used for trace. These bits are implemented but not used. On an ETM reset these bits reset to 0b001."]
+    #[inline(always)]
+    pub fn ps(&self) -> PS_R {
+        PS_R::new(((self.bits >> 4) & 0x07) as u8)
+    }
+    #[doc = "Bit 7 - Stall processor. The FIFOFULL output can be used to stall the processor to prevent overflow. The FIFOFULL output is only enabled when the stall processor bit is set to 1. When the bit is 0 the FIFOFULL output remains LOW at all times and the FIFO overflows if there are too many trace packets. Trace resumes without corruption once the FIFO has drained, if overflow does occur. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn sp(&self) -> SP_R {
+        SP_R::new(((self.bits >> 7) & 0x01) != 0)
+    }
+    #[doc = "Bit 8 - Branch output. When set to 1 all branch addresses are output, even if the branch was because of a direct branch instruction. Setting this bit enables reconstruction of the program flow without having access to the memory image of the code being executed. When this bit is set to 1, more trace data is generated, and this may affect the performance of the trace system. Information about the execution of a branch is traced regardless of the state of this bit. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn bo(&self) -> BO_R {
+        BO_R::new(((self.bits >> 8) & 0x01) != 0)
+    }
+    #[doc = "Bit 9 - Debug request control. When set to 1 and the trigger event occurs, the DBGRQ output is asserted until DBGACK is observed. This enables the ARM processor to be forced into Debug state. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn drc(&self) -> DRC_R {
+        DRC_R::new(((self.bits >> 9) & 0x01) != 0)
+    }
+    #[doc = "Bit 10 - ETM programming. This bit must be set to 1 at the start of the ETM programming sequence. Tracing is prevented while this bit is set to 1. On an ETM reset this bit is set to b1."]
+    #[inline(always)]
+    pub fn etmp(&self) -> ETMP_R {
+        ETMP_R::new(((self.bits >> 10) & 0x01) != 0)
+    }
+    #[doc = "Bit 11 - ETM port selection. This bit can be used to control other trace components in an implementation. This bit must be set by the trace software tools to ensure that trace output is enabled from this ETM. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn etmps(&self) -> ETMPS_R {
+        ETMPS_R::new(((self.bits >> 11) & 0x01) != 0)
+    }
+    #[doc = "Bit 13 - This bit is implemented but has no function. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn pm2(&self) -> PM2_R {
+        PM2_R::new(((self.bits >> 13) & 0x01) != 0)
+    }
+    #[doc = "Bits 16:17 - These bits are implemented but have no function. An ETM reset sets these bits to 0."]
+    #[inline(always)]
+    pub fn pm(&self) -> PM_R {
+        PM_R::new(((self.bits >> 16) & 0x03) as u8)
+    }
+    #[doc = "Bit 21 - This bit is implemented but has no function. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn ps3(&self) -> PS3_R {
+        PS3_R::new(((self.bits >> 21) & 0x01) != 0)
+    }
+    #[doc = "Bit 28 - When set, this bit enables timestamping. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn te(&self) -> TE_R {
+        TE_R::new(((self.bits >> 28) & 0x01) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 0 - ETM power down. This bit can be used by an implementation to control if the ETM is in a low power state. This bit must be cleared by the trace software tools at the beginning of a debug session. When this bit is set to 1, writes to some registers and fields might be ignored."]
+    #[inline(always)]
+    pub fn etmpd(&mut self) -> ETMPD_W {
+        ETMPD_W { w: self }
+    }
+    #[doc = "Bits 4:6 - Port size. The ETM-M4 has no influence over the external pins used for trace. These bits are implemented but not used. On an ETM reset these bits reset to 0b001."]
+    #[inline(always)]
+    pub fn ps(&mut self) -> PS_W {
+        PS_W { w: self }
+    }
+    #[doc = "Bit 7 - Stall processor. The FIFOFULL output can be used to stall the processor to prevent overflow. The FIFOFULL output is only enabled when the stall processor bit is set to 1. When the bit is 0 the FIFOFULL output remains LOW at all times and the FIFO overflows if there are too many trace packets. Trace resumes without corruption once the FIFO has drained, if overflow does occur. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn sp(&mut self) -> SP_W {
+        SP_W { w: self }
+    }
+    #[doc = "Bit 8 - Branch output. When set to 1 all branch addresses are output, even if the branch was because of a direct branch instruction. Setting this bit enables reconstruction of the program flow without having access to the memory image of the code being executed. When this bit is set to 1, more trace data is generated, and this may affect the performance of the trace system. Information about the execution of a branch is traced regardless of the state of this bit. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn bo(&mut self) -> BO_W {
+        BO_W { w: self }
+    }
+    #[doc = "Bit 9 - Debug request control. When set to 1 and the trigger event occurs, the DBGRQ output is asserted until DBGACK is observed. This enables the ARM processor to be forced into Debug state. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn drc(&mut self) -> DRC_W {
+        DRC_W { w: self }
+    }
+    #[doc = "Bit 10 - ETM programming. This bit must be set to 1 at the start of the ETM programming sequence. Tracing is prevented while this bit is set to 1. On an ETM reset this bit is set to b1."]
+    #[inline(always)]
+    pub fn etmp(&mut self) -> ETMP_W {
+        ETMP_W { w: self }
+    }
+    #[doc = "Bit 11 - ETM port selection. This bit can be used to control other trace components in an implementation. This bit must be set by the trace software tools to ensure that trace output is enabled from this ETM. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn etmps(&mut self) -> ETMPS_W {
+        ETMPS_W { w: self }
+    }
+    #[doc = "Bit 13 - This bit is implemented but has no function. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn pm2(&mut self) -> PM2_W {
+        PM2_W { w: self }
+    }
+    #[doc = "Bits 16:17 - These bits are implemented but have no function. An ETM reset sets these bits to 0."]
+    #[inline(always)]
+    pub fn pm(&mut self) -> PM_W {
+        PM_W { w: self }
+    }
+    #[doc = "Bit 21 - This bit is implemented but has no function. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn ps3(&mut self) -> PS3_W {
+        PS3_W { w: self }
+    }
+    #[doc = "Bit 28 - When set, this bit enables timestamping. An ETM reset sets this bit to 0."]
+    #[inline(always)]
+    pub fn te(&mut self) -> TE_W {
+        TE_W { w: self }
+    }
+}
