@@ -28,17 +28,14 @@ impl<'a> TXDAT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXSSEL0_N_A {
     #[doc = "0: SSEL0 asserted."]
-    TXSSEL0_N_0,
+    TXSSEL0_N_0 = 0,
     #[doc = "1: SSEL0 not asserted."]
-    TXSSEL0_N_1,
+    TXSSEL0_N_1 = 1,
 }
 impl From<TXSSEL0_N_A> for bool {
     #[inline(always)]
     fn from(variant: TXSSEL0_N_A) -> Self {
-        match variant {
-            TXSSEL0_N_A::TXSSEL0_N_0 => false,
-            TXSSEL0_N_A::TXSSEL0_N_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TXSSEL0_N`"]
@@ -106,17 +103,14 @@ impl<'a> TXSSEL0_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXSSEL1_N_A {
     #[doc = "0: SSEL1 asserted."]
-    TXSSEL1_N_0,
+    TXSSEL1_N_0 = 0,
     #[doc = "1: SSEL1 not asserted."]
-    TXSSEL1_N_1,
+    TXSSEL1_N_1 = 1,
 }
 impl From<TXSSEL1_N_A> for bool {
     #[inline(always)]
     fn from(variant: TXSSEL1_N_A) -> Self {
-        match variant {
-            TXSSEL1_N_A::TXSSEL1_N_0 => false,
-            TXSSEL1_N_A::TXSSEL1_N_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TXSSEL1_N`"]
@@ -184,17 +178,14 @@ impl<'a> TXSSEL1_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXSSEL2_N_A {
     #[doc = "0: SSEL2 asserted."]
-    TXSSEL2_N_0,
+    TXSSEL2_N_0 = 0,
     #[doc = "1: SSEL2 not asserted."]
-    TXSSEL2_N_1,
+    TXSSEL2_N_1 = 1,
 }
 impl From<TXSSEL2_N_A> for bool {
     #[inline(always)]
     fn from(variant: TXSSEL2_N_A) -> Self {
-        match variant {
-            TXSSEL2_N_A::TXSSEL2_N_0 => false,
-            TXSSEL2_N_A::TXSSEL2_N_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TXSSEL2_N`"]
@@ -262,17 +253,14 @@ impl<'a> TXSSEL2_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXSSEL3_N_A {
     #[doc = "0: SSEL3 asserted."]
-    TXSSEL3_N_0,
+    TXSSEL3_N_0 = 0,
     #[doc = "1: SSEL3 not asserted."]
-    TXSSEL3_N_1,
+    TXSSEL3_N_1 = 1,
 }
 impl From<TXSSEL3_N_A> for bool {
     #[inline(always)]
     fn from(variant: TXSSEL3_N_A) -> Self {
-        match variant {
-            TXSSEL3_N_A::TXSSEL3_N_0 => false,
-            TXSSEL3_N_A::TXSSEL3_N_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TXSSEL3_N`"]
@@ -340,17 +328,14 @@ impl<'a> TXSSEL3_N_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EOT_A {
     #[doc = "0: This piece of data is not treated as the end of a transfer. SSEL will not be deasserted at the end of this data."]
-    SSEL_DEASSERTED,
+    SSEL_DEASSERTED = 0,
     #[doc = "1: This piece of data is treated as the end of a transfer. SSEL will be deasserted at the end of this piece of data."]
-    SSEL_NOT_DEASSERTED,
+    SSEL_NOT_DEASSERTED = 1,
 }
 impl From<EOT_A> for bool {
     #[inline(always)]
     fn from(variant: EOT_A) -> Self {
-        match variant {
-            EOT_A::SSEL_DEASSERTED => false,
-            EOT_A::SSEL_NOT_DEASSERTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EOT`"]
@@ -418,17 +403,14 @@ impl<'a> EOT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EOF_A {
     #[doc = "0: This piece of data transmitted is not treated as the end of a frame."]
-    DATA_NOT_EOF,
+    DATA_NOT_EOF = 0,
     #[doc = "1: This piece of data is treated as the end of a frame, causing the FRAME_DELAY time to be inserted before subsequent data is transmitted."]
-    DATA_EOF,
+    DATA_EOF = 1,
 }
 impl From<EOF_A> for bool {
     #[inline(always)]
     fn from(variant: EOF_A) -> Self {
-        match variant {
-            EOF_A::DATA_NOT_EOF => false,
-            EOF_A::DATA_EOF => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EOF`"]
@@ -496,17 +478,14 @@ impl<'a> EOF_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RXIGNORE_A {
     #[doc = "0: Received data must be read in order to allow transmission to progress. In slave mode, an overrun error will occur if received data is not read before new data is received."]
-    READ_RECEIVED_DATA,
+    READ_RECEIVED_DATA = 0,
     #[doc = "1: Received data is ignored, allowing transmission without reading unneeded received data. No receiver flags are generated."]
-    IGNORE_RECEIVED_DATA,
+    IGNORE_RECEIVED_DATA = 1,
 }
 impl From<RXIGNORE_A> for bool {
     #[inline(always)]
     fn from(variant: RXIGNORE_A) -> Self {
-        match variant {
-            RXIGNORE_A::READ_RECEIVED_DATA => false,
-            RXIGNORE_A::IGNORE_RECEIVED_DATA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RXIGNORE`"]
@@ -572,61 +551,45 @@ impl<'a> RXIGNORE_W<'a> {
 }
 #[doc = "Data Length. Specifies the data length from 1 to 16 bits. Note that transfer lengths greater than 16 bits are supported by implementing multiple sequential transmits. 0x0 = Data transfer is 1 bit in length. 0x1 = Data transfer is 2 bits in length. 0x2 = Data transfer is 3 bits in length. ... 0xF = Data transfer is 16 bits in length.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum LEN_A {
     #[doc = "0: no description available"]
-    LEN_0,
+    LEN_0 = 0,
     #[doc = "1: Data transfer is 1 bit in length."]
-    LEN_1,
+    LEN_1 = 1,
     #[doc = "2: Data transfer is 2 bit in length."]
-    LEN_2,
+    LEN_2 = 2,
     #[doc = "3: Data transfer is 3 bit in length."]
-    LEN_3,
+    LEN_3 = 3,
     #[doc = "4: Data transfer is 4 bit in length."]
-    LEN_4,
+    LEN_4 = 4,
     #[doc = "5: Data transfer is 5 bit in length."]
-    LEN_5,
+    LEN_5 = 5,
     #[doc = "6: Data transfer is 6 bit in length."]
-    LEN_6,
+    LEN_6 = 6,
     #[doc = "7: Data transfer is 7 bit in length."]
-    LEN_7,
+    LEN_7 = 7,
     #[doc = "8: Data transfer is 8 bit in length."]
-    LEN_8,
+    LEN_8 = 8,
     #[doc = "9: Data transfer is 9 bit in length."]
-    LEN_9,
+    LEN_9 = 9,
     #[doc = "10: Data transfer is 10 bit in length."]
-    LEN_10,
+    LEN_10 = 10,
     #[doc = "11: Data transfer is 11 bit in length."]
-    LEN_11,
+    LEN_11 = 11,
     #[doc = "12: Data transfer is 12 bit in length."]
-    LEN_12,
+    LEN_12 = 12,
     #[doc = "13: Data transfer is 13 bit in length."]
-    LEN_13,
+    LEN_13 = 13,
     #[doc = "14: Data transfer is 14 bit in length."]
-    LEN_14,
+    LEN_14 = 14,
     #[doc = "15: Data transfer is 15 bit in length."]
-    LEN_15,
+    LEN_15 = 15,
 }
 impl From<LEN_A> for u8 {
     #[inline(always)]
     fn from(variant: LEN_A) -> Self {
-        match variant {
-            LEN_A::LEN_0 => 0,
-            LEN_A::LEN_1 => 1,
-            LEN_A::LEN_2 => 2,
-            LEN_A::LEN_3 => 3,
-            LEN_A::LEN_4 => 4,
-            LEN_A::LEN_5 => 5,
-            LEN_A::LEN_6 => 6,
-            LEN_A::LEN_7 => 7,
-            LEN_A::LEN_8 => 8,
-            LEN_A::LEN_9 => 9,
-            LEN_A::LEN_10 => 10,
-            LEN_A::LEN_11 => 11,
-            LEN_A::LEN_12 => 12,
-            LEN_A::LEN_13 => 13,
-            LEN_A::LEN_14 => 14,
-            LEN_A::LEN_15 => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `LEN`"]

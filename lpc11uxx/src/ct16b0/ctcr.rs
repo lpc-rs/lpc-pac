@@ -12,25 +12,21 @@ impl crate::ResetValue for super::CTCR {
 }
 #[doc = "Counter/Timer Mode. This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). If Counter mode is selected in the CTCR, bits 2:0 in the Capture Control Register (CCR) must be programmed as 000.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CTM_A {
     #[doc = "0: Timer Mode: every rising PCLK edge"]
-    TIMER_MODE_EVERY_RI,
+    TIMER_MODE_EVERY_RI = 0,
     #[doc = "1: Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2."]
-    RISING,
+    RISING = 1,
     #[doc = "2: Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2."]
-    FALLING,
+    FALLING = 2,
     #[doc = "3: Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2."]
-    BOTH,
+    BOTH = 3,
 }
 impl From<CTM_A> for u8 {
     #[inline(always)]
     fn from(variant: CTM_A) -> Self {
-        match variant {
-            CTM_A::TIMER_MODE_EVERY_RI => 0,
-            CTM_A::RISING => 1,
-            CTM_A::FALLING => 2,
-            CTM_A::BOTH => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CTM`"]
@@ -109,22 +105,19 @@ impl<'a> CTM_W<'a> {
 }
 #[doc = "Count Input Select. In counter mode (when bits 1:0 in this register are not 00), these bits select which CAP pin or comparator output is sampled for clocking. Values 0x1 and 0x3 are reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CIS_A {
     #[doc = "0: CT16B0_CAP0."]
-    CT16B0_CAP0,
+    CT16B0_CAP0 = 0,
     #[doc = "1: Reserved."]
-    RESERVED_1,
+    RESERVED_1 = 1,
     #[doc = "2: CT16B0_CAP1."]
-    CT16B0_CAP1,
+    CT16B0_CAP1 = 2,
 }
 impl From<CIS_A> for u8 {
     #[inline(always)]
     fn from(variant: CIS_A) -> Self {
-        match variant {
-            CIS_A::CT16B0_CAP0 => 0,
-            CIS_A::RESERVED_1 => 1,
-            CIS_A::CT16B0_CAP1 => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CIS`"]
@@ -215,31 +208,25 @@ impl<'a> ENCC_W<'a> {
 }
 #[doc = "Edge select. When bit 4 is 1, these bits select which capture input edge will cause the timer and prescaler to be cleared. These bits have no effect when bit 4 is low. Values 0x2 to 0x3 and 0x6 to 0x7 are reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SELCC_A {
     #[doc = "0: Rising Edge of CT16B0_CAP0 clears the timer (if bit 4 is set)."]
-    RISING_EDGE_OF_CT16B_CAP0,
+    RISING_EDGE_OF_CT16B_CAP0 = 0,
     #[doc = "1: Falling Edge of CT16B0_CAP0 clears the timer (if bit 4 is set)."]
-    FALLING_EDGE_OF_CT16_CAP0,
+    FALLING_EDGE_OF_CT16_CAP0 = 1,
     #[doc = "2: Reserved."]
-    RESERVED_2,
+    RESERVED_2 = 2,
     #[doc = "3: Reserved."]
-    RESERVED_3,
+    RESERVED_3 = 3,
     #[doc = "4: Rising Edge of CT16B0_CAP1 clears the timer (if bit 4 is set)."]
-    RISING_EDGE_OF_CT16B_CAP1,
+    RISING_EDGE_OF_CT16B_CAP1 = 4,
     #[doc = "5: Falling Edge of CT16B0_CAP1 clears the timer (if bit 4 is set)."]
-    FALLING_EDGE_OF_CT16_CAP1,
+    FALLING_EDGE_OF_CT16_CAP1 = 5,
 }
 impl From<SELCC_A> for u8 {
     #[inline(always)]
     fn from(variant: SELCC_A) -> Self {
-        match variant {
-            SELCC_A::RISING_EDGE_OF_CT16B_CAP0 => 0,
-            SELCC_A::FALLING_EDGE_OF_CT16_CAP0 => 1,
-            SELCC_A::RESERVED_2 => 2,
-            SELCC_A::RESERVED_3 => 3,
-            SELCC_A::RISING_EDGE_OF_CT16B_CAP1 => 4,
-            SELCC_A::FALLING_EDGE_OF_CT16_CAP1 => 5,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SELCC`"]

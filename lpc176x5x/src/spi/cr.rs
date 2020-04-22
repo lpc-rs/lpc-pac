@@ -14,14 +14,12 @@ impl crate::ResetValue for super::CR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BITENABLE_A {
     #[doc = "1: The SPI controller sends and receives the number of bits selected by bits 11:8."]
-    THE_SPI_CONTROLLER_S,
+    THE_SPI_CONTROLLER_S = 1,
 }
 impl From<BITENABLE_A> for bool {
     #[inline(always)]
     fn from(variant: BITENABLE_A) -> Self {
-        match variant {
-            BITENABLE_A::THE_SPI_CONTROLLER_S => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BITENABLE`"]
@@ -80,17 +78,14 @@ impl<'a> BITENABLE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CPHA_A {
     #[doc = "0: Data is sampled on the first clock edge of SCK. A transfer starts and ends with activation and deactivation of the SSEL signal."]
-    FIRST_EDGE,
+    FIRST_EDGE = 0,
     #[doc = "1: Data is sampled on the second clock edge of the SCK. A transfer starts with the first clock edge, and ends with the last sampling edge when the SSEL signal is active."]
-    SECOND_EDGE,
+    SECOND_EDGE = 1,
 }
 impl From<CPHA_A> for bool {
     #[inline(always)]
     fn from(variant: CPHA_A) -> Self {
-        match variant {
-            CPHA_A::FIRST_EDGE => false,
-            CPHA_A::SECOND_EDGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CPHA`"]
@@ -158,17 +153,14 @@ impl<'a> CPHA_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CPOL_A {
     #[doc = "0: SCK is active high."]
-    SCK_IS_ACTIVE_HIGH_,
+    SCK_IS_ACTIVE_HIGH_ = 0,
     #[doc = "1: SCK is active low."]
-    SCK_IS_ACTIVE_LOW_,
+    SCK_IS_ACTIVE_LOW_ = 1,
 }
 impl From<CPOL_A> for bool {
     #[inline(always)]
     fn from(variant: CPOL_A) -> Self {
-        match variant {
-            CPOL_A::SCK_IS_ACTIVE_HIGH_ => false,
-            CPOL_A::SCK_IS_ACTIVE_LOW_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CPOL`"]
@@ -236,17 +228,14 @@ impl<'a> CPOL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTR_A {
     #[doc = "0: The SPI operates in Slave mode."]
-    SLAVE,
+    SLAVE = 0,
     #[doc = "1: The SPI operates in Master mode."]
-    MASTER,
+    MASTER = 1,
 }
 impl From<MSTR_A> for bool {
     #[inline(always)]
     fn from(variant: MSTR_A) -> Self {
-        match variant {
-            MSTR_A::SLAVE => false,
-            MSTR_A::MASTER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTR`"]
@@ -314,17 +303,14 @@ impl<'a> MSTR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LSBF_A {
     #[doc = "0: SPI data is transferred MSB (bit 7) first."]
-    MSB,
+    MSB = 0,
     #[doc = "1: SPI data is transferred LSB (bit 0) first."]
-    LSB,
+    LSB = 1,
 }
 impl From<LSBF_A> for bool {
     #[inline(always)]
     fn from(variant: LSBF_A) -> Self {
-        match variant {
-            LSBF_A::MSB => false,
-            LSBF_A::LSB => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LSBF`"]
@@ -392,17 +378,14 @@ impl<'a> LSBF_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPIE_A {
     #[doc = "0: SPI interrupts are inhibited."]
-    INTBLOCK,
+    INTBLOCK = 0,
     #[doc = "1: A hardware interrupt is generated each time the SPIF or MODF bits are activated."]
-    HWINT,
+    HWINT = 1,
 }
 impl From<SPIE_A> for bool {
     #[inline(always)]
     fn from(variant: SPIE_A) -> Self {
-        match variant {
-            SPIE_A::INTBLOCK => false,
-            SPIE_A::HWINT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPIE`"]
@@ -468,40 +451,31 @@ impl<'a> SPIE_W<'a> {
 }
 #[doc = "When bit 2 of this register is 1, this field controls the number of bits per transfer:\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BITS_A {
     #[doc = "8: 8 bits per transfer"]
-    _8_BITS_PER_TRANSFER,
+    _8_BITS_PER_TRANSFER = 8,
     #[doc = "9: 9 bits per transfer"]
-    _9_BITS_PER_TRANSFER,
+    _9_BITS_PER_TRANSFER = 9,
     #[doc = "10: 10 bits per transfer"]
-    _10_BITS_PER_TRANSFER,
+    _10_BITS_PER_TRANSFER = 10,
     #[doc = "11: 11 bits per transfer"]
-    _11_BITS_PER_TRANSFER,
+    _11_BITS_PER_TRANSFER = 11,
     #[doc = "12: 12 bits per transfer"]
-    _12_BITS_PER_TRANSFER,
+    _12_BITS_PER_TRANSFER = 12,
     #[doc = "13: 13 bits per transfer"]
-    _13_BITS_PER_TRANSFER,
+    _13_BITS_PER_TRANSFER = 13,
     #[doc = "14: 14 bits per transfer"]
-    _14_BITS_PER_TRANSFER,
+    _14_BITS_PER_TRANSFER = 14,
     #[doc = "15: 15 bits per transfer"]
-    _15_BITS_PER_TRANSFER,
+    _15_BITS_PER_TRANSFER = 15,
     #[doc = "0: 16 bits per transfer"]
-    _16_BITS_PER_TRANSFER,
+    _16_BITS_PER_TRANSFER = 0,
 }
 impl From<BITS_A> for u8 {
     #[inline(always)]
     fn from(variant: BITS_A) -> Self {
-        match variant {
-            BITS_A::_8_BITS_PER_TRANSFER => 8,
-            BITS_A::_9_BITS_PER_TRANSFER => 9,
-            BITS_A::_10_BITS_PER_TRANSFER => 10,
-            BITS_A::_11_BITS_PER_TRANSFER => 11,
-            BITS_A::_12_BITS_PER_TRANSFER => 12,
-            BITS_A::_13_BITS_PER_TRANSFER => 13,
-            BITS_A::_14_BITS_PER_TRANSFER => 14,
-            BITS_A::_15_BITS_PER_TRANSFER => 15,
-            BITS_A::_16_BITS_PER_TRANSFER => 0,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BITS`"]

@@ -108,25 +108,21 @@ impl<'a> EM3_W<'a> {
 }
 #[doc = "External Match Control 0. Determines the functionality of External Match 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EMC0_A {
     #[doc = "0: Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING_ = 0,
     #[doc = "1: Clear the corresponding External Match bit/output to 0 (MATn.m pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR_THE_CORRESPOND = 1,
     #[doc = "2: Set the corresponding External Match bit/output to 1 (MATn.m pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET_THE_CORRESPONDIN = 2,
     #[doc = "3: Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE_THE_CORRESPON = 3,
 }
 impl From<EMC0_A> for u8 {
     #[inline(always)]
     fn from(variant: EMC0_A) -> Self {
-        match variant {
-            EMC0_A::DO_NOTHING_ => 0,
-            EMC0_A::CLEAR_THE_CORRESPOND => 1,
-            EMC0_A::SET_THE_CORRESPONDIN => 2,
-            EMC0_A::TOGGLE_THE_CORRESPON => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EMC0`"]
@@ -205,25 +201,21 @@ impl<'a> EMC0_W<'a> {
 }
 #[doc = "External Match Control 1. Determines the functionality of External Match 1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EMC1_A {
     #[doc = "0: Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING_ = 0,
     #[doc = "1: Clear the corresponding External Match bit/output to 0 (MATn.m pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR_THE_CORRESPOND = 1,
     #[doc = "2: Set the corresponding External Match bit/output to 1 (MATn.m pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET_THE_CORRESPONDIN = 2,
     #[doc = "3: Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE_THE_CORRESPON = 3,
 }
 impl From<EMC1_A> for u8 {
     #[inline(always)]
     fn from(variant: EMC1_A) -> Self {
-        match variant {
-            EMC1_A::DO_NOTHING_ => 0,
-            EMC1_A::CLEAR_THE_CORRESPOND => 1,
-            EMC1_A::SET_THE_CORRESPONDIN => 2,
-            EMC1_A::TOGGLE_THE_CORRESPON => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EMC1`"]
@@ -302,25 +294,21 @@ impl<'a> EMC1_W<'a> {
 }
 #[doc = "External Match Control 2. Determines the functionality of External Match 2.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EMC2_A {
     #[doc = "0: Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING_ = 0,
     #[doc = "1: Clear the corresponding External Match bit/output to 0 (MATn.m pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR_THE_CORRESPOND = 1,
     #[doc = "2: Set the corresponding External Match bit/output to 1 (MATn.m pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET_THE_CORRESPONDIN = 2,
     #[doc = "3: Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE_THE_CORRESPON = 3,
 }
 impl From<EMC2_A> for u8 {
     #[inline(always)]
     fn from(variant: EMC2_A) -> Self {
-        match variant {
-            EMC2_A::DO_NOTHING_ => 0,
-            EMC2_A::CLEAR_THE_CORRESPOND => 1,
-            EMC2_A::SET_THE_CORRESPONDIN => 2,
-            EMC2_A::TOGGLE_THE_CORRESPON => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EMC2`"]
@@ -399,25 +387,21 @@ impl<'a> EMC2_W<'a> {
 }
 #[doc = "External Match Control 3. Determines the functionality of External Match 3.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EMC3_A {
     #[doc = "0: Do Nothing."]
-    DO_NOTHING_,
+    DO_NOTHING_ = 0,
     #[doc = "1: Clear the corresponding External Match bit/output to 0 (MATn.m pin is LOW if pinned out)."]
-    CLEAR_THE_CORRESPOND,
+    CLEAR_THE_CORRESPOND = 1,
     #[doc = "2: Set the corresponding External Match bit/output to 1 (MATn.m pin is HIGH if pinned out)."]
-    SET_THE_CORRESPONDIN,
+    SET_THE_CORRESPONDIN = 2,
     #[doc = "3: Toggle the corresponding External Match bit/output."]
-    TOGGLE_THE_CORRESPON,
+    TOGGLE_THE_CORRESPON = 3,
 }
 impl From<EMC3_A> for u8 {
     #[inline(always)]
     fn from(variant: EMC3_A) -> Self {
-        match variant {
-            EMC3_A::DO_NOTHING_ => 0,
-            EMC3_A::CLEAR_THE_CORRESPOND => 1,
-            EMC3_A::SET_THE_CORRESPONDIN => 2,
-            EMC3_A::TOGGLE_THE_CORRESPON => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EMC3`"]

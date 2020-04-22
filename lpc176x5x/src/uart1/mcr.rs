@@ -62,17 +62,14 @@ impl<'a> RTSCTRL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LMS_A {
     #[doc = "0: Disable modem loopback mode."]
-    DISABLE_MODEM_LOOPBA,
+    DISABLE_MODEM_LOOPBA = 0,
     #[doc = "1: Enable modem loopback mode."]
-    ENABLE_MODEM_LOOPBAC,
+    ENABLE_MODEM_LOOPBAC = 1,
 }
 impl From<LMS_A> for bool {
     #[inline(always)]
     fn from(variant: LMS_A) -> Self {
-        match variant {
-            LMS_A::DISABLE_MODEM_LOOPBA => false,
-            LMS_A::ENABLE_MODEM_LOOPBAC => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LMS`"]
@@ -140,17 +137,14 @@ impl<'a> LMS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RTSEN_A {
     #[doc = "0: Disable auto-rts flow control."]
-    DISABLE_AUTO_RTS_FLO,
+    DISABLE_AUTO_RTS_FLO = 0,
     #[doc = "1: Enable auto-rts flow control."]
-    ENABLE_AUTO_RTS_FLOW,
+    ENABLE_AUTO_RTS_FLOW = 1,
 }
 impl From<RTSEN_A> for bool {
     #[inline(always)]
     fn from(variant: RTSEN_A) -> Self {
-        match variant {
-            RTSEN_A::DISABLE_AUTO_RTS_FLO => false,
-            RTSEN_A::ENABLE_AUTO_RTS_FLOW => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RTSEN`"]
@@ -218,17 +212,14 @@ impl<'a> RTSEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CTSEN_A {
     #[doc = "0: Disable auto-cts flow control."]
-    DISABLE_AUTO_CTS_FLO,
+    DISABLE_AUTO_CTS_FLO = 0,
     #[doc = "1: Enable auto-cts flow control."]
-    ENABLE_AUTO_CTS_FLOW,
+    ENABLE_AUTO_CTS_FLOW = 1,
 }
 impl From<CTSEN_A> for bool {
     #[inline(always)]
     fn from(variant: CTSEN_A) -> Self {
-        match variant {
-            CTSEN_A::DISABLE_AUTO_CTS_FLO => false,
-            CTSEN_A::ENABLE_AUTO_CTS_FLOW => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CTSEN`"]

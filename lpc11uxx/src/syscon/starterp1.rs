@@ -14,17 +14,14 @@ impl crate::ResetValue for super::STARTERP1 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WWDTINT_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<WWDTINT_A> for bool {
     #[inline(always)]
     fn from(variant: WWDTINT_A) -> Self {
-        match variant {
-            WWDTINT_A::DISABLED => false,
-            WWDTINT_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WWDTINT`"]
@@ -92,17 +89,14 @@ impl<'a> WWDTINT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BODINT_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<BODINT_A> for bool {
     #[inline(always)]
     fn from(variant: BODINT_A) -> Self {
-        match variant {
-            BODINT_A::DISABLED => false,
-            BODINT_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BODINT`"]
@@ -170,17 +164,14 @@ impl<'a> BODINT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USB_WAKEUP_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<USB_WAKEUP_A> for bool {
     #[inline(always)]
     fn from(variant: USB_WAKEUP_A) -> Self {
-        match variant {
-            USB_WAKEUP_A::DISABLED => false,
-            USB_WAKEUP_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `USB_WAKEUP`"]
@@ -248,17 +239,14 @@ impl<'a> USB_WAKEUP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GPIOINT0_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<GPIOINT0_A> for bool {
     #[inline(always)]
     fn from(variant: GPIOINT0_A) -> Self {
-        match variant {
-            GPIOINT0_A::DISABLED => false,
-            GPIOINT0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `GPIOINT0`"]
@@ -326,17 +314,14 @@ impl<'a> GPIOINT0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GPIOINT1_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<GPIOINT1_A> for bool {
     #[inline(always)]
     fn from(variant: GPIOINT1_A) -> Self {
-        match variant {
-            GPIOINT1_A::DISABLED => false,
-            GPIOINT1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `GPIOINT1`"]

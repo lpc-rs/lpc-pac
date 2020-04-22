@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEQA_INTEN_A {
     #[doc = "0: Disabled. The sequence A interrupt/DMA trigger is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The sequence A interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence A, or upon completion of the entire A sequence of conversions, depending on the MODE bit in the SEQA_CTRL register."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SEQA_INTEN_A> for bool {
     #[inline(always)]
     fn from(variant: SEQA_INTEN_A) -> Self {
-        match variant {
-            SEQA_INTEN_A::DISABLED => false,
-            SEQA_INTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEQA_INTEN`"]
@@ -92,17 +89,14 @@ impl<'a> SEQA_INTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEQB_INTEN_A {
     #[doc = "0: Disabled. The sequence B interrupt/DMA trigger is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The sequence B interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence B, or upon completion of the entire B sequence of conversions, depending on the MODE bit in the SEQB_CTRL register."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SEQB_INTEN_A> for bool {
     #[inline(always)]
     fn from(variant: SEQB_INTEN_A) -> Self {
-        match variant {
-            SEQB_INTEN_A::DISABLED => false,
-            SEQB_INTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEQB_INTEN`"]
@@ -170,17 +164,14 @@ impl<'a> SEQB_INTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OVR_INTEN_A {
     #[doc = "0: Disabled. The overrun interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The overrun interrupt is enabled. Detection of an overrun condition on any of the 12 channel data registers will cause an overrun interrupt/DMA trigger. In addition, if the MODE bit for a particular sequence is 0, then an overrun in the global data register for that sequence will also cause this interrupt/DMA trigger to be asserted."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<OVR_INTEN_A> for bool {
     #[inline(always)]
     fn from(variant: OVR_INTEN_A) -> Self {
-        match variant {
-            OVR_INTEN_A::DISABLED => false,
-            OVR_INTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OVR_INTEN`"]
@@ -246,22 +237,19 @@ impl<'a> OVR_INTEN_W<'a> {
 }
 #[doc = "Threshold comparison interrupt enable for channel 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN0_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN0_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN0_A) -> Self {
-        match variant {
-            ADCMPINTEN0_A::DISABLED => 0,
-            ADCMPINTEN0_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN0_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN0`"]
@@ -328,22 +316,19 @@ impl<'a> ADCMPINTEN0_W<'a> {
 }
 #[doc = "Channel 1 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN1_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN1_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN1_A) -> Self {
-        match variant {
-            ADCMPINTEN1_A::DISABLED => 0,
-            ADCMPINTEN1_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN1_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN1`"]
@@ -410,22 +395,19 @@ impl<'a> ADCMPINTEN1_W<'a> {
 }
 #[doc = "Channel 2 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN2_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN2_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN2_A) -> Self {
-        match variant {
-            ADCMPINTEN2_A::DISABLED => 0,
-            ADCMPINTEN2_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN2_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN2`"]
@@ -492,22 +474,19 @@ impl<'a> ADCMPINTEN2_W<'a> {
 }
 #[doc = "Channel 3 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN3_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN3_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN3_A) -> Self {
-        match variant {
-            ADCMPINTEN3_A::DISABLED => 0,
-            ADCMPINTEN3_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN3_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN3`"]
@@ -574,22 +553,19 @@ impl<'a> ADCMPINTEN3_W<'a> {
 }
 #[doc = "Channel 4 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN4_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN4_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN4_A) -> Self {
-        match variant {
-            ADCMPINTEN4_A::DISABLED => 0,
-            ADCMPINTEN4_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN4_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN4`"]
@@ -656,22 +632,19 @@ impl<'a> ADCMPINTEN4_W<'a> {
 }
 #[doc = "Channel 5 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN5_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN5_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN5_A) -> Self {
-        match variant {
-            ADCMPINTEN5_A::DISABLED => 0,
-            ADCMPINTEN5_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN5_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN5`"]
@@ -738,22 +711,19 @@ impl<'a> ADCMPINTEN5_W<'a> {
 }
 #[doc = "Channel 6 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN6_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN6_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN6_A) -> Self {
-        match variant {
-            ADCMPINTEN6_A::DISABLED => 0,
-            ADCMPINTEN6_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN6_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN6`"]
@@ -820,22 +790,19 @@ impl<'a> ADCMPINTEN6_W<'a> {
 }
 #[doc = "Channel 7 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN7_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN7_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN7_A) -> Self {
-        match variant {
-            ADCMPINTEN7_A::DISABLED => 0,
-            ADCMPINTEN7_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN7_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN7`"]
@@ -902,22 +869,19 @@ impl<'a> ADCMPINTEN7_W<'a> {
 }
 #[doc = "Channel 8 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN8_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN8_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN8_A) -> Self {
-        match variant {
-            ADCMPINTEN8_A::DISABLED => 0,
-            ADCMPINTEN8_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN8_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN8`"]
@@ -984,22 +948,19 @@ impl<'a> ADCMPINTEN8_W<'a> {
 }
 #[doc = "Channel 9 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN9_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN9_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN9_A) -> Self {
-        match variant {
-            ADCMPINTEN9_A::DISABLED => 0,
-            ADCMPINTEN9_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN9_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN9`"]
@@ -1066,22 +1027,19 @@ impl<'a> ADCMPINTEN9_W<'a> {
 }
 #[doc = "Channel 10 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN10_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN10_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN10_A) -> Self {
-        match variant {
-            ADCMPINTEN10_A::DISABLED => 0,
-            ADCMPINTEN10_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN10_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN10`"]
@@ -1148,22 +1106,19 @@ impl<'a> ADCMPINTEN10_W<'a> {
 }
 #[doc = "Channel 11 threshold comparison interrupt enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN11_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN11_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN11_A) -> Self {
-        match variant {
-            ADCMPINTEN11_A::DISABLED => 0,
-            ADCMPINTEN11_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN11_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN11`"]

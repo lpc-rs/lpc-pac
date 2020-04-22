@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::SCTMATCHREL>;
 #[doc = "Writer for register SCTMATCHREL[%s]"]
 pub type W = crate::W<u32, super::SCTMATCHREL>;
-#[doc = "Register SCTMATCHREL[%s] `reset()`'s with value 0"]
+#[doc = "Register SCTMATCHREL[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::SCTMATCHREL {
     type Type = u32;
     #[inline(always)]

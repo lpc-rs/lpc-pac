@@ -12,19 +12,17 @@ impl crate::ResetValue for super::USBPLLCLKSEL {
 }
 #[doc = "USB PLL clock source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
     #[doc = "0: IRC. The USB PLL clock source must be switched to system oscillator for correct full-speed USB operation. The IRC is suitable for low-speed USB operation."]
-    IRC_THE_USB_PLL_CLO,
+    IRC_THE_USB_PLL_CLO = 0,
     #[doc = "1: System oscillator"]
-    SYSTEM_OSCILLATOR,
+    SYSTEM_OSCILLATOR = 1,
 }
 impl From<SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::IRC_THE_USB_PLL_CLO => 0,
-            SEL_A::SYSTEM_OSCILLATOR => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]

@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::ICR>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RI_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<RI_A> for bool {
     #[inline(always)]
     fn from(variant: RI_A) -> Self {
-        match variant {
-            RI_A::RESET => false,
-            RI_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RI`"]
@@ -43,17 +40,14 @@ impl RI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TI1_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<TI1_A> for bool {
     #[inline(always)]
     fn from(variant: TI1_A) -> Self {
-        match variant {
-            TI1_A::RESET => false,
-            TI1_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TI1`"]
@@ -82,17 +76,14 @@ impl TI1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EI_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<EI_A> for bool {
     #[inline(always)]
     fn from(variant: EI_A) -> Self {
-        match variant {
-            EI_A::RESET => false,
-            EI_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EI`"]
@@ -121,17 +112,14 @@ impl EI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DOI_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<DOI_A> for bool {
     #[inline(always)]
     fn from(variant: DOI_A) -> Self {
-        match variant {
-            DOI_A::RESET => false,
-            DOI_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DOI`"]
@@ -160,17 +148,14 @@ impl DOI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WUI_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<WUI_A> for bool {
     #[inline(always)]
     fn from(variant: WUI_A) -> Self {
-        match variant {
-            WUI_A::RESET => false,
-            WUI_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WUI`"]
@@ -199,17 +184,14 @@ impl WUI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPI_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<EPI_A> for bool {
     #[inline(always)]
     fn from(variant: EPI_A) -> Self {
-        match variant {
-            EPI_A::RESET => false,
-            EPI_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPI`"]
@@ -238,17 +220,14 @@ impl EPI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ALI_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<ALI_A> for bool {
     #[inline(always)]
     fn from(variant: ALI_A) -> Self {
-        match variant {
-            ALI_A::RESET => false,
-            ALI_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ALI`"]
@@ -277,17 +256,14 @@ impl ALI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BEI_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<BEI_A> for bool {
     #[inline(always)]
     fn from(variant: BEI_A) -> Self {
-        match variant {
-            BEI_A::RESET => false,
-            BEI_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BEI`"]
@@ -316,17 +292,14 @@ impl BEI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IDI_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<IDI_A> for bool {
     #[inline(always)]
     fn from(variant: IDI_A) -> Self {
-        match variant {
-            IDI_A::RESET => false,
-            IDI_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IDI`"]
@@ -355,17 +328,14 @@ impl IDI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TI2_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<TI2_A> for bool {
     #[inline(always)]
     fn from(variant: TI2_A) -> Self {
-        match variant {
-            TI2_A::RESET => false,
-            TI2_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TI2`"]
@@ -394,17 +364,14 @@ impl TI2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TI3_A {
     #[doc = "0: Reset"]
-    RESET,
+    RESET = 0,
     #[doc = "1: Set"]
-    SET,
+    SET = 1,
 }
 impl From<TI3_A> for bool {
     #[inline(always)]
     fn from(variant: TI3_A) -> Self {
-        match variant {
-            TI3_A::RESET => false,
-            TI3_A::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TI3`"]
@@ -435,17 +402,14 @@ pub type ERRBIT4_0_R = crate::R<u8, u8>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ERRDIR_A {
     #[doc = "0: Error occurred during transmitting."]
-    ERROR_OCCURRED_DURIN,
+    ERROR_OCCURRED_DURIN = 0,
     #[doc = "1: Error occurred during receiving."]
-    ERROR_OCCURRED_DURIN,
+    ERROR_OCCURRED_DURIN = 1,
 }
 impl From<ERRDIR_A> for bool {
     #[inline(always)]
     fn from(variant: ERRDIR_A) -> Self {
-        match variant {
-            ERRDIR_A::ERROR_OCCURRED_DURIN => false,
-            ERRDIR_A::ERROR_OCCURRED_DURIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ERRDIR`"]
@@ -472,25 +436,21 @@ impl ERRDIR_R {
 }
 #[doc = "When the CAN controller detects a bus error, the type of error is captured in this field:\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ERRC1_0_A {
     #[doc = "0: Bit error"]
-    BIT_ERROR,
+    BIT_ERROR = 0,
     #[doc = "1: Form error"]
-    FORM_ERROR,
+    FORM_ERROR = 1,
     #[doc = "2: Stuff error"]
-    STUFF_ERROR,
+    STUFF_ERROR = 2,
     #[doc = "3: Other error"]
-    OTHER_ERROR,
+    OTHER_ERROR = 3,
 }
 impl From<ERRC1_0_A> for u8 {
     #[inline(always)]
     fn from(variant: ERRC1_0_A) -> Self {
-        match variant {
-            ERRC1_0_A::BIT_ERROR => 0,
-            ERRC1_0_A::FORM_ERROR => 1,
-            ERRC1_0_A::STUFF_ERROR => 2,
-            ERRC1_0_A::OTHER_ERROR => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ERRC1_0`"]

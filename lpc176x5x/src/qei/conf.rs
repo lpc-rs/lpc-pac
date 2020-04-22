@@ -170,7 +170,11 @@ impl R {
     pub fn crespi(&self) -> CRESPI_R {
         CRESPI_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bits 16:19 - Index gating configuration: When INXGATE\\[16\\] = 1, pass the index when PHA = 1 and PHB = 0, otherwise block index. When INXGATE\\[17\\] = 1, pass the index when PHA = 1 and PHB = 1, otherwise block index. When INXGATE\\[18\\] = 1, pass the index when PHA = 0 and PHB = 1, otherwise block index. When INXGATE\\[19\\] = 1, pass the index when PHA = 0 and PHB = 0, otherwise block index."]
+    #[doc = "Bits 16:19 - Index gating configuration: When INXGATE\\[16\\]
+= 1, pass the index when PHA = 1 and PHB = 0, otherwise block index. When INXGATE\\[17\\]
+= 1, pass the index when PHA = 1 and PHB = 1, otherwise block index. When INXGATE\\[18\\]
+= 1, pass the index when PHA = 0 and PHB = 1, otherwise block index. When INXGATE\\[19\\]
+= 1, pass the index when PHA = 0 and PHB = 0, otherwise block index."]
     #[inline(always)]
     pub fn inxgate(&self) -> INXGATE_R {
         INXGATE_R::new(((self.bits >> 16) & 0x0f) as u8)
@@ -202,7 +206,11 @@ impl W {
     pub fn crespi(&mut self) -> CRESPI_W {
         CRESPI_W { w: self }
     }
-    #[doc = "Bits 16:19 - Index gating configuration: When INXGATE\\[16\\] = 1, pass the index when PHA = 1 and PHB = 0, otherwise block index. When INXGATE\\[17\\] = 1, pass the index when PHA = 1 and PHB = 1, otherwise block index. When INXGATE\\[18\\] = 1, pass the index when PHA = 0 and PHB = 1, otherwise block index. When INXGATE\\[19\\] = 1, pass the index when PHA = 0 and PHB = 0, otherwise block index."]
+    #[doc = "Bits 16:19 - Index gating configuration: When INXGATE\\[16\\]
+= 1, pass the index when PHA = 1 and PHB = 0, otherwise block index. When INXGATE\\[17\\]
+= 1, pass the index when PHA = 1 and PHB = 1, otherwise block index. When INXGATE\\[18\\]
+= 1, pass the index when PHA = 0 and PHB = 1, otherwise block index. When INXGATE\\[19\\]
+= 1, pass the index when PHA = 0 and PHB = 0, otherwise block index."]
     #[inline(always)]
     pub fn inxgate(&mut self) -> INXGATE_W {
         INXGATE_W { w: self }

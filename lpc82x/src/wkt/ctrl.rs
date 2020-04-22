@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CLKSEL_A {
     #[doc = "0: Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
-    DIVIDED_IRC_CLOCK,
+    DIVIDED_IRC_CLOCK = 0,
     #[doc = "1: This is the (nominally) 10 kHz clock and provides time-out periods of up to approximately 119 hours in 100 us increments. The accuracy of this clock is limited to +/- 40 % over temperature and processing. Remark: This clock is available in all power modes. Prior to use, the low-power oscillator must be enabled. The oscillator must also be set to remain active in Deep power-down if needed."]
-    LOW_POWER_CLOCK,
+    LOW_POWER_CLOCK = 1,
 }
 impl From<CLKSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CLKSEL_A) -> Self {
-        match variant {
-            CLKSEL_A::DIVIDED_IRC_CLOCK => false,
-            CLKSEL_A::LOW_POWER_CLOCK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CLKSEL`"]
@@ -92,17 +89,14 @@ impl<'a> CLKSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ALARMFLAG_A {
     #[doc = "0: No time-out. The self wake-up timer has not timed out. Writing a 0 to has no effect."]
-    NO_TIME_OUT,
+    NO_TIME_OUT = 0,
     #[doc = "1: Time-out. The self wake-up timer has timed out. This flag generates an interrupt request which can wake up the part from any reduced power mode including Deep power-down if the clock source is the low power oscillator. Writing a 1 clears this status bit."]
-    TIME_OUT,
+    TIME_OUT = 1,
 }
 impl From<ALARMFLAG_A> for bool {
     #[inline(always)]
     fn from(variant: ALARMFLAG_A) -> Self {
-        match variant {
-            ALARMFLAG_A::NO_TIME_OUT => false,
-            ALARMFLAG_A::TIME_OUT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ALARMFLAG`"]
@@ -170,17 +164,14 @@ impl<'a> ALARMFLAG_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CLEARCTR_A {
     #[doc = "0: No effect. Reading this bit always returns 0."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: Clear the counter. Counting is halted until a new count value is loaded."]
-    CLEAR_THE_COUNTER,
+    CLEAR_THE_COUNTER = 1,
 }
 impl From<CLEARCTR_A> for bool {
     #[inline(always)]
     fn from(variant: CLEARCTR_A) -> Self {
-        match variant {
-            CLEARCTR_A::NO_EFFECT => false,
-            CLEARCTR_A::CLEAR_THE_COUNTER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CLEARCTR`"]
@@ -248,17 +239,14 @@ impl<'a> CLEARCTR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEL_EXTCLK_A {
     #[doc = "0: Internal. The clock source is the internal clock selected by the CLKSEL bit."]
-    INTERNAL,
+    INTERNAL = 0,
     #[doc = "1: External. The self wake-up timer uses the external WKTCLKIN pin."]
-    EXTERNAL,
+    EXTERNAL = 1,
 }
 impl From<SEL_EXTCLK_A> for bool {
     #[inline(always)]
     fn from(variant: SEL_EXTCLK_A) -> Self {
-        match variant {
-            SEL_EXTCLK_A::INTERNAL => false,
-            SEL_EXTCLK_A::EXTERNAL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEL_EXTCLK`"]

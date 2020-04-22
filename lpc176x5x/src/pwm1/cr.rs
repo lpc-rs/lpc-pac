@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::CR>;
 #[doc = "Writer for register CR[%s]"]
 pub type W = crate::W<u32, super::CR>;
-#[doc = "Register CR[%s] `reset()`'s with value 0"]
+#[doc = "Register CR[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::CR {
     type Type = u32;
     #[inline(always)]
@@ -10,21 +11,19 @@ impl crate::ResetValue for super::CR {
         0
     }
 }
-#[doc = "PWM\\[2\\] output single/double edge mode control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[2\\]
+output single/double edge mode control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMSEL2_A {
     #[doc = "0: Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
+    SINGLE_EDGE_CONTROLL = 0,
     #[doc = "1: Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
+    DOUBLE_EDGE_CONTROLL = 1,
 }
 impl From<PWMSEL2_A> for bool {
     #[inline(always)]
     fn from(variant: PWMSEL2_A) -> Self {
-        match variant {
-            PWMSEL2_A::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL2_A::DOUBLE_EDGE_CONTROLL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMSEL2`"]
@@ -88,21 +87,19 @@ impl<'a> PWMSEL2_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[3\\] output edge control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[3\\]
+output edge control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMSEL3_A {
     #[doc = "0: Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
+    SINGLE_EDGE_CONTROLL = 0,
     #[doc = "1: Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
+    DOUBLE_EDGE_CONTROLL = 1,
 }
 impl From<PWMSEL3_A> for bool {
     #[inline(always)]
     fn from(variant: PWMSEL3_A) -> Self {
-        match variant {
-            PWMSEL3_A::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL3_A::DOUBLE_EDGE_CONTROLL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMSEL3`"]
@@ -166,21 +163,19 @@ impl<'a> PWMSEL3_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[4\\] output edge control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[4\\]
+output edge control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMSEL4_A {
     #[doc = "0: Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
+    SINGLE_EDGE_CONTROLL = 0,
     #[doc = "1: Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
+    DOUBLE_EDGE_CONTROLL = 1,
 }
 impl From<PWMSEL4_A> for bool {
     #[inline(always)]
     fn from(variant: PWMSEL4_A) -> Self {
-        match variant {
-            PWMSEL4_A::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL4_A::DOUBLE_EDGE_CONTROLL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMSEL4`"]
@@ -244,21 +239,19 @@ impl<'a> PWMSEL4_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[5\\] output edge control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[5\\]
+output edge control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMSEL5_A {
     #[doc = "0: Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
+    SINGLE_EDGE_CONTROLL = 0,
     #[doc = "1: Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
+    DOUBLE_EDGE_CONTROLL = 1,
 }
 impl From<PWMSEL5_A> for bool {
     #[inline(always)]
     fn from(variant: PWMSEL5_A) -> Self {
-        match variant {
-            PWMSEL5_A::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL5_A::DOUBLE_EDGE_CONTROLL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMSEL5`"]
@@ -322,21 +315,19 @@ impl<'a> PWMSEL5_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[6\\] output edge control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[6\\]
+output edge control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMSEL6_A {
     #[doc = "0: Single edge controlled mode is selected."]
-    SINGLE_EDGE_CONTROLL,
+    SINGLE_EDGE_CONTROLL = 0,
     #[doc = "1: Double edge controlled mode is selected."]
-    DOUBLE_EDGE_CONTROLL,
+    DOUBLE_EDGE_CONTROLL = 1,
 }
 impl From<PWMSEL6_A> for bool {
     #[inline(always)]
     fn from(variant: PWMSEL6_A) -> Self {
-        match variant {
-            PWMSEL6_A::SINGLE_EDGE_CONTROLL => false,
-            PWMSEL6_A::DOUBLE_EDGE_CONTROLL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMSEL6`"]
@@ -400,21 +391,19 @@ impl<'a> PWMSEL6_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[1\\] output enable control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[1\\]
+output enable control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMENA1_A {
     #[doc = "0: The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
+    THE_PWM_OUTPUT_IS_DI = 0,
     #[doc = "1: The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
+    THE_PWM_OUTPUT_IS_EN = 1,
 }
 impl From<PWMENA1_A> for bool {
     #[inline(always)]
     fn from(variant: PWMENA1_A) -> Self {
-        match variant {
-            PWMENA1_A::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA1_A::THE_PWM_OUTPUT_IS_EN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMENA1`"]
@@ -478,21 +467,19 @@ impl<'a> PWMENA1_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[2\\] output enable control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[2\\]
+output enable control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMENA2_A {
     #[doc = "0: The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
+    THE_PWM_OUTPUT_IS_DI = 0,
     #[doc = "1: The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
+    THE_PWM_OUTPUT_IS_EN = 1,
 }
 impl From<PWMENA2_A> for bool {
     #[inline(always)]
     fn from(variant: PWMENA2_A) -> Self {
-        match variant {
-            PWMENA2_A::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA2_A::THE_PWM_OUTPUT_IS_EN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMENA2`"]
@@ -556,21 +543,19 @@ impl<'a> PWMENA2_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[3\\] output enable control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[3\\]
+output enable control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMENA3_A {
     #[doc = "0: The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
+    THE_PWM_OUTPUT_IS_DI = 0,
     #[doc = "1: The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
+    THE_PWM_OUTPUT_IS_EN = 1,
 }
 impl From<PWMENA3_A> for bool {
     #[inline(always)]
     fn from(variant: PWMENA3_A) -> Self {
-        match variant {
-            PWMENA3_A::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA3_A::THE_PWM_OUTPUT_IS_EN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMENA3`"]
@@ -634,21 +619,19 @@ impl<'a> PWMENA3_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[4\\] output enable control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[4\\]
+output enable control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMENA4_A {
     #[doc = "0: The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
+    THE_PWM_OUTPUT_IS_DI = 0,
     #[doc = "1: The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
+    THE_PWM_OUTPUT_IS_EN = 1,
 }
 impl From<PWMENA4_A> for bool {
     #[inline(always)]
     fn from(variant: PWMENA4_A) -> Self {
-        match variant {
-            PWMENA4_A::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA4_A::THE_PWM_OUTPUT_IS_EN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMENA4`"]
@@ -712,21 +695,19 @@ impl<'a> PWMENA4_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[5\\] output enable control.\n\nValue on reset: 0"]
+#[doc = "PWM\\[5\\]
+output enable control.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMENA5_A {
     #[doc = "0: The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
+    THE_PWM_OUTPUT_IS_DI = 0,
     #[doc = "1: The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
+    THE_PWM_OUTPUT_IS_EN = 1,
 }
 impl From<PWMENA5_A> for bool {
     #[inline(always)]
     fn from(variant: PWMENA5_A) -> Self {
-        match variant {
-            PWMENA5_A::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA5_A::THE_PWM_OUTPUT_IS_EN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMENA5`"]
@@ -790,21 +771,19 @@ impl<'a> PWMENA5_W<'a> {
         self.w
     }
 }
-#[doc = "PWM\\[6\\] output enable control. See PWMENA1 for details.\n\nValue on reset: 0"]
+#[doc = "PWM\\[6\\]
+output enable control. See PWMENA1 for details.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMENA6_A {
     #[doc = "0: The PWM output is disabled."]
-    THE_PWM_OUTPUT_IS_DI,
+    THE_PWM_OUTPUT_IS_DI = 0,
     #[doc = "1: The PWM output is enabled."]
-    THE_PWM_OUTPUT_IS_EN,
+    THE_PWM_OUTPUT_IS_EN = 1,
 }
 impl From<PWMENA6_A> for bool {
     #[inline(always)]
     fn from(variant: PWMENA6_A) -> Self {
-        match variant {
-            PWMENA6_A::THE_PWM_OUTPUT_IS_DI => false,
-            PWMENA6_A::THE_PWM_OUTPUT_IS_EN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMENA6`"]
@@ -869,114 +848,136 @@ impl<'a> PWMENA6_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 2 - PWM\\[2\\] output single/double edge mode control."]
+    #[doc = "Bit 2 - PWM\\[2\\]
+output single/double edge mode control."]
     #[inline(always)]
     pub fn pwmsel2(&self) -> PWMSEL2_R {
         PWMSEL2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
-    #[doc = "Bit 3 - PWM\\[3\\] output edge control."]
+    #[doc = "Bit 3 - PWM\\[3\\]
+output edge control."]
     #[inline(always)]
     pub fn pwmsel3(&self) -> PWMSEL3_R {
         PWMSEL3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
-    #[doc = "Bit 4 - PWM\\[4\\] output edge control."]
+    #[doc = "Bit 4 - PWM\\[4\\]
+output edge control."]
     #[inline(always)]
     pub fn pwmsel4(&self) -> PWMSEL4_R {
         PWMSEL4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bit 5 - PWM\\[5\\] output edge control."]
+    #[doc = "Bit 5 - PWM\\[5\\]
+output edge control."]
     #[inline(always)]
     pub fn pwmsel5(&self) -> PWMSEL5_R {
         PWMSEL5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
-    #[doc = "Bit 6 - PWM\\[6\\] output edge control."]
+    #[doc = "Bit 6 - PWM\\[6\\]
+output edge control."]
     #[inline(always)]
     pub fn pwmsel6(&self) -> PWMSEL6_R {
         PWMSEL6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
-    #[doc = "Bit 9 - PWM\\[1\\] output enable control."]
+    #[doc = "Bit 9 - PWM\\[1\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena1(&self) -> PWMENA1_R {
         PWMENA1_R::new(((self.bits >> 9) & 0x01) != 0)
     }
-    #[doc = "Bit 10 - PWM\\[2\\] output enable control."]
+    #[doc = "Bit 10 - PWM\\[2\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena2(&self) -> PWMENA2_R {
         PWMENA2_R::new(((self.bits >> 10) & 0x01) != 0)
     }
-    #[doc = "Bit 11 - PWM\\[3\\] output enable control."]
+    #[doc = "Bit 11 - PWM\\[3\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena3(&self) -> PWMENA3_R {
         PWMENA3_R::new(((self.bits >> 11) & 0x01) != 0)
     }
-    #[doc = "Bit 12 - PWM\\[4\\] output enable control."]
+    #[doc = "Bit 12 - PWM\\[4\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena4(&self) -> PWMENA4_R {
         PWMENA4_R::new(((self.bits >> 12) & 0x01) != 0)
     }
-    #[doc = "Bit 13 - PWM\\[5\\] output enable control."]
+    #[doc = "Bit 13 - PWM\\[5\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena5(&self) -> PWMENA5_R {
         PWMENA5_R::new(((self.bits >> 13) & 0x01) != 0)
     }
-    #[doc = "Bit 14 - PWM\\[6\\] output enable control. See PWMENA1 for details."]
+    #[doc = "Bit 14 - PWM\\[6\\]
+output enable control. See PWMENA1 for details."]
     #[inline(always)]
     pub fn pwmena6(&self) -> PWMENA6_R {
         PWMENA6_R::new(((self.bits >> 14) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 2 - PWM\\[2\\] output single/double edge mode control."]
+    #[doc = "Bit 2 - PWM\\[2\\]
+output single/double edge mode control."]
     #[inline(always)]
     pub fn pwmsel2(&mut self) -> PWMSEL2_W {
         PWMSEL2_W { w: self }
     }
-    #[doc = "Bit 3 - PWM\\[3\\] output edge control."]
+    #[doc = "Bit 3 - PWM\\[3\\]
+output edge control."]
     #[inline(always)]
     pub fn pwmsel3(&mut self) -> PWMSEL3_W {
         PWMSEL3_W { w: self }
     }
-    #[doc = "Bit 4 - PWM\\[4\\] output edge control."]
+    #[doc = "Bit 4 - PWM\\[4\\]
+output edge control."]
     #[inline(always)]
     pub fn pwmsel4(&mut self) -> PWMSEL4_W {
         PWMSEL4_W { w: self }
     }
-    #[doc = "Bit 5 - PWM\\[5\\] output edge control."]
+    #[doc = "Bit 5 - PWM\\[5\\]
+output edge control."]
     #[inline(always)]
     pub fn pwmsel5(&mut self) -> PWMSEL5_W {
         PWMSEL5_W { w: self }
     }
-    #[doc = "Bit 6 - PWM\\[6\\] output edge control."]
+    #[doc = "Bit 6 - PWM\\[6\\]
+output edge control."]
     #[inline(always)]
     pub fn pwmsel6(&mut self) -> PWMSEL6_W {
         PWMSEL6_W { w: self }
     }
-    #[doc = "Bit 9 - PWM\\[1\\] output enable control."]
+    #[doc = "Bit 9 - PWM\\[1\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena1(&mut self) -> PWMENA1_W {
         PWMENA1_W { w: self }
     }
-    #[doc = "Bit 10 - PWM\\[2\\] output enable control."]
+    #[doc = "Bit 10 - PWM\\[2\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena2(&mut self) -> PWMENA2_W {
         PWMENA2_W { w: self }
     }
-    #[doc = "Bit 11 - PWM\\[3\\] output enable control."]
+    #[doc = "Bit 11 - PWM\\[3\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena3(&mut self) -> PWMENA3_W {
         PWMENA3_W { w: self }
     }
-    #[doc = "Bit 12 - PWM\\[4\\] output enable control."]
+    #[doc = "Bit 12 - PWM\\[4\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena4(&mut self) -> PWMENA4_W {
         PWMENA4_W { w: self }
     }
-    #[doc = "Bit 13 - PWM\\[5\\] output enable control."]
+    #[doc = "Bit 13 - PWM\\[5\\]
+output enable control."]
     #[inline(always)]
     pub fn pwmena5(&mut self) -> PWMENA5_W {
         PWMENA5_W { w: self }
     }
-    #[doc = "Bit 14 - PWM\\[6\\] output enable control. See PWMENA1 for details."]
+    #[doc = "Bit 14 - PWM\\[6\\]
+output enable control. See PWMENA1 for details."]
     #[inline(always)]
     pub fn pwmena6(&mut self) -> PWMENA6_W {
         PWMENA6_W { w: self }

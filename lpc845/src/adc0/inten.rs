@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEQA_INTEN_A {
     #[doc = "0: Disabled. The sequence A interrupt/DMA trigger is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The sequence A interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence A, or upon completion of the entire A sequence of conversions, depending on the MODE bit in the SEQA_CTRL register."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SEQA_INTEN_A> for bool {
     #[inline(always)]
     fn from(variant: SEQA_INTEN_A) -> Self {
-        match variant {
-            SEQA_INTEN_A::DISABLED => false,
-            SEQA_INTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEQA_INTEN`"]
@@ -92,17 +89,14 @@ impl<'a> SEQA_INTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEQB_INTEN_A {
     #[doc = "0: Disabled. The sequence B interrupt/DMA trigger is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The sequence B interrupt/DMA trigger is enabled and will be asserted either upon completion of each individual conversion performed as part of sequence B, or upon completion of the entire B sequence of conversions, depending on the MODE bit in the SEQB_CTRL register."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SEQB_INTEN_A> for bool {
     #[inline(always)]
     fn from(variant: SEQB_INTEN_A) -> Self {
-        match variant {
-            SEQB_INTEN_A::DISABLED => false,
-            SEQB_INTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEQB_INTEN`"]
@@ -170,17 +164,14 @@ impl<'a> SEQB_INTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OVR_INTEN_A {
     #[doc = "0: Disabled. The overrun interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The overrun interrupt is enabled. Detection of an overrun condition on any of the 12 channel data registers will cause an overrun interrupt/DMA trigger. In addition, if the MODE bit for a particular sequence is 0, then an overrun in the global data register for that sequence will also cause this interrupt/DMA trigger to be asserted."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<OVR_INTEN_A> for bool {
     #[inline(always)]
     fn from(variant: OVR_INTEN_A) -> Self {
-        match variant {
-            OVR_INTEN_A::DISABLED => false,
-            OVR_INTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OVR_INTEN`"]
@@ -246,22 +237,19 @@ impl<'a> OVR_INTEN_W<'a> {
 }
 #[doc = "Threshold comparison interrupt enable for channel 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ADCMPINTEN0_A {
     #[doc = "0: Disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Outside threshold."]
-    OUTSIDE_THRESHOLD,
+    OUTSIDE_THRESHOLD = 1,
     #[doc = "2: Crossing threshold."]
-    CROSSING_THRESHOLD,
+    CROSSING_THRESHOLD = 2,
 }
 impl From<ADCMPINTEN0_A> for u8 {
     #[inline(always)]
     fn from(variant: ADCMPINTEN0_A) -> Self {
-        match variant {
-            ADCMPINTEN0_A::DISABLED => 0,
-            ADCMPINTEN0_A::OUTSIDE_THRESHOLD => 1,
-            ADCMPINTEN0_A::CROSSING_THRESHOLD => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `ADCMPINTEN0`"]

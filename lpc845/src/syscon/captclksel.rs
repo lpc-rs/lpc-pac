@@ -12,37 +12,29 @@ impl crate::ResetValue for super::CAPTCLKSEL {
 }
 #[doc = "Clock source for CAPT clock\n\nValue on reset: 7"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
     #[doc = "0: FRO"]
-    FRO,
+    FRO = 0,
     #[doc = "1: main clock"]
-    MAIN_CLK,
+    MAIN_CLK = 1,
     #[doc = "2: sys pll"]
-    SYS_PLL,
+    SYS_PLL = 2,
     #[doc = "3: FRO_DIV"]
-    FRO_DIV,
+    FRO_DIV = 3,
     #[doc = "4: Watchdog oscillator"]
-    WDTOSC,
+    WDTOSC = 4,
     #[doc = "5: None"]
-    NONE,
+    NONE = 5,
     #[doc = "6: None"]
-    NONE1,
+    NONE1 = 6,
     #[doc = "7: None"]
-    NONE2,
+    NONE2 = 7,
 }
 impl From<SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::FRO => 0,
-            SEL_A::MAIN_CLK => 1,
-            SEL_A::SYS_PLL => 2,
-            SEL_A::FRO_DIV => 3,
-            SEL_A::WDTOSC => 4,
-            SEL_A::NONE => 5,
-            SEL_A::NONE1 => 6,
-            SEL_A::NONE2 => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]

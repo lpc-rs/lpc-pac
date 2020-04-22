@@ -12,22 +12,19 @@ impl crate::ResetValue for super::PINSEL7 {
 }
 #[doc = "Pin function select P3.25.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P3_25_A {
     #[doc = "0: GPIO P3.25"]
-    GPIO_P3,
+    GPIO_P3 = 0,
     #[doc = "2: MAT0.0"]
-    MAT0,
+    MAT0 = 2,
     #[doc = "3: PWM1.2"]
-    PWM1,
+    PWM1 = 3,
 }
 impl From<P3_25_A> for u8 {
     #[inline(always)]
     fn from(variant: P3_25_A) -> Self {
-        match variant {
-            P3_25_A::GPIO_P3 => 0,
-            P3_25_A::MAT0 => 2,
-            P3_25_A::PWM1 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P3_25`"]
@@ -93,25 +90,21 @@ impl<'a> P3_25_W<'a> {
 }
 #[doc = "Pin function select P3.26.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum P3_26_A {
     #[doc = "0: GPIO P3.26"]
-    GPIO_P3,
+    GPIO_P3 = 0,
     #[doc = "1: STCLK"]
-    STCLK,
+    STCLK = 1,
     #[doc = "2: MAT0.1"]
-    MAT0,
+    MAT0 = 2,
     #[doc = "3: PWM1.3"]
-    PWM1,
+    PWM1 = 3,
 }
 impl From<P3_26_A> for u8 {
     #[inline(always)]
     fn from(variant: P3_26_A) -> Self {
-        match variant {
-            P3_26_A::GPIO_P3 => 0,
-            P3_26_A::STCLK => 1,
-            P3_26_A::MAT0 => 2,
-            P3_26_A::PWM1 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `P3_26`"]

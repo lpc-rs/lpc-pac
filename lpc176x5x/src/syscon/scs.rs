@@ -14,17 +14,14 @@ impl crate::ResetValue for super::SCS {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OSCRANGE_A {
     #[doc = "0: Low. The frequency range of the main oscillator is 1 MHz to 20 MHz."]
-    LOW,
+    LOW = 0,
     #[doc = "1: High. The frequency range of the main oscillator is 15 MHz to 25 MHz."]
-    HIGH,
+    HIGH = 1,
 }
 impl From<OSCRANGE_A> for bool {
     #[inline(always)]
     fn from(variant: OSCRANGE_A) -> Self {
-        match variant {
-            OSCRANGE_A::LOW => false,
-            OSCRANGE_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OSCRANGE`"]
@@ -92,17 +89,14 @@ impl<'a> OSCRANGE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OSCEN_A {
     #[doc = "0: Disabled. The main oscillator is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled.The main oscillator is enabled, and will start up if the correct external circuitry is connected to the XTAL1 and XTAL2 pins."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<OSCEN_A> for bool {
     #[inline(always)]
     fn from(variant: OSCEN_A) -> Self {
-        match variant {
-            OSCEN_A::DISABLED => false,
-            OSCEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OSCEN`"]
@@ -170,17 +164,14 @@ impl<'a> OSCEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OSCSTAT_A {
     #[doc = "0: Not ready. The main oscillator is not ready to be used as a clock source."]
-    NOT_READY,
+    NOT_READY = 0,
     #[doc = "1: Ready. The main oscillator is ready to be used as a clock source. The main oscillator must be enabled via the OSCEN bit."]
-    READY,
+    READY = 1,
 }
 impl From<OSCSTAT_A> for bool {
     #[inline(always)]
     fn from(variant: OSCSTAT_A) -> Self {
-        match variant {
-            OSCSTAT_A::NOT_READY => false,
-            OSCSTAT_A::READY => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OSCSTAT`"]

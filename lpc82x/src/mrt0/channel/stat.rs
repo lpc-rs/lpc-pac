@@ -14,17 +14,14 @@ impl crate::ResetValue for super::STAT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INTFLAG_A {
     #[doc = "0: No pending interrupt. Writing a zero is equivalent to no operation."]
-    NO_PENDING_INTERRUPT,
+    NO_PENDING_INTERRUPT = 0,
     #[doc = "1: Pending interrupt. The interrupt is pending because TIMERn has reached the end of the time interval. If the INTEN bit in the CONTROLn is also set to 1, the interrupt for timer channel n and the global interrupt are raised. Writing a 1 to this bit clears the interrupt request."]
-    PENDING_INTERRUPT,
+    PENDING_INTERRUPT = 1,
 }
 impl From<INTFLAG_A> for bool {
     #[inline(always)]
     fn from(variant: INTFLAG_A) -> Self {
-        match variant {
-            INTFLAG_A::NO_PENDING_INTERRUPT => false,
-            INTFLAG_A::PENDING_INTERRUPT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INTFLAG`"]
@@ -92,17 +89,14 @@ impl<'a> INTFLAG_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RUN_A {
     #[doc = "0: Idle state. TIMERn is stopped."]
-    IDLE_STATE,
+    IDLE_STATE = 0,
     #[doc = "1: Running. TIMERn is running."]
-    RUNNING,
+    RUNNING = 1,
 }
 impl From<RUN_A> for bool {
     #[inline(always)]
     fn from(variant: RUN_A) -> Self {
-        match variant {
-            RUN_A::IDLE_STATE => false,
-            RUN_A::RUNNING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RUN`"]

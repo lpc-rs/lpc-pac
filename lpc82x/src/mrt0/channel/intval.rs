@@ -28,17 +28,14 @@ impl<'a> IVALUE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOAD_A {
     #[doc = "0: No force load. The load from the INTVALn register to the TIMERn register is processed at the end of the time interval if the repeat mode is selected."]
-    NO_FORCE_LOAD,
+    NO_FORCE_LOAD = 0,
     #[doc = "1: Force load. The INTVALn interval value IVALUE -1 is immediately loaded into the TIMERn register while TIMERn is running."]
-    FORCE_LOAD,
+    FORCE_LOAD = 1,
 }
 impl From<LOAD_A> for bool {
     #[inline(always)]
     fn from(variant: LOAD_A) -> Self {
-        match variant {
-            LOAD_A::NO_FORCE_LOAD => false,
-            LOAD_A::FORCE_LOAD => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOAD`"]

@@ -108,25 +108,21 @@ impl<'a> EM3_W<'a> {
 }
 #[doc = "External Match Control 0. Determines the functionality of External Match 0. Table 296 shows the encoding of these bits.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EMC0_A {
     #[doc = "0: Do Nothing."]
-    DO_NOTHING,
+    DO_NOTHING = 0,
     #[doc = "1: Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT0 pin is LOW if pinned out)."]
-    CLEAR,
+    CLEAR = 1,
     #[doc = "2: Set the corresponding External Match bit/output to 1 (CT16Bn_MAT0 pin is HIGH if pinned out)."]
-    SET,
+    SET = 2,
     #[doc = "3: Toggle the corresponding External Match bit/output."]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<EMC0_A> for u8 {
     #[inline(always)]
     fn from(variant: EMC0_A) -> Self {
-        match variant {
-            EMC0_A::DO_NOTHING => 0,
-            EMC0_A::CLEAR => 1,
-            EMC0_A::SET => 2,
-            EMC0_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EMC0`"]
@@ -205,25 +201,21 @@ impl<'a> EMC0_W<'a> {
 }
 #[doc = "External Match Control 1. Determines the functionality of External Match 1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EMC1_A {
     #[doc = "0: Do Nothing."]
-    DO_NOTHING,
+    DO_NOTHING = 0,
     #[doc = "1: Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT1 pin is LOW if pinned out)."]
-    CLEAR,
+    CLEAR = 1,
     #[doc = "2: Set the corresponding External Match bit/output to 1 (CT16Bn_MAT1 pin is HIGH if pinned out)."]
-    SET,
+    SET = 2,
     #[doc = "3: Toggle the corresponding External Match bit/output."]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<EMC1_A> for u8 {
     #[inline(always)]
     fn from(variant: EMC1_A) -> Self {
-        match variant {
-            EMC1_A::DO_NOTHING => 0,
-            EMC1_A::CLEAR => 1,
-            EMC1_A::SET => 2,
-            EMC1_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EMC1`"]
@@ -302,25 +294,21 @@ impl<'a> EMC1_W<'a> {
 }
 #[doc = "External Match Control 2. Determines the functionality of External Match 2.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EMC2_A {
     #[doc = "0: Do Nothing."]
-    DO_NOTHING,
+    DO_NOTHING = 0,
     #[doc = "1: Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT2 pin is LOW if pinned out)."]
-    CLEAR,
+    CLEAR = 1,
     #[doc = "2: Set the corresponding External Match bit/output to 1 (CT16Bn_MAT2 pin is HIGH if pinned out)."]
-    SET,
+    SET = 2,
     #[doc = "3: Toggle the corresponding External Match bit/output."]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<EMC2_A> for u8 {
     #[inline(always)]
     fn from(variant: EMC2_A) -> Self {
-        match variant {
-            EMC2_A::DO_NOTHING => 0,
-            EMC2_A::CLEAR => 1,
-            EMC2_A::SET => 2,
-            EMC2_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EMC2`"]
@@ -399,25 +387,21 @@ impl<'a> EMC2_W<'a> {
 }
 #[doc = "External Match Control 3. Determines the functionality of External Match 3.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EMC3_A {
     #[doc = "0: Do Nothing."]
-    DO_NOTHING,
+    DO_NOTHING = 0,
     #[doc = "1: Clear the corresponding External Match bit/output to 0 (CT16Bn_MAT3 pin is LOW if pinned out)."]
-    CLEAR,
+    CLEAR = 1,
     #[doc = "2: Set the corresponding External Match bit/output to 1 (CT16Bn_MAT3 pin is HIGH if pinned out)."]
-    SET,
+    SET = 2,
     #[doc = "3: Toggle the corresponding External Match bit/output."]
-    TOGGLE,
+    TOGGLE = 3,
 }
 impl From<EMC3_A> for u8 {
     #[inline(always)]
     fn from(variant: EMC3_A) -> Self {
-        match variant {
-            EMC3_A::DO_NOTHING => 0,
-            EMC3_A::CLEAR => 1,
-            EMC3_A::SET => 2,
-            EMC3_A::TOGGLE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `EMC3`"]
@@ -495,22 +479,26 @@ impl<'a> EMC3_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - External Match 0. This bit reflects the state of output CT16B0_MAT0/CT16B1_MAT0, whether or not this output is connected to its pin. When a match occurs between the TC and MR0, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[5:4\\] control the functionality of this output. This bit is driven to the CT16B0_MAT0/CT16B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
+    #[doc = "Bit 0 - External Match 0. This bit reflects the state of output CT16B0_MAT0/CT16B1_MAT0, whether or not this output is connected to its pin. When a match occurs between the TC and MR0, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[5:4\\]
+control the functionality of this output. This bit is driven to the CT16B0_MAT0/CT16B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
     #[inline(always)]
     pub fn em0(&self) -> EM0_R {
         EM0_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 1 - External Match 1. This bit reflects the state of output CT16B0_MAT1/CT16B1_MAT1, whether or not this output is connected to its pin. When a match occurs between the TC and MR1, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[7:6\\] control the functionality of this output. This bit is driven to the CT16B0_MAT0/CT16B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
+    #[doc = "Bit 1 - External Match 1. This bit reflects the state of output CT16B0_MAT1/CT16B1_MAT1, whether or not this output is connected to its pin. When a match occurs between the TC and MR1, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[7:6\\]
+control the functionality of this output. This bit is driven to the CT16B0_MAT0/CT16B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
     #[inline(always)]
     pub fn em1(&self) -> EM1_R {
         EM1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - External Match 2. This bit reflects the state of match channel 2. When a match occurs between the TC and MR2, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[9:8\\] control the functionality of this output."]
+    #[doc = "Bit 2 - External Match 2. This bit reflects the state of match channel 2. When a match occurs between the TC and MR2, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[9:8\\]
+control the functionality of this output."]
     #[inline(always)]
     pub fn em2(&self) -> EM2_R {
         EM2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
-    #[doc = "Bit 3 - External Match 3. This bit reflects the state of output of match channel 3. When a match occurs between the TC and MR3, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[11:10\\] control the functionality of this output."]
+    #[doc = "Bit 3 - External Match 3. This bit reflects the state of output of match channel 3. When a match occurs between the TC and MR3, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[11:10\\]
+control the functionality of this output."]
     #[inline(always)]
     pub fn em3(&self) -> EM3_R {
         EM3_R::new(((self.bits >> 3) & 0x01) != 0)
@@ -537,22 +525,26 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - External Match 0. This bit reflects the state of output CT16B0_MAT0/CT16B1_MAT0, whether or not this output is connected to its pin. When a match occurs between the TC and MR0, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[5:4\\] control the functionality of this output. This bit is driven to the CT16B0_MAT0/CT16B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
+    #[doc = "Bit 0 - External Match 0. This bit reflects the state of output CT16B0_MAT0/CT16B1_MAT0, whether or not this output is connected to its pin. When a match occurs between the TC and MR0, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[5:4\\]
+control the functionality of this output. This bit is driven to the CT16B0_MAT0/CT16B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
     #[inline(always)]
     pub fn em0(&mut self) -> EM0_W {
         EM0_W { w: self }
     }
-    #[doc = "Bit 1 - External Match 1. This bit reflects the state of output CT16B0_MAT1/CT16B1_MAT1, whether or not this output is connected to its pin. When a match occurs between the TC and MR1, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[7:6\\] control the functionality of this output. This bit is driven to the CT16B0_MAT0/CT16B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
+    #[doc = "Bit 1 - External Match 1. This bit reflects the state of output CT16B0_MAT1/CT16B1_MAT1, whether or not this output is connected to its pin. When a match occurs between the TC and MR1, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[7:6\\]
+control the functionality of this output. This bit is driven to the CT16B0_MAT0/CT16B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
     #[inline(always)]
     pub fn em1(&mut self) -> EM1_W {
         EM1_W { w: self }
     }
-    #[doc = "Bit 2 - External Match 2. This bit reflects the state of match channel 2. When a match occurs between the TC and MR2, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[9:8\\] control the functionality of this output."]
+    #[doc = "Bit 2 - External Match 2. This bit reflects the state of match channel 2. When a match occurs between the TC and MR2, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[9:8\\]
+control the functionality of this output."]
     #[inline(always)]
     pub fn em2(&mut self) -> EM2_W {
         EM2_W { w: self }
     }
-    #[doc = "Bit 3 - External Match 3. This bit reflects the state of output of match channel 3. When a match occurs between the TC and MR3, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[11:10\\] control the functionality of this output."]
+    #[doc = "Bit 3 - External Match 3. This bit reflects the state of output of match channel 3. When a match occurs between the TC and MR3, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[11:10\\]
+control the functionality of this output."]
     #[inline(always)]
     pub fn em3(&mut self) -> EM3_W {
         EM3_W { w: self }

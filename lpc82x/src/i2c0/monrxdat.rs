@@ -6,17 +6,14 @@ pub type MONRXDAT_R = crate::R<u8, u8>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONSTART_A {
     #[doc = "0: No start detected. The Monitor function has not detected a Start event on the I2C bus."]
-    NO_START_DETECTED,
+    NO_START_DETECTED = 0,
     #[doc = "1: Start detected. The Monitor function has detected a Start event on the I2C bus."]
-    START_DETECTED,
+    START_DETECTED = 1,
 }
 impl From<MONSTART_A> for bool {
     #[inline(always)]
     fn from(variant: MONSTART_A) -> Self {
-        match variant {
-            MONSTART_A::NO_START_DETECTED => false,
-            MONSTART_A::START_DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONSTART`"]
@@ -45,17 +42,14 @@ impl MONSTART_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONRESTART_A {
     #[doc = "0: No repeated start detected. The Monitor function has not detected a Repeated Start event on the I2C bus."]
-    NOT_DETECTED,
+    NOT_DETECTED = 0,
     #[doc = "1: Repeated start detected. The Monitor function has detected a Repeated Start event on the I2C bus."]
-    DETECTED,
+    DETECTED = 1,
 }
 impl From<MONRESTART_A> for bool {
     #[inline(always)]
     fn from(variant: MONRESTART_A) -> Self {
-        match variant {
-            MONRESTART_A::NOT_DETECTED => false,
-            MONRESTART_A::DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONRESTART`"]
@@ -84,17 +78,14 @@ impl MONRESTART_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONNACK_A {
     #[doc = "0: Acknowledged. The data currently being provided by the Monitor function was acknowledged by at least one master or slave receiver."]
-    ACKNOWLEDGED,
+    ACKNOWLEDGED = 0,
     #[doc = "1: Not acknowledged. The data currently being provided by the Monitor function was not acknowledged by any receiver."]
-    NOT_ACKNOWLEDGED,
+    NOT_ACKNOWLEDGED = 1,
 }
 impl From<MONNACK_A> for bool {
     #[inline(always)]
     fn from(variant: MONNACK_A) -> Self {
-        match variant {
-            MONNACK_A::ACKNOWLEDGED => false,
-            MONNACK_A::NOT_ACKNOWLEDGED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONNACK`"]

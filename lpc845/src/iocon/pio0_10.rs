@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PIO0_10 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INV_A {
     #[doc = "0: Input not inverted (HIGH on pin reads as 1; LOW on pin reads as 0)."]
-    NOT_INVERTED,
+    NOT_INVERTED = 0,
     #[doc = "1: Input inverted (HIGH on pin reads as 0, LOW on pin reads as 1)."]
-    INVERTED,
+    INVERTED = 1,
 }
 impl From<INV_A> for bool {
     #[inline(always)]
     fn from(variant: INV_A) -> Self {
-        match variant {
-            INV_A::NOT_INVERTED => false,
-            INV_A::INVERTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INV`"]
@@ -90,22 +87,19 @@ impl<'a> INV_W<'a> {
 }
 #[doc = "Selects I2C mode.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum I2CMODE_A {
     #[doc = "0: Standard mode/ Fast-mode I2C."]
-    STANDARAD_I2C,
+    STANDARAD_I2C = 0,
     #[doc = "1: Standard GPIO functionality. Requires external pull-up for GPIO output function."]
-    STANDARD_GPIO,
+    STANDARD_GPIO = 1,
     #[doc = "2: Fast-mode Plus I2C"]
-    FAST_PLUS_I2C,
+    FAST_PLUS_I2C = 2,
 }
 impl From<I2CMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: I2CMODE_A) -> Self {
-        match variant {
-            I2CMODE_A::STANDARAD_I2C => 0,
-            I2CMODE_A::STANDARD_GPIO => 1,
-            I2CMODE_A::FAST_PLUS_I2C => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `I2CMODE`"]
@@ -172,25 +166,21 @@ impl<'a> I2CMODE_W<'a> {
 }
 #[doc = "Digital filter sample mode.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum S_MODE_A {
     #[doc = "0: Bypass input filter."]
-    S_MODE_0,
+    S_MODE_0 = 0,
     #[doc = "1: 1 clock cycle. Input pulses shorter than one filter clock are rejected."]
-    S_MODE_1,
+    S_MODE_1 = 1,
     #[doc = "2: 2 clock cycles. Input pulses shorter than two filter clocks are rejected."]
-    S_MODE_2,
+    S_MODE_2 = 2,
     #[doc = "3: 3 clock cycles. Input pulses shorter than three filter clocks are rejected."]
-    S_MODE_3,
+    S_MODE_3 = 3,
 }
 impl From<S_MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: S_MODE_A) -> Self {
-        match variant {
-            S_MODE_A::S_MODE_0 => 0,
-            S_MODE_A::S_MODE_1 => 1,
-            S_MODE_A::S_MODE_2 => 2,
-            S_MODE_A::S_MODE_3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `S_MODE`"]
@@ -269,34 +259,27 @@ impl<'a> S_MODE_W<'a> {
 }
 #[doc = "Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CLK_DIV_A {
     #[doc = "0: IOCONCLKDIV0"]
-    CLK_DIV_0,
+    CLK_DIV_0 = 0,
     #[doc = "1: IOCONCLKDIV1"]
-    CLK_DIV_1,
+    CLK_DIV_1 = 1,
     #[doc = "2: IOCONCLKDIV2"]
-    CLK_DIV_2,
+    CLK_DIV_2 = 2,
     #[doc = "3: IOCONCLKDIV3"]
-    CLK_DIV_3,
+    CLK_DIV_3 = 3,
     #[doc = "4: IOCONCLKDIV4"]
-    CLK_DIV_4,
+    CLK_DIV_4 = 4,
     #[doc = "5: IOCONCLKDIV5"]
-    CLK_DIV_5,
+    CLK_DIV_5 = 5,
     #[doc = "6: IOCONCLKDIV6"]
-    CLK_DIV_6,
+    CLK_DIV_6 = 6,
 }
 impl From<CLK_DIV_A> for u8 {
     #[inline(always)]
     fn from(variant: CLK_DIV_A) -> Self {
-        match variant {
-            CLK_DIV_A::CLK_DIV_0 => 0,
-            CLK_DIV_A::CLK_DIV_1 => 1,
-            CLK_DIV_A::CLK_DIV_2 => 2,
-            CLK_DIV_A::CLK_DIV_3 => 3,
-            CLK_DIV_A::CLK_DIV_4 => 4,
-            CLK_DIV_A::CLK_DIV_5 => 5,
-            CLK_DIV_A::CLK_DIV_6 => 6,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CLK_DIV`"]

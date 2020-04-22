@@ -12,25 +12,21 @@ impl crate::ResetValue for super::PCLKSEL1 {
 }
 #[doc = "Peripheral clock selection for the Quadrature Encoder Interface.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_QEI_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_QEI_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_QEI_A) -> Self {
-        match variant {
-            PCLK_QEI_A::CCLK_DIV_4 => 0,
-            PCLK_QEI_A::CCLK => 1,
-            PCLK_QEI_A::CCLK_DIV_2 => 2,
-            PCLK_QEI_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_QEI`"]
@@ -109,25 +105,21 @@ impl<'a> PCLK_QEI_W<'a> {
 }
 #[doc = "Peripheral clock selection for GPIO interrupts.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_GPIOINT_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_GPIOINT_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_GPIOINT_A) -> Self {
-        match variant {
-            PCLK_GPIOINT_A::CCLK_DIV_4 => 0,
-            PCLK_GPIOINT_A::CCLK => 1,
-            PCLK_GPIOINT_A::CCLK_DIV_2 => 2,
-            PCLK_GPIOINT_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_GPIOINT`"]
@@ -206,25 +198,21 @@ impl<'a> PCLK_GPIOINT_W<'a> {
 }
 #[doc = "Peripheral clock selection for the Pin Connect block.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_PCB_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_PCB_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_PCB_A) -> Self {
-        match variant {
-            PCLK_PCB_A::CCLK_DIV_4 => 0,
-            PCLK_PCB_A::CCLK => 1,
-            PCLK_PCB_A::CCLK_DIV_2 => 2,
-            PCLK_PCB_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_PCB`"]
@@ -303,25 +291,21 @@ impl<'a> PCLK_PCB_W<'a> {
 }
 #[doc = "Peripheral clock selection for I2C1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_I2C1_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_I2C1_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_I2C1_A) -> Self {
-        match variant {
-            PCLK_I2C1_A::CCLK_DIV_4 => 0,
-            PCLK_I2C1_A::CCLK => 1,
-            PCLK_I2C1_A::CCLK_DIV_2 => 2,
-            PCLK_I2C1_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_I2C1`"]
@@ -400,25 +384,21 @@ impl<'a> PCLK_I2C1_W<'a> {
 }
 #[doc = "Peripheral clock selection for SSP0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_SSP0_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_SSP0_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_SSP0_A) -> Self {
-        match variant {
-            PCLK_SSP0_A::CCLK_DIV_4 => 0,
-            PCLK_SSP0_A::CCLK => 1,
-            PCLK_SSP0_A::CCLK_DIV_2 => 2,
-            PCLK_SSP0_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_SSP0`"]
@@ -497,25 +477,21 @@ impl<'a> PCLK_SSP0_W<'a> {
 }
 #[doc = "Peripheral clock selection for TIMER2.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_TIMER2_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_TIMER2_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_TIMER2_A) -> Self {
-        match variant {
-            PCLK_TIMER2_A::CCLK_DIV_4 => 0,
-            PCLK_TIMER2_A::CCLK => 1,
-            PCLK_TIMER2_A::CCLK_DIV_2 => 2,
-            PCLK_TIMER2_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_TIMER2`"]
@@ -594,25 +570,21 @@ impl<'a> PCLK_TIMER2_W<'a> {
 }
 #[doc = "Peripheral clock selection for TIMER3.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_TIMER3_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_TIMER3_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_TIMER3_A) -> Self {
-        match variant {
-            PCLK_TIMER3_A::CCLK_DIV_4 => 0,
-            PCLK_TIMER3_A::CCLK => 1,
-            PCLK_TIMER3_A::CCLK_DIV_2 => 2,
-            PCLK_TIMER3_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_TIMER3`"]
@@ -691,25 +663,21 @@ impl<'a> PCLK_TIMER3_W<'a> {
 }
 #[doc = "Peripheral clock selection for UART2.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_UART2_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_UART2_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_UART2_A) -> Self {
-        match variant {
-            PCLK_UART2_A::CCLK_DIV_4 => 0,
-            PCLK_UART2_A::CCLK => 1,
-            PCLK_UART2_A::CCLK_DIV_2 => 2,
-            PCLK_UART2_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_UART2`"]
@@ -788,25 +756,21 @@ impl<'a> PCLK_UART2_W<'a> {
 }
 #[doc = "Peripheral clock selection for UART3.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_UART3_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_UART3_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_UART3_A) -> Self {
-        match variant {
-            PCLK_UART3_A::CCLK_DIV_4 => 0,
-            PCLK_UART3_A::CCLK => 1,
-            PCLK_UART3_A::CCLK_DIV_2 => 2,
-            PCLK_UART3_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_UART3`"]
@@ -885,25 +849,21 @@ impl<'a> PCLK_UART3_W<'a> {
 }
 #[doc = "Peripheral clock selection for I2C2.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_I2C2_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_I2C2_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_I2C2_A) -> Self {
-        match variant {
-            PCLK_I2C2_A::CCLK_DIV_4 => 0,
-            PCLK_I2C2_A::CCLK => 1,
-            PCLK_I2C2_A::CCLK_DIV_2 => 2,
-            PCLK_I2C2_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_I2C2`"]
@@ -982,25 +942,21 @@ impl<'a> PCLK_I2C2_W<'a> {
 }
 #[doc = "Peripheral clock selection for I2S.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_I2S_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_I2S_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_I2S_A) -> Self {
-        match variant {
-            PCLK_I2S_A::CCLK_DIV_4 => 0,
-            PCLK_I2S_A::CCLK => 1,
-            PCLK_I2S_A::CCLK_DIV_2 => 2,
-            PCLK_I2S_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_I2S`"]
@@ -1079,25 +1035,21 @@ impl<'a> PCLK_I2S_W<'a> {
 }
 #[doc = "Peripheral clock selection for Repetitive Interrupt Timer.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_RIT_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_RIT_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_RIT_A) -> Self {
-        match variant {
-            PCLK_RIT_A::CCLK_DIV_4 => 0,
-            PCLK_RIT_A::CCLK => 1,
-            PCLK_RIT_A::CCLK_DIV_2 => 2,
-            PCLK_RIT_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_RIT`"]
@@ -1176,25 +1128,21 @@ impl<'a> PCLK_RIT_W<'a> {
 }
 #[doc = "Peripheral clock selection for the System Control block.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_SYSCON_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_SYSCON_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_SYSCON_A) -> Self {
-        match variant {
-            PCLK_SYSCON_A::CCLK_DIV_4 => 0,
-            PCLK_SYSCON_A::CCLK => 1,
-            PCLK_SYSCON_A::CCLK_DIV_2 => 2,
-            PCLK_SYSCON_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_SYSCON`"]
@@ -1273,25 +1221,21 @@ impl<'a> PCLK_SYSCON_W<'a> {
 }
 #[doc = "Peripheral clock selection for the Motor Control PWM.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PCLK_MC_A {
     #[doc = "0: CCLK div 4. PCLK_peripheral = CCLK/4"]
-    CCLK_DIV_4,
+    CCLK_DIV_4 = 0,
     #[doc = "1: CCLK. PCLK_peripheral = CCLK"]
-    CCLK,
+    CCLK = 1,
     #[doc = "2: CCLK div 2. PCLK_peripheral = CCLK/2"]
-    CCLK_DIV_2,
+    CCLK_DIV_2 = 2,
     #[doc = "3: CCLK div 8. PCLK_peripheral = CCLK/8"]
-    CCLK_DIV_8,
+    CCLK_DIV_8 = 3,
 }
 impl From<PCLK_MC_A> for u8 {
     #[inline(always)]
     fn from(variant: PCLK_MC_A) -> Self {
-        match variant {
-            PCLK_MC_A::CCLK_DIV_4 => 0,
-            PCLK_MC_A::CCLK => 1,
-            PCLK_MC_A::CCLK_DIV_2 => 2,
-            PCLK_MC_A::CCLK_DIV_8 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PCLK_MC`"]

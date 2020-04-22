@@ -14,17 +14,14 @@ impl crate::ResetValue for super::TCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CE_A {
     #[doc = "1: The PWM Timer Counter and PWM Prescale Counter are enabled for counting."]
-    THE_PWM_TIMER_COUNTE,
+    THE_PWM_TIMER_COUNTE = 1,
     #[doc = "0: The counters are disabled."]
-    THE_COUNTERS_ARE_DIS,
+    THE_COUNTERS_ARE_DIS = 0,
 }
 impl From<CE_A> for bool {
     #[inline(always)]
     fn from(variant: CE_A) -> Self {
-        match variant {
-            CE_A::THE_PWM_TIMER_COUNTE => true,
-            CE_A::THE_COUNTERS_ARE_DIS => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CE`"]
@@ -92,17 +89,14 @@ impl<'a> CE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CR_A {
     #[doc = "1: The PWM Timer Counter and the PWM Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until this bit is returned to zero."]
-    THE_PWM_TIMER_COUNTE,
+    THE_PWM_TIMER_COUNTE = 1,
     #[doc = "0: Clear reset."]
-    CLEAR_RESET_,
+    CLEAR_RESET_ = 0,
 }
 impl From<CR_A> for bool {
     #[inline(always)]
     fn from(variant: CR_A) -> Self {
-        match variant {
-            CR_A::THE_PWM_TIMER_COUNTE => true,
-            CR_A::CLEAR_RESET_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CR`"]
@@ -170,17 +164,14 @@ impl<'a> CR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN_A {
     #[doc = "1: PWM mode is enabled (counter resets to 1). PWM mode causes the shadow registers to operate in connection with the Match registers. A program write to a Match register will not have an effect on the Match result until the corresponding bit in PWMLER has been set, followed by the occurrence of a PWM Match 0 event. Note that the PWM Match register that determines the PWM rate (PWM Match Register 0 - MR0) must be set up prior to the PWM being enabled. Otherwise a Match event will not occur to cause shadow register contents to become effective."]
-    PWM_MODE_IS_ENABLED_,
+    PWM_MODE_IS_ENABLED_ = 1,
     #[doc = "0: Timer mode is enabled (counter resets to 0)."]
-    TIMER_MODE_IS_ENABLE,
+    TIMER_MODE_IS_ENABLE = 0,
 }
 impl From<PWMEN_A> for bool {
     #[inline(always)]
     fn from(variant: PWMEN_A) -> Self {
-        match variant {
-            PWMEN_A::PWM_MODE_IS_ENABLED_ => true,
-            PWMEN_A::TIMER_MODE_IS_ENABLE => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMEN`"]
@@ -248,17 +239,14 @@ impl<'a> PWMEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MDIS_A {
     #[doc = "1: Master use. PWM0 is the master, and both PWMs are enabled for counting."]
-    MASTER_USE_PWM0_IS_,
+    MASTER_USE_PWM0_IS_ = 1,
     #[doc = "0: Individual use. The PWMs are used independently, and the individual Counter Enable bits are used to control the PWMs."]
-    INDIVIDUAL_USE_THE_,
+    INDIVIDUAL_USE_THE_ = 0,
 }
 impl From<MDIS_A> for bool {
     #[inline(always)]
     fn from(variant: MDIS_A) -> Self {
-        match variant {
-            MDIS_A::MASTER_USE_PWM0_IS_ => true,
-            MDIS_A::INDIVIDUAL_USE_THE_ => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MDIS`"]

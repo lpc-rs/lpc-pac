@@ -12,31 +12,25 @@ impl crate::ResetValue for super::FLASHCFG {
 }
 #[doc = "Flash access time. The value of this field plus 1 gives the number of CPU clocks used for a flash access. Warning: improper setting of this value may result in incorrect operation of the device. Other values are reserved.\n\nValue on reset: 3"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FLASHTIM_A {
     #[doc = "0: Flash accesses use 1 CPU clock. Use for up to 20 MHz CPU clock."]
-    _1CLK,
+    _1CLK = 0,
     #[doc = "1: Flash accesses use 2 CPU clocks. Use for up to 40 MHz CPU clock."]
-    _2CLK,
+    _2CLK = 1,
     #[doc = "2: Flash accesses use 3 CPU clocks. Use for up to 60 MHz CPU clock."]
-    _3CLK,
+    _3CLK = 2,
     #[doc = "3: Flash accesses use 4 CPU clocks. Use for up to 80 MHz CPU clock."]
-    _4CLK,
+    _4CLK = 3,
     #[doc = "4: Flash accesses use 5 CPU clocks. Use for up to 100 MHz CPU clock. Use for up to 120 Mhz for LPC1759 and LPC1769 only."]
-    _5CLK,
+    _5CLK = 4,
     #[doc = "5: Flash accesses use 6 CPU clocks. This safe setting will work under any conditions."]
-    _6CLK,
+    _6CLK = 5,
 }
 impl From<FLASHTIM_A> for u8 {
     #[inline(always)]
     fn from(variant: FLASHTIM_A) -> Self {
-        match variant {
-            FLASHTIM_A::_1CLK => 0,
-            FLASHTIM_A::_2CLK => 1,
-            FLASHTIM_A::_3CLK => 2,
-            FLASHTIM_A::_4CLK => 3,
-            FLASHTIM_A::_5CLK => 4,
-            FLASHTIM_A::_6CLK => 5,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FLASHTIM`"]

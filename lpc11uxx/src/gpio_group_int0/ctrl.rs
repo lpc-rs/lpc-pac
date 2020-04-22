@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INT_A {
     #[doc = "0: No interrupt request is pending."]
-    NO_INTERRUPT_REQUEST,
+    NO_INTERRUPT_REQUEST = 0,
     #[doc = "1: Interrupt request is active."]
-    INTERRUPT_REQUEST_IS,
+    INTERRUPT_REQUEST_IS = 1,
 }
 impl From<INT_A> for bool {
     #[inline(always)]
     fn from(variant: INT_A) -> Self {
-        match variant {
-            INT_A::NO_INTERRUPT_REQUEST => false,
-            INT_A::INTERRUPT_REQUEST_IS => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INT`"]
@@ -92,17 +89,14 @@ impl<'a> INT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum COMB_A {
     #[doc = "0: OR functionality: A grouped interrupt is generated when any one of the enabled inputs is active (based on its programmed polarity)."]
-    OR,
+    OR = 0,
     #[doc = "1: AND functionality: An interrupt is generated when all enabled bits are active (based on their programmed polarity)."]
-    AND,
+    AND = 1,
 }
 impl From<COMB_A> for bool {
     #[inline(always)]
     fn from(variant: COMB_A) -> Self {
-        match variant {
-            COMB_A::OR => false,
-            COMB_A::AND => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `COMB`"]
@@ -170,17 +164,14 @@ impl<'a> COMB_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIG_A {
     #[doc = "0: Edge-triggered"]
-    EDGE_TRIGGERED,
+    EDGE_TRIGGERED = 0,
     #[doc = "1: Level-triggered"]
-    LEVEL_TRIGGERED,
+    LEVEL_TRIGGERED = 1,
 }
 impl From<TRIG_A> for bool {
     #[inline(always)]
     fn from(variant: TRIG_A) -> Self {
-        match variant {
-            TRIG_A::EDGE_TRIGGERED => false,
-            TRIG_A::LEVEL_TRIGGERED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIG`"]

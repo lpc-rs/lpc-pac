@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PINENABLE1 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_X4_A {
     #[doc = "0: CAPT_X4 enabled on pin PIO1_3."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_X4 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_X4_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_X4_A) -> Self {
-        match variant {
-            CAPT_X4_A::ENABLED => false,
-            CAPT_X4_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_X4`"]
@@ -92,17 +89,14 @@ impl<'a> CAPT_X4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_X5_A {
     #[doc = "0: CAPT_X5 enabled on pin PIO1_4."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_X5 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_X5_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_X5_A) -> Self {
-        match variant {
-            CAPT_X5_A::ENABLED => false,
-            CAPT_X5_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_X5`"]
@@ -170,17 +164,14 @@ impl<'a> CAPT_X5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_X6_A {
     #[doc = "0: CAPT_X6 enabled on pin PIO1_5."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_X6 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_X6_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_X6_A) -> Self {
-        match variant {
-            CAPT_X6_A::ENABLED => false,
-            CAPT_X6_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_X6`"]
@@ -248,17 +239,14 @@ impl<'a> CAPT_X6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_X7_A {
     #[doc = "0: CAPT_X7 enabled on pin PIO1_6."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_X7 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_X7_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_X7_A) -> Self {
-        match variant {
-            CAPT_X7_A::ENABLED => false,
-            CAPT_X7_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_X7`"]
@@ -326,17 +314,14 @@ impl<'a> CAPT_X7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_X8_A {
     #[doc = "0: CAPT_X8 enabled on pin PIO1_7."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_X8 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_X8_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_X8_A) -> Self {
-        match variant {
-            CAPT_X8_A::ENABLED => false,
-            CAPT_X8_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_X8`"]
@@ -404,17 +389,14 @@ impl<'a> CAPT_X8_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_YL_A {
     #[doc = "0: CAPT_YL enabled on pin PIO1_8."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_YL disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_YL_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_YL_A) -> Self {
-        match variant {
-            CAPT_YL_A::ENABLED => false,
-            CAPT_YL_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_YL`"]
@@ -482,17 +464,14 @@ impl<'a> CAPT_YL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_YH_A {
     #[doc = "0: CAPT_YH enabled on pin PIO1_9."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_YH disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_YH_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_YH_A) -> Self {
-        match variant {
-            CAPT_YH_A::ENABLED => false,
-            CAPT_YH_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_YH`"]

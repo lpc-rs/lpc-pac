@@ -14,17 +14,14 @@ impl crate::ResetValue for super::TCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CEN_A {
     #[doc = "0: The counters are disabled."]
-    THE_COUNTERS_ARE_DIS,
+    THE_COUNTERS_ARE_DIS = 0,
     #[doc = "1: The Timer Counter and Prescale Counter are enabled for counting."]
-    THE_TIMER_COUNTER_AN,
+    THE_TIMER_COUNTER_AN = 1,
 }
 impl From<CEN_A> for bool {
     #[inline(always)]
     fn from(variant: CEN_A) -> Self {
-        match variant {
-            CEN_A::THE_COUNTERS_ARE_DIS => false,
-            CEN_A::THE_TIMER_COUNTER_AN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CEN`"]
@@ -92,17 +89,15 @@ impl<'a> CEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CRST_A {
     #[doc = "0: Do nothing."]
-    DO_NOTHING,
-    #[doc = "1: The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
-    RESET,
+    DO_NOTHING = 0,
+    #[doc = "1: The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\]
+is returned to zero."]
+    RESET = 1,
 }
 impl From<CRST_A> for bool {
     #[inline(always)]
     fn from(variant: CRST_A) -> Self {
-        match variant {
-            CRST_A::DO_NOTHING => false,
-            CRST_A::RESET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CRST`"]
@@ -144,7 +139,8 @@ impl<'a> CRST_W<'a> {
     pub fn do_nothing(self) -> &'a mut W {
         self.variant(CRST_A::DO_NOTHING)
     }
-    #[doc = "The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\] is returned to zero."]
+    #[doc = "The Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR\\[1\\]
+is returned to zero."]
     #[inline(always)]
     pub fn reset(self) -> &'a mut W {
         self.variant(CRST_A::RESET)

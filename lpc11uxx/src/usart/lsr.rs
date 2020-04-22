@@ -1,20 +1,18 @@
 #[doc = "Reader of register LSR"]
 pub type R = crate::R<u32, super::LSR>;
-#[doc = "Receiver Data Ready:LSR\\[0\\] is set when the RBR holds an unread character and is cleared when the USART RBR FIFO is empty.\n\nValue on reset: 0"]
+#[doc = "Receiver Data Ready:LSR\\[0\\]
+is set when the RBR holds an unread character and is cleared when the USART RBR FIFO is empty.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RDR_A {
     #[doc = "0: RBR is empty."]
-    EMPTY,
+    EMPTY = 0,
     #[doc = "1: RBR contains valid data."]
-    VALID,
+    VALID = 1,
 }
 impl From<RDR_A> for bool {
     #[inline(always)]
     fn from(variant: RDR_A) -> Self {
-        match variant {
-            RDR_A::EMPTY => false,
-            RDR_A::VALID => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RDR`"]
@@ -39,21 +37,19 @@ impl RDR_R {
         *self == RDR_A::VALID
     }
 }
-#[doc = "Overrun Error. The overrun error condition is set as soon as it occurs. A LSR read clears LSR\\[1\\]. LSR\\[1\\] is set when USART RSR has a new character assembled and the USART RBR FIFO is full. In this case, the USART RBR FIFO will not be overwritten and the character in the USART RSR will be lost.\n\nValue on reset: 0"]
+#[doc = "Overrun Error. The overrun error condition is set as soon as it occurs. A LSR read clears LSR\\[1\\]. LSR\\[1\\]
+is set when USART RSR has a new character assembled and the USART RBR FIFO is full. In this case, the USART RBR FIFO will not be overwritten and the character in the USART RSR will be lost.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OE_A {
     #[doc = "0: Overrun error status is inactive."]
-    INACTIVE,
+    INACTIVE = 0,
     #[doc = "1: Overrun error status is active."]
-    ACTIVE,
+    ACTIVE = 1,
 }
 impl From<OE_A> for bool {
     #[inline(always)]
     fn from(variant: OE_A) -> Self {
-        match variant {
-            OE_A::INACTIVE => false,
-            OE_A::ACTIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OE`"]
@@ -82,17 +78,14 @@ impl OE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PE_A {
     #[doc = "0: Parity error status is inactive."]
-    INACTIVE,
+    INACTIVE = 0,
     #[doc = "1: Parity error status is active."]
-    ACTIVE,
+    ACTIVE = 1,
 }
 impl From<PE_A> for bool {
     #[inline(always)]
     fn from(variant: PE_A) -> Self {
-        match variant {
-            PE_A::INACTIVE => false,
-            PE_A::ACTIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PE`"]
@@ -121,17 +114,14 @@ impl PE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FE_A {
     #[doc = "0: Framing error status is inactive."]
-    INACTIVE,
+    INACTIVE = 0,
     #[doc = "1: Framing error status is active."]
-    ACTIVE,
+    ACTIVE = 1,
 }
 impl From<FE_A> for bool {
     #[inline(always)]
     fn from(variant: FE_A) -> Self {
-        match variant {
-            FE_A::INACTIVE => false,
-            FE_A::ACTIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FE`"]
@@ -160,17 +150,14 @@ impl FE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BI_A {
     #[doc = "0: Break interrupt status is inactive."]
-    INACTIVE,
+    INACTIVE = 0,
     #[doc = "1: Break interrupt status is active."]
-    ACTIVE,
+    ACTIVE = 1,
 }
 impl From<BI_A> for bool {
     #[inline(always)]
     fn from(variant: BI_A) -> Self {
-        match variant {
-            BI_A::INACTIVE => false,
-            BI_A::ACTIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BI`"]
@@ -199,17 +186,14 @@ impl BI_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum THRE_A {
     #[doc = "0: THR contains valid data."]
-    VALID,
+    VALID = 0,
     #[doc = "1: THR is empty."]
-    EMPTY,
+    EMPTY = 1,
 }
 impl From<THRE_A> for bool {
     #[inline(always)]
     fn from(variant: THRE_A) -> Self {
-        match variant {
-            THRE_A::VALID => false,
-            THRE_A::EMPTY => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `THRE`"]
@@ -238,17 +222,14 @@ impl THRE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TEMT_A {
     #[doc = "0: THR and/or the TSR contains valid data."]
-    VALID,
+    VALID = 0,
     #[doc = "1: THR and the TSR are empty."]
-    EMPTY,
+    EMPTY = 1,
 }
 impl From<TEMT_A> for bool {
     #[inline(always)]
     fn from(variant: TEMT_A) -> Self {
-        match variant {
-            TEMT_A::VALID => false,
-            TEMT_A::EMPTY => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TEMT`"]
@@ -273,21 +254,19 @@ impl TEMT_R {
         *self == TEMT_A::EMPTY
     }
 }
-#[doc = "Error in RX FIFO. LSR\\[7\\] is set when a character with a RX error such as framing error, parity error or break interrupt, is loaded into the RBR. This bit is cleared when the LSR register is read and there are no subsequent errors in the USART FIFO.\n\nValue on reset: 0"]
+#[doc = "Error in RX FIFO. LSR\\[7\\]
+is set when a character with a RX error such as framing error, parity error or break interrupt, is loaded into the RBR. This bit is cleared when the LSR register is read and there are no subsequent errors in the USART FIFO.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RXFE_A {
     #[doc = "0: RBR contains no USART RX errors or FCR\\[0\\]=0."]
-    NO_ERROR,
+    NO_ERROR = 0,
     #[doc = "1: USART RBR contains at least one USART RX error."]
-    ERRO,
+    ERRO = 1,
 }
 impl From<RXFE_A> for bool {
     #[inline(always)]
     fn from(variant: RXFE_A) -> Self {
-        match variant {
-            RXFE_A::NO_ERROR => false,
-            RXFE_A::ERRO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RXFE`"]
@@ -315,12 +294,14 @@ impl RXFE_R {
 #[doc = "Reader of field `TXERR`"]
 pub type TXERR_R = crate::R<bool, bool>;
 impl R {
-    #[doc = "Bit 0 - Receiver Data Ready:LSR\\[0\\] is set when the RBR holds an unread character and is cleared when the USART RBR FIFO is empty."]
+    #[doc = "Bit 0 - Receiver Data Ready:LSR\\[0\\]
+is set when the RBR holds an unread character and is cleared when the USART RBR FIFO is empty."]
     #[inline(always)]
     pub fn rdr(&self) -> RDR_R {
         RDR_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 1 - Overrun Error. The overrun error condition is set as soon as it occurs. A LSR read clears LSR\\[1\\]. LSR\\[1\\] is set when USART RSR has a new character assembled and the USART RBR FIFO is full. In this case, the USART RBR FIFO will not be overwritten and the character in the USART RSR will be lost."]
+    #[doc = "Bit 1 - Overrun Error. The overrun error condition is set as soon as it occurs. A LSR read clears LSR\\[1\\]. LSR\\[1\\]
+is set when USART RSR has a new character assembled and the USART RBR FIFO is full. In this case, the USART RBR FIFO will not be overwritten and the character in the USART RSR will be lost."]
     #[inline(always)]
     pub fn oe(&self) -> OE_R {
         OE_R::new(((self.bits >> 1) & 0x01) != 0)
@@ -350,7 +331,8 @@ impl R {
     pub fn temt(&self) -> TEMT_R {
         TEMT_R::new(((self.bits >> 6) & 0x01) != 0)
     }
-    #[doc = "Bit 7 - Error in RX FIFO. LSR\\[7\\] is set when a character with a RX error such as framing error, parity error or break interrupt, is loaded into the RBR. This bit is cleared when the LSR register is read and there are no subsequent errors in the USART FIFO."]
+    #[doc = "Bit 7 - Error in RX FIFO. LSR\\[7\\]
+is set when a character with a RX error such as framing error, parity error or break interrupt, is loaded into the RBR. This bit is cleared when the LSR register is read and there are no subsequent errors in the USART FIFO."]
     #[inline(always)]
     pub fn rxfe(&self) -> RXFE_R {
         RXFE_R::new(((self.bits >> 7) & 0x01) != 0)

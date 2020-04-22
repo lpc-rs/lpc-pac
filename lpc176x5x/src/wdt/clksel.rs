@@ -12,22 +12,19 @@ impl crate::ResetValue for super::CLKSEL {
 }
 #[doc = "Selects source of WDT clock\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CLKSEL_A {
     #[doc = "0: IRC"]
-    IRC,
+    IRC = 0,
     #[doc = "1: Peripheral clock"]
-    PCLK,
+    PCLK = 1,
     #[doc = "2: RTC oscillator"]
-    RTCOSC,
+    RTCOSC = 2,
 }
 impl From<CLKSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: CLKSEL_A) -> Self {
-        match variant {
-            CLKSEL_A::IRC => 0,
-            CLKSEL_A::PCLK => 1,
-            CLKSEL_A::RTCOSC => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CLKSEL`"]
@@ -95,17 +92,14 @@ impl<'a> CLKSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOCK_A {
     #[doc = "0: This bit is set to 0 on any reset. It cannot be cleared by software."]
-    UNLOCKED,
+    UNLOCKED = 0,
     #[doc = "1: Software can set this bit to 1 at any time. Once WDLOCK is set, the bits of this register\n\t\t\t\t\t\t\t\t\t\tcannot be modified."]
-    LOCKED,
+    LOCKED = 1,
 }
 impl From<LOCK_A> for bool {
     #[inline(always)]
     fn from(variant: LOCK_A) -> Self {
-        match variant {
-            LOCK_A::UNLOCKED => false,
-            LOCK_A::LOCKED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOCK`"]

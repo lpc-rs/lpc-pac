@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CHAN_THRSEL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH0_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH0_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH0_THRSEL_A) -> Self {
-        match variant {
-            CH0_THRSEL_A::THRESHOLD0 => false,
-            CH0_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH0_THRSEL`"]
@@ -92,17 +89,14 @@ impl<'a> CH0_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH1_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH1_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH1_THRSEL_A) -> Self {
-        match variant {
-            CH1_THRSEL_A::THRESHOLD0 => false,
-            CH1_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH1_THRSEL`"]
@@ -170,17 +164,14 @@ impl<'a> CH1_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH2_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH2_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH2_THRSEL_A) -> Self {
-        match variant {
-            CH2_THRSEL_A::THRESHOLD0 => false,
-            CH2_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH2_THRSEL`"]
@@ -248,17 +239,14 @@ impl<'a> CH2_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH3_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH3_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH3_THRSEL_A) -> Self {
-        match variant {
-            CH3_THRSEL_A::THRESHOLD0 => false,
-            CH3_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH3_THRSEL`"]
@@ -326,17 +314,14 @@ impl<'a> CH3_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH4_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH4_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH4_THRSEL_A) -> Self {
-        match variant {
-            CH4_THRSEL_A::THRESHOLD0 => false,
-            CH4_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH4_THRSEL`"]
@@ -404,17 +389,14 @@ impl<'a> CH4_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH5_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH5_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH5_THRSEL_A) -> Self {
-        match variant {
-            CH5_THRSEL_A::THRESHOLD0 => false,
-            CH5_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH5_THRSEL`"]
@@ -482,17 +464,14 @@ impl<'a> CH5_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH6_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH6_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH6_THRSEL_A) -> Self {
-        match variant {
-            CH6_THRSEL_A::THRESHOLD0 => false,
-            CH6_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH6_THRSEL`"]
@@ -560,17 +539,14 @@ impl<'a> CH6_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH7_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH7_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH7_THRSEL_A) -> Self {
-        match variant {
-            CH7_THRSEL_A::THRESHOLD0 => false,
-            CH7_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH7_THRSEL`"]
@@ -638,17 +614,14 @@ impl<'a> CH7_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH8_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH8_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH8_THRSEL_A) -> Self {
-        match variant {
-            CH8_THRSEL_A::THRESHOLD0 => false,
-            CH8_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH8_THRSEL`"]
@@ -716,17 +689,14 @@ impl<'a> CH8_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH9_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH9_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH9_THRSEL_A) -> Self {
-        match variant {
-            CH9_THRSEL_A::THRESHOLD0 => false,
-            CH9_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH9_THRSEL`"]
@@ -794,17 +764,14 @@ impl<'a> CH9_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH10_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH10_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH10_THRSEL_A) -> Self {
-        match variant {
-            CH10_THRSEL_A::THRESHOLD0 => false,
-            CH10_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH10_THRSEL`"]
@@ -872,17 +839,14 @@ impl<'a> CH10_THRSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH11_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH11_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH11_THRSEL_A) -> Self {
-        match variant {
-            CH11_THRSEL_A::THRESHOLD0 => false,
-            CH11_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH11_THRSEL`"]

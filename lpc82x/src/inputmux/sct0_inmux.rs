@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::SCT0_INMUX>;
 #[doc = "Writer for register SCT0_INMUX[%s]"]
 pub type W = crate::W<u32, super::SCT0_INMUX>;
-#[doc = "Register SCT0_INMUX[%s] `reset()`'s with value 0x0f"]
+#[doc = "Register SCT0_INMUX[%s]
+`reset()`'s with value 0x0f"]
 impl crate::ResetValue for super::SCT0_INMUX {
     type Type = u32;
     #[inline(always)]
@@ -12,37 +13,29 @@ impl crate::ResetValue for super::SCT0_INMUX {
 }
 #[doc = "Input mux register for SCT input n (n = 0 to 3). 0 = sct input 0 1=sct input 1 2= sct input 2 3= sct input 3 4= adc_thcmp_irq 5 = comparator out 6=arm_txev 7=debug_halted\n\nValue on reset: 15"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum INP_N_A {
     #[doc = "0: SCT_PIN0"]
-    SCT_PIN0,
+    SCT_PIN0 = 0,
     #[doc = "1: SCT_PIN1"]
-    SCT_PIN1,
+    SCT_PIN1 = 1,
     #[doc = "2: SCT_PIN2"]
-    SCT_PIN2,
+    SCT_PIN2 = 2,
     #[doc = "3: SCT_PIN3"]
-    SCT_PIN3,
+    SCT_PIN3 = 3,
     #[doc = "4: ADC_THCMP_IRQ"]
-    ADC_THCMP_IRQ,
+    ADC_THCMP_IRQ = 4,
     #[doc = "5: ACMP_O"]
-    ACMP_O,
+    ACMP_O = 5,
     #[doc = "6: ARM_TXEV"]
-    ARM_TXEV,
+    ARM_TXEV = 6,
     #[doc = "7: DEBUG_HALTED"]
-    DEBUG_HALTED,
+    DEBUG_HALTED = 7,
 }
 impl From<INP_N_A> for u8 {
     #[inline(always)]
     fn from(variant: INP_N_A) -> Self {
-        match variant {
-            INP_N_A::SCT_PIN0 => 0,
-            INP_N_A::SCT_PIN1 => 1,
-            INP_N_A::SCT_PIN2 => 2,
-            INP_N_A::SCT_PIN3 => 3,
-            INP_N_A::ADC_THCMP_IRQ => 4,
-            INP_N_A::ACMP_O => 5,
-            INP_N_A::ARM_TXEV => 6,
-            INP_N_A::DEBUG_HALTED => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `INP_N`"]

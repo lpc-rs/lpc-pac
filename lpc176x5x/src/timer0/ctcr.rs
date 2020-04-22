@@ -12,25 +12,21 @@ impl crate::ResetValue for super::CTCR {
 }
 #[doc = "Counter/Timer Mode This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). Timer Mode: the TC is incremented when the Prescale Counter matches the Prescale Register.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CTMODE_A {
     #[doc = "0: Timer Mode: every rising PCLK edge"]
-    TIMER_MODE_EVERY_RI,
+    TIMER_MODE_EVERY_RI = 0,
     #[doc = "1: Counter Mode: TC is incremented on rising edges on the CAP input selected by bits 3:2."]
-    RISING,
+    RISING = 1,
     #[doc = "2: Counter Mode: TC is incremented on falling edges on the CAP input selected by bits 3:2."]
-    FALLING,
+    FALLING = 2,
     #[doc = "3: Counter Mode: TC is incremented on both edges on the CAP input selected by bits 3:2."]
-    DUALEDGE,
+    DUALEDGE = 3,
 }
 impl From<CTMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: CTMODE_A) -> Self {
-        match variant {
-            CTMODE_A::TIMER_MODE_EVERY_RI => 0,
-            CTMODE_A::RISING => 1,
-            CTMODE_A::FALLING => 2,
-            CTMODE_A::DUALEDGE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CTMODE`"]
@@ -109,19 +105,17 @@ impl<'a> CTMODE_W<'a> {
 }
 #[doc = "Count Input Select When bits 1:0 in this register are not 00, these bits select which CAP pin is sampled for clocking. Note: If Counter mode is selected for a particular CAPn input in the TnCTCR, the 3 bits for that input in the Capture Control Register (TnCCR) must be programmed as 000. However, capture and/or interrupt can be selected for the other 3 CAPn inputs in the same timer.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CINSEL_A {
     #[doc = "0: CAPn.0 for TIMERn"]
-    CAPN_0_FOR_TIMERN,
+    CAPN_0_FOR_TIMERN = 0,
     #[doc = "1: CAPn.1 for TIMERn"]
-    CAPN_1_FOR_TIMERN,
+    CAPN_1_FOR_TIMERN = 1,
 }
 impl From<CINSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: CINSEL_A) -> Self {
-        match variant {
-            CINSEL_A::CAPN_0_FOR_TIMERN => 0,
-            CINSEL_A::CAPN_1_FOR_TIMERN => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CINSEL`"]

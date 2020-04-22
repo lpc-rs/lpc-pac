@@ -7,7 +7,8 @@ pub type OVERRUN_R = crate::R<bool, bool>;
 #[doc = "Reader of field `DONE`"]
 pub type DONE_R = crate::R<bool, bool>;
 impl R {
-    #[doc = "Bits 4:15 - When DONE is 1, this field contains a binary fraction representing the voltage on the AD0\\[n\\] pin, as it falls within the range of VREFP to V SS. Zero in the field indicates that the voltage on the input pin was less than, equal to, or close to that on VSS, while 0xFFF indicates that the voltage on the input was close to, equal to, or greater than that on VREFP."]
+    #[doc = "Bits 4:15 - When DONE is 1, this field contains a binary fraction representing the voltage on the AD0\\[n\\]
+pin, as it falls within the range of VREFP to V SS. Zero in the field indicates that the voltage on the input pin was less than, equal to, or close to that on VSS, while 0xFFF indicates that the voltage on the input was close to, equal to, or greater than that on VREFP."]
     #[inline(always)]
     pub fn result(&self) -> RESULT_R {
         RESULT_R::new(((self.bits >> 4) & 0x0fff) as u16)

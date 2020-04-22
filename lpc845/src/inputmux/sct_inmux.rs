@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::SCT_INMUX>;
 #[doc = "Writer for register SCT_INMUX[%s]"]
 pub type W = crate::W<u32, super::SCT_INMUX>;
-#[doc = "Register SCT_INMUX[%s] `reset()`'s with value 0x0f"]
+#[doc = "Register SCT_INMUX[%s]
+`reset()`'s with value 0x0f"]
 impl crate::ResetValue for super::SCT_INMUX {
     type Type = u32;
     #[inline(always)]

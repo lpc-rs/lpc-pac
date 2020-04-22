@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::CTLSTAT>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum VALIDPENDING_A {
     #[doc = "0: No effect. No effect on DMA operation."]
-    NO_EFFECT,
+    NO_EFFECT = 0,
     #[doc = "1: Valid pending."]
-    VALID_PENDING,
+    VALID_PENDING = 1,
 }
 impl From<VALIDPENDING_A> for bool {
     #[inline(always)]
     fn from(variant: VALIDPENDING_A) -> Self {
-        match variant {
-            VALIDPENDING_A::NO_EFFECT => false,
-            VALIDPENDING_A::VALID_PENDING => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `VALIDPENDING`"]
@@ -43,17 +40,14 @@ impl VALIDPENDING_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIG_A {
     #[doc = "0: Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out."]
-    NOT_TRIGGERED,
+    NOT_TRIGGERED = 0,
     #[doc = "1: Triggered. The trigger for this DMA channel is set. DMA operations will be carried out."]
-    TRIGGERED,
+    TRIGGERED = 1,
 }
 impl From<TRIG_A> for bool {
     #[inline(always)]
     fn from(variant: TRIG_A) -> Self {
-        match variant {
-            TRIG_A::NOT_TRIGGERED => false,
-            TRIG_A::TRIGGERED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIG`"]

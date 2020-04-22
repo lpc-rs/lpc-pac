@@ -19,7 +19,7 @@ pub struct RegisterBlock {
     #[doc = "0xfe8 - Clear FLASH signature generation status bit"]
     pub fmstatclr: FMSTATCLR,
 }
-#[doc = "Flash configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [flashcfg](flashcfg) module"]
+#[doc = "Flash configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [flashcfg](flashcfg) module"]
 pub type FLASHCFG = crate::Reg<u32, _FLASHCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -30,7 +30,7 @@ impl crate::Readable for FLASHCFG {}
 impl crate::Writable for FLASHCFG {}
 #[doc = "Flash configuration register"]
 pub mod flashcfg;
-#[doc = "Flash signature start address register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fmsstart](fmsstart) module"]
+#[doc = "Flash signature start address register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fmsstart](fmsstart) module"]
 pub type FMSSTART = crate::Reg<u32, _FMSSTART>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -41,7 +41,7 @@ impl crate::Readable for FMSSTART {}
 impl crate::Writable for FMSSTART {}
 #[doc = "Flash signature start address register"]
 pub mod fmsstart;
-#[doc = "Flash signaure stop address register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fmsstop](fmsstop) module"]
+#[doc = "Flash signaure stop address register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fmsstop](fmsstop) module"]
 pub type FMSSTOP = crate::Reg<u32, _FMSSTOP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -52,7 +52,7 @@ impl crate::Readable for FMSSTOP {}
 impl crate::Writable for FMSSTOP {}
 #[doc = "Flash signaure stop address register"]
 pub mod fmsstop;
-#[doc = "Flash signature generation result register returns the flash signature produced by the embedded signature generator..\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fmsw0](fmsw0) module"]
+#[doc = "Flash signature generation result register returns the flash signature produced by the embedded signature generator..\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fmsw0](fmsw0) module"]
 pub type FMSW0 = crate::Reg<u32, _FMSW0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -61,7 +61,7 @@ pub struct _FMSW0;
 impl crate::Readable for FMSW0 {}
 #[doc = "Flash signature generation result register returns the flash signature produced by the embedded signature generator.."]
 pub mod fmsw0;
-#[doc = "Flash signature generation status bit\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fmstat](fmstat) module"]
+#[doc = "Flash signature generation status bit\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fmstat](fmstat) module"]
 pub type FMSTAT = crate::Reg<u32, _FMSTAT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -70,7 +70,7 @@ pub struct _FMSTAT;
 impl crate::Readable for FMSTAT {}
 #[doc = "Flash signature generation status bit"]
 pub mod fmstat;
-#[doc = "Clear FLASH signature generation status bit\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fmstatclr](fmstatclr) module"]
+#[doc = "Clear FLASH signature generation status bit\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fmstatclr](fmstatclr) module"]
 pub type FMSTATCLR = crate::Reg<u32, _FMSTATCLR>;
 #[allow(missing_docs)]
 #[doc(hidden)]

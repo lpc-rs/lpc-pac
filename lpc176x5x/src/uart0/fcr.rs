@@ -12,17 +12,15 @@ impl crate::ResetValue for super::FCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FIFOEN_AW {
     #[doc = "0: UARTn FIFOs are disabled. Must not be used in the application."]
-    UARTN_FIFOS_ARE_DISA,
-    #[doc = "1: Active high enable for both UARTn Rx and TX FIFOs and UnFCR\\[7:1\\] access. This bit must be set for proper UART operation. Any transition on this bit will automatically clear the related UART FIFOs."]
-    ACTIVE_HIGH_ENABLE_F,
+    UARTN_FIFOS_ARE_DISA = 0,
+    #[doc = "1: Active high enable for both UARTn Rx and TX FIFOs and UnFCR\\[7:1\\]
+access. This bit must be set for proper UART operation. Any transition on this bit will automatically clear the related UART FIFOs."]
+    ACTIVE_HIGH_ENABLE_F = 1,
 }
 impl From<FIFOEN_AW> for bool {
     #[inline(always)]
     fn from(variant: FIFOEN_AW) -> Self {
-        match variant {
-            FIFOEN_AW::UARTN_FIFOS_ARE_DISA => false,
-            FIFOEN_AW::ACTIVE_HIGH_ENABLE_F => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `FIFOEN`"]
@@ -42,7 +40,8 @@ impl<'a> FIFOEN_W<'a> {
     pub fn uartn_fifos_are_disa(self) -> &'a mut W {
         self.variant(FIFOEN_AW::UARTN_FIFOS_ARE_DISA)
     }
-    #[doc = "Active high enable for both UARTn Rx and TX FIFOs and UnFCR\\[7:1\\] access. This bit must be set for proper UART operation. Any transition on this bit will automatically clear the related UART FIFOs."]
+    #[doc = "Active high enable for both UARTn Rx and TX FIFOs and UnFCR\\[7:1\\]
+access. This bit must be set for proper UART operation. Any transition on this bit will automatically clear the related UART FIFOs."]
     #[inline(always)]
     pub fn active_high_enable_f(self) -> &'a mut W {
         self.variant(FIFOEN_AW::ACTIVE_HIGH_ENABLE_F)
@@ -68,17 +67,15 @@ impl<'a> FIFOEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RXFIFORES_AW {
     #[doc = "0: No impact on either of UARTn FIFOs."]
-    NO_IMPACT_ON_EITHER_,
-    #[doc = "1: Writing a logic 1 to UnFCR\\[1\\] will clear all bytes in UARTn Rx FIFO, reset the pointer logic. This bit is self-clearing."]
-    WRITING_A_LOGIC_1_TO,
+    NO_IMPACT_ON_EITHER_ = 0,
+    #[doc = "1: Writing a logic 1 to UnFCR\\[1\\]
+will clear all bytes in UARTn Rx FIFO, reset the pointer logic. This bit is self-clearing."]
+    WRITING_A_LOGIC_1_TO = 1,
 }
 impl From<RXFIFORES_AW> for bool {
     #[inline(always)]
     fn from(variant: RXFIFORES_AW) -> Self {
-        match variant {
-            RXFIFORES_AW::NO_IMPACT_ON_EITHER_ => false,
-            RXFIFORES_AW::WRITING_A_LOGIC_1_TO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RXFIFORES`"]
@@ -98,7 +95,8 @@ impl<'a> RXFIFORES_W<'a> {
     pub fn no_impact_on_either_(self) -> &'a mut W {
         self.variant(RXFIFORES_AW::NO_IMPACT_ON_EITHER_)
     }
-    #[doc = "Writing a logic 1 to UnFCR\\[1\\] will clear all bytes in UARTn Rx FIFO, reset the pointer logic. This bit is self-clearing."]
+    #[doc = "Writing a logic 1 to UnFCR\\[1\\]
+will clear all bytes in UARTn Rx FIFO, reset the pointer logic. This bit is self-clearing."]
     #[inline(always)]
     pub fn writing_a_logic_1_to(self) -> &'a mut W {
         self.variant(RXFIFORES_AW::WRITING_A_LOGIC_1_TO)
@@ -124,17 +122,15 @@ impl<'a> RXFIFORES_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXFIFORES_AW {
     #[doc = "0: No impact on either of UARTn FIFOs."]
-    NO_IMPACT_ON_EITHER_,
-    #[doc = "1: Writing a logic 1 to UnFCR\\[2\\] will clear all bytes in UARTn TX FIFO, reset the pointer logic. This bit is self-clearing."]
-    WRITING_A_LOGIC_1_TO,
+    NO_IMPACT_ON_EITHER_ = 0,
+    #[doc = "1: Writing a logic 1 to UnFCR\\[2\\]
+will clear all bytes in UARTn TX FIFO, reset the pointer logic. This bit is self-clearing."]
+    WRITING_A_LOGIC_1_TO = 1,
 }
 impl From<TXFIFORES_AW> for bool {
     #[inline(always)]
     fn from(variant: TXFIFORES_AW) -> Self {
-        match variant {
-            TXFIFORES_AW::NO_IMPACT_ON_EITHER_ => false,
-            TXFIFORES_AW::WRITING_A_LOGIC_1_TO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `TXFIFORES`"]
@@ -154,7 +150,8 @@ impl<'a> TXFIFORES_W<'a> {
     pub fn no_impact_on_either_(self) -> &'a mut W {
         self.variant(TXFIFORES_AW::NO_IMPACT_ON_EITHER_)
     }
-    #[doc = "Writing a logic 1 to UnFCR\\[2\\] will clear all bytes in UARTn TX FIFO, reset the pointer logic. This bit is self-clearing."]
+    #[doc = "Writing a logic 1 to UnFCR\\[2\\]
+will clear all bytes in UARTn TX FIFO, reset the pointer logic. This bit is self-clearing."]
     #[inline(always)]
     pub fn writing_a_logic_1_to(self) -> &'a mut W {
         self.variant(TXFIFORES_AW::WRITING_A_LOGIC_1_TO)
@@ -200,25 +197,21 @@ impl<'a> DMAMODE_W<'a> {
 }
 #[doc = "RX Trigger Level. These two bits determine how many receiver UARTn FIFO characters must be written before an interrupt or DMA request is activated.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RXTRIGLVL_AW {
     #[doc = "0: Trigger level 0 (1 character or 0x01)."]
-    TRIGGER_LEVEL_0_1_C,
+    TRIGGER_LEVEL_0_1_C = 0,
     #[doc = "1: Trigger level 1 (4 characters or 0x04)."]
-    TRIGGER_LEVEL_1_4_C,
+    TRIGGER_LEVEL_1_4_C = 1,
     #[doc = "2: Trigger level 2 (8 characters or 0x08)."]
-    TRIGGER_LEVEL_2_8_C,
+    TRIGGER_LEVEL_2_8_C = 2,
     #[doc = "3: Trigger level 3 (14 characters or 0x0E)."]
-    TRIGGER_LEVEL_3_14_,
+    TRIGGER_LEVEL_3_14_ = 3,
 }
 impl From<RXTRIGLVL_AW> for u8 {
     #[inline(always)]
     fn from(variant: RXTRIGLVL_AW) -> Self {
-        match variant {
-            RXTRIGLVL_AW::TRIGGER_LEVEL_0_1_C => 0,
-            RXTRIGLVL_AW::TRIGGER_LEVEL_1_4_C => 1,
-            RXTRIGLVL_AW::TRIGGER_LEVEL_2_8_C => 2,
-            RXTRIGLVL_AW::TRIGGER_LEVEL_3_14_ => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Write proxy for field `RXTRIGLVL`"]

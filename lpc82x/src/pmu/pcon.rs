@@ -12,25 +12,21 @@ impl crate::ResetValue for super::PCON {
 }
 #[doc = "Power mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PM_A {
     #[doc = "0: Default. The part is in active or sleep mode."]
-    DEFAULT,
+    DEFAULT = 0,
     #[doc = "1: Deep-sleep mode. ARM WFI will enter Deep-sleep mode."]
-    DEEP_SLEEP_MODE,
+    DEEP_SLEEP_MODE = 1,
     #[doc = "2: Power-down mode. ARM WFI will enter Power-down mode."]
-    POWER_DOWN_MODE,
+    POWER_DOWN_MODE = 2,
     #[doc = "3: Deep power-down mode. ARM WFI will enter Deep-power down mode (ARM Cortex-M0+ core powered-down)."]
-    DEEP_POWER_DOWN_MODE,
+    DEEP_POWER_DOWN_MODE = 3,
 }
 impl From<PM_A> for u8 {
     #[inline(always)]
     fn from(variant: PM_A) -> Self {
-        match variant {
-            PM_A::DEFAULT => 0,
-            PM_A::DEEP_SLEEP_MODE => 1,
-            PM_A::POWER_DOWN_MODE => 2,
-            PM_A::DEEP_POWER_DOWN_MODE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PM`"]
@@ -134,17 +130,14 @@ impl<'a> NODPD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEPFLAG_A {
     #[doc = "0: Active mode. Read: No power-down mode entered. Part is in Active mode. Write: No effect."]
-    ACTIVE_MODE,
+    ACTIVE_MODE = 0,
     #[doc = "1: Low power mode. Read: Sleep, Deep-sleep or Power-down mode entered. Write: Writing a 1 clears the SLEEPFLAG bit to 0."]
-    LOW_POWER_MODE,
+    LOW_POWER_MODE = 1,
 }
 impl From<SLEEPFLAG_A> for bool {
     #[inline(always)]
     fn from(variant: SLEEPFLAG_A) -> Self {
-        match variant {
-            SLEEPFLAG_A::ACTIVE_MODE => false,
-            SLEEPFLAG_A::LOW_POWER_MODE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLEEPFLAG`"]
@@ -212,17 +205,14 @@ impl<'a> SLEEPFLAG_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DPDFLAG_A {
     #[doc = "0: Not Deep power-down. Read: Deep power-down mode not entered. Write: No effect."]
-    NOT_DEEP_POWER_DOWN,
+    NOT_DEEP_POWER_DOWN = 0,
     #[doc = "1: Deep power-down. Read: Deep power-down mode entered. Write: Clear the Deep power-down flag."]
-    DEEP_POWER_DOWN,
+    DEEP_POWER_DOWN = 1,
 }
 impl From<DPDFLAG_A> for bool {
     #[inline(always)]
     fn from(variant: DPDFLAG_A) -> Self {
-        match variant {
-            DPDFLAG_A::NOT_DEEP_POWER_DOWN => false,
-            DPDFLAG_A::DEEP_POWER_DOWN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DPDFLAG`"]

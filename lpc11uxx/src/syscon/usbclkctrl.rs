@@ -14,17 +14,14 @@ impl crate::ResetValue for super::USBCLKCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AP_CLK_A {
     #[doc = "0: Under hardware control."]
-    UNDER_HARDWARE_CONTROL,
+    UNDER_HARDWARE_CONTROL = 0,
     #[doc = "1: Forced HIGH."]
-    FORCED_HIGH,
+    FORCED_HIGH = 1,
 }
 impl From<AP_CLK_A> for bool {
     #[inline(always)]
     fn from(variant: AP_CLK_A) -> Self {
-        match variant {
-            AP_CLK_A::UNDER_HARDWARE_CONTROL => false,
-            AP_CLK_A::FORCED_HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `AP_CLK`"]
@@ -92,17 +89,14 @@ impl<'a> AP_CLK_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POL_CLK_A {
     #[doc = "0: Falling edge of the USB need_clock triggers the USB wake-up (default)."]
-    FALLING_EDGE,
+    FALLING_EDGE = 0,
     #[doc = "1: Rising edge of the USB need_clock triggers the USB wake-up."]
-    RISING_EDGE,
+    RISING_EDGE = 1,
 }
 impl From<POL_CLK_A> for bool {
     #[inline(always)]
     fn from(variant: POL_CLK_A) -> Self {
-        match variant {
-            POL_CLK_A::FALLING_EDGE => false,
-            POL_CLK_A::RISING_EDGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `POL_CLK`"]

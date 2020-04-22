@@ -12,17 +12,14 @@ impl crate::ResetValue for super::DEVINTPRI {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FRAME_AW {
     #[doc = "0: FRAME interrupt is routed to USB_INT_REQ_LP."]
-    LP,
+    LP = 0,
     #[doc = "1: FRAME interrupt is routed to USB_INT_REQ_HP."]
-    HP,
+    HP = 1,
 }
 impl From<FRAME_AW> for bool {
     #[inline(always)]
     fn from(variant: FRAME_AW) -> Self {
-        match variant {
-            FRAME_AW::LP => false,
-            FRAME_AW::HP => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `FRAME`"]
@@ -68,17 +65,14 @@ impl<'a> FRAME_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EP_FAST_AW {
     #[doc = "0: EP_FAST interrupt is routed to USB_INT_REQ_LP."]
-    LP,
+    LP = 0,
     #[doc = "1: EP_FAST interrupt is routed to USB_INT_REQ_HP."]
-    HP,
+    HP = 1,
 }
 impl From<EP_FAST_AW> for bool {
     #[inline(always)]
     fn from(variant: EP_FAST_AW) -> Self {
-        match variant {
-            EP_FAST_AW::LP => false,
-            EP_FAST_AW::HP => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `EP_FAST`"]

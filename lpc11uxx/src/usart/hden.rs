@@ -14,17 +14,14 @@ impl crate::ResetValue for super::HDEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HDEN_A {
     #[doc = "0: Disable half-duplex mode."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable half-duplex mode."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<HDEN_A> for bool {
     #[inline(always)]
     fn from(variant: HDEN_A) -> Self {
-        match variant {
-            HDEN_A::DISABLED => false,
-            HDEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HDEN`"]

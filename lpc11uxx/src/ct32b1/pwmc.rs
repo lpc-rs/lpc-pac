@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PWMC {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN0_A {
     #[doc = "0: CT32Bn_MAT0 is controlled by EM0."]
-    EM0,
+    EM0 = 0,
     #[doc = "1: PWM mode is enabled for CT32Bn_MAT0."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PWMEN0_A> for bool {
     #[inline(always)]
     fn from(variant: PWMEN0_A) -> Self {
-        match variant {
-            PWMEN0_A::EM0 => false,
-            PWMEN0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMEN0`"]
@@ -92,17 +89,14 @@ impl<'a> PWMEN0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN1_A {
     #[doc = "0: CT32Bn_MAT01 is controlled by EM1."]
-    EM1,
+    EM1 = 0,
     #[doc = "1: PWM mode is enabled for CT32Bn_MAT1."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PWMEN1_A> for bool {
     #[inline(always)]
     fn from(variant: PWMEN1_A) -> Self {
-        match variant {
-            PWMEN1_A::EM1 => false,
-            PWMEN1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMEN1`"]
@@ -170,17 +164,14 @@ impl<'a> PWMEN1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN2_A {
     #[doc = "0: CT32Bn_MAT2 is controlled by EM2."]
-    EM2,
+    EM2 = 0,
     #[doc = "1: PWM mode is enabled for CT32Bn_MAT2."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PWMEN2_A> for bool {
     #[inline(always)]
     fn from(variant: PWMEN2_A) -> Self {
-        match variant {
-            PWMEN2_A::EM2 => false,
-            PWMEN2_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMEN2`"]
@@ -248,17 +239,14 @@ impl<'a> PWMEN2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMEN3_A {
     #[doc = "0: CT32Bn_MAT3 is controlled by EM3."]
-    EM3,
+    EM3 = 0,
     #[doc = "1: PWM mode is enabled for CT132Bn_MAT3."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<PWMEN3_A> for bool {
     #[inline(always)]
     fn from(variant: PWMEN3_A) -> Self {
-        match variant {
-            PWMEN3_A::EM3 => false,
-            PWMEN3_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMEN3`"]

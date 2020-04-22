@@ -14,17 +14,14 @@ impl crate::ResetValue for super::I2C_CTL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TDIE_A {
     #[doc = "0: Disable the TDI interrupt."]
-    DISABLE_THE_TDI_INTE,
+    DISABLE_THE_TDI_INTE = 0,
     #[doc = "1: Enable the TDI interrupt."]
-    ENABLE_THE_TDI_INTER,
+    ENABLE_THE_TDI_INTER = 1,
 }
 impl From<TDIE_A> for bool {
     #[inline(always)]
     fn from(variant: TDIE_A) -> Self {
-        match variant {
-            TDIE_A::DISABLE_THE_TDI_INTE => false,
-            TDIE_A::ENABLE_THE_TDI_INTER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TDIE`"]
@@ -92,17 +89,14 @@ impl<'a> TDIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AFIE_A {
     #[doc = "0: Disable the AFI."]
-    DISABLE_THE_AFI_,
+    DISABLE_THE_AFI_ = 0,
     #[doc = "1: Enable the AFI."]
-    ENABLE_THE_AFI_,
+    ENABLE_THE_AFI_ = 1,
 }
 impl From<AFIE_A> for bool {
     #[inline(always)]
     fn from(variant: AFIE_A) -> Self {
-        match variant {
-            AFIE_A::DISABLE_THE_AFI_ => false,
-            AFIE_A::ENABLE_THE_AFI_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `AFIE`"]
@@ -170,17 +164,14 @@ impl<'a> AFIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum NAIE_A {
     #[doc = "0: Disable the NAI."]
-    DISABLE_THE_NAI_,
+    DISABLE_THE_NAI_ = 0,
     #[doc = "1: Enable the NAI."]
-    ENABLE_THE_NAI_,
+    ENABLE_THE_NAI_ = 1,
 }
 impl From<NAIE_A> for bool {
     #[inline(always)]
     fn from(variant: NAIE_A) -> Self {
-        match variant {
-            NAIE_A::DISABLE_THE_NAI_ => false,
-            NAIE_A::ENABLE_THE_NAI_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `NAIE`"]
@@ -248,17 +239,14 @@ impl<'a> NAIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DRMIE_A {
     #[doc = "0: Disable the DRMI interrupt."]
-    DISABLE_THE_DRMI_INT,
+    DISABLE_THE_DRMI_INT = 0,
     #[doc = "1: Enable the DRMI interrupt."]
-    ENABLE_THE_DRMI_INTE,
+    ENABLE_THE_DRMI_INTE = 1,
 }
 impl From<DRMIE_A> for bool {
     #[inline(always)]
     fn from(variant: DRMIE_A) -> Self {
-        match variant {
-            DRMIE_A::DISABLE_THE_DRMI_INT => false,
-            DRMIE_A::ENABLE_THE_DRMI_INTE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DRMIE`"]
@@ -326,17 +314,14 @@ impl<'a> DRMIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DRSIE_A {
     #[doc = "0: Disable the DRSI interrupt."]
-    DISABLE_THE_DRSI_INT,
+    DISABLE_THE_DRSI_INT = 0,
     #[doc = "1: Enable the DRSI interrupt."]
-    ENABLE_THE_DRSI_INTE,
+    ENABLE_THE_DRSI_INTE = 1,
 }
 impl From<DRSIE_A> for bool {
     #[inline(always)]
     fn from(variant: DRSIE_A) -> Self {
-        match variant {
-            DRSIE_A::DISABLE_THE_DRSI_INT => false,
-            DRSIE_A::ENABLE_THE_DRSI_INTE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DRSIE`"]
@@ -404,17 +389,14 @@ impl<'a> DRSIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum REFIE_A {
     #[doc = "0: Disable the RFFI."]
-    DISABLE_THE_RFFI_,
+    DISABLE_THE_RFFI_ = 0,
     #[doc = "1: Enable the RFFI."]
-    ENABLE_THE_RFFI_,
+    ENABLE_THE_RFFI_ = 1,
 }
 impl From<REFIE_A> for bool {
     #[inline(always)]
     fn from(variant: REFIE_A) -> Self {
-        match variant {
-            REFIE_A::DISABLE_THE_RFFI_ => false,
-            REFIE_A::ENABLE_THE_RFFI_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `REFIE`"]
@@ -482,17 +464,14 @@ impl<'a> REFIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RFDAIE_A {
     #[doc = "0: Disable the DAI."]
-    DISABLE_THE_DAI_,
+    DISABLE_THE_DAI_ = 0,
     #[doc = "1: Enable the DAI."]
-    ENABLE_THE_DAI_,
+    ENABLE_THE_DAI_ = 1,
 }
 impl From<RFDAIE_A> for bool {
     #[inline(always)]
     fn from(variant: RFDAIE_A) -> Self {
-        match variant {
-            RFDAIE_A::DISABLE_THE_DAI_ => false,
-            RFDAIE_A::ENABLE_THE_DAI_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RFDAIE`"]
@@ -560,17 +539,14 @@ impl<'a> RFDAIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TFFIE_A {
     #[doc = "0: Disable the TFFI."]
-    DISABLE_THE_TFFI_,
+    DISABLE_THE_TFFI_ = 0,
     #[doc = "1: Enable the TFFI."]
-    ENABLE_THE_TFFI_,
+    ENABLE_THE_TFFI_ = 1,
 }
 impl From<TFFIE_A> for bool {
     #[inline(always)]
     fn from(variant: TFFIE_A) -> Self {
-        match variant {
-            TFFIE_A::DISABLE_THE_TFFI_ => false,
-            TFFIE_A::ENABLE_THE_TFFI_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TFFIE`"]
@@ -638,17 +614,14 @@ impl<'a> TFFIE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SRST_A {
     #[doc = "0: No reset."]
-    NO_RESET,
+    NO_RESET = 0,
     #[doc = "1: Reset the I2C to idle state. Self clearing."]
-    RESET,
+    RESET = 1,
 }
 impl From<SRST_A> for bool {
     #[inline(always)]
     fn from(variant: SRST_A) -> Self {
-        match variant {
-            SRST_A::NO_RESET => false,
-            SRST_A::RESET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SRST`"]

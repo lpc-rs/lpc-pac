@@ -1,7 +1,25 @@
-#![doc = "Peripheral access API for LPC11UXX microcontrollers (generated using svd2rust v0.16.1)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.16.1/svd2rust/#peripheral-api"]
+#![doc = "Peripheral access API for LPC11UXX microcontrollers (generated using svd2rust v0.17.0)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.17.0/svd2rust/#peripheral-api"]
+#![deny(const_err)]
+#![deny(dead_code)]
+#![deny(improper_ctypes)]
+#![deny(legacy_directory_ownership)]
 #![deny(missing_docs)]
-#![deny(warnings)]
+#![deny(no_mangle_generic_items)]
+#![deny(non_shorthand_field_patterns)]
+#![deny(overflowing_literals)]
+#![deny(path_statements)]
+#![deny(patterns_in_fns_without_body)]
+#![deny(plugin_as_library)]
+#![deny(private_in_public)]
+#![deny(safe_extern_statics)]
+#![deny(unconditional_recursion)]
+#![deny(unions_with_drop_fields)]
+#![deny(unused_allocation)]
+#![deny(unused_comparisons)]
+#![deny(unused_parens)]
+#![deny(while_true)]
 #![allow(non_camel_case_types)]
+#![allow(non_snake_case)]
 #![no_std]
 extern crate bare_metal;
 extern crate cortex_m;
@@ -88,88 +106,63 @@ pub static __INTERRUPTS: [Vector; 31] = [
 ];
 #[doc = r"Enumeration of all the interrupts"]
 #[derive(Copy, Clone, Debug)]
+#[repr(u8)]
 pub enum Interrupt {
     #[doc = "0 - PIN_INT0"]
-    PIN_INT0,
+    PIN_INT0 = 0,
     #[doc = "1 - PIN_INT1"]
-    PIN_INT1,
+    PIN_INT1 = 1,
     #[doc = "2 - PIN_INT2"]
-    PIN_INT2,
+    PIN_INT2 = 2,
     #[doc = "3 - PIN_INT3"]
-    PIN_INT3,
+    PIN_INT3 = 3,
     #[doc = "4 - PIN_INT4"]
-    PIN_INT4,
+    PIN_INT4 = 4,
     #[doc = "5 - PIN_INT5"]
-    PIN_INT5,
+    PIN_INT5 = 5,
     #[doc = "6 - PIN_INT6"]
-    PIN_INT6,
+    PIN_INT6 = 6,
     #[doc = "7 - PIN_INT7"]
-    PIN_INT7,
+    PIN_INT7 = 7,
     #[doc = "8 - GINT0"]
-    GINT0,
+    GINT0 = 8,
     #[doc = "9 - GINT1"]
-    GINT1,
+    GINT1 = 9,
     #[doc = "14 - SSP1"]
-    SSP1,
+    SSP1 = 14,
     #[doc = "15 - I2C"]
-    I2C,
+    I2C = 15,
     #[doc = "16 - CT16B0"]
-    CT16B0,
+    CT16B0 = 16,
     #[doc = "17 - CT16B1"]
-    CT16B1,
+    CT16B1 = 17,
     #[doc = "18 - CT32B0"]
-    CT32B0,
+    CT32B0 = 18,
     #[doc = "19 - CT32B1"]
-    CT32B1,
+    CT32B1 = 19,
     #[doc = "20 - SSP0"]
-    SSP0,
+    SSP0 = 20,
     #[doc = "21 - USART"]
-    USART,
+    USART = 21,
     #[doc = "22 - USB_IRQ"]
-    USB_IRQ,
+    USB_IRQ = 22,
     #[doc = "23 - USB_FIQ"]
-    USB_FIQ,
+    USB_FIQ = 23,
     #[doc = "24 - ADC"]
-    ADC,
+    ADC = 24,
     #[doc = "25 - WDT"]
-    WDT,
+    WDT = 25,
     #[doc = "26 - BOD_IRQ"]
-    BOD_IRQ,
+    BOD_IRQ = 26,
     #[doc = "27 - FLASH_IRQ"]
-    FLASH_IRQ,
+    FLASH_IRQ = 27,
     #[doc = "30 - USBWAKEUP"]
-    USBWAKEUP,
+    USBWAKEUP = 30,
 }
 unsafe impl bare_metal::Nr for Interrupt {
-    #[inline]
+    #[inline(always)]
     fn nr(&self) -> u8 {
-        match *self {
-            Interrupt::PIN_INT0 => 0,
-            Interrupt::PIN_INT1 => 1,
-            Interrupt::PIN_INT2 => 2,
-            Interrupt::PIN_INT3 => 3,
-            Interrupt::PIN_INT4 => 4,
-            Interrupt::PIN_INT5 => 5,
-            Interrupt::PIN_INT6 => 6,
-            Interrupt::PIN_INT7 => 7,
-            Interrupt::GINT0 => 8,
-            Interrupt::GINT1 => 9,
-            Interrupt::SSP1 => 14,
-            Interrupt::I2C => 15,
-            Interrupt::CT16B0 => 16,
-            Interrupt::CT16B1 => 17,
-            Interrupt::CT32B0 => 18,
-            Interrupt::CT32B1 => 19,
-            Interrupt::SSP0 => 20,
-            Interrupt::USART => 21,
-            Interrupt::USB_IRQ => 22,
-            Interrupt::USB_FIQ => 23,
-            Interrupt::ADC => 24,
-            Interrupt::WDT => 25,
-            Interrupt::BOD_IRQ => 26,
-            Interrupt::FLASH_IRQ => 27,
-            Interrupt::USBWAKEUP => 30,
-        }
+        *self as u8
     }
 }
 #[cfg(feature = "rt")]
@@ -196,6 +189,7 @@ impl I2C {
 }
 impl Deref for I2C {
     type Target = i2c::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*I2C::ptr() }
     }
@@ -216,6 +210,7 @@ impl WWDT {
 }
 impl Deref for WWDT {
     type Target = wwdt::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*WWDT::ptr() }
     }
@@ -236,6 +231,7 @@ impl USART {
 }
 impl Deref for USART {
     type Target = usart::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*USART::ptr() }
     }
@@ -256,6 +252,7 @@ impl CT16B0 {
 }
 impl Deref for CT16B0 {
     type Target = ct16b0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*CT16B0::ptr() }
     }
@@ -276,6 +273,7 @@ impl CT16B1 {
 }
 impl Deref for CT16B1 {
     type Target = ct16b1::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*CT16B1::ptr() }
     }
@@ -296,6 +294,7 @@ impl CT32B0 {
 }
 impl Deref for CT32B0 {
     type Target = ct32b0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*CT32B0::ptr() }
     }
@@ -316,6 +315,7 @@ impl CT32B1 {
 }
 impl Deref for CT32B1 {
     type Target = ct32b1::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*CT32B1::ptr() }
     }
@@ -336,6 +336,7 @@ impl ADC {
 }
 impl Deref for ADC {
     type Target = adc::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*ADC::ptr() }
     }
@@ -356,6 +357,7 @@ impl PMU {
 }
 impl Deref for PMU {
     type Target = pmu::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*PMU::ptr() }
     }
@@ -376,6 +378,7 @@ impl FLASHCTRL {
 }
 impl Deref for FLASHCTRL {
     type Target = flashctrl::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*FLASHCTRL::ptr() }
     }
@@ -396,6 +399,7 @@ impl SSP0 {
 }
 impl Deref for SSP0 {
     type Target = ssp0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*SSP0::ptr() }
     }
@@ -416,6 +420,7 @@ impl IOCON {
 }
 impl Deref for IOCON {
     type Target = iocon::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*IOCON::ptr() }
     }
@@ -436,6 +441,7 @@ impl SYSCON {
 }
 impl Deref for SYSCON {
     type Target = syscon::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*SYSCON::ptr() }
     }
@@ -456,6 +462,7 @@ impl GPIO_PIN_INT {
 }
 impl Deref for GPIO_PIN_INT {
     type Target = gpio_pin_int::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*GPIO_PIN_INT::ptr() }
     }
@@ -476,6 +483,7 @@ impl SSP1 {
 }
 impl Deref for SSP1 {
     type Target = ssp0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*SSP1::ptr() }
     }
@@ -494,6 +502,7 @@ impl GPIO_GROUP_INT0 {
 }
 impl Deref for GPIO_GROUP_INT0 {
     type Target = gpio_group_int0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*GPIO_GROUP_INT0::ptr() }
     }
@@ -514,6 +523,7 @@ impl GPIO_GROUP_INT1 {
 }
 impl Deref for GPIO_GROUP_INT1 {
     type Target = gpio_group_int0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*GPIO_GROUP_INT1::ptr() }
     }
@@ -532,6 +542,7 @@ impl USB {
 }
 impl Deref for USB {
     type Target = usb::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*USB::ptr() }
     }
@@ -552,6 +563,7 @@ impl GPIO_PORT {
 }
 impl Deref for GPIO_PORT {
     type Target = gpio_port::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*GPIO_PORT::ptr() }
     }
@@ -615,6 +627,7 @@ impl Peripherals {
         })
     }
     #[doc = r"Unchecked version of `Peripherals::take`"]
+    #[inline]
     pub unsafe fn steal() -> Self {
         DEVICE_PERIPHERALS = true;
         Peripherals {

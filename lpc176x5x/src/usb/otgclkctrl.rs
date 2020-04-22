@@ -14,17 +14,14 @@ impl crate::ResetValue for super::OTGCLKCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HOST_CLK_EN_A {
     #[doc = "0: Disable the Host clock."]
-    DISABLE_THE_HOST_CLO,
+    DISABLE_THE_HOST_CLO = 0,
     #[doc = "1: Enable the Host clock."]
-    ENABLE_THE_HOST_CLOC,
+    ENABLE_THE_HOST_CLOC = 1,
 }
 impl From<HOST_CLK_EN_A> for bool {
     #[inline(always)]
     fn from(variant: HOST_CLK_EN_A) -> Self {
-        match variant {
-            HOST_CLK_EN_A::DISABLE_THE_HOST_CLO => false,
-            HOST_CLK_EN_A::ENABLE_THE_HOST_CLOC => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HOST_CLK_EN`"]
@@ -92,17 +89,14 @@ impl<'a> HOST_CLK_EN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DEV_CLK_EN_A {
     #[doc = "0: Disable the Device clock."]
-    DISABLE_THE_DEVICE_C,
+    DISABLE_THE_DEVICE_C = 0,
     #[doc = "1: Enable the Device clock."]
-    ENABLE_THE_DEVICE_CL,
+    ENABLE_THE_DEVICE_CL = 1,
 }
 impl From<DEV_CLK_EN_A> for bool {
     #[inline(always)]
     fn from(variant: DEV_CLK_EN_A) -> Self {
-        match variant {
-            DEV_CLK_EN_A::DISABLE_THE_DEVICE_C => false,
-            DEV_CLK_EN_A::ENABLE_THE_DEVICE_CL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DEV_CLK_EN`"]
@@ -170,17 +164,14 @@ impl<'a> DEV_CLK_EN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C_CLK_EN_A {
     #[doc = "0: Disable the I2C clock."]
-    DISABLE_THE_I2C_CLOC,
+    DISABLE_THE_I2C_CLOC = 0,
     #[doc = "1: Enable the I2C clock."]
-    ENABLE_THE_I2C_CLOCK,
+    ENABLE_THE_I2C_CLOCK = 1,
 }
 impl From<I2C_CLK_EN_A> for bool {
     #[inline(always)]
     fn from(variant: I2C_CLK_EN_A) -> Self {
-        match variant {
-            I2C_CLK_EN_A::DISABLE_THE_I2C_CLOC => false,
-            I2C_CLK_EN_A::ENABLE_THE_I2C_CLOCK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C_CLK_EN`"]
@@ -248,17 +239,14 @@ impl<'a> I2C_CLK_EN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OTG_CLK_EN_A {
     #[doc = "0: Disable the OTG clock."]
-    DISABLE_THE_OTG_CLOC,
+    DISABLE_THE_OTG_CLOC = 0,
     #[doc = "1: Enable the OTG clock."]
-    ENABLE_THE_OTG_CLOCK,
+    ENABLE_THE_OTG_CLOCK = 1,
 }
 impl From<OTG_CLK_EN_A> for bool {
     #[inline(always)]
     fn from(variant: OTG_CLK_EN_A) -> Self {
-        match variant {
-            OTG_CLK_EN_A::DISABLE_THE_OTG_CLOC => false,
-            OTG_CLK_EN_A::ENABLE_THE_OTG_CLOCK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OTG_CLK_EN`"]
@@ -326,17 +314,14 @@ impl<'a> OTG_CLK_EN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AHB_CLK_EN_A {
     #[doc = "0: Disable the AHB clock."]
-    DISABLE_THE_AHB_CLOC,
+    DISABLE_THE_AHB_CLOC = 0,
     #[doc = "1: Enable the AHB clock."]
-    ENABLE_THE_AHB_CLOCK,
+    ENABLE_THE_AHB_CLOCK = 1,
 }
 impl From<AHB_CLK_EN_A> for bool {
     #[inline(always)]
     fn from(variant: AHB_CLK_EN_A) -> Self {
-        match variant {
-            AHB_CLK_EN_A::DISABLE_THE_AHB_CLOC => false,
-            AHB_CLK_EN_A::ENABLE_THE_AHB_CLOCK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `AHB_CLK_EN`"]

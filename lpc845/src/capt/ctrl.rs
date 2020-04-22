@@ -12,25 +12,21 @@ impl crate::ResetValue for super::CTRL {
 }
 #[doc = "Mode of operation. May only change from 0 to another value. So, if 2 or 3, must be changed to 0 1st. Any attempt to go from non-0 to non-0 will result in 0 anyway.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum POLLMODE_A {
     #[doc = "0: None, inactive. Poll and time counters are turned off. Writing this will reset state and stop any collection in progress. Note: this has no effect on STATUS - those must be cleared manually."]
-    NONE,
+    NONE = 0,
     #[doc = "1: Poll now - forces a manual poll to be started immediately, using XPINSEL X pin(s) to activate in the integration loop (all pins set together). Self clears - clear is not indication it is done (see STATUS)."]
-    POLL_NOW,
+    POLL_NOW = 1,
     #[doc = "2: Normal polling using poll delay from POLL_TCNT register. This will start with the poll delay (which can be 0)."]
-    NORMAL,
+    NORMAL = 2,
     #[doc = "3: The CAPT block will operate in low-power mode. This means it will use GPIO as input, use combination touch measurements, and assume it is to wake the system. This will use the POLL_TCNT poll delay, and start with the delay."]
-    LOW_POWER_MODE,
+    LOW_POWER_MODE = 3,
 }
 impl From<POLLMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: POLLMODE_A) -> Self {
-        match variant {
-            POLLMODE_A::NONE => 0,
-            POLLMODE_A::POLL_NOW => 1,
-            POLLMODE_A::NORMAL => 2,
-            POLLMODE_A::LOW_POWER_MODE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `POLLMODE`"]
@@ -109,25 +105,21 @@ impl<'a> POLLMODE_W<'a> {
 }
 #[doc = "Selects type of Touch arrangement to use and so how to handle XPINSEL bits\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TYPE_A {
     #[doc = "0: Normal - all X elements are treated as normal, such as buttons and sliders."]
-    TYPE_0,
+    TYPE_0 = 0,
     #[doc = "1: 3x3 grid using NXP Complementary measurements. The 1st 9 Xs are assumed to be the 3x3 grid. After that would be normal X elements. This will also allow 3x1 and 3x2 Note: Only possible if XMAX in STATUS is >=8"]
-    TYPE_1,
+    TYPE_1 = 1,
     #[doc = "2: 5 Sensors interleaved to act as 3x3 touch area using NXP Complementary measurements. 1st 5 Xs used for this, all remaining are treated as normal. Note that if 16 X pins allowed, the 16th will not be usable when TYPE=1. (use TYPE=0 and select 1 smaller than 15 ( and any others from 1 smaller than 5 on up in XPINSEL)."]
-    TYPE_2,
+    TYPE_2 = 2,
     #[doc = "3: 9 Sensors interleaved to act as 5x5 touch area using NXP Complementary measurements. 1st 9 Xs used for this, all remaining are treated as normal. Note: Only possible if XMAX in STATUS is >=8"]
-    TYPE_3,
+    TYPE_3 = 3,
 }
 impl From<TYPE_A> for u8 {
     #[inline(always)]
     fn from(variant: TYPE_A) -> Self {
-        match variant {
-            TYPE_A::TYPE_0 => 0,
-            TYPE_A::TYPE_1 => 1,
-            TYPE_A::TYPE_2 => 2,
-            TYPE_A::TYPE_3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TYPE`"]
@@ -208,17 +200,14 @@ impl<'a> TYPE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRIGGER_A {
     #[doc = "0: Uses YH GPIO. This is not normally used except in Low-power mode. But, it can be used with POLLNOW to baseline that measurement."]
-    USES_YH_GPIO,
+    USES_YH_GPIO = 0,
     #[doc = "1: ACMP (if fitted). This assumes the ACMP state is fed in asynchronously and it will sample."]
-    ACMP,
+    ACMP = 1,
 }
 impl From<TRIGGER_A> for bool {
     #[inline(always)]
     fn from(variant: TRIGGER_A) -> Self {
-        match variant {
-            TRIGGER_A::USES_YH_GPIO => false,
-            TRIGGER_A::ACMP => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TRIGGER`"]
@@ -308,25 +297,21 @@ impl<'a> WAIT_W<'a> {
 }
 #[doc = "If not 0, will use the DMA to read out touch events from TOUCH register. The values are shown below. This may be changed while active.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DMA_A {
     #[doc = "0: No DMA. Application will use ISRs to read out data"]
-    DMA_0,
+    DMA_0 = 0,
     #[doc = "1: Trigger DMA on Touch events"]
-    DMA_1,
+    DMA_1 = 1,
     #[doc = "2: Trigger DMA on both Touch and No-Touch events"]
-    DMA_2,
+    DMA_2 = 2,
     #[doc = "3: Trigger DMA on both plus Timeout."]
-    DMA_3,
+    DMA_3 = 3,
 }
 impl From<DMA_A> for u8 {
     #[inline(always)]
     fn from(variant: DMA_A) -> Self {
-        match variant {
-            DMA_A::DMA_0 => 0,
-            DMA_A::DMA_1 => 1,
-            DMA_A::DMA_2 => 2,
-            DMA_A::DMA_3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DMA`"]
@@ -405,58 +390,43 @@ impl<'a> DMA_W<'a> {
 }
 #[doc = "Functional clock divider, or 0 if no divide. The term \"clocks\" in this spec then refer to divided clocks. For a 12MHz input (e.g. FRO 12MHz), this would normally be set to generate a 4MHz output (so, 2). For a 1MHz input, it should be 0. Note for internal use: this does not produce a 50/50 duty cycle when non even divide.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FDIV_A {
     #[doc = "0: No divide"]
-    FDIV_0,
+    FDIV_0 = 0,
     #[doc = "1: /2"]
-    FDIV_1,
+    FDIV_1 = 1,
     #[doc = "2: /3"]
-    FDIV_2,
+    FDIV_2 = 2,
     #[doc = "3: /4"]
-    FDIV_3,
+    FDIV_3 = 3,
     #[doc = "4: /5"]
-    FDIV_4,
+    FDIV_4 = 4,
     #[doc = "5: /6"]
-    FDIV_5,
+    FDIV_5 = 5,
     #[doc = "7: /(FDIV+1)"]
-    FDIV_7,
+    FDIV_7 = 7,
     #[doc = "8: /(FDIV+1)"]
-    FDIV_8,
+    FDIV_8 = 8,
     #[doc = "9: /(FDIV+1)"]
-    FDIV_9,
+    FDIV_9 = 9,
     #[doc = "10: /(FDIV+1)"]
-    FDIV_10,
+    FDIV_10 = 10,
     #[doc = "11: /(FDIV+1)"]
-    FDIV_11,
+    FDIV_11 = 11,
     #[doc = "12: /(FDIV+1)"]
-    FDIV_12,
+    FDIV_12 = 12,
     #[doc = "13: /(FDIV+1)"]
-    FDIV_13,
+    FDIV_13 = 13,
     #[doc = "14: /(FDIV+1)"]
-    FDIV_14,
+    FDIV_14 = 14,
     #[doc = "15: /(FDIV+1)"]
-    FDIV_15,
+    FDIV_15 = 15,
 }
 impl From<FDIV_A> for u8 {
     #[inline(always)]
     fn from(variant: FDIV_A) -> Self {
-        match variant {
-            FDIV_A::FDIV_0 => 0,
-            FDIV_A::FDIV_1 => 1,
-            FDIV_A::FDIV_2 => 2,
-            FDIV_A::FDIV_3 => 3,
-            FDIV_A::FDIV_4 => 4,
-            FDIV_A::FDIV_5 => 5,
-            FDIV_A::FDIV_7 => 7,
-            FDIV_A::FDIV_8 => 8,
-            FDIV_A::FDIV_9 => 9,
-            FDIV_A::FDIV_10 => 10,
-            FDIV_A::FDIV_11 => 11,
-            FDIV_A::FDIV_12 => 12,
-            FDIV_A::FDIV_13 => 13,
-            FDIV_A::FDIV_14 => 14,
-            FDIV_A::FDIV_15 => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FDIV`"]
@@ -655,19 +625,17 @@ impl<'a> FDIV_W<'a> {
 }
 #[doc = "Controls how X pins selected in XPINSEL are used when not active in the current polling round.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum XPINUSE_A {
     #[doc = "0: Normal mode. Each inactive X pin is Hi-Z."]
-    NORMAL_MDOE,
+    NORMAL_MDOE = 0,
     #[doc = "1: Ground mode. Each inactive X pin is Low"]
-    GROUND_MDOE,
+    GROUND_MDOE = 1,
 }
 impl From<XPINUSE_A> for u8 {
     #[inline(always)]
     fn from(variant: XPINUSE_A) -> Self {
-        match variant {
-            XPINUSE_A::NORMAL_MDOE => 0,
-            XPINUSE_A::GROUND_MDOE => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `XPINUSE`"]

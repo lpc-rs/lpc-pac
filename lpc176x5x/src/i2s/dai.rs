@@ -12,22 +12,19 @@ impl crate::ResetValue for super::DAI {
 }
 #[doc = "Selects the number of bytes in data as follows:\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WORDWIDTH_A {
     #[doc = "0: 8-bit data"]
-    _8_BIT_DATA,
+    _8_BIT_DATA = 0,
     #[doc = "1: 16-bit data"]
-    _16_BIT_DATA,
+    _16_BIT_DATA = 1,
     #[doc = "3: 32-bit data"]
-    _32_BIT_DATA,
+    _32_BIT_DATA = 3,
 }
 impl From<WORDWIDTH_A> for u8 {
     #[inline(always)]
     fn from(variant: WORDWIDTH_A) -> Self {
-        match variant {
-            WORDWIDTH_A::_8_BIT_DATA => 0,
-            WORDWIDTH_A::_16_BIT_DATA => 1,
-            WORDWIDTH_A::_32_BIT_DATA => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `WORDWIDTH`"]

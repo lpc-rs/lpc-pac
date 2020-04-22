@@ -12,17 +12,14 @@ impl crate::ResetValue for super::CMR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TR_AW {
     #[doc = "0: Absent.No transmission request."]
-    ABSENT_NO_TRANSMISSI,
+    ABSENT_NO_TRANSMISSI = 0,
     #[doc = "1: Present. The message, previously written to the CANxTFI, CANxTID, and optionally the CANxTDA and CANxTDB registers, is queued for transmission from the selected Transmit Buffer. If at two or all three of STB1, STB2 and STB3 bits are selected when TR=1 is written, Transmit Buffer will be selected based on the chosen priority scheme (for details see Section 21.5.3 Transmit Buffers (TXB))"]
-    PRESENT_THE_MESSAGE,
+    PRESENT_THE_MESSAGE = 1,
 }
 impl From<TR_AW> for bool {
     #[inline(always)]
     fn from(variant: TR_AW) -> Self {
-        match variant {
-            TR_AW::ABSENT_NO_TRANSMISSI => false,
-            TR_AW::PRESENT_THE_MESSAGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `TR`"]
@@ -68,17 +65,14 @@ impl<'a> TR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AT_AW {
     #[doc = "0: No action. Do not abort the transmission."]
-    NO_ACTION_DO_NOT_AB,
+    NO_ACTION_DO_NOT_AB = 0,
     #[doc = "1: Present. if not already in progress, a pending Transmission Request for the selected Transmit Buffer is cancelled."]
-    PRESENT_IF_NOT_ALRE,
+    PRESENT_IF_NOT_ALRE = 1,
 }
 impl From<AT_AW> for bool {
     #[inline(always)]
     fn from(variant: AT_AW) -> Self {
-        match variant {
-            AT_AW::NO_ACTION_DO_NOT_AB => false,
-            AT_AW::PRESENT_IF_NOT_ALRE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `AT`"]
@@ -124,17 +118,14 @@ impl<'a> AT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RRB_AW {
     #[doc = "0: No action. Do not release the receive buffer."]
-    NO_ACTION_DO_NOT_RE,
+    NO_ACTION_DO_NOT_RE = 0,
     #[doc = "1: Released. The information in the Receive Buffer (consisting of CANxRFS, CANxRID, and if applicable the CANxRDA and CANxRDB registers) is released, and becomes eligible for replacement by the next received frame. If the next received frame is not available, writing this command clears the RBS bit in the Status Register(s)."]
-    RELEASED_THE_INFORM,
+    RELEASED_THE_INFORM = 1,
 }
 impl From<RRB_AW> for bool {
     #[inline(always)]
     fn from(variant: RRB_AW) -> Self {
-        match variant {
-            RRB_AW::NO_ACTION_DO_NOT_RE => false,
-            RRB_AW::RELEASED_THE_INFORM => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `RRB`"]
@@ -180,17 +171,14 @@ impl<'a> RRB_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CDO_AW {
     #[doc = "0: No action. Do not clear the data overrun bit."]
-    NO_ACTION_DO_NOT_CL,
+    NO_ACTION_DO_NOT_CL = 0,
     #[doc = "1: Clear. The Data Overrun bit in Status Register(s) is cleared."]
-    CLEAR_THE_DATA_OVER,
+    CLEAR_THE_DATA_OVER = 1,
 }
 impl From<CDO_AW> for bool {
     #[inline(always)]
     fn from(variant: CDO_AW) -> Self {
-        match variant {
-            CDO_AW::NO_ACTION_DO_NOT_CL => false,
-            CDO_AW::CLEAR_THE_DATA_OVER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `CDO`"]
@@ -236,17 +224,14 @@ impl<'a> CDO_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SRR_AW {
     #[doc = "0: Absent. No self reception request."]
-    ABSENT_NO_SELF_RECE,
+    ABSENT_NO_SELF_RECE = 0,
     #[doc = "1: Present. The message, previously written to the CANxTFS, CANxTID, and optionally the CANxTDA and CANxTDB registers, is queued for transmission from the selected Transmit Buffer and received simultaneously. This differs from the TR bit above in that the receiver is not disabled during the transmission, so that it receives the message if its Identifier is recognized by the Acceptance Filter."]
-    PRESENT_THE_MESSAGE,
+    PRESENT_THE_MESSAGE = 1,
 }
 impl From<SRR_AW> for bool {
     #[inline(always)]
     fn from(variant: SRR_AW) -> Self {
-        match variant {
-            SRR_AW::ABSENT_NO_SELF_RECE => false,
-            SRR_AW::PRESENT_THE_MESSAGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `SRR`"]
@@ -292,17 +277,14 @@ impl<'a> SRR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STB1_AW {
     #[doc = "0: Not selected. Tx Buffer 1 is not selected for transmission."]
-    NOT_SELECTED_TX_BUF,
+    NOT_SELECTED_TX_BUF = 0,
     #[doc = "1: Selected. Tx Buffer 1 is selected for transmission."]
-    SELECTED_TX_BUFFER_,
+    SELECTED_TX_BUFFER_ = 1,
 }
 impl From<STB1_AW> for bool {
     #[inline(always)]
     fn from(variant: STB1_AW) -> Self {
-        match variant {
-            STB1_AW::NOT_SELECTED_TX_BUF => false,
-            STB1_AW::SELECTED_TX_BUFFER_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `STB1`"]
@@ -348,17 +330,14 @@ impl<'a> STB1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STB2_AW {
     #[doc = "0: Not selected. Tx Buffer 2 is not selected for transmission."]
-    NOT_SELECTED_TX_BUF,
+    NOT_SELECTED_TX_BUF = 0,
     #[doc = "1: Selected. Tx Buffer 2 is selected for transmission."]
-    SELECTED_TX_BUFFER_,
+    SELECTED_TX_BUFFER_ = 1,
 }
 impl From<STB2_AW> for bool {
     #[inline(always)]
     fn from(variant: STB2_AW) -> Self {
-        match variant {
-            STB2_AW::NOT_SELECTED_TX_BUF => false,
-            STB2_AW::SELECTED_TX_BUFFER_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `STB2`"]
@@ -404,17 +383,14 @@ impl<'a> STB2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STB3_AW {
     #[doc = "0: Not selected. Tx Buffer 3 is not selected for transmission."]
-    NOT_SELECTED_TX_BUF,
+    NOT_SELECTED_TX_BUF = 0,
     #[doc = "1: Selected. Tx Buffer 3 is selected for transmission."]
-    SELECTED_TX_BUFFER_,
+    SELECTED_TX_BUFFER_ = 1,
 }
 impl From<STB3_AW> for bool {
     #[inline(always)]
     fn from(variant: STB3_AW) -> Self {
-        match variant {
-            STB3_AW::NOT_SELECTED_TX_BUF => false,
-            STB3_AW::SELECTED_TX_BUFFER_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `STB3`"]

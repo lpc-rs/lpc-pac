@@ -38,17 +38,14 @@ impl<'a> SYS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ROM_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ROM_A> for bool {
     #[inline(always)]
     fn from(variant: ROM_A) -> Self {
-        match variant {
-            ROM_A::DISABLE => false,
-            ROM_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ROM`"]
@@ -116,17 +113,14 @@ impl<'a> ROM_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RAM0_1_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<RAM0_1_A> for bool {
     #[inline(always)]
     fn from(variant: RAM0_1_A) -> Self {
-        match variant {
-            RAM0_1_A::DISABLE => false,
-            RAM0_1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RAM0_1`"]
@@ -194,17 +188,14 @@ impl<'a> RAM0_1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FLASH_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<FLASH_A> for bool {
     #[inline(always)]
     fn from(variant: FLASH_A) -> Self {
-        match variant {
-            FLASH_A::DISABLE => false,
-            FLASH_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FLASH`"]
@@ -272,17 +263,14 @@ impl<'a> FLASH_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C0_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<I2C0_A> for bool {
     #[inline(always)]
     fn from(variant: I2C0_A) -> Self {
-        match variant {
-            I2C0_A::DISABLE => false,
-            I2C0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C0`"]
@@ -350,17 +338,14 @@ impl<'a> I2C0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GPIO0_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<GPIO0_A> for bool {
     #[inline(always)]
     fn from(variant: GPIO0_A) -> Self {
-        match variant {
-            GPIO0_A::DISABLE => false,
-            GPIO0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `GPIO0`"]
@@ -428,17 +413,14 @@ impl<'a> GPIO0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SWM_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<SWM_A> for bool {
     #[inline(always)]
     fn from(variant: SWM_A) -> Self {
-        match variant {
-            SWM_A::DISABLE => false,
-            SWM_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SWM`"]
@@ -506,17 +488,14 @@ impl<'a> SWM_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SCT_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<SCT_A> for bool {
     #[inline(always)]
     fn from(variant: SCT_A) -> Self {
-        match variant {
-            SCT_A::DISABLE => false,
-            SCT_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SCT`"]
@@ -584,17 +563,14 @@ impl<'a> SCT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WKT_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WKT_A> for bool {
     #[inline(always)]
     fn from(variant: WKT_A) -> Self {
-        match variant {
-            WKT_A::DISABLE => false,
-            WKT_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WKT`"]
@@ -662,17 +638,14 @@ impl<'a> WKT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MRT_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<MRT_A> for bool {
     #[inline(always)]
     fn from(variant: MRT_A) -> Self {
-        match variant {
-            MRT_A::DISABLE => false,
-            MRT_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MRT`"]
@@ -740,17 +713,14 @@ impl<'a> MRT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPI0_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<SPI0_A> for bool {
     #[inline(always)]
     fn from(variant: SPI0_A) -> Self {
-        match variant {
-            SPI0_A::DISABLE => false,
-            SPI0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPI0`"]
@@ -818,17 +788,14 @@ impl<'a> SPI0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPI1_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<SPI1_A> for bool {
     #[inline(always)]
     fn from(variant: SPI1_A) -> Self {
-        match variant {
-            SPI1_A::DISABLE => false,
-            SPI1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPI1`"]
@@ -896,17 +863,14 @@ impl<'a> SPI1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CRC_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CRC_A> for bool {
     #[inline(always)]
     fn from(variant: CRC_A) -> Self {
-        match variant {
-            CRC_A::DISABLE => false,
-            CRC_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CRC`"]
@@ -974,17 +938,14 @@ impl<'a> CRC_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART0_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<UART0_A> for bool {
     #[inline(always)]
     fn from(variant: UART0_A) -> Self {
-        match variant {
-            UART0_A::DISABLE => false,
-            UART0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART0`"]
@@ -1052,17 +1013,14 @@ impl<'a> UART0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART1_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<UART1_A> for bool {
     #[inline(always)]
     fn from(variant: UART1_A) -> Self {
-        match variant {
-            UART1_A::DISABLE => false,
-            UART1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART1`"]
@@ -1130,17 +1088,14 @@ impl<'a> UART1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART2_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<UART2_A> for bool {
     #[inline(always)]
     fn from(variant: UART2_A) -> Self {
-        match variant {
-            UART2_A::DISABLE => false,
-            UART2_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART2`"]
@@ -1208,17 +1163,14 @@ impl<'a> UART2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WWDT_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WWDT_A> for bool {
     #[inline(always)]
     fn from(variant: WWDT_A) -> Self {
-        match variant {
-            WWDT_A::DISABLE => false,
-            WWDT_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WWDT`"]
@@ -1286,17 +1238,14 @@ impl<'a> WWDT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IOCON_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<IOCON_A> for bool {
     #[inline(always)]
     fn from(variant: IOCON_A) -> Self {
-        match variant {
-            IOCON_A::DISABLE => false,
-            IOCON_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IOCON`"]
@@ -1364,17 +1313,14 @@ impl<'a> IOCON_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACMP_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ACMP_A> for bool {
     #[inline(always)]
     fn from(variant: ACMP_A) -> Self {
-        match variant {
-            ACMP_A::DISABLE => false,
-            ACMP_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACMP`"]
@@ -1442,17 +1388,14 @@ impl<'a> ACMP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GPIO1_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<GPIO1_A> for bool {
     #[inline(always)]
     fn from(variant: GPIO1_A) -> Self {
-        match variant {
-            GPIO1_A::DISABLE => false,
-            GPIO1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `GPIO1`"]
@@ -1520,17 +1463,14 @@ impl<'a> GPIO1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C1_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<I2C1_A> for bool {
     #[inline(always)]
     fn from(variant: I2C1_A) -> Self {
-        match variant {
-            I2C1_A::DISABLE => false,
-            I2C1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C1`"]
@@ -1598,17 +1538,14 @@ impl<'a> I2C1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C2_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<I2C2_A> for bool {
     #[inline(always)]
     fn from(variant: I2C2_A) -> Self {
-        match variant {
-            I2C2_A::DISABLE => false,
-            I2C2_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C2`"]
@@ -1676,17 +1613,14 @@ impl<'a> I2C2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C3_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<I2C3_A> for bool {
     #[inline(always)]
     fn from(variant: I2C3_A) -> Self {
-        match variant {
-            I2C3_A::DISABLE => false,
-            I2C3_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C3`"]
@@ -1754,17 +1688,14 @@ impl<'a> I2C3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ADC_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_A) -> Self {
-        match variant {
-            ADC_A::DISABLE => false,
-            ADC_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC`"]
@@ -1832,17 +1763,14 @@ impl<'a> ADC_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CTIMER_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CTIMER_A> for bool {
     #[inline(always)]
     fn from(variant: CTIMER_A) -> Self {
-        match variant {
-            CTIMER_A::DISABLE => false,
-            CTIMER_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CTIMER`"]
@@ -1910,17 +1838,14 @@ impl<'a> CTIMER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MTB_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<MTB_A> for bool {
     #[inline(always)]
     fn from(variant: MTB_A) -> Self {
-        match variant {
-            MTB_A::DISABLE => false,
-            MTB_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MTB`"]
@@ -1988,17 +1913,14 @@ impl<'a> MTB_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DAC0_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<DAC0_A> for bool {
     #[inline(always)]
     fn from(variant: DAC0_A) -> Self {
-        match variant {
-            DAC0_A::DISABLE => false,
-            DAC0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DAC0`"]
@@ -2066,17 +1988,14 @@ impl<'a> DAC0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum GPIO_INT_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<GPIO_INT_A> for bool {
     #[inline(always)]
     fn from(variant: GPIO_INT_A) -> Self {
-        match variant {
-            GPIO_INT_A::DISABLE => false,
-            GPIO_INT_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `GPIO_INT`"]
@@ -2144,17 +2063,14 @@ impl<'a> GPIO_INT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DMA_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<DMA_A> for bool {
     #[inline(always)]
     fn from(variant: DMA_A) -> Self {
-        match variant {
-            DMA_A::DISABLE => false,
-            DMA_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DMA`"]
@@ -2222,17 +2138,14 @@ impl<'a> DMA_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART3_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<UART3_A> for bool {
     #[inline(always)]
     fn from(variant: UART3_A) -> Self {
-        match variant {
-            UART3_A::DISABLE => false,
-            UART3_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART3`"]
@@ -2300,17 +2213,14 @@ impl<'a> UART3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UART4_A {
     #[doc = "0: disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<UART4_A> for bool {
     #[inline(always)]
     fn from(variant: UART4_A) -> Self {
-        match variant {
-            UART4_A::DISABLE => false,
-            UART4_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `UART4`"]

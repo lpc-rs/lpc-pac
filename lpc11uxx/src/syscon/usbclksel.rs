@@ -12,19 +12,17 @@ impl crate::ResetValue for super::USBCLKSEL {
 }
 #[doc = "USB clock source. Values 0x2 and 0x3 are reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
     #[doc = "0: USB PLL out"]
-    USB_PLL_OUT,
+    USB_PLL_OUT = 0,
     #[doc = "1: Main clock"]
-    MAIN_CLOCK,
+    MAIN_CLOCK = 1,
 }
 impl From<SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::USB_PLL_OUT => 0,
-            SEL_A::MAIN_CLOCK => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]

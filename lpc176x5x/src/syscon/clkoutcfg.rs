@@ -12,28 +12,23 @@ impl crate::ResetValue for super::CLKOUTCFG {
 }
 #[doc = "Selects the clock source for the CLKOUT function. Other values are reserved. Do not use.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CLKOUTSEL_A {
     #[doc = "0: Selects the CPU clock as the CLKOUT source."]
-    SELECTS_THE_CPU_CLOC,
+    SELECTS_THE_CPU_CLOC = 0,
     #[doc = "1: Selects the main oscillator as the CLKOUT source."]
-    SELECTS_THE_MAIN_OSC,
+    SELECTS_THE_MAIN_OSC = 1,
     #[doc = "2: Selects the Internal RC oscillator as the CLKOUT source."]
-    SELECTS_THE_INTERNAL,
+    SELECTS_THE_INTERNAL = 2,
     #[doc = "3: Selects the USB clock as the CLKOUT source."]
-    SELECTS_THE_USB_CLOC,
+    SELECTS_THE_USB_CLOC = 3,
     #[doc = "4: Selects the RTC oscillator as the CLKOUT source."]
-    SELECTS_THE_RTC_OSCI,
+    SELECTS_THE_RTC_OSCI = 4,
 }
 impl From<CLKOUTSEL_A> for u8 {
     #[inline(always)]
     fn from(variant: CLKOUTSEL_A) -> Self {
-        match variant {
-            CLKOUTSEL_A::SELECTS_THE_CPU_CLOC => 0,
-            CLKOUTSEL_A::SELECTS_THE_MAIN_OSC => 1,
-            CLKOUTSEL_A::SELECTS_THE_INTERNAL => 2,
-            CLKOUTSEL_A::SELECTS_THE_USB_CLOC => 3,
-            CLKOUTSEL_A::SELECTS_THE_RTC_OSCI => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CLKOUTSEL`"]

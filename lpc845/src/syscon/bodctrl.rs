@@ -12,22 +12,19 @@ impl crate::ResetValue for super::BODCTRL {
 }
 #[doc = "BOD reset level\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BODRSTLEV_A {
     #[doc = "1: Level 1"]
-    LEVEL_1,
+    LEVEL_1 = 1,
     #[doc = "2: Level 2"]
-    LEVEL_2,
+    LEVEL_2 = 2,
     #[doc = "3: Level 3"]
-    LEVEL_3,
+    LEVEL_3 = 3,
 }
 impl From<BODRSTLEV_A> for u8 {
     #[inline(always)]
     fn from(variant: BODRSTLEV_A) -> Self {
-        match variant {
-            BODRSTLEV_A::LEVEL_1 => 1,
-            BODRSTLEV_A::LEVEL_2 => 2,
-            BODRSTLEV_A::LEVEL_3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BODRSTLEV`"]
@@ -94,22 +91,19 @@ impl<'a> BODRSTLEV_W<'a> {
 }
 #[doc = "BOD interrupt level\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BODINTVAL_A {
     #[doc = "1: Level 1"]
-    LEVEL_1,
+    LEVEL_1 = 1,
     #[doc = "2: Level 2"]
-    LEVEL_2,
+    LEVEL_2 = 2,
     #[doc = "3: Level 3"]
-    LEVEL_3,
+    LEVEL_3 = 3,
 }
 impl From<BODINTVAL_A> for u8 {
     #[inline(always)]
     fn from(variant: BODINTVAL_A) -> Self {
-        match variant {
-            BODINTVAL_A::LEVEL_1 => 1,
-            BODINTVAL_A::LEVEL_2 => 2,
-            BODINTVAL_A::LEVEL_3 => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BODINTVAL`"]
@@ -178,17 +172,14 @@ impl<'a> BODINTVAL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BODRSTENA_A {
     #[doc = "0: Disable reset function."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable reset function."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<BODRSTENA_A> for bool {
     #[inline(always)]
     fn from(variant: BODRSTENA_A) -> Self {
-        match variant {
-            BODRSTENA_A::DISABLE => false,
-            BODRSTENA_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BODRSTENA`"]

@@ -29,7 +29,7 @@ impl RegisterBlock {
         unsafe { &mut *(((self as *const Self) as *mut u8).add(8usize) as *mut SUM) }
     }
 }
-#[doc = "CRC mode register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [mode](mode) module"]
+#[doc = "CRC mode register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mode](mode) module"]
 pub type MODE = crate::Reg<u32, _MODE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -40,7 +40,7 @@ impl crate::Readable for MODE {}
 impl crate::Writable for MODE {}
 #[doc = "CRC mode register"]
 pub mod mode;
-#[doc = "CRC seed register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [seed](seed) module"]
+#[doc = "CRC seed register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [seed](seed) module"]
 pub type SEED = crate::Reg<u32, _SEED>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -51,7 +51,7 @@ impl crate::Readable for SEED {}
 impl crate::Writable for SEED {}
 #[doc = "CRC seed register"]
 pub mod seed;
-#[doc = "CRC checksum register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sum](sum) module"]
+#[doc = "CRC checksum register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sum](sum) module"]
 pub type SUM = crate::Reg<u32, _SUM>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -60,7 +60,7 @@ pub struct _SUM;
 impl crate::Readable for SUM {}
 #[doc = "CRC checksum register"]
 pub mod sum;
-#[doc = "CRC data register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wr_data](wr_data) module"]
+#[doc = "CRC data register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [wr_data](wr_data) module"]
 pub type WR_DATA = crate::Reg<u32, _WR_DATA>;
 #[allow(missing_docs)]
 #[doc(hidden)]

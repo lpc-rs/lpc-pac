@@ -24,7 +24,7 @@ pub struct RegisterBlock {
     #[doc = "0x28 - FullCAN interrupt and capture register1"]
     pub fcanic1: FCANIC1,
 }
-#[doc = "Acceptance Filter Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [afmr](afmr) module"]
+#[doc = "Acceptance Filter Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [afmr](afmr) module"]
 pub type AFMR = crate::Reg<u32, _AFMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -35,7 +35,7 @@ impl crate::Readable for AFMR {}
 impl crate::Writable for AFMR {}
 #[doc = "Acceptance Filter Register"]
 pub mod afmr;
-#[doc = "Standard Frame Individual Start Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sff_sa](sff_sa) module"]
+#[doc = "Standard Frame Individual Start Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sff_sa](sff_sa) module"]
 pub type SFF_SA = crate::Reg<u32, _SFF_SA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -46,7 +46,7 @@ impl crate::Readable for SFF_SA {}
 impl crate::Writable for SFF_SA {}
 #[doc = "Standard Frame Individual Start Address Register"]
 pub mod sff_sa;
-#[doc = "Standard Frame Group Start Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sff_grp_sa](sff_grp_sa) module"]
+#[doc = "Standard Frame Group Start Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sff_grp_sa](sff_grp_sa) module"]
 pub type SFF_GRP_SA = crate::Reg<u32, _SFF_GRP_SA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -57,7 +57,7 @@ impl crate::Readable for SFF_GRP_SA {}
 impl crate::Writable for SFF_GRP_SA {}
 #[doc = "Standard Frame Group Start Address Register"]
 pub mod sff_grp_sa;
-#[doc = "Extended Frame Start Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [eff_sa](eff_sa) module"]
+#[doc = "Extended Frame Start Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [eff_sa](eff_sa) module"]
 pub type EFF_SA = crate::Reg<u32, _EFF_SA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -68,7 +68,7 @@ impl crate::Readable for EFF_SA {}
 impl crate::Writable for EFF_SA {}
 #[doc = "Extended Frame Start Address Register"]
 pub mod eff_sa;
-#[doc = "Extended Frame Group Start Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [eff_grp_sa](eff_grp_sa) module"]
+#[doc = "Extended Frame Group Start Address Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [eff_grp_sa](eff_grp_sa) module"]
 pub type EFF_GRP_SA = crate::Reg<u32, _EFF_GRP_SA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -79,7 +79,7 @@ impl crate::Readable for EFF_GRP_SA {}
 impl crate::Writable for EFF_GRP_SA {}
 #[doc = "Extended Frame Group Start Address Register"]
 pub mod eff_grp_sa;
-#[doc = "End of AF Tables register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [endoftable](endoftable) module"]
+#[doc = "End of AF Tables register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [endoftable](endoftable) module"]
 pub type ENDOFTABLE = crate::Reg<u32, _ENDOFTABLE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -90,7 +90,7 @@ impl crate::Readable for ENDOFTABLE {}
 impl crate::Writable for ENDOFTABLE {}
 #[doc = "End of AF Tables register"]
 pub mod endoftable;
-#[doc = "LUT Error Address register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [luterrad](luterrad) module"]
+#[doc = "LUT Error Address register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [luterrad](luterrad) module"]
 pub type LUTERRAD = crate::Reg<u32, _LUTERRAD>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -99,7 +99,7 @@ pub struct _LUTERRAD;
 impl crate::Readable for LUTERRAD {}
 #[doc = "LUT Error Address register"]
 pub mod luterrad;
-#[doc = "LUT Error Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [luterr](luterr) module"]
+#[doc = "LUT Error Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [luterr](luterr) module"]
 pub type LUTERR = crate::Reg<u32, _LUTERR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -108,7 +108,7 @@ pub struct _LUTERR;
 impl crate::Readable for LUTERR {}
 #[doc = "LUT Error Register"]
 pub mod luterr;
-#[doc = "FullCAN interrupt enable register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fcanie](fcanie) module"]
+#[doc = "FullCAN interrupt enable register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fcanie](fcanie) module"]
 pub type FCANIE = crate::Reg<u32, _FCANIE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -119,7 +119,7 @@ impl crate::Readable for FCANIE {}
 impl crate::Writable for FCANIE {}
 #[doc = "FullCAN interrupt enable register"]
 pub mod fcanie;
-#[doc = "FullCAN interrupt and capture register0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fcanic0](fcanic0) module"]
+#[doc = "FullCAN interrupt and capture register0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fcanic0](fcanic0) module"]
 pub type FCANIC0 = crate::Reg<u32, _FCANIC0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -130,7 +130,7 @@ impl crate::Readable for FCANIC0 {}
 impl crate::Writable for FCANIC0 {}
 #[doc = "FullCAN interrupt and capture register0"]
 pub mod fcanic0;
-#[doc = "FullCAN interrupt and capture register1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [fcanic1](fcanic1) module"]
+#[doc = "FullCAN interrupt and capture register1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fcanic1](fcanic1) module"]
 pub type FCANIC1 = crate::Reg<u32, _FCANIC1>;
 #[allow(missing_docs)]
 #[doc(hidden)]

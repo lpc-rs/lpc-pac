@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP0_R_A {
     #[doc = "0: Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
+    DISABLED_THIS_FEATU = 0,
     #[doc = "1: Rising edge. A synchronously sampled rising edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of the TC."]
-    RISING_EDGE_A_SYNCH,
+    RISING_EDGE_A_SYNCH = 1,
 }
 impl From<CAP0_R_A> for bool {
     #[inline(always)]
     fn from(variant: CAP0_R_A) -> Self {
-        match variant {
-            CAP0_R_A::DISABLED_THIS_FEATU => false,
-            CAP0_R_A::RISING_EDGE_A_SYNCH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP0_R`"]
@@ -92,17 +89,14 @@ impl<'a> CAP0_R_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP0_F_A {
     #[doc = "0: Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
+    DISABLED_THIS_FEATU = 0,
     #[doc = "1: Falling edge. A synchronously sampled falling edge on PWMn_CAP0 will cause CR0 to be loaded with the contents of TC."]
-    FALLING_EDGE_A_SYNC,
+    FALLING_EDGE_A_SYNC = 1,
 }
 impl From<CAP0_F_A> for bool {
     #[inline(always)]
     fn from(variant: CAP0_F_A) -> Self {
-        match variant {
-            CAP0_F_A::DISABLED_THIS_FEATU => false,
-            CAP0_F_A::FALLING_EDGE_A_SYNC => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP0_F`"]
@@ -170,17 +164,14 @@ impl<'a> CAP0_F_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP0_I_A {
     #[doc = "0: Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
+    DISABLED_THIS_FEATU = 0,
     #[doc = "1: Interrupt. A CR0 load due to a PWMn_CAP0 event will generate an interrupt."]
-    INTERRUPT_A_CR0_LOA,
+    INTERRUPT_A_CR0_LOA = 1,
 }
 impl From<CAP0_I_A> for bool {
     #[inline(always)]
     fn from(variant: CAP0_I_A) -> Self {
-        match variant {
-            CAP0_I_A::DISABLED_THIS_FEATU => false,
-            CAP0_I_A::INTERRUPT_A_CR0_LOA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP0_I`"]
@@ -248,17 +239,14 @@ impl<'a> CAP0_I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP1_R_A {
     #[doc = "0: Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
+    DISABLED_THIS_FEATU = 0,
     #[doc = "1: Rising edge. A synchronously sampled rising edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of the TC."]
-    RISING_EDGE_A_SYNCH,
+    RISING_EDGE_A_SYNCH = 1,
 }
 impl From<CAP1_R_A> for bool {
     #[inline(always)]
     fn from(variant: CAP1_R_A) -> Self {
-        match variant {
-            CAP1_R_A::DISABLED_THIS_FEATU => false,
-            CAP1_R_A::RISING_EDGE_A_SYNCH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP1_R`"]
@@ -326,17 +314,14 @@ impl<'a> CAP1_R_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP1_F_A {
     #[doc = "0: Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
+    DISABLED_THIS_FEATU = 0,
     #[doc = "1: Falling edge. A synchronously sampled falling edge on PWMn_CAP1 will cause CR1 to be loaded with the contents of TC."]
-    FALLING_EDGE_A_SYNC,
+    FALLING_EDGE_A_SYNC = 1,
 }
 impl From<CAP1_F_A> for bool {
     #[inline(always)]
     fn from(variant: CAP1_F_A) -> Self {
-        match variant {
-            CAP1_F_A::DISABLED_THIS_FEATU => false,
-            CAP1_F_A::FALLING_EDGE_A_SYNC => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP1_F`"]
@@ -404,17 +389,14 @@ impl<'a> CAP1_F_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAP1_I_A {
     #[doc = "0: Disabled. This feature is disabled."]
-    DISABLED_THIS_FEATU,
+    DISABLED_THIS_FEATU = 0,
     #[doc = "1: Interrupt. A CR1 load due to a PWMn_CAP1 event will generate an interrupt."]
-    INTERRUPT_A_CR1_LOA,
+    INTERRUPT_A_CR1_LOA = 1,
 }
 impl From<CAP1_I_A> for bool {
     #[inline(always)]
     fn from(variant: CAP1_I_A) -> Self {
-        match variant {
-            CAP1_I_A::DISABLED_THIS_FEATU => false,
-            CAP1_I_A::INTERRUPT_A_CR1_LOA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAP1_I`"]

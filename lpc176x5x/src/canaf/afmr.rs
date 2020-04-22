@@ -62,17 +62,14 @@ impl<'a> ACCBP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EFCAN_A {
     #[doc = "0: Software must read all messages for all enabled IDs on all enabled CAN buses, from the receiving CAN controllers."]
-    SOFTWARE_MUST_READ_A,
+    SOFTWARE_MUST_READ_A = 0,
     #[doc = "1: The Acceptance Filter itself will take care of receiving and storing messages for selected Standard ID values on selected CAN buses. See Section 21.16 FullCAN mode on page 576."]
-    THE_ACCEPTANCE_FILTE,
+    THE_ACCEPTANCE_FILTE = 1,
 }
 impl From<EFCAN_A> for bool {
     #[inline(always)]
     fn from(variant: EFCAN_A) -> Self {
-        match variant {
-            EFCAN_A::SOFTWARE_MUST_READ_A => false,
-            EFCAN_A::THE_ACCEPTANCE_FILTE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EFCAN`"]

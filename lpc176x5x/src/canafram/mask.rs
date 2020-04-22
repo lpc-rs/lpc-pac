@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::MASK>;
 #[doc = "Writer for register MASK[%s]"]
 pub type W = crate::W<u32, super::MASK>;
-#[doc = "Register MASK[%s] `reset()`'s with value 0"]
+#[doc = "Register MASK[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::MASK {
     type Type = u32;
     #[inline(always)]

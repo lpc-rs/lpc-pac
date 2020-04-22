@@ -12,22 +12,19 @@ impl crate::ResetValue for super::CLKSRCSEL {
 }
 #[doc = "Selects the clock source for PLL0 as follows. Warning: Improper setting of this value, or an incorrect sequence of changing this value may result in incorrect operation of the device.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CLKSRC_A {
     #[doc = "0: Selects the Internal RC oscillator as the PLL0 clock source (default)."]
-    SELECTS_THE_INTERNAL,
+    SELECTS_THE_INTERNAL = 0,
     #[doc = "1: Selects the main oscillator as the PLL0 clock source.  Select the main oscillator as PLL0 clock source if the PLL0 clock output is used for USB or for CAN with baudrates > 100 kBit/s."]
-    SELECTS_THE_MAIN_OSC,
+    SELECTS_THE_MAIN_OSC = 1,
     #[doc = "2: Selects the RTC oscillator as the PLL0 clock source."]
-    SELECTS_THE_RTC_OSCI,
+    SELECTS_THE_RTC_OSCI = 2,
 }
 impl From<CLKSRC_A> for u8 {
     #[inline(always)]
     fn from(variant: CLKSRC_A) -> Self {
-        match variant {
-            CLKSRC_A::SELECTS_THE_INTERNAL => 0,
-            CLKSRC_A::SELECTS_THE_MAIN_OSC => 1,
-            CLKSRC_A::SELECTS_THE_RTC_OSCI => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CLKSRC`"]

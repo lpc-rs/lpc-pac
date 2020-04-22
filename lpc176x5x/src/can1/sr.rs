@@ -8,17 +8,14 @@ pub type DOS_1_R = crate::R<bool, bool>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TBS1_1_A {
     #[doc = "0: Locked. Software cannot access the Tx Buffer 1 nor write to the corresponding CANxTFI, CANxTID, CANxTDA, and CANxTDB registers because a message is either waiting for transmission or is in transmitting process."]
-    LOCKED_SOFTWARE_CAN,
+    LOCKED_SOFTWARE_CAN = 0,
     #[doc = "1: Released. Software may write a message into the Transmit Buffer 1 and its CANxTFI, CANxTID, CANxTDA, and CANxTDB registers."]
-    RELEASED_SOFTWARE_M,
+    RELEASED_SOFTWARE_M = 1,
 }
 impl From<TBS1_1_A> for bool {
     #[inline(always)]
     fn from(variant: TBS1_1_A) -> Self {
-        match variant {
-            TBS1_1_A::LOCKED_SOFTWARE_CAN => false,
-            TBS1_1_A::RELEASED_SOFTWARE_M => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TBS1_1`"]
@@ -47,17 +44,14 @@ impl TBS1_1_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TCS1_1_A {
     #[doc = "0: Incomplete. The previously requested transmission for Tx Buffer 1 is not complete."]
-    INCOMPLETE_THE_PREV,
+    INCOMPLETE_THE_PREV = 0,
     #[doc = "1: Complete. The previously requested transmission for Tx Buffer 1 has been successfully completed."]
-    COMPLETE_THE_PREVIO,
+    COMPLETE_THE_PREVIO = 1,
 }
 impl From<TCS1_1_A> for bool {
     #[inline(always)]
     fn from(variant: TCS1_1_A) -> Self {
-        match variant {
-            TCS1_1_A::INCOMPLETE_THE_PREV => false,
-            TCS1_1_A::COMPLETE_THE_PREVIO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TCS1_1`"]
@@ -88,17 +82,14 @@ pub type RS_1_R = crate::R<bool, bool>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TS1_1_A {
     #[doc = "0: Idle. There is no transmission from Tx Buffer 1."]
-    IDLE_THERE_IS_NO_TR,
+    IDLE_THERE_IS_NO_TR = 0,
     #[doc = "1: Transmit. The CAN Controller is transmitting a message from Tx Buffer 1."]
-    TRANSMIT_THE_CAN_CO,
+    TRANSMIT_THE_CAN_CO = 1,
 }
 impl From<TS1_1_A> for bool {
     #[inline(always)]
     fn from(variant: TS1_1_A) -> Self {
-        match variant {
-            TS1_1_A::IDLE_THERE_IS_NO_TR => false,
-            TS1_1_A::TRANSMIT_THE_CAN_CO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TS1_1`"]
@@ -135,17 +126,14 @@ pub type DOS_2_R = crate::R<bool, bool>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TBS2_2_A {
     #[doc = "0: Locked. Software cannot access the Tx Buffer 2 nor write to the corresponding CANxTFI, CANxTID, CANxTDA, and CANxTDB registers because a message is either waiting for transmission or is in transmitting process."]
-    LOCKED_SOFTWARE_CAN,
+    LOCKED_SOFTWARE_CAN = 0,
     #[doc = "1: Released. Software may write a message into the Transmit Buffer 2 and its CANxTFI, CANxTID, CANxTDA, and CANxTDB registers."]
-    RELEASED_SOFTWARE_M,
+    RELEASED_SOFTWARE_M = 1,
 }
 impl From<TBS2_2_A> for bool {
     #[inline(always)]
     fn from(variant: TBS2_2_A) -> Self {
-        match variant {
-            TBS2_2_A::LOCKED_SOFTWARE_CAN => false,
-            TBS2_2_A::RELEASED_SOFTWARE_M => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TBS2_2`"]
@@ -174,17 +162,14 @@ impl TBS2_2_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TCS2_2_A {
     #[doc = "0: Incomplete. The previously requested transmission for Tx Buffer 2 is not complete."]
-    INCOMPLETE_THE_PREV,
+    INCOMPLETE_THE_PREV = 0,
     #[doc = "1: Complete. The previously requested transmission for Tx Buffer 2 has been successfully completed."]
-    COMPLETE_THE_PREVIO,
+    COMPLETE_THE_PREVIO = 1,
 }
 impl From<TCS2_2_A> for bool {
     #[inline(always)]
     fn from(variant: TCS2_2_A) -> Self {
-        match variant {
-            TCS2_2_A::INCOMPLETE_THE_PREV => false,
-            TCS2_2_A::COMPLETE_THE_PREVIO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TCS2_2`"]
@@ -215,17 +200,14 @@ pub type RS_2_R = crate::R<bool, bool>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TS2_2_A {
     #[doc = "0: Idle. There is no transmission from Tx Buffer 2."]
-    IDLE_THERE_IS_NO_TR,
+    IDLE_THERE_IS_NO_TR = 0,
     #[doc = "1: Transmit. The CAN Controller is transmitting a message from Tx Buffer 2."]
-    TRANSMIT_THE_CAN_CO,
+    TRANSMIT_THE_CAN_CO = 1,
 }
 impl From<TS2_2_A> for bool {
     #[inline(always)]
     fn from(variant: TS2_2_A) -> Self {
-        match variant {
-            TS2_2_A::IDLE_THERE_IS_NO_TR => false,
-            TS2_2_A::TRANSMIT_THE_CAN_CO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TS2_2`"]
@@ -262,17 +244,14 @@ pub type DOS_3_R = crate::R<bool, bool>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TBS3_3_A {
     #[doc = "0: Locked. Software cannot access the Tx Buffer 3 nor write to the corresponding CANxTFI, CANxTID, CANxTDA, and CANxTDB registers because a message is either waiting for transmission or is in transmitting process."]
-    LOCKED_SOFTWARE_CAN,
+    LOCKED_SOFTWARE_CAN = 0,
     #[doc = "1: Released. Software may write a message into the Transmit Buffer 3 and its CANxTFI, CANxTID, CANxTDA, and CANxTDB registers."]
-    RELEASED_SOFTWARE_M,
+    RELEASED_SOFTWARE_M = 1,
 }
 impl From<TBS3_3_A> for bool {
     #[inline(always)]
     fn from(variant: TBS3_3_A) -> Self {
-        match variant {
-            TBS3_3_A::LOCKED_SOFTWARE_CAN => false,
-            TBS3_3_A::RELEASED_SOFTWARE_M => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TBS3_3`"]
@@ -301,17 +280,14 @@ impl TBS3_3_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TCS3_3_A {
     #[doc = "0: Incomplete. The previously requested transmission for Tx Buffer 3 is not complete."]
-    INCOMPLETE_THE_PREV,
+    INCOMPLETE_THE_PREV = 0,
     #[doc = "1: Complete. The previously requested transmission for Tx Buffer 3 has been successfully completed."]
-    COMPLETE_THE_PREVIO,
+    COMPLETE_THE_PREVIO = 1,
 }
 impl From<TCS3_3_A> for bool {
     #[inline(always)]
     fn from(variant: TCS3_3_A) -> Self {
-        match variant {
-            TCS3_3_A::INCOMPLETE_THE_PREV => false,
-            TCS3_3_A::COMPLETE_THE_PREVIO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TCS3_3`"]
@@ -342,17 +318,14 @@ pub type RS_3_R = crate::R<bool, bool>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TS3_3_A {
     #[doc = "0: Idle. There is no transmission from Tx Buffer 3."]
-    IDLE_THERE_IS_NO_TR,
+    IDLE_THERE_IS_NO_TR = 0,
     #[doc = "1: Transmit. The CAN Controller is transmitting a message from Tx Buffer 3."]
-    TRANSMIT_THE_CAN_CO,
+    TRANSMIT_THE_CAN_CO = 1,
 }
 impl From<TS3_3_A> for bool {
     #[inline(always)]
     fn from(variant: TS3_3_A) -> Self {
-        match variant {
-            TS3_3_A::IDLE_THERE_IS_NO_TR => false,
-            TS3_3_A::TRANSMIT_THE_CAN_CO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TS3_3`"]

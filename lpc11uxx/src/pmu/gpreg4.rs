@@ -14,17 +14,14 @@ impl crate::ResetValue for super::GPREG4 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WAKEUPHYS_A {
     #[doc = "0: Hysteresis for WAKEUP pin disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Hysteresis for WAKEUP pin enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<WAKEUPHYS_A> for bool {
     #[inline(always)]
     fn from(variant: WAKEUPHYS_A) -> Self {
-        match variant {
-            WAKEUPHYS_A::DISABLED => false,
-            WAKEUPHYS_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WAKEUPHYS`"]

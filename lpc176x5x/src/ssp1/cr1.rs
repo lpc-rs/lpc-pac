@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CR1 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LBM_A {
     #[doc = "0: During normal operation."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Serial input is taken from the serial output (MOSI or MISO) rather than the serial input pin (MISO or MOSI respectively)."]
-    OUPTU,
+    OUPTU = 1,
 }
 impl From<LBM_A> for bool {
     #[inline(always)]
     fn from(variant: LBM_A) -> Self {
-        match variant {
-            LBM_A::NORMAL => false,
-            LBM_A::OUPTU => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LBM`"]
@@ -92,17 +89,14 @@ impl<'a> LBM_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SSE_A {
     #[doc = "0: The SSP controller is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: The SSP controller will interact with other devices on the serial bus. Software should write the appropriate control information to the other SSP registers and interrupt controller registers, before setting this bit."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SSE_A> for bool {
     #[inline(always)]
     fn from(variant: SSE_A) -> Self {
-        match variant {
-            SSE_A::DISABLED => false,
-            SSE_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SSE`"]
@@ -170,17 +164,14 @@ impl<'a> SSE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MS_A {
     #[doc = "0: The SSP controller acts as a master on the bus, driving the SCLK, MOSI, and SSEL lines and receiving the MISO line."]
-    MASTER,
+    MASTER = 0,
     #[doc = "1: The SSP controller acts as a slave on the bus, driving MISO line and receiving SCLK, MOSI, and SSEL lines."]
-    SLAVE,
+    SLAVE = 1,
 }
 impl From<MS_A> for bool {
     #[inline(always)]
     fn from(variant: MS_A) -> Self {
-        match variant {
-            MS_A::MASTER => false,
-            MS_A::SLAVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MS`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::RS485CTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum NMMEN_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Enabled. In this mode, an address is detected when a received byte causes the UART to set the parity error and generate an interrupt."]
-    ENABLED_IN_THIS_MOD,
+    ENABLED_IN_THIS_MOD = 1,
 }
 impl From<NMMEN_A> for bool {
     #[inline(always)]
     fn from(variant: NMMEN_A) -> Self {
-        match variant {
-            NMMEN_A::DISABLED_ => false,
-            NMMEN_A::ENABLED_IN_THIS_MOD => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `NMMEN`"]
@@ -92,17 +89,14 @@ impl<'a> NMMEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RXDIS_A {
     #[doc = "0: Enabled."]
-    ENABLED_,
+    ENABLED_ = 0,
     #[doc = "1: Disabled."]
-    DISABLED_,
+    DISABLED_ = 1,
 }
 impl From<RXDIS_A> for bool {
     #[inline(always)]
     fn from(variant: RXDIS_A) -> Self {
-        match variant {
-            RXDIS_A::ENABLED_ => false,
-            RXDIS_A::DISABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RXDIS`"]
@@ -170,17 +164,14 @@ impl<'a> RXDIS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum AADEN_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Enabled."]
-    ENABLED_,
+    ENABLED_ = 1,
 }
 impl From<AADEN_A> for bool {
     #[inline(always)]
     fn from(variant: AADEN_A) -> Self {
-        match variant {
-            AADEN_A::DISABLED_ => false,
-            AADEN_A::ENABLED_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `AADEN`"]
@@ -248,17 +239,14 @@ impl<'a> AADEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SEL_A {
     #[doc = "0: RTS. If direction control is enabled (bit DCTRL = 1), pin RTS is used for direction control."]
-    RTS_IF_DIRECTION_CO,
+    RTS_IF_DIRECTION_CO = 0,
     #[doc = "1: DTR. If direction control is enabled (bit DCTRL = 1), pin DTR is used for direction control."]
-    DTR_IF_DIRECTION_CO,
+    DTR_IF_DIRECTION_CO = 1,
 }
 impl From<SEL_A> for bool {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::RTS_IF_DIRECTION_CO => false,
-            SEL_A::DTR_IF_DIRECTION_CO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SEL`"]
@@ -326,17 +314,14 @@ impl<'a> SEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DCTRL_A {
     #[doc = "0: Disable Auto Direction Control."]
-    DISABLE_AUTO_DIRECTI,
+    DISABLE_AUTO_DIRECTI = 0,
     #[doc = "1: Enable Auto Direction Control."]
-    ENABLE_AUTO_DIRECTIO,
+    ENABLE_AUTO_DIRECTIO = 1,
 }
 impl From<DCTRL_A> for bool {
     #[inline(always)]
     fn from(variant: DCTRL_A) -> Self {
-        match variant {
-            DCTRL_A::DISABLE_AUTO_DIRECTI => false,
-            DCTRL_A::ENABLE_AUTO_DIRECTIO => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DCTRL`"]
@@ -404,17 +389,14 @@ impl<'a> DCTRL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OINV_A {
     #[doc = "0: LOW. The direction control pin will be driven to logic 0 when the transmitter has data to be sent. It will be driven to logic 1 after the last bit of data has been transmitted."]
-    LOW_THE_DIRECTION_C,
+    LOW_THE_DIRECTION_C = 0,
     #[doc = "1: HIGH. The direction control pin will be driven to logic 1 when the transmitter has data to be sent. It will be driven to logic 0 after the last bit of data has been transmitted."]
-    HIGH_THE_DIRECTION_,
+    HIGH_THE_DIRECTION_ = 1,
 }
 impl From<OINV_A> for bool {
     #[inline(always)]
     fn from(variant: OINV_A) -> Self {
-        match variant {
-            OINV_A::LOW_THE_DIRECTION_C => false,
-            OINV_A::HIGH_THE_DIRECTION_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OINV`"]

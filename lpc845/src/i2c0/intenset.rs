@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTENSET {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTPENDINGEN_A {
     #[doc = "0: Disabled. The MstPending interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The MstPending interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MSTPENDINGEN_A> for bool {
     #[inline(always)]
     fn from(variant: MSTPENDINGEN_A) -> Self {
-        match variant {
-            MSTPENDINGEN_A::DISABLED => false,
-            MSTPENDINGEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTPENDINGEN`"]
@@ -92,17 +89,14 @@ impl<'a> MSTPENDINGEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTARBLOSSEN_A {
     #[doc = "0: Disabled. The MstArbLoss interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The MstArbLoss interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MSTARBLOSSEN_A> for bool {
     #[inline(always)]
     fn from(variant: MSTARBLOSSEN_A) -> Self {
-        match variant {
-            MSTARBLOSSEN_A::DISABLED => false,
-            MSTARBLOSSEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTARBLOSSEN`"]
@@ -170,17 +164,14 @@ impl<'a> MSTARBLOSSEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MSTSTSTPERREN_A {
     #[doc = "0: Disabled. The MstStStpErr interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The MstStStpErr interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MSTSTSTPERREN_A> for bool {
     #[inline(always)]
     fn from(variant: MSTSTSTPERREN_A) -> Self {
-        match variant {
-            MSTSTSTPERREN_A::DISABLED => false,
-            MSTSTSTPERREN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MSTSTSTPERREN`"]
@@ -248,17 +239,14 @@ impl<'a> MSTSTSTPERREN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVPENDINGEN_A {
     #[doc = "0: Disabled. The SlvPending interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The SlvPending interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SLVPENDINGEN_A> for bool {
     #[inline(always)]
     fn from(variant: SLVPENDINGEN_A) -> Self {
-        match variant {
-            SLVPENDINGEN_A::DISABLED => false,
-            SLVPENDINGEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVPENDINGEN`"]
@@ -326,17 +314,14 @@ impl<'a> SLVPENDINGEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVNOTSTREN_A {
     #[doc = "0: Disabled. The SlvNotStr interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The SlvNotStr interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SLVNOTSTREN_A> for bool {
     #[inline(always)]
     fn from(variant: SLVNOTSTREN_A) -> Self {
-        match variant {
-            SLVNOTSTREN_A::DISABLED => false,
-            SLVNOTSTREN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVNOTSTREN`"]
@@ -404,17 +389,14 @@ impl<'a> SLVNOTSTREN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLVDESELEN_A {
     #[doc = "0: Disabled. The SlvDeSel interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The SlvDeSel interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SLVDESELEN_A> for bool {
     #[inline(always)]
     fn from(variant: SLVDESELEN_A) -> Self {
-        match variant {
-            SLVDESELEN_A::DISABLED => false,
-            SLVDESELEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLVDESELEN`"]
@@ -482,17 +464,14 @@ impl<'a> SLVDESELEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONRDYEN_A {
     #[doc = "0: Disabled. The MonRdy interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The MonRdy interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MONRDYEN_A> for bool {
     #[inline(always)]
     fn from(variant: MONRDYEN_A) -> Self {
-        match variant {
-            MONRDYEN_A::DISABLED => false,
-            MONRDYEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONRDYEN`"]
@@ -560,17 +539,14 @@ impl<'a> MONRDYEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONOVEN_A {
     #[doc = "0: Disabled. The MonOv interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The MonOv interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MONOVEN_A> for bool {
     #[inline(always)]
     fn from(variant: MONOVEN_A) -> Self {
-        match variant {
-            MONOVEN_A::DISABLED => false,
-            MONOVEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONOVEN`"]
@@ -638,17 +614,14 @@ impl<'a> MONOVEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MONIDLEEN_A {
     #[doc = "0: Disabled. The MonIdle interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The MonIdle interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MONIDLEEN_A> for bool {
     #[inline(always)]
     fn from(variant: MONIDLEEN_A) -> Self {
-        match variant {
-            MONIDLEEN_A::DISABLED => false,
-            MONIDLEEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MONIDLEEN`"]
@@ -716,17 +689,14 @@ impl<'a> MONIDLEEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EVENTTIMEOUTEN_A {
     #[doc = "0: Disabled. The Event time-out interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The Event time-out interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<EVENTTIMEOUTEN_A> for bool {
     #[inline(always)]
     fn from(variant: EVENTTIMEOUTEN_A) -> Self {
-        match variant {
-            EVENTTIMEOUTEN_A::DISABLED => false,
-            EVENTTIMEOUTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EVENTTIMEOUTEN`"]
@@ -794,17 +764,14 @@ impl<'a> EVENTTIMEOUTEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SCLTIMEOUTEN_A {
     #[doc = "0: Disabled. The SCL time-out interrupt is disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enabled. The SCL time-out interrupt is enabled."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SCLTIMEOUTEN_A> for bool {
     #[inline(always)]
     fn from(variant: SCLTIMEOUTEN_A) -> Self {
-        match variant {
-            SCLTIMEOUTEN_A::DISABLED => false,
-            SCLTIMEOUTEN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SCLTIMEOUTEN`"]

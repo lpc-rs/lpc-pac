@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EXTPOLAR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXTPOLAR0_A {
     #[doc = "0: Falling edge. EINT0 is low-active or falling-edge sensitive (depending on EXTMODE0)."]
-    FALLING_EDGE,
+    FALLING_EDGE = 0,
     #[doc = "1: Rising edge. EINT0 is high-active or rising-edge sensitive (depending on EXTMODE0)."]
-    RISING_EDGE,
+    RISING_EDGE = 1,
 }
 impl From<EXTPOLAR0_A> for bool {
     #[inline(always)]
     fn from(variant: EXTPOLAR0_A) -> Self {
-        match variant {
-            EXTPOLAR0_A::FALLING_EDGE => false,
-            EXTPOLAR0_A::RISING_EDGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXTPOLAR0`"]
@@ -92,17 +89,14 @@ impl<'a> EXTPOLAR0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXTPOLAR1_A {
     #[doc = "0: Falling edge. EINT1 is low-active or falling-edge sensitive (depending on EXTMODE1)."]
-    FALLING_EDGE,
+    FALLING_EDGE = 0,
     #[doc = "1: Rising edge. EINT1 is high-active or rising-edge sensitive (depending on EXTMODE1)."]
-    RISING_EDGE,
+    RISING_EDGE = 1,
 }
 impl From<EXTPOLAR1_A> for bool {
     #[inline(always)]
     fn from(variant: EXTPOLAR1_A) -> Self {
-        match variant {
-            EXTPOLAR1_A::FALLING_EDGE => false,
-            EXTPOLAR1_A::RISING_EDGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXTPOLAR1`"]
@@ -170,17 +164,14 @@ impl<'a> EXTPOLAR1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXTPOLAR2_A {
     #[doc = "0: Falling edge. EINT2 is low-active or falling-edge sensitive (depending on EXTMODE2)."]
-    FALLING_EDGE,
+    FALLING_EDGE = 0,
     #[doc = "1: Rising edge. EINT2 is high-active or rising-edge sensitive (depending on EXTMODE2)."]
-    RISING_EDGE,
+    RISING_EDGE = 1,
 }
 impl From<EXTPOLAR2_A> for bool {
     #[inline(always)]
     fn from(variant: EXTPOLAR2_A) -> Self {
-        match variant {
-            EXTPOLAR2_A::FALLING_EDGE => false,
-            EXTPOLAR2_A::RISING_EDGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXTPOLAR2`"]
@@ -248,17 +239,14 @@ impl<'a> EXTPOLAR2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXTPOLAR3_A {
     #[doc = "0: Falling edge. EINT3 is low-active or falling-edge sensitive (depending on EXTMODE3)."]
-    FALLING_EDGE,
+    FALLING_EDGE = 0,
     #[doc = "1: Rising edge. EINT3 is high-active or rising-edge sensitive (depending on EXTMODE3)."]
-    RISING_EDGE,
+    RISING_EDGE = 1,
 }
 impl From<EXTPOLAR3_A> for bool {
     #[inline(always)]
     fn from(variant: EXTPOLAR3_A) -> Self {
-        match variant {
-            EXTPOLAR3_A::FALLING_EDGE => false,
-            EXTPOLAR3_A::RISING_EDGE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXTPOLAR3`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EXTMODE {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXTMODE0_A {
     #[doc = "0: Level-sensitive. Level-sensitivity is selected for EINT0."]
-    LEVEL_SENSITIVE,
+    LEVEL_SENSITIVE = 0,
     #[doc = "1: Edge-sensitive. EINT0 is edge sensitive."]
-    EDGE_SENSITIVE,
+    EDGE_SENSITIVE = 1,
 }
 impl From<EXTMODE0_A> for bool {
     #[inline(always)]
     fn from(variant: EXTMODE0_A) -> Self {
-        match variant {
-            EXTMODE0_A::LEVEL_SENSITIVE => false,
-            EXTMODE0_A::EDGE_SENSITIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXTMODE0`"]
@@ -92,17 +89,14 @@ impl<'a> EXTMODE0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXTMODE1_A {
     #[doc = "0: Level-sensitive. Level-sensitivity is selected for EINT1."]
-    LEVEL_SENSITIVE,
+    LEVEL_SENSITIVE = 0,
     #[doc = "1: Edge-sensitive. EINT1 is edge sensitive."]
-    EDGE_SENSITIVE,
+    EDGE_SENSITIVE = 1,
 }
 impl From<EXTMODE1_A> for bool {
     #[inline(always)]
     fn from(variant: EXTMODE1_A) -> Self {
-        match variant {
-            EXTMODE1_A::LEVEL_SENSITIVE => false,
-            EXTMODE1_A::EDGE_SENSITIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXTMODE1`"]
@@ -170,17 +164,14 @@ impl<'a> EXTMODE1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXTMODE2_A {
     #[doc = "0: Level-sensitive. Level-sensitivity is selected for EINT2."]
-    LEVEL_SENSITIVE,
+    LEVEL_SENSITIVE = 0,
     #[doc = "1: Edge-sensitive. EINT2 is edge sensitive."]
-    EDGE_SENSITIVE,
+    EDGE_SENSITIVE = 1,
 }
 impl From<EXTMODE2_A> for bool {
     #[inline(always)]
     fn from(variant: EXTMODE2_A) -> Self {
-        match variant {
-            EXTMODE2_A::LEVEL_SENSITIVE => false,
-            EXTMODE2_A::EDGE_SENSITIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXTMODE2`"]
@@ -248,17 +239,14 @@ impl<'a> EXTMODE2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXTMODE3_A {
     #[doc = "0: Level-sensitive. Level-sensitivity is selected for EINT3."]
-    LEVEL_SENSITIVE,
+    LEVEL_SENSITIVE = 0,
     #[doc = "1: Edge-sensitive. EINT3 is edge sensitive."]
-    EDGE_SENSITIVE,
+    EDGE_SENSITIVE = 1,
 }
 impl From<EXTMODE3_A> for bool {
     #[inline(always)]
     fn from(variant: EXTMODE3_A) -> Self {
-        match variant {
-            EXTMODE3_A::LEVEL_SENSITIVE => false,
-            EXTMODE3_A::EDGE_SENSITIVE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXTMODE3`"]

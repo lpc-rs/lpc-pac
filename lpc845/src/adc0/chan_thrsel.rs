@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CHAN_THRSEL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CH0_THRSEL_A {
     #[doc = "0: Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
-    THRESHOLD0,
+    THRESHOLD0 = 0,
     #[doc = "1: Threshold 1. Results for this channel will be compared against the threshold levels indicated in the THR1_LOW and THR1_HIGH registers."]
-    THRESHOLD1,
+    THRESHOLD1 = 1,
 }
 impl From<CH0_THRSEL_A> for bool {
     #[inline(always)]
     fn from(variant: CH0_THRSEL_A) -> Self {
-        match variant {
-            CH0_THRSEL_A::THRESHOLD0 => false,
-            CH0_THRSEL_A::THRESHOLD1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CH0_THRSEL`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR0I_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Interrupt on PWMMR0: an interrupt is generated when PWMMR0 matches the value in the PWMTC."]
-    INTERRUPT_ON_PWMMR0,
+    INTERRUPT_ON_PWMMR0 = 1,
 }
 impl From<PWMMR0I_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR0I_A) -> Self {
-        match variant {
-            PWMMR0I_A::DISABLED_ => false,
-            PWMMR0I_A::INTERRUPT_ON_PWMMR0 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR0I`"]
@@ -92,17 +89,14 @@ impl<'a> PWMMR0I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR0R_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Reset on PWMMR0: the PWMTC will be reset if PWMMR0 matches it."]
-    RESET_ON_PWMMR0_THE,
+    RESET_ON_PWMMR0_THE = 1,
 }
 impl From<PWMMR0R_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR0R_A) -> Self {
-        match variant {
-            PWMMR0R_A::DISABLED_ => false,
-            PWMMR0R_A::RESET_ON_PWMMR0_THE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR0R`"]
@@ -170,17 +164,14 @@ impl<'a> PWMMR0R_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR0S_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Stop on PWMMR0: the PWMTC and PWMPC will be stopped and PWMTCR bit 0 will be set to 0 if PWMMR0 matches the PWMTC."]
-    STOP_ON_PWMMR0_THE_,
+    STOP_ON_PWMMR0_THE_ = 1,
 }
 impl From<PWMMR0S_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR0S_A) -> Self {
-        match variant {
-            PWMMR0S_A::DISABLED => false,
-            PWMMR0S_A::STOP_ON_PWMMR0_THE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR0S`"]
@@ -248,17 +239,14 @@ impl<'a> PWMMR0S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR1I_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Interrupt on PWMMR1: an interrupt is generated when PWMMR1 matches the value in the PWMTC."]
-    INTERRUPT_ON_PWMMR1,
+    INTERRUPT_ON_PWMMR1 = 1,
 }
 impl From<PWMMR1I_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR1I_A) -> Self {
-        match variant {
-            PWMMR1I_A::DISABLED_ => false,
-            PWMMR1I_A::INTERRUPT_ON_PWMMR1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR1I`"]
@@ -326,17 +314,14 @@ impl<'a> PWMMR1I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR1R_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Reset on PWMMR1: the PWMTC will be reset if PWMMR1 matches it."]
-    RESET_ON_PWMMR1_THE,
+    RESET_ON_PWMMR1_THE = 1,
 }
 impl From<PWMMR1R_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR1R_A) -> Self {
-        match variant {
-            PWMMR1R_A::DISABLED_ => false,
-            PWMMR1R_A::RESET_ON_PWMMR1_THE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR1R`"]
@@ -404,17 +389,14 @@ impl<'a> PWMMR1R_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR1S_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Stop on PWMMR1: the PWMTC and PWMPC will be stopped and PWMTCR bit 0 will be set to 0 if PWMMR1 matches the PWMTC."]
-    STOP_ON_PWMMR1_THE_,
+    STOP_ON_PWMMR1_THE_ = 1,
 }
 impl From<PWMMR1S_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR1S_A) -> Self {
-        match variant {
-            PWMMR1S_A::DISABLED => false,
-            PWMMR1S_A::STOP_ON_PWMMR1_THE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR1S`"]
@@ -482,17 +464,14 @@ impl<'a> PWMMR1S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR2I_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Interrupt on PWMMR2: an interrupt is generated when PWMMR2 matches the value in the PWMTC."]
-    INTERRUPT_ON_PWMMR2,
+    INTERRUPT_ON_PWMMR2 = 1,
 }
 impl From<PWMMR2I_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR2I_A) -> Self {
-        match variant {
-            PWMMR2I_A::DISABLED_ => false,
-            PWMMR2I_A::INTERRUPT_ON_PWMMR2 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR2I`"]
@@ -560,17 +539,14 @@ impl<'a> PWMMR2I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR2R_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Reset on PWMMR2: the PWMTC will be reset if PWMMR2 matches it."]
-    RESET_ON_PWMMR2_THE,
+    RESET_ON_PWMMR2_THE = 1,
 }
 impl From<PWMMR2R_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR2R_A) -> Self {
-        match variant {
-            PWMMR2R_A::DISABLED_ => false,
-            PWMMR2R_A::RESET_ON_PWMMR2_THE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR2R`"]
@@ -638,17 +614,14 @@ impl<'a> PWMMR2R_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR2S_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Stop on PWMMR2: the PWMTC and PWMPC will be stopped and PWMTCR bit 0 will be set to 0 if PWMMR0 matches the PWMTC."]
-    STOP_ON_PWMMR2_THE_,
+    STOP_ON_PWMMR2_THE_ = 1,
 }
 impl From<PWMMR2S_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR2S_A) -> Self {
-        match variant {
-            PWMMR2S_A::DISABLED => false,
-            PWMMR2S_A::STOP_ON_PWMMR2_THE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR2S`"]
@@ -716,17 +689,14 @@ impl<'a> PWMMR2S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR3I_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Interrupt on PWMMR3: an interrupt is generated when PWMMR3 matches the value in the PWMTC."]
-    INTERRUPT_ON_PWMMR3,
+    INTERRUPT_ON_PWMMR3 = 1,
 }
 impl From<PWMMR3I_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR3I_A) -> Self {
-        match variant {
-            PWMMR3I_A::DISABLED_ => false,
-            PWMMR3I_A::INTERRUPT_ON_PWMMR3 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR3I`"]
@@ -794,17 +764,14 @@ impl<'a> PWMMR3I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR3R_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Reset on PWMMR3: the PWMTC will be reset if PWMMR3 matches it."]
-    RESET_ON_PWMMR3_THE,
+    RESET_ON_PWMMR3_THE = 1,
 }
 impl From<PWMMR3R_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR3R_A) -> Self {
-        match variant {
-            PWMMR3R_A::DISABLED_ => false,
-            PWMMR3R_A::RESET_ON_PWMMR3_THE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR3R`"]
@@ -872,17 +839,14 @@ impl<'a> PWMMR3R_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR3S_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Stop on PWMMR3: the PWMTC and PWMPC will be stopped and PWMTCR bit 0 will be set to 0 if PWMMR0 matches the PWMTC."]
-    STOP_ON_PWMMR3_THE_,
+    STOP_ON_PWMMR3_THE_ = 1,
 }
 impl From<PWMMR3S_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR3S_A) -> Self {
-        match variant {
-            PWMMR3S_A::DISABLED => false,
-            PWMMR3S_A::STOP_ON_PWMMR3_THE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR3S`"]
@@ -950,17 +914,14 @@ impl<'a> PWMMR3S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR4I_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Interrupt on PWMMR4: an interrupt is generated when PWMMR4 matches the value in the PWMTC."]
-    INTERRUPT_ON_PWMMR4,
+    INTERRUPT_ON_PWMMR4 = 1,
 }
 impl From<PWMMR4I_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR4I_A) -> Self {
-        match variant {
-            PWMMR4I_A::DISABLED_ => false,
-            PWMMR4I_A::INTERRUPT_ON_PWMMR4 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR4I`"]
@@ -1028,17 +989,14 @@ impl<'a> PWMMR4I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR4R_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Reset on PWMMR4: the PWMTC will be reset if PWMMR4 matches it."]
-    RESET_ON_PWMMR4_THE,
+    RESET_ON_PWMMR4_THE = 1,
 }
 impl From<PWMMR4R_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR4R_A) -> Self {
-        match variant {
-            PWMMR4R_A::DISABLED_ => false,
-            PWMMR4R_A::RESET_ON_PWMMR4_THE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR4R`"]
@@ -1106,17 +1064,14 @@ impl<'a> PWMMR4R_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR4S_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Stop on PWMMR4: the PWMTC and PWMPC will be stopped and PWMTCR bit 0 will be set to 0 if PWMMR4 matches the PWMTC."]
-    STOP_ON_PWMMR4_THE_,
+    STOP_ON_PWMMR4_THE_ = 1,
 }
 impl From<PWMMR4S_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR4S_A) -> Self {
-        match variant {
-            PWMMR4S_A::DISABLED => false,
-            PWMMR4S_A::STOP_ON_PWMMR4_THE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR4S`"]
@@ -1184,17 +1139,14 @@ impl<'a> PWMMR4S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR5I_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Interrupt on PWMMR5: an interrupt is generated when PWMMR5 matches the value in the PWMTC."]
-    INTERRUPT_ON_PWMMR5,
+    INTERRUPT_ON_PWMMR5 = 1,
 }
 impl From<PWMMR5I_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR5I_A) -> Self {
-        match variant {
-            PWMMR5I_A::DISABLED_ => false,
-            PWMMR5I_A::INTERRUPT_ON_PWMMR5 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR5I`"]
@@ -1262,17 +1214,14 @@ impl<'a> PWMMR5I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR5R_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Reset on PWMMR5: the PWMTC will be reset if PWMMR5 matches it."]
-    RESET_ON_PWMMR5_THE,
+    RESET_ON_PWMMR5_THE = 1,
 }
 impl From<PWMMR5R_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR5R_A) -> Self {
-        match variant {
-            PWMMR5R_A::DISABLED_ => false,
-            PWMMR5R_A::RESET_ON_PWMMR5_THE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR5R`"]
@@ -1340,17 +1289,14 @@ impl<'a> PWMMR5R_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR5S_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Stop on PWMMR5: the PWMTC and PWMPC will be stopped and PWMTCR bit 0 will be set to 0 if PWMMR5 matches the PWMTC."]
-    STOP_ON_PWMMR5_THE_,
+    STOP_ON_PWMMR5_THE_ = 1,
 }
 impl From<PWMMR5S_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR5S_A) -> Self {
-        match variant {
-            PWMMR5S_A::DISABLED => false,
-            PWMMR5S_A::STOP_ON_PWMMR5_THE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR5S`"]
@@ -1418,17 +1364,14 @@ impl<'a> PWMMR5S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR6I_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Interrupt on PWMMR6: an interrupt is generated when PWMMR6 matches the value in the PWMTC."]
-    INTERRUPT_ON_PWMMR6,
+    INTERRUPT_ON_PWMMR6 = 1,
 }
 impl From<PWMMR6I_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR6I_A) -> Self {
-        match variant {
-            PWMMR6I_A::DISABLED_ => false,
-            PWMMR6I_A::INTERRUPT_ON_PWMMR6 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR6I`"]
@@ -1496,17 +1439,14 @@ impl<'a> PWMMR6I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR6R_A {
     #[doc = "0: Disabled."]
-    DISABLED_,
+    DISABLED_ = 0,
     #[doc = "1: Reset on PWMMR6: the PWMTC will be reset if PWMMR6 matches it."]
-    RESET_ON_PWMMR6_THE,
+    RESET_ON_PWMMR6_THE = 1,
 }
 impl From<PWMMR6R_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR6R_A) -> Self {
-        match variant {
-            PWMMR6R_A::DISABLED_ => false,
-            PWMMR6R_A::RESET_ON_PWMMR6_THE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR6R`"]
@@ -1574,17 +1514,14 @@ impl<'a> PWMMR6R_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PWMMR6S_A {
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Stop on PWMMR6: the PWMTC and PWMPC will be stopped and PWMTCR bit 0 will be set to 0 if PWMMR6 matches the PWMTC."]
-    STOP_ON_PWMMR6_THE_,
+    STOP_ON_PWMMR6_THE_ = 1,
 }
 impl From<PWMMR6S_A> for bool {
     #[inline(always)]
     fn from(variant: PWMMR6S_A) -> Self {
-        match variant {
-            PWMMR6S_A::DISABLED => false,
-            PWMMR6S_A::STOP_ON_PWMMR6_THE_ => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PWMMR6S`"]

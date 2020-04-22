@@ -52,17 +52,14 @@ impl<'a> LADSEL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LADREF_A {
     #[doc = "0: Supply pin VDD"]
-    LADREF_0,
+    LADREF_0 = 0,
     #[doc = "1: VDDCMP pin"]
-    LADREF_1,
+    LADREF_1 = 1,
 }
 impl From<LADREF_A> for bool {
     #[inline(always)]
     fn from(variant: LADREF_A) -> Self {
-        match variant {
-            LADREF_A::LADREF_0 => false,
-            LADREF_A::LADREF_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LADREF`"]

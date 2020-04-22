@@ -28,17 +28,14 @@ impl<'a> CLKDIV_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LPWRMODE_A {
     #[doc = "0: The low-power ADC mode is disabled. The analog circuitry remains activated even when no conversions are requested."]
-    LPWRMODE_0,
+    LPWRMODE_0 = 0,
     #[doc = "1: The low-power ADC mode is enabled. The analog circuitry is automatically powered-down when no conversions are taking place. When any (hardware or software) triggering event is detected, the analog circuitry is enabled. After the required start-up time, the requested conversion will be launched. Once the conversion completes, the analog-circuitry will again be powered-down provided no further conversions are pending. Using this mode can save an appreciable amount of current (approximately 2.5 mA) when conversions are required relatively infrequently. The penalty for using this mode is an approximately FIFTEEN ADC CLOCK delay (30 clocks in 10-bit mode), based on the frequency specified in the CLKDIV field, from the time the trigger event occurs until sampling of the A/D input commences. Note: This mode will NOT power-up the A/D if the ADC_ENA bit is low."]
-    LPWRMODE_1,
+    LPWRMODE_1 = 1,
 }
 impl From<LPWRMODE_A> for bool {
     #[inline(always)]
     fn from(variant: LPWRMODE_A) -> Self {
-        match variant {
-            LPWRMODE_A::LPWRMODE_0 => false,
-            LPWRMODE_A::LPWRMODE_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LPWRMODE`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MMCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MM_ENA_A {
     #[doc = "0: Monitor mode disabled."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: The I2C module will enter monitor mode. In this mode the SDA output will be forced high. This will prevent the I2C module from outputting data of any kind (including ACK) onto the I 2C data bus. Depending on the state of the ENA_SCL bit, the output may be also forced high, preventing the module from having control over the I2C clock line."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<MM_ENA_A> for bool {
     #[inline(always)]
     fn from(variant: MM_ENA_A) -> Self {
-        match variant {
-            MM_ENA_A::DISABLED => false,
-            MM_ENA_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MM_ENA`"]
@@ -92,17 +89,14 @@ impl<'a> MM_ENA_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENA_SCL_A {
     #[doc = "0: When this bit is cleared to 0, the SCL output will be forced high when the module is in monitor mode. As described above, this will prevent the module from having any control over the I2C clock line."]
-    HIGH,
+    HIGH = 0,
     #[doc = "1: When this bit is set, the I2C module may exercise the same control over the clock line that it would in normal operation. This means that, acting as a slave peripheral, the I2C module can stretch the clock line (hold it low) until it has had time to respond to an I2C interrupt.\\[1\\]"]
-    NORMAL,
+    NORMAL = 1,
 }
 impl From<ENA_SCL_A> for bool {
     #[inline(always)]
     fn from(variant: ENA_SCL_A) -> Self {
-        match variant {
-            ENA_SCL_A::HIGH => false,
-            ENA_SCL_A::NORMAL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENA_SCL`"]
@@ -170,17 +164,14 @@ impl<'a> ENA_SCL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MATCH_ALL_A {
     #[doc = "0: When this bit is cleared, an interrupt will only be generated when a match occurs to one of the (up-to) four address registers described above.   That is, the module will respond as a normal slave as far as address-recognition is concerned."]
-    MATCH,
+    MATCH = 0,
     #[doc = "1: When this bit is set to 1 and the I2C is in monitor mode, an interrupt will be generated on ANY address received. This will enable the part to monitor all traffic on the bus."]
-    ANYADDRESS,
+    ANYADDRESS = 1,
 }
 impl From<MATCH_ALL_A> for bool {
     #[inline(always)]
     fn from(variant: MATCH_ALL_A) -> Self {
-        match variant {
-            MATCH_ALL_A::MATCH => false,
-            MATCH_ALL_A::ANYADDRESS => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MATCH_ALL`"]

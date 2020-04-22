@@ -12,22 +12,19 @@ impl crate::ResetValue for super::PIO1_22 {
 }
 #[doc = "Selects pin function. Values 0x3 to 0x7 are reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FUNC_A {
     #[doc = "0: PIO1_22."]
-    PIO1_22,
+    PIO1_22 = 0,
     #[doc = "1: RI."]
-    RI,
+    RI = 1,
     #[doc = "2: MOSI1."]
-    MOSI1,
+    MOSI1 = 2,
 }
 impl From<FUNC_A> for u8 {
     #[inline(always)]
     fn from(variant: FUNC_A) -> Self {
-        match variant {
-            FUNC_A::PIO1_22 => 0,
-            FUNC_A::RI => 1,
-            FUNC_A::MOSI1 => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FUNC`"]
@@ -94,25 +91,21 @@ impl<'a> FUNC_W<'a> {
 }
 #[doc = "Selects function mode (on-chip pull-up/pull-down resistor control).\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MODE_A {
     #[doc = "0: Inactive (no pull-down/pull-up resistor enabled)."]
-    FLOATING,
+    FLOATING = 0,
     #[doc = "1: Pull-down resistor enabled."]
-    PULL_DOWN,
+    PULL_DOWN = 1,
     #[doc = "2: Pull-up resistor enabled."]
-    PULL_UP,
+    PULL_UP = 2,
     #[doc = "3: Repeater mode."]
-    REPEATER,
+    REPEATER = 3,
 }
 impl From<MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::FLOATING => 0,
-            MODE_A::PULL_DOWN => 1,
-            MODE_A::PULL_UP => 2,
-            MODE_A::REPEATER => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MODE`"]
@@ -193,17 +186,14 @@ impl<'a> MODE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HYS_A {
     #[doc = "0: Disable."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<HYS_A> for bool {
     #[inline(always)]
     fn from(variant: HYS_A) -> Self {
-        match variant {
-            HYS_A::DISABLED => false,
-            HYS_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HYS`"]
@@ -271,17 +261,14 @@ impl<'a> HYS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INV_A {
     #[doc = "0: Input not inverted (HIGH on pin reads as 1, LOW on pin reads as 0)."]
-    NOT_INVERTED,
+    NOT_INVERTED = 0,
     #[doc = "1: Input inverted (HIGH on pin reads as 0, LOW on pin reads as 1)."]
-    INVERTED,
+    INVERTED = 1,
 }
 impl From<INV_A> for bool {
     #[inline(always)]
     fn from(variant: INV_A) -> Self {
-        match variant {
-            INV_A::NOT_INVERTED => false,
-            INV_A::INVERTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INV`"]
@@ -349,17 +336,14 @@ impl<'a> INV_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OD_A {
     #[doc = "0: Disable."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Open-drain mode enabled.  This is not a true open-drain mode."]
-    OPEN_DRAIN,
+    OPEN_DRAIN = 1,
 }
 impl From<OD_A> for bool {
     #[inline(always)]
     fn from(variant: OD_A) -> Self {
-        match variant {
-            OD_A::DISABLED => false,
-            OD_A::OPEN_DRAIN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OD`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::SYSRSTSTAT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POR_A {
     #[doc = "0: No POR detected"]
-    NO_DETECTED,
+    NO_DETECTED = 0,
     #[doc = "1: POR detected. Writing a one clears this reset."]
-    DETECTED,
+    DETECTED = 1,
 }
 impl From<POR_A> for bool {
     #[inline(always)]
     fn from(variant: POR_A) -> Self {
-        match variant {
-            POR_A::NO_DETECTED => false,
-            POR_A::DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `POR`"]
@@ -92,17 +89,14 @@ impl<'a> POR_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EXTRST_A {
     #[doc = "0: No reset event detected."]
-    NO_DETECTED,
+    NO_DETECTED = 0,
     #[doc = "1: Reset detected. Writing a one clears this reset."]
-    DETECTED,
+    DETECTED = 1,
 }
 impl From<EXTRST_A> for bool {
     #[inline(always)]
     fn from(variant: EXTRST_A) -> Self {
-        match variant {
-            EXTRST_A::NO_DETECTED => false,
-            EXTRST_A::DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EXTRST`"]
@@ -170,17 +164,14 @@ impl<'a> EXTRST_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WDT_A {
     #[doc = "0: No WDT reset detected"]
-    NO_DETECTED,
+    NO_DETECTED = 0,
     #[doc = "1: WDT reset detected. Writing a one clears this reset."]
-    DETECTED,
+    DETECTED = 1,
 }
 impl From<WDT_A> for bool {
     #[inline(always)]
     fn from(variant: WDT_A) -> Self {
-        match variant {
-            WDT_A::NO_DETECTED => false,
-            WDT_A::DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WDT`"]
@@ -248,17 +239,14 @@ impl<'a> WDT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BOD_A {
     #[doc = "0: No BOD reset detected"]
-    NO_DETECTED,
+    NO_DETECTED = 0,
     #[doc = "1: BOD reset detected. Writing a one clears this reset."]
-    DETECTED,
+    DETECTED = 1,
 }
 impl From<BOD_A> for bool {
     #[inline(always)]
     fn from(variant: BOD_A) -> Self {
-        match variant {
-            BOD_A::NO_DETECTED => false,
-            BOD_A::DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BOD`"]
@@ -326,17 +314,14 @@ impl<'a> BOD_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SYSRST_A {
     #[doc = "0: No System reset detected"]
-    NO_DETECTED,
+    NO_DETECTED = 0,
     #[doc = "1: System reset detected. Writing a one clears this reset."]
-    DETECTED,
+    DETECTED = 1,
 }
 impl From<SYSRST_A> for bool {
     #[inline(always)]
     fn from(variant: SYSRST_A) -> Self {
-        match variant {
-            SYSRST_A::NO_DETECTED => false,
-            SYSRST_A::DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SYSRST`"]

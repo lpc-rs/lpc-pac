@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PINENABLE0 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACMP_I1_A {
     #[doc = "0: ACMP_I1 enabled on pin PIO0_00."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ACMP_I1 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ACMP_I1_A> for bool {
     #[inline(always)]
     fn from(variant: ACMP_I1_A) -> Self {
-        match variant {
-            ACMP_I1_A::ENABLED => false,
-            ACMP_I1_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACMP_I1`"]
@@ -92,17 +89,14 @@ impl<'a> ACMP_I1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACMP_I2_A {
     #[doc = "0: ACMP_I2 enabled on pin PIO0_1."]
-    ACMP_I2_0,
+    ACMP_I2_0 = 0,
     #[doc = "1: ACMP_I2 disabled."]
-    ACMP_I2_1,
+    ACMP_I2_1 = 1,
 }
 impl From<ACMP_I2_A> for bool {
     #[inline(always)]
     fn from(variant: ACMP_I2_A) -> Self {
-        match variant {
-            ACMP_I2_A::ACMP_I2_0 => false,
-            ACMP_I2_A::ACMP_I2_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACMP_I2`"]
@@ -170,17 +164,14 @@ impl<'a> ACMP_I2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACMP_I3_A {
     #[doc = "0: ACMP_I3 enabled on pin PIO0_14."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ACMP_I3 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ACMP_I3_A> for bool {
     #[inline(always)]
     fn from(variant: ACMP_I3_A) -> Self {
-        match variant {
-            ACMP_I3_A::ENABLED => false,
-            ACMP_I3_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACMP_I3`"]
@@ -248,17 +239,14 @@ impl<'a> ACMP_I3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACMP_I4_A {
     #[doc = "0: ACMP_I4 enabled on pin PIO0_23."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ACMP_I4 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ACMP_I4_A> for bool {
     #[inline(always)]
     fn from(variant: ACMP_I4_A) -> Self {
-        match variant {
-            ACMP_I4_A::ENABLED => false,
-            ACMP_I4_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACMP_I4`"]
@@ -326,17 +314,14 @@ impl<'a> ACMP_I4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ACMP_I5_A {
     #[doc = "0: ACMP_I5 enabled on pin PIO0_30."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ACMP_I5 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ACMP_I5_A> for bool {
     #[inline(always)]
     fn from(variant: ACMP_I5_A) -> Self {
-        match variant {
-            ACMP_I5_A::ENABLED => false,
-            ACMP_I5_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ACMP_I5`"]
@@ -404,17 +389,14 @@ impl<'a> ACMP_I5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SWCLK_A {
     #[doc = "0: SWCLK enabled on pin PIO0_3."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: SWCLK disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<SWCLK_A> for bool {
     #[inline(always)]
     fn from(variant: SWCLK_A) -> Self {
-        match variant {
-            SWCLK_A::ENABLED => false,
-            SWCLK_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SWCLK`"]
@@ -482,17 +464,14 @@ impl<'a> SWCLK_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SWDIO_A {
     #[doc = "0: SWDIO enabled on pin PIO0_2."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: SWDIO disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<SWDIO_A> for bool {
     #[inline(always)]
     fn from(variant: SWDIO_A) -> Self {
-        match variant {
-            SWDIO_A::ENABLED => false,
-            SWDIO_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SWDIO`"]
@@ -560,17 +539,14 @@ impl<'a> SWDIO_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum XTALIN_A {
     #[doc = "0: XTALIN enabled on pin PIO0_8."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: XTALIN disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<XTALIN_A> for bool {
     #[inline(always)]
     fn from(variant: XTALIN_A) -> Self {
-        match variant {
-            XTALIN_A::ENABLED => false,
-            XTALIN_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `XTALIN`"]
@@ -638,17 +614,14 @@ impl<'a> XTALIN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum XTALOUT_A {
     #[doc = "0: XTALOUT enabled on pin PIO0_9."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: XTALOUT disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<XTALOUT_A> for bool {
     #[inline(always)]
     fn from(variant: XTALOUT_A) -> Self {
-        match variant {
-            XTALOUT_A::ENABLED => false,
-            XTALOUT_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `XTALOUT`"]
@@ -716,17 +689,14 @@ impl<'a> XTALOUT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RESETN_A {
     #[doc = "0: RESETN enabled on pin PIO0_5."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: RESETN disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<RESETN_A> for bool {
     #[inline(always)]
     fn from(variant: RESETN_A) -> Self {
-        match variant {
-            RESETN_A::ENABLED => false,
-            RESETN_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RESETN`"]
@@ -794,17 +764,14 @@ impl<'a> RESETN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CLKIN_A {
     #[doc = "0: CLKIN enabled on pin PIO0_1."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CLKIN disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CLKIN_A> for bool {
     #[inline(always)]
     fn from(variant: CLKIN_A) -> Self {
-        match variant {
-            CLKIN_A::ENABLED => false,
-            CLKIN_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CLKIN`"]
@@ -872,17 +839,14 @@ impl<'a> CLKIN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum VDDCMP_A {
     #[doc = "0: VDDCMP enabled on pin PIO0_6."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: VDDCMP disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<VDDCMP_A> for bool {
     #[inline(always)]
     fn from(variant: VDDCMP_A) -> Self {
-        match variant {
-            VDDCMP_A::ENABLED => false,
-            VDDCMP_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `VDDCMP`"]
@@ -950,17 +914,14 @@ impl<'a> VDDCMP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C0_SDA_A {
     #[doc = "0: I2C0_SDA enabled on pin PIO0_11."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: I2C0_SDA disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<I2C0_SDA_A> for bool {
     #[inline(always)]
     fn from(variant: I2C0_SDA_A) -> Self {
-        match variant {
-            I2C0_SDA_A::ENABLED => false,
-            I2C0_SDA_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C0_SDA`"]
@@ -1028,17 +989,14 @@ impl<'a> I2C0_SDA_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum I2C0_SCL_A {
     #[doc = "0: I2C0_SCL enabled on pin PIO0_10."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: I2C0_SCL disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<I2C0_SCL_A> for bool {
     #[inline(always)]
     fn from(variant: I2C0_SCL_A) -> Self {
-        match variant {
-            I2C0_SCL_A::ENABLED => false,
-            I2C0_SCL_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `I2C0_SCL`"]
@@ -1106,17 +1064,14 @@ impl<'a> I2C0_SCL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_0_A {
     #[doc = "0: ADC_0 enabled on pin PIO0_7."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_0 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_0_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_0_A) -> Self {
-        match variant {
-            ADC_0_A::ENABLED => false,
-            ADC_0_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_0`"]
@@ -1184,17 +1139,14 @@ impl<'a> ADC_0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_1_A {
     #[doc = "0: ADC_1 enabled on pin PIO0_6."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_1 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_1_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_1_A) -> Self {
-        match variant {
-            ADC_1_A::ENABLED => false,
-            ADC_1_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_1`"]
@@ -1262,17 +1214,14 @@ impl<'a> ADC_1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_2_A {
     #[doc = "0: ADC_2 enabled on pin PIO0_14."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_2 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_2_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_2_A) -> Self {
-        match variant {
-            ADC_2_A::ENABLED => false,
-            ADC_2_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_2`"]
@@ -1340,17 +1289,14 @@ impl<'a> ADC_2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_3_A {
     #[doc = "0: ADC_3 enabled on pin PIO0_23."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_3 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_3_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_3_A) -> Self {
-        match variant {
-            ADC_3_A::ENABLED => false,
-            ADC_3_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_3`"]
@@ -1418,17 +1364,14 @@ impl<'a> ADC_3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_4_A {
     #[doc = "0: ADC_4 enabled on pin PIO0_22."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_4 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_4_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_4_A) -> Self {
-        match variant {
-            ADC_4_A::ENABLED => false,
-            ADC_4_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_4`"]
@@ -1496,17 +1439,14 @@ impl<'a> ADC_4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_5_A {
     #[doc = "0: ADC_5 enabled on pin PIO0_21."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_5 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_5_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_5_A) -> Self {
-        match variant {
-            ADC_5_A::ENABLED => false,
-            ADC_5_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_5`"]
@@ -1574,17 +1514,14 @@ impl<'a> ADC_5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_6_A {
     #[doc = "0: ADC_6 enabled on pin PIO0_20."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_6 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_6_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_6_A) -> Self {
-        match variant {
-            ADC_6_A::ENABLED => false,
-            ADC_6_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_6`"]
@@ -1652,17 +1589,14 @@ impl<'a> ADC_6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_7_A {
     #[doc = "0: ADC_7 enabled on pin PIO0_19."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_7 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_7_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_7_A) -> Self {
-        match variant {
-            ADC_7_A::ENABLED => false,
-            ADC_7_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_7`"]
@@ -1730,17 +1664,14 @@ impl<'a> ADC_7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_8_A {
     #[doc = "0: ADC_8 enabled on pin PIO0_18."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_8 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_8_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_8_A) -> Self {
-        match variant {
-            ADC_8_A::ENABLED => false,
-            ADC_8_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_8`"]
@@ -1808,17 +1739,14 @@ impl<'a> ADC_8_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_9_A {
     #[doc = "0: ADC_9 enabled on pin PIO0_17."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_9 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_9_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_9_A) -> Self {
-        match variant {
-            ADC_9_A::ENABLED => false,
-            ADC_9_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_9`"]
@@ -1886,17 +1814,14 @@ impl<'a> ADC_9_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_10_A {
     #[doc = "0: ADC_10 enabled on pin PIO0_13."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_10 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_10_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_10_A) -> Self {
-        match variant {
-            ADC_10_A::ENABLED => false,
-            ADC_10_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_10`"]
@@ -1964,17 +1889,14 @@ impl<'a> ADC_10_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADC_11_A {
     #[doc = "0: ADC_11 enabled on pin PIO0_4."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: ADC_11 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<ADC_11_A> for bool {
     #[inline(always)]
     fn from(variant: ADC_11_A) -> Self {
-        match variant {
-            ADC_11_A::ENABLED => false,
-            ADC_11_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADC_11`"]
@@ -2042,17 +1964,14 @@ impl<'a> ADC_11_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DACOUT0_A {
     #[doc = "0: DACOUT0 enabled on pin PIO0_17."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: DACOUT0 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<DACOUT0_A> for bool {
     #[inline(always)]
     fn from(variant: DACOUT0_A) -> Self {
-        match variant {
-            DACOUT0_A::ENABLED => false,
-            DACOUT0_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DACOUT0`"]
@@ -2120,17 +2039,14 @@ impl<'a> DACOUT0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DACOUT1_A {
     #[doc = "0: DACOUT1 enabled on pin PIO0_29."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: DACOUT1 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<DACOUT1_A> for bool {
     #[inline(always)]
     fn from(variant: DACOUT1_A) -> Self {
-        match variant {
-            DACOUT1_A::ENABLED => false,
-            DACOUT1_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DACOUT1`"]
@@ -2198,17 +2114,14 @@ impl<'a> DACOUT1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_X0_A {
     #[doc = "0: CAPT_X0 enabled on pin PIO0_31."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_X0 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_X0_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_X0_A) -> Self {
-        match variant {
-            CAPT_X0_A::ENABLED => false,
-            CAPT_X0_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_X0`"]
@@ -2276,17 +2189,14 @@ impl<'a> CAPT_X0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_X1_A {
     #[doc = "0: CAPT_X1 enabled on pin PIO1_0."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_X1 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_X1_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_X1_A) -> Self {
-        match variant {
-            CAPT_X1_A::ENABLED => false,
-            CAPT_X1_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_X1`"]
@@ -2354,17 +2264,14 @@ impl<'a> CAPT_X1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_X2_A {
     #[doc = "0: CAPT_X2 enabled on pin PIO1_1."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_X2 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_X2_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_X2_A) -> Self {
-        match variant {
-            CAPT_X2_A::ENABLED => false,
-            CAPT_X2_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_X2`"]
@@ -2432,17 +2339,14 @@ impl<'a> CAPT_X2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CAPT_X3_A {
     #[doc = "0: CAPT_X3 enabled on pin PIO1_2."]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: CAPT_X3 disabled."]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<CAPT_X3_A> for bool {
     #[inline(always)]
     fn from(variant: CAPT_X3_A) -> Self {
-        match variant {
-            CAPT_X3_A::ENABLED => false,
-            CAPT_X3_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CAPT_X3`"]

@@ -1,6 +1,7 @@
 #[doc = "Writer for register DIRCLR[%s]"]
 pub type W = crate::W<u32, super::DIRCLR>;
-#[doc = "Register DIRCLR[%s] `reset()`'s with value 0"]
+#[doc = "Register DIRCLR[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::DIRCLR {
     type Type = u32;
     #[inline(always)]

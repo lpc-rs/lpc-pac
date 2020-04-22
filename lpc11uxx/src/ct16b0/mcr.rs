@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MCR {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR0I_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR0I_A> for bool {
     #[inline(always)]
     fn from(variant: MR0I_A) -> Self {
-        match variant {
-            MR0I_A::ENABLED => true,
-            MR0I_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR0I`"]
@@ -92,17 +89,14 @@ impl<'a> MR0I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR0R_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR0R_A> for bool {
     #[inline(always)]
     fn from(variant: MR0R_A) -> Self {
-        match variant {
-            MR0R_A::ENABLED => true,
-            MR0R_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR0R`"]
@@ -166,21 +160,19 @@ impl<'a> MR0R_W<'a> {
         self.w
     }
 }
-#[doc = "Stop on MR0: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC.\n\nValue on reset: 0"]
+#[doc = "Stop on MR0: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR0 matches the TC.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR0S_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR0S_A> for bool {
     #[inline(always)]
     fn from(variant: MR0S_A) -> Self {
-        match variant {
-            MR0S_A::ENABLED => true,
-            MR0S_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR0S`"]
@@ -248,17 +240,14 @@ impl<'a> MR0S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR1I_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR1I_A> for bool {
     #[inline(always)]
     fn from(variant: MR1I_A) -> Self {
-        match variant {
-            MR1I_A::ENABLED => true,
-            MR1I_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR1I`"]
@@ -326,17 +315,14 @@ impl<'a> MR1I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR1R_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR1R_A> for bool {
     #[inline(always)]
     fn from(variant: MR1R_A) -> Self {
-        match variant {
-            MR1R_A::ENABLED => true,
-            MR1R_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR1R`"]
@@ -400,21 +386,19 @@ impl<'a> MR1R_W<'a> {
         self.w
     }
 }
-#[doc = "Stop on MR1: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC.\n\nValue on reset: 0"]
+#[doc = "Stop on MR1: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR1 matches the TC.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR1S_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR1S_A> for bool {
     #[inline(always)]
     fn from(variant: MR1S_A) -> Self {
-        match variant {
-            MR1S_A::ENABLED => true,
-            MR1S_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR1S`"]
@@ -482,17 +466,14 @@ impl<'a> MR1S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR2I_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR2I_A> for bool {
     #[inline(always)]
     fn from(variant: MR2I_A) -> Self {
-        match variant {
-            MR2I_A::ENABLED => true,
-            MR2I_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR2I`"]
@@ -560,17 +541,14 @@ impl<'a> MR2I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR2R_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR2R_A> for bool {
     #[inline(always)]
     fn from(variant: MR2R_A) -> Self {
-        match variant {
-            MR2R_A::ENABLED => true,
-            MR2R_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR2R`"]
@@ -634,21 +612,19 @@ impl<'a> MR2R_W<'a> {
         self.w
     }
 }
-#[doc = "Stop on MR2: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC.\n\nValue on reset: 0"]
+#[doc = "Stop on MR2: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR2 matches the TC.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR2S_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR2S_A> for bool {
     #[inline(always)]
     fn from(variant: MR2S_A) -> Self {
-        match variant {
-            MR2S_A::ENABLED => true,
-            MR2S_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR2S`"]
@@ -716,17 +692,14 @@ impl<'a> MR2S_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR3I_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR3I_A> for bool {
     #[inline(always)]
     fn from(variant: MR3I_A) -> Self {
-        match variant {
-            MR3I_A::ENABLED => true,
-            MR3I_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR3I`"]
@@ -794,17 +767,14 @@ impl<'a> MR3I_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR3R_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR3R_A> for bool {
     #[inline(always)]
     fn from(variant: MR3R_A) -> Self {
-        match variant {
-            MR3R_A::ENABLED => true,
-            MR3R_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR3R`"]
@@ -868,21 +838,19 @@ impl<'a> MR3R_W<'a> {
         self.w
     }
 }
-#[doc = "Stop on MR3: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC.\n\nValue on reset: 0"]
+#[doc = "Stop on MR3: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR3 matches the TC.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MR3S_A {
     #[doc = "1: Enabled"]
-    ENABLED,
+    ENABLED = 1,
     #[doc = "0: Disabled"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<MR3S_A> for bool {
     #[inline(always)]
     fn from(variant: MR3S_A) -> Self {
-        match variant {
-            MR3S_A::ENABLED => true,
-            MR3S_A::DISABLED => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MR3S`"]
@@ -957,7 +925,8 @@ impl R {
     pub fn mr0r(&self) -> MR0R_R {
         MR0R_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - Stop on MR0: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC."]
+    #[doc = "Bit 2 - Stop on MR0: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR0 matches the TC."]
     #[inline(always)]
     pub fn mr0s(&self) -> MR0S_R {
         MR0S_R::new(((self.bits >> 2) & 0x01) != 0)
@@ -972,7 +941,8 @@ impl R {
     pub fn mr1r(&self) -> MR1R_R {
         MR1R_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bit 5 - Stop on MR1: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC."]
+    #[doc = "Bit 5 - Stop on MR1: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR1 matches the TC."]
     #[inline(always)]
     pub fn mr1s(&self) -> MR1S_R {
         MR1S_R::new(((self.bits >> 5) & 0x01) != 0)
@@ -987,7 +957,8 @@ impl R {
     pub fn mr2r(&self) -> MR2R_R {
         MR2R_R::new(((self.bits >> 7) & 0x01) != 0)
     }
-    #[doc = "Bit 8 - Stop on MR2: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC."]
+    #[doc = "Bit 8 - Stop on MR2: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR2 matches the TC."]
     #[inline(always)]
     pub fn mr2s(&self) -> MR2S_R {
         MR2S_R::new(((self.bits >> 8) & 0x01) != 0)
@@ -1002,7 +973,8 @@ impl R {
     pub fn mr3r(&self) -> MR3R_R {
         MR3R_R::new(((self.bits >> 10) & 0x01) != 0)
     }
-    #[doc = "Bit 11 - Stop on MR3: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC."]
+    #[doc = "Bit 11 - Stop on MR3: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR3 matches the TC."]
     #[inline(always)]
     pub fn mr3s(&self) -> MR3S_R {
         MR3S_R::new(((self.bits >> 11) & 0x01) != 0)
@@ -1019,7 +991,8 @@ impl W {
     pub fn mr0r(&mut self) -> MR0R_W {
         MR0R_W { w: self }
     }
-    #[doc = "Bit 2 - Stop on MR0: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR0 matches the TC."]
+    #[doc = "Bit 2 - Stop on MR0: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR0 matches the TC."]
     #[inline(always)]
     pub fn mr0s(&mut self) -> MR0S_W {
         MR0S_W { w: self }
@@ -1034,7 +1007,8 @@ impl W {
     pub fn mr1r(&mut self) -> MR1R_W {
         MR1R_W { w: self }
     }
-    #[doc = "Bit 5 - Stop on MR1: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR1 matches the TC."]
+    #[doc = "Bit 5 - Stop on MR1: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR1 matches the TC."]
     #[inline(always)]
     pub fn mr1s(&mut self) -> MR1S_W {
         MR1S_W { w: self }
@@ -1049,7 +1023,8 @@ impl W {
     pub fn mr2r(&mut self) -> MR2R_W {
         MR2R_W { w: self }
     }
-    #[doc = "Bit 8 - Stop on MR2: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR2 matches the TC."]
+    #[doc = "Bit 8 - Stop on MR2: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR2 matches the TC."]
     #[inline(always)]
     pub fn mr2s(&mut self) -> MR2S_W {
         MR2S_W { w: self }
@@ -1064,7 +1039,8 @@ impl W {
     pub fn mr3r(&mut self) -> MR3R_W {
         MR3R_W { w: self }
     }
-    #[doc = "Bit 11 - Stop on MR3: the TC and PC will be stopped and TCR\\[0\\] will be set to 0 if MR3 matches the TC."]
+    #[doc = "Bit 11 - Stop on MR3: the TC and PC will be stopped and TCR\\[0\\]
+will be set to 0 if MR3 matches the TC."]
     #[inline(always)]
     pub fn mr3s(&mut self) -> MR3S_W {
         MR3S_W { w: self }

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADINTEN0_A {
     #[doc = "0: Completion of a conversion on ADC channel 0 will not generate an interrupt."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Completion of a conversion on ADC channel 0 will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ADINTEN0_A> for bool {
     #[inline(always)]
     fn from(variant: ADINTEN0_A) -> Self {
-        match variant {
-            ADINTEN0_A::DISABLE => false,
-            ADINTEN0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADINTEN0`"]
@@ -92,17 +89,14 @@ impl<'a> ADINTEN0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADINTEN1_A {
     #[doc = "0: Completion of a conversion on ADC channel 1 will not generate an interrupt."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Completion of a conversion on ADC channel 1 will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ADINTEN1_A> for bool {
     #[inline(always)]
     fn from(variant: ADINTEN1_A) -> Self {
-        match variant {
-            ADINTEN1_A::DISABLE => false,
-            ADINTEN1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADINTEN1`"]
@@ -170,17 +164,14 @@ impl<'a> ADINTEN1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADINTEN2_A {
     #[doc = "0: Completion of a conversion on ADC channel 2 will not generate an interrupt."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Completion of a conversion on ADC channel 2 will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ADINTEN2_A> for bool {
     #[inline(always)]
     fn from(variant: ADINTEN2_A) -> Self {
-        match variant {
-            ADINTEN2_A::DISABLE => false,
-            ADINTEN2_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADINTEN2`"]
@@ -248,17 +239,14 @@ impl<'a> ADINTEN2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADINTEN3_A {
     #[doc = "0: Completion of a conversion on ADC channel 3 will not generate an interrupt."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Completion of a conversion on ADC channel 3 will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ADINTEN3_A> for bool {
     #[inline(always)]
     fn from(variant: ADINTEN3_A) -> Self {
-        match variant {
-            ADINTEN3_A::DISABLE => false,
-            ADINTEN3_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADINTEN3`"]
@@ -326,17 +314,14 @@ impl<'a> ADINTEN3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADINTEN4_A {
     #[doc = "0: Completion of a conversion on ADC channel 4 will not generate an interrupt."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Completion of a conversion on ADC channel 4 will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ADINTEN4_A> for bool {
     #[inline(always)]
     fn from(variant: ADINTEN4_A) -> Self {
-        match variant {
-            ADINTEN4_A::DISABLE => false,
-            ADINTEN4_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADINTEN4`"]
@@ -404,17 +389,14 @@ impl<'a> ADINTEN4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADINTEN5_A {
     #[doc = "0: Completion of a conversion on ADC channel 5 will not generate an interrupt."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Completion of a conversion on ADC channel 5 will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ADINTEN5_A> for bool {
     #[inline(always)]
     fn from(variant: ADINTEN5_A) -> Self {
-        match variant {
-            ADINTEN5_A::DISABLE => false,
-            ADINTEN5_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADINTEN5`"]
@@ -482,17 +464,14 @@ impl<'a> ADINTEN5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADINTEN6_A {
     #[doc = "0: Completion of a conversion on ADC channel 6 will not generate an interrupt."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Completion of a conversion on ADC channel 6 will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ADINTEN6_A> for bool {
     #[inline(always)]
     fn from(variant: ADINTEN6_A) -> Self {
-        match variant {
-            ADINTEN6_A::DISABLE => false,
-            ADINTEN6_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADINTEN6`"]
@@ -560,17 +539,14 @@ impl<'a> ADINTEN6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADINTEN7_A {
     #[doc = "0: Completion of a conversion on ADC channel 7 will not generate an interrupt."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Completion of a conversion on ADC channel 7 will generate an interrupt."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ADINTEN7_A> for bool {
     #[inline(always)]
     fn from(variant: ADINTEN7_A) -> Self {
-        match variant {
-            ADINTEN7_A::DISABLE => false,
-            ADINTEN7_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADINTEN7`"]
@@ -638,17 +614,14 @@ impl<'a> ADINTEN7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADGINTEN_A {
     #[doc = "0: Only the individual ADC channels enabled by ADINTEN7:0 will generate interrupts."]
-    CHANNELS,
+    CHANNELS = 0,
     #[doc = "1: The global DONE flag in ADDR is enabled to generate an interrupt in addition to any individual ADC channels that are enabled to generate interrupts."]
-    GLOBAL,
+    GLOBAL = 1,
 }
 impl From<ADGINTEN_A> for bool {
     #[inline(always)]
     fn from(variant: ADGINTEN_A) -> Self {
-        match variant {
-            ADGINTEN_A::CHANNELS => false,
-            ADGINTEN_A::GLOBAL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADGINTEN`"]

@@ -12,52 +12,39 @@ impl crate::ResetValue for super::CR0 {
 }
 #[doc = "Data Size Select. This field controls the number of bits transferred in each frame. Values 0000-0010 are not supported and should not be used.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DSS_A {
     #[doc = "3: 4-bit transfer"]
-    _4_BIT_TRANSFER,
+    _4_BIT_TRANSFER = 3,
     #[doc = "4: 5-bit transfer"]
-    _5_BIT_TRANSFER,
+    _5_BIT_TRANSFER = 4,
     #[doc = "5: 6-bit transfer"]
-    _6_BIT_TRANSFER,
+    _6_BIT_TRANSFER = 5,
     #[doc = "6: 7-bit transfer"]
-    _7_BIT_TRANSFER,
+    _7_BIT_TRANSFER = 6,
     #[doc = "7: 8-bit transfer"]
-    _8_BIT_TRANSFER,
+    _8_BIT_TRANSFER = 7,
     #[doc = "8: 9-bit transfer"]
-    _9_BIT_TRANSFER,
+    _9_BIT_TRANSFER = 8,
     #[doc = "9: 10-bit transfer"]
-    _10_BIT_TRANSFER,
+    _10_BIT_TRANSFER = 9,
     #[doc = "10: 11-bit transfer"]
-    _11_BIT_TRANSFER,
+    _11_BIT_TRANSFER = 10,
     #[doc = "11: 12-bit transfer"]
-    _12_BIT_TRANSFER,
+    _12_BIT_TRANSFER = 11,
     #[doc = "12: 13-bit transfer"]
-    _13_BIT_TRANSFER,
+    _13_BIT_TRANSFER = 12,
     #[doc = "13: 14-bit transfer"]
-    _14_BIT_TRANSFER,
+    _14_BIT_TRANSFER = 13,
     #[doc = "14: 15-bit transfer"]
-    _15_BIT_TRANSFER,
+    _15_BIT_TRANSFER = 14,
     #[doc = "15: 16-bit transfer"]
-    _16_BIT_TRANSFER,
+    _16_BIT_TRANSFER = 15,
 }
 impl From<DSS_A> for u8 {
     #[inline(always)]
     fn from(variant: DSS_A) -> Self {
-        match variant {
-            DSS_A::_4_BIT_TRANSFER => 3,
-            DSS_A::_5_BIT_TRANSFER => 4,
-            DSS_A::_6_BIT_TRANSFER => 5,
-            DSS_A::_7_BIT_TRANSFER => 6,
-            DSS_A::_8_BIT_TRANSFER => 7,
-            DSS_A::_9_BIT_TRANSFER => 8,
-            DSS_A::_10_BIT_TRANSFER => 9,
-            DSS_A::_11_BIT_TRANSFER => 10,
-            DSS_A::_12_BIT_TRANSFER => 11,
-            DSS_A::_13_BIT_TRANSFER => 12,
-            DSS_A::_14_BIT_TRANSFER => 13,
-            DSS_A::_15_BIT_TRANSFER => 14,
-            DSS_A::_16_BIT_TRANSFER => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DSS`"]
@@ -234,22 +221,19 @@ impl<'a> DSS_W<'a> {
 }
 #[doc = "Frame Format.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FRF_A {
     #[doc = "0: SPI"]
-    SPI,
+    SPI = 0,
     #[doc = "1: TI"]
-    TI,
+    TI = 1,
     #[doc = "2: Microwire"]
-    MICROWIRE,
+    MICROWIRE = 2,
 }
 impl From<FRF_A> for u8 {
     #[inline(always)]
     fn from(variant: FRF_A) -> Self {
-        match variant {
-            FRF_A::SPI => 0,
-            FRF_A::TI => 1,
-            FRF_A::MICROWIRE => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `FRF`"]
@@ -317,17 +301,14 @@ impl<'a> FRF_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CPOL_A {
     #[doc = "0: SPI controller maintains the bus clock low between frames."]
-    LOW,
+    LOW = 0,
     #[doc = "1: SPI controller maintains the bus clock high between frames."]
-    HIGH,
+    HIGH = 1,
 }
 impl From<CPOL_A> for bool {
     #[inline(always)]
     fn from(variant: CPOL_A) -> Self {
-        match variant {
-            CPOL_A::LOW => false,
-            CPOL_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CPOL`"]
@@ -395,17 +376,14 @@ impl<'a> CPOL_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CPHA_A {
     #[doc = "0: SPI controller captures serial data on the first clock transition of the frame, that is, the transition away from the inter-frame state of the clock line."]
-    FIRSTCLOCK,
+    FIRSTCLOCK = 0,
     #[doc = "1: SPI controller captures serial data on the second clock transition of the frame, that is, the transition back to the inter-frame state of the clock line."]
-    SECONDCLOCK,
+    SECONDCLOCK = 1,
 }
 impl From<CPHA_A> for bool {
     #[inline(always)]
     fn from(variant: CPHA_A) -> Self {
-        match variant {
-            CPHA_A::FIRSTCLOCK => false,
-            CPHA_A::SECONDCLOCK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CPHA`"]

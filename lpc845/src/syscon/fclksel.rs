@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::FCLKSEL>;
 #[doc = "Writer for register FCLKSEL[%s]"]
 pub type W = crate::W<u32, super::FCLKSEL>;
-#[doc = "Register FCLKSEL[%s] `reset()`'s with value 0x07"]
+#[doc = "Register FCLKSEL[%s]
+`reset()`'s with value 0x07"]
 impl crate::ResetValue for super::FCLKSEL {
     type Type = u32;
     #[inline(always)]
@@ -12,31 +13,25 @@ impl crate::ResetValue for super::FCLKSEL {
 }
 #[doc = "Peripheral clock source\n\nValue on reset: 7"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
     #[doc = "0: FRO"]
-    FRO,
+    FRO = 0,
     #[doc = "1: main clock"]
-    MAIN_CLK,
+    MAIN_CLK = 1,
     #[doc = "2: Frg0clk"]
-    FRG0CLK,
+    FRG0CLK = 2,
     #[doc = "3: Frg1clk"]
-    FRG1CLK,
+    FRG1CLK = 3,
     #[doc = "4: FRO_DIV"]
-    FRO_DIV,
+    FRO_DIV = 4,
     #[doc = "7: none"]
-    NONE,
+    NONE = 7,
 }
 impl From<SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::FRO => 0,
-            SEL_A::MAIN_CLK => 1,
-            SEL_A::FRG0CLK => 2,
-            SEL_A::FRG1CLK => 3,
-            SEL_A::FRO_DIV => 4,
-            SEL_A::NONE => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]

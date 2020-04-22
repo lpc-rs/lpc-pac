@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INT_DMA_REQ_A {
     #[doc = "0: Clear on any write to the DACR register."]
-    CLEAR_ON_ANY_WRITE_T,
+    CLEAR_ON_ANY_WRITE_T = 0,
     #[doc = "1: Set by hardware when the timer times out."]
-    SET_BY_HARDWARE_WHEN,
+    SET_BY_HARDWARE_WHEN = 1,
 }
 impl From<INT_DMA_REQ_A> for bool {
     #[inline(always)]
     fn from(variant: INT_DMA_REQ_A) -> Self {
-        match variant {
-            INT_DMA_REQ_A::CLEAR_ON_ANY_WRITE_T => false,
-            INT_DMA_REQ_A::SET_BY_HARDWARE_WHEN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INT_DMA_REQ`"]
@@ -92,17 +89,14 @@ impl<'a> INT_DMA_REQ_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DBLBUF_ENA_A {
     #[doc = "0: Disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable. When this bit and the CNT_ENA bit are both set, the double-buffering feature in the DACR register will be enabled. Writes to the DACR register are written to a pre-buffer and then transferred to the DACR on the next time-out of the counter."]
-    ENABLE_WHEN_THIS_BI,
+    ENABLE_WHEN_THIS_BI = 1,
 }
 impl From<DBLBUF_ENA_A> for bool {
     #[inline(always)]
     fn from(variant: DBLBUF_ENA_A) -> Self {
-        match variant {
-            DBLBUF_ENA_A::DISABLE => false,
-            DBLBUF_ENA_A::ENABLE_WHEN_THIS_BI => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DBLBUF_ENA`"]
@@ -170,17 +164,14 @@ impl<'a> DBLBUF_ENA_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CNT_ENA_A {
     #[doc = "0: Disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<CNT_ENA_A> for bool {
     #[inline(always)]
     fn from(variant: CNT_ENA_A) -> Self {
-        match variant {
-            CNT_ENA_A::DISABLE => false,
-            CNT_ENA_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CNT_ENA`"]
@@ -248,17 +239,14 @@ impl<'a> CNT_ENA_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DMA_ENA_A {
     #[doc = "0: Disable"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable. DMA Burst Request Input 7 is enabled for the DAC (see Table 672)."]
-    ENABLE_DMA_BURST_RE,
+    ENABLE_DMA_BURST_RE = 1,
 }
 impl From<DMA_ENA_A> for bool {
     #[inline(always)]
     fn from(variant: DMA_ENA_A) -> Self {
-        match variant {
-            DMA_ENA_A::DISABLE => false,
-            DMA_ENA_A::ENABLE_DMA_BURST_RE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DMA_ENA`"]

@@ -12,25 +12,21 @@ impl crate::ResetValue for super::MAINCLKSEL {
 }
 #[doc = "Clock source for main clock\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
     #[doc = "0: IRC Oscillator"]
-    IRC_OSCILLATOR,
+    IRC_OSCILLATOR = 0,
     #[doc = "1: PLL input"]
-    PLL_INPUT,
+    PLL_INPUT = 1,
     #[doc = "2: Watchdog oscillator"]
-    WATCHDOG_OSCILLATOR,
+    WATCHDOG_OSCILLATOR = 2,
     #[doc = "3: PLL output"]
-    PLL_OUTPUT,
+    PLL_OUTPUT = 3,
 }
 impl From<SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: SEL_A) -> Self {
-        match variant {
-            SEL_A::IRC_OSCILLATOR => 0,
-            SEL_A::PLL_INPUT => 1,
-            SEL_A::WATCHDOG_OSCILLATOR => 2,
-            SEL_A::PLL_OUTPUT => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]

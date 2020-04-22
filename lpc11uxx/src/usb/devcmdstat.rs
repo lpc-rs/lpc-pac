@@ -76,17 +76,14 @@ impl<'a> SETUP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PLL_ON_A {
     #[doc = "0: USB_NeedClk functional"]
-    USB_NEEDCLK_FUNCTION,
+    USB_NEEDCLK_FUNCTION = 0,
     #[doc = "1: USB_NeedClk always 1. Clock will not be stopped in case of suspend."]
-    USB_NEEDCLK_ALWAYS_1,
+    USB_NEEDCLK_ALWAYS_1 = 1,
 }
 impl From<PLL_ON_A> for bool {
     #[inline(always)]
     fn from(variant: PLL_ON_A) -> Self {
-        match variant {
-            PLL_ON_A::USB_NEEDCLK_FUNCTION => false,
-            PLL_ON_A::USB_NEEDCLK_ALWAYS_1 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PLL_ON`"]
@@ -154,17 +151,14 @@ impl<'a> PLL_ON_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LPM_SUP_A {
     #[doc = "0: LPM not supported."]
-    NOT_SUPPORTED,
+    NOT_SUPPORTED = 0,
     #[doc = "1: LPM supported."]
-    SUPPORTED,
+    SUPPORTED = 1,
 }
 impl From<LPM_SUP_A> for bool {
     #[inline(always)]
     fn from(variant: LPM_SUP_A) -> Self {
-        match variant {
-            LPM_SUP_A::NOT_SUPPORTED => false,
-            LPM_SUP_A::SUPPORTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LPM_SUP`"]
@@ -232,17 +226,14 @@ impl<'a> LPM_SUP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INTONNAK_AO_A {
     #[doc = "0: Only acknowledged packets generate an interrupt"]
-    ACKNOW,
+    ACKNOW = 0,
     #[doc = "1: Both acknowledged and NAKed packets generate interrupts."]
-    ACKNOW_NAK,
+    ACKNOW_NAK = 1,
 }
 impl From<INTONNAK_AO_A> for bool {
     #[inline(always)]
     fn from(variant: INTONNAK_AO_A) -> Self {
-        match variant {
-            INTONNAK_AO_A::ACKNOW => false,
-            INTONNAK_AO_A::ACKNOW_NAK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INTONNAK_AO`"]
@@ -310,17 +301,14 @@ impl<'a> INTONNAK_AO_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INTONNAK_AI_A {
     #[doc = "0: Only acknowledged packets generate an interrupt"]
-    ACKNOW,
+    ACKNOW = 0,
     #[doc = "1: Both acknowledged and NAKed packets generate interrupts."]
-    ACKNOW_NAK,
+    ACKNOW_NAK = 1,
 }
 impl From<INTONNAK_AI_A> for bool {
     #[inline(always)]
     fn from(variant: INTONNAK_AI_A) -> Self {
-        match variant {
-            INTONNAK_AI_A::ACKNOW => false,
-            INTONNAK_AI_A::ACKNOW_NAK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INTONNAK_AI`"]
@@ -388,17 +376,14 @@ impl<'a> INTONNAK_AI_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INTONNAK_CO_A {
     #[doc = "0: Only acknowledged packets generate an interrupt"]
-    ACKNOW,
+    ACKNOW = 0,
     #[doc = "1: Both acknowledged and NAKed packets generate interrupts."]
-    ACKNOW_NAK,
+    ACKNOW_NAK = 1,
 }
 impl From<INTONNAK_CO_A> for bool {
     #[inline(always)]
     fn from(variant: INTONNAK_CO_A) -> Self {
-        match variant {
-            INTONNAK_CO_A::ACKNOW => false,
-            INTONNAK_CO_A::ACKNOW_NAK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INTONNAK_CO`"]
@@ -466,17 +451,14 @@ impl<'a> INTONNAK_CO_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum INTONNAK_CI_A {
     #[doc = "0: Only acknowledged packets generate an interrupt"]
-    ACKNOW,
+    ACKNOW = 0,
     #[doc = "1: Both acknowledged and NAKed packets generate interrupts."]
-    ACKNOW_NAK,
+    ACKNOW_NAK = 1,
 }
 impl From<INTONNAK_CI_A> for bool {
     #[inline(always)]
     fn from(variant: INTONNAK_CI_A) -> Self {
-        match variant {
-            INTONNAK_CI_A::ACKNOW => false,
-            INTONNAK_CI_A::ACKNOW_NAK => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `INTONNAK_CI`"]

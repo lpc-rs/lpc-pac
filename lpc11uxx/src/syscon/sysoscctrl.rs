@@ -14,17 +14,14 @@ impl crate::ResetValue for super::SYSOSCCTRL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum BYPASS_A {
     #[doc = "0: Oscillator is not bypassed."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Bypass enabled. PLL input (sys_osc_clk) is fed directly from the XTALIN pin bypassing the oscillator. Use this mode when using an external clock source instead of the crystal oscillator."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<BYPASS_A> for bool {
     #[inline(always)]
     fn from(variant: BYPASS_A) -> Self {
-        match variant {
-            BYPASS_A::DISABLED => false,
-            BYPASS_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `BYPASS`"]
@@ -92,17 +89,14 @@ impl<'a> BYPASS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FREQRANGE_A {
     #[doc = "0: 1 - 20 MHz frequency range."]
-    _1_20_MHZ_FREQUENCY,
+    _1_20_MHZ_FREQUENCY = 0,
     #[doc = "1: 15 - 25 MHz frequency range"]
-    _15_25_MHZ_FREQUENC,
+    _15_25_MHZ_FREQUENC = 1,
 }
 impl From<FREQRANGE_A> for bool {
     #[inline(always)]
     fn from(variant: FREQRANGE_A) -> Self {
-        match variant {
-            FREQRANGE_A::_1_20_MHZ_FREQUENCY => false,
-            FREQRANGE_A::_15_25_MHZ_FREQUENC => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `FREQRANGE`"]
