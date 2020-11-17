@@ -1,1 +1,0 @@
-../common/RELEASING.md
