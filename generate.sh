@@ -14,7 +14,6 @@ set -euo pipefail
 
 PACS=(
     "lpc11uxx:--nightly"
-    "lpc176x5x:--nightly"
     "lpc54606"
     "lpc82x"
     "lpc845"
