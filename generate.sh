@@ -15,8 +15,10 @@ set -euo pipefail
 PACS=(
     "lpc11uxx:--nightly"
     "lpc54606"
+    "lpc54608"
     "lpc82x"
     "lpc845"
+    
 )
 
 # everything is relative to the generate script

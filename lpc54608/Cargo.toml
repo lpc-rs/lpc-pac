@@ -1,0 +1,25 @@
+[package]
+name = "lpc54608-pac"
+version = "0.1.0"
+authors = ["Alexis Marquet <alexis@alexismarquet.com>"]
+
+description = "Peripheral Access API for LPC54608 microcontrollers"
+documentation = "https://docs.rs/lpc54608-pac"
+repository = "https://github.com/lpc-rs/lpc-pac"
+license       = "0BSD"
+readme        = "README.md"
+categories    = ["embedded", "hardware-support", "no-std", "nxp"]
+
+
+[dependencies]
+bare-metal = "0.2.0"
+vcell = "0.1.0"
+cortex-m = "0.7.0"
+
+[dependencies.cortex-m-rt]
+optional = true
+version = "0.6.11"
+
+
+[features]
+rt = ["cortex-m-rt", "cortex-m-rt/device"]
