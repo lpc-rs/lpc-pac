@@ -1,13 +1,35 @@
-#[doc = "Reader of register ACR"]
-pub type R = crate::R<u32, super::ACR>;
-#[doc = "Writer for register ACR"]
-pub type W = crate::W<u32, super::ACR>;
-#[doc = "Register ACR `reset()`'s with value 0"]
-impl crate::ResetValue for super::ACR {
-    type Type = u32;
+#[doc = "Register `ACR` reader"]
+pub struct R(crate::R<ACR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<ACR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<ACR_SPEC>> for R {
+    fn from(reader: crate::R<ACR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `ACR` writer"]
+pub struct W(crate::W<ACR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<ACR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<ACR_SPEC>> for W {
+    fn from(writer: crate::W<ACR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "This bit is automatically cleared after auto-baud completion.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<START_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `START`"]
-pub type START_R = crate::R<bool, START_A>;
+#[doc = "Field `START` reader - This bit is automatically cleared after auto-baud completion."]
+pub struct START_R(crate::FieldReader<bool, START_A>);
 impl START_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        START_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> START_A {
@@ -38,15 +63,22 @@ impl START_R {
     #[doc = "Checks if the value of the field is `AUTO_BAUD_STOP_AUTO`"]
     #[inline(always)]
     pub fn is_auto_baud_stop_auto(&self) -> bool {
-        *self == START_A::AUTO_BAUD_STOP_AUTO
+        **self == START_A::AUTO_BAUD_STOP_AUTO
     }
     #[doc = "Checks if the value of the field is `AUTO_BAUD_START_AUT`"]
     #[inline(always)]
     pub fn is_auto_baud_start_aut(&self) -> bool {
-        *self == START_A::AUTO_BAUD_START_AUT
+        **self == START_A::AUTO_BAUD_START_AUT
     }
 }
-#[doc = "Write proxy for field `START`"]
+impl core::ops::Deref for START_R {
+    type Target = crate::FieldReader<bool, START_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `START` writer - This bit is automatically cleared after auto-baud completion."]
 pub struct START_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> START_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: START_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Auto-baud stop (auto-baud is not running)."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> START_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<MODE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MODE`"]
-pub type MODE_R = crate::R<bool, MODE_A>;
+#[doc = "Field `MODE` reader - Auto-baud mode select bit."]
+pub struct MODE_R(crate::FieldReader<bool, MODE_A>);
 impl MODE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MODE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MODE_A {
@@ -113,15 +146,22 @@ impl MODE_R {
     #[doc = "Checks if the value of the field is `MODE0`"]
     #[inline(always)]
     pub fn is_mode0(&self) -> bool {
-        *self == MODE_A::MODE0
+        **self == MODE_A::MODE0
     }
     #[doc = "Checks if the value of the field is `MODE1`"]
     #[inline(always)]
     pub fn is_mode1(&self) -> bool {
-        *self == MODE_A::MODE1
+        **self == MODE_A::MODE1
     }
 }
-#[doc = "Write proxy for field `MODE`"]
+impl core::ops::Deref for MODE_R {
+    type Target = crate::FieldReader<bool, MODE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MODE` writer - Auto-baud mode select bit."]
 pub struct MODE_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> MODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MODE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Mode 0."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> MODE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<AUTORESTART_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `AUTORESTART`"]
-pub type AUTORESTART_R = crate::R<bool, AUTORESTART_A>;
+#[doc = "Field `AUTORESTART` reader - Start mode"]
+pub struct AUTORESTART_R(crate::FieldReader<bool, AUTORESTART_A>);
 impl AUTORESTART_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AUTORESTART_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> AUTORESTART_A {
@@ -188,15 +229,22 @@ impl AUTORESTART_R {
     #[doc = "Checks if the value of the field is `NO_RESTART`"]
     #[inline(always)]
     pub fn is_no_restart(&self) -> bool {
-        *self == AUTORESTART_A::NO_RESTART
+        **self == AUTORESTART_A::NO_RESTART
     }
     #[doc = "Checks if the value of the field is `RESTART_IN_CASE_OF_T`"]
     #[inline(always)]
     pub fn is_restart_in_case_of_t(&self) -> bool {
-        *self == AUTORESTART_A::RESTART_IN_CASE_OF_T
+        **self == AUTORESTART_A::RESTART_IN_CASE_OF_T
     }
 }
-#[doc = "Write proxy for field `AUTORESTART`"]
+impl core::ops::Deref for AUTORESTART_R {
+    type Target = crate::FieldReader<bool, AUTORESTART_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AUTORESTART` writer - Start mode"]
 pub struct AUTORESTART_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> AUTORESTART_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: AUTORESTART_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No restart"]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> AUTORESTART_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<ABEOINTCLR_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ABEOINTCLR`"]
-pub type ABEOINTCLR_R = crate::R<bool, ABEOINTCLR_A>;
+#[doc = "Field `ABEOINTCLR` reader - End of auto-baud interrupt clear bit (write only accessible)."]
+pub struct ABEOINTCLR_R(crate::FieldReader<bool, ABEOINTCLR_A>);
 impl ABEOINTCLR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ABEOINTCLR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ABEOINTCLR_A {
@@ -263,15 +312,22 @@ impl ABEOINTCLR_R {
     #[doc = "Checks if the value of the field is `NO_IMPACT`"]
     #[inline(always)]
     pub fn is_no_impact(&self) -> bool {
-        *self == ABEOINTCLR_A::NO_IMPACT
+        **self == ABEOINTCLR_A::NO_IMPACT
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == ABEOINTCLR_A::CLEAR
+        **self == ABEOINTCLR_A::CLEAR
     }
 }
-#[doc = "Write proxy for field `ABEOINTCLR`"]
+impl core::ops::Deref for ABEOINTCLR_R {
+    type Target = crate::FieldReader<bool, ABEOINTCLR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ABEOINTCLR` writer - End of auto-baud interrupt clear bit (write only accessible)."]
 pub struct ABEOINTCLR_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> ABEOINTCLR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ABEOINTCLR_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Writing a 0 has no impact."]
     #[inline(always)]
@@ -306,7 +360,7 @@ impl<'a> ABEOINTCLR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -324,9 +378,12 @@ impl From<ABTOINTCLR_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ABTOINTCLR`"]
-pub type ABTOINTCLR_R = crate::R<bool, ABTOINTCLR_A>;
+#[doc = "Field `ABTOINTCLR` reader - Auto-baud time-out interrupt clear bit (write only accessible)."]
+pub struct ABTOINTCLR_R(crate::FieldReader<bool, ABTOINTCLR_A>);
 impl ABTOINTCLR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ABTOINTCLR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ABTOINTCLR_A {
@@ -338,15 +395,22 @@ impl ABTOINTCLR_R {
     #[doc = "Checks if the value of the field is `NO_IMPACT`"]
     #[inline(always)]
     pub fn is_no_impact(&self) -> bool {
-        *self == ABTOINTCLR_A::NO_IMPACT
+        **self == ABTOINTCLR_A::NO_IMPACT
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == ABTOINTCLR_A::CLEAR
+        **self == ABTOINTCLR_A::CLEAR
     }
 }
-#[doc = "Write proxy for field `ABTOINTCLR`"]
+impl core::ops::Deref for ABTOINTCLR_R {
+    type Target = crate::FieldReader<bool, ABTOINTCLR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ABTOINTCLR` writer - Auto-baud time-out interrupt clear bit (write only accessible)."]
 pub struct ABTOINTCLR_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +418,7 @@ impl<'a> ABTOINTCLR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ABTOINTCLR_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Writing a 0 has no impact."]
     #[inline(always)]
@@ -381,7 +443,7 @@ impl<'a> ABTOINTCLR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
@@ -437,5 +499,30 @@ impl W {
     #[inline(always)]
     pub fn abtointclr(&mut self) -> ABTOINTCLR_W {
         ABTOINTCLR_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Auto-baud Control Register. Contains controls for the auto-baud feature.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [acr](index.html) module"]
+pub struct ACR_SPEC;
+impl crate::RegisterSpec for ACR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [acr::R](R) reader structure"]
+impl crate::Readable for ACR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [acr::W](W) writer structure"]
+impl crate::Writable for ACR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets ACR to value 0"]
+impl crate::Resettable for ACR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

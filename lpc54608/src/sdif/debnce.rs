@@ -1,18 +1,52 @@
-#[doc = "Reader of register DEBNCE"]
-pub type R = crate::R<u32, super::DEBNCE>;
-#[doc = "Writer for register DEBNCE"]
-pub type W = crate::W<u32, super::DEBNCE>;
-#[doc = "Register DEBNCE `reset()`'s with value 0x00ff_ffff"]
-impl crate::ResetValue for super::DEBNCE {
-    type Type = u32;
+#[doc = "Register `DEBNCE` reader"]
+pub struct R(crate::R<DEBNCE_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DEBNCE_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x00ff_ffff
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `DEBOUNCE_COUNT`"]
-pub type DEBOUNCE_COUNT_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `DEBOUNCE_COUNT`"]
+impl core::convert::From<crate::R<DEBNCE_SPEC>> for R {
+    fn from(reader: crate::R<DEBNCE_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DEBNCE` writer"]
+pub struct W(crate::W<DEBNCE_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DEBNCE_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<DEBNCE_SPEC>> for W {
+    fn from(writer: crate::W<DEBNCE_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `DEBOUNCE_COUNT` reader - Number of host clocks (SD_CLK) used by debounce filter logic for card detect; typical debounce time is 5-25 ms."]
+pub struct DEBOUNCE_COUNT_R(crate::FieldReader<u32, u32>);
+impl DEBOUNCE_COUNT_R {
+    pub(crate) fn new(bits: u32) -> Self {
+        DEBOUNCE_COUNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DEBOUNCE_COUNT_R {
+    type Target = crate::FieldReader<u32, u32>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DEBOUNCE_COUNT` writer - Number of host clocks (SD_CLK) used by debounce filter logic for card detect; typical debounce time is 5-25 ms."]
 pub struct DEBOUNCE_COUNT_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +54,7 @@ impl<'a> DEBOUNCE_COUNT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x00ff_ffff) | ((value as u32) & 0x00ff_ffff);
+        self.w.bits = (self.w.bits & !0x00ff_ffff) | (value as u32 & 0x00ff_ffff);
         self.w
     }
 }
@@ -36,5 +70,30 @@ impl W {
     #[inline(always)]
     pub fn debounce_count(&mut self) -> DEBOUNCE_COUNT_W {
         DEBOUNCE_COUNT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Debounce Count register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [debnce](index.html) module"]
+pub struct DEBNCE_SPEC;
+impl crate::RegisterSpec for DEBNCE_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [debnce::R](R) reader structure"]
+impl crate::Readable for DEBNCE_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [debnce::W](W) writer structure"]
+impl crate::Writable for DEBNCE_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DEBNCE to value 0x00ff_ffff"]
+impl crate::Resettable for DEBNCE_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x00ff_ffff
     }
 }

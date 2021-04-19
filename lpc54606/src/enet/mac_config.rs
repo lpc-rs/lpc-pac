@@ -1,18 +1,52 @@
-#[doc = "Reader of register MAC_CONFIG"]
-pub type R = crate::R<u32, super::MAC_CONFIG>;
-#[doc = "Writer for register MAC_CONFIG"]
-pub type W = crate::W<u32, super::MAC_CONFIG>;
-#[doc = "Register MAC_CONFIG `reset()`'s with value 0x8000"]
-impl crate::ResetValue for super::MAC_CONFIG {
-    type Type = u32;
+#[doc = "Register `MAC_CONFIG` reader"]
+pub struct R(crate::R<MAC_CONFIG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MAC_CONFIG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x8000
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `RE`"]
-pub type RE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `RE`"]
+impl core::convert::From<crate::R<MAC_CONFIG_SPEC>> for R {
+    fn from(reader: crate::R<MAC_CONFIG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MAC_CONFIG` writer"]
+pub struct W(crate::W<MAC_CONFIG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MAC_CONFIG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MAC_CONFIG_SPEC>> for W {
+    fn from(writer: crate::W<MAC_CONFIG_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `RE` reader - Receiver Enable When this bit is set, the receiver state machine of the MAC is enabled for receiving frames from the MII."]
+pub struct RE_R(crate::FieldReader<bool, bool>);
+impl RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RE` writer - Receiver Enable When this bit is set, the receiver state machine of the MAC is enabled for receiving frames from the MII."]
 pub struct RE_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `TE`"]
-pub type TE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TE`"]
+#[doc = "Field `TE` reader - Transmitter Enable When this bit is set, the transmit state machine of the MAC is enabled for transmission on the MII."]
+pub struct TE_R(crate::FieldReader<bool, bool>);
+impl TE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TE` writer - Transmitter Enable When this bit is set, the transmit state machine of the MAC is enabled for transmission on the MII."]
 pub struct TE_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> TE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `PRELEN`"]
-pub type PRELEN_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PRELEN`"]
+#[doc = "Field `PRELEN` reader - Preamble Length for Transmit packets These bits control the number of preamble bytes that are added to the beginning of every Tx packet."]
+pub struct PRELEN_R(crate::FieldReader<u8, u8>);
+impl PRELEN_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PRELEN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PRELEN_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PRELEN` writer - Preamble Length for Transmit packets These bits control the number of preamble bytes that are added to the beginning of every Tx packet."]
 pub struct PRELEN_W<'a> {
     w: &'a mut W,
 }
@@ -68,13 +126,25 @@ impl<'a> PRELEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | ((value as u32 & 0x03) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `DC`"]
-pub type DC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DC`"]
+#[doc = "Field `DC` reader - Deferral Check When this bit is set, the deferral check function is enabled in the MAC."]
+pub struct DC_R(crate::FieldReader<bool, bool>);
+impl DC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DC` writer - Deferral Check When this bit is set, the deferral check function is enabled in the MAC."]
 pub struct DC_W<'a> {
     w: &'a mut W,
 }
@@ -92,13 +162,25 @@ impl<'a> DC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `BL`"]
-pub type BL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `BL`"]
+#[doc = "Field `BL` reader - Back-Off Limit The Back-Off limit determines the random integer number (r) of slot time delays (4,096 bit times for 1000 Mbps and 512 bit times for 10/100 Mbps) the MAC waits before rescheduling a transmission attempt during retries after a collision."]
+pub struct BL_R(crate::FieldReader<u8, u8>);
+impl BL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        BL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BL` writer - Back-Off Limit The Back-Off limit determines the random integer number (r) of slot time delays (4,096 bit times for 1000 Mbps and 512 bit times for 10/100 Mbps) the MAC waits before rescheduling a transmission attempt during retries after a collision."]
 pub struct BL_W<'a> {
     w: &'a mut W,
 }
@@ -106,13 +188,25 @@ impl<'a> BL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 5)) | (((value as u32) & 0x03) << 5);
+        self.w.bits = (self.w.bits & !(0x03 << 5)) | ((value as u32 & 0x03) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `DR`"]
-pub type DR_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DR`"]
+#[doc = "Field `DR` reader - Disable Retry When this bit is set, the MAC will attempt only one transmission."]
+pub struct DR_R(crate::FieldReader<bool, bool>);
+impl DR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DR_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DR` writer - Disable Retry When this bit is set, the MAC will attempt only one transmission."]
 pub struct DR_W<'a> {
     w: &'a mut W,
 }
@@ -130,13 +224,25 @@ impl<'a> DR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `DCRS`"]
-pub type DCRS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DCRS`"]
+#[doc = "Field `DCRS` reader - Disable Carrier Sense During Transmission When this bit is set, the MAC transmitter ignores the MII CRS signal during packet transmission in the half-duplex mode."]
+pub struct DCRS_R(crate::FieldReader<bool, bool>);
+impl DCRS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DCRS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DCRS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DCRS` writer - Disable Carrier Sense During Transmission When this bit is set, the MAC transmitter ignores the MII CRS signal during packet transmission in the half-duplex mode."]
 pub struct DCRS_W<'a> {
     w: &'a mut W,
 }
@@ -154,13 +260,25 @@ impl<'a> DCRS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `DO`"]
-pub type DO_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DO`"]
+#[doc = "Field `DO` reader - Disable Receive Own When this bit is set, the MAC disables the reception of frames when the gmii_txen_o is asserted in Half-Duplex mode."]
+pub struct DO_R(crate::FieldReader<bool, bool>);
+impl DO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DO_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DO` writer - Disable Receive Own When this bit is set, the MAC disables the reception of frames when the gmii_txen_o is asserted in Half-Duplex mode."]
 pub struct DO_W<'a> {
     w: &'a mut W,
 }
@@ -178,13 +296,25 @@ impl<'a> DO_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `ECRSFD`"]
-pub type ECRSFD_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ECRSFD`"]
+#[doc = "Field `ECRSFD` reader - Enable Carrier Sense Before Transmission in Full-Duplex Mode When this bit is set, the MAC transmitter checks the CRS signal before packet transmission in the full-duplex mode."]
+pub struct ECRSFD_R(crate::FieldReader<bool, bool>);
+impl ECRSFD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ECRSFD_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ECRSFD_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ECRSFD` writer - Enable Carrier Sense Before Transmission in Full-Duplex Mode When this bit is set, the MAC transmitter checks the CRS signal before packet transmission in the full-duplex mode."]
 pub struct ECRSFD_W<'a> {
     w: &'a mut W,
 }
@@ -202,13 +332,25 @@ impl<'a> ECRSFD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Reader of field `LM`"]
-pub type LM_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LM`"]
+#[doc = "Field `LM` reader - Loopback Mode When this bit is set, the MAC operates in loopback mode at MII."]
+pub struct LM_R(crate::FieldReader<bool, bool>);
+impl LM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LM_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LM_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LM` writer - Loopback Mode When this bit is set, the MAC operates in loopback mode at MII."]
 pub struct LM_W<'a> {
     w: &'a mut W,
 }
@@ -226,13 +368,25 @@ impl<'a> LM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Reader of field `DM`"]
-pub type DM_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DM`"]
+#[doc = "Field `DM` reader - Duplex Mode When this bit is set, the MAC operates in a Full-Duplex mode where it can transmit and receive simultaneously."]
+pub struct DM_R(crate::FieldReader<bool, bool>);
+impl DM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DM_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DM_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DM` writer - Duplex Mode When this bit is set, the MAC operates in a Full-Duplex mode where it can transmit and receive simultaneously."]
 pub struct DM_W<'a> {
     w: &'a mut W,
 }
@@ -250,13 +404,25 @@ impl<'a> DM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Reader of field `FES`"]
-pub type FES_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FES`"]
+#[doc = "Field `FES` reader - Speed Indicates the speed in Fast Ethernet (MII) mode: This bit is reserved (RO) by default and is enabled only when RMII/SMII is enabled during configuration."]
+pub struct FES_R(crate::FieldReader<bool, bool>);
+impl FES_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FES_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FES_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FES` writer - Speed Indicates the speed in Fast Ethernet (MII) mode: This bit is reserved (RO) by default and is enabled only when RMII/SMII is enabled during configuration."]
 pub struct FES_W<'a> {
     w: &'a mut W,
 }
@@ -274,15 +440,39 @@ impl<'a> FES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
-#[doc = "Reader of field `PS`"]
-pub type PS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `JE`"]
-pub type JE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `JE`"]
+#[doc = "Field `PS` reader - Portselect."]
+pub struct PS_R(crate::FieldReader<bool, bool>);
+impl PS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `JE` reader - Jumbo Frame Enable When this bit is set, MAC allows Jumbo frames of 9,018 bytes (9,022 bytes for tagged frames) without reporting a giant frame error in the receive frame status."]
+pub struct JE_R(crate::FieldReader<bool, bool>);
+impl JE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        JE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for JE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `JE` writer - Jumbo Frame Enable When this bit is set, MAC allows Jumbo frames of 9,018 bytes (9,022 bytes for tagged frames) without reporting a giant frame error in the receive frame status."]
 pub struct JE_W<'a> {
     w: &'a mut W,
 }
@@ -300,13 +490,25 @@ impl<'a> JE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `JD`"]
-pub type JD_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `JD`"]
+#[doc = "Field `JD` reader - Jabber Disable When this bit is set, the MAC disables the jabber timer on the transmitter, and can transfer frames of up to 16,384 bytes."]
+pub struct JD_R(crate::FieldReader<bool, bool>);
+impl JD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        JD_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for JD_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `JD` writer - Jabber Disable When this bit is set, the MAC disables the jabber timer on the transmitter, and can transfer frames of up to 16,384 bytes."]
 pub struct JD_W<'a> {
     w: &'a mut W,
 }
@@ -324,13 +526,25 @@ impl<'a> JD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `BE`"]
-pub type BE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `BE`"]
+#[doc = "Field `BE` reader - Packet Burst Enable When this bit is set, the MAC allows packet bursting during transmission in the MII half-duplex mode."]
+pub struct BE_R(crate::FieldReader<bool, bool>);
+impl BE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BE` writer - Packet Burst Enable When this bit is set, the MAC allows packet bursting during transmission in the MII half-duplex mode."]
 pub struct BE_W<'a> {
     w: &'a mut W,
 }
@@ -348,13 +562,25 @@ impl<'a> BE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Reader of field `WD`"]
-pub type WD_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `WD`"]
+#[doc = "Field `WD` reader - Watchdog Disable When this bit is set, the MAC disables the watchdog timer on the receiver, and can receive frames of up to 16,384 bytes."]
+pub struct WD_R(crate::FieldReader<bool, bool>);
+impl WD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WD_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for WD_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WD` writer - Watchdog Disable When this bit is set, the MAC disables the watchdog timer on the receiver, and can receive frames of up to 16,384 bytes."]
 pub struct WD_W<'a> {
     w: &'a mut W,
 }
@@ -372,13 +598,25 @@ impl<'a> WD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Reader of field `ACS`"]
-pub type ACS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ACS`"]
+#[doc = "Field `ACS` reader - Automatic Pad or CRC Stripping When this bit is set, the MAC strips the Pad or FCS field on the incoming packets only if the value of the length field is less than 1,536 bytes."]
+pub struct ACS_R(crate::FieldReader<bool, bool>);
+impl ACS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ACS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ACS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ACS` writer - Automatic Pad or CRC Stripping When this bit is set, the MAC strips the Pad or FCS field on the incoming packets only if the value of the length field is less than 1,536 bytes."]
 pub struct ACS_W<'a> {
     w: &'a mut W,
 }
@@ -396,13 +634,25 @@ impl<'a> ACS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
-#[doc = "Reader of field `CST`"]
-pub type CST_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CST`"]
+#[doc = "Field `CST` reader - CRC stripping for Type packets When this bit is set, the last four bytes (FCS) of all packets of Ether type (type field greater than 1,536) are stripped and dropped before forwarding the packet to the application."]
+pub struct CST_R(crate::FieldReader<bool, bool>);
+impl CST_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CST_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CST_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CST` writer - CRC stripping for Type packets When this bit is set, the last four bytes (FCS) of all packets of Ether type (type field greater than 1,536) are stripped and dropped before forwarding the packet to the application."]
 pub struct CST_W<'a> {
     w: &'a mut W,
 }
@@ -420,13 +670,25 @@ impl<'a> CST_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
-#[doc = "Reader of field `S2KP`"]
-pub type S2KP_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `S2KP`"]
+#[doc = "Field `S2KP` reader - IEEE 802."]
+pub struct S2KP_R(crate::FieldReader<bool, bool>);
+impl S2KP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        S2KP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for S2KP_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `S2KP` writer - IEEE 802."]
 pub struct S2KP_W<'a> {
     w: &'a mut W,
 }
@@ -444,13 +706,25 @@ impl<'a> S2KP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
-#[doc = "Reader of field `GPSLCE`"]
-pub type GPSLCE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `GPSLCE`"]
+#[doc = "Field `GPSLCE` reader - Giant Packet Size Limit Control Enable When this bit is set, the MAC considers the value in GPSL field in MAC Ext Configuration register to declare a received packet as Giant packet."]
+pub struct GPSLCE_R(crate::FieldReader<bool, bool>);
+impl GPSLCE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        GPSLCE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for GPSLCE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `GPSLCE` writer - Giant Packet Size Limit Control Enable When this bit is set, the MAC considers the value in GPSL field in MAC Ext Configuration register to declare a received packet as Giant packet."]
 pub struct GPSLCE_W<'a> {
     w: &'a mut W,
 }
@@ -468,13 +742,25 @@ impl<'a> GPSLCE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
         self.w
     }
 }
-#[doc = "Reader of field `IPG`"]
-pub type IPG_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `IPG`"]
+#[doc = "Field `IPG` reader - Inter-Packet Gap These bits control the minimum IPG between packets during transmission."]
+pub struct IPG_R(crate::FieldReader<u8, u8>);
+impl IPG_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        IPG_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for IPG_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `IPG` writer - Inter-Packet Gap These bits control the minimum IPG between packets during transmission."]
 pub struct IPG_W<'a> {
     w: &'a mut W,
 }
@@ -482,13 +768,25 @@ impl<'a> IPG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 24)) | (((value as u32) & 0x07) << 24);
+        self.w.bits = (self.w.bits & !(0x07 << 24)) | ((value as u32 & 0x07) << 24);
         self.w
     }
 }
-#[doc = "Reader of field `IPC`"]
-pub type IPC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `IPC`"]
+#[doc = "Field `IPC` reader - Checksum Offload When set, this bit enables the IPv4 header checksum checking and IPv4 or IPv6 TCP, UDP, or ICMP payload checksum checking."]
+pub struct IPC_R(crate::FieldReader<bool, bool>);
+impl IPC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        IPC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for IPC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `IPC` writer - Checksum Offload When set, this bit enables the IPv4 header checksum checking and IPv4 or IPv6 TCP, UDP, or ICMP payload checksum checking."]
 pub struct IPC_W<'a> {
     w: &'a mut W,
 }
@@ -506,7 +804,7 @@ impl<'a> IPC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
@@ -737,5 +1035,30 @@ impl W {
     #[inline(always)]
     pub fn ipc(&mut self) -> IPC_W {
         IPC_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "MAC configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mac_config](index.html) module"]
+pub struct MAC_CONFIG_SPEC;
+impl crate::RegisterSpec for MAC_CONFIG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mac_config::R](R) reader structure"]
+impl crate::Readable for MAC_CONFIG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mac_config::W](W) writer structure"]
+impl crate::Writable for MAC_CONFIG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MAC_CONFIG to value 0x8000"]
+impl crate::Resettable for MAC_CONFIG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x8000
     }
 }

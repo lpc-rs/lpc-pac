@@ -1,18 +1,54 @@
-#[doc = "Reader of register EMR"]
-pub type R = crate::R<u32, super::EMR>;
-#[doc = "Writer for register EMR"]
-pub type W = crate::W<u32, super::EMR>;
-#[doc = "Register EMR `reset()`'s with value 0"]
-impl crate::ResetValue for super::EMR {
-    type Type = u32;
+#[doc = "Register `EMR` reader"]
+pub struct R(crate::R<EMR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<EMR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `EM0`"]
-pub type EM0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `EM0`"]
+impl core::convert::From<crate::R<EMR_SPEC>> for R {
+    fn from(reader: crate::R<EMR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `EMR` writer"]
+pub struct W(crate::W<EMR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<EMR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<EMR_SPEC>> for W {
+    fn from(writer: crate::W<EMR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `EM0` reader - External Match 0. This bit reflects the state of output CT32Bn_MAT0, whether or not this output is connected to its pin. When a match occurs between the TC and MR0, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[5:4\\]
+control the functionality of this output. This bit is driven to the CT32B0_MAT0/CT32B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
+pub struct EM0_R(crate::FieldReader<bool, bool>);
+impl EM0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EM0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EM0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EM0` writer - External Match 0. This bit reflects the state of output CT32Bn_MAT0, whether or not this output is connected to its pin. When a match occurs between the TC and MR0, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[5:4\\]
+control the functionality of this output. This bit is driven to the CT32B0_MAT0/CT32B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
 pub struct EM0_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +66,27 @@ impl<'a> EM0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `EM1`"]
-pub type EM1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `EM1`"]
+#[doc = "Field `EM1` reader - External Match 1. This bit reflects the state of output CT32Bn_MAT1, whether or not this output is connected to its pin. When a match occurs between the TC and MR1, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[7:6\\]
+control the functionality of this output. This bit is driven to the CT32B0_MAT1/CT32B1_MAT1 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
+pub struct EM1_R(crate::FieldReader<bool, bool>);
+impl EM1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EM1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EM1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EM1` writer - External Match 1. This bit reflects the state of output CT32Bn_MAT1, whether or not this output is connected to its pin. When a match occurs between the TC and MR1, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[7:6\\]
+control the functionality of this output. This bit is driven to the CT32B0_MAT1/CT32B1_MAT1 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
 pub struct EM1_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +104,27 @@ impl<'a> EM1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `EM2`"]
-pub type EM2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `EM2`"]
+#[doc = "Field `EM2` reader - External Match 2. This bit reflects the state of output CT32Bn_MAT2, whether or not this output is connected to its pin. When a match occurs between the TC and MR2, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[9:8\\]
+control the functionality of this output. This bit is driven to the CT32B0_MAT2/CT32B1_MAT2 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
+pub struct EM2_R(crate::FieldReader<bool, bool>);
+impl EM2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EM2_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EM2_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EM2` writer - External Match 2. This bit reflects the state of output CT32Bn_MAT2, whether or not this output is connected to its pin. When a match occurs between the TC and MR2, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[9:8\\]
+control the functionality of this output. This bit is driven to the CT32B0_MAT2/CT32B1_MAT2 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
 pub struct EM2_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +142,27 @@ impl<'a> EM2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `EM3`"]
-pub type EM3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `EM3`"]
+#[doc = "Field `EM3` reader - External Match 3. This bit reflects the state of output CT32Bn_MAT3, whether or not this output is connected to its pin. When a match occurs between the TC and MR3, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[11:10\\]
+control the functionality of this output. This bit is driven to the CT32B3_MAT0/CT32B1_MAT3 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
+pub struct EM3_R(crate::FieldReader<bool, bool>);
+impl EM3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EM3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EM3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EM3` writer - External Match 3. This bit reflects the state of output CT32Bn_MAT3, whether or not this output is connected to its pin. When a match occurs between the TC and MR3, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR\\[11:10\\]
+control the functionality of this output. This bit is driven to the CT32B3_MAT0/CT32B1_MAT3 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH)."]
 pub struct EM3_W<'a> {
     w: &'a mut W,
 }
@@ -102,7 +180,7 @@ impl<'a> EM3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -125,9 +203,12 @@ impl From<EMC0_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `EMC0`"]
-pub type EMC0_R = crate::R<u8, EMC0_A>;
+#[doc = "Field `EMC0` reader - External Match Control 0. Determines the functionality of External Match 0."]
+pub struct EMC0_R(crate::FieldReader<u8, EMC0_A>);
 impl EMC0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        EMC0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> EMC0_A {
@@ -142,25 +223,32 @@ impl EMC0_R {
     #[doc = "Checks if the value of the field is `DO_NOTHING`"]
     #[inline(always)]
     pub fn is_do_nothing(&self) -> bool {
-        *self == EMC0_A::DO_NOTHING
+        **self == EMC0_A::DO_NOTHING
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == EMC0_A::CLEAR
+        **self == EMC0_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == EMC0_A::SET
+        **self == EMC0_A::SET
     }
     #[doc = "Checks if the value of the field is `TOGGLE`"]
     #[inline(always)]
     pub fn is_toggle(&self) -> bool {
-        *self == EMC0_A::TOGGLE
+        **self == EMC0_A::TOGGLE
     }
 }
-#[doc = "Write proxy for field `EMC0`"]
+impl core::ops::Deref for EMC0_R {
+    type Target = crate::FieldReader<u8, EMC0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EMC0` writer - External Match Control 0. Determines the functionality of External Match 0."]
 pub struct EMC0_W<'a> {
     w: &'a mut W,
 }
@@ -168,9 +256,7 @@ impl<'a> EMC0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EMC0_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Do Nothing."]
     #[inline(always)]
@@ -195,7 +281,7 @@ impl<'a> EMC0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | ((value as u32 & 0x03) << 4);
         self.w
     }
 }
@@ -218,9 +304,12 @@ impl From<EMC1_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `EMC1`"]
-pub type EMC1_R = crate::R<u8, EMC1_A>;
+#[doc = "Field `EMC1` reader - External Match Control 1. Determines the functionality of External Match 1."]
+pub struct EMC1_R(crate::FieldReader<u8, EMC1_A>);
 impl EMC1_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        EMC1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> EMC1_A {
@@ -235,25 +324,32 @@ impl EMC1_R {
     #[doc = "Checks if the value of the field is `DO_NOTHING`"]
     #[inline(always)]
     pub fn is_do_nothing(&self) -> bool {
-        *self == EMC1_A::DO_NOTHING
+        **self == EMC1_A::DO_NOTHING
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == EMC1_A::CLEAR
+        **self == EMC1_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == EMC1_A::SET
+        **self == EMC1_A::SET
     }
     #[doc = "Checks if the value of the field is `TOGGLE`"]
     #[inline(always)]
     pub fn is_toggle(&self) -> bool {
-        *self == EMC1_A::TOGGLE
+        **self == EMC1_A::TOGGLE
     }
 }
-#[doc = "Write proxy for field `EMC1`"]
+impl core::ops::Deref for EMC1_R {
+    type Target = crate::FieldReader<u8, EMC1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EMC1` writer - External Match Control 1. Determines the functionality of External Match 1."]
 pub struct EMC1_W<'a> {
     w: &'a mut W,
 }
@@ -261,9 +357,7 @@ impl<'a> EMC1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EMC1_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Do Nothing."]
     #[inline(always)]
@@ -288,7 +382,7 @@ impl<'a> EMC1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | ((value as u32 & 0x03) << 6);
         self.w
     }
 }
@@ -311,9 +405,12 @@ impl From<EMC2_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `EMC2`"]
-pub type EMC2_R = crate::R<u8, EMC2_A>;
+#[doc = "Field `EMC2` reader - External Match Control 2. Determines the functionality of External Match 2."]
+pub struct EMC2_R(crate::FieldReader<u8, EMC2_A>);
 impl EMC2_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        EMC2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> EMC2_A {
@@ -328,25 +425,32 @@ impl EMC2_R {
     #[doc = "Checks if the value of the field is `DO_NOTHING`"]
     #[inline(always)]
     pub fn is_do_nothing(&self) -> bool {
-        *self == EMC2_A::DO_NOTHING
+        **self == EMC2_A::DO_NOTHING
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == EMC2_A::CLEAR
+        **self == EMC2_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == EMC2_A::SET
+        **self == EMC2_A::SET
     }
     #[doc = "Checks if the value of the field is `TOGGLE`"]
     #[inline(always)]
     pub fn is_toggle(&self) -> bool {
-        *self == EMC2_A::TOGGLE
+        **self == EMC2_A::TOGGLE
     }
 }
-#[doc = "Write proxy for field `EMC2`"]
+impl core::ops::Deref for EMC2_R {
+    type Target = crate::FieldReader<u8, EMC2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EMC2` writer - External Match Control 2. Determines the functionality of External Match 2."]
 pub struct EMC2_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +458,7 @@ impl<'a> EMC2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EMC2_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Do Nothing."]
     #[inline(always)]
@@ -381,7 +483,7 @@ impl<'a> EMC2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | ((value as u32 & 0x03) << 8);
         self.w
     }
 }
@@ -404,9 +506,12 @@ impl From<EMC3_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `EMC3`"]
-pub type EMC3_R = crate::R<u8, EMC3_A>;
+#[doc = "Field `EMC3` reader - External Match Control 3. Determines the functionality of External Match 3."]
+pub struct EMC3_R(crate::FieldReader<u8, EMC3_A>);
 impl EMC3_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        EMC3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> EMC3_A {
@@ -421,25 +526,32 @@ impl EMC3_R {
     #[doc = "Checks if the value of the field is `DO_NOTHING`"]
     #[inline(always)]
     pub fn is_do_nothing(&self) -> bool {
-        *self == EMC3_A::DO_NOTHING
+        **self == EMC3_A::DO_NOTHING
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == EMC3_A::CLEAR
+        **self == EMC3_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == EMC3_A::SET
+        **self == EMC3_A::SET
     }
     #[doc = "Checks if the value of the field is `TOGGLE`"]
     #[inline(always)]
     pub fn is_toggle(&self) -> bool {
-        *self == EMC3_A::TOGGLE
+        **self == EMC3_A::TOGGLE
     }
 }
-#[doc = "Write proxy for field `EMC3`"]
+impl core::ops::Deref for EMC3_R {
+    type Target = crate::FieldReader<u8, EMC3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EMC3` writer - External Match Control 3. Determines the functionality of External Match 3."]
 pub struct EMC3_W<'a> {
     w: &'a mut W,
 }
@@ -447,9 +559,7 @@ impl<'a> EMC3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EMC3_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Do Nothing."]
     #[inline(always)]
@@ -474,7 +584,7 @@ impl<'a> EMC3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 10)) | (((value as u32) & 0x03) << 10);
+        self.w.bits = (self.w.bits & !(0x03 << 10)) | ((value as u32 & 0x03) << 10);
         self.w
     }
 }
@@ -568,5 +678,30 @@ control the functionality of this output. This bit is driven to the CT32B3_MAT0/
     #[inline(always)]
     pub fn emc3(&mut self) -> EMC3_W {
         EMC3_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "External Match Register. The EMR controls the match function and the external match pins CT32Bn_MAT\\[3:0\\].\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [emr](index.html) module"]
+pub struct EMR_SPEC;
+impl crate::RegisterSpec for EMR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [emr::R](R) reader structure"]
+impl crate::Readable for EMR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [emr::W](W) writer structure"]
+impl crate::Writable for EMR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets EMR to value 0"]
+impl crate::Resettable for EMR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

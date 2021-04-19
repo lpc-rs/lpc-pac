@@ -1,13 +1,35 @@
-#[doc = "Reader of register INTENSET"]
-pub type R = crate::R<u32, super::INTENSET>;
-#[doc = "Writer for register INTENSET"]
-pub type W = crate::W<u32, super::INTENSET>;
-#[doc = "Register INTENSET `reset()`'s with value 0"]
-impl crate::ResetValue for super::INTENSET {
-    type Type = u32;
+#[doc = "Register `INTENSET` reader"]
+pub struct R(crate::R<INTENSET_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<INTENSET_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<INTENSET_SPEC>> for R {
+    fn from(reader: crate::R<INTENSET_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `INTENSET` writer"]
+pub struct W(crate::W<INTENSET_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<INTENSET_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<INTENSET_SPEC>> for W {
+    fn from(writer: crate::W<INTENSET_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Slave select assert interrupt enable. Determines whether an interrupt occurs when the Slave Select is asserted.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<SSAEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SSAEN`"]
-pub type SSAEN_R = crate::R<bool, SSAEN_A>;
+#[doc = "Field `SSAEN` reader - Slave select assert interrupt enable. Determines whether an interrupt occurs when the Slave Select is asserted."]
+pub struct SSAEN_R(crate::FieldReader<bool, SSAEN_A>);
 impl SSAEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SSAEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SSAEN_A {
@@ -38,15 +63,22 @@ impl SSAEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SSAEN_A::DISABLED
+        **self == SSAEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SSAEN_A::ENABLED
+        **self == SSAEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `SSAEN`"]
+impl core::ops::Deref for SSAEN_R {
+    type Target = crate::FieldReader<bool, SSAEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SSAEN` writer - Slave select assert interrupt enable. Determines whether an interrupt occurs when the Slave Select is asserted."]
 pub struct SSAEN_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> SSAEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SSAEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. No interrupt will be generated when any Slave Select transitions from deasserted to asserted."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> SSAEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<SSDEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SSDEN`"]
-pub type SSDEN_R = crate::R<bool, SSDEN_A>;
+#[doc = "Field `SSDEN` reader - Slave select deassert interrupt enable. Determines whether an interrupt occurs when the Slave Select is deasserted."]
+pub struct SSDEN_R(crate::FieldReader<bool, SSDEN_A>);
 impl SSDEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SSDEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SSDEN_A {
@@ -113,15 +146,22 @@ impl SSDEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SSDEN_A::DISABLED
+        **self == SSDEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SSDEN_A::ENABLED
+        **self == SSDEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `SSDEN`"]
+impl core::ops::Deref for SSDEN_R {
+    type Target = crate::FieldReader<bool, SSDEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SSDEN` writer - Slave select deassert interrupt enable. Determines whether an interrupt occurs when the Slave Select is deasserted."]
 pub struct SSDEN_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> SSDEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SSDEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. No interrupt will be generated when all asserted Slave Selects transition to deasserted."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> SSDEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<MSTIDLEEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MSTIDLEEN`"]
-pub type MSTIDLEEN_R = crate::R<bool, MSTIDLEEN_A>;
+#[doc = "Field `MSTIDLEEN` reader - Master idle interrupt enable."]
+pub struct MSTIDLEEN_R(crate::FieldReader<bool, MSTIDLEEN_A>);
 impl MSTIDLEEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MSTIDLEEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MSTIDLEEN_A {
@@ -188,15 +229,22 @@ impl MSTIDLEEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == MSTIDLEEN_A::DISABLED
+        **self == MSTIDLEEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == MSTIDLEEN_A::ENABLED
+        **self == MSTIDLEEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `MSTIDLEEN`"]
+impl core::ops::Deref for MSTIDLEEN_R {
+    type Target = crate::FieldReader<bool, MSTIDLEEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSTIDLEEN` writer - Master idle interrupt enable."]
 pub struct MSTIDLEEN_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> MSTIDLEEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSTIDLEEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No interrupt will be generated when the SPI master function is idle."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> MSTIDLEEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -267,5 +313,30 @@ impl W {
     #[inline(always)]
     pub fn mstidleen(&mut self) -> MSTIDLEEN_W {
         MSTIDLEEN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "SPI Interrupt Enable read and Set. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset](index.html) module"]
+pub struct INTENSET_SPEC;
+impl crate::RegisterSpec for INTENSET_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [intenset::R](R) reader structure"]
+impl crate::Readable for INTENSET_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [intenset::W](W) writer structure"]
+impl crate::Writable for INTENSET_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets INTENSET to value 0"]
+impl crate::Resettable for INTENSET_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

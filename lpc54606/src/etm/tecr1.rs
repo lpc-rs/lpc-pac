@@ -1,13 +1,35 @@
-#[doc = "Reader of register TECR1"]
-pub type R = crate::R<u32, super::TECR1>;
-#[doc = "Writer for register TECR1"]
-pub type W = crate::W<u32, super::TECR1>;
-#[doc = "Register TECR1 `reset()`'s with value 0"]
-impl crate::ResetValue for super::TECR1 {
-    type Type = u32;
+#[doc = "Register `TECR1` reader"]
+pub struct R(crate::R<TECR1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<TECR1_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<TECR1_SPEC>> for R {
+    fn from(reader: crate::R<TECR1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `TECR1` writer"]
+pub struct W(crate::W<TECR1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<TECR1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<TECR1_SPEC>> for W {
+    fn from(writer: crate::W<TECR1_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Trace start/stop enable. The trace start/stop resource, resource 0x5F, is unaffected by the value of this bit.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<TRACECONTROLENABLE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TraceControlEnable`"]
-pub type TRACECONTROLENABLE_R = crate::R<bool, TRACECONTROLENABLE_A>;
+#[doc = "Field `TraceControlEnable` reader - Trace start/stop enable. The trace start/stop resource, resource 0x5F, is unaffected by the value of this bit."]
+pub struct TRACECONTROLENABLE_R(crate::FieldReader<bool, TRACECONTROLENABLE_A>);
 impl TRACECONTROLENABLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TRACECONTROLENABLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TRACECONTROLENABLE_A {
@@ -38,15 +63,22 @@ impl TRACECONTROLENABLE_R {
     #[doc = "Checks if the value of the field is `TRACECONTROLENABLE_0`"]
     #[inline(always)]
     pub fn is_trace_control_enable_0(&self) -> bool {
-        *self == TRACECONTROLENABLE_A::TRACECONTROLENABLE_0
+        **self == TRACECONTROLENABLE_A::TRACECONTROLENABLE_0
     }
     #[doc = "Checks if the value of the field is `TRACECONTROLENABLE_1`"]
     #[inline(always)]
     pub fn is_trace_control_enable_1(&self) -> bool {
-        *self == TRACECONTROLENABLE_A::TRACECONTROLENABLE_1
+        **self == TRACECONTROLENABLE_A::TRACECONTROLENABLE_1
     }
 }
-#[doc = "Write proxy for field `TraceControlEnable`"]
+impl core::ops::Deref for TRACECONTROLENABLE_R {
+    type Target = crate::FieldReader<bool, TRACECONTROLENABLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TraceControlEnable` writer - Trace start/stop enable. The trace start/stop resource, resource 0x5F, is unaffected by the value of this bit."]
 pub struct TRACECONTROLENABLE_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> TRACECONTROLENABLE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TRACECONTROLENABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Tracing is unaffected by the trace start/stop logic."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> TRACECONTROLENABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
@@ -97,5 +127,30 @@ impl W {
     #[inline(always)]
     pub fn trace_control_enable(&mut self) -> TRACECONTROLENABLE_W {
         TRACECONTROLENABLE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Trace Enable Control 1 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tecr1](index.html) module"]
+pub struct TECR1_SPEC;
+impl crate::RegisterSpec for TECR1_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [tecr1::R](R) reader structure"]
+impl crate::Readable for TECR1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [tecr1::W](W) writer structure"]
+impl crate::Writable for TECR1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets TECR1 to value 0"]
+impl crate::Resettable for TECR1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

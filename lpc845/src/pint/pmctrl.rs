@@ -1,13 +1,35 @@
-#[doc = "Reader of register PMCTRL"]
-pub type R = crate::R<u32, super::PMCTRL>;
-#[doc = "Writer for register PMCTRL"]
-pub type W = crate::W<u32, super::PMCTRL>;
-#[doc = "Register PMCTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::PMCTRL {
-    type Type = u32;
+#[doc = "Register `PMCTRL` reader"]
+pub struct R(crate::R<PMCTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PMCTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<PMCTRL_SPEC>> for R {
+    fn from(reader: crate::R<PMCTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PMCTRL` writer"]
+pub struct W(crate::W<PMCTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PMCTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PMCTRL_SPEC>> for W {
+    fn from(writer: crate::W<PMCTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Specifies whether the 8 pin interrupts are controlled by the pin interrupt function or by the pattern match function.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<SEL_PMATCH_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SEL_PMATCH`"]
-pub type SEL_PMATCH_R = crate::R<bool, SEL_PMATCH_A>;
+#[doc = "Field `SEL_PMATCH` reader - Specifies whether the 8 pin interrupts are controlled by the pin interrupt function or by the pattern match function."]
+pub struct SEL_PMATCH_R(crate::FieldReader<bool, SEL_PMATCH_A>);
 impl SEL_PMATCH_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SEL_PMATCH_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SEL_PMATCH_A {
@@ -38,15 +63,22 @@ impl SEL_PMATCH_R {
     #[doc = "Checks if the value of the field is `PIN_INTERRUPT`"]
     #[inline(always)]
     pub fn is_pin_interrupt(&self) -> bool {
-        *self == SEL_PMATCH_A::PIN_INTERRUPT
+        **self == SEL_PMATCH_A::PIN_INTERRUPT
     }
     #[doc = "Checks if the value of the field is `PATTERN_MATCH`"]
     #[inline(always)]
     pub fn is_pattern_match(&self) -> bool {
-        *self == SEL_PMATCH_A::PATTERN_MATCH
+        **self == SEL_PMATCH_A::PATTERN_MATCH
     }
 }
-#[doc = "Write proxy for field `SEL_PMATCH`"]
+impl core::ops::Deref for SEL_PMATCH_R {
+    type Target = crate::FieldReader<bool, SEL_PMATCH_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SEL_PMATCH` writer - Specifies whether the 8 pin interrupts are controlled by the pin interrupt function or by the pattern match function."]
 pub struct SEL_PMATCH_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> SEL_PMATCH_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEL_PMATCH_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Pin interrupt. Interrupts are driven in response to the standard pin interrupt function."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> SEL_PMATCH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<ENA_RXEV_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ENA_RXEV`"]
-pub type ENA_RXEV_R = crate::R<bool, ENA_RXEV_A>;
+#[doc = "Field `ENA_RXEV` reader - Enables the RXEV output to the CPU and/or to a GPIO output when the specified boolean expression evaluates to true."]
+pub struct ENA_RXEV_R(crate::FieldReader<bool, ENA_RXEV_A>);
 impl ENA_RXEV_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_RXEV_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ENA_RXEV_A {
@@ -113,15 +146,22 @@ impl ENA_RXEV_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ENA_RXEV_A::DISABLED
+        **self == ENA_RXEV_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == ENA_RXEV_A::ENABLED
+        **self == ENA_RXEV_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `ENA_RXEV`"]
+impl core::ops::Deref for ENA_RXEV_R {
+    type Target = crate::FieldReader<bool, ENA_RXEV_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_RXEV` writer - Enables the RXEV output to the CPU and/or to a GPIO output when the specified boolean expression evaluates to true."]
 pub struct ENA_RXEV_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> ENA_RXEV_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ENA_RXEV_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. RXEV output to the CPU is disabled."]
     #[inline(always)]
@@ -156,13 +194,25 @@ impl<'a> ENA_RXEV_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `PMAT`"]
-pub type PMAT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PMAT`"]
+#[doc = "Field `PMAT` reader - This field displays the current state of pattern matches. A 1 in any bit of this field indicates that the corresponding product term is matched by the current state of the appropriate inputs."]
+pub struct PMAT_R(crate::FieldReader<u8, u8>);
+impl PMAT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PMAT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PMAT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PMAT` writer - This field displays the current state of pattern matches. A 1 in any bit of this field indicates that the corresponding product term is matched by the current state of the appropriate inputs."]
 pub struct PMAT_W<'a> {
     w: &'a mut W,
 }
@@ -170,7 +220,7 @@ impl<'a> PMAT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
+        self.w.bits = (self.w.bits & !(0xff << 24)) | ((value as u32 & 0xff) << 24);
         self.w
     }
 }
@@ -206,5 +256,30 @@ impl W {
     #[inline(always)]
     pub fn pmat(&mut self) -> PMAT_W {
         PMAT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Pattern match interrupt control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pmctrl](index.html) module"]
+pub struct PMCTRL_SPEC;
+impl crate::RegisterSpec for PMCTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pmctrl::R](R) reader structure"]
+impl crate::Readable for PMCTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pmctrl::W](W) writer structure"]
+impl crate::Writable for PMCTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PMCTRL to value 0"]
+impl crate::Resettable for PMCTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

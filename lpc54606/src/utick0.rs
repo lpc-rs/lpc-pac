@@ -2,64 +2,33 @@
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - Control register."]
-    pub ctrl: CTRL,
+    pub ctrl: crate::Reg<ctrl::CTRL_SPEC>,
     #[doc = "0x04 - Status register."]
-    pub stat: STAT,
+    pub stat: crate::Reg<stat::STAT_SPEC>,
     #[doc = "0x08 - Capture configuration register."]
-    pub cfg: CFG,
+    pub cfg: crate::Reg<cfg::CFG_SPEC>,
     #[doc = "0x0c - Capture clear register."]
-    pub capclr: CAPCLR,
+    pub capclr: crate::Reg<capclr::CAPCLR_SPEC>,
     #[doc = "0x10 - Capture register ."]
-    pub cap: [CAP; 4],
+    pub cap: [crate::Reg<cap::CAP_SPEC>; 4],
 }
-#[doc = "Control register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](ctrl) module"]
-pub type CTRL = crate::Reg<u32, _CTRL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CTRL;
-#[doc = "`read()` method returns [ctrl::R](ctrl::R) reader structure"]
-impl crate::Readable for CTRL {}
-#[doc = "`write(|w| ..)` method takes [ctrl::W](ctrl::W) writer structure"]
-impl crate::Writable for CTRL {}
+#[doc = "CTRL register accessor: an alias for `Reg<CTRL_SPEC>`"]
+pub type CTRL = crate::Reg<ctrl::CTRL_SPEC>;
 #[doc = "Control register."]
 pub mod ctrl;
-#[doc = "Status register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [stat](stat) module"]
-pub type STAT = crate::Reg<u32, _STAT>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _STAT;
-#[doc = "`read()` method returns [stat::R](stat::R) reader structure"]
-impl crate::Readable for STAT {}
-#[doc = "`write(|w| ..)` method takes [stat::W](stat::W) writer structure"]
-impl crate::Writable for STAT {}
+#[doc = "STAT register accessor: an alias for `Reg<STAT_SPEC>`"]
+pub type STAT = crate::Reg<stat::STAT_SPEC>;
 #[doc = "Status register."]
 pub mod stat;
-#[doc = "Capture configuration register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub type CFG = crate::Reg<u32, _CFG>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CFG;
-#[doc = "`read()` method returns [cfg::R](cfg::R) reader structure"]
-impl crate::Readable for CFG {}
-#[doc = "`write(|w| ..)` method takes [cfg::W](cfg::W) writer structure"]
-impl crate::Writable for CFG {}
+#[doc = "CFG register accessor: an alias for `Reg<CFG_SPEC>`"]
+pub type CFG = crate::Reg<cfg::CFG_SPEC>;
 #[doc = "Capture configuration register."]
 pub mod cfg;
-#[doc = "Capture clear register.\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [capclr](capclr) module"]
-pub type CAPCLR = crate::Reg<u32, _CAPCLR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CAPCLR;
-#[doc = "`write(|w| ..)` method takes [capclr::W](capclr::W) writer structure"]
-impl crate::Writable for CAPCLR {}
+#[doc = "CAPCLR register accessor: an alias for `Reg<CAPCLR_SPEC>`"]
+pub type CAPCLR = crate::Reg<capclr::CAPCLR_SPEC>;
 #[doc = "Capture clear register."]
 pub mod capclr;
-#[doc = "Capture register .\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cap](cap) module"]
-pub type CAP = crate::Reg<u32, _CAP>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CAP;
-#[doc = "`read()` method returns [cap::R](cap::R) reader structure"]
-impl crate::Readable for CAP {}
+#[doc = "CAP register accessor: an alias for `Reg<CAP_SPEC>`"]
+pub type CAP = crate::Reg<cap::CAP_SPEC>;
 #[doc = "Capture register ."]
 pub mod cap;

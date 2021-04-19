@@ -1,23 +1,143 @@
-#[doc = "Reader of register INTSTAT"]
-pub type R = crate::R<u32, super::INTSTAT>;
-#[doc = "Reader of field `TXIDLE`"]
-pub type TXIDLE_R = crate::R<bool, bool>;
-#[doc = "Reader of field `DELTACTS`"]
-pub type DELTACTS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `TXDISINT`"]
-pub type TXDISINT_R = crate::R<bool, bool>;
-#[doc = "Reader of field `DELTARXBRK`"]
-pub type DELTARXBRK_R = crate::R<bool, bool>;
-#[doc = "Reader of field `START`"]
-pub type START_R = crate::R<bool, bool>;
-#[doc = "Reader of field `FRAMERRINT`"]
-pub type FRAMERRINT_R = crate::R<bool, bool>;
-#[doc = "Reader of field `PARITYERRINT`"]
-pub type PARITYERRINT_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RXNOISEINT`"]
-pub type RXNOISEINT_R = crate::R<bool, bool>;
-#[doc = "Reader of field `ABERRINT`"]
-pub type ABERRINT_R = crate::R<bool, bool>;
+#[doc = "Register `INTSTAT` reader"]
+pub struct R(crate::R<INTSTAT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<INTSTAT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<INTSTAT_SPEC>> for R {
+    fn from(reader: crate::R<INTSTAT_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Field `TXIDLE` reader - Transmitter Idle status."]
+pub struct TXIDLE_R(crate::FieldReader<bool, bool>);
+impl TXIDLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TXIDLE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXIDLE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DELTACTS` reader - This bit is set when a change in the state of the CTS input is detected."]
+pub struct DELTACTS_R(crate::FieldReader<bool, bool>);
+impl DELTACTS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DELTACTS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DELTACTS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXDISINT` reader - Transmitter Disabled Interrupt flag."]
+pub struct TXDISINT_R(crate::FieldReader<bool, bool>);
+impl TXDISINT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TXDISINT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXDISINT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DELTARXBRK` reader - This bit is set when a change in the state of receiver break detection occurs."]
+pub struct DELTARXBRK_R(crate::FieldReader<bool, bool>);
+impl DELTARXBRK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DELTARXBRK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DELTARXBRK_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `START` reader - This bit is set when a start is detected on the receiver input."]
+pub struct START_R(crate::FieldReader<bool, bool>);
+impl START_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        START_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for START_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FRAMERRINT` reader - Framing Error interrupt flag."]
+pub struct FRAMERRINT_R(crate::FieldReader<bool, bool>);
+impl FRAMERRINT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FRAMERRINT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FRAMERRINT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PARITYERRINT` reader - Parity Error interrupt flag."]
+pub struct PARITYERRINT_R(crate::FieldReader<bool, bool>);
+impl PARITYERRINT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PARITYERRINT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PARITYERRINT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RXNOISEINT` reader - Received Noise interrupt flag."]
+pub struct RXNOISEINT_R(crate::FieldReader<bool, bool>);
+impl RXNOISEINT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RXNOISEINT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RXNOISEINT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ABERRINT` reader - Auto baud Error Interrupt flag."]
+pub struct ABERRINT_R(crate::FieldReader<bool, bool>);
+impl ABERRINT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ABERRINT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ABERRINT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bit 3 - Transmitter Idle status."]
     #[inline(always)]
@@ -63,5 +183,21 @@ impl R {
     #[inline(always)]
     pub fn aberrint(&self) -> ABERRINT_R {
         ABERRINT_R::new(((self.bits >> 16) & 0x01) != 0)
+    }
+}
+#[doc = "Interrupt status register. Reflects interrupts that are currently enabled.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intstat](index.html) module"]
+pub struct INTSTAT_SPEC;
+impl crate::RegisterSpec for INTSTAT_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [intstat::R](R) reader structure"]
+impl crate::Readable for INTSTAT_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets INTSTAT to value 0"]
+impl crate::Resettable for INTSTAT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

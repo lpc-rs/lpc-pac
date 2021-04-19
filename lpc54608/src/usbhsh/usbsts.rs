@@ -1,18 +1,52 @@
-#[doc = "Reader of register USBSTS"]
-pub type R = crate::R<u32, super::USBSTS>;
-#[doc = "Writer for register USBSTS"]
-pub type W = crate::W<u32, super::USBSTS>;
-#[doc = "Register USBSTS `reset()`'s with value 0"]
-impl crate::ResetValue for super::USBSTS {
-    type Type = u32;
+#[doc = "Register `USBSTS` reader"]
+pub struct R(crate::R<USBSTS_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<USBSTS_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `PCD`"]
-pub type PCD_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PCD`"]
+impl core::convert::From<crate::R<USBSTS_SPEC>> for R {
+    fn from(reader: crate::R<USBSTS_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `USBSTS` writer"]
+pub struct W(crate::W<USBSTS_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<USBSTS_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<USBSTS_SPEC>> for W {
+    fn from(writer: crate::W<USBSTS_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `PCD` reader - Port Change Detect: The host controller sets this bit to logic 1 when any port has a change bit transition from a 0 to a one or a Force Port Resume bit transition from a 0 to a 1 as a result of a J-K transition detected on a suspended port."]
+pub struct PCD_R(crate::FieldReader<bool, bool>);
+impl PCD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PCD_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PCD_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PCD` writer - Port Change Detect: The host controller sets this bit to logic 1 when any port has a change bit transition from a 0 to a one or a Force Port Resume bit transition from a 0 to a 1 as a result of a J-K transition detected on a suspended port."]
 pub struct PCD_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> PCD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `FLR`"]
-pub type FLR_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FLR`"]
+#[doc = "Field `FLR` reader - Frame List Rollover: The host controller sets this bit to logic 1 when the frame list index rolls over its maximum value to 0."]
+pub struct FLR_R(crate::FieldReader<bool, bool>);
+impl FLR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FLR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FLR_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FLR` writer - Frame List Rollover: The host controller sets this bit to logic 1 when the frame list index rolls over its maximum value to 0."]
 pub struct FLR_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> FLR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `ATL_IRQ`"]
-pub type ATL_IRQ_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ATL_IRQ`"]
+#[doc = "Field `ATL_IRQ` reader - ATL IRQ: Indicates that an ATL PTD (with I-bit set) was completed."]
+pub struct ATL_IRQ_R(crate::FieldReader<bool, bool>);
+impl ATL_IRQ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ATL_IRQ_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ATL_IRQ_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ATL_IRQ` writer - ATL IRQ: Indicates that an ATL PTD (with I-bit set) was completed."]
 pub struct ATL_IRQ_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> ATL_IRQ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `ISO_IRQ`"]
-pub type ISO_IRQ_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ISO_IRQ`"]
+#[doc = "Field `ISO_IRQ` reader - ISO IRQ: Indicates that an ISO PTD (with I-bit set) was completed."]
+pub struct ISO_IRQ_R(crate::FieldReader<bool, bool>);
+impl ISO_IRQ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ISO_IRQ_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ISO_IRQ_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ISO_IRQ` writer - ISO IRQ: Indicates that an ISO PTD (with I-bit set) was completed."]
 pub struct ISO_IRQ_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> ISO_IRQ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `INT_IRQ`"]
-pub type INT_IRQ_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `INT_IRQ`"]
+#[doc = "Field `INT_IRQ` reader - INT IRQ: Indicates that an INT PTD (with I-bit set) was completed."]
+pub struct INT_IRQ_R(crate::FieldReader<bool, bool>);
+impl INT_IRQ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INT_IRQ_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INT_IRQ_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INT_IRQ` writer - INT IRQ: Indicates that an INT PTD (with I-bit set) was completed."]
 pub struct INT_IRQ_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> INT_IRQ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Reader of field `SOF_IRQ`"]
-pub type SOF_IRQ_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SOF_IRQ`"]
+#[doc = "Field `SOF_IRQ` reader - SOF interrupt: Every time when the host sends a Start of Frame token on the USB bus, this bit is set."]
+pub struct SOF_IRQ_R(crate::FieldReader<bool, bool>);
+impl SOF_IRQ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SOF_IRQ_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SOF_IRQ_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SOF_IRQ` writer - SOF interrupt: Every time when the host sends a Start of Frame token on the USB bus, this bit is set."]
 pub struct SOF_IRQ_W<'a> {
     w: &'a mut W,
 }
@@ -150,7 +244,7 @@ impl<'a> SOF_IRQ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
@@ -216,5 +310,30 @@ impl W {
     #[inline(always)]
     pub fn sof_irq(&mut self) -> SOF_IRQ_W {
         SOF_IRQ_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "USB Interrupt Status register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [usbsts](index.html) module"]
+pub struct USBSTS_SPEC;
+impl crate::RegisterSpec for USBSTS_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [usbsts::R](R) reader structure"]
+impl crate::Readable for USBSTS_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [usbsts::W](W) writer structure"]
+impl crate::Writable for USBSTS_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets USBSTS to value 0"]
+impl crate::Resettable for USBSTS_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -2,47 +2,47 @@
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - DMA control."]
-    pub ctrl: CTRL,
+    pub ctrl: crate::Reg<ctrl::CTRL_SPEC>,
     #[doc = "0x04 - Interrupt status."]
-    pub intstat: INTSTAT,
+    pub intstat: crate::Reg<intstat::INTSTAT_SPEC>,
     #[doc = "0x08 - SRAM address of the channel configuration table."]
-    pub srambase: SRAMBASE,
+    pub srambase: crate::Reg<srambase::SRAMBASE_SPEC>,
     _reserved3: [u8; 20usize],
     #[doc = "0x20 - Channel Enable read and Set for all DMA channels."]
-    pub enableset0: ENABLESET0,
+    pub enableset0: crate::Reg<enableset0::ENABLESET0_SPEC>,
     _reserved4: [u8; 4usize],
     #[doc = "0x28 - Channel Enable Clear for all DMA channels."]
-    pub enableclr0: ENABLECLR0,
+    pub enableclr0: crate::Reg<enableclr0::ENABLECLR0_SPEC>,
     _reserved5: [u8; 4usize],
     #[doc = "0x30 - Channel Active status for all DMA channels."]
-    pub active0: ACTIVE0,
+    pub active0: crate::Reg<active0::ACTIVE0_SPEC>,
     _reserved6: [u8; 4usize],
     #[doc = "0x38 - Channel Busy status for all DMA channels."]
-    pub busy0: BUSY0,
+    pub busy0: crate::Reg<busy0::BUSY0_SPEC>,
     _reserved7: [u8; 4usize],
     #[doc = "0x40 - Error Interrupt status for all DMA channels."]
-    pub errint0: ERRINT0,
+    pub errint0: crate::Reg<errint0::ERRINT0_SPEC>,
     _reserved8: [u8; 4usize],
     #[doc = "0x48 - Interrupt Enable read and Set for all DMA channels."]
-    pub intenset0: INTENSET0,
+    pub intenset0: crate::Reg<intenset0::INTENSET0_SPEC>,
     _reserved9: [u8; 4usize],
     #[doc = "0x50 - Interrupt Enable Clear for all DMA channels."]
-    pub intenclr0: INTENCLR0,
+    pub intenclr0: crate::Reg<intenclr0::INTENCLR0_SPEC>,
     _reserved10: [u8; 4usize],
     #[doc = "0x58 - Interrupt A status for all DMA channels."]
-    pub inta0: INTA0,
+    pub inta0: crate::Reg<inta0::INTA0_SPEC>,
     _reserved11: [u8; 4usize],
     #[doc = "0x60 - Interrupt B status for all DMA channels."]
-    pub intb0: INTB0,
+    pub intb0: crate::Reg<intb0::INTB0_SPEC>,
     _reserved12: [u8; 4usize],
     #[doc = "0x68 - Set ValidPending control bits for all DMA channels."]
-    pub setvalid0: SETVALID0,
+    pub setvalid0: crate::Reg<setvalid0::SETVALID0_SPEC>,
     _reserved13: [u8; 4usize],
     #[doc = "0x70 - Set Trigger control bits for all DMA channels."]
-    pub settrig0: SETTRIG0,
+    pub settrig0: crate::Reg<settrig0::SETTRIG0_SPEC>,
     _reserved14: [u8; 4usize],
     #[doc = "0x78 - Channel Abort control for all DMA channels."]
-    pub abort0: ABORT0,
+    pub abort0: crate::Reg<abort0::ABORT0_SPEC>,
     _reserved15: [u8; 900usize],
     #[doc = "0x400 - no description available"]
     pub channel0: CHANNEL,
@@ -102,171 +102,72 @@ pub struct RegisterBlock {
 #[repr(C)]
 pub struct CHANNEL {
     #[doc = "0x00 - Configuration register for DMA channel ."]
-    pub cfg: self::channel::CFG,
+    pub cfg: crate::Reg<self::channel::cfg::CFG_SPEC>,
     #[doc = "0x04 - Control and status register for DMA channel ."]
-    pub ctlstat: self::channel::CTLSTAT,
+    pub ctlstat: crate::Reg<self::channel::ctlstat::CTLSTAT_SPEC>,
     #[doc = "0x08 - Transfer configuration register for DMA channel ."]
-    pub xfercfg: self::channel::XFERCFG,
+    pub xfercfg: crate::Reg<self::channel::xfercfg::XFERCFG_SPEC>,
 }
 #[doc = r"Register block"]
 #[doc = "no description available"]
 pub mod channel;
-#[doc = "DMA control.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](ctrl) module"]
-pub type CTRL = crate::Reg<u32, _CTRL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CTRL;
-#[doc = "`read()` method returns [ctrl::R](ctrl::R) reader structure"]
-impl crate::Readable for CTRL {}
-#[doc = "`write(|w| ..)` method takes [ctrl::W](ctrl::W) writer structure"]
-impl crate::Writable for CTRL {}
+#[doc = "CTRL register accessor: an alias for `Reg<CTRL_SPEC>`"]
+pub type CTRL = crate::Reg<ctrl::CTRL_SPEC>;
 #[doc = "DMA control."]
 pub mod ctrl;
-#[doc = "Interrupt status.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intstat](intstat) module"]
-pub type INTSTAT = crate::Reg<u32, _INTSTAT>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _INTSTAT;
-#[doc = "`read()` method returns [intstat::R](intstat::R) reader structure"]
-impl crate::Readable for INTSTAT {}
+#[doc = "INTSTAT register accessor: an alias for `Reg<INTSTAT_SPEC>`"]
+pub type INTSTAT = crate::Reg<intstat::INTSTAT_SPEC>;
 #[doc = "Interrupt status."]
 pub mod intstat;
-#[doc = "SRAM address of the channel configuration table.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [srambase](srambase) module"]
-pub type SRAMBASE = crate::Reg<u32, _SRAMBASE>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SRAMBASE;
-#[doc = "`read()` method returns [srambase::R](srambase::R) reader structure"]
-impl crate::Readable for SRAMBASE {}
-#[doc = "`write(|w| ..)` method takes [srambase::W](srambase::W) writer structure"]
-impl crate::Writable for SRAMBASE {}
+#[doc = "SRAMBASE register accessor: an alias for `Reg<SRAMBASE_SPEC>`"]
+pub type SRAMBASE = crate::Reg<srambase::SRAMBASE_SPEC>;
 #[doc = "SRAM address of the channel configuration table."]
 pub mod srambase;
-#[doc = "Channel Enable read and Set for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [enableset0](enableset0) module"]
-pub type ENABLESET0 = crate::Reg<u32, _ENABLESET0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ENABLESET0;
-#[doc = "`read()` method returns [enableset0::R](enableset0::R) reader structure"]
-impl crate::Readable for ENABLESET0 {}
-#[doc = "`write(|w| ..)` method takes [enableset0::W](enableset0::W) writer structure"]
-impl crate::Writable for ENABLESET0 {}
+#[doc = "ENABLESET0 register accessor: an alias for `Reg<ENABLESET0_SPEC>`"]
+pub type ENABLESET0 = crate::Reg<enableset0::ENABLESET0_SPEC>;
 #[doc = "Channel Enable read and Set for all DMA channels."]
 pub mod enableset0;
-#[doc = "Channel Enable Clear for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [enableclr0](enableclr0) module"]
-pub type ENABLECLR0 = crate::Reg<u32, _ENABLECLR0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ENABLECLR0;
-#[doc = "`read()` method returns [enableclr0::R](enableclr0::R) reader structure"]
-impl crate::Readable for ENABLECLR0 {}
-#[doc = "`write(|w| ..)` method takes [enableclr0::W](enableclr0::W) writer structure"]
-impl crate::Writable for ENABLECLR0 {}
+#[doc = "ENABLECLR0 register accessor: an alias for `Reg<ENABLECLR0_SPEC>`"]
+pub type ENABLECLR0 = crate::Reg<enableclr0::ENABLECLR0_SPEC>;
 #[doc = "Channel Enable Clear for all DMA channels."]
 pub mod enableclr0;
-#[doc = "Channel Active status for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [active0](active0) module"]
-pub type ACTIVE0 = crate::Reg<u32, _ACTIVE0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ACTIVE0;
-#[doc = "`read()` method returns [active0::R](active0::R) reader structure"]
-impl crate::Readable for ACTIVE0 {}
+#[doc = "ACTIVE0 register accessor: an alias for `Reg<ACTIVE0_SPEC>`"]
+pub type ACTIVE0 = crate::Reg<active0::ACTIVE0_SPEC>;
 #[doc = "Channel Active status for all DMA channels."]
 pub mod active0;
-#[doc = "Channel Busy status for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [busy0](busy0) module"]
-pub type BUSY0 = crate::Reg<u32, _BUSY0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _BUSY0;
-#[doc = "`read()` method returns [busy0::R](busy0::R) reader structure"]
-impl crate::Readable for BUSY0 {}
+#[doc = "BUSY0 register accessor: an alias for `Reg<BUSY0_SPEC>`"]
+pub type BUSY0 = crate::Reg<busy0::BUSY0_SPEC>;
 #[doc = "Channel Busy status for all DMA channels."]
 pub mod busy0;
-#[doc = "Error Interrupt status for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [errint0](errint0) module"]
-pub type ERRINT0 = crate::Reg<u32, _ERRINT0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ERRINT0;
-#[doc = "`read()` method returns [errint0::R](errint0::R) reader structure"]
-impl crate::Readable for ERRINT0 {}
-#[doc = "`write(|w| ..)` method takes [errint0::W](errint0::W) writer structure"]
-impl crate::Writable for ERRINT0 {}
+#[doc = "ERRINT0 register accessor: an alias for `Reg<ERRINT0_SPEC>`"]
+pub type ERRINT0 = crate::Reg<errint0::ERRINT0_SPEC>;
 #[doc = "Error Interrupt status for all DMA channels."]
 pub mod errint0;
-#[doc = "Interrupt Enable read and Set for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset0](intenset0) module"]
-pub type INTENSET0 = crate::Reg<u32, _INTENSET0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _INTENSET0;
-#[doc = "`read()` method returns [intenset0::R](intenset0::R) reader structure"]
-impl crate::Readable for INTENSET0 {}
-#[doc = "`write(|w| ..)` method takes [intenset0::W](intenset0::W) writer structure"]
-impl crate::Writable for INTENSET0 {}
+#[doc = "INTENSET0 register accessor: an alias for `Reg<INTENSET0_SPEC>`"]
+pub type INTENSET0 = crate::Reg<intenset0::INTENSET0_SPEC>;
 #[doc = "Interrupt Enable read and Set for all DMA channels."]
 pub mod intenset0;
-#[doc = "Interrupt Enable Clear for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenclr0](intenclr0) module"]
-pub type INTENCLR0 = crate::Reg<u32, _INTENCLR0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _INTENCLR0;
-#[doc = "`read()` method returns [intenclr0::R](intenclr0::R) reader structure"]
-impl crate::Readable for INTENCLR0 {}
-#[doc = "`write(|w| ..)` method takes [intenclr0::W](intenclr0::W) writer structure"]
-impl crate::Writable for INTENCLR0 {}
+#[doc = "INTENCLR0 register accessor: an alias for `Reg<INTENCLR0_SPEC>`"]
+pub type INTENCLR0 = crate::Reg<intenclr0::INTENCLR0_SPEC>;
 #[doc = "Interrupt Enable Clear for all DMA channels."]
 pub mod intenclr0;
-#[doc = "Interrupt A status for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [inta0](inta0) module"]
-pub type INTA0 = crate::Reg<u32, _INTA0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _INTA0;
-#[doc = "`read()` method returns [inta0::R](inta0::R) reader structure"]
-impl crate::Readable for INTA0 {}
-#[doc = "`write(|w| ..)` method takes [inta0::W](inta0::W) writer structure"]
-impl crate::Writable for INTA0 {}
+#[doc = "INTA0 register accessor: an alias for `Reg<INTA0_SPEC>`"]
+pub type INTA0 = crate::Reg<inta0::INTA0_SPEC>;
 #[doc = "Interrupt A status for all DMA channels."]
 pub mod inta0;
-#[doc = "Interrupt B status for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intb0](intb0) module"]
-pub type INTB0 = crate::Reg<u32, _INTB0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _INTB0;
-#[doc = "`read()` method returns [intb0::R](intb0::R) reader structure"]
-impl crate::Readable for INTB0 {}
-#[doc = "`write(|w| ..)` method takes [intb0::W](intb0::W) writer structure"]
-impl crate::Writable for INTB0 {}
+#[doc = "INTB0 register accessor: an alias for `Reg<INTB0_SPEC>`"]
+pub type INTB0 = crate::Reg<intb0::INTB0_SPEC>;
 #[doc = "Interrupt B status for all DMA channels."]
 pub mod intb0;
-#[doc = "Set ValidPending control bits for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [setvalid0](setvalid0) module"]
-pub type SETVALID0 = crate::Reg<u32, _SETVALID0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SETVALID0;
-#[doc = "`read()` method returns [setvalid0::R](setvalid0::R) reader structure"]
-impl crate::Readable for SETVALID0 {}
-#[doc = "`write(|w| ..)` method takes [setvalid0::W](setvalid0::W) writer structure"]
-impl crate::Writable for SETVALID0 {}
+#[doc = "SETVALID0 register accessor: an alias for `Reg<SETVALID0_SPEC>`"]
+pub type SETVALID0 = crate::Reg<setvalid0::SETVALID0_SPEC>;
 #[doc = "Set ValidPending control bits for all DMA channels."]
 pub mod setvalid0;
-#[doc = "Set Trigger control bits for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [settrig0](settrig0) module"]
-pub type SETTRIG0 = crate::Reg<u32, _SETTRIG0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SETTRIG0;
-#[doc = "`read()` method returns [settrig0::R](settrig0::R) reader structure"]
-impl crate::Readable for SETTRIG0 {}
-#[doc = "`write(|w| ..)` method takes [settrig0::W](settrig0::W) writer structure"]
-impl crate::Writable for SETTRIG0 {}
+#[doc = "SETTRIG0 register accessor: an alias for `Reg<SETTRIG0_SPEC>`"]
+pub type SETTRIG0 = crate::Reg<settrig0::SETTRIG0_SPEC>;
 #[doc = "Set Trigger control bits for all DMA channels."]
 pub mod settrig0;
-#[doc = "Channel Abort control for all DMA channels.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [abort0](abort0) module"]
-pub type ABORT0 = crate::Reg<u32, _ABORT0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ABORT0;
-#[doc = "`read()` method returns [abort0::R](abort0::R) reader structure"]
-impl crate::Readable for ABORT0 {}
-#[doc = "`write(|w| ..)` method takes [abort0::W](abort0::W) writer structure"]
-impl crate::Writable for ABORT0 {}
+#[doc = "ABORT0 register accessor: an alias for `Reg<ABORT0_SPEC>`"]
+pub type ABORT0 = crate::Reg<abort0::ABORT0_SPEC>;
 #[doc = "Channel Abort control for all DMA channels."]
 pub mod abort0;

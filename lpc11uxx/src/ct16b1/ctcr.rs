@@ -1,13 +1,35 @@
-#[doc = "Reader of register CTCR"]
-pub type R = crate::R<u32, super::CTCR>;
-#[doc = "Writer for register CTCR"]
-pub type W = crate::W<u32, super::CTCR>;
-#[doc = "Register CTCR `reset()`'s with value 0"]
-impl crate::ResetValue for super::CTCR {
-    type Type = u32;
+#[doc = "Register `CTCR` reader"]
+pub struct R(crate::R<CTCR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTCR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CTCR_SPEC>> for R {
+    fn from(reader: crate::R<CTCR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTCR` writer"]
+pub struct W(crate::W<CTCR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTCR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTCR_SPEC>> for W {
+    fn from(writer: crate::W<CTCR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Counter/Timer Mode. This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). If Counter mode is selected in the CTCR, bits 2:0 in the Capture Control Register (CCR) must be programmed as 000.\n\nValue on reset: 0"]
@@ -29,9 +51,12 @@ impl From<CTM_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `CTM`"]
-pub type CTM_R = crate::R<u8, CTM_A>;
+#[doc = "Field `CTM` reader - Counter/Timer Mode. This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). If Counter mode is selected in the CTCR, bits 2:0 in the Capture Control Register (CCR) must be programmed as 000."]
+pub struct CTM_R(crate::FieldReader<u8, CTM_A>);
 impl CTM_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CTM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CTM_A {
@@ -46,25 +71,32 @@ impl CTM_R {
     #[doc = "Checks if the value of the field is `TIMER_MODE_EVERY_RI`"]
     #[inline(always)]
     pub fn is_timer_mode_every_ri(&self) -> bool {
-        *self == CTM_A::TIMER_MODE_EVERY_RI
+        **self == CTM_A::TIMER_MODE_EVERY_RI
     }
     #[doc = "Checks if the value of the field is `RISING`"]
     #[inline(always)]
     pub fn is_rising(&self) -> bool {
-        *self == CTM_A::RISING
+        **self == CTM_A::RISING
     }
     #[doc = "Checks if the value of the field is `FALLING`"]
     #[inline(always)]
     pub fn is_falling(&self) -> bool {
-        *self == CTM_A::FALLING
+        **self == CTM_A::FALLING
     }
     #[doc = "Checks if the value of the field is `BOTH`"]
     #[inline(always)]
     pub fn is_both(&self) -> bool {
-        *self == CTM_A::BOTH
+        **self == CTM_A::BOTH
     }
 }
-#[doc = "Write proxy for field `CTM`"]
+impl core::ops::Deref for CTM_R {
+    type Target = crate::FieldReader<u8, CTM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CTM` writer - Counter/Timer Mode. This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). If Counter mode is selected in the CTCR, bits 2:0 in the Capture Control Register (CCR) must be programmed as 000."]
 pub struct CTM_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +104,7 @@ impl<'a> CTM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CTM_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Timer Mode: every rising PCLK edge"]
     #[inline(always)]
@@ -99,7 +129,7 @@ impl<'a> CTM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
@@ -118,31 +148,40 @@ impl From<CIS_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `CIS`"]
-pub type CIS_R = crate::R<u8, CIS_A>;
+#[doc = "Field `CIS` reader - Count Input Select. In counter mode (when bits 1:0 in this register are not 00), these bits select which CAP pin or comparator output is sampled for clocking. Values 0x2 to 0x3 are reserved."]
+pub struct CIS_R(crate::FieldReader<u8, CIS_A>);
 impl CIS_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CIS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, CIS_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<CIS_A> {
         match self.bits {
-            0 => Val(CIS_A::CT16B1_CAP0),
-            1 => Val(CIS_A::CT16B1_CAP1),
-            i => Res(i),
+            0 => Some(CIS_A::CT16B1_CAP0),
+            1 => Some(CIS_A::CT16B1_CAP1),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `CT16B1_CAP0`"]
     #[inline(always)]
     pub fn is_ct16b1_cap0(&self) -> bool {
-        *self == CIS_A::CT16B1_CAP0
+        **self == CIS_A::CT16B1_CAP0
     }
     #[doc = "Checks if the value of the field is `CT16B1_CAP1`"]
     #[inline(always)]
     pub fn is_ct16b1_cap1(&self) -> bool {
-        *self == CIS_A::CT16B1_CAP1
+        **self == CIS_A::CT16B1_CAP1
     }
 }
-#[doc = "Write proxy for field `CIS`"]
+impl core::ops::Deref for CIS_R {
+    type Target = crate::FieldReader<u8, CIS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CIS` writer - Count Input Select. In counter mode (when bits 1:0 in this register are not 00), these bits select which CAP pin or comparator output is sampled for clocking. Values 0x2 to 0x3 are reserved."]
 pub struct CIS_W<'a> {
     w: &'a mut W,
 }
@@ -165,13 +204,25 @@ impl<'a> CIS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | ((value as u32 & 0x03) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `ENCC`"]
-pub type ENCC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENCC`"]
+#[doc = "Field `ENCC` reader - Setting this bit to 1 enables clearing of the timer and the prescaler when the capture-edge event specified in bits 7:5 occurs."]
+pub struct ENCC_R(crate::FieldReader<bool, bool>);
+impl ENCC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENCC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENCC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENCC` writer - Setting this bit to 1 enables clearing of the timer and the prescaler when the capture-edge event specified in bits 7:5 occurs."]
 pub struct ENCC_W<'a> {
     w: &'a mut W,
 }
@@ -189,7 +240,7 @@ impl<'a> ENCC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -216,55 +267,64 @@ impl From<SELCC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SELCC`"]
-pub type SELCC_R = crate::R<u8, SELCC_A>;
+#[doc = "Field `SELCC` reader - When bit 4 is a 1, these bits select which capture input edge will cause the timer and prescaler to be cleared. These bits have no effect when bit 4 is low. Values 0x6 to 0x7 are reserved."]
+pub struct SELCC_R(crate::FieldReader<u8, SELCC_A>);
 impl SELCC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SELCC_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SELCC_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SELCC_A> {
         match self.bits {
-            0 => Val(SELCC_A::RISING_EDGE_OF_CT16B_CAP0),
-            1 => Val(SELCC_A::FALLING_EDGE_OF_CT16_CAP0),
-            2 => Val(SELCC_A::RISING_EDGE_OF_CT16B_CAP1),
-            3 => Val(SELCC_A::FALLING_EDGE_OF_CT16_CAP1),
-            4 => Val(SELCC_A::RESERVED_4),
-            5 => Val(SELCC_A::RESERVED_5),
-            i => Res(i),
+            0 => Some(SELCC_A::RISING_EDGE_OF_CT16B_CAP0),
+            1 => Some(SELCC_A::FALLING_EDGE_OF_CT16_CAP0),
+            2 => Some(SELCC_A::RISING_EDGE_OF_CT16B_CAP1),
+            3 => Some(SELCC_A::FALLING_EDGE_OF_CT16_CAP1),
+            4 => Some(SELCC_A::RESERVED_4),
+            5 => Some(SELCC_A::RESERVED_5),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `RISING_EDGE_OF_CT16B_CAP0`"]
     #[inline(always)]
     pub fn is_rising_edge_of_ct16b_cap0(&self) -> bool {
-        *self == SELCC_A::RISING_EDGE_OF_CT16B_CAP0
+        **self == SELCC_A::RISING_EDGE_OF_CT16B_CAP0
     }
     #[doc = "Checks if the value of the field is `FALLING_EDGE_OF_CT16_CAP0`"]
     #[inline(always)]
     pub fn is_falling_edge_of_ct16_cap0(&self) -> bool {
-        *self == SELCC_A::FALLING_EDGE_OF_CT16_CAP0
+        **self == SELCC_A::FALLING_EDGE_OF_CT16_CAP0
     }
     #[doc = "Checks if the value of the field is `RISING_EDGE_OF_CT16B_CAP1`"]
     #[inline(always)]
     pub fn is_rising_edge_of_ct16b_cap1(&self) -> bool {
-        *self == SELCC_A::RISING_EDGE_OF_CT16B_CAP1
+        **self == SELCC_A::RISING_EDGE_OF_CT16B_CAP1
     }
     #[doc = "Checks if the value of the field is `FALLING_EDGE_OF_CT16_CAP1`"]
     #[inline(always)]
     pub fn is_falling_edge_of_ct16_cap1(&self) -> bool {
-        *self == SELCC_A::FALLING_EDGE_OF_CT16_CAP1
+        **self == SELCC_A::FALLING_EDGE_OF_CT16_CAP1
     }
     #[doc = "Checks if the value of the field is `RESERVED_4`"]
     #[inline(always)]
     pub fn is_reserved_4(&self) -> bool {
-        *self == SELCC_A::RESERVED_4
+        **self == SELCC_A::RESERVED_4
     }
     #[doc = "Checks if the value of the field is `RESERVED_5`"]
     #[inline(always)]
     pub fn is_reserved_5(&self) -> bool {
-        *self == SELCC_A::RESERVED_5
+        **self == SELCC_A::RESERVED_5
     }
 }
-#[doc = "Write proxy for field `SELCC`"]
+impl core::ops::Deref for SELCC_R {
+    type Target = crate::FieldReader<u8, SELCC_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SELCC` writer - When bit 4 is a 1, these bits select which capture input edge will cause the timer and prescaler to be cleared. These bits have no effect when bit 4 is low. Values 0x6 to 0x7 are reserved."]
 pub struct SELCC_W<'a> {
     w: &'a mut W,
 }
@@ -307,7 +367,7 @@ impl<'a> SELCC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 5)) | (((value as u32) & 0x07) << 5);
+        self.w.bits = (self.w.bits & !(0x07 << 5)) | ((value as u32 & 0x07) << 5);
         self.w
     }
 }
@@ -353,5 +413,30 @@ impl W {
     #[inline(always)]
     pub fn selcc(&mut self) -> SELCC_W {
         SELCC_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctcr](index.html) module"]
+pub struct CTCR_SPEC;
+impl crate::RegisterSpec for CTCR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctcr::R](R) reader structure"]
+impl crate::Readable for CTCR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctcr::W](W) writer structure"]
+impl crate::Writable for CTCR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTCR to value 0"]
+impl crate::Resettable for CTCR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

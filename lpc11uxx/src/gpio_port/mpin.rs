@@ -1,18 +1,52 @@
-#[doc = "Reader of register MPIN%s"]
-pub type R = crate::R<u32, super::MPIN>;
-#[doc = "Writer for register MPIN%s"]
-pub type W = crate::W<u32, super::MPIN>;
-#[doc = "Register MPIN%s `reset()`'s with value 0"]
-impl crate::ResetValue for super::MPIN {
-    type Type = u32;
+#[doc = "Register `MPIN%s` reader"]
+pub struct R(crate::R<MPIN_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MPIN_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `MPORTP0`"]
-pub type MPORTP0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP0`"]
+impl core::convert::From<crate::R<MPIN_SPEC>> for R {
+    fn from(reader: crate::R<MPIN_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MPIN%s` writer"]
+pub struct W(crate::W<MPIN_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MPIN_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MPIN_SPEC>> for W {
+    fn from(writer: crate::W<MPIN_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `MPORTP0` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP0_R(crate::FieldReader<bool, bool>);
+impl MPORTP0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP0` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP0_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> MPORTP0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP1`"]
-pub type MPORTP1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP1`"]
+#[doc = "Field `MPORTP1` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP1_R(crate::FieldReader<bool, bool>);
+impl MPORTP1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP1` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP1_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> MPORTP1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP2`"]
-pub type MPORTP2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP2`"]
+#[doc = "Field `MPORTP2` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP2_R(crate::FieldReader<bool, bool>);
+impl MPORTP2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP2_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP2_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP2` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP2_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> MPORTP2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP3`"]
-pub type MPORTP3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP3`"]
+#[doc = "Field `MPORTP3` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP3_R(crate::FieldReader<bool, bool>);
+impl MPORTP3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP3` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP3_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> MPORTP3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP4`"]
-pub type MPORTP4_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP4`"]
+#[doc = "Field `MPORTP4` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP4_R(crate::FieldReader<bool, bool>);
+impl MPORTP4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP4_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP4_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP4` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP4_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> MPORTP4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP5`"]
-pub type MPORTP5_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP5`"]
+#[doc = "Field `MPORTP5` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP5_R(crate::FieldReader<bool, bool>);
+impl MPORTP5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP5_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP5_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP5` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP5_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> MPORTP5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP6`"]
-pub type MPORTP6_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP6`"]
+#[doc = "Field `MPORTP6` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP6_R(crate::FieldReader<bool, bool>);
+impl MPORTP6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP6_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP6_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP6` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP6_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> MPORTP6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP7`"]
-pub type MPORTP7_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP7`"]
+#[doc = "Field `MPORTP7` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP7_R(crate::FieldReader<bool, bool>);
+impl MPORTP7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP7_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP7_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP7` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP7_W<'a> {
     w: &'a mut W,
 }
@@ -198,13 +316,25 @@ impl<'a> MPORTP7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP8`"]
-pub type MPORTP8_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP8`"]
+#[doc = "Field `MPORTP8` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP8_R(crate::FieldReader<bool, bool>);
+impl MPORTP8_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP8_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP8_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP8` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP8_W<'a> {
     w: &'a mut W,
 }
@@ -222,13 +352,25 @@ impl<'a> MPORTP8_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP9`"]
-pub type MPORTP9_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP9`"]
+#[doc = "Field `MPORTP9` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP9_R(crate::FieldReader<bool, bool>);
+impl MPORTP9_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP9_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP9_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP9` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP9_W<'a> {
     w: &'a mut W,
 }
@@ -246,13 +388,25 @@ impl<'a> MPORTP9_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP10`"]
-pub type MPORTP10_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP10`"]
+#[doc = "Field `MPORTP10` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP10_R(crate::FieldReader<bool, bool>);
+impl MPORTP10_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP10_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP10_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP10` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP10_W<'a> {
     w: &'a mut W,
 }
@@ -270,13 +424,25 @@ impl<'a> MPORTP10_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP11`"]
-pub type MPORTP11_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP11`"]
+#[doc = "Field `MPORTP11` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP11_R(crate::FieldReader<bool, bool>);
+impl MPORTP11_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP11_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP11_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP11` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP11_W<'a> {
     w: &'a mut W,
 }
@@ -294,13 +460,25 @@ impl<'a> MPORTP11_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP12`"]
-pub type MPORTP12_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP12`"]
+#[doc = "Field `MPORTP12` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP12_R(crate::FieldReader<bool, bool>);
+impl MPORTP12_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP12_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP12_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP12` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP12_W<'a> {
     w: &'a mut W,
 }
@@ -318,13 +496,25 @@ impl<'a> MPORTP12_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP13`"]
-pub type MPORTP13_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP13`"]
+#[doc = "Field `MPORTP13` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP13_R(crate::FieldReader<bool, bool>);
+impl MPORTP13_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP13_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP13_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP13` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP13_W<'a> {
     w: &'a mut W,
 }
@@ -342,13 +532,25 @@ impl<'a> MPORTP13_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP14`"]
-pub type MPORTP14_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP14`"]
+#[doc = "Field `MPORTP14` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP14_R(crate::FieldReader<bool, bool>);
+impl MPORTP14_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP14_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP14_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP14` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP14_W<'a> {
     w: &'a mut W,
 }
@@ -366,13 +568,25 @@ impl<'a> MPORTP14_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP15`"]
-pub type MPORTP15_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP15`"]
+#[doc = "Field `MPORTP15` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP15_R(crate::FieldReader<bool, bool>);
+impl MPORTP15_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP15_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP15_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP15` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP15_W<'a> {
     w: &'a mut W,
 }
@@ -390,13 +604,25 @@ impl<'a> MPORTP15_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP16`"]
-pub type MPORTP16_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP16`"]
+#[doc = "Field `MPORTP16` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP16_R(crate::FieldReader<bool, bool>);
+impl MPORTP16_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP16_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP16_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP16` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP16_W<'a> {
     w: &'a mut W,
 }
@@ -414,13 +640,25 @@ impl<'a> MPORTP16_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP17`"]
-pub type MPORTP17_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP17`"]
+#[doc = "Field `MPORTP17` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP17_R(crate::FieldReader<bool, bool>);
+impl MPORTP17_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP17_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP17_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP17` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP17_W<'a> {
     w: &'a mut W,
 }
@@ -438,13 +676,25 @@ impl<'a> MPORTP17_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP18`"]
-pub type MPORTP18_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP18`"]
+#[doc = "Field `MPORTP18` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP18_R(crate::FieldReader<bool, bool>);
+impl MPORTP18_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP18_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP18_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP18` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP18_W<'a> {
     w: &'a mut W,
 }
@@ -462,13 +712,25 @@ impl<'a> MPORTP18_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP19`"]
-pub type MPORTP19_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP19`"]
+#[doc = "Field `MPORTP19` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP19_R(crate::FieldReader<bool, bool>);
+impl MPORTP19_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP19_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP19_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP19` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP19_W<'a> {
     w: &'a mut W,
 }
@@ -486,13 +748,25 @@ impl<'a> MPORTP19_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP20`"]
-pub type MPORTP20_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP20`"]
+#[doc = "Field `MPORTP20` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP20_R(crate::FieldReader<bool, bool>);
+impl MPORTP20_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP20_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP20_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP20` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP20_W<'a> {
     w: &'a mut W,
 }
@@ -510,13 +784,25 @@ impl<'a> MPORTP20_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP21`"]
-pub type MPORTP21_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP21`"]
+#[doc = "Field `MPORTP21` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP21_R(crate::FieldReader<bool, bool>);
+impl MPORTP21_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP21_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP21_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP21` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP21_W<'a> {
     w: &'a mut W,
 }
@@ -534,13 +820,25 @@ impl<'a> MPORTP21_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP22`"]
-pub type MPORTP22_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP22`"]
+#[doc = "Field `MPORTP22` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP22_R(crate::FieldReader<bool, bool>);
+impl MPORTP22_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP22_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP22_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP22` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP22_W<'a> {
     w: &'a mut W,
 }
@@ -558,13 +856,25 @@ impl<'a> MPORTP22_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP23`"]
-pub type MPORTP23_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP23`"]
+#[doc = "Field `MPORTP23` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP23_R(crate::FieldReader<bool, bool>);
+impl MPORTP23_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP23_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP23_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP23` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP23_W<'a> {
     w: &'a mut W,
 }
@@ -582,13 +892,25 @@ impl<'a> MPORTP23_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP24`"]
-pub type MPORTP24_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP24`"]
+#[doc = "Field `MPORTP24` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP24_R(crate::FieldReader<bool, bool>);
+impl MPORTP24_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP24_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP24_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP24` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP24_W<'a> {
     w: &'a mut W,
 }
@@ -606,13 +928,25 @@ impl<'a> MPORTP24_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | ((value as u32 & 0x01) << 24);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP25`"]
-pub type MPORTP25_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP25`"]
+#[doc = "Field `MPORTP25` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP25_R(crate::FieldReader<bool, bool>);
+impl MPORTP25_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP25_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP25_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP25` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP25_W<'a> {
     w: &'a mut W,
 }
@@ -630,13 +964,25 @@ impl<'a> MPORTP25_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP26`"]
-pub type MPORTP26_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP26`"]
+#[doc = "Field `MPORTP26` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP26_R(crate::FieldReader<bool, bool>);
+impl MPORTP26_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP26_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP26_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP26` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP26_W<'a> {
     w: &'a mut W,
 }
@@ -654,13 +1000,25 @@ impl<'a> MPORTP26_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | ((value as u32 & 0x01) << 26);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP27`"]
-pub type MPORTP27_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP27`"]
+#[doc = "Field `MPORTP27` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP27_R(crate::FieldReader<bool, bool>);
+impl MPORTP27_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP27_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP27_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP27` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP27_W<'a> {
     w: &'a mut W,
 }
@@ -678,13 +1036,25 @@ impl<'a> MPORTP27_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP28`"]
-pub type MPORTP28_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP28`"]
+#[doc = "Field `MPORTP28` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP28_R(crate::FieldReader<bool, bool>);
+impl MPORTP28_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP28_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP28_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP28` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP28_W<'a> {
     w: &'a mut W,
 }
@@ -702,13 +1072,25 @@ impl<'a> MPORTP28_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP29`"]
-pub type MPORTP29_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP29`"]
+#[doc = "Field `MPORTP29` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP29_R(crate::FieldReader<bool, bool>);
+impl MPORTP29_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP29_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP29_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP29` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP29_W<'a> {
     w: &'a mut W,
 }
@@ -726,13 +1108,25 @@ impl<'a> MPORTP29_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | ((value as u32 & 0x01) << 29);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP30`"]
-pub type MPORTP30_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP30`"]
+#[doc = "Field `MPORTP30` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP30_R(crate::FieldReader<bool, bool>);
+impl MPORTP30_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP30_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP30_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP30` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP30_W<'a> {
     w: &'a mut W,
 }
@@ -750,13 +1144,25 @@ impl<'a> MPORTP30_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | ((value as u32 & 0x01) << 30);
         self.w
     }
 }
-#[doc = "Reader of field `MPORTP31`"]
-pub type MPORTP31_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MPORTP31`"]
+#[doc = "Field `MPORTP31` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
+pub struct MPORTP31_R(crate::FieldReader<bool, bool>);
+impl MPORTP31_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPORTP31_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MPORTP31_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPORTP31` writer - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP31_W<'a> {
     w: &'a mut W,
 }
@@ -774,7 +1180,7 @@ impl<'a> MPORTP31_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -1100,5 +1506,30 @@ impl W {
     #[inline(always)]
     pub fn mportp31(&mut self) -> MPORTP31_W {
         MPORTP31_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Masked port register port 0/1\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mpin](index.html) module"]
+pub struct MPIN_SPEC;
+impl crate::RegisterSpec for MPIN_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mpin::R](R) reader structure"]
+impl crate::Readable for MPIN_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mpin::W](W) writer structure"]
+impl crate::Writable for MPIN_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MPIN%s to value 0"]
+impl crate::Resettable for MPIN_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,17 +1,101 @@
-#[doc = "Reader of register MAC_HW_FEAT2"]
-pub type R = crate::R<u32, super::MAC_HW_FEAT2>;
-#[doc = "Reader of field `RXQCNT`"]
-pub type RXQCNT_R = crate::R<u8, u8>;
-#[doc = "Reader of field `TXQCNT`"]
-pub type TXQCNT_R = crate::R<u8, u8>;
-#[doc = "Reader of field `RXCHCNT`"]
-pub type RXCHCNT_R = crate::R<u8, u8>;
-#[doc = "Reader of field `TXCHCNT`"]
-pub type TXCHCNT_R = crate::R<u8, u8>;
-#[doc = "Reader of field `PPSOUTNUM`"]
-pub type PPSOUTNUM_R = crate::R<u8, u8>;
-#[doc = "Reader of field `AUXSNAPNUM`"]
-pub type AUXSNAPNUM_R = crate::R<u8, u8>;
+#[doc = "Register `MAC_HW_FEAT2` reader"]
+pub struct R(crate::R<MAC_HW_FEAT2_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MAC_HW_FEAT2_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<MAC_HW_FEAT2_SPEC>> for R {
+    fn from(reader: crate::R<MAC_HW_FEAT2_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Field `RXQCNT` reader - Number of MTL Receive Queues."]
+pub struct RXQCNT_R(crate::FieldReader<u8, u8>);
+impl RXQCNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        RXQCNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RXQCNT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXQCNT` reader - Number of MTL Transmit Queues."]
+pub struct TXQCNT_R(crate::FieldReader<u8, u8>);
+impl TXQCNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TXQCNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXQCNT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RXCHCNT` reader - Number of DMA Receive Channels."]
+pub struct RXCHCNT_R(crate::FieldReader<u8, u8>);
+impl RXCHCNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        RXCHCNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RXCHCNT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXCHCNT` reader - Number of DMA Transmit Channels."]
+pub struct TXCHCNT_R(crate::FieldReader<u8, u8>);
+impl TXCHCNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TXCHCNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXCHCNT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PPSOUTNUM` reader - Number of PPS Outputs."]
+pub struct PPSOUTNUM_R(crate::FieldReader<u8, u8>);
+impl PPSOUTNUM_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PPSOUTNUM_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PPSOUTNUM_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AUXSNAPNUM` reader - Number of Auxiliary Snapshot Inputs."]
+pub struct AUXSNAPNUM_R(crate::FieldReader<u8, u8>);
+impl AUXSNAPNUM_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        AUXSNAPNUM_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AUXSNAPNUM_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bits 0:3 - Number of MTL Receive Queues."]
     #[inline(always)]
@@ -42,5 +126,21 @@ impl R {
     #[inline(always)]
     pub fn auxsnapnum(&self) -> AUXSNAPNUM_R {
         AUXSNAPNUM_R::new(((self.bits >> 28) & 0x07) as u8)
+    }
+}
+#[doc = "MAC hardware feature register 0x0201\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mac_hw_feat2](index.html) module"]
+pub struct MAC_HW_FEAT2_SPEC;
+impl crate::RegisterSpec for MAC_HW_FEAT2_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mac_hw_feat2::R](R) reader structure"]
+impl crate::Readable for MAC_HW_FEAT2_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets MAC_HW_FEAT2 to value 0"]
+impl crate::Resettable for MAC_HW_FEAT2_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

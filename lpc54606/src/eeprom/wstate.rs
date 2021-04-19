@@ -1,18 +1,52 @@
-#[doc = "Reader of register WSTATE"]
-pub type R = crate::R<u32, super::WSTATE>;
-#[doc = "Writer for register WSTATE"]
-pub type W = crate::W<u32, super::WSTATE>;
-#[doc = "Register WSTATE `reset()`'s with value 0x0004_0802"]
-impl crate::ResetValue for super::WSTATE {
-    type Type = u32;
+#[doc = "Register `WSTATE` reader"]
+pub struct R(crate::R<WSTATE_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<WSTATE_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0004_0802
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `PHASE3`"]
-pub type PHASE3_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PHASE3`"]
+impl core::convert::From<crate::R<WSTATE_SPEC>> for R {
+    fn from(reader: crate::R<WSTATE_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `WSTATE` writer"]
+pub struct W(crate::W<WSTATE_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<WSTATE_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<WSTATE_SPEC>> for W {
+    fn from(writer: crate::W<WSTATE_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `PHASE3` reader - Wait states for phase 3 (minus 1 encoded)."]
+pub struct PHASE3_R(crate::FieldReader<u8, u8>);
+impl PHASE3_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PHASE3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PHASE3_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PHASE3` writer - Wait states for phase 3 (minus 1 encoded)."]
 pub struct PHASE3_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> PHASE3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
-#[doc = "Reader of field `PHASE2`"]
-pub type PHASE2_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PHASE2`"]
+#[doc = "Field `PHASE2` reader - Wait states for phase 2 (minus 1 encoded)."]
+pub struct PHASE2_R(crate::FieldReader<u8, u8>);
+impl PHASE2_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PHASE2_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PHASE2_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PHASE2` writer - Wait states for phase 2 (minus 1 encoded)."]
 pub struct PHASE2_W<'a> {
     w: &'a mut W,
 }
@@ -34,13 +80,25 @@ impl<'a> PHASE2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
+        self.w.bits = (self.w.bits & !(0xff << 8)) | ((value as u32 & 0xff) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `PHASE1`"]
-pub type PHASE1_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PHASE1`"]
+#[doc = "Field `PHASE1` reader - Wait states for phase 1 (minus 1 encoded)."]
+pub struct PHASE1_R(crate::FieldReader<u8, u8>);
+impl PHASE1_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PHASE1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PHASE1_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PHASE1` writer - Wait states for phase 1 (minus 1 encoded)."]
 pub struct PHASE1_W<'a> {
     w: &'a mut W,
 }
@@ -48,13 +106,25 @@ impl<'a> PHASE1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
+        self.w.bits = (self.w.bits & !(0xff << 16)) | ((value as u32 & 0xff) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `LCK_PARWEP`"]
-pub type LCK_PARWEP_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LCK_PARWEP`"]
+#[doc = "Field `LCK_PARWEP` reader - Lock timing parameters for write, erase and program operation 0 = WSTATE and CLKDIV registers have R/W access 1 = WSTATE and CLKDIV registers have R only access."]
+pub struct LCK_PARWEP_R(crate::FieldReader<bool, bool>);
+impl LCK_PARWEP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LCK_PARWEP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LCK_PARWEP_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LCK_PARWEP` writer - Lock timing parameters for write, erase and program operation 0 = WSTATE and CLKDIV registers have R/W access 1 = WSTATE and CLKDIV registers have R only access."]
 pub struct LCK_PARWEP_W<'a> {
     w: &'a mut W,
 }
@@ -72,7 +142,7 @@ impl<'a> LCK_PARWEP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -118,5 +188,30 @@ impl W {
     #[inline(always)]
     pub fn lck_parwep(&mut self) -> LCK_PARWEP_W {
         LCK_PARWEP_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "EEPROM wait state register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [wstate](index.html) module"]
+pub struct WSTATE_SPEC;
+impl crate::RegisterSpec for WSTATE_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [wstate::R](R) reader structure"]
+impl crate::Readable for WSTATE_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [wstate::W](W) writer structure"]
+impl crate::Writable for WSTATE_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets WSTATE to value 0x0004_0802"]
+impl crate::Resettable for WSTATE_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0004_0802
     }
 }

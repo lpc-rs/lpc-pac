@@ -1,18 +1,52 @@
-#[doc = "Reader of register SYSPLLCTRL"]
-pub type R = crate::R<u32, super::SYSPLLCTRL>;
-#[doc = "Writer for register SYSPLLCTRL"]
-pub type W = crate::W<u32, super::SYSPLLCTRL>;
-#[doc = "Register SYSPLLCTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::SYSPLLCTRL {
-    type Type = u32;
+#[doc = "Register `SYSPLLCTRL` reader"]
+pub struct R(crate::R<SYSPLLCTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SYSPLLCTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `MSEL`"]
-pub type MSEL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `MSEL`"]
+impl core::convert::From<crate::R<SYSPLLCTRL_SPEC>> for R {
+    fn from(reader: crate::R<SYSPLLCTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SYSPLLCTRL` writer"]
+pub struct W(crate::W<SYSPLLCTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SYSPLLCTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<SYSPLLCTRL_SPEC>> for W {
+    fn from(writer: crate::W<SYSPLLCTRL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `MSEL` reader - Feedback divider value. The division value M is the programmed MSEL value + 1. 00000: Division ratio M = 1 to 11111: Division ratio M = 32"]
+pub struct MSEL_R(crate::FieldReader<u8, u8>);
+impl MSEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MSEL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSEL` writer - Feedback divider value. The division value M is the programmed MSEL value + 1. 00000: Division ratio M = 1 to 11111: Division ratio M = 32"]
 pub struct MSEL_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +54,7 @@ impl<'a> MSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x1f) | ((value as u32) & 0x1f);
+        self.w.bits = (self.w.bits & !0x1f) | (value as u32 & 0x1f);
         self.w
     }
 }
@@ -43,9 +77,12 @@ impl From<PSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `PSEL`"]
-pub type PSEL_R = crate::R<u8, PSEL_A>;
+#[doc = "Field `PSEL` reader - Post divider ratio P. The division ratio is 2 x P."]
+pub struct PSEL_R(crate::FieldReader<u8, PSEL_A>);
 impl PSEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PSEL_A {
@@ -60,25 +97,32 @@ impl PSEL_R {
     #[doc = "Checks if the value of the field is `P_EQ_1`"]
     #[inline(always)]
     pub fn is_p_eq_1(&self) -> bool {
-        *self == PSEL_A::P_EQ_1
+        **self == PSEL_A::P_EQ_1
     }
     #[doc = "Checks if the value of the field is `P_EQ_2`"]
     #[inline(always)]
     pub fn is_p_eq_2(&self) -> bool {
-        *self == PSEL_A::P_EQ_2
+        **self == PSEL_A::P_EQ_2
     }
     #[doc = "Checks if the value of the field is `P_EQ_4`"]
     #[inline(always)]
     pub fn is_p_eq_4(&self) -> bool {
-        *self == PSEL_A::P_EQ_4
+        **self == PSEL_A::P_EQ_4
     }
     #[doc = "Checks if the value of the field is `P_EQ_8`"]
     #[inline(always)]
     pub fn is_p_eq_8(&self) -> bool {
-        *self == PSEL_A::P_EQ_8
+        **self == PSEL_A::P_EQ_8
     }
 }
-#[doc = "Write proxy for field `PSEL`"]
+impl core::ops::Deref for PSEL_R {
+    type Target = crate::FieldReader<u8, PSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PSEL` writer - Post divider ratio P. The division ratio is 2 x P."]
 pub struct PSEL_W<'a> {
     w: &'a mut W,
 }
@@ -86,9 +130,7 @@ impl<'a> PSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PSEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "P = 1"]
     #[inline(always)]
@@ -113,7 +155,7 @@ impl<'a> PSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 5)) | (((value as u32) & 0x03) << 5);
+        self.w.bits = (self.w.bits & !(0x03 << 5)) | ((value as u32 & 0x03) << 5);
         self.w
     }
 }
@@ -139,5 +181,30 @@ impl W {
     #[inline(always)]
     pub fn psel(&mut self) -> PSEL_W {
         PSEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "System PLL control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [syspllctrl](index.html) module"]
+pub struct SYSPLLCTRL_SPEC;
+impl crate::RegisterSpec for SYSPLLCTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [syspllctrl::R](R) reader structure"]
+impl crate::Readable for SYSPLLCTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [syspllctrl::W](W) writer structure"]
+impl crate::Writable for SYSPLLCTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SYSPLLCTRL to value 0"]
+impl crate::Resettable for SYSPLLCTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

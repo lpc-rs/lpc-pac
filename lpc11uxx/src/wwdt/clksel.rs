@@ -1,13 +1,35 @@
-#[doc = "Reader of register CLKSEL"]
-pub type R = crate::R<u32, super::CLKSEL>;
-#[doc = "Writer for register CLKSEL"]
-pub type W = crate::W<u32, super::CLKSEL>;
-#[doc = "Register CLKSEL `reset()`'s with value 0"]
-impl crate::ResetValue for super::CLKSEL {
-    type Type = u32;
+#[doc = "Register `CLKSEL` reader"]
+pub struct R(crate::R<CLKSEL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CLKSEL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CLKSEL_SPEC>> for R {
+    fn from(reader: crate::R<CLKSEL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CLKSEL` writer"]
+pub struct W(crate::W<CLKSEL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CLKSEL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CLKSEL_SPEC>> for W {
+    fn from(writer: crate::W<CLKSEL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Selects source of WDT clock\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<CLKSEL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CLKSEL`"]
-pub type CLKSEL_R = crate::R<bool, CLKSEL_A>;
+#[doc = "Field `CLKSEL` reader - Selects source of WDT clock"]
+pub struct CLKSEL_R(crate::FieldReader<bool, CLKSEL_A>);
 impl CLKSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CLKSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CLKSEL_A {
@@ -38,15 +63,22 @@ impl CLKSEL_R {
     #[doc = "Checks if the value of the field is `IRC`"]
     #[inline(always)]
     pub fn is_irc(&self) -> bool {
-        *self == CLKSEL_A::IRC
+        **self == CLKSEL_A::IRC
     }
     #[doc = "Checks if the value of the field is `WATCHDOG_OSCILLATOR`"]
     #[inline(always)]
     pub fn is_watchdog_oscillator(&self) -> bool {
-        *self == CLKSEL_A::WATCHDOG_OSCILLATOR
+        **self == CLKSEL_A::WATCHDOG_OSCILLATOR
     }
 }
-#[doc = "Write proxy for field `CLKSEL`"]
+impl core::ops::Deref for CLKSEL_R {
+    type Target = crate::FieldReader<bool, CLKSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLKSEL` writer - Selects source of WDT clock"]
 pub struct CLKSEL_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> CLKSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CLKSEL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "IRC"]
     #[inline(always)]
@@ -81,13 +111,25 @@ impl<'a> CLKSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `LOCK`"]
-pub type LOCK_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LOCK`"]
+#[doc = "Field `LOCK` reader - If this bit is set to one writing to this register does not affect bit 0. The clock source can only be changed by first clearing this bit, then writing the new value of bit 0."]
+pub struct LOCK_R(crate::FieldReader<bool, bool>);
+impl LOCK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LOCK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LOCK_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LOCK` writer - If this bit is set to one writing to this register does not affect bit 0. The clock source can only be changed by first clearing this bit, then writing the new value of bit 0."]
 pub struct LOCK_W<'a> {
     w: &'a mut W,
 }
@@ -105,7 +147,7 @@ impl<'a> LOCK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -131,5 +173,30 @@ impl W {
     #[inline(always)]
     pub fn lock(&mut self) -> LOCK_W {
         LOCK_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Watchdog clock select register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clksel](index.html) module"]
+pub struct CLKSEL_SPEC;
+impl crate::RegisterSpec for CLKSEL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [clksel::R](R) reader structure"]
+impl crate::Readable for CLKSEL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [clksel::W](W) writer structure"]
+impl crate::Writable for CLKSEL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CLKSEL to value 0"]
+impl crate::Resettable for CLKSEL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

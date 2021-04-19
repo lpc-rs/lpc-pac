@@ -1,13 +1,35 @@
-#[doc = "Reader of register DC_CTRL"]
-pub type R = crate::R<u32, super::DC_CTRL>;
-#[doc = "Writer for register DC_CTRL"]
-pub type W = crate::W<u32, super::DC_CTRL>;
-#[doc = "Register DC_CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::DC_CTRL {
-    type Type = u32;
+#[doc = "Register `DC_CTRL` reader"]
+pub struct R(crate::R<DC_CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DC_CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<DC_CTRL_SPEC>> for R {
+    fn from(reader: crate::R<DC_CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DC_CTRL` writer"]
+pub struct W(crate::W<DC_CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DC_CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<DC_CTRL_SPEC>> for W {
+    fn from(writer: crate::W<DC_CTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "DC block filter\n\nValue on reset: 0"]
@@ -29,9 +51,12 @@ impl From<DCPOLE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `DCPOLE`"]
-pub type DCPOLE_R = crate::R<u8, DCPOLE_A>;
+#[doc = "Field `DCPOLE` reader - DC block filter"]
+pub struct DCPOLE_R(crate::FieldReader<u8, DCPOLE_A>);
 impl DCPOLE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DCPOLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DCPOLE_A {
@@ -46,25 +71,32 @@ impl DCPOLE_R {
     #[doc = "Checks if the value of the field is `FLAT_RESPONSE`"]
     #[inline(always)]
     pub fn is_flat_response(&self) -> bool {
-        *self == DCPOLE_A::FLAT_RESPONSE
+        **self == DCPOLE_A::FLAT_RESPONSE
     }
     #[doc = "Checks if the value of the field is `HZ_155`"]
     #[inline(always)]
     pub fn is_hz_155(&self) -> bool {
-        *self == DCPOLE_A::HZ_155
+        **self == DCPOLE_A::HZ_155
     }
     #[doc = "Checks if the value of the field is `HZ_78`"]
     #[inline(always)]
     pub fn is_hz_78(&self) -> bool {
-        *self == DCPOLE_A::HZ_78
+        **self == DCPOLE_A::HZ_78
     }
     #[doc = "Checks if the value of the field is `HZ_39`"]
     #[inline(always)]
     pub fn is_hz_39(&self) -> bool {
-        *self == DCPOLE_A::HZ_39
+        **self == DCPOLE_A::HZ_39
     }
 }
-#[doc = "Write proxy for field `DCPOLE`"]
+impl core::ops::Deref for DCPOLE_R {
+    type Target = crate::FieldReader<u8, DCPOLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DCPOLE` writer - DC block filter"]
 pub struct DCPOLE_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +104,7 @@ impl<'a> DCPOLE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DCPOLE_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Flat response, no filter."]
     #[inline(always)]
@@ -99,13 +129,25 @@ impl<'a> DCPOLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
-#[doc = "Reader of field `DCGAIN`"]
-pub type DCGAIN_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `DCGAIN`"]
+#[doc = "Field `DCGAIN` reader - Fine gain adjustment in the form of a number of bits to downshift."]
+pub struct DCGAIN_R(crate::FieldReader<u8, u8>);
+impl DCGAIN_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DCGAIN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DCGAIN_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DCGAIN` writer - Fine gain adjustment in the form of a number of bits to downshift."]
 pub struct DCGAIN_W<'a> {
     w: &'a mut W,
 }
@@ -113,7 +155,7 @@ impl<'a> DCGAIN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 4)) | (((value as u32) & 0x0f) << 4);
+        self.w.bits = (self.w.bits & !(0x0f << 4)) | ((value as u32 & 0x0f) << 4);
         self.w
     }
 }
@@ -131,9 +173,12 @@ impl From<SATURATEAT16BIT_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SATURATEAT16BIT`"]
-pub type SATURATEAT16BIT_R = crate::R<bool, SATURATEAT16BIT_A>;
+#[doc = "Field `SATURATEAT16BIT` reader - Selects 16-bit saturation."]
+pub struct SATURATEAT16BIT_R(crate::FieldReader<bool, SATURATEAT16BIT_A>);
 impl SATURATEAT16BIT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SATURATEAT16BIT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SATURATEAT16BIT_A {
@@ -145,15 +190,22 @@ impl SATURATEAT16BIT_R {
     #[doc = "Checks if the value of the field is `DO_NOT_SATURATE`"]
     #[inline(always)]
     pub fn is_do_not_saturate(&self) -> bool {
-        *self == SATURATEAT16BIT_A::DO_NOT_SATURATE
+        **self == SATURATEAT16BIT_A::DO_NOT_SATURATE
     }
     #[doc = "Checks if the value of the field is `SATURATE`"]
     #[inline(always)]
     pub fn is_saturate(&self) -> bool {
-        *self == SATURATEAT16BIT_A::SATURATE
+        **self == SATURATEAT16BIT_A::SATURATE
     }
 }
-#[doc = "Write proxy for field `SATURATEAT16BIT`"]
+impl core::ops::Deref for SATURATEAT16BIT_R {
+    type Target = crate::FieldReader<bool, SATURATEAT16BIT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SATURATEAT16BIT` writer - Selects 16-bit saturation."]
 pub struct SATURATEAT16BIT_W<'a> {
     w: &'a mut W,
 }
@@ -161,9 +213,7 @@ impl<'a> SATURATEAT16BIT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SATURATEAT16BIT_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Results roll over if out range and do not saturate."]
     #[inline(always)]
@@ -188,7 +238,7 @@ impl<'a> SATURATEAT16BIT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -224,5 +274,30 @@ impl W {
     #[inline(always)]
     pub fn saturateat16bit(&mut self) -> SATURATEAT16BIT_W {
         SATURATEAT16BIT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "DC Control register 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dc_ctrl](index.html) module"]
+pub struct DC_CTRL_SPEC;
+impl crate::RegisterSpec for DC_CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [dc_ctrl::R](R) reader structure"]
+impl crate::Readable for DC_CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [dc_ctrl::W](W) writer structure"]
+impl crate::Writable for DC_CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DC_CTRL to value 0"]
+impl crate::Resettable for DC_CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

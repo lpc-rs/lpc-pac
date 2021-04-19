@@ -1,13 +1,35 @@
-#[doc = "Reader of register STAT"]
-pub type R = crate::R<u32, super::STAT>;
-#[doc = "Writer for register STAT"]
-pub type W = crate::W<u32, super::STAT>;
-#[doc = "Register STAT `reset()`'s with value 0"]
-impl crate::ResetValue for super::STAT {
-    type Type = u32;
+#[doc = "Register `STAT` reader"]
+pub struct R(crate::R<STAT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<STAT_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<STAT_SPEC>> for R {
+    fn from(reader: crate::R<STAT_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `STAT` writer"]
+pub struct W(crate::W<STAT_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<STAT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<STAT_SPEC>> for W {
+    fn from(writer: crate::W<STAT_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Busy status for the primary channel pair. Other BUSY flags may be found in the STAT register for each channel pair.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<BUSY_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BUSY`"]
-pub type BUSY_R = crate::R<bool, BUSY_A>;
+#[doc = "Field `BUSY` reader - Busy status for the primary channel pair. Other BUSY flags may be found in the STAT register for each channel pair."]
+pub struct BUSY_R(crate::FieldReader<bool, BUSY_A>);
 impl BUSY_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BUSY_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BUSY_A {
@@ -38,12 +63,19 @@ impl BUSY_R {
     #[doc = "Checks if the value of the field is `IDLE`"]
     #[inline(always)]
     pub fn is_idle(&self) -> bool {
-        *self == BUSY_A::IDLE
+        **self == BUSY_A::IDLE
     }
     #[doc = "Checks if the value of the field is `BUSY`"]
     #[inline(always)]
     pub fn is_busy(&self) -> bool {
-        *self == BUSY_A::BUSY
+        **self == BUSY_A::BUSY
+    }
+}
+impl core::ops::Deref for BUSY_R {
+    type Target = crate::FieldReader<bool, BUSY_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Slave Frame Error flag. This applies when at least one channel pair is operating as a slave. An error indicates that the incoming WS signal did not transition as expected due to a mismatch between FRAMELEN and the actual incoming I2S stream.\n\nValue on reset: 0"]
@@ -60,7 +92,7 @@ impl From<SLVFRMERR_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `SLVFRMERR`"]
+#[doc = "Field `SLVFRMERR` writer - Slave Frame Error flag. This applies when at least one channel pair is operating as a slave. An error indicates that the incoming WS signal did not transition as expected due to a mismatch between FRAMELEN and the actual incoming I2S stream."]
 pub struct SLVFRMERR_W<'a> {
     w: &'a mut W,
 }
@@ -68,9 +100,7 @@ impl<'a> SLVFRMERR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SLVFRMERR_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No error has been recorded."]
     #[inline(always)]
@@ -95,7 +125,7 @@ impl<'a> SLVFRMERR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -113,9 +143,12 @@ impl From<LR_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LR`"]
-pub type LR_R = crate::R<bool, LR_A>;
+#[doc = "Field `LR` reader - Left/Right indication. This flag is considered to be a debugging aid and is not expected to be used by an I2S driver. Valid when one channel pair is busy. Indicates left or right data being processed for the currently busy channel pair."]
+pub struct LR_R(crate::FieldReader<bool, LR_A>);
 impl LR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LR_A {
@@ -127,12 +160,19 @@ impl LR_R {
     #[doc = "Checks if the value of the field is `LEFT_CHANNEL`"]
     #[inline(always)]
     pub fn is_left_channel(&self) -> bool {
-        *self == LR_A::LEFT_CHANNEL
+        **self == LR_A::LEFT_CHANNEL
     }
     #[doc = "Checks if the value of the field is `RIGHT_CHANNEL`"]
     #[inline(always)]
     pub fn is_right_channel(&self) -> bool {
-        *self == LR_A::RIGHT_CHANNEL
+        **self == LR_A::RIGHT_CHANNEL
+    }
+}
+impl core::ops::Deref for LR_R {
+    type Target = crate::FieldReader<bool, LR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Data Paused status flag. Applies to all I2S channels\n\nValue on reset: 0"]
@@ -149,9 +189,12 @@ impl From<DATAPAUSED_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DATAPAUSED`"]
-pub type DATAPAUSED_R = crate::R<bool, DATAPAUSED_A>;
+#[doc = "Field `DATAPAUSED` reader - Data Paused status flag. Applies to all I2S channels"]
+pub struct DATAPAUSED_R(crate::FieldReader<bool, DATAPAUSED_A>);
 impl DATAPAUSED_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DATAPAUSED_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DATAPAUSED_A {
@@ -163,12 +206,19 @@ impl DATAPAUSED_R {
     #[doc = "Checks if the value of the field is `NOT_PAUSED`"]
     #[inline(always)]
     pub fn is_not_paused(&self) -> bool {
-        *self == DATAPAUSED_A::NOT_PAUSED
+        **self == DATAPAUSED_A::NOT_PAUSED
     }
     #[doc = "Checks if the value of the field is `PAUSED`"]
     #[inline(always)]
     pub fn is_paused(&self) -> bool {
-        *self == DATAPAUSED_A::PAUSED
+        **self == DATAPAUSED_A::PAUSED
+    }
+}
+impl core::ops::Deref for DATAPAUSED_R {
+    type Target = crate::FieldReader<bool, DATAPAUSED_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -193,5 +243,30 @@ impl W {
     #[inline(always)]
     pub fn slvfrmerr(&mut self) -> SLVFRMERR_W {
         SLVFRMERR_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Status register for the primary channel pair.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [stat](index.html) module"]
+pub struct STAT_SPEC;
+impl crate::RegisterSpec for STAT_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [stat::R](R) reader structure"]
+impl crate::Readable for STAT_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [stat::W](W) writer structure"]
+impl crate::Writable for STAT_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets STAT to value 0"]
+impl crate::Resettable for STAT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

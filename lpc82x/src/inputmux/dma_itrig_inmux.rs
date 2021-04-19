@@ -1,14 +1,35 @@
-#[doc = "Reader of register DMA_ITRIG_INMUX[%s]"]
-pub type R = crate::R<u32, super::DMA_ITRIG_INMUX>;
-#[doc = "Writer for register DMA_ITRIG_INMUX[%s]"]
-pub type W = crate::W<u32, super::DMA_ITRIG_INMUX>;
-#[doc = "Register DMA_ITRIG_INMUX[%s]
-`reset()`'s with value 0x0f"]
-impl crate::ResetValue for super::DMA_ITRIG_INMUX {
-    type Type = u32;
+#[doc = "Register `DMA_ITRIG_INMUX[%s]` reader"]
+pub struct R(crate::R<DMA_ITRIG_INMUX_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DMA_ITRIG_INMUX_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0f
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<DMA_ITRIG_INMUX_SPEC>> for R {
+    fn from(reader: crate::R<DMA_ITRIG_INMUX_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DMA_ITRIG_INMUX[%s]` writer"]
+pub struct W(crate::W<DMA_ITRIG_INMUX_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DMA_ITRIG_INMUX_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<DMA_ITRIG_INMUX_SPEC>> for W {
+    fn from(writer: crate::W<DMA_ITRIG_INMUX_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Input mux register for trigger inputs 0 to 23 connected to DMA channel 0. Selects from ADC, SCT, ACMP, pin interrupts, and DMA requests.\n\nValue on reset: 15"]
@@ -40,73 +61,82 @@ impl From<INP_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `INP`"]
-pub type INP_R = crate::R<u8, INP_A>;
+#[doc = "Field `INP` reader - Input mux register for trigger inputs 0 to 23 connected to DMA channel 0. Selects from ADC, SCT, ACMP, pin interrupts, and DMA requests."]
+pub struct INP_R(crate::FieldReader<u8, INP_A>);
 impl INP_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        INP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, INP_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<INP_A> {
         match self.bits {
-            0 => Val(INP_A::ADC_SEQA_IRQ),
-            1 => Val(INP_A::ADC_SEQB_IRQ),
-            2 => Val(INP_A::SCT_DMA0),
-            3 => Val(INP_A::SCT_DMA1),
-            4 => Val(INP_A::ACMP_O),
-            5 => Val(INP_A::PININT0),
-            6 => Val(INP_A::PININT1),
-            7 => Val(INP_A::DMA_INMUX_INMUX0),
-            8 => Val(INP_A::DMA_INMUX_INMUX1),
-            i => Res(i),
+            0 => Some(INP_A::ADC_SEQA_IRQ),
+            1 => Some(INP_A::ADC_SEQB_IRQ),
+            2 => Some(INP_A::SCT_DMA0),
+            3 => Some(INP_A::SCT_DMA1),
+            4 => Some(INP_A::ACMP_O),
+            5 => Some(INP_A::PININT0),
+            6 => Some(INP_A::PININT1),
+            7 => Some(INP_A::DMA_INMUX_INMUX0),
+            8 => Some(INP_A::DMA_INMUX_INMUX1),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `ADC_SEQA_IRQ`"]
     #[inline(always)]
     pub fn is_adc_seqa_irq(&self) -> bool {
-        *self == INP_A::ADC_SEQA_IRQ
+        **self == INP_A::ADC_SEQA_IRQ
     }
     #[doc = "Checks if the value of the field is `ADC_SEQB_IRQ`"]
     #[inline(always)]
     pub fn is_adc_seqb_irq(&self) -> bool {
-        *self == INP_A::ADC_SEQB_IRQ
+        **self == INP_A::ADC_SEQB_IRQ
     }
     #[doc = "Checks if the value of the field is `SCT_DMA0`"]
     #[inline(always)]
     pub fn is_sct_dma0(&self) -> bool {
-        *self == INP_A::SCT_DMA0
+        **self == INP_A::SCT_DMA0
     }
     #[doc = "Checks if the value of the field is `SCT_DMA1`"]
     #[inline(always)]
     pub fn is_sct_dma1(&self) -> bool {
-        *self == INP_A::SCT_DMA1
+        **self == INP_A::SCT_DMA1
     }
     #[doc = "Checks if the value of the field is `ACMP_O`"]
     #[inline(always)]
     pub fn is_acmp_o(&self) -> bool {
-        *self == INP_A::ACMP_O
+        **self == INP_A::ACMP_O
     }
     #[doc = "Checks if the value of the field is `PININT0`"]
     #[inline(always)]
     pub fn is_pinint0(&self) -> bool {
-        *self == INP_A::PININT0
+        **self == INP_A::PININT0
     }
     #[doc = "Checks if the value of the field is `PININT1`"]
     #[inline(always)]
     pub fn is_pinint1(&self) -> bool {
-        *self == INP_A::PININT1
+        **self == INP_A::PININT1
     }
     #[doc = "Checks if the value of the field is `DMA_INMUX_INMUX0`"]
     #[inline(always)]
     pub fn is_dma_inmux_inmux0(&self) -> bool {
-        *self == INP_A::DMA_INMUX_INMUX0
+        **self == INP_A::DMA_INMUX_INMUX0
     }
     #[doc = "Checks if the value of the field is `DMA_INMUX_INMUX1`"]
     #[inline(always)]
     pub fn is_dma_inmux_inmux1(&self) -> bool {
-        *self == INP_A::DMA_INMUX_INMUX1
+        **self == INP_A::DMA_INMUX_INMUX1
     }
 }
-#[doc = "Write proxy for field `INP`"]
+impl core::ops::Deref for INP_R {
+    type Target = crate::FieldReader<u8, INP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INP` writer - Input mux register for trigger inputs 0 to 23 connected to DMA channel 0. Selects from ADC, SCT, ACMP, pin interrupts, and DMA requests."]
 pub struct INP_W<'a> {
     w: &'a mut W,
 }
@@ -164,7 +194,7 @@ impl<'a> INP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
+        self.w.bits = (self.w.bits & !0x0f) | (value as u32 & 0x0f);
         self.w
     }
 }
@@ -180,5 +210,31 @@ impl W {
     #[inline(always)]
     pub fn inp(&mut self) -> INP_W {
         INP_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Trigger select register for DMA channel\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_itrig_inmux](index.html) module"]
+pub struct DMA_ITRIG_INMUX_SPEC;
+impl crate::RegisterSpec for DMA_ITRIG_INMUX_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [dma_itrig_inmux::R](R) reader structure"]
+impl crate::Readable for DMA_ITRIG_INMUX_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [dma_itrig_inmux::W](W) writer structure"]
+impl crate::Writable for DMA_ITRIG_INMUX_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DMA_ITRIG_INMUX[%s]
+to value 0x0f"]
+impl crate::Resettable for DMA_ITRIG_INMUX_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0f
     }
 }

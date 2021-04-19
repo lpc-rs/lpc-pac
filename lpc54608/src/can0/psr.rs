@@ -1,19 +1,115 @@
-#[doc = "Reader of register PSR"]
-pub type R = crate::R<u32, super::PSR>;
-#[doc = "Reader of field `LEC`"]
-pub type LEC_R = crate::R<u8, u8>;
-#[doc = "Reader of field `ACT`"]
-pub type ACT_R = crate::R<u8, u8>;
-#[doc = "Reader of field `EP`"]
-pub type EP_R = crate::R<bool, bool>;
-#[doc = "Reader of field `EW`"]
-pub type EW_R = crate::R<bool, bool>;
-#[doc = "Reader of field `BO`"]
-pub type BO_R = crate::R<bool, bool>;
-#[doc = "Reader of field `PXE`"]
-pub type PXE_R = crate::R<bool, bool>;
-#[doc = "Reader of field `TDCV`"]
-pub type TDCV_R = crate::R<u8, u8>;
+#[doc = "Register `PSR` reader"]
+pub struct R(crate::R<PSR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PSR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<PSR_SPEC>> for R {
+    fn from(reader: crate::R<PSR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Field `LEC` reader - Last error code."]
+pub struct LEC_R(crate::FieldReader<u8, u8>);
+impl LEC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        LEC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LEC_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ACT` reader - Activity."]
+pub struct ACT_R(crate::FieldReader<u8, u8>);
+impl ACT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ACT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ACT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EP` reader - Error Passive."]
+pub struct EP_R(crate::FieldReader<bool, bool>);
+impl EP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EP_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EW` reader - Warning status."]
+pub struct EW_R(crate::FieldReader<bool, bool>);
+impl EW_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EW_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EW_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BO` reader - Bus Off Status."]
+pub struct BO_R(crate::FieldReader<bool, bool>);
+impl BO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BO_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PXE` reader - Protocol exception event."]
+pub struct PXE_R(crate::FieldReader<bool, bool>);
+impl PXE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PXE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PXE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TDCV` reader - Transmitter delay compensation value."]
+pub struct TDCV_R(crate::FieldReader<u8, u8>);
+impl TDCV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TDCV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TDCV_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bits 0:2 - Last error code."]
     #[inline(always)]
@@ -49,5 +145,21 @@ impl R {
     #[inline(always)]
     pub fn tdcv(&self) -> TDCV_R {
         TDCV_R::new(((self.bits >> 16) & 0x7f) as u8)
+    }
+}
+#[doc = "Protocol Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [psr](index.html) module"]
+pub struct PSR_SPEC;
+impl crate::RegisterSpec for PSR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [psr::R](R) reader structure"]
+impl crate::Readable for PSR_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets PSR to value 0x0707"]
+impl crate::Resettable for PSR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0707
     }
 }

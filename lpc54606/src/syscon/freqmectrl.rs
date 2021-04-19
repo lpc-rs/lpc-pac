@@ -1,18 +1,52 @@
-#[doc = "Reader of register FREQMECTRL"]
-pub type R = crate::R<u32, super::FREQMECTRL>;
-#[doc = "Writer for register FREQMECTRL"]
-pub type W = crate::W<u32, super::FREQMECTRL>;
-#[doc = "Register FREQMECTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::FREQMECTRL {
-    type Type = u32;
+#[doc = "Register `FREQMECTRL` reader"]
+pub struct R(crate::R<FREQMECTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FREQMECTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `CAPVAL`"]
-pub type CAPVAL_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `CAPVAL`"]
+impl core::convert::From<crate::R<FREQMECTRL_SPEC>> for R {
+    fn from(reader: crate::R<FREQMECTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FREQMECTRL` writer"]
+pub struct W(crate::W<FREQMECTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FREQMECTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FREQMECTRL_SPEC>> for W {
+    fn from(writer: crate::W<FREQMECTRL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CAPVAL` reader - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only."]
+pub struct CAPVAL_R(crate::FieldReader<u16, u16>);
+impl CAPVAL_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        CAPVAL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAPVAL_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAPVAL` writer - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only."]
 pub struct CAPVAL_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> CAPVAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x3fff) | ((value as u32) & 0x3fff);
+        self.w.bits = (self.w.bits & !0x3fff) | (value as u32 & 0x3fff);
         self.w
     }
 }
-#[doc = "Reader of field `PROG`"]
-pub type PROG_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PROG`"]
+#[doc = "Field `PROG` reader - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0)."]
+pub struct PROG_R(crate::FieldReader<bool, bool>);
+impl PROG_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PROG_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PROG_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PROG` writer - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0)."]
 pub struct PROG_W<'a> {
     w: &'a mut W,
 }
@@ -44,7 +90,7 @@ impl<'a> PROG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -70,5 +116,30 @@ impl W {
     #[inline(always)]
     pub fn prog(&mut self) -> PROG_W {
         PROG_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Frequency measure register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [freqmectrl](index.html) module"]
+pub struct FREQMECTRL_SPEC;
+impl crate::RegisterSpec for FREQMECTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [freqmectrl::R](R) reader structure"]
+impl crate::Readable for FREQMECTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [freqmectrl::W](W) writer structure"]
+impl crate::Writable for FREQMECTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FREQMECTRL to value 0"]
+impl crate::Resettable for FREQMECTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

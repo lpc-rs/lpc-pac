@@ -1,18 +1,52 @@
-#[doc = "Reader of register INTVAL"]
-pub type R = crate::R<u32, super::INTVAL>;
-#[doc = "Writer for register INTVAL"]
-pub type W = crate::W<u32, super::INTVAL>;
-#[doc = "Register INTVAL `reset()`'s with value 0"]
-impl crate::ResetValue for super::INTVAL {
-    type Type = u32;
+#[doc = "Register `INTVAL` reader"]
+pub struct R(crate::R<INTVAL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<INTVAL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `IVALUE`"]
-pub type IVALUE_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `IVALUE`"]
+impl core::convert::From<crate::R<INTVAL_SPEC>> for R {
+    fn from(reader: crate::R<INTVAL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `INTVAL` writer"]
+pub struct W(crate::W<INTVAL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<INTVAL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<INTVAL_SPEC>> for W {
+    fn from(writer: crate::W<INTVAL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `IVALUE` reader - Time interval load value. This value is loaded into the TIMERn register and the MRT channel n starts counting down from IVALUE -1. If the timer is idle, writing a non-zero value to this bit field starts the timer immediately. If the timer is running, writing a zero to this bit field does the following: If LOAD = 1, the timer stops immediately. If LOAD = 0, the timer stops at the end of the time interval."]
+pub struct IVALUE_R(crate::FieldReader<u32, u32>);
+impl IVALUE_R {
+    pub(crate) fn new(bits: u32) -> Self {
+        IVALUE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for IVALUE_R {
+    type Target = crate::FieldReader<u32, u32>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `IVALUE` writer - Time interval load value. This value is loaded into the TIMERn register and the MRT channel n starts counting down from IVALUE -1. If the timer is idle, writing a non-zero value to this bit field starts the timer immediately. If the timer is running, writing a zero to this bit field does the following: If LOAD = 1, the timer stops immediately. If LOAD = 0, the timer stops at the end of the time interval."]
 pub struct IVALUE_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +54,7 @@ impl<'a> IVALUE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x00ff_ffff) | ((value as u32) & 0x00ff_ffff);
+        self.w.bits = (self.w.bits & !0x00ff_ffff) | (value as u32 & 0x00ff_ffff);
         self.w
     }
 }
@@ -38,9 +72,12 @@ impl From<LOAD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LOAD`"]
-pub type LOAD_R = crate::R<bool, LOAD_A>;
+#[doc = "Field `LOAD` reader - Determines how the timer interval value IVALUE -1 is loaded into the TIMERn register. This bit is write-only. Reading this bit always returns 0."]
+pub struct LOAD_R(crate::FieldReader<bool, LOAD_A>);
 impl LOAD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LOAD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LOAD_A {
@@ -52,15 +89,22 @@ impl LOAD_R {
     #[doc = "Checks if the value of the field is `NO_FORCE_LOAD`"]
     #[inline(always)]
     pub fn is_no_force_load(&self) -> bool {
-        *self == LOAD_A::NO_FORCE_LOAD
+        **self == LOAD_A::NO_FORCE_LOAD
     }
     #[doc = "Checks if the value of the field is `FORCE_LOAD`"]
     #[inline(always)]
     pub fn is_force_load(&self) -> bool {
-        *self == LOAD_A::FORCE_LOAD
+        **self == LOAD_A::FORCE_LOAD
     }
 }
-#[doc = "Write proxy for field `LOAD`"]
+impl core::ops::Deref for LOAD_R {
+    type Target = crate::FieldReader<bool, LOAD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LOAD` writer - Determines how the timer interval value IVALUE -1 is loaded into the TIMERn register. This bit is write-only. Reading this bit always returns 0."]
 pub struct LOAD_W<'a> {
     w: &'a mut W,
 }
@@ -68,9 +112,7 @@ impl<'a> LOAD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LOAD_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No force load. The load from the INTVALn register to the TIMERn register is processed at the end of the time interval if the repeat mode is selected."]
     #[inline(always)]
@@ -95,7 +137,7 @@ impl<'a> LOAD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -121,5 +163,30 @@ impl W {
     #[inline(always)]
     pub fn load(&mut self) -> LOAD_W {
         LOAD_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "MRT Time interval value register. This value is loaded into the TIMER register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intval](index.html) module"]
+pub struct INTVAL_SPEC;
+impl crate::RegisterSpec for INTVAL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [intval::R](R) reader structure"]
+impl crate::Readable for INTVAL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [intval::W](W) writer structure"]
+impl crate::Writable for INTVAL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets INTVAL to value 0"]
+impl crate::Resettable for INTVAL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

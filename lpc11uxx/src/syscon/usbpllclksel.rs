@@ -1,13 +1,35 @@
-#[doc = "Reader of register USBPLLCLKSEL"]
-pub type R = crate::R<u32, super::USBPLLCLKSEL>;
-#[doc = "Writer for register USBPLLCLKSEL"]
-pub type W = crate::W<u32, super::USBPLLCLKSEL>;
-#[doc = "Register USBPLLCLKSEL `reset()`'s with value 0"]
-impl crate::ResetValue for super::USBPLLCLKSEL {
-    type Type = u32;
+#[doc = "Register `USBPLLCLKSEL` reader"]
+pub struct R(crate::R<USBPLLCLKSEL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<USBPLLCLKSEL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<USBPLLCLKSEL_SPEC>> for R {
+    fn from(reader: crate::R<USBPLLCLKSEL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `USBPLLCLKSEL` writer"]
+pub struct W(crate::W<USBPLLCLKSEL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<USBPLLCLKSEL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<USBPLLCLKSEL_SPEC>> for W {
+    fn from(writer: crate::W<USBPLLCLKSEL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "USB PLL clock source\n\nValue on reset: 0"]
@@ -25,9 +47,12 @@ impl From<SEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SEL`"]
-pub type SEL_R = crate::R<u8, SEL_A>;
+#[doc = "Field `SEL` reader - USB PLL clock source"]
+pub struct SEL_R(crate::FieldReader<u8, SEL_A>);
 impl SEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SEL_A {
@@ -40,15 +65,22 @@ impl SEL_R {
     #[doc = "Checks if the value of the field is `IRC_THE_USB_PLL_CLO`"]
     #[inline(always)]
     pub fn is_irc_the_usb_pll_clo(&self) -> bool {
-        *self == SEL_A::IRC_THE_USB_PLL_CLO
+        **self == SEL_A::IRC_THE_USB_PLL_CLO
     }
     #[doc = "Checks if the value of the field is `SYSTEM_OSCILLATOR`"]
     #[inline(always)]
     pub fn is_system_oscillator(&self) -> bool {
-        *self == SEL_A::SYSTEM_OSCILLATOR
+        **self == SEL_A::SYSTEM_OSCILLATOR
     }
 }
-#[doc = "Write proxy for field `SEL`"]
+impl core::ops::Deref for SEL_R {
+    type Target = crate::FieldReader<u8, SEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SEL` writer - USB PLL clock source"]
 pub struct SEL_W<'a> {
     w: &'a mut W,
 }
@@ -71,7 +103,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
@@ -87,5 +119,30 @@ impl W {
     #[inline(always)]
     pub fn sel(&mut self) -> SEL_W {
         SEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "USB PLL clock source select\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [usbpllclksel](index.html) module"]
+pub struct USBPLLCLKSEL_SPEC;
+impl crate::RegisterSpec for USBPLLCLKSEL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [usbpllclksel::R](R) reader structure"]
+impl crate::Readable for USBPLLCLKSEL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [usbpllclksel::W](W) writer structure"]
+impl crate::Writable for USBPLLCLKSEL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets USBPLLCLKSEL to value 0"]
+impl crate::Resettable for USBPLLCLKSEL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

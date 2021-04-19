@@ -1,18 +1,52 @@
-#[doc = "Reader of register INTENCLR"]
-pub type R = crate::R<u32, super::INTENCLR>;
-#[doc = "Writer for register INTENCLR"]
-pub type W = crate::W<u32, super::INTENCLR>;
-#[doc = "Register INTENCLR `reset()`'s with value 0"]
-impl crate::ResetValue for super::INTENCLR {
-    type Type = u32;
+#[doc = "Register `INTENCLR` reader"]
+pub struct R(crate::R<INTENCLR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<INTENCLR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `YESTOUCH`"]
-pub type YESTOUCH_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `YESTOUCH`"]
+impl core::convert::From<crate::R<INTENCLR_SPEC>> for R {
+    fn from(reader: crate::R<INTENCLR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `INTENCLR` writer"]
+pub struct W(crate::W<INTENCLR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<INTENCLR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<INTENCLR_SPEC>> for W {
+    fn from(writer: crate::W<INTENCLR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `YESTOUCH` reader - clear the touch interrupt"]
+pub struct YESTOUCH_R(crate::FieldReader<bool, bool>);
+impl YESTOUCH_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        YESTOUCH_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for YESTOUCH_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `YESTOUCH` writer - clear the touch interrupt"]
 pub struct YESTOUCH_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> YESTOUCH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `NOTOUCH`"]
-pub type NOTOUCH_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `NOTOUCH`"]
+#[doc = "Field `NOTOUCH` reader - clear the no-touch interrupt"]
+pub struct NOTOUCH_R(crate::FieldReader<bool, bool>);
+impl NOTOUCH_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        NOTOUCH_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for NOTOUCH_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `NOTOUCH` writer - clear the no-touch interrupt"]
 pub struct NOTOUCH_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> NOTOUCH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `POLLDONE`"]
-pub type POLLDONE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `POLLDONE`"]
+#[doc = "Field `POLLDONE` reader - clear the poll or POLLNOW completing interrupt"]
+pub struct POLLDONE_R(crate::FieldReader<bool, bool>);
+impl POLLDONE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        POLLDONE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for POLLDONE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POLLDONE` writer - clear the poll or POLLNOW completing interrupt"]
 pub struct POLLDONE_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> POLLDONE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `TIMEOUT`"]
-pub type TIMEOUT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TIMEOUT`"]
+#[doc = "Field `TIMEOUT` reader - clear the timeout interrupt"]
+pub struct TIMEOUT_R(crate::FieldReader<bool, bool>);
+impl TIMEOUT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TIMEOUT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TIMEOUT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TIMEOUT` writer - clear the timeout interrupt"]
 pub struct TIMEOUT_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> TIMEOUT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `OVERUN`"]
-pub type OVERUN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `OVERUN`"]
+#[doc = "Field `OVERUN` reader - clear the overrun interrupt"]
+pub struct OVERUN_R(crate::FieldReader<bool, bool>);
+impl OVERUN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        OVERUN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for OVERUN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OVERUN` writer - clear the overrun interrupt"]
 pub struct OVERUN_W<'a> {
     w: &'a mut W,
 }
@@ -126,7 +208,7 @@ impl<'a> OVERUN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -182,5 +264,30 @@ impl W {
     #[inline(always)]
     pub fn overun(&mut self) -> OVERUN_W {
         OVERUN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Interrupt enable clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenclr](index.html) module"]
+pub struct INTENCLR_SPEC;
+impl crate::RegisterSpec for INTENCLR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [intenclr::R](R) reader structure"]
+impl crate::Readable for INTENCLR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [intenclr::W](W) writer structure"]
+impl crate::Writable for INTENCLR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets INTENCLR to value 0"]
+impl crate::Resettable for INTENCLR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

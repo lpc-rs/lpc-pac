@@ -1,13 +1,35 @@
-#[doc = "Reader of register OUTPUTDIRCTRL"]
-pub type R = crate::R<u32, super::OUTPUTDIRCTRL>;
-#[doc = "Writer for register OUTPUTDIRCTRL"]
-pub type W = crate::W<u32, super::OUTPUTDIRCTRL>;
-#[doc = "Register OUTPUTDIRCTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::OUTPUTDIRCTRL {
-    type Type = u32;
+#[doc = "Register `OUTPUTDIRCTRL` reader"]
+pub struct R(crate::R<OUTPUTDIRCTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<OUTPUTDIRCTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<OUTPUTDIRCTRL_SPEC>> for R {
+    fn from(reader: crate::R<OUTPUTDIRCTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `OUTPUTDIRCTRL` writer"]
+pub struct W(crate::W<OUTPUTDIRCTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<OUTPUTDIRCTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<OUTPUTDIRCTRL_SPEC>> for W {
+    fn from(writer: crate::W<OUTPUTDIRCTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Set/clear operation on output 0. Value 0x3 is reserved. Do not program this value.\n\nValue on reset: 0"]
@@ -27,37 +49,46 @@ impl From<SETCLR0_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR0`"]
-pub type SETCLR0_R = crate::R<u8, SETCLR0_A>;
+#[doc = "Field `SETCLR0` reader - Set/clear operation on output 0. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR0_R(crate::FieldReader<u8, SETCLR0_A>);
 impl SETCLR0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR0_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR0_A> {
         match self.bits {
-            0 => Val(SETCLR0_A::INDEPENDENT),
-            1 => Val(SETCLR0_A::L_REVERSED),
-            2 => Val(SETCLR0_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR0_A::INDEPENDENT),
+            1 => Some(SETCLR0_A::L_REVERSED),
+            2 => Some(SETCLR0_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR0_A::INDEPENDENT
+        **self == SETCLR0_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR0_A::L_REVERSED
+        **self == SETCLR0_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR0_A::H_REVERSED
+        **self == SETCLR0_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR0`"]
+impl core::ops::Deref for SETCLR0_R {
+    type Target = crate::FieldReader<u8, SETCLR0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR0` writer - Set/clear operation on output 0. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR0_W<'a> {
     w: &'a mut W,
 }
@@ -85,7 +116,7 @@ impl<'a> SETCLR0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
@@ -106,37 +137,46 @@ impl From<SETCLR1_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR1`"]
-pub type SETCLR1_R = crate::R<u8, SETCLR1_A>;
+#[doc = "Field `SETCLR1` reader - Set/clear operation on output 1. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR1_R(crate::FieldReader<u8, SETCLR1_A>);
 impl SETCLR1_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR1_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR1_A> {
         match self.bits {
-            0 => Val(SETCLR1_A::INDEPENDENT),
-            1 => Val(SETCLR1_A::L_REVERSED),
-            2 => Val(SETCLR1_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR1_A::INDEPENDENT),
+            1 => Some(SETCLR1_A::L_REVERSED),
+            2 => Some(SETCLR1_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR1_A::INDEPENDENT
+        **self == SETCLR1_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR1_A::L_REVERSED
+        **self == SETCLR1_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR1_A::H_REVERSED
+        **self == SETCLR1_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR1`"]
+impl core::ops::Deref for SETCLR1_R {
+    type Target = crate::FieldReader<u8, SETCLR1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR1` writer - Set/clear operation on output 1. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR1_W<'a> {
     w: &'a mut W,
 }
@@ -164,7 +204,7 @@ impl<'a> SETCLR1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | ((value as u32 & 0x03) << 2);
         self.w
     }
 }
@@ -185,37 +225,46 @@ impl From<SETCLR2_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR2`"]
-pub type SETCLR2_R = crate::R<u8, SETCLR2_A>;
+#[doc = "Field `SETCLR2` reader - Set/clear operation on output 2. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR2_R(crate::FieldReader<u8, SETCLR2_A>);
 impl SETCLR2_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR2_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR2_A> {
         match self.bits {
-            0 => Val(SETCLR2_A::INDEPENDENT),
-            1 => Val(SETCLR2_A::L_REVERSED),
-            2 => Val(SETCLR2_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR2_A::INDEPENDENT),
+            1 => Some(SETCLR2_A::L_REVERSED),
+            2 => Some(SETCLR2_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR2_A::INDEPENDENT
+        **self == SETCLR2_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR2_A::L_REVERSED
+        **self == SETCLR2_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR2_A::H_REVERSED
+        **self == SETCLR2_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR2`"]
+impl core::ops::Deref for SETCLR2_R {
+    type Target = crate::FieldReader<u8, SETCLR2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR2` writer - Set/clear operation on output 2. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR2_W<'a> {
     w: &'a mut W,
 }
@@ -243,7 +292,7 @@ impl<'a> SETCLR2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | ((value as u32 & 0x03) << 4);
         self.w
     }
 }
@@ -264,37 +313,46 @@ impl From<SETCLR3_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR3`"]
-pub type SETCLR3_R = crate::R<u8, SETCLR3_A>;
+#[doc = "Field `SETCLR3` reader - Set/clear operation on output 3. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR3_R(crate::FieldReader<u8, SETCLR3_A>);
 impl SETCLR3_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR3_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR3_A> {
         match self.bits {
-            0 => Val(SETCLR3_A::INDEPENDENT),
-            1 => Val(SETCLR3_A::L_REVERSED),
-            2 => Val(SETCLR3_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR3_A::INDEPENDENT),
+            1 => Some(SETCLR3_A::L_REVERSED),
+            2 => Some(SETCLR3_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR3_A::INDEPENDENT
+        **self == SETCLR3_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR3_A::L_REVERSED
+        **self == SETCLR3_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR3_A::H_REVERSED
+        **self == SETCLR3_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR3`"]
+impl core::ops::Deref for SETCLR3_R {
+    type Target = crate::FieldReader<u8, SETCLR3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR3` writer - Set/clear operation on output 3. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR3_W<'a> {
     w: &'a mut W,
 }
@@ -322,7 +380,7 @@ impl<'a> SETCLR3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | ((value as u32 & 0x03) << 6);
         self.w
     }
 }
@@ -343,37 +401,46 @@ impl From<SETCLR4_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR4`"]
-pub type SETCLR4_R = crate::R<u8, SETCLR4_A>;
+#[doc = "Field `SETCLR4` reader - Set/clear operation on output 4. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR4_R(crate::FieldReader<u8, SETCLR4_A>);
 impl SETCLR4_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR4_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR4_A> {
         match self.bits {
-            0 => Val(SETCLR4_A::INDEPENDENT),
-            1 => Val(SETCLR4_A::L_REVERSED),
-            2 => Val(SETCLR4_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR4_A::INDEPENDENT),
+            1 => Some(SETCLR4_A::L_REVERSED),
+            2 => Some(SETCLR4_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR4_A::INDEPENDENT
+        **self == SETCLR4_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR4_A::L_REVERSED
+        **self == SETCLR4_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR4_A::H_REVERSED
+        **self == SETCLR4_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR4`"]
+impl core::ops::Deref for SETCLR4_R {
+    type Target = crate::FieldReader<u8, SETCLR4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR4` writer - Set/clear operation on output 4. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR4_W<'a> {
     w: &'a mut W,
 }
@@ -401,7 +468,7 @@ impl<'a> SETCLR4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | ((value as u32 & 0x03) << 8);
         self.w
     }
 }
@@ -422,37 +489,46 @@ impl From<SETCLR5_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR5`"]
-pub type SETCLR5_R = crate::R<u8, SETCLR5_A>;
+#[doc = "Field `SETCLR5` reader - Set/clear operation on output 5. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR5_R(crate::FieldReader<u8, SETCLR5_A>);
 impl SETCLR5_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR5_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR5_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR5_A> {
         match self.bits {
-            0 => Val(SETCLR5_A::INDEPENDENT),
-            1 => Val(SETCLR5_A::L_REVERSED),
-            2 => Val(SETCLR5_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR5_A::INDEPENDENT),
+            1 => Some(SETCLR5_A::L_REVERSED),
+            2 => Some(SETCLR5_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR5_A::INDEPENDENT
+        **self == SETCLR5_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR5_A::L_REVERSED
+        **self == SETCLR5_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR5_A::H_REVERSED
+        **self == SETCLR5_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR5`"]
+impl core::ops::Deref for SETCLR5_R {
+    type Target = crate::FieldReader<u8, SETCLR5_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR5` writer - Set/clear operation on output 5. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR5_W<'a> {
     w: &'a mut W,
 }
@@ -480,7 +556,7 @@ impl<'a> SETCLR5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 10)) | (((value as u32) & 0x03) << 10);
+        self.w.bits = (self.w.bits & !(0x03 << 10)) | ((value as u32 & 0x03) << 10);
         self.w
     }
 }
@@ -501,37 +577,46 @@ impl From<SETCLR6_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR6`"]
-pub type SETCLR6_R = crate::R<u8, SETCLR6_A>;
+#[doc = "Field `SETCLR6` reader - Set/clear operation on output 6. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR6_R(crate::FieldReader<u8, SETCLR6_A>);
 impl SETCLR6_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR6_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR6_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR6_A> {
         match self.bits {
-            0 => Val(SETCLR6_A::INDEPENDENT),
-            1 => Val(SETCLR6_A::L_REVERSED),
-            2 => Val(SETCLR6_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR6_A::INDEPENDENT),
+            1 => Some(SETCLR6_A::L_REVERSED),
+            2 => Some(SETCLR6_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR6_A::INDEPENDENT
+        **self == SETCLR6_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR6_A::L_REVERSED
+        **self == SETCLR6_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR6_A::H_REVERSED
+        **self == SETCLR6_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR6`"]
+impl core::ops::Deref for SETCLR6_R {
+    type Target = crate::FieldReader<u8, SETCLR6_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR6` writer - Set/clear operation on output 6. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR6_W<'a> {
     w: &'a mut W,
 }
@@ -559,7 +644,7 @@ impl<'a> SETCLR6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 12)) | (((value as u32) & 0x03) << 12);
+        self.w.bits = (self.w.bits & !(0x03 << 12)) | ((value as u32 & 0x03) << 12);
         self.w
     }
 }
@@ -580,37 +665,46 @@ impl From<SETCLR7_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR7`"]
-pub type SETCLR7_R = crate::R<u8, SETCLR7_A>;
+#[doc = "Field `SETCLR7` reader - Set/clear operation on output 7. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR7_R(crate::FieldReader<u8, SETCLR7_A>);
 impl SETCLR7_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR7_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR7_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR7_A> {
         match self.bits {
-            0 => Val(SETCLR7_A::INDEPENDENT),
-            1 => Val(SETCLR7_A::L_REVERSED),
-            2 => Val(SETCLR7_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR7_A::INDEPENDENT),
+            1 => Some(SETCLR7_A::L_REVERSED),
+            2 => Some(SETCLR7_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR7_A::INDEPENDENT
+        **self == SETCLR7_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR7_A::L_REVERSED
+        **self == SETCLR7_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR7_A::H_REVERSED
+        **self == SETCLR7_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR7`"]
+impl core::ops::Deref for SETCLR7_R {
+    type Target = crate::FieldReader<u8, SETCLR7_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR7` writer - Set/clear operation on output 7. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR7_W<'a> {
     w: &'a mut W,
 }
@@ -638,7 +732,7 @@ impl<'a> SETCLR7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 14)) | (((value as u32) & 0x03) << 14);
+        self.w.bits = (self.w.bits & !(0x03 << 14)) | ((value as u32 & 0x03) << 14);
         self.w
     }
 }
@@ -659,37 +753,46 @@ impl From<SETCLR8_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR8`"]
-pub type SETCLR8_R = crate::R<u8, SETCLR8_A>;
+#[doc = "Field `SETCLR8` reader - Set/clear operation on output 8. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR8_R(crate::FieldReader<u8, SETCLR8_A>);
 impl SETCLR8_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR8_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR8_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR8_A> {
         match self.bits {
-            0 => Val(SETCLR8_A::INDEPENDENT),
-            1 => Val(SETCLR8_A::L_REVERSED),
-            2 => Val(SETCLR8_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR8_A::INDEPENDENT),
+            1 => Some(SETCLR8_A::L_REVERSED),
+            2 => Some(SETCLR8_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR8_A::INDEPENDENT
+        **self == SETCLR8_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR8_A::L_REVERSED
+        **self == SETCLR8_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR8_A::H_REVERSED
+        **self == SETCLR8_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR8`"]
+impl core::ops::Deref for SETCLR8_R {
+    type Target = crate::FieldReader<u8, SETCLR8_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR8` writer - Set/clear operation on output 8. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR8_W<'a> {
     w: &'a mut W,
 }
@@ -717,7 +820,7 @@ impl<'a> SETCLR8_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 16)) | (((value as u32) & 0x03) << 16);
+        self.w.bits = (self.w.bits & !(0x03 << 16)) | ((value as u32 & 0x03) << 16);
         self.w
     }
 }
@@ -738,37 +841,46 @@ impl From<SETCLR9_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR9`"]
-pub type SETCLR9_R = crate::R<u8, SETCLR9_A>;
+#[doc = "Field `SETCLR9` reader - Set/clear operation on output 9. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR9_R(crate::FieldReader<u8, SETCLR9_A>);
 impl SETCLR9_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR9_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR9_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR9_A> {
         match self.bits {
-            0 => Val(SETCLR9_A::INDEPENDENT),
-            1 => Val(SETCLR9_A::L_REVERSED),
-            2 => Val(SETCLR9_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR9_A::INDEPENDENT),
+            1 => Some(SETCLR9_A::L_REVERSED),
+            2 => Some(SETCLR9_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR9_A::INDEPENDENT
+        **self == SETCLR9_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR9_A::L_REVERSED
+        **self == SETCLR9_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR9_A::H_REVERSED
+        **self == SETCLR9_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR9`"]
+impl core::ops::Deref for SETCLR9_R {
+    type Target = crate::FieldReader<u8, SETCLR9_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR9` writer - Set/clear operation on output 9. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR9_W<'a> {
     w: &'a mut W,
 }
@@ -796,7 +908,7 @@ impl<'a> SETCLR9_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 18)) | (((value as u32) & 0x03) << 18);
+        self.w.bits = (self.w.bits & !(0x03 << 18)) | ((value as u32 & 0x03) << 18);
         self.w
     }
 }
@@ -817,37 +929,46 @@ impl From<SETCLR10_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR10`"]
-pub type SETCLR10_R = crate::R<u8, SETCLR10_A>;
+#[doc = "Field `SETCLR10` reader - Set/clear operation on output 10. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR10_R(crate::FieldReader<u8, SETCLR10_A>);
 impl SETCLR10_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR10_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR10_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR10_A> {
         match self.bits {
-            0 => Val(SETCLR10_A::INDEPENDENT),
-            1 => Val(SETCLR10_A::L_REVERSED),
-            2 => Val(SETCLR10_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR10_A::INDEPENDENT),
+            1 => Some(SETCLR10_A::L_REVERSED),
+            2 => Some(SETCLR10_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR10_A::INDEPENDENT
+        **self == SETCLR10_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR10_A::L_REVERSED
+        **self == SETCLR10_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR10_A::H_REVERSED
+        **self == SETCLR10_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR10`"]
+impl core::ops::Deref for SETCLR10_R {
+    type Target = crate::FieldReader<u8, SETCLR10_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR10` writer - Set/clear operation on output 10. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR10_W<'a> {
     w: &'a mut W,
 }
@@ -875,7 +996,7 @@ impl<'a> SETCLR10_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 20)) | (((value as u32) & 0x03) << 20);
+        self.w.bits = (self.w.bits & !(0x03 << 20)) | ((value as u32 & 0x03) << 20);
         self.w
     }
 }
@@ -896,37 +1017,46 @@ impl From<SETCLR11_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR11`"]
-pub type SETCLR11_R = crate::R<u8, SETCLR11_A>;
+#[doc = "Field `SETCLR11` reader - Set/clear operation on output 11. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR11_R(crate::FieldReader<u8, SETCLR11_A>);
 impl SETCLR11_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR11_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR11_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR11_A> {
         match self.bits {
-            0 => Val(SETCLR11_A::INDEPENDENT),
-            1 => Val(SETCLR11_A::L_REVERSED),
-            2 => Val(SETCLR11_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR11_A::INDEPENDENT),
+            1 => Some(SETCLR11_A::L_REVERSED),
+            2 => Some(SETCLR11_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR11_A::INDEPENDENT
+        **self == SETCLR11_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR11_A::L_REVERSED
+        **self == SETCLR11_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR11_A::H_REVERSED
+        **self == SETCLR11_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR11`"]
+impl core::ops::Deref for SETCLR11_R {
+    type Target = crate::FieldReader<u8, SETCLR11_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR11` writer - Set/clear operation on output 11. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR11_W<'a> {
     w: &'a mut W,
 }
@@ -954,7 +1084,7 @@ impl<'a> SETCLR11_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 22)) | (((value as u32) & 0x03) << 22);
+        self.w.bits = (self.w.bits & !(0x03 << 22)) | ((value as u32 & 0x03) << 22);
         self.w
     }
 }
@@ -975,37 +1105,46 @@ impl From<SETCLR12_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR12`"]
-pub type SETCLR12_R = crate::R<u8, SETCLR12_A>;
+#[doc = "Field `SETCLR12` reader - Set/clear operation on output 12. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR12_R(crate::FieldReader<u8, SETCLR12_A>);
 impl SETCLR12_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR12_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR12_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR12_A> {
         match self.bits {
-            0 => Val(SETCLR12_A::INDEPENDENT),
-            1 => Val(SETCLR12_A::L_REVERSED),
-            2 => Val(SETCLR12_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR12_A::INDEPENDENT),
+            1 => Some(SETCLR12_A::L_REVERSED),
+            2 => Some(SETCLR12_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR12_A::INDEPENDENT
+        **self == SETCLR12_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR12_A::L_REVERSED
+        **self == SETCLR12_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR12_A::H_REVERSED
+        **self == SETCLR12_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR12`"]
+impl core::ops::Deref for SETCLR12_R {
+    type Target = crate::FieldReader<u8, SETCLR12_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR12` writer - Set/clear operation on output 12. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR12_W<'a> {
     w: &'a mut W,
 }
@@ -1033,7 +1172,7 @@ impl<'a> SETCLR12_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 24)) | (((value as u32) & 0x03) << 24);
+        self.w.bits = (self.w.bits & !(0x03 << 24)) | ((value as u32 & 0x03) << 24);
         self.w
     }
 }
@@ -1054,37 +1193,46 @@ impl From<SETCLR13_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR13`"]
-pub type SETCLR13_R = crate::R<u8, SETCLR13_A>;
+#[doc = "Field `SETCLR13` reader - Set/clear operation on output 13. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR13_R(crate::FieldReader<u8, SETCLR13_A>);
 impl SETCLR13_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR13_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR13_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR13_A> {
         match self.bits {
-            0 => Val(SETCLR13_A::INDEPENDENT),
-            1 => Val(SETCLR13_A::L_REVERSED),
-            2 => Val(SETCLR13_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR13_A::INDEPENDENT),
+            1 => Some(SETCLR13_A::L_REVERSED),
+            2 => Some(SETCLR13_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR13_A::INDEPENDENT
+        **self == SETCLR13_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR13_A::L_REVERSED
+        **self == SETCLR13_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR13_A::H_REVERSED
+        **self == SETCLR13_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR13`"]
+impl core::ops::Deref for SETCLR13_R {
+    type Target = crate::FieldReader<u8, SETCLR13_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR13` writer - Set/clear operation on output 13. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR13_W<'a> {
     w: &'a mut W,
 }
@@ -1112,7 +1260,7 @@ impl<'a> SETCLR13_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 26)) | (((value as u32) & 0x03) << 26);
+        self.w.bits = (self.w.bits & !(0x03 << 26)) | ((value as u32 & 0x03) << 26);
         self.w
     }
 }
@@ -1133,37 +1281,46 @@ impl From<SETCLR14_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR14`"]
-pub type SETCLR14_R = crate::R<u8, SETCLR14_A>;
+#[doc = "Field `SETCLR14` reader - Set/clear operation on output 14. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR14_R(crate::FieldReader<u8, SETCLR14_A>);
 impl SETCLR14_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR14_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR14_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR14_A> {
         match self.bits {
-            0 => Val(SETCLR14_A::INDEPENDENT),
-            1 => Val(SETCLR14_A::L_REVERSED),
-            2 => Val(SETCLR14_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR14_A::INDEPENDENT),
+            1 => Some(SETCLR14_A::L_REVERSED),
+            2 => Some(SETCLR14_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR14_A::INDEPENDENT
+        **self == SETCLR14_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR14_A::L_REVERSED
+        **self == SETCLR14_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR14_A::H_REVERSED
+        **self == SETCLR14_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR14`"]
+impl core::ops::Deref for SETCLR14_R {
+    type Target = crate::FieldReader<u8, SETCLR14_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR14` writer - Set/clear operation on output 14. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR14_W<'a> {
     w: &'a mut W,
 }
@@ -1191,7 +1348,7 @@ impl<'a> SETCLR14_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 28)) | (((value as u32) & 0x03) << 28);
+        self.w.bits = (self.w.bits & !(0x03 << 28)) | ((value as u32 & 0x03) << 28);
         self.w
     }
 }
@@ -1212,37 +1369,46 @@ impl From<SETCLR15_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SETCLR15`"]
-pub type SETCLR15_R = crate::R<u8, SETCLR15_A>;
+#[doc = "Field `SETCLR15` reader - Set/clear operation on output 15. Value 0x3 is reserved. Do not program this value."]
+pub struct SETCLR15_R(crate::FieldReader<u8, SETCLR15_A>);
 impl SETCLR15_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SETCLR15_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SETCLR15_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SETCLR15_A> {
         match self.bits {
-            0 => Val(SETCLR15_A::INDEPENDENT),
-            1 => Val(SETCLR15_A::L_REVERSED),
-            2 => Val(SETCLR15_A::H_REVERSED),
-            i => Res(i),
+            0 => Some(SETCLR15_A::INDEPENDENT),
+            1 => Some(SETCLR15_A::L_REVERSED),
+            2 => Some(SETCLR15_A::H_REVERSED),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `INDEPENDENT`"]
     #[inline(always)]
     pub fn is_independent(&self) -> bool {
-        *self == SETCLR15_A::INDEPENDENT
+        **self == SETCLR15_A::INDEPENDENT
     }
     #[doc = "Checks if the value of the field is `L_REVERSED`"]
     #[inline(always)]
     pub fn is_l_reversed(&self) -> bool {
-        *self == SETCLR15_A::L_REVERSED
+        **self == SETCLR15_A::L_REVERSED
     }
     #[doc = "Checks if the value of the field is `H_REVERSED`"]
     #[inline(always)]
     pub fn is_h_reversed(&self) -> bool {
-        *self == SETCLR15_A::H_REVERSED
+        **self == SETCLR15_A::H_REVERSED
     }
 }
-#[doc = "Write proxy for field `SETCLR15`"]
+impl core::ops::Deref for SETCLR15_R {
+    type Target = crate::FieldReader<u8, SETCLR15_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETCLR15` writer - Set/clear operation on output 15. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR15_W<'a> {
     w: &'a mut W,
 }
@@ -1270,7 +1436,7 @@ impl<'a> SETCLR15_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 30)) | (((value as u32) & 0x03) << 30);
+        self.w.bits = (self.w.bits & !(0x03 << 30)) | ((value as u32 & 0x03) << 30);
         self.w
     }
 }
@@ -1436,5 +1602,30 @@ impl W {
     #[inline(always)]
     pub fn setclr15(&mut self) -> SETCLR15_W {
         SETCLR15_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "SCT output counter direction control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [outputdirctrl](index.html) module"]
+pub struct OUTPUTDIRCTRL_SPEC;
+impl crate::RegisterSpec for OUTPUTDIRCTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [outputdirctrl::R](R) reader structure"]
+impl crate::Readable for OUTPUTDIRCTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [outputdirctrl::W](W) writer structure"]
+impl crate::Writable for OUTPUTDIRCTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets OUTPUTDIRCTRL to value 0"]
+impl crate::Resettable for OUTPUTDIRCTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

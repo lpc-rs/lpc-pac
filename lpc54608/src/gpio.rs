@@ -8,40 +8,40 @@ pub struct RegisterBlock {
     pub w: [W; 6],
     _reserved2: [u8; 3328usize],
     #[doc = "0x2000 - Direction registers"]
-    pub dir: [DIR; 6],
+    pub dir: [crate::Reg<dir::DIR_SPEC>; 6],
     _reserved3: [u8; 104usize],
     #[doc = "0x2080 - Mask register"]
-    pub mask: [MASK; 6],
+    pub mask: [crate::Reg<mask::MASK_SPEC>; 6],
     _reserved4: [u8; 104usize],
     #[doc = "0x2100 - Port pin register"]
-    pub pin: [PIN; 6],
+    pub pin: [crate::Reg<pin::PIN_SPEC>; 6],
     _reserved5: [u8; 104usize],
     #[doc = "0x2180 - Masked port register"]
-    pub mpin: [MPIN; 6],
+    pub mpin: [crate::Reg<mpin::MPIN_SPEC>; 6],
     _reserved6: [u8; 104usize],
     #[doc = "0x2200 - Write: Set register for port Read: output bits for port"]
-    pub set: [SET; 6],
+    pub set: [crate::Reg<set::SET_SPEC>; 6],
     _reserved7: [u8; 104usize],
     #[doc = "0x2280 - Clear port"]
-    pub clr: [CLR; 6],
+    pub clr: [crate::Reg<clr::CLR_SPEC>; 6],
     _reserved8: [u8; 104usize],
     #[doc = "0x2300 - Toggle port"]
-    pub not: [NOT; 6],
+    pub not: [crate::Reg<not::NOT_SPEC>; 6],
     _reserved9: [u8; 104usize],
     #[doc = "0x2380 - Set pin direction bits for port"]
-    pub dirset: [DIRSET; 6],
+    pub dirset: [crate::Reg<dirset::DIRSET_SPEC>; 6],
     _reserved10: [u8; 104usize],
     #[doc = "0x2400 - Clear pin direction bits for port"]
-    pub dirclr: [DIRCLR; 6],
+    pub dirclr: [crate::Reg<dirclr::DIRCLR_SPEC>; 6],
     _reserved11: [u8; 104usize],
     #[doc = "0x2480 - Toggle pin direction bits for port"]
-    pub dirnot: [DIRNOT; 6],
+    pub dirnot: [crate::Reg<dirnot::DIRNOT_SPEC>; 6],
 }
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct B {
     #[doc = "0x00 - Byte pin registers for all port 0 and 1 GPIO pins"]
-    pub b_: [self::b::B_; 32],
+    pub b_: [crate::Reg<self::b::b_::B__SPEC>; 32],
 }
 #[doc = r"Register block"]
 #[doc = "no description available"]
@@ -50,108 +50,48 @@ pub mod b;
 #[repr(C)]
 pub struct W {
     #[doc = "0x00 - Word pin registers for all port 0 and 1 GPIO pins"]
-    pub w_: [self::w::W_; 32],
+    pub w_: [crate::Reg<self::w::w_::W__SPEC>; 32],
 }
 #[doc = r"Register block"]
 #[doc = "no description available"]
 pub mod w;
-#[doc = "Direction registers\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dir](dir) module"]
-pub type DIR = crate::Reg<u32, _DIR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _DIR;
-#[doc = "`read()` method returns [dir::R](dir::R) reader structure"]
-impl crate::Readable for DIR {}
-#[doc = "`write(|w| ..)` method takes [dir::W](dir::W) writer structure"]
-impl crate::Writable for DIR {}
+#[doc = "DIR register accessor: an alias for `Reg<DIR_SPEC>`"]
+pub type DIR = crate::Reg<dir::DIR_SPEC>;
 #[doc = "Direction registers"]
 pub mod dir;
-#[doc = "Mask register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mask](mask) module"]
-pub type MASK = crate::Reg<u32, _MASK>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _MASK;
-#[doc = "`read()` method returns [mask::R](mask::R) reader structure"]
-impl crate::Readable for MASK {}
-#[doc = "`write(|w| ..)` method takes [mask::W](mask::W) writer structure"]
-impl crate::Writable for MASK {}
+#[doc = "MASK register accessor: an alias for `Reg<MASK_SPEC>`"]
+pub type MASK = crate::Reg<mask::MASK_SPEC>;
 #[doc = "Mask register"]
 pub mod mask;
-#[doc = "Port pin register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pin](pin) module"]
-pub type PIN = crate::Reg<u32, _PIN>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PIN;
-#[doc = "`read()` method returns [pin::R](pin::R) reader structure"]
-impl crate::Readable for PIN {}
-#[doc = "`write(|w| ..)` method takes [pin::W](pin::W) writer structure"]
-impl crate::Writable for PIN {}
+#[doc = "PIN register accessor: an alias for `Reg<PIN_SPEC>`"]
+pub type PIN = crate::Reg<pin::PIN_SPEC>;
 #[doc = "Port pin register"]
 pub mod pin;
-#[doc = "Masked port register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mpin](mpin) module"]
-pub type MPIN = crate::Reg<u32, _MPIN>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _MPIN;
-#[doc = "`read()` method returns [mpin::R](mpin::R) reader structure"]
-impl crate::Readable for MPIN {}
-#[doc = "`write(|w| ..)` method takes [mpin::W](mpin::W) writer structure"]
-impl crate::Writable for MPIN {}
+#[doc = "MPIN register accessor: an alias for `Reg<MPIN_SPEC>`"]
+pub type MPIN = crate::Reg<mpin::MPIN_SPEC>;
 #[doc = "Masked port register"]
 pub mod mpin;
-#[doc = "Write: Set register for port Read: output bits for port\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [set](set) module"]
-pub type SET = crate::Reg<u32, _SET>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SET;
-#[doc = "`read()` method returns [set::R](set::R) reader structure"]
-impl crate::Readable for SET {}
-#[doc = "`write(|w| ..)` method takes [set::W](set::W) writer structure"]
-impl crate::Writable for SET {}
+#[doc = "SET register accessor: an alias for `Reg<SET_SPEC>`"]
+pub type SET = crate::Reg<set::SET_SPEC>;
 #[doc = "Write: Set register for port Read: output bits for port"]
 pub mod set;
-#[doc = "Clear port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clr](clr) module"]
-pub type CLR = crate::Reg<u32, _CLR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLR;
-#[doc = "`write(|w| ..)` method takes [clr::W](clr::W) writer structure"]
-impl crate::Writable for CLR {}
+#[doc = "CLR register accessor: an alias for `Reg<CLR_SPEC>`"]
+pub type CLR = crate::Reg<clr::CLR_SPEC>;
 #[doc = "Clear port"]
 pub mod clr;
-#[doc = "Toggle port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [not](not) module"]
-pub type NOT = crate::Reg<u32, _NOT>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _NOT;
-#[doc = "`write(|w| ..)` method takes [not::W](not::W) writer structure"]
-impl crate::Writable for NOT {}
+#[doc = "NOT register accessor: an alias for `Reg<NOT_SPEC>`"]
+pub type NOT = crate::Reg<not::NOT_SPEC>;
 #[doc = "Toggle port"]
 pub mod not;
-#[doc = "Set pin direction bits for port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dirset](dirset) module"]
-pub type DIRSET = crate::Reg<u32, _DIRSET>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _DIRSET;
-#[doc = "`write(|w| ..)` method takes [dirset::W](dirset::W) writer structure"]
-impl crate::Writable for DIRSET {}
+#[doc = "DIRSET register accessor: an alias for `Reg<DIRSET_SPEC>`"]
+pub type DIRSET = crate::Reg<dirset::DIRSET_SPEC>;
 #[doc = "Set pin direction bits for port"]
 pub mod dirset;
-#[doc = "Clear pin direction bits for port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dirclr](dirclr) module"]
-pub type DIRCLR = crate::Reg<u32, _DIRCLR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _DIRCLR;
-#[doc = "`write(|w| ..)` method takes [dirclr::W](dirclr::W) writer structure"]
-impl crate::Writable for DIRCLR {}
+#[doc = "DIRCLR register accessor: an alias for `Reg<DIRCLR_SPEC>`"]
+pub type DIRCLR = crate::Reg<dirclr::DIRCLR_SPEC>;
 #[doc = "Clear pin direction bits for port"]
 pub mod dirclr;
-#[doc = "Toggle pin direction bits for port\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dirnot](dirnot) module"]
-pub type DIRNOT = crate::Reg<u32, _DIRNOT>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _DIRNOT;
-#[doc = "`write(|w| ..)` method takes [dirnot::W](dirnot::W) writer structure"]
-impl crate::Writable for DIRNOT {}
+#[doc = "DIRNOT register accessor: an alias for `Reg<DIRNOT_SPEC>`"]
+pub type DIRNOT = crate::Reg<dirnot::DIRNOT_SPEC>;
 #[doc = "Toggle pin direction bits for port"]
 pub mod dirnot;

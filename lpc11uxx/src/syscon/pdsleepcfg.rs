@@ -1,13 +1,35 @@
-#[doc = "Reader of register PDSLEEPCFG"]
-pub type R = crate::R<u32, super::PDSLEEPCFG>;
-#[doc = "Writer for register PDSLEEPCFG"]
-pub type W = crate::W<u32, super::PDSLEEPCFG>;
-#[doc = "Register PDSLEEPCFG `reset()`'s with value 0xffff"]
-impl crate::ResetValue for super::PDSLEEPCFG {
-    type Type = u32;
+#[doc = "Register `PDSLEEPCFG` reader"]
+pub struct R(crate::R<PDSLEEPCFG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PDSLEEPCFG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0xffff
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<PDSLEEPCFG_SPEC>> for R {
+    fn from(reader: crate::R<PDSLEEPCFG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PDSLEEPCFG` writer"]
+pub struct W(crate::W<PDSLEEPCFG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PDSLEEPCFG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PDSLEEPCFG_SPEC>> for W {
+    fn from(writer: crate::W<PDSLEEPCFG_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "BOD power-down control for Deep-sleep and Power-down mode\n\nValue on reset: 1"]
@@ -24,9 +46,12 @@ impl From<BOD_PD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BOD_PD`"]
-pub type BOD_PD_R = crate::R<bool, BOD_PD_A>;
+#[doc = "Field `BOD_PD` reader - BOD power-down control for Deep-sleep and Power-down mode"]
+pub struct BOD_PD_R(crate::FieldReader<bool, BOD_PD_A>);
 impl BOD_PD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BOD_PD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BOD_PD_A {
@@ -38,15 +63,22 @@ impl BOD_PD_R {
     #[doc = "Checks if the value of the field is `POWERED`"]
     #[inline(always)]
     pub fn is_powered(&self) -> bool {
-        *self == BOD_PD_A::POWERED
+        **self == BOD_PD_A::POWERED
     }
     #[doc = "Checks if the value of the field is `POWERED_DOWN`"]
     #[inline(always)]
     pub fn is_powered_down(&self) -> bool {
-        *self == BOD_PD_A::POWERED_DOWN
+        **self == BOD_PD_A::POWERED_DOWN
     }
 }
-#[doc = "Write proxy for field `BOD_PD`"]
+impl core::ops::Deref for BOD_PD_R {
+    type Target = crate::FieldReader<bool, BOD_PD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BOD_PD` writer - BOD power-down control for Deep-sleep and Power-down mode"]
 pub struct BOD_PD_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> BOD_PD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BOD_PD_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Powered"]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> BOD_PD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<WDTOSC_PD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WDTOSC_PD`"]
-pub type WDTOSC_PD_R = crate::R<bool, WDTOSC_PD_A>;
+#[doc = "Field `WDTOSC_PD` reader - Watchdog oscillator power-down control for Deep-sleep and Power-down mode"]
+pub struct WDTOSC_PD_R(crate::FieldReader<bool, WDTOSC_PD_A>);
 impl WDTOSC_PD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WDTOSC_PD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WDTOSC_PD_A {
@@ -113,15 +146,22 @@ impl WDTOSC_PD_R {
     #[doc = "Checks if the value of the field is `POWERED`"]
     #[inline(always)]
     pub fn is_powered(&self) -> bool {
-        *self == WDTOSC_PD_A::POWERED
+        **self == WDTOSC_PD_A::POWERED
     }
     #[doc = "Checks if the value of the field is `POWERED_DOWN`"]
     #[inline(always)]
     pub fn is_powered_down(&self) -> bool {
-        *self == WDTOSC_PD_A::POWERED_DOWN
+        **self == WDTOSC_PD_A::POWERED_DOWN
     }
 }
-#[doc = "Write proxy for field `WDTOSC_PD`"]
+impl core::ops::Deref for WDTOSC_PD_R {
+    type Target = crate::FieldReader<bool, WDTOSC_PD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WDTOSC_PD` writer - Watchdog oscillator power-down control for Deep-sleep and Power-down mode"]
 pub struct WDTOSC_PD_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> WDTOSC_PD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WDTOSC_PD_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Powered"]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> WDTOSC_PD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
@@ -182,5 +220,30 @@ impl W {
     #[inline(always)]
     pub fn wdtosc_pd(&mut self) -> WDTOSC_PD_W {
         WDTOSC_PD_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Power-down states in deep-sleep mode\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pdsleepcfg](index.html) module"]
+pub struct PDSLEEPCFG_SPEC;
+impl crate::RegisterSpec for PDSLEEPCFG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pdsleepcfg::R](R) reader structure"]
+impl crate::Readable for PDSLEEPCFG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pdsleepcfg::W](W) writer structure"]
+impl crate::Writable for PDSLEEPCFG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PDSLEEPCFG to value 0xffff"]
+impl crate::Resettable for PDSLEEPCFG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0xffff
     }
 }

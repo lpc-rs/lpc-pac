@@ -1,13 +1,35 @@
-#[doc = "Reader of register FIFOTRIG"]
-pub type R = crate::R<u32, super::FIFOTRIG>;
-#[doc = "Writer for register FIFOTRIG"]
-pub type W = crate::W<u32, super::FIFOTRIG>;
-#[doc = "Register FIFOTRIG `reset()`'s with value 0"]
-impl crate::ResetValue for super::FIFOTRIG {
-    type Type = u32;
+#[doc = "Register `FIFOTRIG` reader"]
+pub struct R(crate::R<FIFOTRIG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FIFOTRIG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<FIFOTRIG_SPEC>> for R {
+    fn from(reader: crate::R<FIFOTRIG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FIFOTRIG` writer"]
+pub struct W(crate::W<FIFOTRIG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FIFOTRIG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FIFOTRIG_SPEC>> for W {
+    fn from(writer: crate::W<FIFOTRIG_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Transmit FIFO level trigger enable. This trigger will become an interrupt if enabled in FIFOINTENSET, or a DMA trigger if DMATX in FIFOCFG is set.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<TXLVLENA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TXLVLENA`"]
-pub type TXLVLENA_R = crate::R<bool, TXLVLENA_A>;
+#[doc = "Field `TXLVLENA` reader - Transmit FIFO level trigger enable. This trigger will become an interrupt if enabled in FIFOINTENSET, or a DMA trigger if DMATX in FIFOCFG is set."]
+pub struct TXLVLENA_R(crate::FieldReader<bool, TXLVLENA_A>);
 impl TXLVLENA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TXLVLENA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TXLVLENA_A {
@@ -38,15 +63,22 @@ impl TXLVLENA_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == TXLVLENA_A::DISABLED
+        **self == TXLVLENA_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == TXLVLENA_A::ENABLED
+        **self == TXLVLENA_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `TXLVLENA`"]
+impl core::ops::Deref for TXLVLENA_R {
+    type Target = crate::FieldReader<bool, TXLVLENA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXLVLENA` writer - Transmit FIFO level trigger enable. This trigger will become an interrupt if enabled in FIFOINTENSET, or a DMA trigger if DMATX in FIFOCFG is set."]
 pub struct TXLVLENA_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> TXLVLENA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TXLVLENA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Transmit FIFO level does not generate a FIFO level trigger."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> TXLVLENA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<RXLVLENA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RXLVLENA`"]
-pub type RXLVLENA_R = crate::R<bool, RXLVLENA_A>;
+#[doc = "Field `RXLVLENA` reader - Receive FIFO level trigger enable. This trigger will become an interrupt if enabled in FIFOINTENSET, or a DMA trigger if DMARX in FIFOCFG is set."]
+pub struct RXLVLENA_R(crate::FieldReader<bool, RXLVLENA_A>);
 impl RXLVLENA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RXLVLENA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RXLVLENA_A {
@@ -113,15 +146,22 @@ impl RXLVLENA_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == RXLVLENA_A::DISABLED
+        **self == RXLVLENA_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == RXLVLENA_A::ENABLED
+        **self == RXLVLENA_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `RXLVLENA`"]
+impl core::ops::Deref for RXLVLENA_R {
+    type Target = crate::FieldReader<bool, RXLVLENA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RXLVLENA` writer - Receive FIFO level trigger enable. This trigger will become an interrupt if enabled in FIFOINTENSET, or a DMA trigger if DMARX in FIFOCFG is set."]
 pub struct RXLVLENA_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> RXLVLENA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RXLVLENA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Receive FIFO level does not generate a FIFO level trigger."]
     #[inline(always)]
@@ -156,13 +194,25 @@ impl<'a> RXLVLENA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `TXLVL`"]
-pub type TXLVL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `TXLVL`"]
+#[doc = "Field `TXLVL` reader - Transmit FIFO level trigger point. This field is used only when TXLVLENA = 1. If enabled to do so, the FIFO level can wake up the device just enough to perform DMA, then return to the reduced power mode. See Hardware Wake-up control register. 0 = trigger when the TX FIFO becomes empty. 1 = trigger when the TX FIFO level decreases to one entry. 15 = trigger when the TX FIFO level decreases to 15 entries (is no longer full)."]
+pub struct TXLVL_R(crate::FieldReader<u8, u8>);
+impl TXLVL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TXLVL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXLVL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXLVL` writer - Transmit FIFO level trigger point. This field is used only when TXLVLENA = 1. If enabled to do so, the FIFO level can wake up the device just enough to perform DMA, then return to the reduced power mode. See Hardware Wake-up control register. 0 = trigger when the TX FIFO becomes empty. 1 = trigger when the TX FIFO level decreases to one entry. 15 = trigger when the TX FIFO level decreases to 15 entries (is no longer full)."]
 pub struct TXLVL_W<'a> {
     w: &'a mut W,
 }
@@ -170,13 +220,25 @@ impl<'a> TXLVL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | ((value as u32 & 0x0f) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `RXLVL`"]
-pub type RXLVL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `RXLVL`"]
+#[doc = "Field `RXLVL` reader - Receive FIFO level trigger point. The RX FIFO level is checked when a new piece of data is received. This field is used only when RXLVLENA = 1. If enabled to do so, the FIFO level can wake up the device just enough to perform DMA, then return to the reduced power mode. See Hardware Wake-up control register. 0 = trigger when the RX FIFO has received one entry (is no longer empty). 1 = trigger when the RX FIFO has received two entries. 15 = trigger when the RX FIFO has received 16 entries (has become full)."]
+pub struct RXLVL_R(crate::FieldReader<u8, u8>);
+impl RXLVL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        RXLVL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RXLVL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RXLVL` writer - Receive FIFO level trigger point. The RX FIFO level is checked when a new piece of data is received. This field is used only when RXLVLENA = 1. If enabled to do so, the FIFO level can wake up the device just enough to perform DMA, then return to the reduced power mode. See Hardware Wake-up control register. 0 = trigger when the RX FIFO has received one entry (is no longer empty). 1 = trigger when the RX FIFO has received two entries. 15 = trigger when the RX FIFO has received 16 entries (has become full)."]
 pub struct RXLVL_W<'a> {
     w: &'a mut W,
 }
@@ -184,7 +246,7 @@ impl<'a> RXLVL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | ((value as u32 & 0x0f) << 16);
         self.w
     }
 }
@@ -230,5 +292,30 @@ impl W {
     #[inline(always)]
     pub fn rxlvl(&mut self) -> RXLVL_W {
         RXLVL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "FIFO trigger settings for interrupt and DMA request.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fifotrig](index.html) module"]
+pub struct FIFOTRIG_SPEC;
+impl crate::RegisterSpec for FIFOTRIG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [fifotrig::R](R) reader structure"]
+impl crate::Readable for FIFOTRIG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [fifotrig::W](W) writer structure"]
+impl crate::Writable for FIFOTRIG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FIFOTRIG to value 0"]
+impl crate::Resettable for FIFOTRIG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

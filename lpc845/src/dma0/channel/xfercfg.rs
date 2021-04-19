@@ -1,13 +1,35 @@
-#[doc = "Reader of register XFERCFG"]
-pub type R = crate::R<u32, super::XFERCFG>;
-#[doc = "Writer for register XFERCFG"]
-pub type W = crate::W<u32, super::XFERCFG>;
-#[doc = "Register XFERCFG `reset()`'s with value 0"]
-impl crate::ResetValue for super::XFERCFG {
-    type Type = u32;
+#[doc = "Register `XFERCFG` reader"]
+pub struct R(crate::R<XFERCFG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<XFERCFG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<XFERCFG_SPEC>> for R {
+    fn from(reader: crate::R<XFERCFG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `XFERCFG` writer"]
+pub struct W(crate::W<XFERCFG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<XFERCFG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<XFERCFG_SPEC>> for W {
+    fn from(writer: crate::W<XFERCFG_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<CFGVALID_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CFGVALID`"]
-pub type CFGVALID_R = crate::R<bool, CFGVALID_A>;
+#[doc = "Field `CFGVALID` reader - Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled."]
+pub struct CFGVALID_R(crate::FieldReader<bool, CFGVALID_A>);
 impl CFGVALID_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CFGVALID_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CFGVALID_A {
@@ -38,15 +63,22 @@ impl CFGVALID_R {
     #[doc = "Checks if the value of the field is `NOT_VALID`"]
     #[inline(always)]
     pub fn is_not_valid(&self) -> bool {
-        *self == CFGVALID_A::NOT_VALID
+        **self == CFGVALID_A::NOT_VALID
     }
     #[doc = "Checks if the value of the field is `VALID`"]
     #[inline(always)]
     pub fn is_valid(&self) -> bool {
-        *self == CFGVALID_A::VALID
+        **self == CFGVALID_A::VALID
     }
 }
-#[doc = "Write proxy for field `CFGVALID`"]
+impl core::ops::Deref for CFGVALID_R {
+    type Target = crate::FieldReader<bool, CFGVALID_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CFGVALID` writer - Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled."]
 pub struct CFGVALID_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> CFGVALID_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CFGVALID_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Not valid. The channel descriptor is not considered valid until validated by an associated SETVALID0 setting."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> CFGVALID_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<RELOAD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RELOAD`"]
-pub type RELOAD_R = crate::R<bool, RELOAD_A>;
+#[doc = "Field `RELOAD` reader - Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers."]
+pub struct RELOAD_R(crate::FieldReader<bool, RELOAD_A>);
 impl RELOAD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RELOAD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RELOAD_A {
@@ -113,15 +146,22 @@ impl RELOAD_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == RELOAD_A::DISABLED
+        **self == RELOAD_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == RELOAD_A::ENABLED
+        **self == RELOAD_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `RELOAD`"]
+impl core::ops::Deref for RELOAD_R {
+    type Target = crate::FieldReader<bool, RELOAD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RELOAD` writer - Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers."]
 pub struct RELOAD_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> RELOAD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RELOAD_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Do not reload the channels' control structure when the current descriptor is exhausted."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> RELOAD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<SWTRIG_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SWTRIG`"]
-pub type SWTRIG_R = crate::R<bool, SWTRIG_A>;
+#[doc = "Field `SWTRIG` reader - Software Trigger."]
+pub struct SWTRIG_R(crate::FieldReader<bool, SWTRIG_A>);
 impl SWTRIG_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SWTRIG_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SWTRIG_A {
@@ -188,15 +229,22 @@ impl SWTRIG_R {
     #[doc = "Checks if the value of the field is `NOT_SET`"]
     #[inline(always)]
     pub fn is_not_set(&self) -> bool {
-        *self == SWTRIG_A::NOT_SET
+        **self == SWTRIG_A::NOT_SET
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == SWTRIG_A::SET
+        **self == SWTRIG_A::SET
     }
 }
-#[doc = "Write proxy for field `SWTRIG`"]
+impl core::ops::Deref for SWTRIG_R {
+    type Target = crate::FieldReader<bool, SWTRIG_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SWTRIG` writer - Software Trigger."]
 pub struct SWTRIG_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> SWTRIG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SWTRIG_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Not set. When written by software, the trigger for this channel is not set. A new trigger, as defined by the HWTRIGEN, TRIGPOL, and TRIGTYPE will be needed to start the channel."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> SWTRIG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<CLRTRIG_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CLRTRIG`"]
-pub type CLRTRIG_R = crate::R<bool, CLRTRIG_A>;
+#[doc = "Field `CLRTRIG` reader - Clear Trigger."]
+pub struct CLRTRIG_R(crate::FieldReader<bool, CLRTRIG_A>);
 impl CLRTRIG_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CLRTRIG_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CLRTRIG_A {
@@ -263,15 +312,22 @@ impl CLRTRIG_R {
     #[doc = "Checks if the value of the field is `NOT_CLEARED`"]
     #[inline(always)]
     pub fn is_not_cleared(&self) -> bool {
-        *self == CLRTRIG_A::NOT_CLEARED
+        **self == CLRTRIG_A::NOT_CLEARED
     }
     #[doc = "Checks if the value of the field is `CLEARED`"]
     #[inline(always)]
     pub fn is_cleared(&self) -> bool {
-        *self == CLRTRIG_A::CLEARED
+        **self == CLRTRIG_A::CLEARED
     }
 }
-#[doc = "Write proxy for field `CLRTRIG`"]
+impl core::ops::Deref for CLRTRIG_R {
+    type Target = crate::FieldReader<bool, CLRTRIG_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLRTRIG` writer - Clear Trigger."]
 pub struct CLRTRIG_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> CLRTRIG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CLRTRIG_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started."]
     #[inline(always)]
@@ -306,7 +360,7 @@ impl<'a> CLRTRIG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -324,9 +378,12 @@ impl From<SETINTA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SETINTA`"]
-pub type SETINTA_R = crate::R<bool, SETINTA_A>;
+#[doc = "Field `SETINTA` reader - Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
+pub struct SETINTA_R(crate::FieldReader<bool, SETINTA_A>);
 impl SETINTA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SETINTA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SETINTA_A {
@@ -338,15 +395,22 @@ impl SETINTA_R {
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
     #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == SETINTA_A::NO_EFFECT
+        **self == SETINTA_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == SETINTA_A::SET
+        **self == SETINTA_A::SET
     }
 }
-#[doc = "Write proxy for field `SETINTA`"]
+impl core::ops::Deref for SETINTA_R {
+    type Target = crate::FieldReader<bool, SETINTA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETINTA` writer - Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
 pub struct SETINTA_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +418,7 @@ impl<'a> SETINTA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SETINTA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No effect."]
     #[inline(always)]
@@ -381,7 +443,7 @@ impl<'a> SETINTA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -399,9 +461,12 @@ impl From<SETINTB_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SETINTB`"]
-pub type SETINTB_R = crate::R<bool, SETINTB_A>;
+#[doc = "Field `SETINTB` reader - Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
+pub struct SETINTB_R(crate::FieldReader<bool, SETINTB_A>);
 impl SETINTB_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SETINTB_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SETINTB_A {
@@ -413,15 +478,22 @@ impl SETINTB_R {
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
     #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == SETINTB_A::NO_EFFECT
+        **self == SETINTB_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == SETINTB_A::SET
+        **self == SETINTB_A::SET
     }
 }
-#[doc = "Write proxy for field `SETINTB`"]
+impl core::ops::Deref for SETINTB_R {
+    type Target = crate::FieldReader<bool, SETINTB_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETINTB` writer - Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
 pub struct SETINTB_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +501,7 @@ impl<'a> SETINTB_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SETINTB_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No effect."]
     #[inline(always)]
@@ -456,7 +526,7 @@ impl<'a> SETINTB_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -477,37 +547,46 @@ impl From<WIDTH_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `WIDTH`"]
-pub type WIDTH_R = crate::R<u8, WIDTH_A>;
+#[doc = "Field `WIDTH` reader - Transfer width used for this DMA channel."]
+pub struct WIDTH_R(crate::FieldReader<u8, WIDTH_A>);
 impl WIDTH_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        WIDTH_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, WIDTH_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<WIDTH_A> {
         match self.bits {
-            0 => Val(WIDTH_A::BIT_8),
-            1 => Val(WIDTH_A::BIT_16),
-            2 => Val(WIDTH_A::BIT_32),
-            i => Res(i),
+            0 => Some(WIDTH_A::BIT_8),
+            1 => Some(WIDTH_A::BIT_16),
+            2 => Some(WIDTH_A::BIT_32),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `BIT_8`"]
     #[inline(always)]
     pub fn is_bit_8(&self) -> bool {
-        *self == WIDTH_A::BIT_8
+        **self == WIDTH_A::BIT_8
     }
     #[doc = "Checks if the value of the field is `BIT_16`"]
     #[inline(always)]
     pub fn is_bit_16(&self) -> bool {
-        *self == WIDTH_A::BIT_16
+        **self == WIDTH_A::BIT_16
     }
     #[doc = "Checks if the value of the field is `BIT_32`"]
     #[inline(always)]
     pub fn is_bit_32(&self) -> bool {
-        *self == WIDTH_A::BIT_32
+        **self == WIDTH_A::BIT_32
     }
 }
-#[doc = "Write proxy for field `WIDTH`"]
+impl core::ops::Deref for WIDTH_R {
+    type Target = crate::FieldReader<u8, WIDTH_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WIDTH` writer - Transfer width used for this DMA channel."]
 pub struct WIDTH_W<'a> {
     w: &'a mut W,
 }
@@ -535,7 +614,7 @@ impl<'a> WIDTH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | ((value as u32 & 0x03) << 8);
         self.w
     }
 }
@@ -558,9 +637,12 @@ impl From<SRCINC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SRCINC`"]
-pub type SRCINC_R = crate::R<u8, SRCINC_A>;
+#[doc = "Field `SRCINC` reader - Determines whether the source address is incremented for each DMA transfer."]
+pub struct SRCINC_R(crate::FieldReader<u8, SRCINC_A>);
 impl SRCINC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SRCINC_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SRCINC_A {
@@ -575,25 +657,32 @@ impl SRCINC_R {
     #[doc = "Checks if the value of the field is `NO_INCREMENT`"]
     #[inline(always)]
     pub fn is_no_increment(&self) -> bool {
-        *self == SRCINC_A::NO_INCREMENT
+        **self == SRCINC_A::NO_INCREMENT
     }
     #[doc = "Checks if the value of the field is `WIDTH_X_1`"]
     #[inline(always)]
     pub fn is_width_x_1(&self) -> bool {
-        *self == SRCINC_A::WIDTH_X_1
+        **self == SRCINC_A::WIDTH_X_1
     }
     #[doc = "Checks if the value of the field is `WIDTH_X_2`"]
     #[inline(always)]
     pub fn is_width_x_2(&self) -> bool {
-        *self == SRCINC_A::WIDTH_X_2
+        **self == SRCINC_A::WIDTH_X_2
     }
     #[doc = "Checks if the value of the field is `WIDTH_X_4`"]
     #[inline(always)]
     pub fn is_width_x_4(&self) -> bool {
-        *self == SRCINC_A::WIDTH_X_4
+        **self == SRCINC_A::WIDTH_X_4
     }
 }
-#[doc = "Write proxy for field `SRCINC`"]
+impl core::ops::Deref for SRCINC_R {
+    type Target = crate::FieldReader<u8, SRCINC_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SRCINC` writer - Determines whether the source address is incremented for each DMA transfer."]
 pub struct SRCINC_W<'a> {
     w: &'a mut W,
 }
@@ -601,9 +690,7 @@ impl<'a> SRCINC_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SRCINC_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device."]
     #[inline(always)]
@@ -628,7 +715,7 @@ impl<'a> SRCINC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 12)) | (((value as u32) & 0x03) << 12);
+        self.w.bits = (self.w.bits & !(0x03 << 12)) | ((value as u32 & 0x03) << 12);
         self.w
     }
 }
@@ -651,9 +738,12 @@ impl From<DSTINC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `DSTINC`"]
-pub type DSTINC_R = crate::R<u8, DSTINC_A>;
+#[doc = "Field `DSTINC` reader - Determines whether the destination address is incremented for each DMA transfer."]
+pub struct DSTINC_R(crate::FieldReader<u8, DSTINC_A>);
 impl DSTINC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DSTINC_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DSTINC_A {
@@ -668,25 +758,32 @@ impl DSTINC_R {
     #[doc = "Checks if the value of the field is `NO_INCREMENT`"]
     #[inline(always)]
     pub fn is_no_increment(&self) -> bool {
-        *self == DSTINC_A::NO_INCREMENT
+        **self == DSTINC_A::NO_INCREMENT
     }
     #[doc = "Checks if the value of the field is `WIDTH_X_1`"]
     #[inline(always)]
     pub fn is_width_x_1(&self) -> bool {
-        *self == DSTINC_A::WIDTH_X_1
+        **self == DSTINC_A::WIDTH_X_1
     }
     #[doc = "Checks if the value of the field is `WIDTH_X_2`"]
     #[inline(always)]
     pub fn is_width_x_2(&self) -> bool {
-        *self == DSTINC_A::WIDTH_X_2
+        **self == DSTINC_A::WIDTH_X_2
     }
     #[doc = "Checks if the value of the field is `WIDTH_X_4`"]
     #[inline(always)]
     pub fn is_width_x_4(&self) -> bool {
-        *self == DSTINC_A::WIDTH_X_4
+        **self == DSTINC_A::WIDTH_X_4
     }
 }
-#[doc = "Write proxy for field `DSTINC`"]
+impl core::ops::Deref for DSTINC_R {
+    type Target = crate::FieldReader<u8, DSTINC_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DSTINC` writer - Determines whether the destination address is incremented for each DMA transfer."]
 pub struct DSTINC_W<'a> {
     w: &'a mut W,
 }
@@ -694,9 +791,7 @@ impl<'a> DSTINC_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DSTINC_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device."]
     #[inline(always)]
@@ -721,13 +816,25 @@ impl<'a> DSTINC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 14)) | (((value as u32) & 0x03) << 14);
+        self.w.bits = (self.w.bits & !(0x03 << 14)) | ((value as u32 & 0x03) << 14);
         self.w
     }
 }
-#[doc = "Reader of field `XFERCOUNT`"]
-pub type XFERCOUNT_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `XFERCOUNT`"]
+#[doc = "Field `XFERCOUNT` reader - Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. 0x3FF = a total of 1,024 transfers will be performed."]
+pub struct XFERCOUNT_R(crate::FieldReader<u16, u16>);
+impl XFERCOUNT_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        XFERCOUNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for XFERCOUNT_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `XFERCOUNT` writer - Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. 0x3FF = a total of 1,024 transfers will be performed."]
 pub struct XFERCOUNT_W<'a> {
     w: &'a mut W,
 }
@@ -735,7 +842,7 @@ impl<'a> XFERCOUNT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03ff << 16)) | (((value as u32) & 0x03ff) << 16);
+        self.w.bits = (self.w.bits & !(0x03ff << 16)) | ((value as u32 & 0x03ff) << 16);
         self.w
     }
 }
@@ -841,5 +948,30 @@ impl W {
     #[inline(always)]
     pub fn xfercount(&mut self) -> XFERCOUNT_W {
         XFERCOUNT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Transfer configuration register for DMA channel .\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [xfercfg](index.html) module"]
+pub struct XFERCFG_SPEC;
+impl crate::RegisterSpec for XFERCFG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [xfercfg::R](R) reader structure"]
+impl crate::Readable for XFERCFG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [xfercfg::W](W) writer structure"]
+impl crate::Writable for XFERCFG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets XFERCFG to value 0"]
+impl crate::Resettable for XFERCFG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

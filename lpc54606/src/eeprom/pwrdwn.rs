@@ -1,18 +1,52 @@
-#[doc = "Reader of register PWRDWN"]
-pub type R = crate::R<u32, super::PWRDWN>;
-#[doc = "Writer for register PWRDWN"]
-pub type W = crate::W<u32, super::PWRDWN>;
-#[doc = "Register PWRDWN `reset()`'s with value 0"]
-impl crate::ResetValue for super::PWRDWN {
-    type Type = u32;
+#[doc = "Register `PWRDWN` reader"]
+pub struct R(crate::R<PWRDWN_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PWRDWN_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `PWRDWN`"]
-pub type PWRDWN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PWRDWN`"]
+impl core::convert::From<crate::R<PWRDWN_SPEC>> for R {
+    fn from(reader: crate::R<PWRDWN_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PWRDWN` writer"]
+pub struct W(crate::W<PWRDWN_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PWRDWN_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PWRDWN_SPEC>> for W {
+    fn from(writer: crate::W<PWRDWN_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `PWRDWN` reader - Power down mode bit."]
+pub struct PWRDWN_R(crate::FieldReader<bool, bool>);
+impl PWRDWN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PWRDWN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PWRDWN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PWRDWN` writer - Power down mode bit."]
 pub struct PWRDWN_W<'a> {
     w: &'a mut W,
 }
@@ -30,7 +64,7 @@ impl<'a> PWRDWN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -46,5 +80,30 @@ impl W {
     #[inline(always)]
     pub fn pwrdwn(&mut self) -> PWRDWN_W {
         PWRDWN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "EEPROM power-down register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pwrdwn](index.html) module"]
+pub struct PWRDWN_SPEC;
+impl crate::RegisterSpec for PWRDWN_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pwrdwn::R](R) reader structure"]
+impl crate::Readable for PWRDWN_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pwrdwn::W](W) writer structure"]
+impl crate::Writable for PWRDWN_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PWRDWN to value 0"]
+impl crate::Resettable for PWRDWN_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

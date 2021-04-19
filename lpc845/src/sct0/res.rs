@@ -1,13 +1,35 @@
-#[doc = "Reader of register RES"]
-pub type R = crate::R<u32, super::RES>;
-#[doc = "Writer for register RES"]
-pub type W = crate::W<u32, super::RES>;
-#[doc = "Register RES `reset()`'s with value 0"]
-impl crate::ResetValue for super::RES {
-    type Type = u32;
+#[doc = "Register `RES` reader"]
+pub struct R(crate::R<RES_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<RES_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<RES_SPEC>> for R {
+    fn from(reader: crate::R<RES_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `RES` writer"]
+pub struct W(crate::W<RES_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<RES_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<RES_SPEC>> for W {
+    fn from(writer: crate::W<RES_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Effect of simultaneous set and clear on output 0.\n\nValue on reset: 0"]
@@ -29,9 +51,12 @@ impl From<O0RES_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `O0RES`"]
-pub type O0RES_R = crate::R<u8, O0RES_A>;
+#[doc = "Field `O0RES` reader - Effect of simultaneous set and clear on output 0."]
+pub struct O0RES_R(crate::FieldReader<u8, O0RES_A>);
 impl O0RES_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        O0RES_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> O0RES_A {
@@ -46,25 +71,32 @@ impl O0RES_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE`"]
     #[inline(always)]
     pub fn is_no_change(&self) -> bool {
-        *self == O0RES_A::NO_CHANGE
+        **self == O0RES_A::NO_CHANGE
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == O0RES_A::SET
+        **self == O0RES_A::SET
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == O0RES_A::CLEAR
+        **self == O0RES_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
     #[inline(always)]
     pub fn is_toggle_output(&self) -> bool {
-        *self == O0RES_A::TOGGLE_OUTPUT
+        **self == O0RES_A::TOGGLE_OUTPUT
     }
 }
-#[doc = "Write proxy for field `O0RES`"]
+impl core::ops::Deref for O0RES_R {
+    type Target = crate::FieldReader<u8, O0RES_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `O0RES` writer - Effect of simultaneous set and clear on output 0."]
 pub struct O0RES_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +104,7 @@ impl<'a> O0RES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: O0RES_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No change."]
     #[inline(always)]
@@ -99,7 +129,7 @@ impl<'a> O0RES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
@@ -122,9 +152,12 @@ impl From<O1RES_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `O1RES`"]
-pub type O1RES_R = crate::R<u8, O1RES_A>;
+#[doc = "Field `O1RES` reader - Effect of simultaneous set and clear on output 1."]
+pub struct O1RES_R(crate::FieldReader<u8, O1RES_A>);
 impl O1RES_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        O1RES_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> O1RES_A {
@@ -139,25 +172,32 @@ impl O1RES_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE`"]
     #[inline(always)]
     pub fn is_no_change(&self) -> bool {
-        *self == O1RES_A::NO_CHANGE
+        **self == O1RES_A::NO_CHANGE
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == O1RES_A::SET
+        **self == O1RES_A::SET
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == O1RES_A::CLEAR
+        **self == O1RES_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
     #[inline(always)]
     pub fn is_toggle_output(&self) -> bool {
-        *self == O1RES_A::TOGGLE_OUTPUT
+        **self == O1RES_A::TOGGLE_OUTPUT
     }
 }
-#[doc = "Write proxy for field `O1RES`"]
+impl core::ops::Deref for O1RES_R {
+    type Target = crate::FieldReader<u8, O1RES_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `O1RES` writer - Effect of simultaneous set and clear on output 1."]
 pub struct O1RES_W<'a> {
     w: &'a mut W,
 }
@@ -165,9 +205,7 @@ impl<'a> O1RES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: O1RES_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No change."]
     #[inline(always)]
@@ -192,7 +230,7 @@ impl<'a> O1RES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | ((value as u32 & 0x03) << 2);
         self.w
     }
 }
@@ -215,9 +253,12 @@ impl From<O2RES_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `O2RES`"]
-pub type O2RES_R = crate::R<u8, O2RES_A>;
+#[doc = "Field `O2RES` reader - Effect of simultaneous set and clear on output 2."]
+pub struct O2RES_R(crate::FieldReader<u8, O2RES_A>);
 impl O2RES_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        O2RES_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> O2RES_A {
@@ -232,25 +273,32 @@ impl O2RES_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE`"]
     #[inline(always)]
     pub fn is_no_change(&self) -> bool {
-        *self == O2RES_A::NO_CHANGE
+        **self == O2RES_A::NO_CHANGE
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == O2RES_A::SET
+        **self == O2RES_A::SET
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == O2RES_A::CLEAR
+        **self == O2RES_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
     #[inline(always)]
     pub fn is_toggle_output(&self) -> bool {
-        *self == O2RES_A::TOGGLE_OUTPUT
+        **self == O2RES_A::TOGGLE_OUTPUT
     }
 }
-#[doc = "Write proxy for field `O2RES`"]
+impl core::ops::Deref for O2RES_R {
+    type Target = crate::FieldReader<u8, O2RES_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `O2RES` writer - Effect of simultaneous set and clear on output 2."]
 pub struct O2RES_W<'a> {
     w: &'a mut W,
 }
@@ -258,9 +306,7 @@ impl<'a> O2RES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: O2RES_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No change."]
     #[inline(always)]
@@ -285,7 +331,7 @@ impl<'a> O2RES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | ((value as u32 & 0x03) << 4);
         self.w
     }
 }
@@ -308,9 +354,12 @@ impl From<O3RES_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `O3RES`"]
-pub type O3RES_R = crate::R<u8, O3RES_A>;
+#[doc = "Field `O3RES` reader - Effect of simultaneous set and clear on output 3."]
+pub struct O3RES_R(crate::FieldReader<u8, O3RES_A>);
 impl O3RES_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        O3RES_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> O3RES_A {
@@ -325,25 +374,32 @@ impl O3RES_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE`"]
     #[inline(always)]
     pub fn is_no_change(&self) -> bool {
-        *self == O3RES_A::NO_CHANGE
+        **self == O3RES_A::NO_CHANGE
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == O3RES_A::SET
+        **self == O3RES_A::SET
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == O3RES_A::CLEAR
+        **self == O3RES_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
     #[inline(always)]
     pub fn is_toggle_output(&self) -> bool {
-        *self == O3RES_A::TOGGLE_OUTPUT
+        **self == O3RES_A::TOGGLE_OUTPUT
     }
 }
-#[doc = "Write proxy for field `O3RES`"]
+impl core::ops::Deref for O3RES_R {
+    type Target = crate::FieldReader<u8, O3RES_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `O3RES` writer - Effect of simultaneous set and clear on output 3."]
 pub struct O3RES_W<'a> {
     w: &'a mut W,
 }
@@ -351,9 +407,7 @@ impl<'a> O3RES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: O3RES_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No change."]
     #[inline(always)]
@@ -378,7 +432,7 @@ impl<'a> O3RES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | ((value as u32 & 0x03) << 6);
         self.w
     }
 }
@@ -401,9 +455,12 @@ impl From<O4RES_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `O4RES`"]
-pub type O4RES_R = crate::R<u8, O4RES_A>;
+#[doc = "Field `O4RES` reader - Effect of simultaneous set and clear on output 4."]
+pub struct O4RES_R(crate::FieldReader<u8, O4RES_A>);
 impl O4RES_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        O4RES_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> O4RES_A {
@@ -418,25 +475,32 @@ impl O4RES_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE`"]
     #[inline(always)]
     pub fn is_no_change(&self) -> bool {
-        *self == O4RES_A::NO_CHANGE
+        **self == O4RES_A::NO_CHANGE
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == O4RES_A::SET
+        **self == O4RES_A::SET
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == O4RES_A::CLEAR
+        **self == O4RES_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
     #[inline(always)]
     pub fn is_toggle_output(&self) -> bool {
-        *self == O4RES_A::TOGGLE_OUTPUT
+        **self == O4RES_A::TOGGLE_OUTPUT
     }
 }
-#[doc = "Write proxy for field `O4RES`"]
+impl core::ops::Deref for O4RES_R {
+    type Target = crate::FieldReader<u8, O4RES_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `O4RES` writer - Effect of simultaneous set and clear on output 4."]
 pub struct O4RES_W<'a> {
     w: &'a mut W,
 }
@@ -444,9 +508,7 @@ impl<'a> O4RES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: O4RES_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No change."]
     #[inline(always)]
@@ -471,7 +533,7 @@ impl<'a> O4RES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | ((value as u32 & 0x03) << 8);
         self.w
     }
 }
@@ -494,9 +556,12 @@ impl From<O5RES_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `O5RES`"]
-pub type O5RES_R = crate::R<u8, O5RES_A>;
+#[doc = "Field `O5RES` reader - Effect of simultaneous set and clear on output 5."]
+pub struct O5RES_R(crate::FieldReader<u8, O5RES_A>);
 impl O5RES_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        O5RES_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> O5RES_A {
@@ -511,25 +576,32 @@ impl O5RES_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE`"]
     #[inline(always)]
     pub fn is_no_change(&self) -> bool {
-        *self == O5RES_A::NO_CHANGE
+        **self == O5RES_A::NO_CHANGE
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == O5RES_A::SET
+        **self == O5RES_A::SET
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == O5RES_A::CLEAR
+        **self == O5RES_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
     #[inline(always)]
     pub fn is_toggle_output(&self) -> bool {
-        *self == O5RES_A::TOGGLE_OUTPUT
+        **self == O5RES_A::TOGGLE_OUTPUT
     }
 }
-#[doc = "Write proxy for field `O5RES`"]
+impl core::ops::Deref for O5RES_R {
+    type Target = crate::FieldReader<u8, O5RES_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `O5RES` writer - Effect of simultaneous set and clear on output 5."]
 pub struct O5RES_W<'a> {
     w: &'a mut W,
 }
@@ -537,9 +609,7 @@ impl<'a> O5RES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: O5RES_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No change."]
     #[inline(always)]
@@ -564,7 +634,7 @@ impl<'a> O5RES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 10)) | (((value as u32) & 0x03) << 10);
+        self.w.bits = (self.w.bits & !(0x03 << 10)) | ((value as u32 & 0x03) << 10);
         self.w
     }
 }
@@ -587,9 +657,12 @@ impl From<O6RES_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `O6RES`"]
-pub type O6RES_R = crate::R<u8, O6RES_A>;
+#[doc = "Field `O6RES` reader - Effect of simultaneous set and clear on output 6."]
+pub struct O6RES_R(crate::FieldReader<u8, O6RES_A>);
 impl O6RES_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        O6RES_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> O6RES_A {
@@ -604,25 +677,32 @@ impl O6RES_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE`"]
     #[inline(always)]
     pub fn is_no_change(&self) -> bool {
-        *self == O6RES_A::NO_CHANGE
+        **self == O6RES_A::NO_CHANGE
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == O6RES_A::SET
+        **self == O6RES_A::SET
     }
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == O6RES_A::CLEAR
+        **self == O6RES_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `TOGGLE_OUTPUT`"]
     #[inline(always)]
     pub fn is_toggle_output(&self) -> bool {
-        *self == O6RES_A::TOGGLE_OUTPUT
+        **self == O6RES_A::TOGGLE_OUTPUT
     }
 }
-#[doc = "Write proxy for field `O6RES`"]
+impl core::ops::Deref for O6RES_R {
+    type Target = crate::FieldReader<u8, O6RES_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `O6RES` writer - Effect of simultaneous set and clear on output 6."]
 pub struct O6RES_W<'a> {
     w: &'a mut W,
 }
@@ -630,9 +710,7 @@ impl<'a> O6RES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: O6RES_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No change."]
     #[inline(always)]
@@ -657,7 +735,7 @@ impl<'a> O6RES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 12)) | (((value as u32) & 0x03) << 12);
+        self.w.bits = (self.w.bits & !(0x03 << 12)) | ((value as u32 & 0x03) << 12);
         self.w
     }
 }
@@ -733,5 +811,30 @@ impl W {
     #[inline(always)]
     pub fn o6res(&mut self) -> O6RES_W {
         O6RES_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "SCT conflict resolution register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [res](index.html) module"]
+pub struct RES_SPEC;
+impl crate::RegisterSpec for RES_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [res::R](R) reader structure"]
+impl crate::Readable for RES_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [res::W](W) writer structure"]
+impl crate::Writable for RES_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets RES to value 0"]
+impl crate::Resettable for RES_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,18 +1,52 @@
-#[doc = "Reader of register CR"]
-pub type R = crate::R<u32, super::CR>;
-#[doc = "Writer for register CR"]
-pub type W = crate::W<u32, super::CR>;
-#[doc = "Register CR `reset()`'s with value 0"]
-impl crate::ResetValue for super::CR {
-    type Type = u32;
+#[doc = "Register `CR` reader"]
+pub struct R(crate::R<CR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `SEL`"]
-pub type SEL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `SEL`"]
+impl core::convert::From<crate::R<CR_SPEC>> for R {
+    fn from(reader: crate::R<CR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CR` writer"]
+pub struct W(crate::W<CR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CR_SPEC>> for W {
+    fn from(writer: crate::W<CR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `SEL` reader - Selects which of the AD7:0 pins is (are) to be sampled and converted. Bit 0 selects Pin AD0, bit 1 selects pin AD1,..., and bit 7 selects pin AD7. In software-controlled mode (BURST = 0), only one channel can be selected, i.e. only one of these bits should be 1. In hardware scan mode (BURST = 1), any numbers of channels can be selected, i.e any or all bits can be set to 1. If all bits are set to 0, channel 0 is selected automatically (SEL = 0x01)."]
+pub struct SEL_R(crate::FieldReader<u8, u8>);
+impl SEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SEL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SEL` writer - Selects which of the AD7:0 pins is (are) to be sampled and converted. Bit 0 selects Pin AD0, bit 1 selects pin AD1,..., and bit 7 selects pin AD7. In software-controlled mode (BURST = 0), only one channel can be selected, i.e. only one of these bits should be 1. In hardware scan mode (BURST = 1), any numbers of channels can be selected, i.e any or all bits can be set to 1. If all bits are set to 0, channel 0 is selected automatically (SEL = 0x01)."]
 pub struct SEL_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
-#[doc = "Reader of field `CLKDIV`"]
-pub type CLKDIV_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CLKDIV`"]
+#[doc = "Field `CLKDIV` reader - The APB clock (PCLK) is divided by CLKDIV +1 to produce the clock for the ADC, which should be less than or equal to 4.5 MHz. Typically, software should program the smallest value in this field that yields a clock of 4.5 MHz or slightly less, but in certain cases (such as a high-impedance analog source) a slower clock may be desirable."]
+pub struct CLKDIV_R(crate::FieldReader<u8, u8>);
+impl CLKDIV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CLKDIV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CLKDIV_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLKDIV` writer - The APB clock (PCLK) is divided by CLKDIV +1 to produce the clock for the ADC, which should be less than or equal to 4.5 MHz. Typically, software should program the smallest value in this field that yields a clock of 4.5 MHz or slightly less, but in certain cases (such as a high-impedance analog source) a slower clock may be desirable."]
 pub struct CLKDIV_W<'a> {
     w: &'a mut W,
 }
@@ -34,7 +80,7 @@ impl<'a> CLKDIV_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
+        self.w.bits = (self.w.bits & !(0xff << 8)) | ((value as u32 & 0xff) << 8);
         self.w
     }
 }
@@ -52,9 +98,12 @@ impl From<BURST_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BURST`"]
-pub type BURST_R = crate::R<bool, BURST_A>;
+#[doc = "Field `BURST` reader - Burst mode If BURST is set to 1, the ADGINTEN bit in the INTEN register (Table 276) must be set to 0."]
+pub struct BURST_R(crate::FieldReader<bool, BURST_A>);
 impl BURST_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BURST_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BURST_A {
@@ -66,15 +115,22 @@ impl BURST_R {
     #[doc = "Checks if the value of the field is `SOFTWARE_CONTROLLED`"]
     #[inline(always)]
     pub fn is_software_controlled(&self) -> bool {
-        *self == BURST_A::SOFTWARE_CONTROLLED
+        **self == BURST_A::SOFTWARE_CONTROLLED
     }
     #[doc = "Checks if the value of the field is `HARDWARE_SCAN`"]
     #[inline(always)]
     pub fn is_hardware_scan(&self) -> bool {
-        *self == BURST_A::HARDWARE_SCAN
+        **self == BURST_A::HARDWARE_SCAN
     }
 }
-#[doc = "Write proxy for field `BURST`"]
+impl core::ops::Deref for BURST_R {
+    type Target = crate::FieldReader<bool, BURST_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BURST` writer - Burst mode If BURST is set to 1, the ADGINTEN bit in the INTEN register (Table 276) must be set to 0."]
 pub struct BURST_W<'a> {
     w: &'a mut W,
 }
@@ -82,9 +138,7 @@ impl<'a> BURST_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BURST_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Software-controlled mode: Conversions are software-controlled and require 11 clocks."]
     #[inline(always)]
@@ -109,7 +163,7 @@ impl<'a> BURST_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
@@ -140,9 +194,12 @@ impl From<CLKS_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `CLKS`"]
-pub type CLKS_R = crate::R<u8, CLKS_A>;
+#[doc = "Field `CLKS` reader - This field selects the number of clocks used for each conversion in Burst mode, and the number of bits of accuracy of the result in the LS bits of ADDR, between 11 clocks (10 bits) and 4 clocks (3 bits)."]
+pub struct CLKS_R(crate::FieldReader<u8, CLKS_A>);
 impl CLKS_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CLKS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CLKS_A {
@@ -161,45 +218,52 @@ impl CLKS_R {
     #[doc = "Checks if the value of the field is `_11_CLOCKS_10_BITS`"]
     #[inline(always)]
     pub fn is_11_clocks_10_bits(&self) -> bool {
-        *self == CLKS_A::_11_CLOCKS_10_BITS
+        **self == CLKS_A::_11_CLOCKS_10_BITS
     }
     #[doc = "Checks if the value of the field is `_10_CLOCKS_9_BITS`"]
     #[inline(always)]
     pub fn is_10_clocks_9_bits(&self) -> bool {
-        *self == CLKS_A::_10_CLOCKS_9_BITS
+        **self == CLKS_A::_10_CLOCKS_9_BITS
     }
     #[doc = "Checks if the value of the field is `_9_CLOCKS_8_BITS`"]
     #[inline(always)]
     pub fn is_9_clocks_8_bits(&self) -> bool {
-        *self == CLKS_A::_9_CLOCKS_8_BITS
+        **self == CLKS_A::_9_CLOCKS_8_BITS
     }
     #[doc = "Checks if the value of the field is `_8_CLOCKS_7_BITS`"]
     #[inline(always)]
     pub fn is_8_clocks_7_bits(&self) -> bool {
-        *self == CLKS_A::_8_CLOCKS_7_BITS
+        **self == CLKS_A::_8_CLOCKS_7_BITS
     }
     #[doc = "Checks if the value of the field is `_7_CLOCKS_6_BITS`"]
     #[inline(always)]
     pub fn is_7_clocks_6_bits(&self) -> bool {
-        *self == CLKS_A::_7_CLOCKS_6_BITS
+        **self == CLKS_A::_7_CLOCKS_6_BITS
     }
     #[doc = "Checks if the value of the field is `_6_CLOCKS_5_BITS`"]
     #[inline(always)]
     pub fn is_6_clocks_5_bits(&self) -> bool {
-        *self == CLKS_A::_6_CLOCKS_5_BITS
+        **self == CLKS_A::_6_CLOCKS_5_BITS
     }
     #[doc = "Checks if the value of the field is `_5_CLOCKS_4_BITS`"]
     #[inline(always)]
     pub fn is_5_clocks_4_bits(&self) -> bool {
-        *self == CLKS_A::_5_CLOCKS_4_BITS
+        **self == CLKS_A::_5_CLOCKS_4_BITS
     }
     #[doc = "Checks if the value of the field is `_4_CLOCKS_3_BITS`"]
     #[inline(always)]
     pub fn is_4_clocks_3_bits(&self) -> bool {
-        *self == CLKS_A::_4_CLOCKS_3_BITS
+        **self == CLKS_A::_4_CLOCKS_3_BITS
     }
 }
-#[doc = "Write proxy for field `CLKS`"]
+impl core::ops::Deref for CLKS_R {
+    type Target = crate::FieldReader<u8, CLKS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLKS` writer - This field selects the number of clocks used for each conversion in Burst mode, and the number of bits of accuracy of the result in the LS bits of ADDR, between 11 clocks (10 bits) and 4 clocks (3 bits)."]
 pub struct CLKS_W<'a> {
     w: &'a mut W,
 }
@@ -207,9 +271,7 @@ impl<'a> CLKS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CLKS_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "11 clocks / 10 bits"]
     #[inline(always)]
@@ -254,7 +316,7 @@ impl<'a> CLKS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 17)) | (((value as u32) & 0x07) << 17);
+        self.w.bits = (self.w.bits & !(0x07 << 17)) | ((value as u32 & 0x07) << 17);
         self.w
     }
 }
@@ -285,9 +347,12 @@ impl From<START_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `START`"]
-pub type START_R = crate::R<u8, START_A>;
+#[doc = "Field `START` reader - When the BURST bit is 0, these bits control whether and when an A/D conversion is started:"]
+pub struct START_R(crate::FieldReader<u8, START_A>);
 impl START_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        START_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> START_A {
@@ -306,45 +371,52 @@ impl START_R {
     #[doc = "Checks if the value of the field is `NO_START_THIS_VALUE`"]
     #[inline(always)]
     pub fn is_no_start_this_value(&self) -> bool {
-        *self == START_A::NO_START_THIS_VALUE
+        **self == START_A::NO_START_THIS_VALUE
     }
     #[doc = "Checks if the value of the field is `START_CONVERSION_NOW`"]
     #[inline(always)]
     pub fn is_start_conversion_now(&self) -> bool {
-        *self == START_A::START_CONVERSION_NOW
+        **self == START_A::START_CONVERSION_NOW
     }
     #[doc = "Checks if the value of the field is `PIO0_2`"]
     #[inline(always)]
     pub fn is_pio0_2(&self) -> bool {
-        *self == START_A::PIO0_2
+        **self == START_A::PIO0_2
     }
     #[doc = "Checks if the value of the field is `PIO1_5`"]
     #[inline(always)]
     pub fn is_pio1_5(&self) -> bool {
-        *self == START_A::PIO1_5
+        **self == START_A::PIO1_5
     }
     #[doc = "Checks if the value of the field is `CT32B0_MAT0`"]
     #[inline(always)]
     pub fn is_ct32b0_mat0(&self) -> bool {
-        *self == START_A::CT32B0_MAT0
+        **self == START_A::CT32B0_MAT0
     }
     #[doc = "Checks if the value of the field is `CT32B0_MAT1`"]
     #[inline(always)]
     pub fn is_ct32b0_mat1(&self) -> bool {
-        *self == START_A::CT32B0_MAT1
+        **self == START_A::CT32B0_MAT1
     }
     #[doc = "Checks if the value of the field is `CT16B0_MAT0`"]
     #[inline(always)]
     pub fn is_ct16b0_mat0(&self) -> bool {
-        *self == START_A::CT16B0_MAT0
+        **self == START_A::CT16B0_MAT0
     }
     #[doc = "Checks if the value of the field is `CT16B0_MAT1`"]
     #[inline(always)]
     pub fn is_ct16b0_mat1(&self) -> bool {
-        *self == START_A::CT16B0_MAT1
+        **self == START_A::CT16B0_MAT1
     }
 }
-#[doc = "Write proxy for field `START`"]
+impl core::ops::Deref for START_R {
+    type Target = crate::FieldReader<u8, START_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `START` writer - When the BURST bit is 0, these bits control whether and when an A/D conversion is started:"]
 pub struct START_W<'a> {
     w: &'a mut W,
 }
@@ -352,9 +424,7 @@ impl<'a> START_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: START_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No start (this value should be used when clearing PDN to 0)."]
     #[inline(always)]
@@ -399,7 +469,7 @@ impl<'a> START_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 24)) | (((value as u32) & 0x07) << 24);
+        self.w.bits = (self.w.bits & !(0x07 << 24)) | ((value as u32 & 0x07) << 24);
         self.w
     }
 }
@@ -417,9 +487,12 @@ impl From<EDGE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `EDGE`"]
-pub type EDGE_R = crate::R<bool, EDGE_A>;
+#[doc = "Field `EDGE` reader - This bit is significant only when the START field contains 010-111. In these cases:"]
+pub struct EDGE_R(crate::FieldReader<bool, EDGE_A>);
 impl EDGE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EDGE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> EDGE_A {
@@ -431,15 +504,22 @@ impl EDGE_R {
     #[doc = "Checks if the value of the field is `RISING`"]
     #[inline(always)]
     pub fn is_rising(&self) -> bool {
-        *self == EDGE_A::RISING
+        **self == EDGE_A::RISING
     }
     #[doc = "Checks if the value of the field is `FALLING`"]
     #[inline(always)]
     pub fn is_falling(&self) -> bool {
-        *self == EDGE_A::FALLING
+        **self == EDGE_A::FALLING
     }
 }
-#[doc = "Write proxy for field `EDGE`"]
+impl core::ops::Deref for EDGE_R {
+    type Target = crate::FieldReader<bool, EDGE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EDGE` writer - This bit is significant only when the START field contains 010-111. In these cases:"]
 pub struct EDGE_W<'a> {
     w: &'a mut W,
 }
@@ -447,9 +527,7 @@ impl<'a> EDGE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EDGE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Start conversion on a rising edge on the selected CAP/MAT signal."]
     #[inline(always)]
@@ -474,7 +552,7 @@ impl<'a> EDGE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
@@ -540,5 +618,30 @@ impl W {
     #[inline(always)]
     pub fn edge(&mut self) -> EDGE_W {
         EDGE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "A/D Control Register. The CR register must be written to select the operating mode before A/D conversion can occur.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cr](index.html) module"]
+pub struct CR_SPEC;
+impl crate::RegisterSpec for CR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [cr::R](R) reader structure"]
+impl crate::Readable for CR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [cr::W](W) writer structure"]
+impl crate::Writable for CR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CR to value 0"]
+impl crate::Resettable for CR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

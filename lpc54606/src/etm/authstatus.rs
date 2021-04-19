@@ -1,7 +1,31 @@
-#[doc = "Reader of register AUTHSTATUS"]
-pub type R = crate::R<u32, super::AUTHSTATUS>;
-#[doc = "Reader of field `NSID`"]
-pub type NSID_R = crate::R<u8, u8>;
+#[doc = "Register `AUTHSTATUS` reader"]
+pub struct R(crate::R<AUTHSTATUS_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<AUTHSTATUS_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<AUTHSTATUS_SPEC>> for R {
+    fn from(reader: crate::R<AUTHSTATUS_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Field `NSID` reader - Reads as b00, Non-secure invasive debug not supported by the ETM."]
+pub struct NSID_R(crate::FieldReader<u8, u8>);
+impl NSID_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        NSID_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for NSID_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 #[doc = "Permission for Non-secure non-invasive debug.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[repr(u8)]
@@ -17,34 +41,67 @@ impl From<NSNID_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `NSNID`"]
-pub type NSNID_R = crate::R<u8, NSNID_A>;
+#[doc = "Field `NSNID` reader - Permission for Non-secure non-invasive debug."]
+pub struct NSNID_R(crate::FieldReader<u8, NSNID_A>);
 impl NSNID_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        NSNID_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, NSNID_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<NSNID_A> {
         match self.bits {
-            2 => Val(NSNID_A::NSNID_2),
-            3 => Val(NSNID_A::NSNID_3),
-            i => Res(i),
+            2 => Some(NSNID_A::NSNID_2),
+            3 => Some(NSNID_A::NSNID_3),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `NSNID_2`"]
     #[inline(always)]
     pub fn is_nsnid_2(&self) -> bool {
-        *self == NSNID_A::NSNID_2
+        **self == NSNID_A::NSNID_2
     }
     #[doc = "Checks if the value of the field is `NSNID_3`"]
     #[inline(always)]
     pub fn is_nsnid_3(&self) -> bool {
-        *self == NSNID_A::NSNID_3
+        **self == NSNID_A::NSNID_3
     }
 }
-#[doc = "Reader of field `SID`"]
-pub type SID_R = crate::R<u8, u8>;
-#[doc = "Reader of field `SNID`"]
-pub type SNID_R = crate::R<u8, u8>;
+impl core::ops::Deref for NSNID_R {
+    type Target = crate::FieldReader<u8, NSNID_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SID` reader - Reads as b00, Secure invasive debug not supported by the ETM."]
+pub struct SID_R(crate::FieldReader<u8, u8>);
+impl SID_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SID_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SID_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SNID` reader - Permission for Secure non-invasive debug."]
+pub struct SNID_R(crate::FieldReader<u8, u8>);
+impl SNID_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SNID_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SNID_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bits 0:1 - Reads as b00, Non-secure invasive debug not supported by the ETM."]
     #[inline(always)]
@@ -65,5 +122,21 @@ impl R {
     #[inline(always)]
     pub fn snid(&self) -> SNID_R {
         SNID_R::new(((self.bits >> 6) & 0x03) as u8)
+    }
+}
+#[doc = "Authentication Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [authstatus](index.html) module"]
+pub struct AUTHSTATUS_SPEC;
+impl crate::RegisterSpec for AUTHSTATUS_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [authstatus::R](R) reader structure"]
+impl crate::Readable for AUTHSTATUS_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets AUTHSTATUS to value 0"]
+impl crate::Resettable for AUTHSTATUS_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

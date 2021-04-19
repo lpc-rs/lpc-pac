@@ -1,19 +1,52 @@
-#[doc = "Reader of register PAL[%s]"]
-pub type R = crate::R<u32, super::PAL>;
-#[doc = "Writer for register PAL[%s]"]
-pub type W = crate::W<u32, super::PAL>;
-#[doc = "Register PAL[%s]
-`reset()`'s with value 0"]
-impl crate::ResetValue for super::PAL {
-    type Type = u32;
+#[doc = "Register `PAL[%s]` reader"]
+pub struct R(crate::R<PAL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PAL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `R04_0`"]
-pub type R04_0_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `R04_0`"]
+impl core::convert::From<crate::R<PAL_SPEC>> for R {
+    fn from(reader: crate::R<PAL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PAL[%s]` writer"]
+pub struct W(crate::W<PAL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PAL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PAL_SPEC>> for W {
+    fn from(writer: crate::W<PAL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `R04_0` reader - Red palette data."]
+pub struct R04_0_R(crate::FieldReader<u8, u8>);
+impl R04_0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        R04_0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for R04_0_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `R04_0` writer - Red palette data."]
 pub struct R04_0_W<'a> {
     w: &'a mut W,
 }
@@ -21,13 +54,25 @@ impl<'a> R04_0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x1f) | ((value as u32) & 0x1f);
+        self.w.bits = (self.w.bits & !0x1f) | (value as u32 & 0x1f);
         self.w
     }
 }
-#[doc = "Reader of field `G04_0`"]
-pub type G04_0_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `G04_0`"]
+#[doc = "Field `G04_0` reader - Green palette data."]
+pub struct G04_0_R(crate::FieldReader<u8, u8>);
+impl G04_0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        G04_0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for G04_0_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `G04_0` writer - Green palette data."]
 pub struct G04_0_W<'a> {
     w: &'a mut W,
 }
@@ -35,13 +80,25 @@ impl<'a> G04_0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 5)) | (((value as u32) & 0x1f) << 5);
+        self.w.bits = (self.w.bits & !(0x1f << 5)) | ((value as u32 & 0x1f) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `B04_0`"]
-pub type B04_0_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `B04_0`"]
+#[doc = "Field `B04_0` reader - Blue palette data."]
+pub struct B04_0_R(crate::FieldReader<u8, u8>);
+impl B04_0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        B04_0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for B04_0_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `B04_0` writer - Blue palette data."]
 pub struct B04_0_W<'a> {
     w: &'a mut W,
 }
@@ -49,13 +106,25 @@ impl<'a> B04_0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 10)) | (((value as u32) & 0x1f) << 10);
+        self.w.bits = (self.w.bits & !(0x1f << 10)) | ((value as u32 & 0x1f) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `I0`"]
-pub type I0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `I0`"]
+#[doc = "Field `I0` reader - Intensity / unused bit."]
+pub struct I0_R(crate::FieldReader<bool, bool>);
+impl I0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        I0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for I0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `I0` writer - Intensity / unused bit."]
 pub struct I0_W<'a> {
     w: &'a mut W,
 }
@@ -73,13 +142,25 @@ impl<'a> I0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Reader of field `R14_0`"]
-pub type R14_0_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `R14_0`"]
+#[doc = "Field `R14_0` reader - Red palette data."]
+pub struct R14_0_R(crate::FieldReader<u8, u8>);
+impl R14_0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        R14_0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for R14_0_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `R14_0` writer - Red palette data."]
 pub struct R14_0_W<'a> {
     w: &'a mut W,
 }
@@ -87,13 +168,25 @@ impl<'a> R14_0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 16)) | (((value as u32) & 0x1f) << 16);
+        self.w.bits = (self.w.bits & !(0x1f << 16)) | ((value as u32 & 0x1f) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `G14_0`"]
-pub type G14_0_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `G14_0`"]
+#[doc = "Field `G14_0` reader - Green palette data."]
+pub struct G14_0_R(crate::FieldReader<u8, u8>);
+impl G14_0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        G14_0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for G14_0_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `G14_0` writer - Green palette data."]
 pub struct G14_0_W<'a> {
     w: &'a mut W,
 }
@@ -101,13 +194,25 @@ impl<'a> G14_0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 21)) | (((value as u32) & 0x1f) << 21);
+        self.w.bits = (self.w.bits & !(0x1f << 21)) | ((value as u32 & 0x1f) << 21);
         self.w
     }
 }
-#[doc = "Reader of field `B14_0`"]
-pub type B14_0_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `B14_0`"]
+#[doc = "Field `B14_0` reader - Blue palette data."]
+pub struct B14_0_R(crate::FieldReader<u8, u8>);
+impl B14_0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        B14_0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for B14_0_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `B14_0` writer - Blue palette data."]
 pub struct B14_0_W<'a> {
     w: &'a mut W,
 }
@@ -115,13 +220,25 @@ impl<'a> B14_0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 26)) | (((value as u32) & 0x1f) << 26);
+        self.w.bits = (self.w.bits & !(0x1f << 26)) | ((value as u32 & 0x1f) << 26);
         self.w
     }
 }
-#[doc = "Reader of field `I1`"]
-pub type I1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `I1`"]
+#[doc = "Field `I1` reader - Intensity / unused bit."]
+pub struct I1_R(crate::FieldReader<bool, bool>);
+impl I1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        I1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for I1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `I1` writer - Intensity / unused bit."]
 pub struct I1_W<'a> {
     w: &'a mut W,
 }
@@ -139,7 +256,7 @@ impl<'a> I1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -225,5 +342,31 @@ impl W {
     #[inline(always)]
     pub fn i1(&mut self) -> I1_W {
         I1_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "256x16-bit Color Palette registers\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pal](index.html) module"]
+pub struct PAL_SPEC;
+impl crate::RegisterSpec for PAL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pal::R](R) reader structure"]
+impl crate::Readable for PAL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pal::W](W) writer structure"]
+impl crate::Writable for PAL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PAL[%s]
+to value 0"]
+impl crate::Resettable for PAL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

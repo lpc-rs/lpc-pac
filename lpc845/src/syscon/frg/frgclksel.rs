@@ -1,13 +1,35 @@
-#[doc = "Reader of register FRGCLKSEL"]
-pub type R = crate::R<u32, super::FRGCLKSEL>;
-#[doc = "Writer for register FRGCLKSEL"]
-pub type W = crate::W<u32, super::FRGCLKSEL>;
-#[doc = "Register FRGCLKSEL `reset()`'s with value 0"]
-impl crate::ResetValue for super::FRGCLKSEL {
-    type Type = u32;
+#[doc = "Register `FRGCLKSEL` reader"]
+pub struct R(crate::R<FRGCLKSEL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FRGCLKSEL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<FRGCLKSEL_SPEC>> for R {
+    fn from(reader: crate::R<FRGCLKSEL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FRGCLKSEL` writer"]
+pub struct W(crate::W<FRGCLKSEL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FRGCLKSEL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FRGCLKSEL_SPEC>> for W {
+    fn from(writer: crate::W<FRGCLKSEL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Clock source for frgN_src clock\n\nValue on reset: 0"]
@@ -29,9 +51,12 @@ impl From<SEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SEL`"]
-pub type SEL_R = crate::R<u8, SEL_A>;
+#[doc = "Field `SEL` reader - Clock source for frgN_src clock"]
+pub struct SEL_R(crate::FieldReader<u8, SEL_A>);
 impl SEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SEL_A {
@@ -46,25 +71,32 @@ impl SEL_R {
     #[doc = "Checks if the value of the field is `FRO`"]
     #[inline(always)]
     pub fn is_fro(&self) -> bool {
-        *self == SEL_A::FRO
+        **self == SEL_A::FRO
     }
     #[doc = "Checks if the value of the field is `MAIN_CLK`"]
     #[inline(always)]
     pub fn is_main_clk(&self) -> bool {
-        *self == SEL_A::MAIN_CLK
+        **self == SEL_A::MAIN_CLK
     }
     #[doc = "Checks if the value of the field is `SYS_PLL`"]
     #[inline(always)]
     pub fn is_sys_pll(&self) -> bool {
-        *self == SEL_A::SYS_PLL
+        **self == SEL_A::SYS_PLL
     }
     #[doc = "Checks if the value of the field is `NONE`"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == SEL_A::NONE
+        **self == SEL_A::NONE
     }
 }
-#[doc = "Write proxy for field `SEL`"]
+impl core::ops::Deref for SEL_R {
+    type Target = crate::FieldReader<u8, SEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SEL` writer - Clock source for frgN_src clock"]
 pub struct SEL_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +104,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "FRO"]
     #[inline(always)]
@@ -99,7 +129,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
@@ -115,5 +145,30 @@ impl W {
     #[inline(always)]
     pub fn sel(&mut self) -> SEL_W {
         SEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "FRG N clock source select register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [frgclksel](index.html) module"]
+pub struct FRGCLKSEL_SPEC;
+impl crate::RegisterSpec for FRGCLKSEL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [frgclksel::R](R) reader structure"]
+impl crate::Readable for FRGCLKSEL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [frgclksel::W](W) writer structure"]
+impl crate::Writable for FRGCLKSEL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FRGCLKSEL to value 0"]
+impl crate::Resettable for FRGCLKSEL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

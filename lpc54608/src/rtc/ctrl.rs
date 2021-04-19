@@ -1,13 +1,35 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0x01"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub struct R(crate::R<CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x01
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CTRL_SPEC>> for R {
+    fn from(reader: crate::R<CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTRL` writer"]
+pub struct W(crate::W<CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTRL_SPEC>> for W {
+    fn from(writer: crate::W<CTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Software reset control\n\nValue on reset: 1"]
@@ -24,9 +46,12 @@ impl From<SWRESET_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SWRESET`"]
-pub type SWRESET_R = crate::R<bool, SWRESET_A>;
+#[doc = "Field `SWRESET` reader - Software reset control"]
+pub struct SWRESET_R(crate::FieldReader<bool, SWRESET_A>);
 impl SWRESET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SWRESET_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SWRESET_A {
@@ -38,15 +63,22 @@ impl SWRESET_R {
     #[doc = "Checks if the value of the field is `NOT_IN_RESET`"]
     #[inline(always)]
     pub fn is_not_in_reset(&self) -> bool {
-        *self == SWRESET_A::NOT_IN_RESET
+        **self == SWRESET_A::NOT_IN_RESET
     }
     #[doc = "Checks if the value of the field is `IN_RESET`"]
     #[inline(always)]
     pub fn is_in_reset(&self) -> bool {
-        *self == SWRESET_A::IN_RESET
+        **self == SWRESET_A::IN_RESET
     }
 }
-#[doc = "Write proxy for field `SWRESET`"]
+impl core::ops::Deref for SWRESET_R {
+    type Target = crate::FieldReader<bool, SWRESET_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SWRESET` writer - Software reset control"]
 pub struct SWRESET_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> SWRESET_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SWRESET_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Not in reset. The RTC is not held in reset. This bit must be cleared prior to configuring or initiating any operation of the RTC."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> SWRESET_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<ALARM1HZ_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ALARM1HZ`"]
-pub type ALARM1HZ_R = crate::R<bool, ALARM1HZ_A>;
+#[doc = "Field `ALARM1HZ` reader - RTC 1 Hz timer alarm flag status."]
+pub struct ALARM1HZ_R(crate::FieldReader<bool, ALARM1HZ_A>);
 impl ALARM1HZ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ALARM1HZ_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ALARM1HZ_A {
@@ -113,15 +146,22 @@ impl ALARM1HZ_R {
     #[doc = "Checks if the value of the field is `NO_MATCH`"]
     #[inline(always)]
     pub fn is_no_match(&self) -> bool {
-        *self == ALARM1HZ_A::NO_MATCH
+        **self == ALARM1HZ_A::NO_MATCH
     }
     #[doc = "Checks if the value of the field is `MATCH`"]
     #[inline(always)]
-    pub fn is_match_(&self) -> bool {
-        *self == ALARM1HZ_A::MATCH
+    pub fn is_match(&self) -> bool {
+        **self == ALARM1HZ_A::MATCH
     }
 }
-#[doc = "Write proxy for field `ALARM1HZ`"]
+impl core::ops::Deref for ALARM1HZ_R {
+    type Target = crate::FieldReader<bool, ALARM1HZ_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ALARM1HZ` writer - RTC 1 Hz timer alarm flag status."]
 pub struct ALARM1HZ_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> ALARM1HZ_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ALARM1HZ_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No match. No match has occurred on the 1 Hz RTC timer. Writing a 0 has no effect."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> ALARM1HZ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<WAKE1KHZ_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WAKE1KHZ`"]
-pub type WAKE1KHZ_R = crate::R<bool, WAKE1KHZ_A>;
+#[doc = "Field `WAKE1KHZ` reader - RTC 1 kHz timer wake-up flag status."]
+pub struct WAKE1KHZ_R(crate::FieldReader<bool, WAKE1KHZ_A>);
 impl WAKE1KHZ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WAKE1KHZ_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WAKE1KHZ_A {
@@ -188,15 +229,22 @@ impl WAKE1KHZ_R {
     #[doc = "Checks if the value of the field is `RUN`"]
     #[inline(always)]
     pub fn is_run(&self) -> bool {
-        *self == WAKE1KHZ_A::RUN
+        **self == WAKE1KHZ_A::RUN
     }
     #[doc = "Checks if the value of the field is `TIMEOUT`"]
     #[inline(always)]
     pub fn is_timeout(&self) -> bool {
-        *self == WAKE1KHZ_A::TIMEOUT
+        **self == WAKE1KHZ_A::TIMEOUT
     }
 }
-#[doc = "Write proxy for field `WAKE1KHZ`"]
+impl core::ops::Deref for WAKE1KHZ_R {
+    type Target = crate::FieldReader<bool, WAKE1KHZ_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WAKE1KHZ` writer - RTC 1 kHz timer wake-up flag status."]
 pub struct WAKE1KHZ_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> WAKE1KHZ_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WAKE1KHZ_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Run. The RTC 1 kHz timer is running. Writing a 0 has no effect."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> WAKE1KHZ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<ALARMDPD_EN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ALARMDPD_EN`"]
-pub type ALARMDPD_EN_R = crate::R<bool, ALARMDPD_EN_A>;
+#[doc = "Field `ALARMDPD_EN` reader - RTC 1 Hz timer alarm enable for Deep power-down."]
+pub struct ALARMDPD_EN_R(crate::FieldReader<bool, ALARMDPD_EN_A>);
 impl ALARMDPD_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ALARMDPD_EN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ALARMDPD_EN_A {
@@ -263,15 +312,22 @@ impl ALARMDPD_EN_R {
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == ALARMDPD_EN_A::DISABLE
+        **self == ALARMDPD_EN_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == ALARMDPD_EN_A::ENABLE
+        **self == ALARMDPD_EN_A::ENABLE
     }
 }
-#[doc = "Write proxy for field `ALARMDPD_EN`"]
+impl core::ops::Deref for ALARMDPD_EN_R {
+    type Target = crate::FieldReader<bool, ALARMDPD_EN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ALARMDPD_EN` writer - RTC 1 Hz timer alarm enable for Deep power-down."]
 pub struct ALARMDPD_EN_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> ALARMDPD_EN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ALARMDPD_EN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disable. A match on the 1 Hz RTC timer will not bring the part out of Deep power-down mode."]
     #[inline(always)]
@@ -306,7 +360,7 @@ impl<'a> ALARMDPD_EN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -324,9 +378,12 @@ impl From<WAKEDPD_EN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WAKEDPD_EN`"]
-pub type WAKEDPD_EN_R = crate::R<bool, WAKEDPD_EN_A>;
+#[doc = "Field `WAKEDPD_EN` reader - RTC 1 kHz timer wake-up enable for Deep power-down."]
+pub struct WAKEDPD_EN_R(crate::FieldReader<bool, WAKEDPD_EN_A>);
 impl WAKEDPD_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WAKEDPD_EN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WAKEDPD_EN_A {
@@ -338,15 +395,22 @@ impl WAKEDPD_EN_R {
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == WAKEDPD_EN_A::DISABLE
+        **self == WAKEDPD_EN_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == WAKEDPD_EN_A::ENABLE
+        **self == WAKEDPD_EN_A::ENABLE
     }
 }
-#[doc = "Write proxy for field `WAKEDPD_EN`"]
+impl core::ops::Deref for WAKEDPD_EN_R {
+    type Target = crate::FieldReader<bool, WAKEDPD_EN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WAKEDPD_EN` writer - RTC 1 kHz timer wake-up enable for Deep power-down."]
 pub struct WAKEDPD_EN_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +418,7 @@ impl<'a> WAKEDPD_EN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WAKEDPD_EN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disable. A match on the 1 kHz RTC timer will not bring the part out of Deep power-down mode."]
     #[inline(always)]
@@ -381,7 +443,7 @@ impl<'a> WAKEDPD_EN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -399,9 +461,12 @@ impl From<RTC1KHZ_EN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RTC1KHZ_EN`"]
-pub type RTC1KHZ_EN_R = crate::R<bool, RTC1KHZ_EN_A>;
+#[doc = "Field `RTC1KHZ_EN` reader - RTC 1 kHz clock enable. This bit can be set to 0 to conserve power if the 1 kHz timer is not used. This bit has no effect when the RTC is disabled (bit 7 of this register is 0)."]
+pub struct RTC1KHZ_EN_R(crate::FieldReader<bool, RTC1KHZ_EN_A>);
 impl RTC1KHZ_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RTC1KHZ_EN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RTC1KHZ_EN_A {
@@ -413,15 +478,22 @@ impl RTC1KHZ_EN_R {
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == RTC1KHZ_EN_A::DISABLE
+        **self == RTC1KHZ_EN_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == RTC1KHZ_EN_A::ENABLE
+        **self == RTC1KHZ_EN_A::ENABLE
     }
 }
-#[doc = "Write proxy for field `RTC1KHZ_EN`"]
+impl core::ops::Deref for RTC1KHZ_EN_R {
+    type Target = crate::FieldReader<bool, RTC1KHZ_EN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RTC1KHZ_EN` writer - RTC 1 kHz clock enable. This bit can be set to 0 to conserve power if the 1 kHz timer is not used. This bit has no effect when the RTC is disabled (bit 7 of this register is 0)."]
 pub struct RTC1KHZ_EN_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +501,7 @@ impl<'a> RTC1KHZ_EN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RTC1KHZ_EN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disable. A match on the 1 kHz RTC timer will not bring the part out of Deep power-down mode."]
     #[inline(always)]
@@ -456,7 +526,7 @@ impl<'a> RTC1KHZ_EN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
@@ -474,9 +544,12 @@ impl From<RTC_EN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RTC_EN`"]
-pub type RTC_EN_R = crate::R<bool, RTC_EN_A>;
+#[doc = "Field `RTC_EN` reader - RTC enable."]
+pub struct RTC_EN_R(crate::FieldReader<bool, RTC_EN_A>);
 impl RTC_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RTC_EN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RTC_EN_A {
@@ -488,15 +561,22 @@ impl RTC_EN_R {
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == RTC_EN_A::DISABLE
+        **self == RTC_EN_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == RTC_EN_A::ENABLE
+        **self == RTC_EN_A::ENABLE
     }
 }
-#[doc = "Write proxy for field `RTC_EN`"]
+impl core::ops::Deref for RTC_EN_R {
+    type Target = crate::FieldReader<bool, RTC_EN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RTC_EN` writer - RTC enable."]
 pub struct RTC_EN_W<'a> {
     w: &'a mut W,
 }
@@ -504,9 +584,7 @@ impl<'a> RTC_EN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RTC_EN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disable. The RTC 1 Hz and 1 kHz clocks are shut down and the RTC operation is disabled. This bit should be 0 when writing to load a value in the RTC counter register."]
     #[inline(always)]
@@ -531,7 +609,7 @@ impl<'a> RTC_EN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
@@ -549,9 +627,12 @@ impl From<RTC_OSC_PD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RTC_OSC_PD`"]
-pub type RTC_OSC_PD_R = crate::R<bool, RTC_OSC_PD_A>;
+#[doc = "Field `RTC_OSC_PD` reader - RTC oscillator power-down control."]
+pub struct RTC_OSC_PD_R(crate::FieldReader<bool, RTC_OSC_PD_A>);
 impl RTC_OSC_PD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RTC_OSC_PD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RTC_OSC_PD_A {
@@ -563,15 +644,22 @@ impl RTC_OSC_PD_R {
     #[doc = "Checks if the value of the field is `POWER_UP`"]
     #[inline(always)]
     pub fn is_power_up(&self) -> bool {
-        *self == RTC_OSC_PD_A::POWER_UP
+        **self == RTC_OSC_PD_A::POWER_UP
     }
     #[doc = "Checks if the value of the field is `POWERED_DOWN`"]
     #[inline(always)]
     pub fn is_powered_down(&self) -> bool {
-        *self == RTC_OSC_PD_A::POWERED_DOWN
+        **self == RTC_OSC_PD_A::POWERED_DOWN
     }
 }
-#[doc = "Write proxy for field `RTC_OSC_PD`"]
+impl core::ops::Deref for RTC_OSC_PD_R {
+    type Target = crate::FieldReader<bool, RTC_OSC_PD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RTC_OSC_PD` writer - RTC oscillator power-down control."]
 pub struct RTC_OSC_PD_W<'a> {
     w: &'a mut W,
 }
@@ -579,9 +667,7 @@ impl<'a> RTC_OSC_PD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RTC_OSC_PD_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "See RTC_OSC_BYPASS"]
     #[inline(always)]
@@ -606,7 +692,7 @@ impl<'a> RTC_OSC_PD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -692,5 +778,30 @@ impl W {
     #[inline(always)]
     pub fn rtc_osc_pd(&mut self) -> RTC_OSC_PD_W {
         RTC_OSC_PD_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "RTC control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](index.html) module"]
+pub struct CTRL_SPEC;
+impl crate::RegisterSpec for CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctrl::R](R) reader structure"]
+impl crate::Readable for CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
+impl crate::Writable for CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTRL to value 0x01"]
+impl crate::Resettable for CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x01
     }
 }

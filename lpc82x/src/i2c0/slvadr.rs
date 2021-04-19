@@ -1,14 +1,35 @@
-#[doc = "Reader of register SLVADR[%s]"]
-pub type R = crate::R<u32, super::SLVADR>;
-#[doc = "Writer for register SLVADR[%s]"]
-pub type W = crate::W<u32, super::SLVADR>;
-#[doc = "Register SLVADR[%s]
-`reset()`'s with value 0x01"]
-impl crate::ResetValue for super::SLVADR {
-    type Type = u32;
+#[doc = "Register `SLVADR[%s]` reader"]
+pub struct R(crate::R<SLVADR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SLVADR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x01
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<SLVADR_SPEC>> for R {
+    fn from(reader: crate::R<SLVADR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SLVADR[%s]` writer"]
+pub struct W(crate::W<SLVADR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SLVADR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<SLVADR_SPEC>> for W {
+    fn from(writer: crate::W<SLVADR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Slave Address n Disable.\n\nValue on reset: 1"]
@@ -25,9 +46,12 @@ impl From<SADISABLE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SADISABLE`"]
-pub type SADISABLE_R = crate::R<bool, SADISABLE_A>;
+#[doc = "Field `SADISABLE` reader - Slave Address n Disable."]
+pub struct SADISABLE_R(crate::FieldReader<bool, SADISABLE_A>);
 impl SADISABLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SADISABLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SADISABLE_A {
@@ -39,15 +63,22 @@ impl SADISABLE_R {
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SADISABLE_A::ENABLED
+        **self == SADISABLE_A::ENABLED
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SADISABLE_A::DISABLED
+        **self == SADISABLE_A::DISABLED
     }
 }
-#[doc = "Write proxy for field `SADISABLE`"]
+impl core::ops::Deref for SADISABLE_R {
+    type Target = crate::FieldReader<bool, SADISABLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SADISABLE` writer - Slave Address n Disable."]
 pub struct SADISABLE_W<'a> {
     w: &'a mut W,
 }
@@ -55,9 +86,7 @@ impl<'a> SADISABLE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SADISABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Enabled. Slave Address n is enabled."]
     #[inline(always)]
@@ -82,13 +111,25 @@ impl<'a> SADISABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `SLVADR`"]
-pub type SLVADR_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `SLVADR`"]
+#[doc = "Field `SLVADR` reader - Slave Address. Seven bit slave address that is compared to received addresses if enabled."]
+pub struct SLVADR_R(crate::FieldReader<u8, u8>);
+impl SLVADR_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SLVADR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SLVADR_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SLVADR` writer - Slave Address. Seven bit slave address that is compared to received addresses if enabled."]
 pub struct SLVADR_W<'a> {
     w: &'a mut W,
 }
@@ -96,7 +137,7 @@ impl<'a> SLVADR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x7f << 1)) | (((value as u32) & 0x7f) << 1);
+        self.w.bits = (self.w.bits & !(0x7f << 1)) | ((value as u32 & 0x7f) << 1);
         self.w
     }
 }
@@ -122,5 +163,31 @@ impl W {
     #[inline(always)]
     pub fn slvadr(&mut self) -> SLVADR_W {
         SLVADR_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Slave address register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [slvadr](index.html) module"]
+pub struct SLVADR_SPEC;
+impl crate::RegisterSpec for SLVADR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [slvadr::R](R) reader structure"]
+impl crate::Readable for SLVADR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [slvadr::W](W) writer structure"]
+impl crate::Writable for SLVADR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SLVADR[%s]
+to value 0x01"]
+impl crate::Resettable for SLVADR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x01
     }
 }

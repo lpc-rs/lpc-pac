@@ -1,18 +1,52 @@
-#[doc = "Reader of register FALL"]
-pub type R = crate::R<u32, super::FALL>;
-#[doc = "Writer for register FALL"]
-pub type W = crate::W<u32, super::FALL>;
-#[doc = "Register FALL `reset()`'s with value 0"]
-impl crate::ResetValue for super::FALL {
-    type Type = u32;
+#[doc = "Register `FALL` reader"]
+pub struct R(crate::R<FALL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FALL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `FDET0`"]
-pub type FDET0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FDET0`"]
+impl core::convert::From<crate::R<FALL_SPEC>> for R {
+    fn from(reader: crate::R<FALL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FALL` writer"]
+pub struct W(crate::W<FALL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FALL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FALL_SPEC>> for W {
+    fn from(writer: crate::W<FALL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `FDET0` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
+pub struct FDET0_R(crate::FieldReader<bool, bool>);
+impl FDET0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FDET0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FDET0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FDET0` writer - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET0_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> FDET0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `FDET1`"]
-pub type FDET1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FDET1`"]
+#[doc = "Field `FDET1` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
+pub struct FDET1_R(crate::FieldReader<bool, bool>);
+impl FDET1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FDET1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FDET1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FDET1` writer - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET1_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> FDET1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `FDET2`"]
-pub type FDET2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FDET2`"]
+#[doc = "Field `FDET2` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
+pub struct FDET2_R(crate::FieldReader<bool, bool>);
+impl FDET2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FDET2_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FDET2_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FDET2` writer - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET2_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> FDET2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `FDET3`"]
-pub type FDET3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FDET3`"]
+#[doc = "Field `FDET3` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
+pub struct FDET3_R(crate::FieldReader<bool, bool>);
+impl FDET3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FDET3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FDET3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FDET3` writer - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET3_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> FDET3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `FDET4`"]
-pub type FDET4_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FDET4`"]
+#[doc = "Field `FDET4` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
+pub struct FDET4_R(crate::FieldReader<bool, bool>);
+impl FDET4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FDET4_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FDET4_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FDET4` writer - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET4_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> FDET4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `FDET5`"]
-pub type FDET5_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FDET5`"]
+#[doc = "Field `FDET5` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
+pub struct FDET5_R(crate::FieldReader<bool, bool>);
+impl FDET5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FDET5_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FDET5_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FDET5` writer - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET5_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> FDET5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `FDET6`"]
-pub type FDET6_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FDET6`"]
+#[doc = "Field `FDET6` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
+pub struct FDET6_R(crate::FieldReader<bool, bool>);
+impl FDET6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FDET6_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FDET6_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FDET6` writer - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET6_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> FDET6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `FDET7`"]
-pub type FDET7_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FDET7`"]
+#[doc = "Field `FDET7` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
+pub struct FDET7_R(crate::FieldReader<bool, bool>);
+impl FDET7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FDET7_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FDET7_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FDET7` writer - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET7_W<'a> {
     w: &'a mut W,
 }
@@ -198,7 +316,7 @@ impl<'a> FDET7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
@@ -284,5 +402,30 @@ impl W {
     #[inline(always)]
     pub fn fdet7(&mut self) -> FDET7_W {
         FDET7_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Pin Interrupt Falling Edge register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fall](index.html) module"]
+pub struct FALL_SPEC;
+impl crate::RegisterSpec for FALL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [fall::R](R) reader structure"]
+impl crate::Readable for FALL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [fall::W](W) writer structure"]
+impl crate::Writable for FALL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FALL to value 0"]
+impl crate::Resettable for FALL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,18 +1,52 @@
-#[doc = "Reader of register FREQMEAS_TARGET"]
-pub type R = crate::R<u32, super::FREQMEAS_TARGET>;
-#[doc = "Writer for register FREQMEAS_TARGET"]
-pub type W = crate::W<u32, super::FREQMEAS_TARGET>;
-#[doc = "Register FREQMEAS_TARGET `reset()`'s with value 0x1f"]
-impl crate::ResetValue for super::FREQMEAS_TARGET {
-    type Type = u32;
+#[doc = "Register `FREQMEAS_TARGET` reader"]
+pub struct R(crate::R<FREQMEAS_TARGET_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FREQMEAS_TARGET_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x1f
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `CLKIN`"]
-pub type CLKIN_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CLKIN`"]
+impl core::convert::From<crate::R<FREQMEAS_TARGET_SPEC>> for R {
+    fn from(reader: crate::R<FREQMEAS_TARGET_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FREQMEAS_TARGET` writer"]
+pub struct W(crate::W<FREQMEAS_TARGET_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FREQMEAS_TARGET_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FREQMEAS_TARGET_SPEC>> for W {
+    fn from(writer: crate::W<FREQMEAS_TARGET_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CLKIN` reader - Clock source number (decimal value) for frequency measure function target clock: 0 = CLK_IN 1 = FRO 12 MHz oscillator 2 = Watchdog oscillator 3 = 32 kHz RTC oscillator 4 = Main clock (see Section 4.5.23) 5 = PIO0_4 6 = PIO0_20 7 = PIO0_24 8 = PIO1_4"]
+pub struct CLKIN_R(crate::FieldReader<u8, u8>);
+impl CLKIN_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CLKIN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CLKIN_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLKIN` writer - Clock source number (decimal value) for frequency measure function target clock: 0 = CLK_IN 1 = FRO 12 MHz oscillator 2 = Watchdog oscillator 3 = 32 kHz RTC oscillator 4 = Main clock (see Section 4.5.23) 5 = PIO0_4 6 = PIO0_20 7 = PIO0_24 8 = PIO1_4"]
 pub struct CLKIN_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +54,7 @@ impl<'a> CLKIN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x1f) | ((value as u32) & 0x1f);
+        self.w.bits = (self.w.bits & !0x1f) | (value as u32 & 0x1f);
         self.w
     }
 }
@@ -36,5 +70,30 @@ impl W {
     #[inline(always)]
     pub fn clkin(&mut self) -> CLKIN_W {
         CLKIN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Selection for frequency measurement target clock\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [freqmeas_target](index.html) module"]
+pub struct FREQMEAS_TARGET_SPEC;
+impl crate::RegisterSpec for FREQMEAS_TARGET_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [freqmeas_target::R](R) reader structure"]
+impl crate::Readable for FREQMEAS_TARGET_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [freqmeas_target::W](W) writer structure"]
+impl crate::Writable for FREQMEAS_TARGET_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FREQMEAS_TARGET to value 0x1f"]
+impl crate::Resettable for FREQMEAS_TARGET_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x1f
     }
 }

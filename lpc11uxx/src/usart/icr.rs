@@ -1,13 +1,35 @@
-#[doc = "Reader of register ICR"]
-pub type R = crate::R<u32, super::ICR>;
-#[doc = "Writer for register ICR"]
-pub type W = crate::W<u32, super::ICR>;
-#[doc = "Register ICR `reset()`'s with value 0"]
-impl crate::ResetValue for super::ICR {
-    type Type = u32;
+#[doc = "Register `ICR` reader"]
+pub struct R(crate::R<ICR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<ICR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<ICR_SPEC>> for R {
+    fn from(reader: crate::R<ICR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `ICR` writer"]
+pub struct W(crate::W<ICR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<ICR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<ICR_SPEC>> for W {
+    fn from(writer: crate::W<ICR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "IrDA mode enable\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<IRDAEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `IRDAEN`"]
-pub type IRDAEN_R = crate::R<bool, IRDAEN_A>;
+#[doc = "Field `IRDAEN` reader - IrDA mode enable"]
+pub struct IRDAEN_R(crate::FieldReader<bool, IRDAEN_A>);
 impl IRDAEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        IRDAEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> IRDAEN_A {
@@ -38,15 +63,22 @@ impl IRDAEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == IRDAEN_A::DISABLED
+        **self == IRDAEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == IRDAEN_A::ENABLED
+        **self == IRDAEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `IRDAEN`"]
+impl core::ops::Deref for IRDAEN_R {
+    type Target = crate::FieldReader<bool, IRDAEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `IRDAEN` writer - IrDA mode enable"]
 pub struct IRDAEN_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> IRDAEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: IRDAEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "IrDA mode is disabled, USARTn acts as a standard USART."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> IRDAEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<IRDAINV_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `IRDAINV`"]
-pub type IRDAINV_R = crate::R<bool, IRDAINV_A>;
+#[doc = "Field `IRDAINV` reader - Serial input inverter"]
+pub struct IRDAINV_R(crate::FieldReader<bool, IRDAINV_A>);
 impl IRDAINV_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        IRDAINV_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> IRDAINV_A {
@@ -113,15 +146,22 @@ impl IRDAINV_R {
     #[doc = "Checks if the value of the field is `INVERTED`"]
     #[inline(always)]
     pub fn is_inverted(&self) -> bool {
-        *self == IRDAINV_A::INVERTED
+        **self == IRDAINV_A::INVERTED
     }
     #[doc = "Checks if the value of the field is `NOT_INVERTED`"]
     #[inline(always)]
     pub fn is_not_inverted(&self) -> bool {
-        *self == IRDAINV_A::NOT_INVERTED
+        **self == IRDAINV_A::NOT_INVERTED
     }
 }
-#[doc = "Write proxy for field `IRDAINV`"]
+impl core::ops::Deref for IRDAINV_R {
+    type Target = crate::FieldReader<bool, IRDAINV_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `IRDAINV` writer - Serial input inverter"]
 pub struct IRDAINV_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> IRDAINV_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: IRDAINV_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The serial input is not inverted."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> IRDAINV_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<FIXPULSEEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FIXPULSEEN`"]
-pub type FIXPULSEEN_R = crate::R<bool, FIXPULSEEN_A>;
+#[doc = "Field `FIXPULSEEN` reader - IrDA fixed pulse width mode."]
+pub struct FIXPULSEEN_R(crate::FieldReader<bool, FIXPULSEEN_A>);
 impl FIXPULSEEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FIXPULSEEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FIXPULSEEN_A {
@@ -188,15 +229,22 @@ impl FIXPULSEEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == FIXPULSEEN_A::DISABLED
+        **self == FIXPULSEEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == FIXPULSEEN_A::ENABLED
+        **self == FIXPULSEEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `FIXPULSEEN`"]
+impl core::ops::Deref for FIXPULSEEN_R {
+    type Target = crate::FieldReader<bool, FIXPULSEEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FIXPULSEEN` writer - IrDA fixed pulse width mode."]
 pub struct FIXPULSEEN_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> FIXPULSEEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FIXPULSEEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "IrDA fixed pulse width mode disabled."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> FIXPULSEEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -262,9 +308,12 @@ impl From<PULSEDIV_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `PULSEDIV`"]
-pub type PULSEDIV_R = crate::R<u8, PULSEDIV_A>;
+#[doc = "Field `PULSEDIV` reader - Configures the pulse width when FixPulseEn = 1."]
+pub struct PULSEDIV_R(crate::FieldReader<u8, PULSEDIV_A>);
 impl PULSEDIV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PULSEDIV_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PULSEDIV_A {
@@ -283,45 +332,52 @@ impl PULSEDIV_R {
     #[doc = "Checks if the value of the field is `_3_DIV_16_X_BAUD_RATE`"]
     #[inline(always)]
     pub fn is_3_div_16_x_baud_rate(&self) -> bool {
-        *self == PULSEDIV_A::_3_DIV_16_X_BAUD_RATE
+        **self == PULSEDIV_A::_3_DIV_16_X_BAUD_RATE
     }
     #[doc = "Checks if the value of the field is `_2_X_TPCLK`"]
     #[inline(always)]
     pub fn is_2_x_tpclk(&self) -> bool {
-        *self == PULSEDIV_A::_2_X_TPCLK
+        **self == PULSEDIV_A::_2_X_TPCLK
     }
     #[doc = "Checks if the value of the field is `_4_X_TPCLK`"]
     #[inline(always)]
     pub fn is_4_x_tpclk(&self) -> bool {
-        *self == PULSEDIV_A::_4_X_TPCLK
+        **self == PULSEDIV_A::_4_X_TPCLK
     }
     #[doc = "Checks if the value of the field is `_8_X_TPCLK`"]
     #[inline(always)]
     pub fn is_8_x_tpclk(&self) -> bool {
-        *self == PULSEDIV_A::_8_X_TPCLK
+        **self == PULSEDIV_A::_8_X_TPCLK
     }
     #[doc = "Checks if the value of the field is `_16_X_TPCLK`"]
     #[inline(always)]
     pub fn is_16_x_tpclk(&self) -> bool {
-        *self == PULSEDIV_A::_16_X_TPCLK
+        **self == PULSEDIV_A::_16_X_TPCLK
     }
     #[doc = "Checks if the value of the field is `_32_X_TPCLK`"]
     #[inline(always)]
     pub fn is_32_x_tpclk(&self) -> bool {
-        *self == PULSEDIV_A::_32_X_TPCLK
+        **self == PULSEDIV_A::_32_X_TPCLK
     }
     #[doc = "Checks if the value of the field is `_64_X_TPCLK`"]
     #[inline(always)]
     pub fn is_64_x_tpclk(&self) -> bool {
-        *self == PULSEDIV_A::_64_X_TPCLK
+        **self == PULSEDIV_A::_64_X_TPCLK
     }
     #[doc = "Checks if the value of the field is `_128_X_TPCLK`"]
     #[inline(always)]
     pub fn is_128_x_tpclk(&self) -> bool {
-        *self == PULSEDIV_A::_128_X_TPCLK
+        **self == PULSEDIV_A::_128_X_TPCLK
     }
 }
-#[doc = "Write proxy for field `PULSEDIV`"]
+impl core::ops::Deref for PULSEDIV_R {
+    type Target = crate::FieldReader<u8, PULSEDIV_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PULSEDIV` writer - Configures the pulse width when FixPulseEn = 1."]
 pub struct PULSEDIV_W<'a> {
     w: &'a mut W,
 }
@@ -329,9 +385,7 @@ impl<'a> PULSEDIV_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PULSEDIV_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "3 / (16 x baud rate)"]
     #[inline(always)]
@@ -376,7 +430,7 @@ impl<'a> PULSEDIV_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 3)) | (((value as u32) & 0x07) << 3);
+        self.w.bits = (self.w.bits & !(0x07 << 3)) | ((value as u32 & 0x07) << 3);
         self.w
     }
 }
@@ -422,5 +476,30 @@ impl W {
     #[inline(always)]
     pub fn pulsediv(&mut self) -> PULSEDIV_W {
         PULSEDIV_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "IrDA Control Register. Enables and configures the IrDA (remote control) mode.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [icr](index.html) module"]
+pub struct ICR_SPEC;
+impl crate::RegisterSpec for ICR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [icr::R](R) reader structure"]
+impl crate::Readable for ICR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [icr::W](W) writer structure"]
+impl crate::Writable for ICR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets ICR to value 0"]
+impl crate::Resettable for ICR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

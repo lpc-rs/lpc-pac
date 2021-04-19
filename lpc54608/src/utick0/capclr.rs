@@ -1,14 +1,24 @@
-#[doc = "Writer for register CAPCLR"]
-pub type W = crate::W<u32, super::CAPCLR>;
-#[doc = "Register CAPCLR `reset()`'s with value 0"]
-impl crate::ResetValue for super::CAPCLR {
-    type Type = u32;
+#[doc = "Register `CAPCLR` writer"]
+pub struct W(crate::W<CAPCLR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CAPCLR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Write proxy for field `CAPCLR0`"]
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CAPCLR_SPEC>> for W {
+    fn from(writer: crate::W<CAPCLR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CAPCLR0` writer - Clear capture 0. Writing 1 to this bit clears the CAP0 register value."]
 pub struct CAPCLR0_W<'a> {
     w: &'a mut W,
 }
@@ -26,11 +36,11 @@ impl<'a> CAPCLR0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Write proxy for field `CAPCLR1`"]
+#[doc = "Field `CAPCLR1` writer - Clear capture 1. Writing 1 to this bit clears the CAP1 register value."]
 pub struct CAPCLR1_W<'a> {
     w: &'a mut W,
 }
@@ -48,11 +58,11 @@ impl<'a> CAPCLR1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Write proxy for field `CAPCLR2`"]
+#[doc = "Field `CAPCLR2` writer - Clear capture 2. Writing 1 to this bit clears the CAP2 register value."]
 pub struct CAPCLR2_W<'a> {
     w: &'a mut W,
 }
@@ -70,11 +80,11 @@ impl<'a> CAPCLR2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Write proxy for field `CAPCLR3`"]
+#[doc = "Field `CAPCLR3` writer - Clear capture 3. Writing 1 to this bit clears the CAP3 register value."]
 pub struct CAPCLR3_W<'a> {
     w: &'a mut W,
 }
@@ -92,7 +102,7 @@ impl<'a> CAPCLR3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -116,5 +126,26 @@ impl W {
     #[inline(always)]
     pub fn capclr3(&mut self) -> CAPCLR3_W {
         CAPCLR3_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Capture clear register.\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [capclr](index.html) module"]
+pub struct CAPCLR_SPEC;
+impl crate::RegisterSpec for CAPCLR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [capclr::W](W) writer structure"]
+impl crate::Writable for CAPCLR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CAPCLR to value 0"]
+impl crate::Resettable for CAPCLR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

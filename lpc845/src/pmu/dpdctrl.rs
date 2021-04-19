@@ -1,13 +1,35 @@
-#[doc = "Reader of register DPDCTRL"]
-pub type R = crate::R<u32, super::DPDCTRL>;
-#[doc = "Writer for register DPDCTRL"]
-pub type W = crate::W<u32, super::DPDCTRL>;
-#[doc = "Register DPDCTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::DPDCTRL {
-    type Type = u32;
+#[doc = "Register `DPDCTRL` reader"]
+pub struct R(crate::R<DPDCTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DPDCTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<DPDCTRL_SPEC>> for R {
+    fn from(reader: crate::R<DPDCTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DPDCTRL` writer"]
+pub struct W(crate::W<DPDCTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DPDCTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<DPDCTRL_SPEC>> for W {
+    fn from(writer: crate::W<DPDCTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "WAKEUP pin hysteresis enable\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<WAKEUPHYS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WAKEUPHYS`"]
-pub type WAKEUPHYS_R = crate::R<bool, WAKEUPHYS_A>;
+#[doc = "Field `WAKEUPHYS` reader - WAKEUP pin hysteresis enable"]
+pub struct WAKEUPHYS_R(crate::FieldReader<bool, WAKEUPHYS_A>);
 impl WAKEUPHYS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WAKEUPHYS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WAKEUPHYS_A {
@@ -38,15 +63,22 @@ impl WAKEUPHYS_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == WAKEUPHYS_A::DISABLED
+        **self == WAKEUPHYS_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == WAKEUPHYS_A::ENABLED
+        **self == WAKEUPHYS_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `WAKEUPHYS`"]
+impl core::ops::Deref for WAKEUPHYS_R {
+    type Target = crate::FieldReader<bool, WAKEUPHYS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WAKEUPHYS` writer - WAKEUP pin hysteresis enable"]
 pub struct WAKEUPHYS_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> WAKEUPHYS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WAKEUPHYS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Hysteresis for WAKEUP pin disabled."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> WAKEUPHYS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<WAKEPAD_DISABLE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WAKEPAD_DISABLE`"]
-pub type WAKEPAD_DISABLE_R = crate::R<bool, WAKEPAD_DISABLE_A>;
+#[doc = "Field `WAKEPAD_DISABLE` reader - WAKEUP pin disable. Setting this bit disables the wake-up pin, so it can be used for other purposes. Remark: Never set this bit if you intend to use a pin to wake up the part from Deep power-down mode. You can only disable the wake-up pin if the self wake-up timer is enabled and configured. Remark: Setting this bit is not necessary if Deep power-down mode is not used."]
+pub struct WAKEPAD_DISABLE_R(crate::FieldReader<bool, WAKEPAD_DISABLE_A>);
 impl WAKEPAD_DISABLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WAKEPAD_DISABLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WAKEPAD_DISABLE_A {
@@ -113,15 +146,22 @@ impl WAKEPAD_DISABLE_R {
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == WAKEPAD_DISABLE_A::ENABLED
+        **self == WAKEPAD_DISABLE_A::ENABLED
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == WAKEPAD_DISABLE_A::DISABLED
+        **self == WAKEPAD_DISABLE_A::DISABLED
     }
 }
-#[doc = "Write proxy for field `WAKEPAD_DISABLE`"]
+impl core::ops::Deref for WAKEPAD_DISABLE_R {
+    type Target = crate::FieldReader<bool, WAKEPAD_DISABLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WAKEPAD_DISABLE` writer - WAKEUP pin disable. Setting this bit disables the wake-up pin, so it can be used for other purposes. Remark: Never set this bit if you intend to use a pin to wake up the part from Deep power-down mode. You can only disable the wake-up pin if the self wake-up timer is enabled and configured. Remark: Setting this bit is not necessary if Deep power-down mode is not used."]
 pub struct WAKEPAD_DISABLE_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> WAKEPAD_DISABLE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WAKEPAD_DISABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Enabled. The wake-up function is enabled on pin PIO0_4."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> WAKEPAD_DISABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<LPOSCEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LPOSCEN`"]
-pub type LPOSCEN_R = crate::R<bool, LPOSCEN_A>;
+#[doc = "Field `LPOSCEN` reader - Enable the low-power oscillator for use with the 10 kHz self wake-up timer clock. You must set this bit if the CLKSEL bit in the self wake-up timer CTRL bit is set. Do not enable the low-power oscillator if the self wake-up timer is clocked by the divided IRC or the external clock input."]
+pub struct LPOSCEN_R(crate::FieldReader<bool, LPOSCEN_A>);
 impl LPOSCEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LPOSCEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LPOSCEN_A {
@@ -188,15 +229,22 @@ impl LPOSCEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == LPOSCEN_A::DISABLED
+        **self == LPOSCEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == LPOSCEN_A::ENABLED
+        **self == LPOSCEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `LPOSCEN`"]
+impl core::ops::Deref for LPOSCEN_R {
+    type Target = crate::FieldReader<bool, LPOSCEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LPOSCEN` writer - Enable the low-power oscillator for use with the 10 kHz self wake-up timer clock. You must set this bit if the CLKSEL bit in the self wake-up timer CTRL bit is set. Do not enable the low-power oscillator if the self wake-up timer is clocked by the divided IRC or the external clock input."]
 pub struct LPOSCEN_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> LPOSCEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LPOSCEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> LPOSCEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<LPOSCDPDEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LPOSCDPDEN`"]
-pub type LPOSCDPDEN_R = crate::R<bool, LPOSCDPDEN_A>;
+#[doc = "Field `LPOSCDPDEN` reader - causes the low-power oscillator to remain running during Deep power-down mode provided that bit 2 in this register is set as well. You must set this bit for the self wake-up timer to be able to wake up the part from Deep power-down mode. Remark: Do not set this bit unless you use the self wake-up timer with the low-power oscillator clock source to wake up from Deep power-down mode."]
+pub struct LPOSCDPDEN_R(crate::FieldReader<bool, LPOSCDPDEN_A>);
 impl LPOSCDPDEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LPOSCDPDEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LPOSCDPDEN_A {
@@ -263,15 +312,22 @@ impl LPOSCDPDEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == LPOSCDPDEN_A::DISABLED
+        **self == LPOSCDPDEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == LPOSCDPDEN_A::ENABLED
+        **self == LPOSCDPDEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `LPOSCDPDEN`"]
+impl core::ops::Deref for LPOSCDPDEN_R {
+    type Target = crate::FieldReader<bool, LPOSCDPDEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LPOSCDPDEN` writer - causes the low-power oscillator to remain running during Deep power-down mode provided that bit 2 in this register is set as well. You must set this bit for the self wake-up timer to be able to wake up the part from Deep power-down mode. Remark: Do not set this bit unless you use the self wake-up timer with the low-power oscillator clock source to wake up from Deep power-down mode."]
 pub struct LPOSCDPDEN_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> LPOSCDPDEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LPOSCDPDEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled."]
     #[inline(always)]
@@ -306,7 +360,7 @@ impl<'a> LPOSCDPDEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -324,9 +378,12 @@ impl From<WAKEUPCLKHYS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WAKEUPCLKHYS`"]
-pub type WAKEUPCLKHYS_R = crate::R<bool, WAKEUPCLKHYS_A>;
+#[doc = "Field `WAKEUPCLKHYS` reader - External clock input for the self wake-up timer WKTCLKIN hysteresis enable."]
+pub struct WAKEUPCLKHYS_R(crate::FieldReader<bool, WAKEUPCLKHYS_A>);
 impl WAKEUPCLKHYS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WAKEUPCLKHYS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WAKEUPCLKHYS_A {
@@ -338,15 +395,22 @@ impl WAKEUPCLKHYS_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == WAKEUPCLKHYS_A::DISABLED
+        **self == WAKEUPCLKHYS_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == WAKEUPCLKHYS_A::ENABLED
+        **self == WAKEUPCLKHYS_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `WAKEUPCLKHYS`"]
+impl core::ops::Deref for WAKEUPCLKHYS_R {
+    type Target = crate::FieldReader<bool, WAKEUPCLKHYS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WAKEUPCLKHYS` writer - External clock input for the self wake-up timer WKTCLKIN hysteresis enable."]
 pub struct WAKEUPCLKHYS_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +418,7 @@ impl<'a> WAKEUPCLKHYS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WAKEUPCLKHYS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Hysteresis for WAKEUP clock pin disabled."]
     #[inline(always)]
@@ -381,7 +443,7 @@ impl<'a> WAKEUPCLKHYS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -399,9 +461,12 @@ impl From<WAKECLKPAD_DISABLE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WAKECLKPAD_DISABLE`"]
-pub type WAKECLKPAD_DISABLE_R = crate::R<bool, WAKECLKPAD_DISABLE_A>;
+#[doc = "Field `WAKECLKPAD_DISABLE` reader - Disable the external clock input for the self-wake-up timer. Setting this bit enables the self-wake-up timer clock pin WKTCLKLIN. To minimize power consumption, especially in deep power-down mode, disable this clock input when not using the external clock option for the self-wake-up timer."]
+pub struct WAKECLKPAD_DISABLE_R(crate::FieldReader<bool, WAKECLKPAD_DISABLE_A>);
 impl WAKECLKPAD_DISABLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WAKECLKPAD_DISABLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WAKECLKPAD_DISABLE_A {
@@ -413,15 +478,22 @@ impl WAKECLKPAD_DISABLE_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == WAKECLKPAD_DISABLE_A::DISABLED
+        **self == WAKECLKPAD_DISABLE_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == WAKECLKPAD_DISABLE_A::ENABLED
+        **self == WAKECLKPAD_DISABLE_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `WAKECLKPAD_DISABLE`"]
+impl core::ops::Deref for WAKECLKPAD_DISABLE_R {
+    type Target = crate::FieldReader<bool, WAKECLKPAD_DISABLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WAKECLKPAD_DISABLE` writer - Disable the external clock input for the self-wake-up timer. Setting this bit enables the self-wake-up timer clock pin WKTCLKLIN. To minimize power consumption, especially in deep power-down mode, disable this clock input when not using the external clock option for the self-wake-up timer."]
 pub struct WAKECLKPAD_DISABLE_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +501,7 @@ impl<'a> WAKECLKPAD_DISABLE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WAKECLKPAD_DISABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Setting this bit disables external clock input on pin PIO0_28."]
     #[inline(always)]
@@ -456,7 +526,7 @@ impl<'a> WAKECLKPAD_DISABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -474,9 +544,12 @@ impl From<RESETHYS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RESETHYS`"]
-pub type RESETHYS_R = crate::R<bool, RESETHYS_A>;
+#[doc = "Field `RESETHYS` reader - RESET pin hysteresis enable."]
+pub struct RESETHYS_R(crate::FieldReader<bool, RESETHYS_A>);
 impl RESETHYS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RESETHYS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RESETHYS_A {
@@ -488,15 +561,22 @@ impl RESETHYS_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == RESETHYS_A::DISABLED
+        **self == RESETHYS_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == RESETHYS_A::ENABLED
+        **self == RESETHYS_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `RESETHYS`"]
+impl core::ops::Deref for RESETHYS_R {
+    type Target = crate::FieldReader<bool, RESETHYS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RESETHYS` writer - RESET pin hysteresis enable."]
 pub struct RESETHYS_W<'a> {
     w: &'a mut W,
 }
@@ -504,9 +584,7 @@ impl<'a> RESETHYS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RESETHYS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Hysteresis for RESET pin disabled."]
     #[inline(always)]
@@ -531,7 +609,7 @@ impl<'a> RESETHYS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
@@ -549,9 +627,12 @@ impl From<RESET_DISABLE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RESET_DISABLE`"]
-pub type RESET_DISABLE_R = crate::R<bool, RESET_DISABLE_A>;
+#[doc = "Field `RESET_DISABLE` reader - RESET pin disable. Setting this bit disables the reset wake-up function, so the pin can be used for other purposes. Remark: Setting this bit is not necessary if deep power-down mode is not used."]
+pub struct RESET_DISABLE_R(crate::FieldReader<bool, RESET_DISABLE_A>);
 impl RESET_DISABLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RESET_DISABLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RESET_DISABLE_A {
@@ -563,15 +644,22 @@ impl RESET_DISABLE_R {
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == RESET_DISABLE_A::ENABLED
+        **self == RESET_DISABLE_A::ENABLED
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == RESET_DISABLE_A::DISABLED
+        **self == RESET_DISABLE_A::DISABLED
     }
 }
-#[doc = "Write proxy for field `RESET_DISABLE`"]
+impl core::ops::Deref for RESET_DISABLE_R {
+    type Target = crate::FieldReader<bool, RESET_DISABLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RESET_DISABLE` writer - RESET pin disable. Setting this bit disables the reset wake-up function, so the pin can be used for other purposes. Remark: Setting this bit is not necessary if deep power-down mode is not used."]
 pub struct RESET_DISABLE_W<'a> {
     w: &'a mut W,
 }
@@ -579,9 +667,7 @@ impl<'a> RESET_DISABLE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RESET_DISABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Enabled. The reset wake-up function is enabled on pin PIO0_5."]
     #[inline(always)]
@@ -606,13 +692,25 @@ impl<'a> RESET_DISABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Reader of field `GPDATA`"]
-pub type GPDATA_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `GPDATA`"]
+#[doc = "Field `GPDATA` reader - Data retained during Deep power-down mode."]
+pub struct GPDATA_R(crate::FieldReader<u32, u32>);
+impl GPDATA_R {
+    pub(crate) fn new(bits: u32) -> Self {
+        GPDATA_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for GPDATA_R {
+    type Target = crate::FieldReader<u32, u32>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `GPDATA` writer - Data retained during Deep power-down mode."]
 pub struct GPDATA_W<'a> {
     w: &'a mut W,
 }
@@ -620,7 +718,7 @@ impl<'a> GPDATA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x00ff_ffff << 8)) | (((value as u32) & 0x00ff_ffff) << 8);
+        self.w.bits = (self.w.bits & !(0x00ff_ffff << 8)) | ((value as u32 & 0x00ff_ffff) << 8);
         self.w
     }
 }
@@ -716,5 +814,30 @@ impl W {
     #[inline(always)]
     pub fn gpdata(&mut self) -> GPDATA_W {
         GPDATA_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Deep power-down control register. Also includes bits for general purpose storage.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dpdctrl](index.html) module"]
+pub struct DPDCTRL_SPEC;
+impl crate::RegisterSpec for DPDCTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [dpdctrl::R](R) reader structure"]
+impl crate::Readable for DPDCTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [dpdctrl::W](W) writer structure"]
+impl crate::Writable for DPDCTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DPDCTRL to value 0"]
+impl crate::Resettable for DPDCTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,14 +1,24 @@
-#[doc = "Writer for register CLR%s"]
-pub type W = crate::W<u32, super::CLR>;
-#[doc = "Register CLR%s `reset()`'s with value 0"]
-impl crate::ResetValue for super::CLR {
-    type Type = u32;
+#[doc = "Register `CLR%s` writer"]
+pub struct W(crate::W<CLR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CLR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Write proxy for field `CLRP00`"]
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CLR_SPEC>> for W {
+    fn from(writer: crate::W<CLR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CLRP00` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP00_W<'a> {
     w: &'a mut W,
 }
@@ -26,11 +36,11 @@ impl<'a> CLRP00_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP01`"]
+#[doc = "Field `CLRP01` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP01_W<'a> {
     w: &'a mut W,
 }
@@ -48,11 +58,11 @@ impl<'a> CLRP01_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP02`"]
+#[doc = "Field `CLRP02` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP02_W<'a> {
     w: &'a mut W,
 }
@@ -70,11 +80,11 @@ impl<'a> CLRP02_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP03`"]
+#[doc = "Field `CLRP03` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP03_W<'a> {
     w: &'a mut W,
 }
@@ -92,11 +102,11 @@ impl<'a> CLRP03_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP04`"]
+#[doc = "Field `CLRP04` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP04_W<'a> {
     w: &'a mut W,
 }
@@ -114,11 +124,11 @@ impl<'a> CLRP04_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP05`"]
+#[doc = "Field `CLRP05` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP05_W<'a> {
     w: &'a mut W,
 }
@@ -136,11 +146,11 @@ impl<'a> CLRP05_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP06`"]
+#[doc = "Field `CLRP06` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP06_W<'a> {
     w: &'a mut W,
 }
@@ -158,11 +168,11 @@ impl<'a> CLRP06_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP07`"]
+#[doc = "Field `CLRP07` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP07_W<'a> {
     w: &'a mut W,
 }
@@ -180,11 +190,11 @@ impl<'a> CLRP07_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP08`"]
+#[doc = "Field `CLRP08` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP08_W<'a> {
     w: &'a mut W,
 }
@@ -202,11 +212,11 @@ impl<'a> CLRP08_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP09`"]
+#[doc = "Field `CLRP09` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP09_W<'a> {
     w: &'a mut W,
 }
@@ -224,11 +234,11 @@ impl<'a> CLRP09_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP010`"]
+#[doc = "Field `CLRP010` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP010_W<'a> {
     w: &'a mut W,
 }
@@ -246,11 +256,11 @@ impl<'a> CLRP010_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP011`"]
+#[doc = "Field `CLRP011` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP011_W<'a> {
     w: &'a mut W,
 }
@@ -268,11 +278,11 @@ impl<'a> CLRP011_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP012`"]
+#[doc = "Field `CLRP012` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP012_W<'a> {
     w: &'a mut W,
 }
@@ -290,11 +300,11 @@ impl<'a> CLRP012_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP013`"]
+#[doc = "Field `CLRP013` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP013_W<'a> {
     w: &'a mut W,
 }
@@ -312,11 +322,11 @@ impl<'a> CLRP013_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP014`"]
+#[doc = "Field `CLRP014` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP014_W<'a> {
     w: &'a mut W,
 }
@@ -334,11 +344,11 @@ impl<'a> CLRP014_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP015`"]
+#[doc = "Field `CLRP015` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP015_W<'a> {
     w: &'a mut W,
 }
@@ -356,11 +366,11 @@ impl<'a> CLRP015_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP016`"]
+#[doc = "Field `CLRP016` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP016_W<'a> {
     w: &'a mut W,
 }
@@ -378,11 +388,11 @@ impl<'a> CLRP016_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP017`"]
+#[doc = "Field `CLRP017` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP017_W<'a> {
     w: &'a mut W,
 }
@@ -400,11 +410,11 @@ impl<'a> CLRP017_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP018`"]
+#[doc = "Field `CLRP018` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP018_W<'a> {
     w: &'a mut W,
 }
@@ -422,11 +432,11 @@ impl<'a> CLRP018_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP019`"]
+#[doc = "Field `CLRP019` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP019_W<'a> {
     w: &'a mut W,
 }
@@ -444,11 +454,11 @@ impl<'a> CLRP019_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP020`"]
+#[doc = "Field `CLRP020` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP020_W<'a> {
     w: &'a mut W,
 }
@@ -466,11 +476,11 @@ impl<'a> CLRP020_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP021`"]
+#[doc = "Field `CLRP021` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP021_W<'a> {
     w: &'a mut W,
 }
@@ -488,11 +498,11 @@ impl<'a> CLRP021_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP022`"]
+#[doc = "Field `CLRP022` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP022_W<'a> {
     w: &'a mut W,
 }
@@ -510,11 +520,11 @@ impl<'a> CLRP022_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP023`"]
+#[doc = "Field `CLRP023` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP023_W<'a> {
     w: &'a mut W,
 }
@@ -532,11 +542,11 @@ impl<'a> CLRP023_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP024`"]
+#[doc = "Field `CLRP024` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP024_W<'a> {
     w: &'a mut W,
 }
@@ -554,11 +564,11 @@ impl<'a> CLRP024_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | ((value as u32 & 0x01) << 24);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP025`"]
+#[doc = "Field `CLRP025` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP025_W<'a> {
     w: &'a mut W,
 }
@@ -576,11 +586,11 @@ impl<'a> CLRP025_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP026`"]
+#[doc = "Field `CLRP026` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP026_W<'a> {
     w: &'a mut W,
 }
@@ -598,11 +608,11 @@ impl<'a> CLRP026_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | ((value as u32 & 0x01) << 26);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP027`"]
+#[doc = "Field `CLRP027` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP027_W<'a> {
     w: &'a mut W,
 }
@@ -620,11 +630,11 @@ impl<'a> CLRP027_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP028`"]
+#[doc = "Field `CLRP028` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP028_W<'a> {
     w: &'a mut W,
 }
@@ -642,11 +652,11 @@ impl<'a> CLRP028_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP029`"]
+#[doc = "Field `CLRP029` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP029_W<'a> {
     w: &'a mut W,
 }
@@ -664,11 +674,11 @@ impl<'a> CLRP029_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | ((value as u32 & 0x01) << 29);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP030`"]
+#[doc = "Field `CLRP030` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP030_W<'a> {
     w: &'a mut W,
 }
@@ -686,11 +696,11 @@ impl<'a> CLRP030_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | ((value as u32 & 0x01) << 30);
         self.w
     }
 }
-#[doc = "Write proxy for field `CLRP031`"]
+#[doc = "Field `CLRP031` writer - Clear output bits: 0 = No operation. 1 = Clear output bit."]
 pub struct CLRP031_W<'a> {
     w: &'a mut W,
 }
@@ -708,7 +718,7 @@ impl<'a> CLRP031_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -872,5 +882,26 @@ impl W {
     #[inline(always)]
     pub fn clrp031(&mut self) -> CLRP031_W {
         CLRP031_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Clear port 0/1\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clr](index.html) module"]
+pub struct CLR_SPEC;
+impl crate::RegisterSpec for CLR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [clr::W](W) writer structure"]
+impl crate::Writable for CLR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CLR%s to value 0"]
+impl crate::Resettable for CLR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

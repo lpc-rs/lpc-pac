@@ -1,18 +1,52 @@
-#[doc = "Reader of register CCR"]
-pub type R = crate::R<u32, super::CCR>;
-#[doc = "Writer for register CCR"]
-pub type W = crate::W<u32, super::CCR>;
-#[doc = "Register CCR `reset()`'s with value 0"]
-impl crate::ResetValue for super::CCR {
-    type Type = u32;
+#[doc = "Register `CCR` reader"]
+pub struct R(crate::R<CCR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CCR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `CAP0RE`"]
-pub type CAP0RE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP0RE`"]
+impl core::convert::From<crate::R<CCR_SPEC>> for R {
+    fn from(reader: crate::R<CCR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CCR` writer"]
+pub struct W(crate::W<CCR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CCR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CCR_SPEC>> for W {
+    fn from(writer: crate::W<CCR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CAP0RE` reader - Rising edge of capture channel 0: a sequence of 0 then 1 causes CR0 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
+pub struct CAP0RE_R(crate::FieldReader<bool, bool>);
+impl CAP0RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP0RE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP0RE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP0RE` writer - Rising edge of capture channel 0: a sequence of 0 then 1 causes CR0 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP0RE_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> CAP0RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `CAP0FE`"]
-pub type CAP0FE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP0FE`"]
+#[doc = "Field `CAP0FE` reader - Falling edge of capture channel 0: a sequence of 1 then 0 causes CR0 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
+pub struct CAP0FE_R(crate::FieldReader<bool, bool>);
+impl CAP0FE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP0FE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP0FE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP0FE` writer - Falling edge of capture channel 0: a sequence of 1 then 0 causes CR0 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP0FE_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> CAP0FE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `CAP0I`"]
-pub type CAP0I_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP0I`"]
+#[doc = "Field `CAP0I` reader - Generate interrupt on channel 0 capture event: a CR0 load generates an interrupt."]
+pub struct CAP0I_R(crate::FieldReader<bool, bool>);
+impl CAP0I_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP0I_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP0I_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP0I` writer - Generate interrupt on channel 0 capture event: a CR0 load generates an interrupt."]
 pub struct CAP0I_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> CAP0I_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `CAP1RE`"]
-pub type CAP1RE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP1RE`"]
+#[doc = "Field `CAP1RE` reader - Rising edge of capture channel 1: a sequence of 0 then 1 causes CR1 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
+pub struct CAP1RE_R(crate::FieldReader<bool, bool>);
+impl CAP1RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP1RE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP1RE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP1RE` writer - Rising edge of capture channel 1: a sequence of 0 then 1 causes CR1 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP1RE_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> CAP1RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `CAP1FE`"]
-pub type CAP1FE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP1FE`"]
+#[doc = "Field `CAP1FE` reader - Falling edge of capture channel 1: a sequence of 1 then 0 causes CR1 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
+pub struct CAP1FE_R(crate::FieldReader<bool, bool>);
+impl CAP1FE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP1FE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP1FE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP1FE` writer - Falling edge of capture channel 1: a sequence of 1 then 0 causes CR1 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP1FE_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> CAP1FE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `CAP1I`"]
-pub type CAP1I_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP1I`"]
+#[doc = "Field `CAP1I` reader - Generate interrupt on channel 1 capture event: a CR1 load generates an interrupt."]
+pub struct CAP1I_R(crate::FieldReader<bool, bool>);
+impl CAP1I_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP1I_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP1I_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP1I` writer - Generate interrupt on channel 1 capture event: a CR1 load generates an interrupt."]
 pub struct CAP1I_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> CAP1I_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `CAP2RE`"]
-pub type CAP2RE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP2RE`"]
+#[doc = "Field `CAP2RE` reader - Rising edge of capture channel 2: a sequence of 0 then 1 causes CR2 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
+pub struct CAP2RE_R(crate::FieldReader<bool, bool>);
+impl CAP2RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP2RE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP2RE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP2RE` writer - Rising edge of capture channel 2: a sequence of 0 then 1 causes CR2 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP2RE_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> CAP2RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `CAP2FE`"]
-pub type CAP2FE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP2FE`"]
+#[doc = "Field `CAP2FE` reader - Falling edge of capture channel 2: a sequence of 1 then 0 causes CR2 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
+pub struct CAP2FE_R(crate::FieldReader<bool, bool>);
+impl CAP2FE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP2FE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP2FE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP2FE` writer - Falling edge of capture channel 2: a sequence of 1 then 0 causes CR2 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP2FE_W<'a> {
     w: &'a mut W,
 }
@@ -198,13 +316,25 @@ impl<'a> CAP2FE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Reader of field `CAP2I`"]
-pub type CAP2I_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP2I`"]
+#[doc = "Field `CAP2I` reader - Generate interrupt on channel 2 capture event: a CR2 load generates an interrupt."]
+pub struct CAP2I_R(crate::FieldReader<bool, bool>);
+impl CAP2I_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP2I_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP2I_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP2I` writer - Generate interrupt on channel 2 capture event: a CR2 load generates an interrupt."]
 pub struct CAP2I_W<'a> {
     w: &'a mut W,
 }
@@ -222,13 +352,25 @@ impl<'a> CAP2I_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `CAP3RE`"]
-pub type CAP3RE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP3RE`"]
+#[doc = "Field `CAP3RE` reader - Rising edge of capture channel 3: a sequence of 0 then 1 causes CR3 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
+pub struct CAP3RE_R(crate::FieldReader<bool, bool>);
+impl CAP3RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP3RE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP3RE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP3RE` writer - Rising edge of capture channel 3: a sequence of 0 then 1 causes CR3 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP3RE_W<'a> {
     w: &'a mut W,
 }
@@ -246,13 +388,25 @@ impl<'a> CAP3RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `CAP3FE`"]
-pub type CAP3FE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP3FE`"]
+#[doc = "Field `CAP3FE` reader - Falling edge of capture channel 3: a sequence of 1 then 0 causes CR3 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
+pub struct CAP3FE_R(crate::FieldReader<bool, bool>);
+impl CAP3FE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP3FE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP3FE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP3FE` writer - Falling edge of capture channel 3: a sequence of 1 then 0 causes CR3 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP3FE_W<'a> {
     w: &'a mut W,
 }
@@ -270,13 +424,25 @@ impl<'a> CAP3FE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `CAP3I`"]
-pub type CAP3I_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CAP3I`"]
+#[doc = "Field `CAP3I` reader - Generate interrupt on channel 3 capture event: a CR3 load generates an interrupt."]
+pub struct CAP3I_R(crate::FieldReader<bool, bool>);
+impl CAP3I_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAP3I_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAP3I_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAP3I` writer - Generate interrupt on channel 3 capture event: a CR3 load generates an interrupt."]
 pub struct CAP3I_W<'a> {
     w: &'a mut W,
 }
@@ -294,7 +460,7 @@ impl<'a> CAP3I_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
@@ -420,5 +586,30 @@ impl W {
     #[inline(always)]
     pub fn cap3i(&mut self) -> CAP3I_W {
         CAP3I_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Capture Control Register. The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated when a capture takes place.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ccr](index.html) module"]
+pub struct CCR_SPEC;
+impl crate::RegisterSpec for CCR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ccr::R](R) reader structure"]
+impl crate::Readable for CCR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ccr::W](W) writer structure"]
+impl crate::Writable for CCR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CCR to value 0"]
+impl crate::Resettable for CCR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

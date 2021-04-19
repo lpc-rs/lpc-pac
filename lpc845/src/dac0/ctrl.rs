@@ -1,13 +1,35 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub struct R(crate::R<CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CTRL_SPEC>> for R {
+    fn from(reader: crate::R<CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTRL` writer"]
+pub struct W(crate::W<CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTRL_SPEC>> for W {
+    fn from(writer: crate::W<CTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "DMA request\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<INT_DMA_REQ_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `INT_DMA_REQ`"]
-pub type INT_DMA_REQ_R = crate::R<bool, INT_DMA_REQ_A>;
+#[doc = "Field `INT_DMA_REQ` reader - DMA request"]
+pub struct INT_DMA_REQ_R(crate::FieldReader<bool, INT_DMA_REQ_A>);
 impl INT_DMA_REQ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INT_DMA_REQ_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> INT_DMA_REQ_A {
@@ -38,15 +63,22 @@ impl INT_DMA_REQ_R {
     #[doc = "Checks if the value of the field is `CLEAR`"]
     #[inline(always)]
     pub fn is_clear(&self) -> bool {
-        *self == INT_DMA_REQ_A::CLEAR
+        **self == INT_DMA_REQ_A::CLEAR
     }
     #[doc = "Checks if the value of the field is `SET`"]
     #[inline(always)]
     pub fn is_set(&self) -> bool {
-        *self == INT_DMA_REQ_A::SET
+        **self == INT_DMA_REQ_A::SET
     }
 }
-#[doc = "Write proxy for field `INT_DMA_REQ`"]
+impl core::ops::Deref for INT_DMA_REQ_R {
+    type Target = crate::FieldReader<bool, INT_DMA_REQ_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INT_DMA_REQ` writer - DMA request"]
 pub struct INT_DMA_REQ_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> INT_DMA_REQ_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: INT_DMA_REQ_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This bit is cleared on any write to the DACR register."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> INT_DMA_REQ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<DBLBUF_ENA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DBLBUF_ENA`"]
-pub type DBLBUF_ENA_R = crate::R<bool, DBLBUF_ENA_A>;
+#[doc = "Field `DBLBUF_ENA` reader - dacr double buffer"]
+pub struct DBLBUF_ENA_R(crate::FieldReader<bool, DBLBUF_ENA_A>);
 impl DBLBUF_ENA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DBLBUF_ENA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DBLBUF_ENA_A {
@@ -113,15 +146,22 @@ impl DBLBUF_ENA_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == DBLBUF_ENA_A::DISABLED
+        **self == DBLBUF_ENA_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == DBLBUF_ENA_A::ENABLED
+        **self == DBLBUF_ENA_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `DBLBUF_ENA`"]
+impl core::ops::Deref for DBLBUF_ENA_R {
+    type Target = crate::FieldReader<bool, DBLBUF_ENA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DBLBUF_ENA` writer - dacr double buffer"]
 pub struct DBLBUF_ENA_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> DBLBUF_ENA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DBLBUF_ENA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DACR double-buffering is disabled."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> DBLBUF_ENA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<CNT_ENA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CNT_ENA`"]
-pub type CNT_ENA_R = crate::R<bool, CNT_ENA_A>;
+#[doc = "Field `CNT_ENA` reader - time-out counter operation"]
+pub struct CNT_ENA_R(crate::FieldReader<bool, CNT_ENA_A>);
 impl CNT_ENA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CNT_ENA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CNT_ENA_A {
@@ -188,15 +229,22 @@ impl CNT_ENA_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == CNT_ENA_A::DISABLED
+        **self == CNT_ENA_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == CNT_ENA_A::ENABLED
+        **self == CNT_ENA_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `CNT_ENA`"]
+impl core::ops::Deref for CNT_ENA_R {
+    type Target = crate::FieldReader<bool, CNT_ENA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CNT_ENA` writer - time-out counter operation"]
 pub struct CNT_ENA_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> CNT_ENA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CNT_ENA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Time-out counter operation is disabled."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> CNT_ENA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<DMA_ENA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMA_ENA`"]
-pub type DMA_ENA_R = crate::R<bool, DMA_ENA_A>;
+#[doc = "Field `DMA_ENA` reader - DMA access"]
+pub struct DMA_ENA_R(crate::FieldReader<bool, DMA_ENA_A>);
 impl DMA_ENA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMA_ENA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMA_ENA_A {
@@ -263,15 +312,22 @@ impl DMA_ENA_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == DMA_ENA_A::DISABLED
+        **self == DMA_ENA_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == DMA_ENA_A::ENABLED
+        **self == DMA_ENA_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `DMA_ENA`"]
+impl core::ops::Deref for DMA_ENA_R {
+    type Target = crate::FieldReader<bool, DMA_ENA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMA_ENA` writer - DMA access"]
 pub struct DMA_ENA_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> DMA_ENA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMA_ENA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA access is disabled."]
     #[inline(always)]
@@ -306,7 +360,7 @@ impl<'a> DMA_ENA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -352,5 +406,30 @@ impl W {
     #[inline(always)]
     pub fn dma_ena(&mut self) -> DMA_ENA_W {
         DMA_ENA_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "DAC Control register. This register controls DMA and timer operation.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](index.html) module"]
+pub struct CTRL_SPEC;
+impl crate::RegisterSpec for CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctrl::R](R) reader structure"]
+impl crate::Readable for CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
+impl crate::Writable for CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTRL to value 0"]
+impl crate::Resettable for CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

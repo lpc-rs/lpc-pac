@@ -1,13 +1,35 @@
-#[doc = "Reader of register FIFO_CTRL"]
-pub type R = crate::R<u32, super::FIFO_CTRL>;
-#[doc = "Writer for register FIFO_CTRL"]
-pub type W = crate::W<u32, super::FIFO_CTRL>;
-#[doc = "Register FIFO_CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::FIFO_CTRL {
-    type Type = u32;
+#[doc = "Register `FIFO_CTRL` reader"]
+pub struct R(crate::R<FIFO_CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FIFO_CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<FIFO_CTRL_SPEC>> for R {
+    fn from(reader: crate::R<FIFO_CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FIFO_CTRL` writer"]
+pub struct W(crate::W<FIFO_CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FIFO_CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FIFO_CTRL_SPEC>> for W {
+    fn from(writer: crate::W<FIFO_CTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "FIFO enable.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<ENABLE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ENABLE`"]
-pub type ENABLE_R = crate::R<bool, ENABLE_A>;
+#[doc = "Field `ENABLE` reader - FIFO enable."]
+pub struct ENABLE_R(crate::FieldReader<bool, ENABLE_A>);
 impl ENABLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENABLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ENABLE_A {
@@ -38,15 +63,22 @@ impl ENABLE_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ENABLE_A::DISABLED
+        **self == ENABLE_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == ENABLE_A::ENABLED
+        **self == ENABLE_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `ENABLE`"]
+impl core::ops::Deref for ENABLE_R {
+    type Target = crate::FieldReader<bool, ENABLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENABLE` writer - FIFO enable."]
 pub struct ENABLE_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> ENABLE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ENABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "FIFO is not enabled. Enabling a DMIC channel with the FIFO disabled could be useful while data is being streamed to the I2S, or in order to avoid a filter settling delay when a channel is re-enabled after a period when the data was not needed."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> ENABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<RESETN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RESETN`"]
-pub type RESETN_R = crate::R<bool, RESETN_A>;
+#[doc = "Field `RESETN` reader - FIFO reset."]
+pub struct RESETN_R(crate::FieldReader<bool, RESETN_A>);
 impl RESETN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RESETN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RESETN_A {
@@ -113,15 +146,22 @@ impl RESETN_R {
     #[doc = "Checks if the value of the field is `RESET`"]
     #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == RESETN_A::RESET
+        **self == RESETN_A::RESET
     }
     #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == RESETN_A::NORMAL
+        **self == RESETN_A::NORMAL
     }
 }
-#[doc = "Write proxy for field `RESETN`"]
+impl core::ops::Deref for RESETN_R {
+    type Target = crate::FieldReader<bool, RESETN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RESETN` writer - FIFO reset."]
 pub struct RESETN_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> RESETN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RESETN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Reset the FIFO."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> RESETN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<INTEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `INTEN`"]
-pub type INTEN_R = crate::R<bool, INTEN_A>;
+#[doc = "Field `INTEN` reader - Interrupt enable."]
+pub struct INTEN_R(crate::FieldReader<bool, INTEN_A>);
 impl INTEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INTEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> INTEN_A {
@@ -188,15 +229,22 @@ impl INTEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == INTEN_A::DISABLED
+        **self == INTEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == INTEN_A::ENABLED
+        **self == INTEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `INTEN`"]
+impl core::ops::Deref for INTEN_R {
+    type Target = crate::FieldReader<bool, INTEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INTEN` writer - Interrupt enable."]
 pub struct INTEN_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> INTEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: INTEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "FIFO level interrupts are not enabled."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> INTEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<DMAEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMAEN`"]
-pub type DMAEN_R = crate::R<bool, DMAEN_A>;
+#[doc = "Field `DMAEN` reader - DMA enable"]
+pub struct DMAEN_R(crate::FieldReader<bool, DMAEN_A>);
 impl DMAEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMAEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMAEN_A {
@@ -263,15 +312,22 @@ impl DMAEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == DMAEN_A::DISABLED
+        **self == DMAEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == DMAEN_A::ENABLED
+        **self == DMAEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `DMAEN`"]
+impl core::ops::Deref for DMAEN_R {
+    type Target = crate::FieldReader<bool, DMAEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMAEN` writer - DMA enable"]
 pub struct DMAEN_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> DMAEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMAEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA requests are not enabled."]
     #[inline(always)]
@@ -306,13 +360,25 @@ impl<'a> DMAEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `TRIGLVL`"]
-pub type TRIGLVL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `TRIGLVL`"]
+#[doc = "Field `TRIGLVL` reader - FIFO trigger level. Selects the data trigger level for interrupt or DMA operation. If enabled to do so, the FIFO level can wake up the device just enough to perform DMA, then return to the reduced power mode See Section 4.5.66 'Hardware Wake-up control register'. 0 = trigger when the FIFO has received one entry (is no longer empty). 1 = trigger when the FIFO has received two entries. 15 = trigger when the FIFO has received 16 entries (has become full)."]
+pub struct TRIGLVL_R(crate::FieldReader<u8, u8>);
+impl TRIGLVL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TRIGLVL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TRIGLVL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TRIGLVL` writer - FIFO trigger level. Selects the data trigger level for interrupt or DMA operation. If enabled to do so, the FIFO level can wake up the device just enough to perform DMA, then return to the reduced power mode See Section 4.5.66 'Hardware Wake-up control register'. 0 = trigger when the FIFO has received one entry (is no longer empty). 1 = trigger when the FIFO has received two entries. 15 = trigger when the FIFO has received 16 entries (has become full)."]
 pub struct TRIGLVL_W<'a> {
     w: &'a mut W,
 }
@@ -320,7 +386,7 @@ impl<'a> TRIGLVL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 16)) | (((value as u32) & 0x1f) << 16);
+        self.w.bits = (self.w.bits & !(0x1f << 16)) | ((value as u32 & 0x1f) << 16);
         self.w
     }
 }
@@ -376,5 +442,30 @@ impl W {
     #[inline(always)]
     pub fn triglvl(&mut self) -> TRIGLVL_W {
         TRIGLVL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "FIFO Control register 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fifo_ctrl](index.html) module"]
+pub struct FIFO_CTRL_SPEC;
+impl crate::RegisterSpec for FIFO_CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [fifo_ctrl::R](R) reader structure"]
+impl crate::Readable for FIFO_CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [fifo_ctrl::W](W) writer structure"]
+impl crate::Writable for FIFO_CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FIFO_CTRL to value 0"]
+impl crate::Resettable for FIFO_CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

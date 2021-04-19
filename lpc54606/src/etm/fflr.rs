@@ -1,18 +1,52 @@
-#[doc = "Reader of register FFLR"]
-pub type R = crate::R<u32, super::FFLR>;
-#[doc = "Writer for register FFLR"]
-pub type W = crate::W<u32, super::FFLR>;
-#[doc = "Register FFLR `reset()`'s with value 0"]
-impl crate::ResetValue for super::FFLR {
-    type Type = u32;
+#[doc = "Register `FFLR` reader"]
+pub struct R(crate::R<FFLR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FFLR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `FIFOFullLevel`"]
-pub type FIFOFULLLEVEL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `FIFOFullLevel`"]
+impl core::convert::From<crate::R<FFLR_SPEC>> for R {
+    fn from(reader: crate::R<FFLR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FFLR` writer"]
+pub struct W(crate::W<FFLR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FFLR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FFLR_SPEC>> for W {
+    fn from(writer: crate::W<FFLR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `FIFOFullLevel` reader - FIFO full level. The number of bytes left in FIFO, below which the FIFOFULL or SupressData signal is asserted. For example, setting this value to 15 causes data trace suppression or processor stalling, if enabled, when there are less than 15 free bytes in the FIFO."]
+pub struct FIFOFULLLEVEL_R(crate::FieldReader<u8, u8>);
+impl FIFOFULLLEVEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FIFOFULLLEVEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FIFOFULLLEVEL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FIFOFullLevel` writer - FIFO full level. The number of bytes left in FIFO, below which the FIFOFULL or SupressData signal is asserted. For example, setting this value to 15 causes data trace suppression or processor stalling, if enabled, when there are less than 15 free bytes in the FIFO."]
 pub struct FIFOFULLLEVEL_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +54,7 @@ impl<'a> FIFOFULLLEVEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
@@ -36,5 +70,30 @@ impl W {
     #[inline(always)]
     pub fn fifofull_level(&mut self) -> FIFOFULLLEVEL_W {
         FIFOFULLLEVEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "FIFOFULL Level Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fflr](index.html) module"]
+pub struct FFLR_SPEC;
+impl crate::RegisterSpec for FFLR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [fflr::R](R) reader structure"]
+impl crate::Readable for FFLR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [fflr::W](W) writer structure"]
+impl crate::Writable for FFLR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FFLR to value 0"]
+impl crate::Resettable for FFLR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

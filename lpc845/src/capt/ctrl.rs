@@ -1,13 +1,35 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub struct R(crate::R<CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CTRL_SPEC>> for R {
+    fn from(reader: crate::R<CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTRL` writer"]
+pub struct W(crate::W<CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTRL_SPEC>> for W {
+    fn from(writer: crate::W<CTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Mode of operation. May only change from 0 to another value. So, if 2 or 3, must be changed to 0 1st. Any attempt to go from non-0 to non-0 will result in 0 anyway.\n\nValue on reset: 0"]
@@ -29,9 +51,12 @@ impl From<POLLMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `POLLMODE`"]
-pub type POLLMODE_R = crate::R<u8, POLLMODE_A>;
+#[doc = "Field `POLLMODE` reader - Mode of operation. May only change from 0 to another value. So, if 2 or 3, must be changed to 0 1st. Any attempt to go from non-0 to non-0 will result in 0 anyway."]
+pub struct POLLMODE_R(crate::FieldReader<u8, POLLMODE_A>);
 impl POLLMODE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        POLLMODE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> POLLMODE_A {
@@ -46,25 +71,32 @@ impl POLLMODE_R {
     #[doc = "Checks if the value of the field is `NONE`"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == POLLMODE_A::NONE
+        **self == POLLMODE_A::NONE
     }
     #[doc = "Checks if the value of the field is `POLL_NOW`"]
     #[inline(always)]
     pub fn is_poll_now(&self) -> bool {
-        *self == POLLMODE_A::POLL_NOW
+        **self == POLLMODE_A::POLL_NOW
     }
     #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == POLLMODE_A::NORMAL
+        **self == POLLMODE_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `LOW_POWER_MODE`"]
     #[inline(always)]
     pub fn is_low_power_mode(&self) -> bool {
-        *self == POLLMODE_A::LOW_POWER_MODE
+        **self == POLLMODE_A::LOW_POWER_MODE
     }
 }
-#[doc = "Write proxy for field `POLLMODE`"]
+impl core::ops::Deref for POLLMODE_R {
+    type Target = crate::FieldReader<u8, POLLMODE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POLLMODE` writer - Mode of operation. May only change from 0 to another value. So, if 2 or 3, must be changed to 0 1st. Any attempt to go from non-0 to non-0 will result in 0 anyway."]
 pub struct POLLMODE_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +104,7 @@ impl<'a> POLLMODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: POLLMODE_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "None, inactive. Poll and time counters are turned off. Writing this will reset state and stop any collection in progress. Note: this has no effect on STATUS - those must be cleared manually."]
     #[inline(always)]
@@ -99,7 +129,7 @@ impl<'a> POLLMODE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
@@ -122,9 +152,12 @@ impl From<TYPE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `TYPE`"]
-pub type TYPE_R = crate::R<u8, TYPE_A>;
+#[doc = "Field `TYPE` reader - Selects type of Touch arrangement to use and so how to handle XPINSEL bits"]
+pub struct TYPE_R(crate::FieldReader<u8, TYPE_A>);
 impl TYPE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TYPE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TYPE_A {
@@ -139,25 +172,32 @@ impl TYPE_R {
     #[doc = "Checks if the value of the field is `TYPE_0`"]
     #[inline(always)]
     pub fn is_type_0(&self) -> bool {
-        *self == TYPE_A::TYPE_0
+        **self == TYPE_A::TYPE_0
     }
     #[doc = "Checks if the value of the field is `TYPE_1`"]
     #[inline(always)]
     pub fn is_type_1(&self) -> bool {
-        *self == TYPE_A::TYPE_1
+        **self == TYPE_A::TYPE_1
     }
     #[doc = "Checks if the value of the field is `TYPE_2`"]
     #[inline(always)]
     pub fn is_type_2(&self) -> bool {
-        *self == TYPE_A::TYPE_2
+        **self == TYPE_A::TYPE_2
     }
     #[doc = "Checks if the value of the field is `TYPE_3`"]
     #[inline(always)]
     pub fn is_type_3(&self) -> bool {
-        *self == TYPE_A::TYPE_3
+        **self == TYPE_A::TYPE_3
     }
 }
-#[doc = "Write proxy for field `TYPE`"]
+impl core::ops::Deref for TYPE_R {
+    type Target = crate::FieldReader<u8, TYPE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TYPE` writer - Selects type of Touch arrangement to use and so how to handle XPINSEL bits"]
 pub struct TYPE_W<'a> {
     w: &'a mut W,
 }
@@ -165,9 +205,7 @@ impl<'a> TYPE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TYPE_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Normal - all X elements are treated as normal, such as buttons and sliders."]
     #[inline(always)]
@@ -192,7 +230,7 @@ impl<'a> TYPE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | ((value as u32 & 0x03) << 2);
         self.w
     }
 }
@@ -210,9 +248,12 @@ impl From<TRIGGER_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TRIGGER`"]
-pub type TRIGGER_R = crate::R<bool, TRIGGER_A>;
+#[doc = "Field `TRIGGER` reader - This selects what is being used as the trigger"]
+pub struct TRIGGER_R(crate::FieldReader<bool, TRIGGER_A>);
 impl TRIGGER_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TRIGGER_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TRIGGER_A {
@@ -224,15 +265,22 @@ impl TRIGGER_R {
     #[doc = "Checks if the value of the field is `USES_YH_GPIO`"]
     #[inline(always)]
     pub fn is_uses_yh_gpio(&self) -> bool {
-        *self == TRIGGER_A::USES_YH_GPIO
+        **self == TRIGGER_A::USES_YH_GPIO
     }
     #[doc = "Checks if the value of the field is `ACMP`"]
     #[inline(always)]
     pub fn is_acmp(&self) -> bool {
-        *self == TRIGGER_A::ACMP
+        **self == TRIGGER_A::ACMP
     }
 }
-#[doc = "Write proxy for field `TRIGGER`"]
+impl core::ops::Deref for TRIGGER_R {
+    type Target = crate::FieldReader<bool, TRIGGER_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TRIGGER` writer - This selects what is being used as the trigger"]
 pub struct TRIGGER_W<'a> {
     w: &'a mut W,
 }
@@ -240,9 +288,7 @@ impl<'a> TRIGGER_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TRIGGER_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Uses YH GPIO. This is not normally used except in Low-power mode. But, it can be used with POLLNOW to baseline that measurement."]
     #[inline(always)]
@@ -267,13 +313,25 @@ impl<'a> TRIGGER_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `WAIT`"]
-pub type WAIT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `WAIT`"]
+#[doc = "Field `WAIT` reader - If 0, the block will continue its X based measurements, even if the TOUCH register has not been read (and so could OVERRUN). If 1, it will wait until read when a touch (TOUCH's ISTOUCH bit is set) before starting the next. This should not normally be needed."]
+pub struct WAIT_R(crate::FieldReader<bool, bool>);
+impl WAIT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WAIT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for WAIT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WAIT` writer - If 0, the block will continue its X based measurements, even if the TOUCH register has not been read (and so could OVERRUN). If 1, it will wait until read when a touch (TOUCH's ISTOUCH bit is set) before starting the next. This should not normally be needed."]
 pub struct WAIT_W<'a> {
     w: &'a mut W,
 }
@@ -291,7 +349,7 @@ impl<'a> WAIT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -314,9 +372,12 @@ impl From<DMA_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `DMA`"]
-pub type DMA_R = crate::R<u8, DMA_A>;
+#[doc = "Field `DMA` reader - If not 0, will use the DMA to read out touch events from TOUCH register. The values are shown below. This may be changed while active."]
+pub struct DMA_R(crate::FieldReader<u8, DMA_A>);
 impl DMA_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DMA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMA_A {
@@ -331,25 +392,32 @@ impl DMA_R {
     #[doc = "Checks if the value of the field is `DMA_0`"]
     #[inline(always)]
     pub fn is_dma_0(&self) -> bool {
-        *self == DMA_A::DMA_0
+        **self == DMA_A::DMA_0
     }
     #[doc = "Checks if the value of the field is `DMA_1`"]
     #[inline(always)]
     pub fn is_dma_1(&self) -> bool {
-        *self == DMA_A::DMA_1
+        **self == DMA_A::DMA_1
     }
     #[doc = "Checks if the value of the field is `DMA_2`"]
     #[inline(always)]
     pub fn is_dma_2(&self) -> bool {
-        *self == DMA_A::DMA_2
+        **self == DMA_A::DMA_2
     }
     #[doc = "Checks if the value of the field is `DMA_3`"]
     #[inline(always)]
     pub fn is_dma_3(&self) -> bool {
-        *self == DMA_A::DMA_3
+        **self == DMA_A::DMA_3
     }
 }
-#[doc = "Write proxy for field `DMA`"]
+impl core::ops::Deref for DMA_R {
+    type Target = crate::FieldReader<u8, DMA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMA` writer - If not 0, will use the DMA to read out touch events from TOUCH register. The values are shown below. This may be changed while active."]
 pub struct DMA_W<'a> {
     w: &'a mut W,
 }
@@ -357,9 +425,7 @@ impl<'a> DMA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMA_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No DMA. Application will use ISRs to read out data"]
     #[inline(always)]
@@ -384,7 +450,7 @@ impl<'a> DMA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | ((value as u32 & 0x03) << 6);
         self.w
     }
 }
@@ -429,109 +495,118 @@ impl From<FDIV_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `FDIV`"]
-pub type FDIV_R = crate::R<u8, FDIV_A>;
+#[doc = "Field `FDIV` reader - Functional clock divider, or 0 if no divide. The term \"clocks\" in this spec then refer to divided clocks. For a 12MHz input (e.g. FRO 12MHz), this would normally be set to generate a 4MHz output (so, 2). For a 1MHz input, it should be 0. Note for internal use: this does not produce a 50/50 duty cycle when non even divide."]
+pub struct FDIV_R(crate::FieldReader<u8, FDIV_A>);
 impl FDIV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FDIV_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, FDIV_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<FDIV_A> {
         match self.bits {
-            0 => Val(FDIV_A::FDIV_0),
-            1 => Val(FDIV_A::FDIV_1),
-            2 => Val(FDIV_A::FDIV_2),
-            3 => Val(FDIV_A::FDIV_3),
-            4 => Val(FDIV_A::FDIV_4),
-            5 => Val(FDIV_A::FDIV_5),
-            7 => Val(FDIV_A::FDIV_7),
-            8 => Val(FDIV_A::FDIV_8),
-            9 => Val(FDIV_A::FDIV_9),
-            10 => Val(FDIV_A::FDIV_10),
-            11 => Val(FDIV_A::FDIV_11),
-            12 => Val(FDIV_A::FDIV_12),
-            13 => Val(FDIV_A::FDIV_13),
-            14 => Val(FDIV_A::FDIV_14),
-            15 => Val(FDIV_A::FDIV_15),
-            i => Res(i),
+            0 => Some(FDIV_A::FDIV_0),
+            1 => Some(FDIV_A::FDIV_1),
+            2 => Some(FDIV_A::FDIV_2),
+            3 => Some(FDIV_A::FDIV_3),
+            4 => Some(FDIV_A::FDIV_4),
+            5 => Some(FDIV_A::FDIV_5),
+            7 => Some(FDIV_A::FDIV_7),
+            8 => Some(FDIV_A::FDIV_8),
+            9 => Some(FDIV_A::FDIV_9),
+            10 => Some(FDIV_A::FDIV_10),
+            11 => Some(FDIV_A::FDIV_11),
+            12 => Some(FDIV_A::FDIV_12),
+            13 => Some(FDIV_A::FDIV_13),
+            14 => Some(FDIV_A::FDIV_14),
+            15 => Some(FDIV_A::FDIV_15),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `FDIV_0`"]
     #[inline(always)]
     pub fn is_fdiv_0(&self) -> bool {
-        *self == FDIV_A::FDIV_0
+        **self == FDIV_A::FDIV_0
     }
     #[doc = "Checks if the value of the field is `FDIV_1`"]
     #[inline(always)]
     pub fn is_fdiv_1(&self) -> bool {
-        *self == FDIV_A::FDIV_1
+        **self == FDIV_A::FDIV_1
     }
     #[doc = "Checks if the value of the field is `FDIV_2`"]
     #[inline(always)]
     pub fn is_fdiv_2(&self) -> bool {
-        *self == FDIV_A::FDIV_2
+        **self == FDIV_A::FDIV_2
     }
     #[doc = "Checks if the value of the field is `FDIV_3`"]
     #[inline(always)]
     pub fn is_fdiv_3(&self) -> bool {
-        *self == FDIV_A::FDIV_3
+        **self == FDIV_A::FDIV_3
     }
     #[doc = "Checks if the value of the field is `FDIV_4`"]
     #[inline(always)]
     pub fn is_fdiv_4(&self) -> bool {
-        *self == FDIV_A::FDIV_4
+        **self == FDIV_A::FDIV_4
     }
     #[doc = "Checks if the value of the field is `FDIV_5`"]
     #[inline(always)]
     pub fn is_fdiv_5(&self) -> bool {
-        *self == FDIV_A::FDIV_5
+        **self == FDIV_A::FDIV_5
     }
     #[doc = "Checks if the value of the field is `FDIV_7`"]
     #[inline(always)]
     pub fn is_fdiv_7(&self) -> bool {
-        *self == FDIV_A::FDIV_7
+        **self == FDIV_A::FDIV_7
     }
     #[doc = "Checks if the value of the field is `FDIV_8`"]
     #[inline(always)]
     pub fn is_fdiv_8(&self) -> bool {
-        *self == FDIV_A::FDIV_8
+        **self == FDIV_A::FDIV_8
     }
     #[doc = "Checks if the value of the field is `FDIV_9`"]
     #[inline(always)]
     pub fn is_fdiv_9(&self) -> bool {
-        *self == FDIV_A::FDIV_9
+        **self == FDIV_A::FDIV_9
     }
     #[doc = "Checks if the value of the field is `FDIV_10`"]
     #[inline(always)]
     pub fn is_fdiv_10(&self) -> bool {
-        *self == FDIV_A::FDIV_10
+        **self == FDIV_A::FDIV_10
     }
     #[doc = "Checks if the value of the field is `FDIV_11`"]
     #[inline(always)]
     pub fn is_fdiv_11(&self) -> bool {
-        *self == FDIV_A::FDIV_11
+        **self == FDIV_A::FDIV_11
     }
     #[doc = "Checks if the value of the field is `FDIV_12`"]
     #[inline(always)]
     pub fn is_fdiv_12(&self) -> bool {
-        *self == FDIV_A::FDIV_12
+        **self == FDIV_A::FDIV_12
     }
     #[doc = "Checks if the value of the field is `FDIV_13`"]
     #[inline(always)]
     pub fn is_fdiv_13(&self) -> bool {
-        *self == FDIV_A::FDIV_13
+        **self == FDIV_A::FDIV_13
     }
     #[doc = "Checks if the value of the field is `FDIV_14`"]
     #[inline(always)]
     pub fn is_fdiv_14(&self) -> bool {
-        *self == FDIV_A::FDIV_14
+        **self == FDIV_A::FDIV_14
     }
     #[doc = "Checks if the value of the field is `FDIV_15`"]
     #[inline(always)]
     pub fn is_fdiv_15(&self) -> bool {
-        *self == FDIV_A::FDIV_15
+        **self == FDIV_A::FDIV_15
     }
 }
-#[doc = "Write proxy for field `FDIV`"]
+impl core::ops::Deref for FDIV_R {
+    type Target = crate::FieldReader<u8, FDIV_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FDIV` writer - Functional clock divider, or 0 if no divide. The term \"clocks\" in this spec then refer to divided clocks. For a 12MHz input (e.g. FRO 12MHz), this would normally be set to generate a 4MHz output (so, 2). For a 1MHz input, it should be 0. Note for internal use: this does not produce a 50/50 duty cycle when non even divide."]
 pub struct FDIV_W<'a> {
     w: &'a mut W,
 }
@@ -619,7 +694,7 @@ impl<'a> FDIV_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | ((value as u32 & 0x0f) << 8);
         self.w
     }
 }
@@ -638,31 +713,40 @@ impl From<XPINUSE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `XPINUSE`"]
-pub type XPINUSE_R = crate::R<u8, XPINUSE_A>;
+#[doc = "Field `XPINUSE` reader - Controls how X pins selected in XPINSEL are used when not active in the current polling round."]
+pub struct XPINUSE_R(crate::FieldReader<u8, XPINUSE_A>);
 impl XPINUSE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        XPINUSE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, XPINUSE_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<XPINUSE_A> {
         match self.bits {
-            0 => Val(XPINUSE_A::NORMAL_MDOE),
-            1 => Val(XPINUSE_A::GROUND_MDOE),
-            i => Res(i),
+            0 => Some(XPINUSE_A::NORMAL_MDOE),
+            1 => Some(XPINUSE_A::GROUND_MDOE),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `NORMAL_MDOE`"]
     #[inline(always)]
     pub fn is_normal_mdoe(&self) -> bool {
-        *self == XPINUSE_A::NORMAL_MDOE
+        **self == XPINUSE_A::NORMAL_MDOE
     }
     #[doc = "Checks if the value of the field is `GROUND_MDOE`"]
     #[inline(always)]
     pub fn is_ground_mdoe(&self) -> bool {
-        *self == XPINUSE_A::GROUND_MDOE
+        **self == XPINUSE_A::GROUND_MDOE
     }
 }
-#[doc = "Write proxy for field `XPINUSE`"]
+impl core::ops::Deref for XPINUSE_R {
+    type Target = crate::FieldReader<u8, XPINUSE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `XPINUSE` writer - Controls how X pins selected in XPINSEL are used when not active in the current polling round."]
 pub struct XPINUSE_W<'a> {
     w: &'a mut W,
 }
@@ -685,15 +769,39 @@ impl<'a> XPINUSE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 12)) | (((value as u32) & 0x03) << 12);
+        self.w.bits = (self.w.bits & !(0x03 << 12)) | ((value as u32 & 0x03) << 12);
         self.w
     }
 }
-#[doc = "Reader of field `INCHANGE`"]
-pub type INCHANGE_R = crate::R<bool, bool>;
-#[doc = "Reader of field `XPINSEL`"]
-pub type XPINSEL_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `XPINSEL`"]
+#[doc = "Field `INCHANGE` reader - If 1, do not attempt to write to this register again. This means the last change has not been propagated. This can only happen after changing POLLMODE and DMA. Worse case time would be based on divided FCLK."]
+pub struct INCHANGE_R(crate::FieldReader<bool, bool>);
+impl INCHANGE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INCHANGE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INCHANGE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `XPINSEL` reader - Selects which of the X pins are to be used within the allowed pins - see XMAX in STATUS. The X pins are mapped via the IOCON (as are the YH and YL pins) to physical pads. So, this only selects which are to be used as the X half of the touch element. Note: when polling, these are \"walked\" (active) one at a time. When using POLLNOW, the 1 or more selected are used at the same time. Likewise, when in low-power mode, they are used at the same time (or small groups). X pads not selected by XPINSEL are kept at High-Z if they are connected to a pad. This allows using controlled sets for touch detection based on context."]
+pub struct XPINSEL_R(crate::FieldReader<u16, u16>);
+impl XPINSEL_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        XPINSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for XPINSEL_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `XPINSEL` writer - Selects which of the X pins are to be used within the allowed pins - see XMAX in STATUS. The X pins are mapped via the IOCON (as are the YH and YL pins) to physical pads. So, this only selects which are to be used as the X half of the touch element. Note: when polling, these are \"walked\" (active) one at a time. When using POLLNOW, the 1 or more selected are used at the same time. Likewise, when in low-power mode, they are used at the same time (or small groups). X pads not selected by XPINSEL are kept at High-Z if they are connected to a pad. This allows using controlled sets for touch detection based on context."]
 pub struct XPINSEL_W<'a> {
     w: &'a mut W,
 }
@@ -701,7 +809,7 @@ impl<'a> XPINSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xffff << 16)) | (((value as u32) & 0xffff) << 16);
+        self.w.bits = (self.w.bits & !(0xffff << 16)) | ((value as u32 & 0xffff) << 16);
         self.w
     }
 }
@@ -792,5 +900,30 @@ impl W {
     #[inline(always)]
     pub fn xpinsel(&mut self) -> XPINSEL_W {
         XPINSEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Configuration and control to setup the functional clock, the rules, and the pin selections and rules.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](index.html) module"]
+pub struct CTRL_SPEC;
+impl crate::RegisterSpec for CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctrl::R](R) reader structure"]
+impl crate::Readable for CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
+impl crate::Writable for CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTRL to value 0"]
+impl crate::Resettable for CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

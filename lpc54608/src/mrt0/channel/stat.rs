@@ -1,13 +1,35 @@
-#[doc = "Reader of register STAT"]
-pub type R = crate::R<u32, super::STAT>;
-#[doc = "Writer for register STAT"]
-pub type W = crate::W<u32, super::STAT>;
-#[doc = "Register STAT `reset()`'s with value 0"]
-impl crate::ResetValue for super::STAT {
-    type Type = u32;
+#[doc = "Register `STAT` reader"]
+pub struct R(crate::R<STAT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<STAT_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<STAT_SPEC>> for R {
+    fn from(reader: crate::R<STAT_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `STAT` writer"]
+pub struct W(crate::W<STAT_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<STAT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<STAT_SPEC>> for W {
+    fn from(writer: crate::W<STAT_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Monitors the interrupt flag.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<INTFLAG_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `INTFLAG`"]
-pub type INTFLAG_R = crate::R<bool, INTFLAG_A>;
+#[doc = "Field `INTFLAG` reader - Monitors the interrupt flag."]
+pub struct INTFLAG_R(crate::FieldReader<bool, INTFLAG_A>);
 impl INTFLAG_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INTFLAG_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> INTFLAG_A {
@@ -38,15 +63,22 @@ impl INTFLAG_R {
     #[doc = "Checks if the value of the field is `NO_PENDING_INTERRUPT`"]
     #[inline(always)]
     pub fn is_no_pending_interrupt(&self) -> bool {
-        *self == INTFLAG_A::NO_PENDING_INTERRUPT
+        **self == INTFLAG_A::NO_PENDING_INTERRUPT
     }
     #[doc = "Checks if the value of the field is `PENDING_INTERRUPT`"]
     #[inline(always)]
     pub fn is_pending_interrupt(&self) -> bool {
-        *self == INTFLAG_A::PENDING_INTERRUPT
+        **self == INTFLAG_A::PENDING_INTERRUPT
     }
 }
-#[doc = "Write proxy for field `INTFLAG`"]
+impl core::ops::Deref for INTFLAG_R {
+    type Target = crate::FieldReader<bool, INTFLAG_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INTFLAG` writer - Monitors the interrupt flag."]
 pub struct INTFLAG_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> INTFLAG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: INTFLAG_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No pending interrupt. Writing a zero is equivalent to no operation."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> INTFLAG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<RUN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RUN`"]
-pub type RUN_R = crate::R<bool, RUN_A>;
+#[doc = "Field `RUN` reader - Indicates the state of TIMERn. This bit is read-only."]
+pub struct RUN_R(crate::FieldReader<bool, RUN_A>);
 impl RUN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RUN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RUN_A {
@@ -113,15 +146,22 @@ impl RUN_R {
     #[doc = "Checks if the value of the field is `IDLE_STATE`"]
     #[inline(always)]
     pub fn is_idle_state(&self) -> bool {
-        *self == RUN_A::IDLE_STATE
+        **self == RUN_A::IDLE_STATE
     }
     #[doc = "Checks if the value of the field is `RUNNING`"]
     #[inline(always)]
     pub fn is_running(&self) -> bool {
-        *self == RUN_A::RUNNING
+        **self == RUN_A::RUNNING
     }
 }
-#[doc = "Write proxy for field `RUN`"]
+impl core::ops::Deref for RUN_R {
+    type Target = crate::FieldReader<bool, RUN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RUN` writer - Indicates the state of TIMERn. This bit is read-only."]
 pub struct RUN_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> RUN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RUN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Idle state. TIMERn is stopped."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> RUN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<INUSE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `INUSE`"]
-pub type INUSE_R = crate::R<bool, INUSE_A>;
+#[doc = "Field `INUSE` reader - Channel In Use flag. Operating details depend on the MULTITASK bit in the MODCFG register, and affects the use of IDLE_CH. See Idle channel register for details of the two operating modes."]
+pub struct INUSE_R(crate::FieldReader<bool, INUSE_A>);
 impl INUSE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INUSE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> INUSE_A {
@@ -188,15 +229,22 @@ impl INUSE_R {
     #[doc = "Checks if the value of the field is `NO`"]
     #[inline(always)]
     pub fn is_no(&self) -> bool {
-        *self == INUSE_A::NO
+        **self == INUSE_A::NO
     }
     #[doc = "Checks if the value of the field is `YES`"]
     #[inline(always)]
     pub fn is_yes(&self) -> bool {
-        *self == INUSE_A::YES
+        **self == INUSE_A::YES
     }
 }
-#[doc = "Write proxy for field `INUSE`"]
+impl core::ops::Deref for INUSE_R {
+    type Target = crate::FieldReader<bool, INUSE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INUSE` writer - Channel In Use flag. Operating details depend on the MULTITASK bit in the MODCFG register, and affects the use of IDLE_CH. See Idle channel register for details of the two operating modes."]
 pub struct INUSE_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> INUSE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: INUSE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This channel is not in use."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> INUSE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -267,5 +313,30 @@ impl W {
     #[inline(always)]
     pub fn inuse(&mut self) -> INUSE_W {
         INUSE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "MRT Status register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [stat](index.html) module"]
+pub struct STAT_SPEC;
+impl crate::RegisterSpec for STAT_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [stat::R](R) reader structure"]
+impl crate::Readable for STAT_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [stat::W](W) writer structure"]
+impl crate::Writable for STAT_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets STAT to value 0"]
+impl crate::Resettable for STAT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

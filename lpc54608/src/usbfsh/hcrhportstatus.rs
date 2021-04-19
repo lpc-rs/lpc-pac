@@ -1,18 +1,52 @@
-#[doc = "Reader of register HCRHPORTSTATUS"]
-pub type R = crate::R<u32, super::HCRHPORTSTATUS>;
-#[doc = "Writer for register HCRHPORTSTATUS"]
-pub type W = crate::W<u32, super::HCRHPORTSTATUS>;
-#[doc = "Register HCRHPORTSTATUS `reset()`'s with value 0"]
-impl crate::ResetValue for super::HCRHPORTSTATUS {
-    type Type = u32;
+#[doc = "Register `HCRHPORTSTATUS` reader"]
+pub struct R(crate::R<HCRHPORTSTATUS_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<HCRHPORTSTATUS_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `CCS`"]
-pub type CCS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CCS`"]
+impl core::convert::From<crate::R<HCRHPORTSTATUS_SPEC>> for R {
+    fn from(reader: crate::R<HCRHPORTSTATUS_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `HCRHPORTSTATUS` writer"]
+pub struct W(crate::W<HCRHPORTSTATUS_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<HCRHPORTSTATUS_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<HCRHPORTSTATUS_SPEC>> for W {
+    fn from(writer: crate::W<HCRHPORTSTATUS_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CCS` reader - (read) CurrentConnectStatus This bit reflects the current state of the downstream port."]
+pub struct CCS_R(crate::FieldReader<bool, bool>);
+impl CCS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CCS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CCS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CCS` writer - (read) CurrentConnectStatus This bit reflects the current state of the downstream port."]
 pub struct CCS_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> CCS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `PES`"]
-pub type PES_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PES`"]
+#[doc = "Field `PES` reader - (read) PortEnableStatus This bit indicates whether the port is enabled or disabled."]
+pub struct PES_R(crate::FieldReader<bool, bool>);
+impl PES_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PES_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PES_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PES` writer - (read) PortEnableStatus This bit indicates whether the port is enabled or disabled."]
 pub struct PES_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> PES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `PSS`"]
-pub type PSS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PSS`"]
+#[doc = "Field `PSS` reader - (read) PortSuspendStatus This bit indicates the port is suspended or in the resume sequence."]
+pub struct PSS_R(crate::FieldReader<bool, bool>);
+impl PSS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PSS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PSS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PSS` writer - (read) PortSuspendStatus This bit indicates the port is suspended or in the resume sequence."]
 pub struct PSS_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> PSS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `POCI`"]
-pub type POCI_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `POCI`"]
+#[doc = "Field `POCI` reader - (read) PortOverCurrentIndicator This bit is only valid when the Root Hub is configured in such a way that overcurrent conditions are reported on a per-port basis."]
+pub struct POCI_R(crate::FieldReader<bool, bool>);
+impl POCI_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        POCI_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for POCI_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POCI` writer - (read) PortOverCurrentIndicator This bit is only valid when the Root Hub is configured in such a way that overcurrent conditions are reported on a per-port basis."]
 pub struct POCI_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> POCI_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `PRS`"]
-pub type PRS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PRS`"]
+#[doc = "Field `PRS` reader - (read) PortResetStatus When this bit is set by a write to SetPortReset, port reset signaling is asserted."]
+pub struct PRS_R(crate::FieldReader<bool, bool>);
+impl PRS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PRS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PRS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PRS` writer - (read) PortResetStatus When this bit is set by a write to SetPortReset, port reset signaling is asserted."]
 pub struct PRS_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> PRS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `PPS`"]
-pub type PPS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PPS`"]
+#[doc = "Field `PPS` reader - (read) PortPowerStatus This bit reflects the porta's power status, regardless of the type of power switching implemented."]
+pub struct PPS_R(crate::FieldReader<bool, bool>);
+impl PPS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PPS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PPS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PPS` writer - (read) PortPowerStatus This bit reflects the porta's power status, regardless of the type of power switching implemented."]
 pub struct PPS_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> PPS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `LSDA`"]
-pub type LSDA_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LSDA`"]
+#[doc = "Field `LSDA` reader - (read) LowSpeedDeviceAttached This bit indicates the speed of the device attached to this port."]
+pub struct LSDA_R(crate::FieldReader<bool, bool>);
+impl LSDA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LSDA_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LSDA_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LSDA` writer - (read) LowSpeedDeviceAttached This bit indicates the speed of the device attached to this port."]
 pub struct LSDA_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> LSDA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `CSC`"]
-pub type CSC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CSC`"]
+#[doc = "Field `CSC` reader - ConnectStatusChange This bit is set whenever a connect or disconnect event occurs."]
+pub struct CSC_R(crate::FieldReader<bool, bool>);
+impl CSC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CSC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CSC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CSC` writer - ConnectStatusChange This bit is set whenever a connect or disconnect event occurs."]
 pub struct CSC_W<'a> {
     w: &'a mut W,
 }
@@ -198,13 +316,25 @@ impl<'a> CSC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `PESC`"]
-pub type PESC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PESC`"]
+#[doc = "Field `PESC` reader - PortEnableStatusChange This bit is set when hardware events cause the PortEnableStatus bit to be cleared."]
+pub struct PESC_R(crate::FieldReader<bool, bool>);
+impl PESC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PESC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PESC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PESC` writer - PortEnableStatusChange This bit is set when hardware events cause the PortEnableStatus bit to be cleared."]
 pub struct PESC_W<'a> {
     w: &'a mut W,
 }
@@ -222,13 +352,25 @@ impl<'a> PESC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `PSSC`"]
-pub type PSSC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PSSC`"]
+#[doc = "Field `PSSC` reader - PortSuspendStatusChange This bit is set when the full resume sequence is completed."]
+pub struct PSSC_R(crate::FieldReader<bool, bool>);
+impl PSSC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PSSC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PSSC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PSSC` writer - PortSuspendStatusChange This bit is set when the full resume sequence is completed."]
 pub struct PSSC_W<'a> {
     w: &'a mut W,
 }
@@ -246,13 +388,25 @@ impl<'a> PSSC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Reader of field `OCIC`"]
-pub type OCIC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `OCIC`"]
+#[doc = "Field `OCIC` reader - PortOverCurrentIndicatorChange This bit is valid only if overcurrent conditions are reported on a per-port basis."]
+pub struct OCIC_R(crate::FieldReader<bool, bool>);
+impl OCIC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        OCIC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for OCIC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OCIC` writer - PortOverCurrentIndicatorChange This bit is valid only if overcurrent conditions are reported on a per-port basis."]
 pub struct OCIC_W<'a> {
     w: &'a mut W,
 }
@@ -270,13 +424,25 @@ impl<'a> OCIC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Reader of field `PRSC`"]
-pub type PRSC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PRSC`"]
+#[doc = "Field `PRSC` reader - PortResetStatusChange This bit is set at the end of the 10 ms port reset signal."]
+pub struct PRSC_R(crate::FieldReader<bool, bool>);
+impl PRSC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PRSC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PRSC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PRSC` writer - PortResetStatusChange This bit is set at the end of the 10 ms port reset signal."]
 pub struct PRSC_W<'a> {
     w: &'a mut W,
 }
@@ -294,7 +460,7 @@ impl<'a> PRSC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
@@ -420,5 +586,30 @@ impl W {
     #[inline(always)]
     pub fn prsc(&mut self) -> PRSC_W {
         PRSC_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Controls and reports the port events on a per-port basis\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hcrhportstatus](index.html) module"]
+pub struct HCRHPORTSTATUS_SPEC;
+impl crate::RegisterSpec for HCRHPORTSTATUS_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [hcrhportstatus::R](R) reader structure"]
+impl crate::Readable for HCRHPORTSTATUS_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [hcrhportstatus::W](W) writer structure"]
+impl crate::Writable for HCRHPORTSTATUS_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets HCRHPORTSTATUS to value 0"]
+impl crate::Resettable for HCRHPORTSTATUS_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

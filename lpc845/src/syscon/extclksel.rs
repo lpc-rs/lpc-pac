@@ -1,13 +1,35 @@
-#[doc = "Reader of register EXTCLKSEL"]
-pub type R = crate::R<u32, super::EXTCLKSEL>;
-#[doc = "Writer for register EXTCLKSEL"]
-pub type W = crate::W<u32, super::EXTCLKSEL>;
-#[doc = "Register EXTCLKSEL `reset()`'s with value 0"]
-impl crate::ResetValue for super::EXTCLKSEL {
-    type Type = u32;
+#[doc = "Register `EXTCLKSEL` reader"]
+pub struct R(crate::R<EXTCLKSEL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<EXTCLKSEL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<EXTCLKSEL_SPEC>> for R {
+    fn from(reader: crate::R<EXTCLKSEL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `EXTCLKSEL` writer"]
+pub struct W(crate::W<EXTCLKSEL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<EXTCLKSEL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<EXTCLKSEL_SPEC>> for W {
+    fn from(writer: crate::W<EXTCLKSEL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Clock source for external clock\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<SEL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SEL`"]
-pub type SEL_R = crate::R<bool, SEL_A>;
+#[doc = "Field `SEL` reader - Clock source for external clock"]
+pub struct SEL_R(crate::FieldReader<bool, SEL_A>);
 impl SEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SEL_A {
@@ -38,15 +63,22 @@ impl SEL_R {
     #[doc = "Checks if the value of the field is `SYS_OSC`"]
     #[inline(always)]
     pub fn is_sys_osc(&self) -> bool {
-        *self == SEL_A::SYS_OSC
+        **self == SEL_A::SYS_OSC
     }
     #[doc = "Checks if the value of the field is `CLK_IN`"]
     #[inline(always)]
     pub fn is_clk_in(&self) -> bool {
-        *self == SEL_A::CLK_IN
+        **self == SEL_A::CLK_IN
     }
 }
-#[doc = "Write proxy for field `SEL`"]
+impl core::ops::Deref for SEL_R {
+    type Target = crate::FieldReader<bool, SEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SEL` writer - Clock source for external clock"]
 pub struct SEL_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "System oscillator"]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -97,5 +127,30 @@ impl W {
     #[inline(always)]
     pub fn sel(&mut self) -> SEL_W {
         SEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "external clock source select register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [extclksel](index.html) module"]
+pub struct EXTCLKSEL_SPEC;
+impl crate::RegisterSpec for EXTCLKSEL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [extclksel::R](R) reader structure"]
+impl crate::Readable for EXTCLKSEL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [extclksel::W](W) writer structure"]
+impl crate::Writable for EXTCLKSEL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets EXTCLKSEL to value 0"]
+impl crate::Resettable for EXTCLKSEL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }
