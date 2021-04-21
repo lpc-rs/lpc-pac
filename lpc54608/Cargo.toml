@@ -13,7 +13,6 @@ categories    = ["embedded", "hardware-support", "no-std", "nxp"]
 
 
 [dependencies]
-bare-metal = "1.0.0"
 vcell = "0.1.0"
 cortex-m = "0.7.0"
 
