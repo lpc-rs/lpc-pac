@@ -1,18 +1,52 @@
-#[doc = "Reader of register IR"]
-pub type R = crate::R<u32, super::IR>;
-#[doc = "Writer for register IR"]
-pub type W = crate::W<u32, super::IR>;
-#[doc = "Register IR `reset()`'s with value 0"]
-impl crate::ResetValue for super::IR {
-    type Type = u32;
+#[doc = "Register `IR` reader"]
+pub struct R(crate::R<IR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<IR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `MR0INT`"]
-pub type MR0INT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MR0INT`"]
+impl core::convert::From<crate::R<IR_SPEC>> for R {
+    fn from(reader: crate::R<IR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `IR` writer"]
+pub struct W(crate::W<IR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<IR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<IR_SPEC>> for W {
+    fn from(writer: crate::W<IR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `MR0INT` reader - Interrupt flag for match channel 0."]
+pub struct MR0INT_R(crate::FieldReader<bool, bool>);
+impl MR0INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MR0INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MR0INT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MR0INT` writer - Interrupt flag for match channel 0."]
 pub struct MR0INT_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> MR0INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `MR1INT`"]
-pub type MR1INT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MR1INT`"]
+#[doc = "Field `MR1INT` reader - Interrupt flag for match channel 1."]
+pub struct MR1INT_R(crate::FieldReader<bool, bool>);
+impl MR1INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MR1INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MR1INT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MR1INT` writer - Interrupt flag for match channel 1."]
 pub struct MR1INT_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> MR1INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `MR2INT`"]
-pub type MR2INT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MR2INT`"]
+#[doc = "Field `MR2INT` reader - Interrupt flag for match channel 2."]
+pub struct MR2INT_R(crate::FieldReader<bool, bool>);
+impl MR2INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MR2INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MR2INT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MR2INT` writer - Interrupt flag for match channel 2."]
 pub struct MR2INT_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> MR2INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `MR3INT`"]
-pub type MR3INT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MR3INT`"]
+#[doc = "Field `MR3INT` reader - Interrupt flag for match channel 3."]
+pub struct MR3INT_R(crate::FieldReader<bool, bool>);
+impl MR3INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MR3INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MR3INT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MR3INT` writer - Interrupt flag for match channel 3."]
 pub struct MR3INT_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> MR3INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `CR0INT`"]
-pub type CR0INT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CR0INT`"]
+#[doc = "Field `CR0INT` reader - Interrupt flag for capture channel 0 event."]
+pub struct CR0INT_R(crate::FieldReader<bool, bool>);
+impl CR0INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CR0INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CR0INT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CR0INT` writer - Interrupt flag for capture channel 0 event."]
 pub struct CR0INT_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> CR0INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `CR1INT`"]
-pub type CR1INT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CR1INT`"]
+#[doc = "Field `CR1INT` reader - Interrupt flag for capture channel 1 event."]
+pub struct CR1INT_R(crate::FieldReader<bool, bool>);
+impl CR1INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CR1INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CR1INT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CR1INT` writer - Interrupt flag for capture channel 1 event."]
 pub struct CR1INT_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> CR1INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `CR2INT`"]
-pub type CR2INT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CR2INT`"]
+#[doc = "Field `CR2INT` reader - Interrupt flag for capture channel 2 event."]
+pub struct CR2INT_R(crate::FieldReader<bool, bool>);
+impl CR2INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CR2INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CR2INT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CR2INT` writer - Interrupt flag for capture channel 2 event."]
 pub struct CR2INT_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> CR2INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `CR3INT`"]
-pub type CR3INT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CR3INT`"]
+#[doc = "Field `CR3INT` reader - Interrupt flag for capture channel 3 event."]
+pub struct CR3INT_R(crate::FieldReader<bool, bool>);
+impl CR3INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CR3INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CR3INT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CR3INT` writer - Interrupt flag for capture channel 3 event."]
 pub struct CR3INT_W<'a> {
     w: &'a mut W,
 }
@@ -198,7 +316,7 @@ impl<'a> CR3INT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
@@ -284,5 +402,30 @@ impl W {
     #[inline(always)]
     pub fn cr3int(&mut self) -> CR3INT_W {
         CR3INT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Interrupt Register. The IR can be written to clear interrupts. The IR can be read to identify which of eight possible interrupt sources are pending.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ir](index.html) module"]
+pub struct IR_SPEC;
+impl crate::RegisterSpec for IR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ir::R](R) reader structure"]
+impl crate::Readable for IR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ir::W](W) writer structure"]
+impl crate::Writable for IR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets IR to value 0"]
+impl crate::Resettable for IR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

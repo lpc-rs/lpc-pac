@@ -66,9 +66,9 @@ require_command() {
 
 ### Main
 
-require_command svd2rust 0.17.0
+require_command svd2rust 0.18.0
 require_command cargo-fmt
-require_command form  0.7.0
+require_command form  0.8.0
 
 generate_pac() {
     cecho "$CYAN" "Running svd2rust..."

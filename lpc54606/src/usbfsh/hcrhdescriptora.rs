@@ -1,18 +1,52 @@
-#[doc = "Reader of register HCRHDESCRIPTORA"]
-pub type R = crate::R<u32, super::HCRHDESCRIPTORA>;
-#[doc = "Writer for register HCRHDESCRIPTORA"]
-pub type W = crate::W<u32, super::HCRHDESCRIPTORA>;
-#[doc = "Register HCRHDESCRIPTORA `reset()`'s with value 0xff00_0902"]
-impl crate::ResetValue for super::HCRHDESCRIPTORA {
-    type Type = u32;
+#[doc = "Register `HCRHDESCRIPTORA` reader"]
+pub struct R(crate::R<HCRHDESCRIPTORA_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<HCRHDESCRIPTORA_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0xff00_0902
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `NDP`"]
-pub type NDP_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `NDP`"]
+impl core::convert::From<crate::R<HCRHDESCRIPTORA_SPEC>> for R {
+    fn from(reader: crate::R<HCRHDESCRIPTORA_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `HCRHDESCRIPTORA` writer"]
+pub struct W(crate::W<HCRHDESCRIPTORA_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<HCRHDESCRIPTORA_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<HCRHDESCRIPTORA_SPEC>> for W {
+    fn from(writer: crate::W<HCRHDESCRIPTORA_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `NDP` reader - NumberDownstreamPorts These bits specify the number of downstream ports supported by the root hub."]
+pub struct NDP_R(crate::FieldReader<u8, u8>);
+impl NDP_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        NDP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for NDP_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `NDP` writer - NumberDownstreamPorts These bits specify the number of downstream ports supported by the root hub."]
 pub struct NDP_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> NDP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
-#[doc = "Reader of field `PSM`"]
-pub type PSM_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PSM`"]
+#[doc = "Field `PSM` reader - PowerSwitchingMode This bit is used to specify how the power switching of the root hub ports is controlled."]
+pub struct PSM_R(crate::FieldReader<bool, bool>);
+impl PSM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PSM_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PSM_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PSM` writer - PowerSwitchingMode This bit is used to specify how the power switching of the root hub ports is controlled."]
 pub struct PSM_W<'a> {
     w: &'a mut W,
 }
@@ -44,13 +90,25 @@ impl<'a> PSM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `NPS`"]
-pub type NPS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `NPS`"]
+#[doc = "Field `NPS` reader - NoPowerSwitching These bits are used to specify whether power switching is supported or port are always powered."]
+pub struct NPS_R(crate::FieldReader<bool, bool>);
+impl NPS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        NPS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for NPS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `NPS` writer - NoPowerSwitching These bits are used to specify whether power switching is supported or port are always powered."]
 pub struct NPS_W<'a> {
     w: &'a mut W,
 }
@@ -68,13 +126,25 @@ impl<'a> NPS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `DT`"]
-pub type DT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DT`"]
+#[doc = "Field `DT` reader - DeviceType This bit specifies that the root hub is not a compound device."]
+pub struct DT_R(crate::FieldReader<bool, bool>);
+impl DT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DT` writer - DeviceType This bit specifies that the root hub is not a compound device."]
 pub struct DT_W<'a> {
     w: &'a mut W,
 }
@@ -92,13 +162,25 @@ impl<'a> DT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `OCPM`"]
-pub type OCPM_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `OCPM`"]
+#[doc = "Field `OCPM` reader - OverCurrentProtectionMode This bit describes how the overcurrent status for the root hub ports are reported."]
+pub struct OCPM_R(crate::FieldReader<bool, bool>);
+impl OCPM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        OCPM_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for OCPM_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OCPM` writer - OverCurrentProtectionMode This bit describes how the overcurrent status for the root hub ports are reported."]
 pub struct OCPM_W<'a> {
     w: &'a mut W,
 }
@@ -116,13 +198,25 @@ impl<'a> OCPM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Reader of field `NOCP`"]
-pub type NOCP_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `NOCP`"]
+#[doc = "Field `NOCP` reader - NoOverCurrentProtection This bit describes how the overcurrent status for the root hub ports are reported."]
+pub struct NOCP_R(crate::FieldReader<bool, bool>);
+impl NOCP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        NOCP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for NOCP_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `NOCP` writer - NoOverCurrentProtection This bit describes how the overcurrent status for the root hub ports are reported."]
 pub struct NOCP_W<'a> {
     w: &'a mut W,
 }
@@ -140,13 +234,25 @@ impl<'a> NOCP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Reader of field `POTPGT`"]
-pub type POTPGT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `POTPGT`"]
+#[doc = "Field `POTPGT` reader - PowerOnToPowerGoodTime This byte specifies the duration the HCD has to wait before accessing a powered-on port of the root hub."]
+pub struct POTPGT_R(crate::FieldReader<u8, u8>);
+impl POTPGT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        POTPGT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for POTPGT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POTPGT` writer - PowerOnToPowerGoodTime This byte specifies the duration the HCD has to wait before accessing a powered-on port of the root hub."]
 pub struct POTPGT_W<'a> {
     w: &'a mut W,
 }
@@ -154,7 +260,7 @@ impl<'a> POTPGT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
+        self.w.bits = (self.w.bits & !(0xff << 24)) | ((value as u32 & 0xff) << 24);
         self.w
     }
 }
@@ -230,5 +336,30 @@ impl W {
     #[inline(always)]
     pub fn potpgt(&mut self) -> POTPGT_W {
         POTPGT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "First of the two registers which describes the characteristics of the root hub\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hcrhdescriptora](index.html) module"]
+pub struct HCRHDESCRIPTORA_SPEC;
+impl crate::RegisterSpec for HCRHDESCRIPTORA_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [hcrhdescriptora::R](R) reader structure"]
+impl crate::Readable for HCRHDESCRIPTORA_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [hcrhdescriptora::W](W) writer structure"]
+impl crate::Writable for HCRHDESCRIPTORA_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets HCRHDESCRIPTORA to value 0xff00_0902"]
+impl crate::Resettable for HCRHDESCRIPTORA_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0xff00_0902
     }
 }

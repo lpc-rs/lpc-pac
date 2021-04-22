@@ -1,13 +1,35 @@
-#[doc = "Reader of register CFG"]
-pub type R = crate::R<u32, super::CFG>;
-#[doc = "Writer for register CFG"]
-pub type W = crate::W<u32, super::CFG>;
-#[doc = "Register CFG `reset()`'s with value 0"]
-impl crate::ResetValue for super::CFG {
-    type Type = u32;
+#[doc = "Register `CFG` reader"]
+pub struct R(crate::R<CFG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CFG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CFG_SPEC>> for R {
+    fn from(reader: crate::R<CFG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CFG` writer"]
+pub struct W(crate::W<CFG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CFG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CFG_SPEC>> for W {
+    fn from(writer: crate::W<CFG_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<PERIPHREQEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `PERIPHREQEN`"]
-pub type PERIPHREQEN_R = crate::R<bool, PERIPHREQEN_A>;
+#[doc = "Field `PERIPHREQEN` reader - Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller."]
+pub struct PERIPHREQEN_R(crate::FieldReader<bool, PERIPHREQEN_A>);
 impl PERIPHREQEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PERIPHREQEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PERIPHREQEN_A {
@@ -38,15 +63,22 @@ impl PERIPHREQEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == PERIPHREQEN_A::DISABLED
+        **self == PERIPHREQEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == PERIPHREQEN_A::ENABLED
+        **self == PERIPHREQEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `PERIPHREQEN`"]
+impl core::ops::Deref for PERIPHREQEN_R {
+    type Target = crate::FieldReader<bool, PERIPHREQEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PERIPHREQEN` writer - Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller."]
 pub struct PERIPHREQEN_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> PERIPHREQEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PERIPHREQEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Peripheral DMA requests are disabled."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> PERIPHREQEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<HWTRIGEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HWTRIGEN`"]
-pub type HWTRIGEN_R = crate::R<bool, HWTRIGEN_A>;
+#[doc = "Field `HWTRIGEN` reader - Hardware Triggering Enable for this channel."]
+pub struct HWTRIGEN_R(crate::FieldReader<bool, HWTRIGEN_A>);
 impl HWTRIGEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HWTRIGEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HWTRIGEN_A {
@@ -113,15 +146,22 @@ impl HWTRIGEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == HWTRIGEN_A::DISABLED
+        **self == HWTRIGEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == HWTRIGEN_A::ENABLED
+        **self == HWTRIGEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `HWTRIGEN`"]
+impl core::ops::Deref for HWTRIGEN_R {
+    type Target = crate::FieldReader<bool, HWTRIGEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HWTRIGEN` writer - Hardware Triggering Enable for this channel."]
 pub struct HWTRIGEN_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> HWTRIGEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: HWTRIGEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Hardware triggering is not used."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> HWTRIGEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<TRIGPOL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TRIGPOL`"]
-pub type TRIGPOL_R = crate::R<bool, TRIGPOL_A>;
+#[doc = "Field `TRIGPOL` reader - Trigger Polarity. Selects the polarity of a hardware trigger for this channel."]
+pub struct TRIGPOL_R(crate::FieldReader<bool, TRIGPOL_A>);
 impl TRIGPOL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TRIGPOL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TRIGPOL_A {
@@ -188,15 +229,22 @@ impl TRIGPOL_R {
     #[doc = "Checks if the value of the field is `ACTIVE_LOW_FALLING`"]
     #[inline(always)]
     pub fn is_active_low_falling(&self) -> bool {
-        *self == TRIGPOL_A::ACTIVE_LOW_FALLING
+        **self == TRIGPOL_A::ACTIVE_LOW_FALLING
     }
     #[doc = "Checks if the value of the field is `ACTIVE_HIGH_RISING`"]
     #[inline(always)]
     pub fn is_active_high_rising(&self) -> bool {
-        *self == TRIGPOL_A::ACTIVE_HIGH_RISING
+        **self == TRIGPOL_A::ACTIVE_HIGH_RISING
     }
 }
-#[doc = "Write proxy for field `TRIGPOL`"]
+impl core::ops::Deref for TRIGPOL_R {
+    type Target = crate::FieldReader<bool, TRIGPOL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TRIGPOL` writer - Trigger Polarity. Selects the polarity of a hardware trigger for this channel."]
 pub struct TRIGPOL_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> TRIGPOL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TRIGPOL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> TRIGPOL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<TRIGTYPE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TRIGTYPE`"]
-pub type TRIGTYPE_R = crate::R<bool, TRIGTYPE_A>;
+#[doc = "Field `TRIGTYPE` reader - Trigger Type. Selects hardware trigger as edge triggered or level triggered."]
+pub struct TRIGTYPE_R(crate::FieldReader<bool, TRIGTYPE_A>);
 impl TRIGTYPE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TRIGTYPE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TRIGTYPE_A {
@@ -263,15 +312,22 @@ impl TRIGTYPE_R {
     #[doc = "Checks if the value of the field is `EDGE`"]
     #[inline(always)]
     pub fn is_edge(&self) -> bool {
-        *self == TRIGTYPE_A::EDGE
+        **self == TRIGTYPE_A::EDGE
     }
     #[doc = "Checks if the value of the field is `LEVEL`"]
     #[inline(always)]
     pub fn is_level(&self) -> bool {
-        *self == TRIGTYPE_A::LEVEL
+        **self == TRIGTYPE_A::LEVEL
     }
 }
-#[doc = "Write proxy for field `TRIGTYPE`"]
+impl core::ops::Deref for TRIGTYPE_R {
+    type Target = crate::FieldReader<bool, TRIGTYPE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TRIGTYPE` writer - Trigger Type. Selects hardware trigger as edge triggered or level triggered."]
 pub struct TRIGTYPE_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> TRIGTYPE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TRIGTYPE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Edge. Hardware trigger is edge triggered. Transfers will be initiated and completed, as specified for a single trigger."]
     #[inline(always)]
@@ -306,7 +360,7 @@ impl<'a> TRIGTYPE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -324,9 +378,12 @@ impl From<TRIGBURST_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TRIGBURST`"]
-pub type TRIGBURST_R = crate::R<bool, TRIGBURST_A>;
+#[doc = "Field `TRIGBURST` reader - Trigger Burst. Selects whether hardware triggers cause a single or burst transfer."]
+pub struct TRIGBURST_R(crate::FieldReader<bool, TRIGBURST_A>);
 impl TRIGBURST_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TRIGBURST_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TRIGBURST_A {
@@ -338,15 +395,22 @@ impl TRIGBURST_R {
     #[doc = "Checks if the value of the field is `SINGLE`"]
     #[inline(always)]
     pub fn is_single(&self) -> bool {
-        *self == TRIGBURST_A::SINGLE
+        **self == TRIGBURST_A::SINGLE
     }
     #[doc = "Checks if the value of the field is `BURST`"]
     #[inline(always)]
     pub fn is_burst(&self) -> bool {
-        *self == TRIGBURST_A::BURST
+        **self == TRIGBURST_A::BURST
     }
 }
-#[doc = "Write proxy for field `TRIGBURST`"]
+impl core::ops::Deref for TRIGBURST_R {
+    type Target = crate::FieldReader<bool, TRIGBURST_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TRIGBURST` writer - Trigger Burst. Selects whether hardware triggers cause a single or burst transfer."]
 pub struct TRIGBURST_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +418,7 @@ impl<'a> TRIGBURST_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TRIGBURST_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Single transfer. Hardware trigger causes a single transfer."]
     #[inline(always)]
@@ -381,13 +443,25 @@ impl<'a> TRIGBURST_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `BURSTPOWER`"]
-pub type BURSTPOWER_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `BURSTPOWER`"]
+#[doc = "Field `BURSTPOWER` reader - Burst Power is used in two ways. It always selects the address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported. The total transfer length as defined in the XFERCOUNT bits in the XFERCFG register must be an even multiple of the burst size."]
+pub struct BURSTPOWER_R(crate::FieldReader<u8, u8>);
+impl BURSTPOWER_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        BURSTPOWER_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BURSTPOWER_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BURSTPOWER` writer - Burst Power is used in two ways. It always selects the address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported. The total transfer length as defined in the XFERCOUNT bits in the XFERCFG register must be an even multiple of the burst size."]
 pub struct BURSTPOWER_W<'a> {
     w: &'a mut W,
 }
@@ -395,7 +469,7 @@ impl<'a> BURSTPOWER_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | ((value as u32 & 0x0f) << 8);
         self.w
     }
 }
@@ -413,9 +487,12 @@ impl From<SRCBURSTWRAP_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SRCBURSTWRAP`"]
-pub type SRCBURSTWRAP_R = crate::R<bool, SRCBURSTWRAP_A>;
+#[doc = "Field `SRCBURSTWRAP` reader - Source Burst Wrap. When enabled, the source data address for the DMA is 'wrapped', meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst."]
+pub struct SRCBURSTWRAP_R(crate::FieldReader<bool, SRCBURSTWRAP_A>);
 impl SRCBURSTWRAP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SRCBURSTWRAP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SRCBURSTWRAP_A {
@@ -427,15 +504,22 @@ impl SRCBURSTWRAP_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SRCBURSTWRAP_A::DISABLED
+        **self == SRCBURSTWRAP_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SRCBURSTWRAP_A::ENABLED
+        **self == SRCBURSTWRAP_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `SRCBURSTWRAP`"]
+impl core::ops::Deref for SRCBURSTWRAP_R {
+    type Target = crate::FieldReader<bool, SRCBURSTWRAP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SRCBURSTWRAP` writer - Source Burst Wrap. When enabled, the source data address for the DMA is 'wrapped', meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst."]
 pub struct SRCBURSTWRAP_W<'a> {
     w: &'a mut W,
 }
@@ -443,9 +527,7 @@ impl<'a> SRCBURSTWRAP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SRCBURSTWRAP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Source burst wrapping is not enabled for this DMA channel."]
     #[inline(always)]
@@ -470,7 +552,7 @@ impl<'a> SRCBURSTWRAP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
@@ -488,9 +570,12 @@ impl From<DSTBURSTWRAP_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DSTBURSTWRAP`"]
-pub type DSTBURSTWRAP_R = crate::R<bool, DSTBURSTWRAP_A>;
+#[doc = "Field `DSTBURSTWRAP` reader - Destination Burst Wrap. When enabled, the destination data address for the DMA is 'wrapped', meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst."]
+pub struct DSTBURSTWRAP_R(crate::FieldReader<bool, DSTBURSTWRAP_A>);
 impl DSTBURSTWRAP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DSTBURSTWRAP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DSTBURSTWRAP_A {
@@ -502,15 +587,22 @@ impl DSTBURSTWRAP_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == DSTBURSTWRAP_A::DISABLED
+        **self == DSTBURSTWRAP_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == DSTBURSTWRAP_A::ENABLED
+        **self == DSTBURSTWRAP_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `DSTBURSTWRAP`"]
+impl core::ops::Deref for DSTBURSTWRAP_R {
+    type Target = crate::FieldReader<bool, DSTBURSTWRAP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DSTBURSTWRAP` writer - Destination Burst Wrap. When enabled, the destination data address for the DMA is 'wrapped', meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst."]
 pub struct DSTBURSTWRAP_W<'a> {
     w: &'a mut W,
 }
@@ -518,9 +610,7 @@ impl<'a> DSTBURSTWRAP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DSTBURSTWRAP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Destination burst wrapping is not enabled for this DMA channel."]
     #[inline(always)]
@@ -545,13 +635,25 @@ impl<'a> DSTBURSTWRAP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Reader of field `CHPRIORITY`"]
-pub type CHPRIORITY_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CHPRIORITY`"]
+#[doc = "Field `CHPRIORITY` reader - Priority of this channel when multiple DMA requests are pending. Eight priority levels are supported: 0x0 = highest priority. 0x7 = lowest priority."]
+pub struct CHPRIORITY_R(crate::FieldReader<u8, u8>);
+impl CHPRIORITY_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CHPRIORITY_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CHPRIORITY_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CHPRIORITY` writer - Priority of this channel when multiple DMA requests are pending. Eight priority levels are supported: 0x0 = highest priority. 0x7 = lowest priority."]
 pub struct CHPRIORITY_W<'a> {
     w: &'a mut W,
 }
@@ -559,7 +661,7 @@ impl<'a> CHPRIORITY_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 16)) | (((value as u32) & 0x07) << 16);
+        self.w.bits = (self.w.bits & !(0x07 << 16)) | ((value as u32 & 0x07) << 16);
         self.w
     }
 }
@@ -655,5 +757,30 @@ impl W {
     #[inline(always)]
     pub fn chpriority(&mut self) -> CHPRIORITY_W {
         CHPRIORITY_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Configuration register for DMA channel .\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CFG_SPEC;
+impl crate::RegisterSpec for CFG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [cfg::R](R) reader structure"]
+impl crate::Readable for CFG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [cfg::W](W) writer structure"]
+impl crate::Writable for CFG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CFG to value 0"]
+impl crate::Resettable for CFG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

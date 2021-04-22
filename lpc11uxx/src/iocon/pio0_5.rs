@@ -1,13 +1,35 @@
-#[doc = "Reader of register PIO0_5"]
-pub type R = crate::R<u32, super::PIO0_5>;
-#[doc = "Writer for register PIO0_5"]
-pub type W = crate::W<u32, super::PIO0_5>;
-#[doc = "Register PIO0_5 `reset()`'s with value 0x80"]
-impl crate::ResetValue for super::PIO0_5 {
-    type Type = u32;
+#[doc = "Register `PIO0_5` reader"]
+pub struct R(crate::R<PIO0_5_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PIO0_5_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x80
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<PIO0_5_SPEC>> for R {
+    fn from(reader: crate::R<PIO0_5_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PIO0_5` writer"]
+pub struct W(crate::W<PIO0_5_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PIO0_5_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PIO0_5_SPEC>> for W {
+    fn from(writer: crate::W<PIO0_5_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Selects pin function. Values 0x2 to 0x7 are reserved.\n\nValue on reset: 0"]
@@ -25,31 +47,40 @@ impl From<FUNC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `FUNC`"]
-pub type FUNC_R = crate::R<u8, FUNC_A>;
+#[doc = "Field `FUNC` reader - Selects pin function. Values 0x2 to 0x7 are reserved."]
+pub struct FUNC_R(crate::FieldReader<u8, FUNC_A>);
 impl FUNC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FUNC_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, FUNC_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<FUNC_A> {
         match self.bits {
-            0 => Val(FUNC_A::PIO0_5),
-            1 => Val(FUNC_A::I2C_SDA),
-            i => Res(i),
+            0 => Some(FUNC_A::PIO0_5),
+            1 => Some(FUNC_A::I2C_SDA),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `PIO0_5`"]
     #[inline(always)]
     pub fn is_pio0_5(&self) -> bool {
-        *self == FUNC_A::PIO0_5
+        **self == FUNC_A::PIO0_5
     }
     #[doc = "Checks if the value of the field is `I2C_SDA`"]
     #[inline(always)]
     pub fn is_i2c_sda(&self) -> bool {
-        *self == FUNC_A::I2C_SDA
+        **self == FUNC_A::I2C_SDA
     }
 }
-#[doc = "Write proxy for field `FUNC`"]
+impl core::ops::Deref for FUNC_R {
+    type Target = crate::FieldReader<u8, FUNC_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FUNC` writer - Selects pin function. Values 0x2 to 0x7 are reserved."]
 pub struct FUNC_W<'a> {
     w: &'a mut W,
 }
@@ -72,7 +103,7 @@ impl<'a> FUNC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
+        self.w.bits = (self.w.bits & !0x07) | (value as u32 & 0x07);
         self.w
     }
 }
@@ -93,9 +124,12 @@ impl From<I2CMODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `I2CMODE`"]
-pub type I2CMODE_R = crate::R<u8, I2CMODE_A>;
+#[doc = "Field `I2CMODE` reader - Selects I2C mode (see Section 7.3.8). Select Standard mode (I2CMODE = 00, default) or Standard I/O functionality (I2CMODE = 01) if the pin function is GPIO (FUNC = 000)."]
+pub struct I2CMODE_R(crate::FieldReader<u8, I2CMODE_A>);
 impl I2CMODE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        I2CMODE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> I2CMODE_A {
@@ -109,20 +143,27 @@ impl I2CMODE_R {
     #[doc = "Checks if the value of the field is `STANDARD_MODE`"]
     #[inline(always)]
     pub fn is_standard_mode(&self) -> bool {
-        *self == I2CMODE_A::STANDARD_MODE
+        **self == I2CMODE_A::STANDARD_MODE
     }
     #[doc = "Checks if the value of the field is `STANDARD_IO`"]
     #[inline(always)]
     pub fn is_standard_io(&self) -> bool {
-        *self == I2CMODE_A::STANDARD_IO
+        **self == I2CMODE_A::STANDARD_IO
     }
     #[doc = "Checks if the value of the field is `FAST_MODE_PLUS`"]
     #[inline(always)]
     pub fn is_fast_mode_plus(&self) -> bool {
-        *self == I2CMODE_A::FAST_MODE_PLUS
+        **self == I2CMODE_A::FAST_MODE_PLUS
     }
 }
-#[doc = "Write proxy for field `I2CMODE`"]
+impl core::ops::Deref for I2CMODE_R {
+    type Target = crate::FieldReader<u8, I2CMODE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `I2CMODE` writer - Selects I2C mode (see Section 7.3.8). Select Standard mode (I2CMODE = 00, default) or Standard I/O functionality (I2CMODE = 01) if the pin function is GPIO (FUNC = 000)."]
 pub struct I2CMODE_W<'a> {
     w: &'a mut W,
 }
@@ -150,7 +191,7 @@ impl<'a> I2CMODE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | ((value as u32 & 0x03) << 8);
         self.w
     }
 }
@@ -176,5 +217,30 @@ impl W {
     #[inline(always)]
     pub fn i2cmode(&mut self) -> I2CMODE_W {
         I2CMODE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "I/O configuration for pin PIO0_5/SDA\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pio0_5](index.html) module"]
+pub struct PIO0_5_SPEC;
+impl crate::RegisterSpec for PIO0_5_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pio0_5::R](R) reader structure"]
+impl crate::Readable for PIO0_5_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pio0_5::W](W) writer structure"]
+impl crate::Writable for PIO0_5_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PIO0_5 to value 0x80"]
+impl crate::Resettable for PIO0_5_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x80
     }
 }

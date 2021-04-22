@@ -1,18 +1,52 @@
-#[doc = "Reader of register MAC_VERSION"]
-pub type R = crate::R<u32, super::MAC_VERSION>;
-#[doc = "Writer for register MAC_VERSION"]
-pub type W = crate::W<u32, super::MAC_VERSION>;
-#[doc = "Register MAC_VERSION `reset()`'s with value 0"]
-impl crate::ResetValue for super::MAC_VERSION {
-    type Type = u32;
+#[doc = "Register `MAC_VERSION` reader"]
+pub struct R(crate::R<MAC_VERSION_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MAC_VERSION_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `SNPVER`"]
-pub type SNPVER_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `SNPVER`"]
+impl core::convert::From<crate::R<MAC_VERSION_SPEC>> for R {
+    fn from(reader: crate::R<MAC_VERSION_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MAC_VERSION` writer"]
+pub struct W(crate::W<MAC_VERSION_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MAC_VERSION_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MAC_VERSION_SPEC>> for W {
+    fn from(writer: crate::W<MAC_VERSION_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `SNPVER` reader - NXP defined version."]
+pub struct SNPVER_R(crate::FieldReader<u8, u8>);
+impl SNPVER_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SNPVER_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SNPVER_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SNPVER` writer - NXP defined version."]
 pub struct SNPVER_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> SNPVER_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
-#[doc = "Reader of field `USERVER`"]
-pub type USERVER_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `USERVER`"]
+#[doc = "Field `USERVER` reader - User defined version."]
+pub struct USERVER_R(crate::FieldReader<u8, u8>);
+impl USERVER_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        USERVER_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for USERVER_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `USERVER` writer - User defined version."]
 pub struct USERVER_W<'a> {
     w: &'a mut W,
 }
@@ -34,7 +80,7 @@ impl<'a> USERVER_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
+        self.w.bits = (self.w.bits & !(0xff << 8)) | ((value as u32 & 0xff) << 8);
         self.w
     }
 }
@@ -60,5 +106,30 @@ impl W {
     #[inline(always)]
     pub fn userver(&mut self) -> USERVER_W {
         USERVER_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "MAC version register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mac_version](index.html) module"]
+pub struct MAC_VERSION_SPEC;
+impl crate::RegisterSpec for MAC_VERSION_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mac_version::R](R) reader structure"]
+impl crate::Readable for MAC_VERSION_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mac_version::W](W) writer structure"]
+impl crate::Writable for MAC_VERSION_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MAC_VERSION to value 0"]
+impl crate::Resettable for MAC_VERSION_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,18 +1,52 @@
-#[doc = "Reader of register MTL_TXQx_ETS_CTRL"]
-pub type R = crate::R<u32, super::MTL_TXQX_ETS_CTRL>;
-#[doc = "Writer for register MTL_TXQx_ETS_CTRL"]
-pub type W = crate::W<u32, super::MTL_TXQX_ETS_CTRL>;
-#[doc = "Register MTL_TXQx_ETS_CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::MTL_TXQX_ETS_CTRL {
-    type Type = u32;
+#[doc = "Register `MTL_TXQx_ETS_CTRL` reader"]
+pub struct R(crate::R<MTL_TXQX_ETS_CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MTL_TXQX_ETS_CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `AVALG`"]
-pub type AVALG_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `AVALG`"]
+impl core::convert::From<crate::R<MTL_TXQX_ETS_CTRL_SPEC>> for R {
+    fn from(reader: crate::R<MTL_TXQX_ETS_CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MTL_TXQx_ETS_CTRL` writer"]
+pub struct W(crate::W<MTL_TXQX_ETS_CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MTL_TXQX_ETS_CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MTL_TXQX_ETS_CTRL_SPEC>> for W {
+    fn from(writer: crate::W<MTL_TXQX_ETS_CTRL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `AVALG` reader - AV Algorithm."]
+pub struct AVALG_R(crate::FieldReader<bool, bool>);
+impl AVALG_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AVALG_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AVALG_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AVALG` writer - AV Algorithm."]
 pub struct AVALG_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> AVALG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `CC`"]
-pub type CC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CC`"]
+#[doc = "Field `CC` reader - Credit Control."]
+pub struct CC_R(crate::FieldReader<bool, bool>);
+impl CC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CC` writer - Credit Control."]
 pub struct CC_W<'a> {
     w: &'a mut W,
 }
@@ -54,12 +100,24 @@ impl<'a> CC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `SLC`"]
-pub type SLC_R = crate::R<u8, u8>;
+#[doc = "Field `SLC` reader - Credit Control."]
+pub struct SLC_R(crate::FieldReader<u8, u8>);
+impl SLC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SLC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SLC_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bit 2 - AV Algorithm."]
     #[inline(always)]
@@ -87,5 +145,30 @@ impl W {
     #[inline(always)]
     pub fn cc(&mut self) -> CC_W {
         CC_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "MTL TxQx ETS control register, only TxQ1 support\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mtl_txqx_ets_ctrl](index.html) module"]
+pub struct MTL_TXQX_ETS_CTRL_SPEC;
+impl crate::RegisterSpec for MTL_TXQX_ETS_CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mtl_txqx_ets_ctrl::R](R) reader structure"]
+impl crate::Readable for MTL_TXQX_ETS_CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mtl_txqx_ets_ctrl::W](W) writer structure"]
+impl crate::Writable for MTL_TXQX_ETS_CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MTL_TXQx_ETS_CTRL to value 0"]
+impl crate::Resettable for MTL_TXQX_ETS_CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

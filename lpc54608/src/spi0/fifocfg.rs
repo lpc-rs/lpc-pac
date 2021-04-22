@@ -1,13 +1,35 @@
-#[doc = "Reader of register FIFOCFG"]
-pub type R = crate::R<u32, super::FIFOCFG>;
-#[doc = "Writer for register FIFOCFG"]
-pub type W = crate::W<u32, super::FIFOCFG>;
-#[doc = "Register FIFOCFG `reset()`'s with value 0"]
-impl crate::ResetValue for super::FIFOCFG {
-    type Type = u32;
+#[doc = "Register `FIFOCFG` reader"]
+pub struct R(crate::R<FIFOCFG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FIFOCFG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<FIFOCFG_SPEC>> for R {
+    fn from(reader: crate::R<FIFOCFG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FIFOCFG` writer"]
+pub struct W(crate::W<FIFOCFG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FIFOCFG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FIFOCFG_SPEC>> for W {
+    fn from(writer: crate::W<FIFOCFG_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Enable the transmit FIFO.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<ENABLETX_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ENABLETX`"]
-pub type ENABLETX_R = crate::R<bool, ENABLETX_A>;
+#[doc = "Field `ENABLETX` reader - Enable the transmit FIFO."]
+pub struct ENABLETX_R(crate::FieldReader<bool, ENABLETX_A>);
 impl ENABLETX_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENABLETX_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ENABLETX_A {
@@ -38,15 +63,22 @@ impl ENABLETX_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ENABLETX_A::DISABLED
+        **self == ENABLETX_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == ENABLETX_A::ENABLED
+        **self == ENABLETX_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `ENABLETX`"]
+impl core::ops::Deref for ENABLETX_R {
+    type Target = crate::FieldReader<bool, ENABLETX_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENABLETX` writer - Enable the transmit FIFO."]
 pub struct ENABLETX_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> ENABLETX_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ENABLETX_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The transmit FIFO is not enabled."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> ENABLETX_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<ENABLERX_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ENABLERX`"]
-pub type ENABLERX_R = crate::R<bool, ENABLERX_A>;
+#[doc = "Field `ENABLERX` reader - Enable the receive FIFO."]
+pub struct ENABLERX_R(crate::FieldReader<bool, ENABLERX_A>);
 impl ENABLERX_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENABLERX_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ENABLERX_A {
@@ -113,15 +146,22 @@ impl ENABLERX_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ENABLERX_A::DISABLED
+        **self == ENABLERX_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == ENABLERX_A::ENABLED
+        **self == ENABLERX_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `ENABLERX`"]
+impl core::ops::Deref for ENABLERX_R {
+    type Target = crate::FieldReader<bool, ENABLERX_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENABLERX` writer - Enable the receive FIFO."]
 pub struct ENABLERX_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> ENABLERX_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ENABLERX_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The receive FIFO is not enabled."]
     #[inline(always)]
@@ -156,12 +194,24 @@ impl<'a> ENABLERX_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `SIZE`"]
-pub type SIZE_R = crate::R<u8, u8>;
+#[doc = "Field `SIZE` reader - FIFO size configuration. This is a read-only field. 0x0 = FIFO is configured as 16 entries of 8 bits. 0x1, 0x2, 0x3 = not applicable to USART."]
+pub struct SIZE_R(crate::FieldReader<u8, u8>);
+impl SIZE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SIZE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SIZE_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 #[doc = "DMA configuration for transmit.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DMATX_A {
@@ -176,9 +226,12 @@ impl From<DMATX_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMATX`"]
-pub type DMATX_R = crate::R<bool, DMATX_A>;
+#[doc = "Field `DMATX` reader - DMA configuration for transmit."]
+pub struct DMATX_R(crate::FieldReader<bool, DMATX_A>);
 impl DMATX_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMATX_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMATX_A {
@@ -190,15 +243,22 @@ impl DMATX_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == DMATX_A::DISABLED
+        **self == DMATX_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == DMATX_A::ENABLED
+        **self == DMATX_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `DMATX`"]
+impl core::ops::Deref for DMATX_R {
+    type Target = crate::FieldReader<bool, DMATX_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMATX` writer - DMA configuration for transmit."]
 pub struct DMATX_W<'a> {
     w: &'a mut W,
 }
@@ -206,9 +266,7 @@ impl<'a> DMATX_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMATX_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA is not used for the transmit function."]
     #[inline(always)]
@@ -233,7 +291,7 @@ impl<'a> DMATX_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
@@ -251,9 +309,12 @@ impl From<DMARX_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMARX`"]
-pub type DMARX_R = crate::R<bool, DMARX_A>;
+#[doc = "Field `DMARX` reader - DMA configuration for receive."]
+pub struct DMARX_R(crate::FieldReader<bool, DMARX_A>);
 impl DMARX_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMARX_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMARX_A {
@@ -265,15 +326,22 @@ impl DMARX_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == DMARX_A::DISABLED
+        **self == DMARX_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == DMARX_A::ENABLED
+        **self == DMARX_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `DMARX`"]
+impl core::ops::Deref for DMARX_R {
+    type Target = crate::FieldReader<bool, DMARX_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMARX` writer - DMA configuration for receive."]
 pub struct DMARX_W<'a> {
     w: &'a mut W,
 }
@@ -281,9 +349,7 @@ impl<'a> DMARX_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMARX_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA is not used for the receive function."]
     #[inline(always)]
@@ -308,7 +374,7 @@ impl<'a> DMARX_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
@@ -326,9 +392,12 @@ impl From<WAKETX_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WAKETX`"]
-pub type WAKETX_R = crate::R<bool, WAKETX_A>;
+#[doc = "Field `WAKETX` reader - Wake-up for transmit FIFO level. This allows the device to be woken from reduced power modes (up to power-down, as long as the peripheral function works in that power mode) without enabling the TXLVL interrupt. Only DMA wakes up, processes data, and goes back to sleep. The CPU will remain stopped until woken by another cause, such as DMA completion. See Hardware Wake-up control register."]
+pub struct WAKETX_R(crate::FieldReader<bool, WAKETX_A>);
 impl WAKETX_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WAKETX_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WAKETX_A {
@@ -340,15 +409,22 @@ impl WAKETX_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == WAKETX_A::DISABLED
+        **self == WAKETX_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == WAKETX_A::ENABLED
+        **self == WAKETX_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `WAKETX`"]
+impl core::ops::Deref for WAKETX_R {
+    type Target = crate::FieldReader<bool, WAKETX_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WAKETX` writer - Wake-up for transmit FIFO level. This allows the device to be woken from reduced power modes (up to power-down, as long as the peripheral function works in that power mode) without enabling the TXLVL interrupt. Only DMA wakes up, processes data, and goes back to sleep. The CPU will remain stopped until woken by another cause, such as DMA completion. See Hardware Wake-up control register."]
 pub struct WAKETX_W<'a> {
     w: &'a mut W,
 }
@@ -356,9 +432,7 @@ impl<'a> WAKETX_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WAKETX_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Only enabled interrupts will wake up the device form reduced power modes."]
     #[inline(always)]
@@ -383,7 +457,7 @@ impl<'a> WAKETX_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
@@ -401,9 +475,12 @@ impl From<WAKERX_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WAKERX`"]
-pub type WAKERX_R = crate::R<bool, WAKERX_A>;
+#[doc = "Field `WAKERX` reader - Wake-up for receive FIFO level. This allows the device to be woken from reduced power modes (up to power-down, as long as the peripheral function works in that power mode) without enabling the TXLVL interrupt. Only DMA wakes up, processes data, and goes back to sleep. The CPU will remain stopped until woken by another cause, such as DMA completion. See Hardware Wake-up control register."]
+pub struct WAKERX_R(crate::FieldReader<bool, WAKERX_A>);
 impl WAKERX_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WAKERX_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WAKERX_A {
@@ -415,15 +492,22 @@ impl WAKERX_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == WAKERX_A::DISABLED
+        **self == WAKERX_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == WAKERX_A::ENABLED
+        **self == WAKERX_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `WAKERX`"]
+impl core::ops::Deref for WAKERX_R {
+    type Target = crate::FieldReader<bool, WAKERX_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WAKERX` writer - Wake-up for receive FIFO level. This allows the device to be woken from reduced power modes (up to power-down, as long as the peripheral function works in that power mode) without enabling the TXLVL interrupt. Only DMA wakes up, processes data, and goes back to sleep. The CPU will remain stopped until woken by another cause, such as DMA completion. See Hardware Wake-up control register."]
 pub struct WAKERX_W<'a> {
     w: &'a mut W,
 }
@@ -431,9 +515,7 @@ impl<'a> WAKERX_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WAKERX_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Only enabled interrupts will wake up the device form reduced power modes."]
     #[inline(always)]
@@ -458,13 +540,25 @@ impl<'a> WAKERX_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Reader of field `EMPTYTX`"]
-pub type EMPTYTX_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `EMPTYTX`"]
+#[doc = "Field `EMPTYTX` reader - Empty command for the transmit FIFO. When a 1 is written to this bit, the TX FIFO is emptied."]
+pub struct EMPTYTX_R(crate::FieldReader<bool, bool>);
+impl EMPTYTX_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EMPTYTX_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EMPTYTX_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EMPTYTX` writer - Empty command for the transmit FIFO. When a 1 is written to this bit, the TX FIFO is emptied."]
 pub struct EMPTYTX_W<'a> {
     w: &'a mut W,
 }
@@ -482,13 +576,25 @@ impl<'a> EMPTYTX_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `EMPTYRX`"]
-pub type EMPTYRX_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `EMPTYRX`"]
+#[doc = "Field `EMPTYRX` reader - Empty command for the receive FIFO. When a 1 is written to this bit, the RX FIFO is emptied."]
+pub struct EMPTYRX_R(crate::FieldReader<bool, bool>);
+impl EMPTYRX_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EMPTYRX_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for EMPTYRX_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EMPTYRX` writer - Empty command for the receive FIFO. When a 1 is written to this bit, the RX FIFO is emptied."]
 pub struct EMPTYRX_W<'a> {
     w: &'a mut W,
 }
@@ -506,7 +612,7 @@ impl<'a> EMPTYRX_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
@@ -524,9 +630,12 @@ impl From<POPDBG_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `POPDBG`"]
-pub type POPDBG_R = crate::R<bool, POPDBG_A>;
+#[doc = "Field `POPDBG` reader - Pop FIFO for debug reads."]
+pub struct POPDBG_R(crate::FieldReader<bool, POPDBG_A>);
 impl POPDBG_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        POPDBG_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> POPDBG_A {
@@ -538,15 +647,22 @@ impl POPDBG_R {
     #[doc = "Checks if the value of the field is `DO_NOT_POP`"]
     #[inline(always)]
     pub fn is_do_not_pop(&self) -> bool {
-        *self == POPDBG_A::DO_NOT_POP
+        **self == POPDBG_A::DO_NOT_POP
     }
     #[doc = "Checks if the value of the field is `POP`"]
     #[inline(always)]
     pub fn is_pop(&self) -> bool {
-        *self == POPDBG_A::POP
+        **self == POPDBG_A::POP
     }
 }
-#[doc = "Write proxy for field `POPDBG`"]
+impl core::ops::Deref for POPDBG_R {
+    type Target = crate::FieldReader<bool, POPDBG_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POPDBG` writer - Pop FIFO for debug reads."]
 pub struct POPDBG_W<'a> {
     w: &'a mut W,
 }
@@ -554,9 +670,7 @@ impl<'a> POPDBG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: POPDBG_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Debug reads of the FIFO do not pop the FIFO."]
     #[inline(always)]
@@ -581,7 +695,7 @@ impl<'a> POPDBG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
@@ -682,5 +796,30 @@ impl W {
     #[inline(always)]
     pub fn popdbg(&mut self) -> POPDBG_W {
         POPDBG_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "FIFO configuration and enable register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fifocfg](index.html) module"]
+pub struct FIFOCFG_SPEC;
+impl crate::RegisterSpec for FIFOCFG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [fifocfg::R](R) reader structure"]
+impl crate::Readable for FIFOCFG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [fifocfg::W](W) writer structure"]
+impl crate::Writable for FIFOCFG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FIFOCFG to value 0"]
+impl crate::Resettable for FIFOCFG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,20 +1,66 @@
-#[doc = "Reader of register LPM"]
-pub type R = crate::R<u32, super::LPM>;
-#[doc = "Writer for register LPM"]
-pub type W = crate::W<u32, super::LPM>;
-#[doc = "Register LPM `reset()`'s with value 0"]
-impl crate::ResetValue for super::LPM {
-    type Type = u32;
+#[doc = "Register `LPM` reader"]
+pub struct R(crate::R<LPM_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<LPM_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `HIRD_HW`"]
-pub type HIRD_HW_R = crate::R<u8, u8>;
-#[doc = "Reader of field `HIRD_SW`"]
-pub type HIRD_SW_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `HIRD_SW`"]
+impl core::convert::From<crate::R<LPM_SPEC>> for R {
+    fn from(reader: crate::R<LPM_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `LPM` writer"]
+pub struct W(crate::W<LPM_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<LPM_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<LPM_SPEC>> for W {
+    fn from(writer: crate::W<LPM_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `HIRD_HW` reader - Host Initiated Resume Duration - HW."]
+pub struct HIRD_HW_R(crate::FieldReader<u8, u8>);
+impl HIRD_HW_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        HIRD_HW_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for HIRD_HW_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HIRD_SW` reader - Host Initiated Resume Duration - SW."]
+pub struct HIRD_SW_R(crate::FieldReader<u8, u8>);
+impl HIRD_SW_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        HIRD_SW_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for HIRD_SW_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HIRD_SW` writer - Host Initiated Resume Duration - SW."]
 pub struct HIRD_SW_W<'a> {
     w: &'a mut W,
 }
@@ -22,13 +68,25 @@ impl<'a> HIRD_SW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 4)) | (((value as u32) & 0x0f) << 4);
+        self.w.bits = (self.w.bits & !(0x0f << 4)) | ((value as u32 & 0x0f) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `DATA_PENDING`"]
-pub type DATA_PENDING_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DATA_PENDING`"]
+#[doc = "Field `DATA_PENDING` reader - As long as this bit is set to one and LPM supported bit is set to one, HW will return a NYET handshake on every LPM token it receives."]
+pub struct DATA_PENDING_R(crate::FieldReader<bool, bool>);
+impl DATA_PENDING_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DATA_PENDING_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DATA_PENDING_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DATA_PENDING` writer - As long as this bit is set to one and LPM supported bit is set to one, HW will return a NYET handshake on every LPM token it receives."]
 pub struct DATA_PENDING_W<'a> {
     w: &'a mut W,
 }
@@ -46,7 +104,7 @@ impl<'a> DATA_PENDING_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -77,5 +135,30 @@ impl W {
     #[inline(always)]
     pub fn data_pending(&mut self) -> DATA_PENDING_W {
         DATA_PENDING_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "USB Link Power Management register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lpm](index.html) module"]
+pub struct LPM_SPEC;
+impl crate::RegisterSpec for LPM_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [lpm::R](R) reader structure"]
+impl crate::Readable for LPM_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [lpm::W](W) writer structure"]
+impl crate::Writable for LPM_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets LPM to value 0"]
+impl crate::Resettable for LPM_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

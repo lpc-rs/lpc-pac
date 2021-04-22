@@ -1,18 +1,52 @@
-#[doc = "Reader of register SYSPLLMDEC"]
-pub type R = crate::R<u32, super::SYSPLLMDEC>;
-#[doc = "Writer for register SYSPLLMDEC"]
-pub type W = crate::W<u32, super::SYSPLLMDEC>;
-#[doc = "Register SYSPLLMDEC `reset()`'s with value 0"]
-impl crate::ResetValue for super::SYSPLLMDEC {
-    type Type = u32;
+#[doc = "Register `SYSPLLMDEC` reader"]
+pub struct R(crate::R<SYSPLLMDEC_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SYSPLLMDEC_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `MDEC`"]
-pub type MDEC_R = crate::R<u32, u32>;
-#[doc = "Write proxy for field `MDEC`"]
+impl core::convert::From<crate::R<SYSPLLMDEC_SPEC>> for R {
+    fn from(reader: crate::R<SYSPLLMDEC_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SYSPLLMDEC` writer"]
+pub struct W(crate::W<SYSPLLMDEC_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SYSPLLMDEC_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<SYSPLLMDEC_SPEC>> for W {
+    fn from(writer: crate::W<SYSPLLMDEC_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `MDEC` reader - Decoded M-divider coefficient value."]
+pub struct MDEC_R(crate::FieldReader<u32, u32>);
+impl MDEC_R {
+    pub(crate) fn new(bits: u32) -> Self {
+        MDEC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MDEC_R {
+    type Target = crate::FieldReader<u32, u32>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MDEC` writer - Decoded M-divider coefficient value."]
 pub struct MDEC_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> MDEC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0001_ffff) | ((value as u32) & 0x0001_ffff);
+        self.w.bits = (self.w.bits & !0x0001_ffff) | (value as u32 & 0x0001_ffff);
         self.w
     }
 }
-#[doc = "Reader of field `MREQ`"]
-pub type MREQ_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `MREQ`"]
+#[doc = "Field `MREQ` reader - MDEC reload request."]
+pub struct MREQ_R(crate::FieldReader<bool, bool>);
+impl MREQ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MREQ_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MREQ_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MREQ` writer - MDEC reload request."]
 pub struct MREQ_W<'a> {
     w: &'a mut W,
 }
@@ -44,7 +90,7 @@ impl<'a> MREQ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
@@ -70,5 +116,30 @@ impl W {
     #[inline(always)]
     pub fn mreq(&mut self) -> MREQ_W {
         MREQ_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "System PLL M divider\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [syspllmdec](index.html) module"]
+pub struct SYSPLLMDEC_SPEC;
+impl crate::RegisterSpec for SYSPLLMDEC_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [syspllmdec::R](R) reader structure"]
+impl crate::Readable for SYSPLLMDEC_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [syspllmdec::W](W) writer structure"]
+impl crate::Writable for SYSPLLMDEC_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SYSPLLMDEC to value 0"]
+impl crate::Resettable for SYSPLLMDEC_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

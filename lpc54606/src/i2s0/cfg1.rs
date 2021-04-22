@@ -1,13 +1,35 @@
-#[doc = "Reader of register CFG1"]
-pub type R = crate::R<u32, super::CFG1>;
-#[doc = "Writer for register CFG1"]
-pub type W = crate::W<u32, super::CFG1>;
-#[doc = "Register CFG1 `reset()`'s with value 0"]
-impl crate::ResetValue for super::CFG1 {
-    type Type = u32;
+#[doc = "Register `CFG1` reader"]
+pub struct R(crate::R<CFG1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CFG1_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CFG1_SPEC>> for R {
+    fn from(reader: crate::R<CFG1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CFG1` writer"]
+pub struct W(crate::W<CFG1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CFG1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CFG1_SPEC>> for W {
+    fn from(writer: crate::W<CFG1_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Main enable for I 2S function in this Flexcomm\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<MAINENABLE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MAINENABLE`"]
-pub type MAINENABLE_R = crate::R<bool, MAINENABLE_A>;
+#[doc = "Field `MAINENABLE` reader - Main enable for I 2S function in this Flexcomm"]
+pub struct MAINENABLE_R(crate::FieldReader<bool, MAINENABLE_A>);
 impl MAINENABLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MAINENABLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MAINENABLE_A {
@@ -38,15 +63,22 @@ impl MAINENABLE_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == MAINENABLE_A::DISABLED
+        **self == MAINENABLE_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == MAINENABLE_A::ENABLED
+        **self == MAINENABLE_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `MAINENABLE`"]
+impl core::ops::Deref for MAINENABLE_R {
+    type Target = crate::FieldReader<bool, MAINENABLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MAINENABLE` writer - Main enable for I 2S function in this Flexcomm"]
 pub struct MAINENABLE_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> MAINENABLE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MAINENABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "All I 2S channel pairs in this Flexcomm are disabled and the internal state machines, counters, and flags are reset. No other channel pairs can be enabled."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> MAINENABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<DATAPAUSE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DATAPAUSE`"]
-pub type DATAPAUSE_R = crate::R<bool, DATAPAUSE_A>;
+#[doc = "Field `DATAPAUSE` reader - Data flow Pause. Allows pausing data flow between the I2S serializer/deserializer and the FIFO. This could be done in order to change streams, or while restarting after a data underflow or overflow. When paused, FIFO operations can be done without corrupting data that is in the process of being sent or received. Once a data pause has been requested, the interface may need to complete sending data that was in progress before interrupting the flow of data. Software must check that the pause is actually in effect before taking action. This is done by monitoring the DATAPAUSED flag in the STAT register. When DATAPAUSE is cleared, data transfer will resume at the beginning of the next frame."]
+pub struct DATAPAUSE_R(crate::FieldReader<bool, DATAPAUSE_A>);
 impl DATAPAUSE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DATAPAUSE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DATAPAUSE_A {
@@ -113,15 +146,22 @@ impl DATAPAUSE_R {
     #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == DATAPAUSE_A::NORMAL
+        **self == DATAPAUSE_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `PAUSE`"]
     #[inline(always)]
     pub fn is_pause(&self) -> bool {
-        *self == DATAPAUSE_A::PAUSE
+        **self == DATAPAUSE_A::PAUSE
     }
 }
-#[doc = "Write proxy for field `DATAPAUSE`"]
+impl core::ops::Deref for DATAPAUSE_R {
+    type Target = crate::FieldReader<bool, DATAPAUSE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DATAPAUSE` writer - Data flow Pause. Allows pausing data flow between the I2S serializer/deserializer and the FIFO. This could be done in order to change streams, or while restarting after a data underflow or overflow. When paused, FIFO operations can be done without corrupting data that is in the process of being sent or received. Once a data pause has been requested, the interface may need to complete sending data that was in progress before interrupting the flow of data. Software must check that the pause is actually in effect before taking action. This is done by monitoring the DATAPAUSED flag in the STAT register. When DATAPAUSE is cleared, data transfer will resume at the beginning of the next frame."]
 pub struct DATAPAUSE_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> DATAPAUSE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DATAPAUSE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Normal operation, or resuming normal operation at the next frame if the I2S has already been paused."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> DATAPAUSE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -179,9 +217,12 @@ impl From<PAIRCOUNT_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `PAIRCOUNT`"]
-pub type PAIRCOUNT_R = crate::R<u8, PAIRCOUNT_A>;
+#[doc = "Field `PAIRCOUNT` reader - Provides the number of I2S channel pairs in this Flexcomm This is a read-only field whose value may be different in other Flexcomms. 00 = there is 1 I2S channel pair in this Flexcomm. 01 = there are 2 I2S channel pairs in this Flexcomm. 10 = there are 3 I2S channel pairs in this Flexcomm. 11 = there are 4 I2S channel pairs in this Flexcomm."]
+pub struct PAIRCOUNT_R(crate::FieldReader<u8, PAIRCOUNT_A>);
 impl PAIRCOUNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PAIRCOUNT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PAIRCOUNT_A {
@@ -196,25 +237,32 @@ impl PAIRCOUNT_R {
     #[doc = "Checks if the value of the field is `PAIRS_1`"]
     #[inline(always)]
     pub fn is_pairs_1(&self) -> bool {
-        *self == PAIRCOUNT_A::PAIRS_1
+        **self == PAIRCOUNT_A::PAIRS_1
     }
     #[doc = "Checks if the value of the field is `PAIRS_2`"]
     #[inline(always)]
     pub fn is_pairs_2(&self) -> bool {
-        *self == PAIRCOUNT_A::PAIRS_2
+        **self == PAIRCOUNT_A::PAIRS_2
     }
     #[doc = "Checks if the value of the field is `PAIRS_3`"]
     #[inline(always)]
     pub fn is_pairs_3(&self) -> bool {
-        *self == PAIRCOUNT_A::PAIRS_3
+        **self == PAIRCOUNT_A::PAIRS_3
     }
     #[doc = "Checks if the value of the field is `PAIRS_4`"]
     #[inline(always)]
     pub fn is_pairs_4(&self) -> bool {
-        *self == PAIRCOUNT_A::PAIRS_4
+        **self == PAIRCOUNT_A::PAIRS_4
     }
 }
-#[doc = "Write proxy for field `PAIRCOUNT`"]
+impl core::ops::Deref for PAIRCOUNT_R {
+    type Target = crate::FieldReader<u8, PAIRCOUNT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PAIRCOUNT` writer - Provides the number of I2S channel pairs in this Flexcomm This is a read-only field whose value may be different in other Flexcomms. 00 = there is 1 I2S channel pair in this Flexcomm. 01 = there are 2 I2S channel pairs in this Flexcomm. 10 = there are 3 I2S channel pairs in this Flexcomm. 11 = there are 4 I2S channel pairs in this Flexcomm."]
 pub struct PAIRCOUNT_W<'a> {
     w: &'a mut W,
 }
@@ -222,9 +270,7 @@ impl<'a> PAIRCOUNT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PAIRCOUNT_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "1 I2S channel pairs in this flexcomm"]
     #[inline(always)]
@@ -249,7 +295,7 @@ impl<'a> PAIRCOUNT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | ((value as u32 & 0x03) << 2);
         self.w
     }
 }
@@ -272,9 +318,12 @@ impl From<MSTSLVCFG_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `MSTSLVCFG`"]
-pub type MSTSLVCFG_R = crate::R<u8, MSTSLVCFG_A>;
+#[doc = "Field `MSTSLVCFG` reader - Master / slave configuration selection, determining how SCK and WS are used by all channel pairs in this Flexcomm."]
+pub struct MSTSLVCFG_R(crate::FieldReader<u8, MSTSLVCFG_A>);
 impl MSTSLVCFG_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MSTSLVCFG_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MSTSLVCFG_A {
@@ -289,25 +338,32 @@ impl MSTSLVCFG_R {
     #[doc = "Checks if the value of the field is `NORMAL_SLAVE_MODE`"]
     #[inline(always)]
     pub fn is_normal_slave_mode(&self) -> bool {
-        *self == MSTSLVCFG_A::NORMAL_SLAVE_MODE
+        **self == MSTSLVCFG_A::NORMAL_SLAVE_MODE
     }
     #[doc = "Checks if the value of the field is `WS_SYNC_MASTER`"]
     #[inline(always)]
     pub fn is_ws_sync_master(&self) -> bool {
-        *self == MSTSLVCFG_A::WS_SYNC_MASTER
+        **self == MSTSLVCFG_A::WS_SYNC_MASTER
     }
     #[doc = "Checks if the value of the field is `MASTER_USING_SCK`"]
     #[inline(always)]
     pub fn is_master_using_sck(&self) -> bool {
-        *self == MSTSLVCFG_A::MASTER_USING_SCK
+        **self == MSTSLVCFG_A::MASTER_USING_SCK
     }
     #[doc = "Checks if the value of the field is `NORMAL_MASTER`"]
     #[inline(always)]
     pub fn is_normal_master(&self) -> bool {
-        *self == MSTSLVCFG_A::NORMAL_MASTER
+        **self == MSTSLVCFG_A::NORMAL_MASTER
     }
 }
-#[doc = "Write proxy for field `MSTSLVCFG`"]
+impl core::ops::Deref for MSTSLVCFG_R {
+    type Target = crate::FieldReader<u8, MSTSLVCFG_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSTSLVCFG` writer - Master / slave configuration selection, determining how SCK and WS are used by all channel pairs in this Flexcomm."]
 pub struct MSTSLVCFG_W<'a> {
     w: &'a mut W,
 }
@@ -315,9 +371,7 @@ impl<'a> MSTSLVCFG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSTSLVCFG_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Normal slave mode, the default mode. SCK and WS are received from a master and used to transmit or receive data."]
     #[inline(always)]
@@ -342,7 +396,7 @@ impl<'a> MSTSLVCFG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | ((value as u32 & 0x03) << 4);
         self.w
     }
 }
@@ -365,9 +419,12 @@ impl From<MODE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `MODE`"]
-pub type MODE_R = crate::R<u8, MODE_A>;
+#[doc = "Field `MODE` reader - Selects the basic I2S operating mode. Other configurations modify this to obtain all supported cases. See Formats and modes for examples."]
+pub struct MODE_R(crate::FieldReader<u8, MODE_A>);
 impl MODE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MODE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MODE_A {
@@ -382,25 +439,32 @@ impl MODE_R {
     #[doc = "Checks if the value of the field is `CLASSIC_MODE`"]
     #[inline(always)]
     pub fn is_classic_mode(&self) -> bool {
-        *self == MODE_A::CLASSIC_MODE
+        **self == MODE_A::CLASSIC_MODE
     }
     #[doc = "Checks if the value of the field is `DSP_MODE_WS_50_DUTYCYCLE`"]
     #[inline(always)]
     pub fn is_dsp_mode_ws_50_dutycycle(&self) -> bool {
-        *self == MODE_A::DSP_MODE_WS_50_DUTYCYCLE
+        **self == MODE_A::DSP_MODE_WS_50_DUTYCYCLE
     }
     #[doc = "Checks if the value of the field is `DSP_MODE_WS_1_CLOCK`"]
     #[inline(always)]
     pub fn is_dsp_mode_ws_1_clock(&self) -> bool {
-        *self == MODE_A::DSP_MODE_WS_1_CLOCK
+        **self == MODE_A::DSP_MODE_WS_1_CLOCK
     }
     #[doc = "Checks if the value of the field is `DSP_MODE_WS_1_DATA`"]
     #[inline(always)]
     pub fn is_dsp_mode_ws_1_data(&self) -> bool {
-        *self == MODE_A::DSP_MODE_WS_1_DATA
+        **self == MODE_A::DSP_MODE_WS_1_DATA
     }
 }
-#[doc = "Write proxy for field `MODE`"]
+impl core::ops::Deref for MODE_R {
+    type Target = crate::FieldReader<u8, MODE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MODE` writer - Selects the basic I2S operating mode. Other configurations modify this to obtain all supported cases. See Formats and modes for examples."]
 pub struct MODE_W<'a> {
     w: &'a mut W,
 }
@@ -408,9 +472,7 @@ impl<'a> MODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MODE_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "I2S mode a.k.a. 'classic' mode. WS has a 50% duty cycle, with (for each enabled channel pair) one piece of left channel data occurring during the first phase, and one pieces of right channel data occurring during the second phase. In this mode, the data region begins one clock after the leading WS edge for the frame. For a 50% WS duty cycle, FRAMELEN must define an even number of I2S clocks for the frame. If FRAMELEN defines an odd number of clocks per frame, the extra clock will occur on the right."]
     #[inline(always)]
@@ -435,7 +497,7 @@ impl<'a> MODE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | ((value as u32 & 0x03) << 6);
         self.w
     }
 }
@@ -453,9 +515,12 @@ impl From<RIGHTLOW_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RIGHTLOW`"]
-pub type RIGHTLOW_R = crate::R<bool, RIGHTLOW_A>;
+#[doc = "Field `RIGHTLOW` reader - Right channel data is in the Low portion of FIFO data. Essentially, this swaps left and right channel data as it is transferred to or from the FIFO. This bit is not used if the data width is greater than 24 bits or if PDMDATA = 1. Note that if the ONECHANNEL field (bit 10 of this register) = 1, the one channel to be used is the nominally the left channel. POSITION can still place that data in the frame where right channel data is normally located. if all enabled channel pairs have ONECHANNEL = 1, then RIGHTLOW = 1 is not allowed."]
+pub struct RIGHTLOW_R(crate::FieldReader<bool, RIGHTLOW_A>);
 impl RIGHTLOW_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RIGHTLOW_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RIGHTLOW_A {
@@ -467,15 +532,22 @@ impl RIGHTLOW_R {
     #[doc = "Checks if the value of the field is `RIGHT_HIGH`"]
     #[inline(always)]
     pub fn is_right_high(&self) -> bool {
-        *self == RIGHTLOW_A::RIGHT_HIGH
+        **self == RIGHTLOW_A::RIGHT_HIGH
     }
     #[doc = "Checks if the value of the field is `RIGHT_LOW`"]
     #[inline(always)]
     pub fn is_right_low(&self) -> bool {
-        *self == RIGHTLOW_A::RIGHT_LOW
+        **self == RIGHTLOW_A::RIGHT_LOW
     }
 }
-#[doc = "Write proxy for field `RIGHTLOW`"]
+impl core::ops::Deref for RIGHTLOW_R {
+    type Target = crate::FieldReader<bool, RIGHTLOW_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RIGHTLOW` writer - Right channel data is in the Low portion of FIFO data. Essentially, this swaps left and right channel data as it is transferred to or from the FIFO. This bit is not used if the data width is greater than 24 bits or if PDMDATA = 1. Note that if the ONECHANNEL field (bit 10 of this register) = 1, the one channel to be used is the nominally the left channel. POSITION can still place that data in the frame where right channel data is normally located. if all enabled channel pairs have ONECHANNEL = 1, then RIGHTLOW = 1 is not allowed."]
 pub struct RIGHTLOW_W<'a> {
     w: &'a mut W,
 }
@@ -483,9 +555,7 @@ impl<'a> RIGHTLOW_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RIGHTLOW_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The right channel is taken from the high part of the FIFO data. For example, when data is 16 bits, FIFO bits 31:16 are used for the right channel."]
     #[inline(always)]
@@ -510,7 +580,7 @@ impl<'a> RIGHTLOW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -528,9 +598,12 @@ impl From<LEFTJUST_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LEFTJUST`"]
-pub type LEFTJUST_R = crate::R<bool, LEFTJUST_A>;
+#[doc = "Field `LEFTJUST` reader - Left Justify data."]
+pub struct LEFTJUST_R(crate::FieldReader<bool, LEFTJUST_A>);
 impl LEFTJUST_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LEFTJUST_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LEFTJUST_A {
@@ -542,15 +615,22 @@ impl LEFTJUST_R {
     #[doc = "Checks if the value of the field is `RIGHT_JUSTIFIED`"]
     #[inline(always)]
     pub fn is_right_justified(&self) -> bool {
-        *self == LEFTJUST_A::RIGHT_JUSTIFIED
+        **self == LEFTJUST_A::RIGHT_JUSTIFIED
     }
     #[doc = "Checks if the value of the field is `LEFT_JUSTIFIED`"]
     #[inline(always)]
     pub fn is_left_justified(&self) -> bool {
-        *self == LEFTJUST_A::LEFT_JUSTIFIED
+        **self == LEFTJUST_A::LEFT_JUSTIFIED
     }
 }
-#[doc = "Write proxy for field `LEFTJUST`"]
+impl core::ops::Deref for LEFTJUST_R {
+    type Target = crate::FieldReader<bool, LEFTJUST_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LEFTJUST` writer - Left Justify data."]
 pub struct LEFTJUST_W<'a> {
     w: &'a mut W,
 }
@@ -558,9 +638,7 @@ impl<'a> LEFTJUST_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LEFTJUST_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Data is transferred between the FIFO and the I2S serializer/deserializer right justified, i.e. starting from bit 0 and continuing to the position defined by DATALEN. This would correspond to right justified data in the stream on the data bus."]
     #[inline(always)]
@@ -585,7 +663,7 @@ impl<'a> LEFTJUST_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
@@ -603,9 +681,12 @@ impl From<ONECHANNEL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ONECHANNEL`"]
-pub type ONECHANNEL_R = crate::R<bool, ONECHANNEL_A>;
+#[doc = "Field `ONECHANNEL` reader - Single channel mode. Applies to both transmit and receive. This configuration bit applies only to the first I2S channel pair. Other channel pairs may select this mode independently in their separate CFG1 registers."]
+pub struct ONECHANNEL_R(crate::FieldReader<bool, ONECHANNEL_A>);
 impl ONECHANNEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ONECHANNEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ONECHANNEL_A {
@@ -617,15 +698,22 @@ impl ONECHANNEL_R {
     #[doc = "Checks if the value of the field is `DUAL_CHANNEL`"]
     #[inline(always)]
     pub fn is_dual_channel(&self) -> bool {
-        *self == ONECHANNEL_A::DUAL_CHANNEL
+        **self == ONECHANNEL_A::DUAL_CHANNEL
     }
     #[doc = "Checks if the value of the field is `SINGLE_CHANNEL`"]
     #[inline(always)]
     pub fn is_single_channel(&self) -> bool {
-        *self == ONECHANNEL_A::SINGLE_CHANNEL
+        **self == ONECHANNEL_A::SINGLE_CHANNEL
     }
 }
-#[doc = "Write proxy for field `ONECHANNEL`"]
+impl core::ops::Deref for ONECHANNEL_R {
+    type Target = crate::FieldReader<bool, ONECHANNEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ONECHANNEL` writer - Single channel mode. Applies to both transmit and receive. This configuration bit applies only to the first I2S channel pair. Other channel pairs may select this mode independently in their separate CFG1 registers."]
 pub struct ONECHANNEL_W<'a> {
     w: &'a mut W,
 }
@@ -633,9 +721,7 @@ impl<'a> ONECHANNEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ONECHANNEL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "I2S data for this channel pair is treated as left and right channels."]
     #[inline(always)]
@@ -660,7 +746,7 @@ impl<'a> ONECHANNEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
@@ -678,9 +764,12 @@ impl From<PDMDATA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `PDMDATA`"]
-pub type PDMDATA_R = crate::R<bool, PDMDATA_A>;
+#[doc = "Field `PDMDATA` reader - PDM Data selection. This bit controls the data source for I2S transmit, and cannot be set in Rx mode. This bit only has an effect if the device the Flexcomm resides in includes a D-Mic subsystem. For the LPC5411x, this bit applies only to Flexcomm 7."]
+pub struct PDMDATA_R(crate::FieldReader<bool, PDMDATA_A>);
 impl PDMDATA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDMDATA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PDMDATA_A {
@@ -692,15 +781,22 @@ impl PDMDATA_R {
     #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == PDMDATA_A::NORMAL
+        **self == PDMDATA_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `DMIC_SUBSYSTEM`"]
     #[inline(always)]
     pub fn is_dmic_subsystem(&self) -> bool {
-        *self == PDMDATA_A::DMIC_SUBSYSTEM
+        **self == PDMDATA_A::DMIC_SUBSYSTEM
     }
 }
-#[doc = "Write proxy for field `PDMDATA`"]
+impl core::ops::Deref for PDMDATA_R {
+    type Target = crate::FieldReader<bool, PDMDATA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDMDATA` writer - PDM Data selection. This bit controls the data source for I2S transmit, and cannot be set in Rx mode. This bit only has an effect if the device the Flexcomm resides in includes a D-Mic subsystem. For the LPC5411x, this bit applies only to Flexcomm 7."]
 pub struct PDMDATA_W<'a> {
     w: &'a mut W,
 }
@@ -708,9 +804,7 @@ impl<'a> PDMDATA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PDMDATA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Normal operation, data is transferred to or from the Flexcomm FIFO."]
     #[inline(always)]
@@ -735,7 +829,7 @@ impl<'a> PDMDATA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
@@ -753,9 +847,12 @@ impl From<SCK_POL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SCK_POL`"]
-pub type SCK_POL_R = crate::R<bool, SCK_POL_A>;
+#[doc = "Field `SCK_POL` reader - SCK polarity."]
+pub struct SCK_POL_R(crate::FieldReader<bool, SCK_POL_A>);
 impl SCK_POL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SCK_POL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SCK_POL_A {
@@ -767,15 +864,22 @@ impl SCK_POL_R {
     #[doc = "Checks if the value of the field is `FALLING_EDGE`"]
     #[inline(always)]
     pub fn is_falling_edge(&self) -> bool {
-        *self == SCK_POL_A::FALLING_EDGE
+        **self == SCK_POL_A::FALLING_EDGE
     }
     #[doc = "Checks if the value of the field is `RISING_EDGE`"]
     #[inline(always)]
     pub fn is_rising_edge(&self) -> bool {
-        *self == SCK_POL_A::RISING_EDGE
+        **self == SCK_POL_A::RISING_EDGE
     }
 }
-#[doc = "Write proxy for field `SCK_POL`"]
+impl core::ops::Deref for SCK_POL_R {
+    type Target = crate::FieldReader<bool, SCK_POL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SCK_POL` writer - SCK polarity."]
 pub struct SCK_POL_W<'a> {
     w: &'a mut W,
 }
@@ -783,9 +887,7 @@ impl<'a> SCK_POL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SCK_POL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Data is launched on SCK falling edges and sampled on SCK rising edges (standard for I2S)."]
     #[inline(always)]
@@ -810,7 +912,7 @@ impl<'a> SCK_POL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
@@ -828,9 +930,12 @@ impl From<WS_POL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WS_POL`"]
-pub type WS_POL_R = crate::R<bool, WS_POL_A>;
+#[doc = "Field `WS_POL` reader - WS polarity."]
+pub struct WS_POL_R(crate::FieldReader<bool, WS_POL_A>);
 impl WS_POL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WS_POL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WS_POL_A {
@@ -842,15 +947,22 @@ impl WS_POL_R {
     #[doc = "Checks if the value of the field is `NOT_INVERTED`"]
     #[inline(always)]
     pub fn is_not_inverted(&self) -> bool {
-        *self == WS_POL_A::NOT_INVERTED
+        **self == WS_POL_A::NOT_INVERTED
     }
     #[doc = "Checks if the value of the field is `INVERTED`"]
     #[inline(always)]
     pub fn is_inverted(&self) -> bool {
-        *self == WS_POL_A::INVERTED
+        **self == WS_POL_A::INVERTED
     }
 }
-#[doc = "Write proxy for field `WS_POL`"]
+impl core::ops::Deref for WS_POL_R {
+    type Target = crate::FieldReader<bool, WS_POL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WS_POL` writer - WS polarity."]
 pub struct WS_POL_W<'a> {
     w: &'a mut W,
 }
@@ -858,9 +970,7 @@ impl<'a> WS_POL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WS_POL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Data frames begin at a falling edge of WS (standard for classic I2S)."]
     #[inline(always)]
@@ -885,13 +995,25 @@ impl<'a> WS_POL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Reader of field `DATALEN`"]
-pub type DATALEN_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `DATALEN`"]
+#[doc = "Field `DATALEN` reader - Data Length, minus 1 encoded, defines the number of data bits to be transmitted or received for all I2S channel pairs in this Flexcomm. Note that data is only driven to or received from SDA for the number of bits defined by DATALEN. DATALEN is also used in these ways by the I2S: Determines the size of data transfers between the FIFO and the I2S serializer/deserializer. See FIFO buffer configurations and usage In mode 1, 2, and 3, determines the location of right data following left data in the frame. In mode 3 (where WS has a one data slot long pulse at the beginning of each data frame) determines the duration of the WS pulse. Values: 0x00 to 0x02 = not supported 0x03 = data is 4 bits in length 0x04 = data is 5 bits in length 0x1F = data is 32 bits in length"]
+pub struct DATALEN_R(crate::FieldReader<u8, u8>);
+impl DATALEN_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DATALEN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DATALEN_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DATALEN` writer - Data Length, minus 1 encoded, defines the number of data bits to be transmitted or received for all I2S channel pairs in this Flexcomm. Note that data is only driven to or received from SDA for the number of bits defined by DATALEN. DATALEN is also used in these ways by the I2S: Determines the size of data transfers between the FIFO and the I2S serializer/deserializer. See FIFO buffer configurations and usage In mode 1, 2, and 3, determines the location of right data following left data in the frame. In mode 3 (where WS has a one data slot long pulse at the beginning of each data frame) determines the duration of the WS pulse. Values: 0x00 to 0x02 = not supported 0x03 = data is 4 bits in length 0x04 = data is 5 bits in length 0x1F = data is 32 bits in length"]
 pub struct DATALEN_W<'a> {
     w: &'a mut W,
 }
@@ -899,7 +1021,7 @@ impl<'a> DATALEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 16)) | (((value as u32) & 0x1f) << 16);
+        self.w.bits = (self.w.bits & !(0x1f << 16)) | ((value as u32 & 0x1f) << 16);
         self.w
     }
 }
@@ -1025,5 +1147,30 @@ impl W {
     #[inline(always)]
     pub fn datalen(&mut self) -> DATALEN_W {
         DATALEN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Configuration register 1 for the primary channel pair.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cfg1](index.html) module"]
+pub struct CFG1_SPEC;
+impl crate::RegisterSpec for CFG1_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [cfg1::R](R) reader structure"]
+impl crate::Readable for CFG1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [cfg1::W](W) writer structure"]
+impl crate::Writable for CFG1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CFG1 to value 0"]
+impl crate::Resettable for CFG1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

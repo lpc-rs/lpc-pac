@@ -2,6 +2,7 @@
 name    = "lpc845-pac"
 version = "0.3.0"
 authors = ["David Sawatzke <d-lpc@sawatzke.dev>"]
+edition = "2018"
 
 description   = "Low-level register mappings for the NXP LPC845 series of ARM Cortex-M0+ microcontrollers"
 documentation = "https://docs.rs/lpc845-pac"
@@ -17,8 +18,7 @@ travis-ci   = { repository = "lpc-rs/lpc-pac" }
 
 
 [dependencies]
-bare-metal  = "0.2.5"
-cortex-m    = "0.6.1"
+cortex-m    = "0.7.2"
 cortex-m-rt = { version = "0.6.10", optional = true }
 vcell       = "0.1.2"
 

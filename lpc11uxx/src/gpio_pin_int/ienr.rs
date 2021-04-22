@@ -1,18 +1,52 @@
-#[doc = "Reader of register IENR"]
-pub type R = crate::R<u32, super::IENR>;
-#[doc = "Writer for register IENR"]
-pub type W = crate::W<u32, super::IENR>;
-#[doc = "Register IENR `reset()`'s with value 0"]
-impl crate::ResetValue for super::IENR {
-    type Type = u32;
+#[doc = "Register `IENR` reader"]
+pub struct R(crate::R<IENR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<IENR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `ENRL0`"]
-pub type ENRL0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENRL0`"]
+impl core::convert::From<crate::R<IENR_SPEC>> for R {
+    fn from(reader: crate::R<IENR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `IENR` writer"]
+pub struct W(crate::W<IENR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<IENR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<IENR_SPEC>> for W {
+    fn from(writer: crate::W<IENR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `ENRL0` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
+pub struct ENRL0_R(crate::FieldReader<bool, bool>);
+impl ENRL0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENRL0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENRL0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENRL0` writer - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL0_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> ENRL0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `ENRL1`"]
-pub type ENRL1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENRL1`"]
+#[doc = "Field `ENRL1` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
+pub struct ENRL1_R(crate::FieldReader<bool, bool>);
+impl ENRL1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENRL1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENRL1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENRL1` writer - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL1_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> ENRL1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `ENRL2`"]
-pub type ENRL2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENRL2`"]
+#[doc = "Field `ENRL2` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
+pub struct ENRL2_R(crate::FieldReader<bool, bool>);
+impl ENRL2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENRL2_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENRL2_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENRL2` writer - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL2_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> ENRL2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `ENRL3`"]
-pub type ENRL3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENRL3`"]
+#[doc = "Field `ENRL3` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
+pub struct ENRL3_R(crate::FieldReader<bool, bool>);
+impl ENRL3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENRL3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENRL3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENRL3` writer - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL3_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> ENRL3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `ENRL4`"]
-pub type ENRL4_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENRL4`"]
+#[doc = "Field `ENRL4` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
+pub struct ENRL4_R(crate::FieldReader<bool, bool>);
+impl ENRL4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENRL4_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENRL4_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENRL4` writer - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL4_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> ENRL4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `ENRL5`"]
-pub type ENRL5_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENRL5`"]
+#[doc = "Field `ENRL5` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
+pub struct ENRL5_R(crate::FieldReader<bool, bool>);
+impl ENRL5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENRL5_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENRL5_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENRL5` writer - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL5_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> ENRL5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `ENRL6`"]
-pub type ENRL6_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENRL6`"]
+#[doc = "Field `ENRL6` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
+pub struct ENRL6_R(crate::FieldReader<bool, bool>);
+impl ENRL6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENRL6_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENRL6_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENRL6` writer - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL6_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> ENRL6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `ENRL7`"]
-pub type ENRL7_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENRL7`"]
+#[doc = "Field `ENRL7` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
+pub struct ENRL7_R(crate::FieldReader<bool, bool>);
+impl ENRL7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENRL7_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENRL7_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENRL7` writer - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL7_W<'a> {
     w: &'a mut W,
 }
@@ -198,7 +316,7 @@ impl<'a> ENRL7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
@@ -284,5 +402,30 @@ impl W {
     #[inline(always)]
     pub fn enrl7(&mut self) -> ENRL7_W {
         ENRL7_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Pin Interrupt Enable (Rising) register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ienr](index.html) module"]
+pub struct IENR_SPEC;
+impl crate::RegisterSpec for IENR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ienr::R](R) reader structure"]
+impl crate::Readable for IENR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ienr::W](W) writer structure"]
+impl crate::Writable for IENR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets IENR to value 0"]
+impl crate::Resettable for IENR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

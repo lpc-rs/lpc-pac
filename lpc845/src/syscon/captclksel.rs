@@ -1,13 +1,35 @@
-#[doc = "Reader of register CAPTCLKSEL"]
-pub type R = crate::R<u32, super::CAPTCLKSEL>;
-#[doc = "Writer for register CAPTCLKSEL"]
-pub type W = crate::W<u32, super::CAPTCLKSEL>;
-#[doc = "Register CAPTCLKSEL `reset()`'s with value 0x07"]
-impl crate::ResetValue for super::CAPTCLKSEL {
-    type Type = u32;
+#[doc = "Register `CAPTCLKSEL` reader"]
+pub struct R(crate::R<CAPTCLKSEL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CAPTCLKSEL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x07
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CAPTCLKSEL_SPEC>> for R {
+    fn from(reader: crate::R<CAPTCLKSEL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CAPTCLKSEL` writer"]
+pub struct W(crate::W<CAPTCLKSEL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CAPTCLKSEL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CAPTCLKSEL_SPEC>> for W {
+    fn from(writer: crate::W<CAPTCLKSEL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Clock source for CAPT clock\n\nValue on reset: 7"]
@@ -37,9 +59,12 @@ impl From<SEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SEL`"]
-pub type SEL_R = crate::R<u8, SEL_A>;
+#[doc = "Field `SEL` reader - Clock source for CAPT clock"]
+pub struct SEL_R(crate::FieldReader<u8, SEL_A>);
 impl SEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SEL_A {
@@ -58,45 +83,52 @@ impl SEL_R {
     #[doc = "Checks if the value of the field is `FRO`"]
     #[inline(always)]
     pub fn is_fro(&self) -> bool {
-        *self == SEL_A::FRO
+        **self == SEL_A::FRO
     }
     #[doc = "Checks if the value of the field is `MAIN_CLK`"]
     #[inline(always)]
     pub fn is_main_clk(&self) -> bool {
-        *self == SEL_A::MAIN_CLK
+        **self == SEL_A::MAIN_CLK
     }
     #[doc = "Checks if the value of the field is `SYS_PLL`"]
     #[inline(always)]
     pub fn is_sys_pll(&self) -> bool {
-        *self == SEL_A::SYS_PLL
+        **self == SEL_A::SYS_PLL
     }
     #[doc = "Checks if the value of the field is `FRO_DIV`"]
     #[inline(always)]
     pub fn is_fro_div(&self) -> bool {
-        *self == SEL_A::FRO_DIV
+        **self == SEL_A::FRO_DIV
     }
     #[doc = "Checks if the value of the field is `WDTOSC`"]
     #[inline(always)]
     pub fn is_wdtosc(&self) -> bool {
-        *self == SEL_A::WDTOSC
+        **self == SEL_A::WDTOSC
     }
     #[doc = "Checks if the value of the field is `NONE`"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == SEL_A::NONE
+        **self == SEL_A::NONE
     }
     #[doc = "Checks if the value of the field is `NONE1`"]
     #[inline(always)]
     pub fn is_none1(&self) -> bool {
-        *self == SEL_A::NONE1
+        **self == SEL_A::NONE1
     }
     #[doc = "Checks if the value of the field is `NONE2`"]
     #[inline(always)]
     pub fn is_none2(&self) -> bool {
-        *self == SEL_A::NONE2
+        **self == SEL_A::NONE2
     }
 }
-#[doc = "Write proxy for field `SEL`"]
+impl core::ops::Deref for SEL_R {
+    type Target = crate::FieldReader<u8, SEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SEL` writer - Clock source for CAPT clock"]
 pub struct SEL_W<'a> {
     w: &'a mut W,
 }
@@ -104,9 +136,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "FRO"]
     #[inline(always)]
@@ -151,7 +181,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
+        self.w.bits = (self.w.bits & !0x07) | (value as u32 & 0x07);
         self.w
     }
 }
@@ -167,5 +197,30 @@ impl W {
     #[inline(always)]
     pub fn sel(&mut self) -> SEL_W {
         SEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "CAPT clock source select register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [captclksel](index.html) module"]
+pub struct CAPTCLKSEL_SPEC;
+impl crate::RegisterSpec for CAPTCLKSEL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [captclksel::R](R) reader structure"]
+impl crate::Readable for CAPTCLKSEL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [captclksel::W](W) writer structure"]
+impl crate::Writable for CAPTCLKSEL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CAPTCLKSEL to value 0x07"]
+impl crate::Resettable for CAPTCLKSEL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x07
     }
 }

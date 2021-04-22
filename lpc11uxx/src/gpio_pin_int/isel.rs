@@ -1,18 +1,52 @@
-#[doc = "Reader of register ISEL"]
-pub type R = crate::R<u32, super::ISEL>;
-#[doc = "Writer for register ISEL"]
-pub type W = crate::W<u32, super::ISEL>;
-#[doc = "Register ISEL `reset()`'s with value 0"]
-impl crate::ResetValue for super::ISEL {
-    type Type = u32;
+#[doc = "Register `ISEL` reader"]
+pub struct R(crate::R<ISEL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<ISEL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `PMODE0`"]
-pub type PMODE0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PMODE0`"]
+impl core::convert::From<crate::R<ISEL_SPEC>> for R {
+    fn from(reader: crate::R<ISEL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `ISEL` writer"]
+pub struct W(crate::W<ISEL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<ISEL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<ISEL_SPEC>> for W {
+    fn from(writer: crate::W<ISEL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `PMODE0` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+pub struct PMODE0_R(crate::FieldReader<bool, bool>);
+impl PMODE0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PMODE0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PMODE0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PMODE0` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE0_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> PMODE0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `PMODE1`"]
-pub type PMODE1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PMODE1`"]
+#[doc = "Field `PMODE1` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+pub struct PMODE1_R(crate::FieldReader<bool, bool>);
+impl PMODE1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PMODE1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PMODE1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PMODE1` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE1_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> PMODE1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `PMODE2`"]
-pub type PMODE2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PMODE2`"]
+#[doc = "Field `PMODE2` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+pub struct PMODE2_R(crate::FieldReader<bool, bool>);
+impl PMODE2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PMODE2_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PMODE2_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PMODE2` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE2_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> PMODE2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `PMODE3`"]
-pub type PMODE3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PMODE3`"]
+#[doc = "Field `PMODE3` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+pub struct PMODE3_R(crate::FieldReader<bool, bool>);
+impl PMODE3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PMODE3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PMODE3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PMODE3` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE3_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> PMODE3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `PMODE4`"]
-pub type PMODE4_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PMODE4`"]
+#[doc = "Field `PMODE4` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+pub struct PMODE4_R(crate::FieldReader<bool, bool>);
+impl PMODE4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PMODE4_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PMODE4_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PMODE4` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE4_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> PMODE4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `PMODE5`"]
-pub type PMODE5_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PMODE5`"]
+#[doc = "Field `PMODE5` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+pub struct PMODE5_R(crate::FieldReader<bool, bool>);
+impl PMODE5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PMODE5_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PMODE5_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PMODE5` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE5_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> PMODE5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `PMODE6`"]
-pub type PMODE6_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PMODE6`"]
+#[doc = "Field `PMODE6` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+pub struct PMODE6_R(crate::FieldReader<bool, bool>);
+impl PMODE6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PMODE6_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PMODE6_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PMODE6` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE6_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> PMODE6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `PMODE7`"]
-pub type PMODE7_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PMODE7`"]
+#[doc = "Field `PMODE7` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+pub struct PMODE7_R(crate::FieldReader<bool, bool>);
+impl PMODE7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PMODE7_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PMODE7_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PMODE7` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE7_W<'a> {
     w: &'a mut W,
 }
@@ -198,7 +316,7 @@ impl<'a> PMODE7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
@@ -284,5 +402,30 @@ impl W {
     #[inline(always)]
     pub fn pmode7(&mut self) -> PMODE7_W {
         PMODE7_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Pin Interrupt Mode register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [isel](index.html) module"]
+pub struct ISEL_SPEC;
+impl crate::RegisterSpec for ISEL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [isel::R](R) reader structure"]
+impl crate::Readable for ISEL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [isel::W](W) writer structure"]
+impl crate::Writable for ISEL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets ISEL to value 0"]
+impl crate::Resettable for ISEL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

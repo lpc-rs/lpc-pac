@@ -1,13 +1,35 @@
-#[doc = "Reader of register INTEN"]
-pub type R = crate::R<u32, super::INTEN>;
-#[doc = "Writer for register INTEN"]
-pub type W = crate::W<u32, super::INTEN>;
-#[doc = "Register INTEN `reset()`'s with value 0"]
-impl crate::ResetValue for super::INTEN {
-    type Type = u32;
+#[doc = "Register `INTEN` reader"]
+pub struct R(crate::R<INTEN_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<INTEN_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<INTEN_SPEC>> for R {
+    fn from(reader: crate::R<INTEN_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `INTEN` writer"]
+pub struct W(crate::W<INTEN_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<INTEN_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<INTEN_SPEC>> for W {
+    fn from(writer: crate::W<INTEN_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Sequence A interrupt enable.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<SEQA_INTEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SEQA_INTEN`"]
-pub type SEQA_INTEN_R = crate::R<bool, SEQA_INTEN_A>;
+#[doc = "Field `SEQA_INTEN` reader - Sequence A interrupt enable."]
+pub struct SEQA_INTEN_R(crate::FieldReader<bool, SEQA_INTEN_A>);
 impl SEQA_INTEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SEQA_INTEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SEQA_INTEN_A {
@@ -38,15 +63,22 @@ impl SEQA_INTEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SEQA_INTEN_A::DISABLED
+        **self == SEQA_INTEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SEQA_INTEN_A::ENABLED
+        **self == SEQA_INTEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `SEQA_INTEN`"]
+impl core::ops::Deref for SEQA_INTEN_R {
+    type Target = crate::FieldReader<bool, SEQA_INTEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SEQA_INTEN` writer - Sequence A interrupt enable."]
 pub struct SEQA_INTEN_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> SEQA_INTEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEQA_INTEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. The sequence A interrupt/DMA trigger is disabled."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> SEQA_INTEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<SEQB_INTEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SEQB_INTEN`"]
-pub type SEQB_INTEN_R = crate::R<bool, SEQB_INTEN_A>;
+#[doc = "Field `SEQB_INTEN` reader - Sequence B interrupt enable."]
+pub struct SEQB_INTEN_R(crate::FieldReader<bool, SEQB_INTEN_A>);
 impl SEQB_INTEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SEQB_INTEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SEQB_INTEN_A {
@@ -113,15 +146,22 @@ impl SEQB_INTEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SEQB_INTEN_A::DISABLED
+        **self == SEQB_INTEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SEQB_INTEN_A::ENABLED
+        **self == SEQB_INTEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `SEQB_INTEN`"]
+impl core::ops::Deref for SEQB_INTEN_R {
+    type Target = crate::FieldReader<bool, SEQB_INTEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SEQB_INTEN` writer - Sequence B interrupt enable."]
 pub struct SEQB_INTEN_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> SEQB_INTEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEQB_INTEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. The sequence B interrupt/DMA trigger is disabled."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> SEQB_INTEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<OVR_INTEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `OVR_INTEN`"]
-pub type OVR_INTEN_R = crate::R<bool, OVR_INTEN_A>;
+#[doc = "Field `OVR_INTEN` reader - Overrun interrupt enable."]
+pub struct OVR_INTEN_R(crate::FieldReader<bool, OVR_INTEN_A>);
 impl OVR_INTEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        OVR_INTEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> OVR_INTEN_A {
@@ -188,15 +229,22 @@ impl OVR_INTEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == OVR_INTEN_A::DISABLED
+        **self == OVR_INTEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == OVR_INTEN_A::ENABLED
+        **self == OVR_INTEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `OVR_INTEN`"]
+impl core::ops::Deref for OVR_INTEN_R {
+    type Target = crate::FieldReader<bool, OVR_INTEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OVR_INTEN` writer - Overrun interrupt enable."]
 pub struct OVR_INTEN_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> OVR_INTEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: OVR_INTEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. The overrun interrupt is disabled."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> OVR_INTEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -252,37 +298,46 @@ impl From<ADCMPINTEN0_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN0`"]
-pub type ADCMPINTEN0_R = crate::R<u8, ADCMPINTEN0_A>;
+#[doc = "Field `ADCMPINTEN0` reader - Threshold comparison interrupt enable for channel 0."]
+pub struct ADCMPINTEN0_R(crate::FieldReader<u8, ADCMPINTEN0_A>);
 impl ADCMPINTEN0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN0_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN0_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN0_A::DISABLED),
-            1 => Val(ADCMPINTEN0_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN0_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN0_A::DISABLED),
+            1 => Some(ADCMPINTEN0_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN0_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN0_A::DISABLED
+        **self == ADCMPINTEN0_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN0_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN0_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN0_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN0_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN0`"]
+impl core::ops::Deref for ADCMPINTEN0_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN0` writer - Threshold comparison interrupt enable for channel 0."]
 pub struct ADCMPINTEN0_W<'a> {
     w: &'a mut W,
 }
@@ -310,7 +365,7 @@ impl<'a> ADCMPINTEN0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 3)) | (((value as u32) & 0x03) << 3);
+        self.w.bits = (self.w.bits & !(0x03 << 3)) | ((value as u32 & 0x03) << 3);
         self.w
     }
 }
@@ -331,37 +386,46 @@ impl From<ADCMPINTEN1_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN1`"]
-pub type ADCMPINTEN1_R = crate::R<u8, ADCMPINTEN1_A>;
+#[doc = "Field `ADCMPINTEN1` reader - Channel 1 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN1_R(crate::FieldReader<u8, ADCMPINTEN1_A>);
 impl ADCMPINTEN1_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN1_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN1_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN1_A::DISABLED),
-            1 => Val(ADCMPINTEN1_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN1_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN1_A::DISABLED),
+            1 => Some(ADCMPINTEN1_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN1_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN1_A::DISABLED
+        **self == ADCMPINTEN1_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN1_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN1_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN1_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN1_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN1`"]
+impl core::ops::Deref for ADCMPINTEN1_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN1` writer - Channel 1 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN1_W<'a> {
     w: &'a mut W,
 }
@@ -389,7 +453,7 @@ impl<'a> ADCMPINTEN1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 5)) | (((value as u32) & 0x03) << 5);
+        self.w.bits = (self.w.bits & !(0x03 << 5)) | ((value as u32 & 0x03) << 5);
         self.w
     }
 }
@@ -410,37 +474,46 @@ impl From<ADCMPINTEN2_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN2`"]
-pub type ADCMPINTEN2_R = crate::R<u8, ADCMPINTEN2_A>;
+#[doc = "Field `ADCMPINTEN2` reader - Channel 2 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN2_R(crate::FieldReader<u8, ADCMPINTEN2_A>);
 impl ADCMPINTEN2_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN2_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN2_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN2_A::DISABLED),
-            1 => Val(ADCMPINTEN2_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN2_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN2_A::DISABLED),
+            1 => Some(ADCMPINTEN2_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN2_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN2_A::DISABLED
+        **self == ADCMPINTEN2_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN2_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN2_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN2_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN2_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN2`"]
+impl core::ops::Deref for ADCMPINTEN2_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN2` writer - Channel 2 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN2_W<'a> {
     w: &'a mut W,
 }
@@ -468,7 +541,7 @@ impl<'a> ADCMPINTEN2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 7)) | (((value as u32) & 0x03) << 7);
+        self.w.bits = (self.w.bits & !(0x03 << 7)) | ((value as u32 & 0x03) << 7);
         self.w
     }
 }
@@ -489,37 +562,46 @@ impl From<ADCMPINTEN3_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN3`"]
-pub type ADCMPINTEN3_R = crate::R<u8, ADCMPINTEN3_A>;
+#[doc = "Field `ADCMPINTEN3` reader - Channel 3 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN3_R(crate::FieldReader<u8, ADCMPINTEN3_A>);
 impl ADCMPINTEN3_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN3_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN3_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN3_A::DISABLED),
-            1 => Val(ADCMPINTEN3_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN3_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN3_A::DISABLED),
+            1 => Some(ADCMPINTEN3_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN3_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN3_A::DISABLED
+        **self == ADCMPINTEN3_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN3_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN3_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN3_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN3_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN3`"]
+impl core::ops::Deref for ADCMPINTEN3_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN3` writer - Channel 3 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN3_W<'a> {
     w: &'a mut W,
 }
@@ -547,7 +629,7 @@ impl<'a> ADCMPINTEN3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 9)) | (((value as u32) & 0x03) << 9);
+        self.w.bits = (self.w.bits & !(0x03 << 9)) | ((value as u32 & 0x03) << 9);
         self.w
     }
 }
@@ -568,37 +650,46 @@ impl From<ADCMPINTEN4_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN4`"]
-pub type ADCMPINTEN4_R = crate::R<u8, ADCMPINTEN4_A>;
+#[doc = "Field `ADCMPINTEN4` reader - Channel 4 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN4_R(crate::FieldReader<u8, ADCMPINTEN4_A>);
 impl ADCMPINTEN4_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN4_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN4_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN4_A::DISABLED),
-            1 => Val(ADCMPINTEN4_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN4_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN4_A::DISABLED),
+            1 => Some(ADCMPINTEN4_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN4_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN4_A::DISABLED
+        **self == ADCMPINTEN4_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN4_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN4_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN4_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN4_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN4`"]
+impl core::ops::Deref for ADCMPINTEN4_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN4` writer - Channel 4 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN4_W<'a> {
     w: &'a mut W,
 }
@@ -626,7 +717,7 @@ impl<'a> ADCMPINTEN4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 11)) | (((value as u32) & 0x03) << 11);
+        self.w.bits = (self.w.bits & !(0x03 << 11)) | ((value as u32 & 0x03) << 11);
         self.w
     }
 }
@@ -647,37 +738,46 @@ impl From<ADCMPINTEN5_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN5`"]
-pub type ADCMPINTEN5_R = crate::R<u8, ADCMPINTEN5_A>;
+#[doc = "Field `ADCMPINTEN5` reader - Channel 5 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN5_R(crate::FieldReader<u8, ADCMPINTEN5_A>);
 impl ADCMPINTEN5_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN5_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN5_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN5_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN5_A::DISABLED),
-            1 => Val(ADCMPINTEN5_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN5_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN5_A::DISABLED),
+            1 => Some(ADCMPINTEN5_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN5_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN5_A::DISABLED
+        **self == ADCMPINTEN5_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN5_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN5_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN5_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN5_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN5`"]
+impl core::ops::Deref for ADCMPINTEN5_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN5_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN5` writer - Channel 5 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN5_W<'a> {
     w: &'a mut W,
 }
@@ -705,7 +805,7 @@ impl<'a> ADCMPINTEN5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 13)) | (((value as u32) & 0x03) << 13);
+        self.w.bits = (self.w.bits & !(0x03 << 13)) | ((value as u32 & 0x03) << 13);
         self.w
     }
 }
@@ -726,37 +826,46 @@ impl From<ADCMPINTEN6_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN6`"]
-pub type ADCMPINTEN6_R = crate::R<u8, ADCMPINTEN6_A>;
+#[doc = "Field `ADCMPINTEN6` reader - Channel 6 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN6_R(crate::FieldReader<u8, ADCMPINTEN6_A>);
 impl ADCMPINTEN6_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN6_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN6_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN6_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN6_A::DISABLED),
-            1 => Val(ADCMPINTEN6_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN6_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN6_A::DISABLED),
+            1 => Some(ADCMPINTEN6_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN6_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN6_A::DISABLED
+        **self == ADCMPINTEN6_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN6_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN6_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN6_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN6_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN6`"]
+impl core::ops::Deref for ADCMPINTEN6_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN6_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN6` writer - Channel 6 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN6_W<'a> {
     w: &'a mut W,
 }
@@ -784,7 +893,7 @@ impl<'a> ADCMPINTEN6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 15)) | (((value as u32) & 0x03) << 15);
+        self.w.bits = (self.w.bits & !(0x03 << 15)) | ((value as u32 & 0x03) << 15);
         self.w
     }
 }
@@ -805,37 +914,46 @@ impl From<ADCMPINTEN7_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN7`"]
-pub type ADCMPINTEN7_R = crate::R<u8, ADCMPINTEN7_A>;
+#[doc = "Field `ADCMPINTEN7` reader - Channel 7 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN7_R(crate::FieldReader<u8, ADCMPINTEN7_A>);
 impl ADCMPINTEN7_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN7_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN7_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN7_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN7_A::DISABLED),
-            1 => Val(ADCMPINTEN7_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN7_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN7_A::DISABLED),
+            1 => Some(ADCMPINTEN7_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN7_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN7_A::DISABLED
+        **self == ADCMPINTEN7_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN7_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN7_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN7_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN7_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN7`"]
+impl core::ops::Deref for ADCMPINTEN7_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN7_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN7` writer - Channel 7 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN7_W<'a> {
     w: &'a mut W,
 }
@@ -863,7 +981,7 @@ impl<'a> ADCMPINTEN7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 17)) | (((value as u32) & 0x03) << 17);
+        self.w.bits = (self.w.bits & !(0x03 << 17)) | ((value as u32 & 0x03) << 17);
         self.w
     }
 }
@@ -884,37 +1002,46 @@ impl From<ADCMPINTEN8_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN8`"]
-pub type ADCMPINTEN8_R = crate::R<u8, ADCMPINTEN8_A>;
+#[doc = "Field `ADCMPINTEN8` reader - Channel 8 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN8_R(crate::FieldReader<u8, ADCMPINTEN8_A>);
 impl ADCMPINTEN8_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN8_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN8_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN8_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN8_A::DISABLED),
-            1 => Val(ADCMPINTEN8_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN8_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN8_A::DISABLED),
+            1 => Some(ADCMPINTEN8_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN8_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN8_A::DISABLED
+        **self == ADCMPINTEN8_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN8_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN8_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN8_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN8_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN8`"]
+impl core::ops::Deref for ADCMPINTEN8_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN8_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN8` writer - Channel 8 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN8_W<'a> {
     w: &'a mut W,
 }
@@ -942,7 +1069,7 @@ impl<'a> ADCMPINTEN8_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 19)) | (((value as u32) & 0x03) << 19);
+        self.w.bits = (self.w.bits & !(0x03 << 19)) | ((value as u32 & 0x03) << 19);
         self.w
     }
 }
@@ -963,37 +1090,46 @@ impl From<ADCMPINTEN9_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN9`"]
-pub type ADCMPINTEN9_R = crate::R<u8, ADCMPINTEN9_A>;
+#[doc = "Field `ADCMPINTEN9` reader - Channel 9 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN9_R(crate::FieldReader<u8, ADCMPINTEN9_A>);
 impl ADCMPINTEN9_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN9_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN9_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN9_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN9_A::DISABLED),
-            1 => Val(ADCMPINTEN9_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN9_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN9_A::DISABLED),
+            1 => Some(ADCMPINTEN9_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN9_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN9_A::DISABLED
+        **self == ADCMPINTEN9_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN9_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN9_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN9_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN9_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN9`"]
+impl core::ops::Deref for ADCMPINTEN9_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN9_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN9` writer - Channel 9 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN9_W<'a> {
     w: &'a mut W,
 }
@@ -1021,7 +1157,7 @@ impl<'a> ADCMPINTEN9_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 21)) | (((value as u32) & 0x03) << 21);
+        self.w.bits = (self.w.bits & !(0x03 << 21)) | ((value as u32 & 0x03) << 21);
         self.w
     }
 }
@@ -1042,37 +1178,46 @@ impl From<ADCMPINTEN10_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN10`"]
-pub type ADCMPINTEN10_R = crate::R<u8, ADCMPINTEN10_A>;
+#[doc = "Field `ADCMPINTEN10` reader - Channel 10 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN10_R(crate::FieldReader<u8, ADCMPINTEN10_A>);
 impl ADCMPINTEN10_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN10_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN10_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN10_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN10_A::DISABLED),
-            1 => Val(ADCMPINTEN10_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN10_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN10_A::DISABLED),
+            1 => Some(ADCMPINTEN10_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN10_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN10_A::DISABLED
+        **self == ADCMPINTEN10_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN10_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN10_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN10_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN10_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN10`"]
+impl core::ops::Deref for ADCMPINTEN10_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN10_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN10` writer - Channel 10 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN10_W<'a> {
     w: &'a mut W,
 }
@@ -1100,7 +1245,7 @@ impl<'a> ADCMPINTEN10_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 23)) | (((value as u32) & 0x03) << 23);
+        self.w.bits = (self.w.bits & !(0x03 << 23)) | ((value as u32 & 0x03) << 23);
         self.w
     }
 }
@@ -1121,37 +1266,46 @@ impl From<ADCMPINTEN11_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCMPINTEN11`"]
-pub type ADCMPINTEN11_R = crate::R<u8, ADCMPINTEN11_A>;
+#[doc = "Field `ADCMPINTEN11` reader - Channel 11 threshold comparison interrupt enable."]
+pub struct ADCMPINTEN11_R(crate::FieldReader<u8, ADCMPINTEN11_A>);
 impl ADCMPINTEN11_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCMPINTEN11_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCMPINTEN11_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCMPINTEN11_A> {
         match self.bits {
-            0 => Val(ADCMPINTEN11_A::DISABLED),
-            1 => Val(ADCMPINTEN11_A::OUTSIDE_THRESHOLD),
-            2 => Val(ADCMPINTEN11_A::CROSSING_THRESHOLD),
-            i => Res(i),
+            0 => Some(ADCMPINTEN11_A::DISABLED),
+            1 => Some(ADCMPINTEN11_A::OUTSIDE_THRESHOLD),
+            2 => Some(ADCMPINTEN11_A::CROSSING_THRESHOLD),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ADCMPINTEN11_A::DISABLED
+        **self == ADCMPINTEN11_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `OUTSIDE_THRESHOLD`"]
     #[inline(always)]
     pub fn is_outside_threshold(&self) -> bool {
-        *self == ADCMPINTEN11_A::OUTSIDE_THRESHOLD
+        **self == ADCMPINTEN11_A::OUTSIDE_THRESHOLD
     }
     #[doc = "Checks if the value of the field is `CROSSING_THRESHOLD`"]
     #[inline(always)]
     pub fn is_crossing_threshold(&self) -> bool {
-        *self == ADCMPINTEN11_A::CROSSING_THRESHOLD
+        **self == ADCMPINTEN11_A::CROSSING_THRESHOLD
     }
 }
-#[doc = "Write proxy for field `ADCMPINTEN11`"]
+impl core::ops::Deref for ADCMPINTEN11_R {
+    type Target = crate::FieldReader<u8, ADCMPINTEN11_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCMPINTEN11` writer - Channel 11 threshold comparison interrupt enable."]
 pub struct ADCMPINTEN11_W<'a> {
     w: &'a mut W,
 }
@@ -1179,7 +1333,7 @@ impl<'a> ADCMPINTEN11_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 25)) | (((value as u32) & 0x03) << 25);
+        self.w.bits = (self.w.bits & !(0x03 << 25)) | ((value as u32 & 0x03) << 25);
         self.w
     }
 }
@@ -1335,5 +1489,30 @@ impl W {
     #[inline(always)]
     pub fn adcmpinten11(&mut self) -> ADCMPINTEN11_W {
         ADCMPINTEN11_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "ADC Interrupt Enable register. This register contains enable bits that enable the sequence-A, sequence-B, threshold compare and data overrun interrupts to be generated.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [inten](index.html) module"]
+pub struct INTEN_SPEC;
+impl crate::RegisterSpec for INTEN_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [inten::R](R) reader structure"]
+impl crate::Readable for INTEN_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [inten::W](W) writer structure"]
+impl crate::Writable for INTEN_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets INTEN to value 0"]
+impl crate::Resettable for INTEN_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

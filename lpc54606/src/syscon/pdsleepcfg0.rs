@@ -1,18 +1,52 @@
-#[doc = "Reader of register PDSLEEPCFG0"]
-pub type R = crate::R<u32, super::PDSLEEPCFG0>;
-#[doc = "Writer for register PDSLEEPCFG0"]
-pub type W = crate::W<u32, super::PDSLEEPCFG0>;
-#[doc = "Register PDSLEEPCFG0 `reset()`'s with value 0x00f8_1f40"]
-impl crate::ResetValue for super::PDSLEEPCFG0 {
-    type Type = u32;
+#[doc = "Register `PDSLEEPCFG0` reader"]
+pub struct R(crate::R<PDSLEEPCFG0_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PDSLEEPCFG0_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x00f8_1f40
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `PDEN_FRO`"]
-pub type PDEN_FRO_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_FRO`"]
+impl core::convert::From<crate::R<PDSLEEPCFG0_SPEC>> for R {
+    fn from(reader: crate::R<PDSLEEPCFG0_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PDSLEEPCFG0` writer"]
+pub struct W(crate::W<PDSLEEPCFG0_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PDSLEEPCFG0_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PDSLEEPCFG0_SPEC>> for W {
+    fn from(writer: crate::W<PDSLEEPCFG0_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `PDEN_FRO` reader - FRO oscillator."]
+pub struct PDEN_FRO_R(crate::FieldReader<bool, bool>);
+impl PDEN_FRO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_FRO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_FRO_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_FRO` writer - FRO oscillator."]
 pub struct PDEN_FRO_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> PDEN_FRO_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_TS`"]
-pub type PDEN_TS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_TS`"]
+#[doc = "Field `PDEN_TS` reader - Temp sensor."]
+pub struct PDEN_TS_R(crate::FieldReader<bool, bool>);
+impl PDEN_TS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_TS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_TS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_TS` writer - Temp sensor."]
 pub struct PDEN_TS_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> PDEN_TS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_BOD_RST`"]
-pub type PDEN_BOD_RST_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_BOD_RST`"]
+#[doc = "Field `PDEN_BOD_RST` reader - Brown-out Detect reset."]
+pub struct PDEN_BOD_RST_R(crate::FieldReader<bool, bool>);
+impl PDEN_BOD_RST_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_BOD_RST_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_BOD_RST_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_BOD_RST` writer - Brown-out Detect reset."]
 pub struct PDEN_BOD_RST_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> PDEN_BOD_RST_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_BOD_INTR`"]
-pub type PDEN_BOD_INTR_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_BOD_INTR`"]
+#[doc = "Field `PDEN_BOD_INTR` reader - Brown-out Detect interrupt."]
+pub struct PDEN_BOD_INTR_R(crate::FieldReader<bool, bool>);
+impl PDEN_BOD_INTR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_BOD_INTR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_BOD_INTR_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_BOD_INTR` writer - Brown-out Detect interrupt."]
 pub struct PDEN_BOD_INTR_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> PDEN_BOD_INTR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_VD2_ANA`"]
-pub type PDEN_VD2_ANA_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_VD2_ANA`"]
+#[doc = "Field `PDEN_VD2_ANA` reader - Analog supply for System Oscillator (also enable/disable bit 3 in PDRUNCFG1 register), Temperature Sensor (also, enable/disable bit 6), ADC (also, enable/disable bits 10, 19, and 23)."]
+pub struct PDEN_VD2_ANA_R(crate::FieldReader<bool, bool>);
+impl PDEN_VD2_ANA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_VD2_ANA_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_VD2_ANA_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_VD2_ANA` writer - Analog supply for System Oscillator (also enable/disable bit 3 in PDRUNCFG1 register), Temperature Sensor (also, enable/disable bit 6), ADC (also, enable/disable bits 10, 19, and 23)."]
 pub struct PDEN_VD2_ANA_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> PDEN_VD2_ANA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_ADC0`"]
-pub type PDEN_ADC0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_ADC0`"]
+#[doc = "Field `PDEN_ADC0` reader - ADC power."]
+pub struct PDEN_ADC0_R(crate::FieldReader<bool, bool>);
+impl PDEN_ADC0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_ADC0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_ADC0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_ADC0` writer - ADC power."]
 pub struct PDEN_ADC0_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> PDEN_ADC0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_SRAMX`"]
-pub type PDEN_SRAMX_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_SRAMX`"]
+#[doc = "Field `PDEN_SRAMX` reader - PDEN_SRAMX controls SRAMX (also enable/disable bit 27)."]
+pub struct PDEN_SRAMX_R(crate::FieldReader<bool, bool>);
+impl PDEN_SRAMX_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_SRAMX_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_SRAMX_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_SRAMX` writer - PDEN_SRAMX controls SRAMX (also enable/disable bit 27)."]
 pub struct PDEN_SRAMX_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> PDEN_SRAMX_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_SRAM0`"]
-pub type PDEN_SRAM0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_SRAM0`"]
+#[doc = "Field `PDEN_SRAM0` reader - PDEN_SRAM0 controls SRAM0 (also enable/disable bit 27)."]
+pub struct PDEN_SRAM0_R(crate::FieldReader<bool, bool>);
+impl PDEN_SRAM0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_SRAM0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_SRAM0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_SRAM0` writer - PDEN_SRAM0 controls SRAM0 (also enable/disable bit 27)."]
 pub struct PDEN_SRAM0_W<'a> {
     w: &'a mut W,
 }
@@ -198,13 +316,25 @@ impl<'a> PDEN_SRAM0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_SRAM1_2_3`"]
-pub type PDEN_SRAM1_2_3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_SRAM1_2_3`"]
+#[doc = "Field `PDEN_SRAM1_2_3` reader - PDEN_SRAM1_2_3 controls SRAM1, SRAM2, and SRAM3 (also enable/disable bit 27)."]
+pub struct PDEN_SRAM1_2_3_R(crate::FieldReader<bool, bool>);
+impl PDEN_SRAM1_2_3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_SRAM1_2_3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_SRAM1_2_3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_SRAM1_2_3` writer - PDEN_SRAM1_2_3 controls SRAM1, SRAM2, and SRAM3 (also enable/disable bit 27)."]
 pub struct PDEN_SRAM1_2_3_W<'a> {
     w: &'a mut W,
 }
@@ -222,13 +352,25 @@ impl<'a> PDEN_SRAM1_2_3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_USB_RAM`"]
-pub type PDEN_USB_RAM_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_USB_RAM`"]
+#[doc = "Field `PDEN_USB_RAM` reader - PDEN_USB_SRAM controls USB_RAM (also enable/disable bit 27)."]
+pub struct PDEN_USB_RAM_R(crate::FieldReader<bool, bool>);
+impl PDEN_USB_RAM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_USB_RAM_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_USB_RAM_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_USB_RAM` writer - PDEN_USB_SRAM controls USB_RAM (also enable/disable bit 27)."]
 pub struct PDEN_USB_RAM_W<'a> {
     w: &'a mut W,
 }
@@ -246,13 +388,25 @@ impl<'a> PDEN_USB_RAM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_ROM`"]
-pub type PDEN_ROM_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_ROM`"]
+#[doc = "Field `PDEN_ROM` reader - ROM (also enable/disable bit 27)."]
+pub struct PDEN_ROM_R(crate::FieldReader<bool, bool>);
+impl PDEN_ROM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_ROM_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_ROM_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_ROM` writer - ROM (also enable/disable bit 27)."]
 pub struct PDEN_ROM_W<'a> {
     w: &'a mut W,
 }
@@ -270,13 +424,25 @@ impl<'a> PDEN_ROM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_VDDA`"]
-pub type PDEN_VDDA_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_VDDA`"]
+#[doc = "Field `PDEN_VDDA` reader - Vdda to the ADC, must be enabled for the ADC to work (also enable/disable bit 9, 10, and 23)."]
+pub struct PDEN_VDDA_R(crate::FieldReader<bool, bool>);
+impl PDEN_VDDA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_VDDA_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_VDDA_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_VDDA` writer - Vdda to the ADC, must be enabled for the ADC to work (also enable/disable bit 9, 10, and 23)."]
 pub struct PDEN_VDDA_W<'a> {
     w: &'a mut W,
 }
@@ -294,13 +460,25 @@ impl<'a> PDEN_VDDA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_WDT_OSC`"]
-pub type PDEN_WDT_OSC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_WDT_OSC`"]
+#[doc = "Field `PDEN_WDT_OSC` reader - Watchdog oscillator."]
+pub struct PDEN_WDT_OSC_R(crate::FieldReader<bool, bool>);
+impl PDEN_WDT_OSC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_WDT_OSC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_WDT_OSC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_WDT_OSC` writer - Watchdog oscillator."]
 pub struct PDEN_WDT_OSC_W<'a> {
     w: &'a mut W,
 }
@@ -318,13 +496,25 @@ impl<'a> PDEN_WDT_OSC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_USB0_PHY`"]
-pub type PDEN_USB0_PHY_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_USB0_PHY`"]
+#[doc = "Field `PDEN_USB0_PHY` reader - USB0 PHY power (also enable/disable bit 28)."]
+pub struct PDEN_USB0_PHY_R(crate::FieldReader<bool, bool>);
+impl PDEN_USB0_PHY_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_USB0_PHY_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_USB0_PHY_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_USB0_PHY` writer - USB0 PHY power (also enable/disable bit 28)."]
 pub struct PDEN_USB0_PHY_W<'a> {
     w: &'a mut W,
 }
@@ -342,13 +532,25 @@ impl<'a> PDEN_USB0_PHY_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_SYS_PLL`"]
-pub type PDEN_SYS_PLL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_SYS_PLL`"]
+#[doc = "Field `PDEN_SYS_PLL` reader - System PLL (PLL0) power (also enable/disable bit 26)."]
+pub struct PDEN_SYS_PLL_R(crate::FieldReader<bool, bool>);
+impl PDEN_SYS_PLL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_SYS_PLL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_SYS_PLL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_SYS_PLL` writer - System PLL (PLL0) power (also enable/disable bit 26)."]
 pub struct PDEN_SYS_PLL_W<'a> {
     w: &'a mut W,
 }
@@ -366,13 +568,25 @@ impl<'a> PDEN_SYS_PLL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_VREFP`"]
-pub type PDEN_VREFP_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_VREFP`"]
+#[doc = "Field `PDEN_VREFP` reader - VREFP to the ADC must be enabled for the ADC to work (also enable/disable bit 9, 10, and 19)."]
+pub struct PDEN_VREFP_R(crate::FieldReader<bool, bool>);
+impl PDEN_VREFP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_VREFP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_VREFP_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_VREFP` writer - VREFP to the ADC must be enabled for the ADC to work (also enable/disable bit 9, 10, and 19)."]
 pub struct PDEN_VREFP_W<'a> {
     w: &'a mut W,
 }
@@ -390,13 +604,25 @@ impl<'a> PDEN_VREFP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_VD3`"]
-pub type PDEN_VD3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_VD3`"]
+#[doc = "Field `PDEN_VD3` reader - Power control for all PLLs."]
+pub struct PDEN_VD3_R(crate::FieldReader<bool, bool>);
+impl PDEN_VD3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_VD3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_VD3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_VD3` writer - Power control for all PLLs."]
 pub struct PDEN_VD3_W<'a> {
     w: &'a mut W,
 }
@@ -414,13 +640,25 @@ impl<'a> PDEN_VD3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | ((value as u32 & 0x01) << 26);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_VD4`"]
-pub type PDEN_VD4_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_VD4`"]
+#[doc = "Field `PDEN_VD4` reader - Power control for all SRAMs and ROM."]
+pub struct PDEN_VD4_R(crate::FieldReader<bool, bool>);
+impl PDEN_VD4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_VD4_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_VD4_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_VD4` writer - Power control for all SRAMs and ROM."]
 pub struct PDEN_VD4_W<'a> {
     w: &'a mut W,
 }
@@ -438,13 +676,25 @@ impl<'a> PDEN_VD4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_VD5`"]
-pub type PDEN_VD5_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_VD5`"]
+#[doc = "Field `PDEN_VD5` reader - Power control both USB0 PHY and USB1 PHY."]
+pub struct PDEN_VD5_R(crate::FieldReader<bool, bool>);
+impl PDEN_VD5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_VD5_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_VD5_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_VD5` writer - Power control both USB0 PHY and USB1 PHY."]
 pub struct PDEN_VD5_W<'a> {
     w: &'a mut W,
 }
@@ -462,13 +712,25 @@ impl<'a> PDEN_VD5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
-#[doc = "Reader of field `PDEN_VD6`"]
-pub type PDEN_VD6_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `PDEN_VD6`"]
+#[doc = "Field `PDEN_VD6` reader - Power control for EEPROM."]
+pub struct PDEN_VD6_R(crate::FieldReader<bool, bool>);
+impl PDEN_VD6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDEN_VD6_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDEN_VD6_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDEN_VD6` writer - Power control for EEPROM."]
 pub struct PDEN_VD6_W<'a> {
     w: &'a mut W,
 }
@@ -486,7 +748,7 @@ impl<'a> PDEN_VD6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | ((value as u32 & 0x01) << 29);
         self.w
     }
 }
@@ -692,5 +954,30 @@ impl W {
     #[inline(always)]
     pub fn pden_vd6(&mut self) -> PDEN_VD6_W {
         PDEN_VD6_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Sleep configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pdsleepcfg0](index.html) module"]
+pub struct PDSLEEPCFG0_SPEC;
+impl crate::RegisterSpec for PDSLEEPCFG0_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pdsleepcfg0::R](R) reader structure"]
+impl crate::Readable for PDSLEEPCFG0_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pdsleepcfg0::W](W) writer structure"]
+impl crate::Writable for PDSLEEPCFG0_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PDSLEEPCFG0 to value 0x00f8_1f40"]
+impl crate::Resettable for PDSLEEPCFG0_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x00f8_1f40
     }
 }

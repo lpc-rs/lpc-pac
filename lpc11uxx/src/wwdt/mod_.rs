@@ -1,13 +1,35 @@
-#[doc = "Reader of register MOD"]
-pub type R = crate::R<u32, super::MOD>;
-#[doc = "Writer for register MOD"]
-pub type W = crate::W<u32, super::MOD>;
-#[doc = "Register MOD `reset()`'s with value 0"]
-impl crate::ResetValue for super::MOD {
-    type Type = u32;
+#[doc = "Register `MOD` reader"]
+pub struct R(crate::R<MOD_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MOD_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<MOD_SPEC>> for R {
+    fn from(reader: crate::R<MOD_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MOD` writer"]
+pub struct W(crate::W<MOD_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MOD_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MOD_SPEC>> for W {
+    fn from(writer: crate::W<MOD_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Watchdog enable bit. Once this bit has been written with a 1 it cannot be rewritten with a 0.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<WDEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WDEN`"]
-pub type WDEN_R = crate::R<bool, WDEN_A>;
+#[doc = "Field `WDEN` reader - Watchdog enable bit. Once this bit has been written with a 1 it cannot be rewritten with a 0."]
+pub struct WDEN_R(crate::FieldReader<bool, WDEN_A>);
 impl WDEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WDEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WDEN_A {
@@ -38,15 +63,22 @@ impl WDEN_R {
     #[doc = "Checks if the value of the field is `STOPPED`"]
     #[inline(always)]
     pub fn is_stopped(&self) -> bool {
-        *self == WDEN_A::STOPPED
+        **self == WDEN_A::STOPPED
     }
     #[doc = "Checks if the value of the field is `RUNNING`"]
     #[inline(always)]
     pub fn is_running(&self) -> bool {
-        *self == WDEN_A::RUNNING
+        **self == WDEN_A::RUNNING
     }
 }
-#[doc = "Write proxy for field `WDEN`"]
+impl core::ops::Deref for WDEN_R {
+    type Target = crate::FieldReader<bool, WDEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WDEN` writer - Watchdog enable bit. Once this bit has been written with a 1 it cannot be rewritten with a 0."]
 pub struct WDEN_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> WDEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WDEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The watchdog timer is stopped."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> WDEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<WDRESET_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WDRESET`"]
-pub type WDRESET_R = crate::R<bool, WDRESET_A>;
+#[doc = "Field `WDRESET` reader - Watchdog reset enable bit. Once this bit has been written with a 1 it cannot be rewritten with a 0."]
+pub struct WDRESET_R(crate::FieldReader<bool, WDRESET_A>);
 impl WDRESET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WDRESET_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WDRESET_A {
@@ -113,15 +146,22 @@ impl WDRESET_R {
     #[doc = "Checks if the value of the field is `INTERRUPT`"]
     #[inline(always)]
     pub fn is_interrupt(&self) -> bool {
-        *self == WDRESET_A::INTERRUPT
+        **self == WDRESET_A::INTERRUPT
     }
     #[doc = "Checks if the value of the field is `RESET`"]
     #[inline(always)]
     pub fn is_reset(&self) -> bool {
-        *self == WDRESET_A::RESET
+        **self == WDRESET_A::RESET
     }
 }
-#[doc = "Write proxy for field `WDRESET`"]
+impl core::ops::Deref for WDRESET_R {
+    type Target = crate::FieldReader<bool, WDRESET_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WDRESET` writer - Watchdog reset enable bit. Once this bit has been written with a 1 it cannot be rewritten with a 0."]
 pub struct WDRESET_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> WDRESET_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WDRESET_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "A watchdog timeout will not cause a chip reset."]
     #[inline(always)]
@@ -156,13 +194,25 @@ impl<'a> WDRESET_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `WDTOF`"]
-pub type WDTOF_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `WDTOF`"]
+#[doc = "Field `WDTOF` reader - Watchdog time-out flag. Set when the watchdog timer times out, by a feed error, or by events associated with WDPROTECT. Cleared by software. Causes a chip reset if WDRESET = 1."]
+pub struct WDTOF_R(crate::FieldReader<bool, bool>);
+impl WDTOF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WDTOF_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for WDTOF_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WDTOF` writer - Watchdog time-out flag. Set when the watchdog timer times out, by a feed error, or by events associated with WDPROTECT. Cleared by software. Causes a chip reset if WDRESET = 1."]
 pub struct WDTOF_W<'a> {
     w: &'a mut W,
 }
@@ -180,13 +230,25 @@ impl<'a> WDTOF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `WDINT`"]
-pub type WDINT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `WDINT`"]
+#[doc = "Field `WDINT` reader - Warning interrupt flag. Set when the timer reaches the value in WDWARNINT. Cleared by software."]
+pub struct WDINT_R(crate::FieldReader<bool, bool>);
+impl WDINT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WDINT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for WDINT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WDINT` writer - Warning interrupt flag. Set when the timer reaches the value in WDWARNINT. Cleared by software."]
 pub struct WDINT_W<'a> {
     w: &'a mut W,
 }
@@ -204,7 +266,7 @@ impl<'a> WDINT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -222,9 +284,12 @@ impl From<WDPROTECT_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WDPROTECT`"]
-pub type WDPROTECT_R = crate::R<bool, WDPROTECT_A>;
+#[doc = "Field `WDPROTECT` reader - Watchdog update mode. This bit can be set once by software and is only cleared by a reset."]
+pub struct WDPROTECT_R(crate::FieldReader<bool, WDPROTECT_A>);
 impl WDPROTECT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WDPROTECT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WDPROTECT_A {
@@ -236,15 +301,22 @@ impl WDPROTECT_R {
     #[doc = "Checks if the value of the field is `NOT_LOCKED`"]
     #[inline(always)]
     pub fn is_not_locked(&self) -> bool {
-        *self == WDPROTECT_A::NOT_LOCKED
+        **self == WDPROTECT_A::NOT_LOCKED
     }
     #[doc = "Checks if the value of the field is `LOCKED`"]
     #[inline(always)]
     pub fn is_locked(&self) -> bool {
-        *self == WDPROTECT_A::LOCKED
+        **self == WDPROTECT_A::LOCKED
     }
 }
-#[doc = "Write proxy for field `WDPROTECT`"]
+impl core::ops::Deref for WDPROTECT_R {
+    type Target = crate::FieldReader<bool, WDPROTECT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WDPROTECT` writer - Watchdog update mode. This bit can be set once by software and is only cleared by a reset."]
 pub struct WDPROTECT_W<'a> {
     w: &'a mut W,
 }
@@ -252,9 +324,7 @@ impl<'a> WDPROTECT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WDPROTECT_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The watchdog time-out value (TC) can be changed at any time."]
     #[inline(always)]
@@ -279,13 +349,25 @@ impl<'a> WDPROTECT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `LOCK`"]
-pub type LOCK_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LOCK`"]
+#[doc = "Field `LOCK` reader - A 1 in this bit prevents disabling or powering down the clock source selected by bit 0 of the WDCLKSRC register and also prevents switching to a clock source that is disabled or powered down. This bit can be set once by software and is only cleared by any reset. If this bit is one and the WWDT clock source is the IRC when Deep-sleep or Power-down modes are entered, the IRC remains running thereby increasing power consumption in Deep-sleep mode and potentially preventing the part of entering Power-down mode correctly (see Section 15.7)."]
+pub struct LOCK_R(crate::FieldReader<bool, bool>);
+impl LOCK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LOCK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LOCK_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LOCK` writer - A 1 in this bit prevents disabling or powering down the clock source selected by bit 0 of the WDCLKSRC register and also prevents switching to a clock source that is disabled or powered down. This bit can be set once by software and is only cleared by any reset. If this bit is one and the WWDT clock source is the IRC when Deep-sleep or Power-down modes are entered, the IRC remains running thereby increasing power consumption in Deep-sleep mode and potentially preventing the part of entering Power-down mode correctly (see Section 15.7)."]
 pub struct LOCK_W<'a> {
     w: &'a mut W,
 }
@@ -303,7 +385,7 @@ impl<'a> LOCK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -369,5 +451,30 @@ impl W {
     #[inline(always)]
     pub fn lock(&mut self) -> LOCK_W {
         LOCK_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Watchdog mode register. This register contains the basic mode and status of the Watchdog Timer.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mod_](index.html) module"]
+pub struct MOD_SPEC;
+impl crate::RegisterSpec for MOD_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mod_::R](R) reader structure"]
+impl crate::Readable for MOD_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mod_::W](W) writer structure"]
+impl crate::Writable for MOD_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MOD to value 0"]
+impl crate::Resettable for MOD_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,13 +1,35 @@
-#[doc = "Reader of register PIO324"]
-pub type R = crate::R<u32, super::PIO324>;
-#[doc = "Writer for register PIO324"]
-pub type W = crate::W<u32, super::PIO324>;
-#[doc = "Register PIO324 `reset()`'s with value 0x0340"]
-impl crate::ResetValue for super::PIO324 {
-    type Type = u32;
+#[doc = "Register `PIO324` reader"]
+pub struct R(crate::R<PIO324_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PIO324_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0340
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<PIO324_SPEC>> for R {
+    fn from(reader: crate::R<PIO324_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PIO324` writer"]
+pub struct W(crate::W<PIO324_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PIO324_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PIO324_SPEC>> for W {
+    fn from(writer: crate::W<PIO324_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Selects pin function.\n\nValue on reset: 0"]
@@ -37,67 +59,76 @@ impl From<FUNC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `FUNC`"]
-pub type FUNC_R = crate::R<u8, FUNC_A>;
+#[doc = "Field `FUNC` reader - Selects pin function."]
+pub struct FUNC_R(crate::FieldReader<u8, FUNC_A>);
 impl FUNC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FUNC_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, FUNC_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<FUNC_A> {
         match self.bits {
-            0 => Val(FUNC_A::ALT0),
-            1 => Val(FUNC_A::ALT1),
-            2 => Val(FUNC_A::ALT2),
-            3 => Val(FUNC_A::ALT3),
-            4 => Val(FUNC_A::ALT4),
-            5 => Val(FUNC_A::ALT5),
-            6 => Val(FUNC_A::ALT6),
-            7 => Val(FUNC_A::ALT7),
-            i => Res(i),
+            0 => Some(FUNC_A::ALT0),
+            1 => Some(FUNC_A::ALT1),
+            2 => Some(FUNC_A::ALT2),
+            3 => Some(FUNC_A::ALT3),
+            4 => Some(FUNC_A::ALT4),
+            5 => Some(FUNC_A::ALT5),
+            6 => Some(FUNC_A::ALT6),
+            7 => Some(FUNC_A::ALT7),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `ALT0`"]
     #[inline(always)]
     pub fn is_alt0(&self) -> bool {
-        *self == FUNC_A::ALT0
+        **self == FUNC_A::ALT0
     }
     #[doc = "Checks if the value of the field is `ALT1`"]
     #[inline(always)]
     pub fn is_alt1(&self) -> bool {
-        *self == FUNC_A::ALT1
+        **self == FUNC_A::ALT1
     }
     #[doc = "Checks if the value of the field is `ALT2`"]
     #[inline(always)]
     pub fn is_alt2(&self) -> bool {
-        *self == FUNC_A::ALT2
+        **self == FUNC_A::ALT2
     }
     #[doc = "Checks if the value of the field is `ALT3`"]
     #[inline(always)]
     pub fn is_alt3(&self) -> bool {
-        *self == FUNC_A::ALT3
+        **self == FUNC_A::ALT3
     }
     #[doc = "Checks if the value of the field is `ALT4`"]
     #[inline(always)]
     pub fn is_alt4(&self) -> bool {
-        *self == FUNC_A::ALT4
+        **self == FUNC_A::ALT4
     }
     #[doc = "Checks if the value of the field is `ALT5`"]
     #[inline(always)]
     pub fn is_alt5(&self) -> bool {
-        *self == FUNC_A::ALT5
+        **self == FUNC_A::ALT5
     }
     #[doc = "Checks if the value of the field is `ALT6`"]
     #[inline(always)]
     pub fn is_alt6(&self) -> bool {
-        *self == FUNC_A::ALT6
+        **self == FUNC_A::ALT6
     }
     #[doc = "Checks if the value of the field is `ALT7`"]
     #[inline(always)]
     pub fn is_alt7(&self) -> bool {
-        *self == FUNC_A::ALT7
+        **self == FUNC_A::ALT7
     }
 }
-#[doc = "Write proxy for field `FUNC`"]
+impl core::ops::Deref for FUNC_R {
+    type Target = crate::FieldReader<u8, FUNC_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FUNC` writer - Selects pin function."]
 pub struct FUNC_W<'a> {
     w: &'a mut W,
 }
@@ -150,7 +181,7 @@ impl<'a> FUNC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
+        self.w.bits = (self.w.bits & !0x0f) | (value as u32 & 0x0f);
         self.w
     }
 }
@@ -168,9 +199,12 @@ impl From<I2CSLEW_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `I2CSLEW`"]
-pub type I2CSLEW_R = crate::R<bool, I2CSLEW_A>;
+#[doc = "Field `I2CSLEW` reader - Controls slew rate of I2C pad."]
+pub struct I2CSLEW_R(crate::FieldReader<bool, I2CSLEW_A>);
 impl I2CSLEW_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        I2CSLEW_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> I2CSLEW_A {
@@ -182,15 +216,22 @@ impl I2CSLEW_R {
     #[doc = "Checks if the value of the field is `I2C_MODE`"]
     #[inline(always)]
     pub fn is_i2c_mode(&self) -> bool {
-        *self == I2CSLEW_A::I2C_MODE
+        **self == I2CSLEW_A::I2C_MODE
     }
     #[doc = "Checks if the value of the field is `GPIO_MODE`"]
     #[inline(always)]
     pub fn is_gpio_mode(&self) -> bool {
-        *self == I2CSLEW_A::GPIO_MODE
+        **self == I2CSLEW_A::GPIO_MODE
     }
 }
-#[doc = "Write proxy for field `I2CSLEW`"]
+impl core::ops::Deref for I2CSLEW_R {
+    type Target = crate::FieldReader<bool, I2CSLEW_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `I2CSLEW` writer - Controls slew rate of I2C pad."]
 pub struct I2CSLEW_W<'a> {
     w: &'a mut W,
 }
@@ -198,9 +239,7 @@ impl<'a> I2CSLEW_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: I2CSLEW_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "I2C mode."]
     #[inline(always)]
@@ -225,7 +264,7 @@ impl<'a> I2CSLEW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
@@ -243,9 +282,12 @@ impl From<INVERT_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `INVERT`"]
-pub type INVERT_R = crate::R<bool, INVERT_A>;
+#[doc = "Field `INVERT` reader - Input polarity."]
+pub struct INVERT_R(crate::FieldReader<bool, INVERT_A>);
 impl INVERT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INVERT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> INVERT_A {
@@ -257,15 +299,22 @@ impl INVERT_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == INVERT_A::DISABLED
+        **self == INVERT_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == INVERT_A::ENABLED
+        **self == INVERT_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `INVERT`"]
+impl core::ops::Deref for INVERT_R {
+    type Target = crate::FieldReader<bool, INVERT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INVERT` writer - Input polarity."]
 pub struct INVERT_W<'a> {
     w: &'a mut W,
 }
@@ -273,9 +322,7 @@ impl<'a> INVERT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: INVERT_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Input function is not inverted."]
     #[inline(always)]
@@ -300,7 +347,7 @@ impl<'a> INVERT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
@@ -318,9 +365,12 @@ impl From<DIGIMODE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DIGIMODE`"]
-pub type DIGIMODE_R = crate::R<bool, DIGIMODE_A>;
+#[doc = "Field `DIGIMODE` reader - Select Analog/Digital mode."]
+pub struct DIGIMODE_R(crate::FieldReader<bool, DIGIMODE_A>);
 impl DIGIMODE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIGIMODE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DIGIMODE_A {
@@ -332,15 +382,22 @@ impl DIGIMODE_R {
     #[doc = "Checks if the value of the field is `ANALOG`"]
     #[inline(always)]
     pub fn is_analog(&self) -> bool {
-        *self == DIGIMODE_A::ANALOG
+        **self == DIGIMODE_A::ANALOG
     }
     #[doc = "Checks if the value of the field is `DIGITAL`"]
     #[inline(always)]
     pub fn is_digital(&self) -> bool {
-        *self == DIGIMODE_A::DIGITAL
+        **self == DIGIMODE_A::DIGITAL
     }
 }
-#[doc = "Write proxy for field `DIGIMODE`"]
+impl core::ops::Deref for DIGIMODE_R {
+    type Target = crate::FieldReader<bool, DIGIMODE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIGIMODE` writer - Select Analog/Digital mode."]
 pub struct DIGIMODE_W<'a> {
     w: &'a mut W,
 }
@@ -348,9 +405,7 @@ impl<'a> DIGIMODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DIGIMODE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Analog mode."]
     #[inline(always)]
@@ -375,7 +430,7 @@ impl<'a> DIGIMODE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -393,9 +448,12 @@ impl From<FILTEROFF_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FILTEROFF`"]
-pub type FILTEROFF_R = crate::R<bool, FILTEROFF_A>;
+#[doc = "Field `FILTEROFF` reader - Controls input glitch filter."]
+pub struct FILTEROFF_R(crate::FieldReader<bool, FILTEROFF_A>);
 impl FILTEROFF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FILTEROFF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FILTEROFF_A {
@@ -407,15 +465,22 @@ impl FILTEROFF_R {
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == FILTEROFF_A::ENABLED
+        **self == FILTEROFF_A::ENABLED
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == FILTEROFF_A::DISABLED
+        **self == FILTEROFF_A::DISABLED
     }
 }
-#[doc = "Write proxy for field `FILTEROFF`"]
+impl core::ops::Deref for FILTEROFF_R {
+    type Target = crate::FieldReader<bool, FILTEROFF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FILTEROFF` writer - Controls input glitch filter."]
 pub struct FILTEROFF_W<'a> {
     w: &'a mut W,
 }
@@ -423,9 +488,7 @@ impl<'a> FILTEROFF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FILTEROFF_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Filter enabled. Noise pulses below approximately 10 ns are filtered out."]
     #[inline(always)]
@@ -450,7 +513,7 @@ impl<'a> FILTEROFF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
@@ -468,9 +531,12 @@ impl From<I2CDRIVE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `I2CDRIVE`"]
-pub type I2CDRIVE_R = crate::R<bool, I2CDRIVE_A>;
+#[doc = "Field `I2CDRIVE` reader - Controls the current sink capability of the pin."]
+pub struct I2CDRIVE_R(crate::FieldReader<bool, I2CDRIVE_A>);
 impl I2CDRIVE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        I2CDRIVE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> I2CDRIVE_A {
@@ -482,15 +548,22 @@ impl I2CDRIVE_R {
     #[doc = "Checks if the value of the field is `LOW`"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == I2CDRIVE_A::LOW
+        **self == I2CDRIVE_A::LOW
     }
     #[doc = "Checks if the value of the field is `HIGH`"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == I2CDRIVE_A::HIGH
+        **self == I2CDRIVE_A::HIGH
     }
 }
-#[doc = "Write proxy for field `I2CDRIVE`"]
+impl core::ops::Deref for I2CDRIVE_R {
+    type Target = crate::FieldReader<bool, I2CDRIVE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `I2CDRIVE` writer - Controls the current sink capability of the pin."]
 pub struct I2CDRIVE_W<'a> {
     w: &'a mut W,
 }
@@ -498,9 +571,7 @@ impl<'a> I2CDRIVE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: I2CDRIVE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Low drive. Output drive sink is 4 mA. This is sufficient for standard and fast mode I2C."]
     #[inline(always)]
@@ -525,7 +596,7 @@ impl<'a> I2CDRIVE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
@@ -543,9 +614,12 @@ impl From<I2CFILTER_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `I2CFILTER`"]
-pub type I2CFILTER_R = crate::R<bool, I2CFILTER_A>;
+#[doc = "Field `I2CFILTER` reader - Configures I2C features for standard mode, fast mode, and Fast Mode Plus operation."]
+pub struct I2CFILTER_R(crate::FieldReader<bool, I2CFILTER_A>);
 impl I2CFILTER_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        I2CFILTER_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> I2CFILTER_A {
@@ -557,15 +631,22 @@ impl I2CFILTER_R {
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == I2CFILTER_A::ENABLED
+        **self == I2CFILTER_A::ENABLED
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == I2CFILTER_A::DISABLED
+        **self == I2CFILTER_A::DISABLED
     }
 }
-#[doc = "Write proxy for field `I2CFILTER`"]
+impl core::ops::Deref for I2CFILTER_R {
+    type Target = crate::FieldReader<bool, I2CFILTER_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `I2CFILTER` writer - Configures I2C features for standard mode, fast mode, and Fast Mode Plus operation."]
 pub struct I2CFILTER_W<'a> {
     w: &'a mut W,
 }
@@ -573,9 +654,7 @@ impl<'a> I2CFILTER_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: I2CFILTER_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Enabled. I2C 50 ns glitch filter enabled."]
     #[inline(always)]
@@ -600,7 +679,7 @@ impl<'a> I2CFILTER_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
@@ -676,5 +755,30 @@ impl W {
     #[inline(always)]
     pub fn i2cfilter(&mut self) -> I2CFILTER_W {
         I2CFILTER_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Digital I/O control for port 3 pins PIO3_24\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pio324](index.html) module"]
+pub struct PIO324_SPEC;
+impl crate::RegisterSpec for PIO324_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pio324::R](R) reader structure"]
+impl crate::Readable for PIO324_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pio324::W](W) writer structure"]
+impl crate::Writable for PIO324_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PIO324 to value 0x0340"]
+impl crate::Resettable for PIO324_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0340
     }
 }

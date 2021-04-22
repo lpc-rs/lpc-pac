@@ -1,18 +1,52 @@
-#[doc = "Reader of register PORT_ENA%s"]
-pub type R = crate::R<u32, super::PORT_ENA>;
-#[doc = "Writer for register PORT_ENA%s"]
-pub type W = crate::W<u32, super::PORT_ENA>;
-#[doc = "Register PORT_ENA%s `reset()`'s with value 0"]
-impl crate::ResetValue for super::PORT_ENA {
-    type Type = u32;
+#[doc = "Register `PORT_ENA%s` reader"]
+pub struct R(crate::R<PORT_ENA_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PORT_ENA_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `ENA_0`"]
-pub type ENA_0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_0`"]
+impl core::convert::From<crate::R<PORT_ENA_SPEC>> for R {
+    fn from(reader: crate::R<PORT_ENA_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PORT_ENA%s` writer"]
+pub struct W(crate::W<PORT_ENA_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PORT_ENA_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PORT_ENA_SPEC>> for W {
+    fn from(writer: crate::W<PORT_ENA_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `ENA_0` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_0_R(crate::FieldReader<bool, bool>);
+impl ENA_0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_0` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_0_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> ENA_0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_1`"]
-pub type ENA_1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_1`"]
+#[doc = "Field `ENA_1` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_1_R(crate::FieldReader<bool, bool>);
+impl ENA_1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_1` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_1_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> ENA_1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_2`"]
-pub type ENA_2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_2`"]
+#[doc = "Field `ENA_2` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_2_R(crate::FieldReader<bool, bool>);
+impl ENA_2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_2_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_2_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_2` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_2_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> ENA_2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_3`"]
-pub type ENA_3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_3`"]
+#[doc = "Field `ENA_3` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_3_R(crate::FieldReader<bool, bool>);
+impl ENA_3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_3` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_3_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> ENA_3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_4`"]
-pub type ENA_4_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_4`"]
+#[doc = "Field `ENA_4` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_4_R(crate::FieldReader<bool, bool>);
+impl ENA_4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_4_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_4_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_4` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_4_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> ENA_4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_5`"]
-pub type ENA_5_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_5`"]
+#[doc = "Field `ENA_5` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_5_R(crate::FieldReader<bool, bool>);
+impl ENA_5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_5_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_5_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_5` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_5_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> ENA_5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_6`"]
-pub type ENA_6_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_6`"]
+#[doc = "Field `ENA_6` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_6_R(crate::FieldReader<bool, bool>);
+impl ENA_6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_6_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_6_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_6` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_6_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> ENA_6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_7`"]
-pub type ENA_7_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_7`"]
+#[doc = "Field `ENA_7` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_7_R(crate::FieldReader<bool, bool>);
+impl ENA_7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_7_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_7_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_7` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_7_W<'a> {
     w: &'a mut W,
 }
@@ -198,13 +316,25 @@ impl<'a> ENA_7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_8`"]
-pub type ENA_8_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_8`"]
+#[doc = "Field `ENA_8` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_8_R(crate::FieldReader<bool, bool>);
+impl ENA_8_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_8_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_8_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_8` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_8_W<'a> {
     w: &'a mut W,
 }
@@ -222,13 +352,25 @@ impl<'a> ENA_8_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_9`"]
-pub type ENA_9_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_9`"]
+#[doc = "Field `ENA_9` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_9_R(crate::FieldReader<bool, bool>);
+impl ENA_9_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_9_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_9_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_9` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_9_W<'a> {
     w: &'a mut W,
 }
@@ -246,13 +388,25 @@ impl<'a> ENA_9_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_10`"]
-pub type ENA_10_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_10`"]
+#[doc = "Field `ENA_10` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_10_R(crate::FieldReader<bool, bool>);
+impl ENA_10_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_10_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_10_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_10` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_10_W<'a> {
     w: &'a mut W,
 }
@@ -270,13 +424,25 @@ impl<'a> ENA_10_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_11`"]
-pub type ENA_11_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_11`"]
+#[doc = "Field `ENA_11` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_11_R(crate::FieldReader<bool, bool>);
+impl ENA_11_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_11_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_11_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_11` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_11_W<'a> {
     w: &'a mut W,
 }
@@ -294,13 +460,25 @@ impl<'a> ENA_11_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_12`"]
-pub type ENA_12_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_12`"]
+#[doc = "Field `ENA_12` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_12_R(crate::FieldReader<bool, bool>);
+impl ENA_12_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_12_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_12_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_12` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_12_W<'a> {
     w: &'a mut W,
 }
@@ -318,13 +496,25 @@ impl<'a> ENA_12_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_13`"]
-pub type ENA_13_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_13`"]
+#[doc = "Field `ENA_13` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_13_R(crate::FieldReader<bool, bool>);
+impl ENA_13_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_13_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_13_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_13` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_13_W<'a> {
     w: &'a mut W,
 }
@@ -342,13 +532,25 @@ impl<'a> ENA_13_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_14`"]
-pub type ENA_14_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_14`"]
+#[doc = "Field `ENA_14` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_14_R(crate::FieldReader<bool, bool>);
+impl ENA_14_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_14_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_14_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_14` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_14_W<'a> {
     w: &'a mut W,
 }
@@ -366,13 +568,25 @@ impl<'a> ENA_14_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_15`"]
-pub type ENA_15_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_15`"]
+#[doc = "Field `ENA_15` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_15_R(crate::FieldReader<bool, bool>);
+impl ENA_15_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_15_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_15_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_15` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_15_W<'a> {
     w: &'a mut W,
 }
@@ -390,13 +604,25 @@ impl<'a> ENA_15_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_16`"]
-pub type ENA_16_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_16`"]
+#[doc = "Field `ENA_16` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_16_R(crate::FieldReader<bool, bool>);
+impl ENA_16_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_16_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_16_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_16` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_16_W<'a> {
     w: &'a mut W,
 }
@@ -414,13 +640,25 @@ impl<'a> ENA_16_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_17`"]
-pub type ENA_17_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_17`"]
+#[doc = "Field `ENA_17` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_17_R(crate::FieldReader<bool, bool>);
+impl ENA_17_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_17_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_17_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_17` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_17_W<'a> {
     w: &'a mut W,
 }
@@ -438,13 +676,25 @@ impl<'a> ENA_17_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_18`"]
-pub type ENA_18_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_18`"]
+#[doc = "Field `ENA_18` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_18_R(crate::FieldReader<bool, bool>);
+impl ENA_18_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_18_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_18_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_18` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_18_W<'a> {
     w: &'a mut W,
 }
@@ -462,13 +712,25 @@ impl<'a> ENA_18_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_19`"]
-pub type ENA_19_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_19`"]
+#[doc = "Field `ENA_19` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_19_R(crate::FieldReader<bool, bool>);
+impl ENA_19_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_19_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_19_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_19` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_19_W<'a> {
     w: &'a mut W,
 }
@@ -486,13 +748,25 @@ impl<'a> ENA_19_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_20`"]
-pub type ENA_20_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_20`"]
+#[doc = "Field `ENA_20` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_20_R(crate::FieldReader<bool, bool>);
+impl ENA_20_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_20_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_20_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_20` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_20_W<'a> {
     w: &'a mut W,
 }
@@ -510,13 +784,25 @@ impl<'a> ENA_20_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_21`"]
-pub type ENA_21_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_21`"]
+#[doc = "Field `ENA_21` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_21_R(crate::FieldReader<bool, bool>);
+impl ENA_21_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_21_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_21_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_21` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_21_W<'a> {
     w: &'a mut W,
 }
@@ -534,13 +820,25 @@ impl<'a> ENA_21_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_22`"]
-pub type ENA_22_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_22`"]
+#[doc = "Field `ENA_22` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_22_R(crate::FieldReader<bool, bool>);
+impl ENA_22_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_22_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_22_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_22` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_22_W<'a> {
     w: &'a mut W,
 }
@@ -558,13 +856,25 @@ impl<'a> ENA_22_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_23`"]
-pub type ENA_23_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_23`"]
+#[doc = "Field `ENA_23` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_23_R(crate::FieldReader<bool, bool>);
+impl ENA_23_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_23_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_23_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_23` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_23_W<'a> {
     w: &'a mut W,
 }
@@ -582,13 +892,25 @@ impl<'a> ENA_23_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_24`"]
-pub type ENA_24_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_24`"]
+#[doc = "Field `ENA_24` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_24_R(crate::FieldReader<bool, bool>);
+impl ENA_24_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_24_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_24_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_24` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_24_W<'a> {
     w: &'a mut W,
 }
@@ -606,13 +928,25 @@ impl<'a> ENA_24_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | ((value as u32 & 0x01) << 24);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_25`"]
-pub type ENA_25_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_25`"]
+#[doc = "Field `ENA_25` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_25_R(crate::FieldReader<bool, bool>);
+impl ENA_25_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_25_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_25_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_25` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_25_W<'a> {
     w: &'a mut W,
 }
@@ -630,13 +964,25 @@ impl<'a> ENA_25_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_26`"]
-pub type ENA_26_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_26`"]
+#[doc = "Field `ENA_26` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_26_R(crate::FieldReader<bool, bool>);
+impl ENA_26_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_26_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_26_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_26` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_26_W<'a> {
     w: &'a mut W,
 }
@@ -654,13 +1000,25 @@ impl<'a> ENA_26_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | ((value as u32 & 0x01) << 26);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_27`"]
-pub type ENA_27_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_27`"]
+#[doc = "Field `ENA_27` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_27_R(crate::FieldReader<bool, bool>);
+impl ENA_27_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_27_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_27_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_27` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_27_W<'a> {
     w: &'a mut W,
 }
@@ -678,13 +1036,25 @@ impl<'a> ENA_27_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_28`"]
-pub type ENA_28_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_28`"]
+#[doc = "Field `ENA_28` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_28_R(crate::FieldReader<bool, bool>);
+impl ENA_28_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_28_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_28_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_28` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_28_W<'a> {
     w: &'a mut W,
 }
@@ -702,13 +1072,25 @@ impl<'a> ENA_28_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_29`"]
-pub type ENA_29_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_29`"]
+#[doc = "Field `ENA_29` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_29_R(crate::FieldReader<bool, bool>);
+impl ENA_29_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_29_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_29_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_29` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_29_W<'a> {
     w: &'a mut W,
 }
@@ -726,13 +1108,25 @@ impl<'a> ENA_29_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | ((value as u32 & 0x01) << 29);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_30`"]
-pub type ENA_30_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_30`"]
+#[doc = "Field `ENA_30` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_30_R(crate::FieldReader<bool, bool>);
+impl ENA_30_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_30_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_30_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_30` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_30_W<'a> {
     w: &'a mut W,
 }
@@ -750,13 +1144,25 @@ impl<'a> ENA_30_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | ((value as u32 & 0x01) << 30);
         self.w
     }
 }
-#[doc = "Reader of field `ENA_31`"]
-pub type ENA_31_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ENA_31`"]
+#[doc = "Field `ENA_31` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
+pub struct ENA_31_R(crate::FieldReader<bool, bool>);
+impl ENA_31_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_31_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ENA_31_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_31` writer - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_31_W<'a> {
     w: &'a mut W,
 }
@@ -774,7 +1180,7 @@ impl<'a> ENA_31_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -1100,5 +1506,30 @@ impl W {
     #[inline(always)]
     pub fn ena_31(&mut self) -> ENA_31_W {
         ENA_31_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "GPIO grouped interrupt port 0/1 enable register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [port_ena](index.html) module"]
+pub struct PORT_ENA_SPEC;
+impl crate::RegisterSpec for PORT_ENA_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [port_ena::R](R) reader structure"]
+impl crate::Readable for PORT_ENA_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [port_ena::W](W) writer structure"]
+impl crate::Writable for PORT_ENA_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PORT_ENA%s to value 0"]
+impl crate::Resettable for PORT_ENA_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,13 +1,35 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub struct R(crate::R<CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CTRL_SPEC>> for R {
+    fn from(reader: crate::R<CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTRL` writer"]
+pub struct W(crate::W<CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTRL_SPEC>> for W {
+    fn from(writer: crate::W<CTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Select the self wake-up timer clock source. Remark: This bit only has an effect if the SEL_EXTCLK bit is not set.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<CLKSEL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CLKSEL`"]
-pub type CLKSEL_R = crate::R<bool, CLKSEL_A>;
+#[doc = "Field `CLKSEL` reader - Select the self wake-up timer clock source. Remark: This bit only has an effect if the SEL_EXTCLK bit is not set."]
+pub struct CLKSEL_R(crate::FieldReader<bool, CLKSEL_A>);
 impl CLKSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CLKSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CLKSEL_A {
@@ -38,15 +63,22 @@ impl CLKSEL_R {
     #[doc = "Checks if the value of the field is `DIVIDED_IRC_CLOCK`"]
     #[inline(always)]
     pub fn is_divided_irc_clock(&self) -> bool {
-        *self == CLKSEL_A::DIVIDED_IRC_CLOCK
+        **self == CLKSEL_A::DIVIDED_IRC_CLOCK
     }
     #[doc = "Checks if the value of the field is `LOW_POWER_CLOCK`"]
     #[inline(always)]
     pub fn is_low_power_clock(&self) -> bool {
-        *self == CLKSEL_A::LOW_POWER_CLOCK
+        **self == CLKSEL_A::LOW_POWER_CLOCK
     }
 }
-#[doc = "Write proxy for field `CLKSEL`"]
+impl core::ops::Deref for CLKSEL_R {
+    type Target = crate::FieldReader<bool, CLKSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLKSEL` writer - Select the self wake-up timer clock source. Remark: This bit only has an effect if the SEL_EXTCLK bit is not set."]
 pub struct CLKSEL_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> CLKSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CLKSEL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. Remark: This clock is not available in not available in Deep-sleep, power-down, deep power-down modes. Do not select this option if the timer is to be used to wake up from one of these modes."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> CLKSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<ALARMFLAG_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ALARMFLAG`"]
-pub type ALARMFLAG_R = crate::R<bool, ALARMFLAG_A>;
+#[doc = "Field `ALARMFLAG` reader - Wake-up or alarm timer flag."]
+pub struct ALARMFLAG_R(crate::FieldReader<bool, ALARMFLAG_A>);
 impl ALARMFLAG_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ALARMFLAG_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ALARMFLAG_A {
@@ -113,15 +146,22 @@ impl ALARMFLAG_R {
     #[doc = "Checks if the value of the field is `NO_TIME_OUT`"]
     #[inline(always)]
     pub fn is_no_time_out(&self) -> bool {
-        *self == ALARMFLAG_A::NO_TIME_OUT
+        **self == ALARMFLAG_A::NO_TIME_OUT
     }
     #[doc = "Checks if the value of the field is `TIME_OUT`"]
     #[inline(always)]
     pub fn is_time_out(&self) -> bool {
-        *self == ALARMFLAG_A::TIME_OUT
+        **self == ALARMFLAG_A::TIME_OUT
     }
 }
-#[doc = "Write proxy for field `ALARMFLAG`"]
+impl core::ops::Deref for ALARMFLAG_R {
+    type Target = crate::FieldReader<bool, ALARMFLAG_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ALARMFLAG` writer - Wake-up or alarm timer flag."]
 pub struct ALARMFLAG_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> ALARMFLAG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ALARMFLAG_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No time-out. The self wake-up timer has not timed out. Writing a 0 to has no effect."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> ALARMFLAG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<CLEARCTR_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CLEARCTR`"]
-pub type CLEARCTR_R = crate::R<bool, CLEARCTR_A>;
+#[doc = "Field `CLEARCTR` reader - Clears the self wake-up timer."]
+pub struct CLEARCTR_R(crate::FieldReader<bool, CLEARCTR_A>);
 impl CLEARCTR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CLEARCTR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CLEARCTR_A {
@@ -188,15 +229,22 @@ impl CLEARCTR_R {
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
     #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == CLEARCTR_A::NO_EFFECT
+        **self == CLEARCTR_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `CLEAR_THE_COUNTER`"]
     #[inline(always)]
     pub fn is_clear_the_counter(&self) -> bool {
-        *self == CLEARCTR_A::CLEAR_THE_COUNTER
+        **self == CLEARCTR_A::CLEAR_THE_COUNTER
     }
 }
-#[doc = "Write proxy for field `CLEARCTR`"]
+impl core::ops::Deref for CLEARCTR_R {
+    type Target = crate::FieldReader<bool, CLEARCTR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLEARCTR` writer - Clears the self wake-up timer."]
 pub struct CLEARCTR_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> CLEARCTR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CLEARCTR_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No effect. Reading this bit always returns 0."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> CLEARCTR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<SEL_EXTCLK_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SEL_EXTCLK`"]
-pub type SEL_EXTCLK_R = crate::R<bool, SEL_EXTCLK_A>;
+#[doc = "Field `SEL_EXTCLK` reader - Select external or internal clock source for the self wake-up timer. The internal clock source is selected by the CLKSEL bit in this register if SET_EXTCLK is set to internal."]
+pub struct SEL_EXTCLK_R(crate::FieldReader<bool, SEL_EXTCLK_A>);
 impl SEL_EXTCLK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SEL_EXTCLK_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SEL_EXTCLK_A {
@@ -263,15 +312,22 @@ impl SEL_EXTCLK_R {
     #[doc = "Checks if the value of the field is `INTERNAL`"]
     #[inline(always)]
     pub fn is_internal(&self) -> bool {
-        *self == SEL_EXTCLK_A::INTERNAL
+        **self == SEL_EXTCLK_A::INTERNAL
     }
     #[doc = "Checks if the value of the field is `EXTERNAL`"]
     #[inline(always)]
     pub fn is_external(&self) -> bool {
-        *self == SEL_EXTCLK_A::EXTERNAL
+        **self == SEL_EXTCLK_A::EXTERNAL
     }
 }
-#[doc = "Write proxy for field `SEL_EXTCLK`"]
+impl core::ops::Deref for SEL_EXTCLK_R {
+    type Target = crate::FieldReader<bool, SEL_EXTCLK_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SEL_EXTCLK` writer - Select external or internal clock source for the self wake-up timer. The internal clock source is selected by the CLKSEL bit in this register if SET_EXTCLK is set to internal."]
 pub struct SEL_EXTCLK_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> SEL_EXTCLK_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEL_EXTCLK_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal. The clock source is the internal clock selected by the CLKSEL bit."]
     #[inline(always)]
@@ -306,7 +360,7 @@ impl<'a> SEL_EXTCLK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -352,5 +406,30 @@ impl W {
     #[inline(always)]
     pub fn sel_extclk(&mut self) -> SEL_EXTCLK_W {
         SEL_EXTCLK_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Self wake-up timer control register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](index.html) module"]
+pub struct CTRL_SPEC;
+impl crate::RegisterSpec for CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctrl::R](R) reader structure"]
+impl crate::Readable for CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
+impl crate::Writable for CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTRL to value 0"]
+impl crate::Resettable for CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

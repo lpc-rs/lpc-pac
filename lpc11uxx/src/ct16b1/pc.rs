@@ -1,18 +1,52 @@
-#[doc = "Reader of register PC"]
-pub type R = crate::R<u32, super::PC>;
-#[doc = "Writer for register PC"]
-pub type W = crate::W<u32, super::PC>;
-#[doc = "Register PC `reset()`'s with value 0"]
-impl crate::ResetValue for super::PC {
-    type Type = u32;
+#[doc = "Register `PC` reader"]
+pub struct R(crate::R<PC_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PC_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `PC`"]
-pub type PC_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `PC`"]
+impl core::convert::From<crate::R<PC_SPEC>> for R {
+    fn from(reader: crate::R<PC_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PC` writer"]
+pub struct W(crate::W<PC_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PC_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PC_SPEC>> for W {
+    fn from(writer: crate::W<PC_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `PC` reader - Prescale counter value."]
+pub struct PC_R(crate::FieldReader<u16, u16>);
+impl PC_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        PC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PC_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PC` writer - Prescale counter value."]
 pub struct PC_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +54,7 @@ impl<'a> PC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff) | ((value as u32) & 0xffff);
+        self.w.bits = (self.w.bits & !0xffff) | (value as u32 & 0xffff);
         self.w
     }
 }
@@ -36,5 +70,30 @@ impl W {
     #[inline(always)]
     pub fn pc(&mut self) -> PC_W {
         PC_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Prescale Counter. The 16-bit PC is a counter which is incremented to the value stored in PR. When the value in PR is reached, the TC is incremented and the PC is cleared. The PC is observable and controllable through the bus interface.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pc](index.html) module"]
+pub struct PC_SPEC;
+impl crate::RegisterSpec for PC_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pc::R](R) reader structure"]
+impl crate::Readable for PC_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pc::W](W) writer structure"]
+impl crate::Writable for PC_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PC to value 0"]
+impl crate::Resettable for PC_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,13 +1,35 @@
-#[doc = "Reader of register SLVCTL"]
-pub type R = crate::R<u32, super::SLVCTL>;
-#[doc = "Writer for register SLVCTL"]
-pub type W = crate::W<u32, super::SLVCTL>;
-#[doc = "Register SLVCTL `reset()`'s with value 0"]
-impl crate::ResetValue for super::SLVCTL {
-    type Type = u32;
+#[doc = "Register `SLVCTL` reader"]
+pub struct R(crate::R<SLVCTL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SLVCTL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<SLVCTL_SPEC>> for R {
+    fn from(reader: crate::R<SLVCTL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SLVCTL` writer"]
+pub struct W(crate::W<SLVCTL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SLVCTL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<SLVCTL_SPEC>> for W {
+    fn from(writer: crate::W<SLVCTL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Slave Continue.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<SLVCONTINUE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SLVCONTINUE`"]
-pub type SLVCONTINUE_R = crate::R<bool, SLVCONTINUE_A>;
+#[doc = "Field `SLVCONTINUE` reader - Slave Continue."]
+pub struct SLVCONTINUE_R(crate::FieldReader<bool, SLVCONTINUE_A>);
 impl SLVCONTINUE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SLVCONTINUE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SLVCONTINUE_A {
@@ -38,15 +63,22 @@ impl SLVCONTINUE_R {
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
     #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == SLVCONTINUE_A::NO_EFFECT
+        **self == SLVCONTINUE_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `CONTINUE`"]
     #[inline(always)]
-    pub fn is_continue_(&self) -> bool {
-        *self == SLVCONTINUE_A::CONTINUE
+    pub fn is_continue(&self) -> bool {
+        **self == SLVCONTINUE_A::CONTINUE
     }
 }
-#[doc = "Write proxy for field `SLVCONTINUE`"]
+impl core::ops::Deref for SLVCONTINUE_R {
+    type Target = crate::FieldReader<bool, SLVCONTINUE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SLVCONTINUE` writer - Slave Continue."]
 pub struct SLVCONTINUE_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> SLVCONTINUE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SLVCONTINUE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No effect."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> SLVCONTINUE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<SLVNACK_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SLVNACK`"]
-pub type SLVNACK_R = crate::R<bool, SLVNACK_A>;
+#[doc = "Field `SLVNACK` reader - Slave NACK."]
+pub struct SLVNACK_R(crate::FieldReader<bool, SLVNACK_A>);
 impl SLVNACK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SLVNACK_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SLVNACK_A {
@@ -113,15 +146,22 @@ impl SLVNACK_R {
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
     #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == SLVNACK_A::NO_EFFECT
+        **self == SLVNACK_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `NACK`"]
     #[inline(always)]
     pub fn is_nack(&self) -> bool {
-        *self == SLVNACK_A::NACK
+        **self == SLVNACK_A::NACK
     }
 }
-#[doc = "Write proxy for field `SLVNACK`"]
+impl core::ops::Deref for SLVNACK_R {
+    type Target = crate::FieldReader<bool, SLVNACK_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SLVNACK` writer - Slave NACK."]
 pub struct SLVNACK_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> SLVNACK_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SLVNACK_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No effect."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> SLVNACK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<SLVDMA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SLVDMA`"]
-pub type SLVDMA_R = crate::R<bool, SLVDMA_A>;
+#[doc = "Field `SLVDMA` reader - Slave DMA enable."]
+pub struct SLVDMA_R(crate::FieldReader<bool, SLVDMA_A>);
 impl SLVDMA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SLVDMA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SLVDMA_A {
@@ -188,15 +229,22 @@ impl SLVDMA_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SLVDMA_A::DISABLED
+        **self == SLVDMA_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SLVDMA_A::ENABLED
+        **self == SLVDMA_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `SLVDMA`"]
+impl core::ops::Deref for SLVDMA_R {
+    type Target = crate::FieldReader<bool, SLVDMA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SLVDMA` writer - Slave DMA enable."]
 pub struct SLVDMA_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> SLVDMA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SLVDMA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. No DMA requests are issued for Slave mode operation."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> SLVDMA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<AUTOACK_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `AUTOACK`"]
-pub type AUTOACK_R = crate::R<bool, AUTOACK_A>;
+#[doc = "Field `AUTOACK` reader - Automatic Acknowledge.When this bit is set, it will cause an I2C header which matches SLVADR0 and the direction set by AUTOMATCHREAD to be ACKed immediately; this is used with DMA to allow processing of the data without intervention. If this bit is clear and a header matches SLVADR0, the behavior is controlled by AUTONACK in the SLVADR0 register: allowing NACK or interrupt."]
+pub struct AUTOACK_R(crate::FieldReader<bool, AUTOACK_A>);
 impl AUTOACK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AUTOACK_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> AUTOACK_A {
@@ -263,15 +312,22 @@ impl AUTOACK_R {
     #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == AUTOACK_A::NORMAL
+        **self == AUTOACK_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `AUTOMATIC_ACK`"]
     #[inline(always)]
     pub fn is_automatic_ack(&self) -> bool {
-        *self == AUTOACK_A::AUTOMATIC_ACK
+        **self == AUTOACK_A::AUTOMATIC_ACK
     }
 }
-#[doc = "Write proxy for field `AUTOACK`"]
+impl core::ops::Deref for AUTOACK_R {
+    type Target = crate::FieldReader<bool, AUTOACK_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AUTOACK` writer - Automatic Acknowledge.When this bit is set, it will cause an I2C header which matches SLVADR0 and the direction set by AUTOMATCHREAD to be ACKed immediately; this is used with DMA to allow processing of the data without intervention. If this bit is clear and a header matches SLVADR0, the behavior is controlled by AUTONACK in the SLVADR0 register: allowing NACK or interrupt."]
 pub struct AUTOACK_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> AUTOACK_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: AUTOACK_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Normal, non-automatic operation. If AUTONACK = 0, an SlvPending interrupt is generated when a matching address is received. If AUTONACK = 1, received addresses are NACKed (ignored)."]
     #[inline(always)]
@@ -306,7 +360,7 @@ impl<'a> AUTOACK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -324,9 +378,12 @@ impl From<AUTOMATCHREAD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `AUTOMATCHREAD`"]
-pub type AUTOMATCHREAD_R = crate::R<bool, AUTOMATCHREAD_A>;
+#[doc = "Field `AUTOMATCHREAD` reader - When AUTOACK is set, this bit controls whether it matches a read or write request on the next header with an address matching SLVADR0. Since DMA needs to be configured to match the transfer direction, the direction needs to be specified. This bit allows a direction to be chosen for the next operation."]
+pub struct AUTOMATCHREAD_R(crate::FieldReader<bool, AUTOMATCHREAD_A>);
 impl AUTOMATCHREAD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AUTOMATCHREAD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> AUTOMATCHREAD_A {
@@ -338,15 +395,22 @@ impl AUTOMATCHREAD_R {
     #[doc = "Checks if the value of the field is `I2C_WRITE`"]
     #[inline(always)]
     pub fn is_i2c_write(&self) -> bool {
-        *self == AUTOMATCHREAD_A::I2C_WRITE
+        **self == AUTOMATCHREAD_A::I2C_WRITE
     }
     #[doc = "Checks if the value of the field is `I2C_READ`"]
     #[inline(always)]
     pub fn is_i2c_read(&self) -> bool {
-        *self == AUTOMATCHREAD_A::I2C_READ
+        **self == AUTOMATCHREAD_A::I2C_READ
     }
 }
-#[doc = "Write proxy for field `AUTOMATCHREAD`"]
+impl core::ops::Deref for AUTOMATCHREAD_R {
+    type Target = crate::FieldReader<bool, AUTOMATCHREAD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AUTOMATCHREAD` writer - When AUTOACK is set, this bit controls whether it matches a read or write request on the next header with an address matching SLVADR0. Since DMA needs to be configured to match the transfer direction, the direction needs to be specified. This bit allows a direction to be chosen for the next operation."]
 pub struct AUTOMATCHREAD_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +418,7 @@ impl<'a> AUTOMATCHREAD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: AUTOMATCHREAD_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The expected next operation in Automatic Mode is an I2C write."]
     #[inline(always)]
@@ -381,7 +443,7 @@ impl<'a> AUTOMATCHREAD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
@@ -437,5 +499,30 @@ impl W {
     #[inline(always)]
     pub fn automatchread(&mut self) -> AUTOMATCHREAD_W {
         AUTOMATCHREAD_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Slave control register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [slvctl](index.html) module"]
+pub struct SLVCTL_SPEC;
+impl crate::RegisterSpec for SLVCTL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [slvctl::R](R) reader structure"]
+impl crate::Readable for SLVCTL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [slvctl::W](W) writer structure"]
+impl crate::Writable for SLVCTL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SLVCTL to value 0"]
+impl crate::Resettable for SLVCTL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

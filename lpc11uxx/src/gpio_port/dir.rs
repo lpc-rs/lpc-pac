@@ -1,18 +1,52 @@
-#[doc = "Reader of register DIR%s"]
-pub type R = crate::R<u32, super::DIR>;
-#[doc = "Writer for register DIR%s"]
-pub type W = crate::W<u32, super::DIR>;
-#[doc = "Register DIR%s `reset()`'s with value 0"]
-impl crate::ResetValue for super::DIR {
-    type Type = u32;
+#[doc = "Register `DIR%s` reader"]
+pub struct R(crate::R<DIR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DIR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `DIRP0`"]
-pub type DIRP0_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP0`"]
+impl core::convert::From<crate::R<DIR_SPEC>> for R {
+    fn from(reader: crate::R<DIR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DIR%s` writer"]
+pub struct W(crate::W<DIR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DIR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<DIR_SPEC>> for W {
+    fn from(writer: crate::W<DIR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `DIRP0` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP0_R(crate::FieldReader<bool, bool>);
+impl DIRP0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP0` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP0_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> DIRP0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP1`"]
-pub type DIRP1_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP1`"]
+#[doc = "Field `DIRP1` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP1_R(crate::FieldReader<bool, bool>);
+impl DIRP1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP1_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP1_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP1` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP1_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> DIRP1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP2`"]
-pub type DIRP2_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP2`"]
+#[doc = "Field `DIRP2` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP2_R(crate::FieldReader<bool, bool>);
+impl DIRP2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP2_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP2_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP2` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP2_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> DIRP2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP3`"]
-pub type DIRP3_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP3`"]
+#[doc = "Field `DIRP3` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP3_R(crate::FieldReader<bool, bool>);
+impl DIRP3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP3_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP3` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP3_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> DIRP3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP4`"]
-pub type DIRP4_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP4`"]
+#[doc = "Field `DIRP4` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP4_R(crate::FieldReader<bool, bool>);
+impl DIRP4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP4_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP4_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP4` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP4_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> DIRP4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP5`"]
-pub type DIRP5_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP5`"]
+#[doc = "Field `DIRP5` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP5_R(crate::FieldReader<bool, bool>);
+impl DIRP5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP5_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP5_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP5` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP5_W<'a> {
     w: &'a mut W,
 }
@@ -150,13 +244,25 @@ impl<'a> DIRP5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP6`"]
-pub type DIRP6_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP6`"]
+#[doc = "Field `DIRP6` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP6_R(crate::FieldReader<bool, bool>);
+impl DIRP6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP6_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP6_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP6` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP6_W<'a> {
     w: &'a mut W,
 }
@@ -174,13 +280,25 @@ impl<'a> DIRP6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP7`"]
-pub type DIRP7_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP7`"]
+#[doc = "Field `DIRP7` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP7_R(crate::FieldReader<bool, bool>);
+impl DIRP7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP7_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP7_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP7` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP7_W<'a> {
     w: &'a mut W,
 }
@@ -198,13 +316,25 @@ impl<'a> DIRP7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP8`"]
-pub type DIRP8_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP8`"]
+#[doc = "Field `DIRP8` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP8_R(crate::FieldReader<bool, bool>);
+impl DIRP8_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP8_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP8_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP8` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP8_W<'a> {
     w: &'a mut W,
 }
@@ -222,13 +352,25 @@ impl<'a> DIRP8_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP9`"]
-pub type DIRP9_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP9`"]
+#[doc = "Field `DIRP9` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP9_R(crate::FieldReader<bool, bool>);
+impl DIRP9_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP9_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP9_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP9` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP9_W<'a> {
     w: &'a mut W,
 }
@@ -246,13 +388,25 @@ impl<'a> DIRP9_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP10`"]
-pub type DIRP10_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP10`"]
+#[doc = "Field `DIRP10` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP10_R(crate::FieldReader<bool, bool>);
+impl DIRP10_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP10_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP10_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP10` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP10_W<'a> {
     w: &'a mut W,
 }
@@ -270,13 +424,25 @@ impl<'a> DIRP10_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP11`"]
-pub type DIRP11_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP11`"]
+#[doc = "Field `DIRP11` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP11_R(crate::FieldReader<bool, bool>);
+impl DIRP11_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP11_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP11_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP11` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP11_W<'a> {
     w: &'a mut W,
 }
@@ -294,13 +460,25 @@ impl<'a> DIRP11_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP12`"]
-pub type DIRP12_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP12`"]
+#[doc = "Field `DIRP12` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP12_R(crate::FieldReader<bool, bool>);
+impl DIRP12_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP12_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP12_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP12` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP12_W<'a> {
     w: &'a mut W,
 }
@@ -318,13 +496,25 @@ impl<'a> DIRP12_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP13`"]
-pub type DIRP13_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP13`"]
+#[doc = "Field `DIRP13` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP13_R(crate::FieldReader<bool, bool>);
+impl DIRP13_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP13_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP13_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP13` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP13_W<'a> {
     w: &'a mut W,
 }
@@ -342,13 +532,25 @@ impl<'a> DIRP13_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP14`"]
-pub type DIRP14_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP14`"]
+#[doc = "Field `DIRP14` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP14_R(crate::FieldReader<bool, bool>);
+impl DIRP14_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP14_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP14_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP14` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP14_W<'a> {
     w: &'a mut W,
 }
@@ -366,13 +568,25 @@ impl<'a> DIRP14_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP15`"]
-pub type DIRP15_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP15`"]
+#[doc = "Field `DIRP15` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP15_R(crate::FieldReader<bool, bool>);
+impl DIRP15_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP15_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP15_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP15` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP15_W<'a> {
     w: &'a mut W,
 }
@@ -390,13 +604,25 @@ impl<'a> DIRP15_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP16`"]
-pub type DIRP16_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP16`"]
+#[doc = "Field `DIRP16` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP16_R(crate::FieldReader<bool, bool>);
+impl DIRP16_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP16_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP16_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP16` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP16_W<'a> {
     w: &'a mut W,
 }
@@ -414,13 +640,25 @@ impl<'a> DIRP16_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP17`"]
-pub type DIRP17_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP17`"]
+#[doc = "Field `DIRP17` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP17_R(crate::FieldReader<bool, bool>);
+impl DIRP17_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP17_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP17_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP17` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP17_W<'a> {
     w: &'a mut W,
 }
@@ -438,13 +676,25 @@ impl<'a> DIRP17_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP18`"]
-pub type DIRP18_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP18`"]
+#[doc = "Field `DIRP18` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP18_R(crate::FieldReader<bool, bool>);
+impl DIRP18_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP18_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP18_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP18` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP18_W<'a> {
     w: &'a mut W,
 }
@@ -462,13 +712,25 @@ impl<'a> DIRP18_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP19`"]
-pub type DIRP19_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP19`"]
+#[doc = "Field `DIRP19` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP19_R(crate::FieldReader<bool, bool>);
+impl DIRP19_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP19_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP19_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP19` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP19_W<'a> {
     w: &'a mut W,
 }
@@ -486,13 +748,25 @@ impl<'a> DIRP19_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP20`"]
-pub type DIRP20_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP20`"]
+#[doc = "Field `DIRP20` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP20_R(crate::FieldReader<bool, bool>);
+impl DIRP20_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP20_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP20_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP20` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP20_W<'a> {
     w: &'a mut W,
 }
@@ -510,13 +784,25 @@ impl<'a> DIRP20_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP21`"]
-pub type DIRP21_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP21`"]
+#[doc = "Field `DIRP21` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP21_R(crate::FieldReader<bool, bool>);
+impl DIRP21_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP21_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP21_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP21` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP21_W<'a> {
     w: &'a mut W,
 }
@@ -534,13 +820,25 @@ impl<'a> DIRP21_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP22`"]
-pub type DIRP22_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP22`"]
+#[doc = "Field `DIRP22` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP22_R(crate::FieldReader<bool, bool>);
+impl DIRP22_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP22_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP22_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP22` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP22_W<'a> {
     w: &'a mut W,
 }
@@ -558,13 +856,25 @@ impl<'a> DIRP22_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP23`"]
-pub type DIRP23_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP23`"]
+#[doc = "Field `DIRP23` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP23_R(crate::FieldReader<bool, bool>);
+impl DIRP23_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP23_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP23_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP23` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP23_W<'a> {
     w: &'a mut W,
 }
@@ -582,13 +892,25 @@ impl<'a> DIRP23_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP24`"]
-pub type DIRP24_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP24`"]
+#[doc = "Field `DIRP24` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP24_R(crate::FieldReader<bool, bool>);
+impl DIRP24_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP24_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP24_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP24` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP24_W<'a> {
     w: &'a mut W,
 }
@@ -606,13 +928,25 @@ impl<'a> DIRP24_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | ((value as u32 & 0x01) << 24);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP25`"]
-pub type DIRP25_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP25`"]
+#[doc = "Field `DIRP25` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP25_R(crate::FieldReader<bool, bool>);
+impl DIRP25_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP25_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP25_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP25` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP25_W<'a> {
     w: &'a mut W,
 }
@@ -630,13 +964,25 @@ impl<'a> DIRP25_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP26`"]
-pub type DIRP26_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP26`"]
+#[doc = "Field `DIRP26` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP26_R(crate::FieldReader<bool, bool>);
+impl DIRP26_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP26_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP26_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP26` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP26_W<'a> {
     w: &'a mut W,
 }
@@ -654,13 +1000,25 @@ impl<'a> DIRP26_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | ((value as u32 & 0x01) << 26);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP27`"]
-pub type DIRP27_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP27`"]
+#[doc = "Field `DIRP27` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP27_R(crate::FieldReader<bool, bool>);
+impl DIRP27_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP27_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP27_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP27` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP27_W<'a> {
     w: &'a mut W,
 }
@@ -678,13 +1036,25 @@ impl<'a> DIRP27_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP28`"]
-pub type DIRP28_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP28`"]
+#[doc = "Field `DIRP28` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP28_R(crate::FieldReader<bool, bool>);
+impl DIRP28_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP28_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP28_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP28` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP28_W<'a> {
     w: &'a mut W,
 }
@@ -702,13 +1072,25 @@ impl<'a> DIRP28_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP29`"]
-pub type DIRP29_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP29`"]
+#[doc = "Field `DIRP29` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP29_R(crate::FieldReader<bool, bool>);
+impl DIRP29_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP29_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP29_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP29` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP29_W<'a> {
     w: &'a mut W,
 }
@@ -726,13 +1108,25 @@ impl<'a> DIRP29_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | ((value as u32 & 0x01) << 29);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP30`"]
-pub type DIRP30_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP30`"]
+#[doc = "Field `DIRP30` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP30_R(crate::FieldReader<bool, bool>);
+impl DIRP30_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP30_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP30_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP30` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP30_W<'a> {
     w: &'a mut W,
 }
@@ -750,13 +1144,25 @@ impl<'a> DIRP30_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | ((value as u32 & 0x01) << 30);
         self.w
     }
 }
-#[doc = "Reader of field `DIRP31`"]
-pub type DIRP31_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DIRP31`"]
+#[doc = "Field `DIRP31` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
+pub struct DIRP31_R(crate::FieldReader<bool, bool>);
+impl DIRP31_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIRP31_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIRP31_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIRP31` writer - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP31_W<'a> {
     w: &'a mut W,
 }
@@ -774,7 +1180,7 @@ impl<'a> DIRP31_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -1100,5 +1506,30 @@ impl W {
     #[inline(always)]
     pub fn dirp31(&mut self) -> DIRP31_W {
         DIRP31_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Direction registers port 0/1\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dir](index.html) module"]
+pub struct DIR_SPEC;
+impl crate::RegisterSpec for DIR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [dir::R](R) reader structure"]
+impl crate::Readable for DIR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [dir::W](W) writer structure"]
+impl crate::Writable for DIR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DIR%s to value 0"]
+impl crate::Resettable for DIR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

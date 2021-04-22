@@ -1,13 +1,73 @@
-#[doc = "Reader of register INTSTAT"]
-pub type R = crate::R<u32, super::INTSTAT>;
-#[doc = "Reader of field `FUFMIS`"]
-pub type FUFMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `LNBUMIS`"]
-pub type LNBUMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `VCOMPMIS`"]
-pub type VCOMPMIS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `BERMIS`"]
-pub type BERMIS_R = crate::R<bool, bool>;
+#[doc = "Register `INTSTAT` reader"]
+pub struct R(crate::R<INTSTAT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<INTSTAT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<INTSTAT_SPEC>> for R {
+    fn from(reader: crate::R<INTSTAT_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Field `FUFMIS` reader - FIFO underflow masked interrupt status."]
+pub struct FUFMIS_R(crate::FieldReader<bool, bool>);
+impl FUFMIS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FUFMIS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FUFMIS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LNBUMIS` reader - LCD next address base update masked interrupt status."]
+pub struct LNBUMIS_R(crate::FieldReader<bool, bool>);
+impl LNBUMIS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LNBUMIS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LNBUMIS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `VCOMPMIS` reader - Vertical compare masked interrupt status."]
+pub struct VCOMPMIS_R(crate::FieldReader<bool, bool>);
+impl VCOMPMIS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        VCOMPMIS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for VCOMPMIS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BERMIS` reader - AHB master bus error masked interrupt status."]
+pub struct BERMIS_R(crate::FieldReader<bool, bool>);
+impl BERMIS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BERMIS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BERMIS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bit 1 - FIFO underflow masked interrupt status."]
     #[inline(always)]
@@ -28,5 +88,21 @@ impl R {
     #[inline(always)]
     pub fn bermis(&self) -> BERMIS_R {
         BERMIS_R::new(((self.bits >> 4) & 0x01) != 0)
+    }
+}
+#[doc = "Masked Interrupt Status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intstat](index.html) module"]
+pub struct INTSTAT_SPEC;
+impl crate::RegisterSpec for INTSTAT_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [intstat::R](R) reader structure"]
+impl crate::Readable for INTSTAT_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets INTSTAT to value 0"]
+impl crate::Resettable for INTSTAT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

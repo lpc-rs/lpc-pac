@@ -1,18 +1,52 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub struct R(crate::R<CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `LCDEN`"]
-pub type LCDEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LCDEN`"]
+impl core::convert::From<crate::R<CTRL_SPEC>> for R {
+    fn from(reader: crate::R<CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTRL` writer"]
+pub struct W(crate::W<CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTRL_SPEC>> for W {
+    fn from(writer: crate::W<CTRL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `LCDEN` reader - LCD enable control bit."]
+pub struct LCDEN_R(crate::FieldReader<bool, bool>);
+impl LCDEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LCDEN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LCDEN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LCDEN` writer - LCD enable control bit."]
 pub struct LCDEN_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> LCDEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `LCDBPP`"]
-pub type LCDBPP_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `LCDBPP`"]
+#[doc = "Field `LCDBPP` reader - LCD bits per pixel."]
+pub struct LCDBPP_R(crate::FieldReader<u8, u8>);
+impl LCDBPP_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        LCDBPP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LCDBPP_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LCDBPP` writer - LCD bits per pixel."]
 pub struct LCDBPP_W<'a> {
     w: &'a mut W,
 }
@@ -44,13 +90,25 @@ impl<'a> LCDBPP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 1)) | (((value as u32) & 0x07) << 1);
+        self.w.bits = (self.w.bits & !(0x07 << 1)) | ((value as u32 & 0x07) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `LCDBW`"]
-pub type LCDBW_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LCDBW`"]
+#[doc = "Field `LCDBW` reader - STN LCD monochrome/color selection."]
+pub struct LCDBW_R(crate::FieldReader<bool, bool>);
+impl LCDBW_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LCDBW_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LCDBW_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LCDBW` writer - STN LCD monochrome/color selection."]
 pub struct LCDBW_W<'a> {
     w: &'a mut W,
 }
@@ -68,13 +126,25 @@ impl<'a> LCDBW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `LCDTFT`"]
-pub type LCDTFT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LCDTFT`"]
+#[doc = "Field `LCDTFT` reader - LCD panel TFT type selection."]
+pub struct LCDTFT_R(crate::FieldReader<bool, bool>);
+impl LCDTFT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LCDTFT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LCDTFT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LCDTFT` writer - LCD panel TFT type selection."]
 pub struct LCDTFT_W<'a> {
     w: &'a mut W,
 }
@@ -92,13 +162,25 @@ impl<'a> LCDTFT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `LCDMONO8`"]
-pub type LCDMONO8_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LCDMONO8`"]
+#[doc = "Field `LCDMONO8` reader - Monochrome LCD interface width."]
+pub struct LCDMONO8_R(crate::FieldReader<bool, bool>);
+impl LCDMONO8_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LCDMONO8_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LCDMONO8_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LCDMONO8` writer - Monochrome LCD interface width."]
 pub struct LCDMONO8_W<'a> {
     w: &'a mut W,
 }
@@ -116,13 +198,25 @@ impl<'a> LCDMONO8_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `LCDDUAL`"]
-pub type LCDDUAL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LCDDUAL`"]
+#[doc = "Field `LCDDUAL` reader - Single or Dual LCD panel selection."]
+pub struct LCDDUAL_R(crate::FieldReader<bool, bool>);
+impl LCDDUAL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LCDDUAL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LCDDUAL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LCDDUAL` writer - Single or Dual LCD panel selection."]
 pub struct LCDDUAL_W<'a> {
     w: &'a mut W,
 }
@@ -140,13 +234,25 @@ impl<'a> LCDDUAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Reader of field `BGR`"]
-pub type BGR_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `BGR`"]
+#[doc = "Field `BGR` reader - Color format selection."]
+pub struct BGR_R(crate::FieldReader<bool, bool>);
+impl BGR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BGR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BGR_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BGR` writer - Color format selection."]
 pub struct BGR_W<'a> {
     w: &'a mut W,
 }
@@ -164,13 +270,25 @@ impl<'a> BGR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `BEBO`"]
-pub type BEBO_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `BEBO`"]
+#[doc = "Field `BEBO` reader - Big-endian Byte Order."]
+pub struct BEBO_R(crate::FieldReader<bool, bool>);
+impl BEBO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BEBO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BEBO_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BEBO` writer - Big-endian Byte Order."]
 pub struct BEBO_W<'a> {
     w: &'a mut W,
 }
@@ -188,13 +306,25 @@ impl<'a> BEBO_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `BEPO`"]
-pub type BEPO_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `BEPO`"]
+#[doc = "Field `BEPO` reader - Big-Endian Pixel Ordering."]
+pub struct BEPO_R(crate::FieldReader<bool, bool>);
+impl BEPO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BEPO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BEPO_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BEPO` writer - Big-Endian Pixel Ordering."]
 pub struct BEPO_W<'a> {
     w: &'a mut W,
 }
@@ -212,13 +342,25 @@ impl<'a> BEPO_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `LCDPWR`"]
-pub type LCDPWR_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LCDPWR`"]
+#[doc = "Field `LCDPWR` reader - LCD power enable."]
+pub struct LCDPWR_R(crate::FieldReader<bool, bool>);
+impl LCDPWR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LCDPWR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LCDPWR_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LCDPWR` writer - LCD power enable."]
 pub struct LCDPWR_W<'a> {
     w: &'a mut W,
 }
@@ -236,13 +378,25 @@ impl<'a> LCDPWR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Reader of field `LCDVCOMP`"]
-pub type LCDVCOMP_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `LCDVCOMP`"]
+#[doc = "Field `LCDVCOMP` reader - LCD Vertical Compare Interrupt."]
+pub struct LCDVCOMP_R(crate::FieldReader<u8, u8>);
+impl LCDVCOMP_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        LCDVCOMP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LCDVCOMP_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LCDVCOMP` writer - LCD Vertical Compare Interrupt."]
 pub struct LCDVCOMP_W<'a> {
     w: &'a mut W,
 }
@@ -250,13 +404,25 @@ impl<'a> LCDVCOMP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 12)) | (((value as u32) & 0x03) << 12);
+        self.w.bits = (self.w.bits & !(0x03 << 12)) | ((value as u32 & 0x03) << 12);
         self.w
     }
 }
-#[doc = "Reader of field `WATERMARK`"]
-pub type WATERMARK_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `WATERMARK`"]
+#[doc = "Field `WATERMARK` reader - LCD DMA FIFO watermark level."]
+pub struct WATERMARK_R(crate::FieldReader<bool, bool>);
+impl WATERMARK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WATERMARK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for WATERMARK_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WATERMARK` writer - LCD DMA FIFO watermark level."]
 pub struct WATERMARK_W<'a> {
     w: &'a mut W,
 }
@@ -274,7 +440,7 @@ impl<'a> WATERMARK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
@@ -400,5 +566,30 @@ impl W {
     #[inline(always)]
     pub fn watermark(&mut self) -> WATERMARK_W {
         WATERMARK_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "LCD Control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](index.html) module"]
+pub struct CTRL_SPEC;
+impl crate::RegisterSpec for CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctrl::R](R) reader structure"]
+impl crate::Readable for CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
+impl crate::Writable for CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTRL to value 0"]
+impl crate::Resettable for CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

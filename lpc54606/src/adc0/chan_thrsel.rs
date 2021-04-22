@@ -1,13 +1,35 @@
-#[doc = "Reader of register CHAN_THRSEL"]
-pub type R = crate::R<u32, super::CHAN_THRSEL>;
-#[doc = "Writer for register CHAN_THRSEL"]
-pub type W = crate::W<u32, super::CHAN_THRSEL>;
-#[doc = "Register CHAN_THRSEL `reset()`'s with value 0"]
-impl crate::ResetValue for super::CHAN_THRSEL {
-    type Type = u32;
+#[doc = "Register `CHAN_THRSEL` reader"]
+pub struct R(crate::R<CHAN_THRSEL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CHAN_THRSEL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CHAN_THRSEL_SPEC>> for R {
+    fn from(reader: crate::R<CHAN_THRSEL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CHAN_THRSEL` writer"]
+pub struct W(crate::W<CHAN_THRSEL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CHAN_THRSEL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CHAN_THRSEL_SPEC>> for W {
+    fn from(writer: crate::W<CHAN_THRSEL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Threshold select for channel 0.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<CH0_THRSEL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CH0_THRSEL`"]
-pub type CH0_THRSEL_R = crate::R<bool, CH0_THRSEL_A>;
+#[doc = "Field `CH0_THRSEL` reader - Threshold select for channel 0."]
+pub struct CH0_THRSEL_R(crate::FieldReader<bool, CH0_THRSEL_A>);
 impl CH0_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH0_THRSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CH0_THRSEL_A {
@@ -38,15 +63,22 @@ impl CH0_THRSEL_R {
     #[doc = "Checks if the value of the field is `THRESHOLD0`"]
     #[inline(always)]
     pub fn is_threshold0(&self) -> bool {
-        *self == CH0_THRSEL_A::THRESHOLD0
+        **self == CH0_THRSEL_A::THRESHOLD0
     }
     #[doc = "Checks if the value of the field is `THRESHOLD1`"]
     #[inline(always)]
     pub fn is_threshold1(&self) -> bool {
-        *self == CH0_THRSEL_A::THRESHOLD1
+        **self == CH0_THRSEL_A::THRESHOLD1
     }
 }
-#[doc = "Write proxy for field `CH0_THRSEL`"]
+impl core::ops::Deref for CH0_THRSEL_R {
+    type Target = crate::FieldReader<bool, CH0_THRSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH0_THRSEL` writer - Threshold select for channel 0."]
 pub struct CH0_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> CH0_THRSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CH0_THRSEL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Threshold 0. Results for this channel will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers."]
     #[inline(always)]
@@ -81,13 +111,25 @@ impl<'a> CH0_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `CH1_THRSEL`"]
-pub type CH1_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH1_THRSEL`"]
+#[doc = "Field `CH1_THRSEL` reader - Threshold select for channel 1. See description for channel 0."]
+pub struct CH1_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH1_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH1_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH1_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH1_THRSEL` writer - Threshold select for channel 1. See description for channel 0."]
 pub struct CH1_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -105,13 +147,25 @@ impl<'a> CH1_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `CH2_THRSEL`"]
-pub type CH2_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH2_THRSEL`"]
+#[doc = "Field `CH2_THRSEL` reader - Threshold select for channel 2. See description for channel 0."]
+pub struct CH2_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH2_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH2_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH2_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH2_THRSEL` writer - Threshold select for channel 2. See description for channel 0."]
 pub struct CH2_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -129,13 +183,25 @@ impl<'a> CH2_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `CH3_THRSEL`"]
-pub type CH3_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH3_THRSEL`"]
+#[doc = "Field `CH3_THRSEL` reader - Threshold select for channel 3. See description for channel 0."]
+pub struct CH3_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH3_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH3_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH3_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH3_THRSEL` writer - Threshold select for channel 3. See description for channel 0."]
 pub struct CH3_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -153,13 +219,25 @@ impl<'a> CH3_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Reader of field `CH4_THRSEL`"]
-pub type CH4_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH4_THRSEL`"]
+#[doc = "Field `CH4_THRSEL` reader - Threshold select for channel 4. See description for channel 0."]
+pub struct CH4_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH4_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH4_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH4_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH4_THRSEL` writer - Threshold select for channel 4. See description for channel 0."]
 pub struct CH4_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -177,13 +255,25 @@ impl<'a> CH4_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `CH5_THRSEL`"]
-pub type CH5_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH5_THRSEL`"]
+#[doc = "Field `CH5_THRSEL` reader - Threshold select for channel 5. See description for channel 0."]
+pub struct CH5_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH5_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH5_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH5_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH5_THRSEL` writer - Threshold select for channel 5. See description for channel 0."]
 pub struct CH5_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -201,13 +291,25 @@ impl<'a> CH5_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `CH6_THRSEL`"]
-pub type CH6_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH6_THRSEL`"]
+#[doc = "Field `CH6_THRSEL` reader - Threshold select for channel 6. See description for channel 0."]
+pub struct CH6_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH6_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH6_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH6_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH6_THRSEL` writer - Threshold select for channel 6. See description for channel 0."]
 pub struct CH6_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -225,13 +327,25 @@ impl<'a> CH6_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `CH7_THRSEL`"]
-pub type CH7_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH7_THRSEL`"]
+#[doc = "Field `CH7_THRSEL` reader - Threshold select for channel 7. See description for channel 0."]
+pub struct CH7_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH7_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH7_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH7_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH7_THRSEL` writer - Threshold select for channel 7. See description for channel 0."]
 pub struct CH7_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -249,13 +363,25 @@ impl<'a> CH7_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Reader of field `CH8_THRSEL`"]
-pub type CH8_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH8_THRSEL`"]
+#[doc = "Field `CH8_THRSEL` reader - Threshold select for channel 8. See description for channel 0."]
+pub struct CH8_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH8_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH8_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH8_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH8_THRSEL` writer - Threshold select for channel 8. See description for channel 0."]
 pub struct CH8_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -273,13 +399,25 @@ impl<'a> CH8_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `CH9_THRSEL`"]
-pub type CH9_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH9_THRSEL`"]
+#[doc = "Field `CH9_THRSEL` reader - Threshold select for channel 9. See description for channel 0."]
+pub struct CH9_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH9_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH9_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH9_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH9_THRSEL` writer - Threshold select for channel 9. See description for channel 0."]
 pub struct CH9_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -297,13 +435,25 @@ impl<'a> CH9_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `CH10_THRSEL`"]
-pub type CH10_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH10_THRSEL`"]
+#[doc = "Field `CH10_THRSEL` reader - Threshold select for channel 10. See description for channel 0."]
+pub struct CH10_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH10_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH10_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH10_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH10_THRSEL` writer - Threshold select for channel 10. See description for channel 0."]
 pub struct CH10_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -321,13 +471,25 @@ impl<'a> CH10_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `CH11_THRSEL`"]
-pub type CH11_THRSEL_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CH11_THRSEL`"]
+#[doc = "Field `CH11_THRSEL` reader - Threshold select for channel 11. See description for channel 0."]
+pub struct CH11_THRSEL_R(crate::FieldReader<bool, bool>);
+impl CH11_THRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CH11_THRSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH11_THRSEL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH11_THRSEL` writer - Threshold select for channel 11. See description for channel 0."]
 pub struct CH11_THRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -345,7 +507,7 @@ impl<'a> CH11_THRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
@@ -471,5 +633,30 @@ impl W {
     #[inline(always)]
     pub fn ch11_thrsel(&mut self) -> CH11_THRSEL_W {
         CH11_THRSEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "ADC Channel-Threshold Select register. Specifies which set of threshold compare registers are to be used for each channel\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [chan_thrsel](index.html) module"]
+pub struct CHAN_THRSEL_SPEC;
+impl crate::RegisterSpec for CHAN_THRSEL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [chan_thrsel::R](R) reader structure"]
+impl crate::Readable for CHAN_THRSEL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [chan_thrsel::W](W) writer structure"]
+impl crate::Writable for CHAN_THRSEL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CHAN_THRSEL to value 0"]
+impl crate::Resettable for CHAN_THRSEL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

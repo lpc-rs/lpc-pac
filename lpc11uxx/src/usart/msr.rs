@@ -1,5 +1,17 @@
-#[doc = "Reader of register MSR"]
-pub type R = crate::R<u32, super::MSR>;
+#[doc = "Register `MSR` reader"]
+pub struct R(crate::R<MSR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MSR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<MSR_SPEC>> for R {
+    fn from(reader: crate::R<MSR_SPEC>) -> Self {
+        R(reader)
+    }
+}
 #[doc = "Delta CTS. Set upon state change of input CTS. Cleared on an MSR read.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DCTS_A {
@@ -14,9 +26,12 @@ impl From<DCTS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DCTS`"]
-pub type DCTS_R = crate::R<bool, DCTS_A>;
+#[doc = "Field `DCTS` reader - Delta CTS. Set upon state change of input CTS. Cleared on an MSR read."]
+pub struct DCTS_R(crate::FieldReader<bool, DCTS_A>);
 impl DCTS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DCTS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DCTS_A {
@@ -28,12 +43,19 @@ impl DCTS_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE_DETECTED_O`"]
     #[inline(always)]
     pub fn is_no_change_detected_o(&self) -> bool {
-        *self == DCTS_A::NO_CHANGE_DETECTED_O
+        **self == DCTS_A::NO_CHANGE_DETECTED_O
     }
     #[doc = "Checks if the value of the field is `STATE_CHANGE_DETECTE`"]
     #[inline(always)]
     pub fn is_state_change_detecte(&self) -> bool {
-        *self == DCTS_A::STATE_CHANGE_DETECTE
+        **self == DCTS_A::STATE_CHANGE_DETECTE
+    }
+}
+impl core::ops::Deref for DCTS_R {
+    type Target = crate::FieldReader<bool, DCTS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Delta DSR. Set upon state change of input DSR. Cleared on an MSR read.\n\nValue on reset: 0"]
@@ -50,9 +72,12 @@ impl From<DDSR_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DDSR`"]
-pub type DDSR_R = crate::R<bool, DDSR_A>;
+#[doc = "Field `DDSR` reader - Delta DSR. Set upon state change of input DSR. Cleared on an MSR read."]
+pub struct DDSR_R(crate::FieldReader<bool, DDSR_A>);
 impl DDSR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DDSR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DDSR_A {
@@ -64,12 +89,19 @@ impl DDSR_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE_DETECTED_O`"]
     #[inline(always)]
     pub fn is_no_change_detected_o(&self) -> bool {
-        *self == DDSR_A::NO_CHANGE_DETECTED_O
+        **self == DDSR_A::NO_CHANGE_DETECTED_O
     }
     #[doc = "Checks if the value of the field is `STATE_CHANGE_DETECTE`"]
     #[inline(always)]
     pub fn is_state_change_detecte(&self) -> bool {
-        *self == DDSR_A::STATE_CHANGE_DETECTE
+        **self == DDSR_A::STATE_CHANGE_DETECTE
+    }
+}
+impl core::ops::Deref for DDSR_R {
+    type Target = crate::FieldReader<bool, DDSR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Trailing Edge RI. Set upon low to high transition of input RI. Cleared on an MSR read.\n\nValue on reset: 0"]
@@ -86,9 +118,12 @@ impl From<TERI_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TERI`"]
-pub type TERI_R = crate::R<bool, TERI_A>;
+#[doc = "Field `TERI` reader - Trailing Edge RI. Set upon low to high transition of input RI. Cleared on an MSR read."]
+pub struct TERI_R(crate::FieldReader<bool, TERI_A>);
 impl TERI_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TERI_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TERI_A {
@@ -100,12 +135,19 @@ impl TERI_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE_DETECTED_O`"]
     #[inline(always)]
     pub fn is_no_change_detected_o(&self) -> bool {
-        *self == TERI_A::NO_CHANGE_DETECTED_O
+        **self == TERI_A::NO_CHANGE_DETECTED_O
     }
     #[doc = "Checks if the value of the field is `LOW_TO_HIGH_TRANSITI`"]
     #[inline(always)]
     pub fn is_low_to_high_transiti(&self) -> bool {
-        *self == TERI_A::LOW_TO_HIGH_TRANSITI
+        **self == TERI_A::LOW_TO_HIGH_TRANSITI
+    }
+}
+impl core::ops::Deref for TERI_R {
+    type Target = crate::FieldReader<bool, TERI_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Delta DCD. Set upon state change of input DCD. Cleared on an MSR read.\n\nValue on reset: 0"]
@@ -122,9 +164,12 @@ impl From<DDCD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DDCD`"]
-pub type DDCD_R = crate::R<bool, DDCD_A>;
+#[doc = "Field `DDCD` reader - Delta DCD. Set upon state change of input DCD. Cleared on an MSR read."]
+pub struct DDCD_R(crate::FieldReader<bool, DDCD_A>);
 impl DDCD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DDCD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DDCD_A {
@@ -136,22 +181,81 @@ impl DDCD_R {
     #[doc = "Checks if the value of the field is `NO_CHANGE_DETECTED_O`"]
     #[inline(always)]
     pub fn is_no_change_detected_o(&self) -> bool {
-        *self == DDCD_A::NO_CHANGE_DETECTED_O
+        **self == DDCD_A::NO_CHANGE_DETECTED_O
     }
     #[doc = "Checks if the value of the field is `STATE_CHANGE_DETECTE`"]
     #[inline(always)]
     pub fn is_state_change_detecte(&self) -> bool {
-        *self == DDCD_A::STATE_CHANGE_DETECTE
+        **self == DDCD_A::STATE_CHANGE_DETECTE
     }
 }
-#[doc = "Reader of field `CTS`"]
-pub type CTS_R = crate::R<bool, bool>;
-#[doc = "Reader of field `DSR`"]
-pub type DSR_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RI`"]
-pub type RI_R = crate::R<bool, bool>;
-#[doc = "Reader of field `DCD`"]
-pub type DCD_R = crate::R<bool, bool>;
+impl core::ops::Deref for DDCD_R {
+    type Target = crate::FieldReader<bool, DDCD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CTS` reader - Clear To Send State. Complement of input signal CTS. This bit is connected to MCR\\[1\\]
+in modem loopback mode."]
+pub struct CTS_R(crate::FieldReader<bool, bool>);
+impl CTS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CTS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CTS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DSR` reader - Data Set Ready State. Complement of input signal DSR. This bit is connected to MCR\\[0\\]
+in modem loopback mode."]
+pub struct DSR_R(crate::FieldReader<bool, bool>);
+impl DSR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DSR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DSR_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RI` reader - Ring Indicator State. Complement of input RI. This bit is connected to MCR\\[2\\]
+in modem loopback mode."]
+pub struct RI_R(crate::FieldReader<bool, bool>);
+impl RI_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RI_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RI_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DCD` reader - Data Carrier Detect State. Complement of input DCD. This bit is connected to MCR\\[3\\]
+in modem loopback mode."]
+pub struct DCD_R(crate::FieldReader<bool, bool>);
+impl DCD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DCD_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DCD_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bit 0 - Delta CTS. Set upon state change of input CTS. Cleared on an MSR read."]
     #[inline(always)]
@@ -196,5 +300,21 @@ in modem loopback mode."]
     #[inline(always)]
     pub fn dcd(&self) -> DCD_R {
         DCD_R::new(((self.bits >> 7) & 0x01) != 0)
+    }
+}
+#[doc = "Modem Status Register.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [msr](index.html) module"]
+pub struct MSR_SPEC;
+impl crate::RegisterSpec for MSR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [msr::R](R) reader structure"]
+impl crate::Readable for MSR_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets MSR to value 0"]
+impl crate::Resettable for MSR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

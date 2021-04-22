@@ -1,13 +1,35 @@
-#[doc = "Reader of register CFG"]
-pub type R = crate::R<u32, super::CFG>;
-#[doc = "Writer for register CFG"]
-pub type W = crate::W<u32, super::CFG>;
-#[doc = "Register CFG `reset()`'s with value 0"]
-impl crate::ResetValue for super::CFG {
-    type Type = u32;
+#[doc = "Register `CFG` reader"]
+pub struct R(crate::R<CFG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CFG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<CFG_SPEC>> for R {
+    fn from(reader: crate::R<CFG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CFG` writer"]
+pub struct W(crate::W<CFG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CFG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CFG_SPEC>> for W {
+    fn from(writer: crate::W<CFG_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Master Enable. When disabled, configurations settings for the Master function are not changed, but the Master function is internally reset.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<MSTEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MSTEN`"]
-pub type MSTEN_R = crate::R<bool, MSTEN_A>;
+#[doc = "Field `MSTEN` reader - Master Enable. When disabled, configurations settings for the Master function are not changed, but the Master function is internally reset."]
+pub struct MSTEN_R(crate::FieldReader<bool, MSTEN_A>);
 impl MSTEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MSTEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MSTEN_A {
@@ -38,15 +63,22 @@ impl MSTEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == MSTEN_A::DISABLED
+        **self == MSTEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == MSTEN_A::ENABLED
+        **self == MSTEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `MSTEN`"]
+impl core::ops::Deref for MSTEN_R {
+    type Target = crate::FieldReader<bool, MSTEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSTEN` writer - Master Enable. When disabled, configurations settings for the Master function are not changed, but the Master function is internally reset."]
 pub struct MSTEN_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> MSTEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSTEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. The I2C Master function is disabled."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> MSTEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<SLVEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SLVEN`"]
-pub type SLVEN_R = crate::R<bool, SLVEN_A>;
+#[doc = "Field `SLVEN` reader - Slave Enable. When disabled, configurations settings for the Slave function are not changed, but the Slave function is internally reset."]
+pub struct SLVEN_R(crate::FieldReader<bool, SLVEN_A>);
 impl SLVEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SLVEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SLVEN_A {
@@ -113,15 +146,22 @@ impl SLVEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == SLVEN_A::DISABLED
+        **self == SLVEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == SLVEN_A::ENABLED
+        **self == SLVEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `SLVEN`"]
+impl core::ops::Deref for SLVEN_R {
+    type Target = crate::FieldReader<bool, SLVEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SLVEN` writer - Slave Enable. When disabled, configurations settings for the Slave function are not changed, but the Slave function is internally reset."]
 pub struct SLVEN_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> SLVEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SLVEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. The I2C slave function is disabled."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> SLVEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<MONEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MONEN`"]
-pub type MONEN_R = crate::R<bool, MONEN_A>;
+#[doc = "Field `MONEN` reader - Monitor Enable. When disabled, configurations settings for the Monitor function are not changed, but the Monitor function is internally reset."]
+pub struct MONEN_R(crate::FieldReader<bool, MONEN_A>);
 impl MONEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MONEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MONEN_A {
@@ -188,15 +229,22 @@ impl MONEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == MONEN_A::DISABLED
+        **self == MONEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == MONEN_A::ENABLED
+        **self == MONEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `MONEN`"]
+impl core::ops::Deref for MONEN_R {
+    type Target = crate::FieldReader<bool, MONEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MONEN` writer - Monitor Enable. When disabled, configurations settings for the Monitor function are not changed, but the Monitor function is internally reset."]
 pub struct MONEN_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> MONEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MONEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. The I2C Monitor function is disabled."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> MONEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +295,12 @@ impl From<TIMEOUTEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TIMEOUTEN`"]
-pub type TIMEOUTEN_R = crate::R<bool, TIMEOUTEN_A>;
+#[doc = "Field `TIMEOUTEN` reader - I2C bus Time-out Enable. When disabled, the time-out function is internally reset."]
+pub struct TIMEOUTEN_R(crate::FieldReader<bool, TIMEOUTEN_A>);
 impl TIMEOUTEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TIMEOUTEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TIMEOUTEN_A {
@@ -263,15 +312,22 @@ impl TIMEOUTEN_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == TIMEOUTEN_A::DISABLED
+        **self == TIMEOUTEN_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == TIMEOUTEN_A::ENABLED
+        **self == TIMEOUTEN_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `TIMEOUTEN`"]
+impl core::ops::Deref for TIMEOUTEN_R {
+    type Target = crate::FieldReader<bool, TIMEOUTEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TIMEOUTEN` writer - I2C bus Time-out Enable. When disabled, the time-out function is internally reset."]
 pub struct TIMEOUTEN_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +335,7 @@ impl<'a> TIMEOUTEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TIMEOUTEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. Time-out function is disabled."]
     #[inline(always)]
@@ -306,7 +360,7 @@ impl<'a> TIMEOUTEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -324,9 +378,12 @@ impl From<MONCLKSTR_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MONCLKSTR`"]
-pub type MONCLKSTR_R = crate::R<bool, MONCLKSTR_A>;
+#[doc = "Field `MONCLKSTR` reader - Monitor function Clock Stretching."]
+pub struct MONCLKSTR_R(crate::FieldReader<bool, MONCLKSTR_A>);
 impl MONCLKSTR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MONCLKSTR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MONCLKSTR_A {
@@ -338,15 +395,22 @@ impl MONCLKSTR_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == MONCLKSTR_A::DISABLED
+        **self == MONCLKSTR_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == MONCLKSTR_A::ENABLED
+        **self == MONCLKSTR_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `MONCLKSTR`"]
+impl core::ops::Deref for MONCLKSTR_R {
+    type Target = crate::FieldReader<bool, MONCLKSTR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MONCLKSTR` writer - Monitor function Clock Stretching."]
 pub struct MONCLKSTR_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +418,7 @@ impl<'a> MONCLKSTR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MONCLKSTR_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disabled. The Monitor function will not perform clock stretching. Software or DMA may not always be able to read data provided by the Monitor function before it is overwritten. This mode may be used when non-invasive monitoring is critical."]
     #[inline(always)]
@@ -381,7 +443,7 @@ impl<'a> MONCLKSTR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -399,9 +461,12 @@ impl From<HSCAPABLE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HSCAPABLE`"]
-pub type HSCAPABLE_R = crate::R<bool, HSCAPABLE_A>;
+#[doc = "Field `HSCAPABLE` reader - High-speed mode Capable enable. Since High Speed mode alters the way I2C pins drive and filter, as well as the timing for certain I2C signalling, enabling High-speed mode applies to all functions: Master, Slave, and Monitor."]
+pub struct HSCAPABLE_R(crate::FieldReader<bool, HSCAPABLE_A>);
 impl HSCAPABLE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HSCAPABLE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HSCAPABLE_A {
@@ -413,15 +478,22 @@ impl HSCAPABLE_R {
     #[doc = "Checks if the value of the field is `FAST_MODE_PLUS`"]
     #[inline(always)]
     pub fn is_fast_mode_plus(&self) -> bool {
-        *self == HSCAPABLE_A::FAST_MODE_PLUS
+        **self == HSCAPABLE_A::FAST_MODE_PLUS
     }
     #[doc = "Checks if the value of the field is `HIGH_SPEED`"]
     #[inline(always)]
     pub fn is_high_speed(&self) -> bool {
-        *self == HSCAPABLE_A::HIGH_SPEED
+        **self == HSCAPABLE_A::HIGH_SPEED
     }
 }
-#[doc = "Write proxy for field `HSCAPABLE`"]
+impl core::ops::Deref for HSCAPABLE_R {
+    type Target = crate::FieldReader<bool, HSCAPABLE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HSCAPABLE` writer - High-speed mode Capable enable. Since High Speed mode alters the way I2C pins drive and filter, as well as the timing for certain I2C signalling, enabling High-speed mode applies to all functions: Master, Slave, and Monitor."]
 pub struct HSCAPABLE_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +501,7 @@ impl<'a> HSCAPABLE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: HSCAPABLE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Fast-mode plus. The I 2C interface will support Standard-mode, Fast-mode, and Fast-mode Plus, to the extent that the pin electronics support these modes. Any changes that need to be made to the pin controls, such as changing the drive strength or filtering, must be made by software via the IOCON register associated with each I2C pin,"]
     #[inline(always)]
@@ -456,7 +526,7 @@ impl<'a> HSCAPABLE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -522,5 +592,30 @@ impl W {
     #[inline(always)]
     pub fn hscapable(&mut self) -> HSCAPABLE_W {
         HSCAPABLE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Configuration for shared functions.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CFG_SPEC;
+impl crate::RegisterSpec for CFG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [cfg::R](R) reader structure"]
+impl crate::Readable for CFG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [cfg::W](W) writer structure"]
+impl crate::Writable for CFG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CFG to value 0"]
+impl crate::Resettable for CFG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

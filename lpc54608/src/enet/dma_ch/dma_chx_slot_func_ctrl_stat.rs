@@ -1,18 +1,52 @@
-#[doc = "Reader of register DMA_CHx_SLOT_FUNC_CTRL_STAT"]
-pub type R = crate::R<u32, super::DMA_CHX_SLOT_FUNC_CTRL_STAT>;
-#[doc = "Writer for register DMA_CHx_SLOT_FUNC_CTRL_STAT"]
-pub type W = crate::W<u32, super::DMA_CHX_SLOT_FUNC_CTRL_STAT>;
-#[doc = "Register DMA_CHx_SLOT_FUNC_CTRL_STAT `reset()`'s with value 0"]
-impl crate::ResetValue for super::DMA_CHX_SLOT_FUNC_CTRL_STAT {
-    type Type = u32;
+#[doc = "Register `DMA_CHx_SLOT_FUNC_CTRL_STAT` reader"]
+pub struct R(crate::R<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `ESC`"]
-pub type ESC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ESC`"]
+impl core::convert::From<crate::R<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>> for R {
+    fn from(reader: crate::R<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DMA_CHx_SLOT_FUNC_CTRL_STAT` writer"]
+pub struct W(crate::W<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>> for W {
+    fn from(writer: crate::W<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `ESC` reader - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field."]
+pub struct ESC_R(crate::FieldReader<bool, bool>);
+impl ESC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ESC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ESC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ESC` writer - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field."]
 pub struct ESC_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> ESC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `ASC`"]
-pub type ASC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `ASC`"]
+#[doc = "Field `ASC` reader - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set."]
+pub struct ASC_R(crate::FieldReader<bool, bool>);
+impl ASC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ASC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ASC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ASC` writer - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set."]
 pub struct ASC_W<'a> {
     w: &'a mut W,
 }
@@ -54,12 +100,24 @@ impl<'a> ASC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `RSN`"]
-pub type RSN_R = crate::R<u8, u8>;
+#[doc = "Field `RSN` reader - Reference Slot Number This field gives the current value of the reference slot number in the DMA."]
+pub struct RSN_R(crate::FieldReader<u8, u8>);
+impl RSN_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        RSN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RSN_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bit 0 - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field."]
     #[inline(always)]
@@ -87,5 +145,30 @@ impl W {
     #[inline(always)]
     pub fn asc(&mut self) -> ASC_W {
         ASC_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Slot Function Control and Status\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_chx_slot_func_ctrl_stat](index.html) module"]
+pub struct DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC;
+impl crate::RegisterSpec for DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [dma_chx_slot_func_ctrl_stat::R](R) reader structure"]
+impl crate::Readable for DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [dma_chx_slot_func_ctrl_stat::W](W) writer structure"]
+impl crate::Writable for DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DMA_CHx_SLOT_FUNC_CTRL_STAT to value 0"]
+impl crate::Resettable for DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

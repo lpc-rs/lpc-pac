@@ -1,18 +1,52 @@
-#[doc = "Reader of register PINASSIGN1"]
-pub type R = crate::R<u32, super::PINASSIGN1>;
-#[doc = "Writer for register PINASSIGN1"]
-pub type W = crate::W<u32, super::PINASSIGN1>;
-#[doc = "Register PINASSIGN1 `reset()`'s with value 0xffff_ffff"]
-impl crate::ResetValue for super::PINASSIGN1 {
-    type Type = u32;
+#[doc = "Register `PINASSIGN1` reader"]
+pub struct R(crate::R<PINASSIGN1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PINASSIGN1_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0xffff_ffff
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `U0_SCLK_IO`"]
-pub type U0_SCLK_IO_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `U0_SCLK_IO`"]
+impl core::convert::From<crate::R<PINASSIGN1_SPEC>> for R {
+    fn from(reader: crate::R<PINASSIGN1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PINASSIGN1` writer"]
+pub struct W(crate::W<PINASSIGN1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PINASSIGN1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<PINASSIGN1_SPEC>> for W {
+    fn from(writer: crate::W<PINASSIGN1_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `U0_SCLK_IO` reader - U0_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
+pub struct U0_SCLK_IO_R(crate::FieldReader<u8, u8>);
+impl U0_SCLK_IO_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        U0_SCLK_IO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for U0_SCLK_IO_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `U0_SCLK_IO` writer - U0_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct U0_SCLK_IO_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> U0_SCLK_IO_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
-#[doc = "Reader of field `U1_TXD_O`"]
-pub type U1_TXD_O_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `U1_TXD_O`"]
+#[doc = "Field `U1_TXD_O` reader - U1_TXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
+pub struct U1_TXD_O_R(crate::FieldReader<u8, u8>);
+impl U1_TXD_O_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        U1_TXD_O_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for U1_TXD_O_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `U1_TXD_O` writer - U1_TXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct U1_TXD_O_W<'a> {
     w: &'a mut W,
 }
@@ -34,13 +80,25 @@ impl<'a> U1_TXD_O_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
+        self.w.bits = (self.w.bits & !(0xff << 8)) | ((value as u32 & 0xff) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `U1_RXD_I`"]
-pub type U1_RXD_I_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `U1_RXD_I`"]
+#[doc = "Field `U1_RXD_I` reader - U1_RXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0(= 0) to PIO0_28 (= 0x1C)."]
+pub struct U1_RXD_I_R(crate::FieldReader<u8, u8>);
+impl U1_RXD_I_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        U1_RXD_I_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for U1_RXD_I_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `U1_RXD_I` writer - U1_RXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0(= 0) to PIO0_28 (= 0x1C)."]
 pub struct U1_RXD_I_W<'a> {
     w: &'a mut W,
 }
@@ -48,13 +106,25 @@ impl<'a> U1_RXD_I_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
+        self.w.bits = (self.w.bits & !(0xff << 16)) | ((value as u32 & 0xff) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `U1_RTS_O`"]
-pub type U1_RTS_O_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `U1_RTS_O`"]
+#[doc = "Field `U1_RTS_O` reader - U1_RTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
+pub struct U1_RTS_O_R(crate::FieldReader<u8, u8>);
+impl U1_RTS_O_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        U1_RTS_O_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for U1_RTS_O_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `U1_RTS_O` writer - U1_RTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct U1_RTS_O_W<'a> {
     w: &'a mut W,
 }
@@ -62,7 +132,7 @@ impl<'a> U1_RTS_O_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
+        self.w.bits = (self.w.bits & !(0xff << 24)) | ((value as u32 & 0xff) << 24);
         self.w
     }
 }
@@ -108,5 +178,30 @@ impl W {
     #[inline(always)]
     pub fn u1_rts_o(&mut self) -> U1_RTS_O_W {
         U1_RTS_O_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Pin assign register 1. Assign movable functions U0_SCLK, U1_TXD, U1_RXD, U1_RTS.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pinassign1](index.html) module"]
+pub struct PINASSIGN1_SPEC;
+impl crate::RegisterSpec for PINASSIGN1_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pinassign1::R](R) reader structure"]
+impl crate::Readable for PINASSIGN1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pinassign1::W](W) writer structure"]
+impl crate::Writable for PINASSIGN1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PINASSIGN1 to value 0xffff_ffff"]
+impl crate::Resettable for PINASSIGN1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0xffff_ffff
     }
 }

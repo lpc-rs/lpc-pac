@@ -1,11 +1,21 @@
-#[doc = "Writer for register FCR"]
-pub type W = crate::W<u32, super::FCR>;
-#[doc = "Register FCR `reset()`'s with value 0"]
-impl crate::ResetValue for super::FCR {
-    type Type = u32;
+#[doc = "Register `FCR` writer"]
+pub struct W(crate::W<FCR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FCR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FCR_SPEC>> for W {
+    fn from(writer: crate::W<FCR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "FIFO enable\n\nValue on reset: 0"]
@@ -23,7 +33,7 @@ impl From<FIFOEN_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `FIFOEN`"]
+#[doc = "Field `FIFOEN` writer - FIFO enable"]
 pub struct FIFOEN_W<'a> {
     w: &'a mut W,
 }
@@ -31,9 +41,7 @@ impl<'a> FIFOEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FIFOEN_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "USART FIFOs are disabled. Must not be used in the application."]
     #[inline(always)]
@@ -59,7 +67,7 @@ access. This bit must be set for proper USART operation. Any transition on this 
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -78,7 +86,7 @@ impl From<RXFIFORES_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `RXFIFORES`"]
+#[doc = "Field `RXFIFORES` writer - RX FIFO Reset"]
 pub struct RXFIFORES_W<'a> {
     w: &'a mut W,
 }
@@ -86,9 +94,7 @@ impl<'a> RXFIFORES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RXFIFORES_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No impact on either of USART FIFOs."]
     #[inline(always)]
@@ -114,7 +120,7 @@ will clear all bytes in USART Rx FIFO, reset the pointer logic. This bit is self
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -133,7 +139,7 @@ impl From<TXFIFORES_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `TXFIFORES`"]
+#[doc = "Field `TXFIFORES` writer - TX FIFO Reset"]
 pub struct TXFIFORES_W<'a> {
     w: &'a mut W,
 }
@@ -141,9 +147,7 @@ impl<'a> TXFIFORES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TXFIFORES_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No impact on either of USART FIFOs."]
     #[inline(always)]
@@ -169,7 +173,7 @@ will clear all bytes in USART TX FIFO, reset the pointer logic. This bit is self
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -192,7 +196,7 @@ impl From<RXTL_AW> for u8 {
         variant as _
     }
 }
-#[doc = "Write proxy for field `RXTL`"]
+#[doc = "Field `RXTL` writer - RX Trigger Level. These two bits determine how many receiver USART FIFO characters must be written before an interrupt is activated."]
 pub struct RXTL_W<'a> {
     w: &'a mut W,
 }
@@ -200,9 +204,7 @@ impl<'a> RXTL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RXTL_AW) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Trigger level 0 (1 character or 0x01)."]
     #[inline(always)]
@@ -227,7 +229,7 @@ impl<'a> RXTL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 6)) | (((value as u32) & 0x03) << 6);
+        self.w.bits = (self.w.bits & !(0x03 << 6)) | ((value as u32 & 0x03) << 6);
         self.w
     }
 }
@@ -251,5 +253,26 @@ impl W {
     #[inline(always)]
     pub fn rxtl(&mut self) -> RXTL_W {
         RXTL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "FIFO Control Register. Controls USART FIFO usage and modes.\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fcr](index.html) module"]
+pub struct FCR_SPEC;
+impl crate::RegisterSpec for FCR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [fcr::W](W) writer structure"]
+impl crate::Writable for FCR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FCR to value 0"]
+impl crate::Resettable for FCR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

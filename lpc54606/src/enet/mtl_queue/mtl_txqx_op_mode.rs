@@ -1,18 +1,52 @@
-#[doc = "Reader of register MTL_TXQx_OP_MODE"]
-pub type R = crate::R<u32, super::MTL_TXQX_OP_MODE>;
-#[doc = "Writer for register MTL_TXQx_OP_MODE"]
-pub type W = crate::W<u32, super::MTL_TXQX_OP_MODE>;
-#[doc = "Register MTL_TXQx_OP_MODE `reset()`'s with value 0"]
-impl crate::ResetValue for super::MTL_TXQX_OP_MODE {
-    type Type = u32;
+#[doc = "Register `MTL_TXQx_OP_MODE` reader"]
+pub struct R(crate::R<MTL_TXQX_OP_MODE_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MTL_TXQX_OP_MODE_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `FTQ`"]
-pub type FTQ_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FTQ`"]
+impl core::convert::From<crate::R<MTL_TXQX_OP_MODE_SPEC>> for R {
+    fn from(reader: crate::R<MTL_TXQX_OP_MODE_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MTL_TXQx_OP_MODE` writer"]
+pub struct W(crate::W<MTL_TXQX_OP_MODE_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MTL_TXQX_OP_MODE_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MTL_TXQX_OP_MODE_SPEC>> for W {
+    fn from(writer: crate::W<MTL_TXQX_OP_MODE_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `FTQ` reader - Flush Transmit Queue When this bit is set, the Tx queue controller logic is reset to its default values."]
+pub struct FTQ_R(crate::FieldReader<bool, bool>);
+impl FTQ_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FTQ_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FTQ_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FTQ` writer - Flush Transmit Queue When this bit is set, the Tx queue controller logic is reset to its default values."]
 pub struct FTQ_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> FTQ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `TSF`"]
-pub type TSF_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `TSF`"]
+#[doc = "Field `TSF` reader - Transmit Store and Forward When this bit is set, the transmission starts when a full packet resides in the MTL Tx queue."]
+pub struct TSF_R(crate::FieldReader<bool, bool>);
+impl TSF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TSF_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TSF_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TSF` writer - Transmit Store and Forward When this bit is set, the transmission starts when a full packet resides in the MTL Tx queue."]
 pub struct TSF_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> TSF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `TXQEN`"]
-pub type TXQEN_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `TXQEN`"]
+#[doc = "Field `TXQEN` reader - Transmit Queue Enable This field is used to enable/disable the transmit queue 0."]
+pub struct TXQEN_R(crate::FieldReader<u8, u8>);
+impl TXQEN_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TXQEN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXQEN_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXQEN` writer - Transmit Queue Enable This field is used to enable/disable the transmit queue 0."]
 pub struct TXQEN_W<'a> {
     w: &'a mut W,
 }
@@ -68,13 +126,25 @@ impl<'a> TXQEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 2)) | (((value as u32) & 0x03) << 2);
+        self.w.bits = (self.w.bits & !(0x03 << 2)) | ((value as u32 & 0x03) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `TTC`"]
-pub type TTC_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `TTC`"]
+#[doc = "Field `TTC` reader - Transmit Threshold Control These bits control the threshold level of the MTL Tx Queue."]
+pub struct TTC_R(crate::FieldReader<u8, u8>);
+impl TTC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TTC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TTC_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TTC` writer - Transmit Threshold Control These bits control the threshold level of the MTL Tx Queue."]
 pub struct TTC_W<'a> {
     w: &'a mut W,
 }
@@ -82,13 +152,25 @@ impl<'a> TTC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 4)) | (((value as u32) & 0x07) << 4);
+        self.w.bits = (self.w.bits & !(0x07 << 4)) | ((value as u32 & 0x07) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `TQS`"]
-pub type TQS_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `TQS`"]
+#[doc = "Field `TQS` reader - Transmit Queue Size This field indicates the size of the allocated Transmit queues in blocks of 256 bytes."]
+pub struct TQS_R(crate::FieldReader<u8, u8>);
+impl TQS_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TQS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TQS_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TQS` writer - Transmit Queue Size This field indicates the size of the allocated Transmit queues in blocks of 256 bytes."]
 pub struct TQS_W<'a> {
     w: &'a mut W,
 }
@@ -96,7 +178,7 @@ impl<'a> TQS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 16)) | (((value as u32) & 0x07) << 16);
+        self.w.bits = (self.w.bits & !(0x07 << 16)) | ((value as u32 & 0x07) << 16);
         self.w
     }
 }
@@ -152,5 +234,30 @@ impl W {
     #[inline(always)]
     pub fn tqs(&mut self) -> TQS_W {
         TQS_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "MTL TxQx Operation Mode register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mtl_txqx_op_mode](index.html) module"]
+pub struct MTL_TXQX_OP_MODE_SPEC;
+impl crate::RegisterSpec for MTL_TXQX_OP_MODE_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mtl_txqx_op_mode::R](R) reader structure"]
+impl crate::Readable for MTL_TXQX_OP_MODE_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mtl_txqx_op_mode::W](W) writer structure"]
+impl crate::Writable for MTL_TXQX_OP_MODE_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MTL_TXQx_OP_MODE to value 0"]
+impl crate::Resettable for MTL_TXQX_OP_MODE_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

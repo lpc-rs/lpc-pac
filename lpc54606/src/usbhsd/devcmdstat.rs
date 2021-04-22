@@ -1,18 +1,52 @@
-#[doc = "Reader of register DEVCMDSTAT"]
-pub type R = crate::R<u32, super::DEVCMDSTAT>;
-#[doc = "Writer for register DEVCMDSTAT"]
-pub type W = crate::W<u32, super::DEVCMDSTAT>;
-#[doc = "Register DEVCMDSTAT `reset()`'s with value 0x0800"]
-impl crate::ResetValue for super::DEVCMDSTAT {
-    type Type = u32;
+#[doc = "Register `DEVCMDSTAT` reader"]
+pub struct R(crate::R<DEVCMDSTAT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DEVCMDSTAT_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0800
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `DEV_ADDR`"]
-pub type DEV_ADDR_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `DEV_ADDR`"]
+impl core::convert::From<crate::R<DEVCMDSTAT_SPEC>> for R {
+    fn from(reader: crate::R<DEVCMDSTAT_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DEVCMDSTAT` writer"]
+pub struct W(crate::W<DEVCMDSTAT_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DEVCMDSTAT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<DEVCMDSTAT_SPEC>> for W {
+    fn from(writer: crate::W<DEVCMDSTAT_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `DEV_ADDR` reader - USB device address."]
+pub struct DEV_ADDR_R(crate::FieldReader<u8, u8>);
+impl DEV_ADDR_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DEV_ADDR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DEV_ADDR_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DEV_ADDR` writer - USB device address."]
 pub struct DEV_ADDR_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> DEV_ADDR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x7f) | ((value as u32) & 0x7f);
+        self.w.bits = (self.w.bits & !0x7f) | (value as u32 & 0x7f);
         self.w
     }
 }
-#[doc = "Reader of field `DEV_EN`"]
-pub type DEV_EN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DEV_EN`"]
+#[doc = "Field `DEV_EN` reader - USB device enable."]
+pub struct DEV_EN_R(crate::FieldReader<bool, bool>);
+impl DEV_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DEV_EN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DEV_EN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DEV_EN` writer - USB device enable."]
 pub struct DEV_EN_W<'a> {
     w: &'a mut W,
 }
@@ -44,13 +90,25 @@ impl<'a> DEV_EN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Reader of field `SETUP`"]
-pub type SETUP_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `SETUP`"]
+#[doc = "Field `SETUP` reader - SETUP token received."]
+pub struct SETUP_R(crate::FieldReader<bool, bool>);
+impl SETUP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SETUP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SETUP_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SETUP` writer - SETUP token received."]
 pub struct SETUP_W<'a> {
     w: &'a mut W,
 }
@@ -68,13 +126,25 @@ impl<'a> SETUP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `FORCE_NEEDCLK`"]
-pub type FORCE_NEEDCLK_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FORCE_NEEDCLK`"]
+#[doc = "Field `FORCE_NEEDCLK` reader - Forces the NEEDCLK output to always be on:."]
+pub struct FORCE_NEEDCLK_R(crate::FieldReader<bool, bool>);
+impl FORCE_NEEDCLK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FORCE_NEEDCLK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FORCE_NEEDCLK_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FORCE_NEEDCLK` writer - Forces the NEEDCLK output to always be on:."]
 pub struct FORCE_NEEDCLK_W<'a> {
     w: &'a mut W,
 }
@@ -92,13 +162,25 @@ impl<'a> FORCE_NEEDCLK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `FORCE_VBUS`"]
-pub type FORCE_VBUS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `FORCE_VBUS`"]
+#[doc = "Field `FORCE_VBUS` reader - If this bit is set to 1, the VBUS voltage indicators from the PHY are overruled."]
+pub struct FORCE_VBUS_R(crate::FieldReader<bool, bool>);
+impl FORCE_VBUS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FORCE_VBUS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for FORCE_VBUS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FORCE_VBUS` writer - If this bit is set to 1, the VBUS voltage indicators from the PHY are overruled."]
 pub struct FORCE_VBUS_W<'a> {
     w: &'a mut W,
 }
@@ -116,13 +198,25 @@ impl<'a> FORCE_VBUS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `LPM_SUP`"]
-pub type LPM_SUP_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LPM_SUP`"]
+#[doc = "Field `LPM_SUP` reader - LPM Supported:."]
+pub struct LPM_SUP_R(crate::FieldReader<bool, bool>);
+impl LPM_SUP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LPM_SUP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LPM_SUP_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LPM_SUP` writer - LPM Supported:."]
 pub struct LPM_SUP_W<'a> {
     w: &'a mut W,
 }
@@ -140,13 +234,25 @@ impl<'a> LPM_SUP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Reader of field `INTONNAK_AO`"]
-pub type INTONNAK_AO_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `INTONNAK_AO`"]
+#[doc = "Field `INTONNAK_AO` reader - Interrupt on NAK for interrupt and bulk OUT EP:."]
+pub struct INTONNAK_AO_R(crate::FieldReader<bool, bool>);
+impl INTONNAK_AO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INTONNAK_AO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INTONNAK_AO_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INTONNAK_AO` writer - Interrupt on NAK for interrupt and bulk OUT EP:."]
 pub struct INTONNAK_AO_W<'a> {
     w: &'a mut W,
 }
@@ -164,13 +270,25 @@ impl<'a> INTONNAK_AO_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Reader of field `INTONNAK_AI`"]
-pub type INTONNAK_AI_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `INTONNAK_AI`"]
+#[doc = "Field `INTONNAK_AI` reader - Interrupt on NAK for interrupt and bulk IN EP:."]
+pub struct INTONNAK_AI_R(crate::FieldReader<bool, bool>);
+impl INTONNAK_AI_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INTONNAK_AI_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INTONNAK_AI_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INTONNAK_AI` writer - Interrupt on NAK for interrupt and bulk IN EP:."]
 pub struct INTONNAK_AI_W<'a> {
     w: &'a mut W,
 }
@@ -188,13 +306,25 @@ impl<'a> INTONNAK_AI_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Reader of field `INTONNAK_CO`"]
-pub type INTONNAK_CO_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `INTONNAK_CO`"]
+#[doc = "Field `INTONNAK_CO` reader - Interrupt on NAK for control OUT EP:."]
+pub struct INTONNAK_CO_R(crate::FieldReader<bool, bool>);
+impl INTONNAK_CO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INTONNAK_CO_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INTONNAK_CO_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INTONNAK_CO` writer - Interrupt on NAK for control OUT EP:."]
 pub struct INTONNAK_CO_W<'a> {
     w: &'a mut W,
 }
@@ -212,13 +342,25 @@ impl<'a> INTONNAK_CO_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
-#[doc = "Reader of field `INTONNAK_CI`"]
-pub type INTONNAK_CI_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `INTONNAK_CI`"]
+#[doc = "Field `INTONNAK_CI` reader - Interrupt on NAK for control IN EP:."]
+pub struct INTONNAK_CI_R(crate::FieldReader<bool, bool>);
+impl INTONNAK_CI_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INTONNAK_CI_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INTONNAK_CI_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INTONNAK_CI` writer - Interrupt on NAK for control IN EP:."]
 pub struct INTONNAK_CI_W<'a> {
     w: &'a mut W,
 }
@@ -236,13 +378,25 @@ impl<'a> INTONNAK_CI_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Reader of field `DCON`"]
-pub type DCON_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DCON`"]
+#[doc = "Field `DCON` reader - Device status - connect."]
+pub struct DCON_R(crate::FieldReader<bool, bool>);
+impl DCON_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DCON_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DCON_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DCON` writer - Device status - connect."]
 pub struct DCON_W<'a> {
     w: &'a mut W,
 }
@@ -260,13 +414,25 @@ impl<'a> DCON_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `DSUS`"]
-pub type DSUS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DSUS`"]
+#[doc = "Field `DSUS` reader - Device status - suspend."]
+pub struct DSUS_R(crate::FieldReader<bool, bool>);
+impl DSUS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DSUS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DSUS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DSUS` writer - Device status - suspend."]
 pub struct DSUS_W<'a> {
     w: &'a mut W,
 }
@@ -284,13 +450,25 @@ impl<'a> DSUS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `LPM_SUS`"]
-pub type LPM_SUS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LPM_SUS`"]
+#[doc = "Field `LPM_SUS` reader - Device status - LPM Suspend."]
+pub struct LPM_SUS_R(crate::FieldReader<bool, bool>);
+impl LPM_SUS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LPM_SUS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LPM_SUS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LPM_SUS` writer - Device status - LPM Suspend."]
 pub struct LPM_SUS_W<'a> {
     w: &'a mut W,
 }
@@ -308,17 +486,53 @@ impl<'a> LPM_SUS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Reader of field `LPM_REWP`"]
-pub type LPM_REWP_R = crate::R<bool, bool>;
-#[doc = "Reader of field `Speed`"]
-pub type SPEED_R = crate::R<u8, u8>;
-#[doc = "Reader of field `DCON_C`"]
-pub type DCON_C_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DCON_C`"]
+#[doc = "Field `LPM_REWP` reader - LPM Remote Wake-up Enabled by USB host."]
+pub struct LPM_REWP_R(crate::FieldReader<bool, bool>);
+impl LPM_REWP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LPM_REWP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LPM_REWP_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `Speed` reader - This field indicates the speed at which the device operates: 00b: reserved 01b: full-speed 10b: high-speed 11b: super-speed (reserved for future use)."]
+pub struct SPEED_R(crate::FieldReader<u8, u8>);
+impl SPEED_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SPEED_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for SPEED_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DCON_C` reader - Device status - connect change."]
+pub struct DCON_C_R(crate::FieldReader<bool, bool>);
+impl DCON_C_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DCON_C_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DCON_C_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DCON_C` writer - Device status - connect change."]
 pub struct DCON_C_W<'a> {
     w: &'a mut W,
 }
@@ -336,13 +550,25 @@ impl<'a> DCON_C_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | ((value as u32 & 0x01) << 24);
         self.w
     }
 }
-#[doc = "Reader of field `DSUS_C`"]
-pub type DSUS_C_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DSUS_C`"]
+#[doc = "Field `DSUS_C` reader - Device status - suspend change."]
+pub struct DSUS_C_R(crate::FieldReader<bool, bool>);
+impl DSUS_C_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DSUS_C_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DSUS_C_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DSUS_C` writer - Device status - suspend change."]
 pub struct DSUS_C_W<'a> {
     w: &'a mut W,
 }
@@ -360,13 +586,25 @@ impl<'a> DSUS_C_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
-#[doc = "Reader of field `DRES_C`"]
-pub type DRES_C_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DRES_C`"]
+#[doc = "Field `DRES_C` reader - Device status - reset change."]
+pub struct DRES_C_R(crate::FieldReader<bool, bool>);
+impl DRES_C_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DRES_C_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DRES_C_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DRES_C` writer - Device status - reset change."]
 pub struct DRES_C_W<'a> {
     w: &'a mut W,
 }
@@ -384,15 +622,39 @@ impl<'a> DRES_C_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | ((value as u32 & 0x01) << 26);
         self.w
     }
 }
-#[doc = "Reader of field `VBUS_DEBOUNCED`"]
-pub type VBUS_DEBOUNCED_R = crate::R<bool, bool>;
-#[doc = "Reader of field `PHY_TEST_MODE`"]
-pub type PHY_TEST_MODE_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PHY_TEST_MODE`"]
+#[doc = "Field `VBUS_DEBOUNCED` reader - This bit indicates if VBUS is detected or not."]
+pub struct VBUS_DEBOUNCED_R(crate::FieldReader<bool, bool>);
+impl VBUS_DEBOUNCED_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        VBUS_DEBOUNCED_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for VBUS_DEBOUNCED_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PHY_TEST_MODE` reader - This field is written by firmware to put the PHY into a test mode as defined by the USB2."]
+pub struct PHY_TEST_MODE_R(crate::FieldReader<u8, u8>);
+impl PHY_TEST_MODE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PHY_TEST_MODE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PHY_TEST_MODE_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PHY_TEST_MODE` writer - This field is written by firmware to put the PHY into a test mode as defined by the USB2."]
 pub struct PHY_TEST_MODE_W<'a> {
     w: &'a mut W,
 }
@@ -400,7 +662,7 @@ impl<'a> PHY_TEST_MODE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 29)) | (((value as u32) & 0x07) << 29);
+        self.w.bits = (self.w.bits & !(0x07 << 29)) | ((value as u32 & 0x07) << 29);
         self.w
     }
 }
@@ -591,5 +853,30 @@ impl W {
     #[inline(always)]
     pub fn phy_test_mode(&mut self) -> PHY_TEST_MODE_W {
         PHY_TEST_MODE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "USB Device Command/Status register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devcmdstat](index.html) module"]
+pub struct DEVCMDSTAT_SPEC;
+impl crate::RegisterSpec for DEVCMDSTAT_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [devcmdstat::R](R) reader structure"]
+impl crate::Readable for DEVCMDSTAT_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [devcmdstat::W](W) writer structure"]
+impl crate::Writable for DEVCMDSTAT_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DEVCMDSTAT to value 0x0800"]
+impl crate::Resettable for DEVCMDSTAT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0800
     }
 }

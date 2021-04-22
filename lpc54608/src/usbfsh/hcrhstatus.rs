@@ -1,18 +1,52 @@
-#[doc = "Reader of register HCRHSTATUS"]
-pub type R = crate::R<u32, super::HCRHSTATUS>;
-#[doc = "Writer for register HCRHSTATUS"]
-pub type W = crate::W<u32, super::HCRHSTATUS>;
-#[doc = "Register HCRHSTATUS `reset()`'s with value 0"]
-impl crate::ResetValue for super::HCRHSTATUS {
-    type Type = u32;
+#[doc = "Register `HCRHSTATUS` reader"]
+pub struct R(crate::R<HCRHSTATUS_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<HCRHSTATUS_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `LPS`"]
-pub type LPS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LPS`"]
+impl core::convert::From<crate::R<HCRHSTATUS_SPEC>> for R {
+    fn from(reader: crate::R<HCRHSTATUS_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `HCRHSTATUS` writer"]
+pub struct W(crate::W<HCRHSTATUS_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<HCRHSTATUS_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<HCRHSTATUS_SPEC>> for W {
+    fn from(writer: crate::W<HCRHSTATUS_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `LPS` reader - (read) LocalPowerStatus The Root Hub does not support the local power status feature; thus, this bit is always read as 0."]
+pub struct LPS_R(crate::FieldReader<bool, bool>);
+impl LPS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LPS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LPS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LPS` writer - (read) LocalPowerStatus The Root Hub does not support the local power status feature; thus, this bit is always read as 0."]
 pub struct LPS_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> LPS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `OCI`"]
-pub type OCI_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `OCI`"]
+#[doc = "Field `OCI` reader - OverCurrentIndicator This bit reports overcurrent conditions when the global reporting is implemented."]
+pub struct OCI_R(crate::FieldReader<bool, bool>);
+impl OCI_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        OCI_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for OCI_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OCI` writer - OverCurrentIndicator This bit reports overcurrent conditions when the global reporting is implemented."]
 pub struct OCI_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> OCI_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `DRWE`"]
-pub type DRWE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DRWE`"]
+#[doc = "Field `DRWE` reader - (read) DeviceRemoteWakeupEnable This bit enables a ConnectStatusChange bit as a resume event, causing a USBSUSPEND to USBRESUME state transition and setting the ResumeDetected interrupt."]
+pub struct DRWE_R(crate::FieldReader<bool, bool>);
+impl DRWE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DRWE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DRWE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DRWE` writer - (read) DeviceRemoteWakeupEnable This bit enables a ConnectStatusChange bit as a resume event, causing a USBSUSPEND to USBRESUME state transition and setting the ResumeDetected interrupt."]
 pub struct DRWE_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> DRWE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Reader of field `LPSC`"]
-pub type LPSC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `LPSC`"]
+#[doc = "Field `LPSC` reader - (read) LocalPowerStatusChange The root hub does not support the local power status feature."]
+pub struct LPSC_R(crate::FieldReader<bool, bool>);
+impl LPSC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LPSC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LPSC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LPSC` writer - (read) LocalPowerStatusChange The root hub does not support the local power status feature."]
 pub struct LPSC_W<'a> {
     w: &'a mut W,
 }
@@ -102,13 +172,25 @@ impl<'a> LPSC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `OCIC`"]
-pub type OCIC_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `OCIC`"]
+#[doc = "Field `OCIC` reader - OverCurrentIndicatorChange This bit is set by hardware when a change has occurred to the OCI field of this register."]
+pub struct OCIC_R(crate::FieldReader<bool, bool>);
+impl OCIC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        OCIC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for OCIC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OCIC` writer - OverCurrentIndicatorChange This bit is set by hardware when a change has occurred to the OCI field of this register."]
 pub struct OCIC_W<'a> {
     w: &'a mut W,
 }
@@ -126,13 +208,25 @@ impl<'a> OCIC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `CRWE`"]
-pub type CRWE_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CRWE`"]
+#[doc = "Field `CRWE` reader - (write) ClearRemoteWakeupEnable Writing a 1 clears DeviceRemoveWakeupEnable."]
+pub struct CRWE_R(crate::FieldReader<bool, bool>);
+impl CRWE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CRWE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CRWE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CRWE` writer - (write) ClearRemoteWakeupEnable Writing a 1 clears DeviceRemoveWakeupEnable."]
 pub struct CRWE_W<'a> {
     w: &'a mut W,
 }
@@ -150,7 +244,7 @@ impl<'a> CRWE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -216,5 +310,30 @@ impl W {
     #[inline(always)]
     pub fn crwe(&mut self) -> CRWE_W {
         CRWE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "This register is divided into two parts\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hcrhstatus](index.html) module"]
+pub struct HCRHSTATUS_SPEC;
+impl crate::RegisterSpec for HCRHSTATUS_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [hcrhstatus::R](R) reader structure"]
+impl crate::Readable for HCRHSTATUS_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [hcrhstatus::W](W) writer structure"]
+impl crate::Writable for HCRHSTATUS_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets HCRHSTATUS to value 0"]
+impl crate::Resettable for HCRHSTATUS_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

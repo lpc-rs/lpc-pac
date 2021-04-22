@@ -1,18 +1,52 @@
-#[doc = "Reader of register FIFOWR"]
-pub type R = crate::R<u32, super::FIFOWR>;
-#[doc = "Writer for register FIFOWR"]
-pub type W = crate::W<u32, super::FIFOWR>;
-#[doc = "Register FIFOWR `reset()`'s with value 0"]
-impl crate::ResetValue for super::FIFOWR {
-    type Type = u32;
+#[doc = "Register `FIFOWR` reader"]
+pub struct R(crate::R<FIFOWR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FIFOWR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `TXDATA`"]
-pub type TXDATA_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `TXDATA`"]
+impl core::convert::From<crate::R<FIFOWR_SPEC>> for R {
+    fn from(reader: crate::R<FIFOWR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FIFOWR` writer"]
+pub struct W(crate::W<FIFOWR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FIFOWR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FIFOWR_SPEC>> for W {
+    fn from(writer: crate::W<FIFOWR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `TXDATA` reader - Transmit data to the FIFO."]
+pub struct TXDATA_R(crate::FieldReader<u16, u16>);
+impl TXDATA_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        TXDATA_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXDATA_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXDATA` writer - Transmit data to the FIFO."]
 pub struct TXDATA_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +54,7 @@ impl<'a> TXDATA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff) | ((value as u32) & 0xffff);
+        self.w.bits = (self.w.bits & !0xffff) | (value as u32 & 0xffff);
         self.w
     }
 }
@@ -38,7 +72,7 @@ impl From<TXSSEL0_N_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `TXSSEL0_N`"]
+#[doc = "Field `TXSSEL0_N` writer - Transmit slave select. This field asserts SSEL0 in master mode. The output on the pin is active LOW by default."]
 pub struct TXSSEL0_N_W<'a> {
     w: &'a mut W,
 }
@@ -46,9 +80,7 @@ impl<'a> TXSSEL0_N_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TXSSEL0_N_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "SSEL0 asserted."]
     #[inline(always)]
@@ -73,7 +105,7 @@ impl<'a> TXSSEL0_N_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
@@ -91,7 +123,7 @@ impl From<TXSSEL1_N_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `TXSSEL1_N`"]
+#[doc = "Field `TXSSEL1_N` writer - Transmit slave select. This field asserts SSEL1 in master mode. The output on the pin is active LOW by default."]
 pub struct TXSSEL1_N_W<'a> {
     w: &'a mut W,
 }
@@ -99,9 +131,7 @@ impl<'a> TXSSEL1_N_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TXSSEL1_N_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "SSEL1 asserted."]
     #[inline(always)]
@@ -126,7 +156,7 @@ impl<'a> TXSSEL1_N_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
@@ -144,7 +174,7 @@ impl From<TXSSEL2_N_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `TXSSEL2_N`"]
+#[doc = "Field `TXSSEL2_N` writer - Transmit slave select. This field asserts SSEL2 in master mode. The output on the pin is active LOW by default."]
 pub struct TXSSEL2_N_W<'a> {
     w: &'a mut W,
 }
@@ -152,9 +182,7 @@ impl<'a> TXSSEL2_N_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TXSSEL2_N_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "SSEL2 asserted."]
     #[inline(always)]
@@ -179,7 +207,7 @@ impl<'a> TXSSEL2_N_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
@@ -197,7 +225,7 @@ impl From<TXSSEL3_N_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `TXSSEL3_N`"]
+#[doc = "Field `TXSSEL3_N` writer - Transmit slave select. This field asserts SSEL3 in master mode. The output on the pin is active LOW by default."]
 pub struct TXSSEL3_N_W<'a> {
     w: &'a mut W,
 }
@@ -205,9 +233,7 @@ impl<'a> TXSSEL3_N_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TXSSEL3_N_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "SSEL3 asserted."]
     #[inline(always)]
@@ -232,7 +258,7 @@ impl<'a> TXSSEL3_N_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
@@ -250,7 +276,7 @@ impl From<EOT_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `EOT`"]
+#[doc = "Field `EOT` writer - End of transfer. The asserted SSEL will be deasserted at the end of a transfer and remain so far at least the time specified by the Transfer_delay value in the DLY register."]
 pub struct EOT_W<'a> {
     w: &'a mut W,
 }
@@ -258,9 +284,7 @@ impl<'a> EOT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EOT_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "SSEL not deasserted. This piece of data is not treated as the end of a transfer. SSEL will not be deasserted at the end of this data."]
     #[inline(always)]
@@ -285,7 +309,7 @@ impl<'a> EOT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
@@ -303,7 +327,7 @@ impl From<EOF_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `EOF`"]
+#[doc = "Field `EOF` writer - End of frame. Between frames, a delay may be inserted, as defined by the Frame_delay value in the DLY register. The end of a frame may not be particularly meaningful if the Frame_delay value = 0. This control can be used as part of the support for frame lengths greater than 16 bits."]
 pub struct EOF_W<'a> {
     w: &'a mut W,
 }
@@ -311,9 +335,7 @@ impl<'a> EOF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EOF_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Data not EOF. This piece of data transmitted is not treated as the end of a frame."]
     #[inline(always)]
@@ -338,7 +360,7 @@ impl<'a> EOF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
@@ -356,7 +378,7 @@ impl From<RXIGNORE_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `RXIGNORE`"]
+#[doc = "Field `RXIGNORE` writer - Receive Ignore. This allows data to be transmitted using the SPI without the need to read unneeded data from the receiver. Setting this bit simplifies the transmit process and can be used with the DMA."]
 pub struct RXIGNORE_W<'a> {
     w: &'a mut W,
 }
@@ -364,9 +386,7 @@ impl<'a> RXIGNORE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RXIGNORE_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Read received data. Received data must be read in order to allow transmission to progress. SPI transmit will halt when the receive data FIFO is full. In slave mode, an overrun error will occur if received data is not read before new data is received."]
     #[inline(always)]
@@ -391,11 +411,11 @@ impl<'a> RXIGNORE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
-#[doc = "Write proxy for field `LEN`"]
+#[doc = "Field `LEN` writer - Data Length. Specifies the data length from 4 to 16 bits. Note that transfer lengths greater than 16 bits are supported by implementing multiple sequential transmits. 0x0-2 = Reserved. 0x3 = Data transfer is 4 bits in length. 0x4 = Data transfer is 5 bits in length. 0xF = Data transfer is 16 bits in length."]
 pub struct LEN_W<'a> {
     w: &'a mut W,
 }
@@ -403,7 +423,7 @@ impl<'a> LEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 24)) | (((value as u32) & 0x0f) << 24);
+        self.w.bits = (self.w.bits & !(0x0f << 24)) | ((value as u32 & 0x0f) << 24);
         self.w
     }
 }
@@ -459,5 +479,30 @@ impl W {
     #[inline(always)]
     pub fn len(&mut self) -> LEN_W {
         LEN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "FIFO write data.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fifowr](index.html) module"]
+pub struct FIFOWR_SPEC;
+impl crate::RegisterSpec for FIFOWR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [fifowr::R](R) reader structure"]
+impl crate::Readable for FIFOWR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [fifowr::W](W) writer structure"]
+impl crate::Writable for FIFOWR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FIFOWR to value 0"]
+impl crate::Resettable for FIFOWR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

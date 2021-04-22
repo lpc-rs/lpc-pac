@@ -1,18 +1,52 @@
-#[doc = "Reader of register RXESC"]
-pub type R = crate::R<u32, super::RXESC>;
-#[doc = "Writer for register RXESC"]
-pub type W = crate::W<u32, super::RXESC>;
-#[doc = "Register RXESC `reset()`'s with value 0"]
-impl crate::ResetValue for super::RXESC {
-    type Type = u32;
+#[doc = "Register `RXESC` reader"]
+pub struct R(crate::R<RXESC_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<RXESC_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `F0DS`"]
-pub type F0DS_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `F0DS`"]
+impl core::convert::From<crate::R<RXESC_SPEC>> for R {
+    fn from(reader: crate::R<RXESC_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `RXESC` writer"]
+pub struct W(crate::W<RXESC_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<RXESC_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<RXESC_SPEC>> for W {
+    fn from(writer: crate::W<RXESC_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `F0DS` reader - Rx FIFO 0 data field size."]
+pub struct F0DS_R(crate::FieldReader<u8, u8>);
+impl F0DS_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        F0DS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for F0DS_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `F0DS` writer - Rx FIFO 0 data field size."]
 pub struct F0DS_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> F0DS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
+        self.w.bits = (self.w.bits & !0x07) | (value as u32 & 0x07);
         self.w
     }
 }
-#[doc = "Reader of field `F1DS`"]
-pub type F1DS_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `F1DS`"]
+#[doc = "Field `F1DS` reader - Rx FIFO 1 data field size."]
+pub struct F1DS_R(crate::FieldReader<u8, u8>);
+impl F1DS_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        F1DS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for F1DS_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `F1DS` writer - Rx FIFO 1 data field size."]
 pub struct F1DS_W<'a> {
     w: &'a mut W,
 }
@@ -34,13 +80,25 @@ impl<'a> F1DS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 4)) | (((value as u32) & 0x07) << 4);
+        self.w.bits = (self.w.bits & !(0x07 << 4)) | ((value as u32 & 0x07) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `RBDS`"]
-pub type RBDS_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `RBDS`"]
+#[doc = "Field `RBDS` reader - ."]
+pub struct RBDS_R(crate::FieldReader<u8, u8>);
+impl RBDS_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        RBDS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RBDS_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RBDS` writer - ."]
 pub struct RBDS_W<'a> {
     w: &'a mut W,
 }
@@ -48,7 +106,7 @@ impl<'a> RBDS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 8)) | (((value as u32) & 0x07) << 8);
+        self.w.bits = (self.w.bits & !(0x07 << 8)) | ((value as u32 & 0x07) << 8);
         self.w
     }
 }
@@ -84,5 +142,30 @@ impl W {
     #[inline(always)]
     pub fn rbds(&mut self) -> RBDS_W {
         RBDS_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Rx Buffer and FIFO Element Size Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rxesc](index.html) module"]
+pub struct RXESC_SPEC;
+impl crate::RegisterSpec for RXESC_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [rxesc::R](R) reader structure"]
+impl crate::Readable for RXESC_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [rxesc::W](W) writer structure"]
+impl crate::Writable for RXESC_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets RXESC to value 0"]
+impl crate::Resettable for RXESC_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

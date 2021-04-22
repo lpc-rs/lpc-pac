@@ -1,18 +1,52 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0x400f_ffff"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub struct R(crate::R<CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x400f_ffff
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `TIMEOUT`"]
-pub type TIMEOUT_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `TIMEOUT`"]
+impl core::convert::From<crate::R<CTRL_SPEC>> for R {
+    fn from(reader: crate::R<CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTRL` writer"]
+pub struct W(crate::W<CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTRL_SPEC>> for W {
+    fn from(writer: crate::W<CTRL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `TIMEOUT` reader - This field contains the number of serial clock periods without the processor reading data in memory mode, which will cause the SPIFI hardware to terminate the command by driving the CS pin high and negating the CMD bit in the Status register. (This allows the flash memory to enter a lower-power state.) If the processor reads data from the flash region after a time-out, the command in the Memory Command Register is issued again."]
+pub struct TIMEOUT_R(crate::FieldReader<u16, u16>);
+impl TIMEOUT_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        TIMEOUT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TIMEOUT_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TIMEOUT` writer - This field contains the number of serial clock periods without the processor reading data in memory mode, which will cause the SPIFI hardware to terminate the command by driving the CS pin high and negating the CMD bit in the Status register. (This allows the flash memory to enter a lower-power state.) If the processor reads data from the flash region after a time-out, the command in the Memory Command Register is issued again."]
 pub struct TIMEOUT_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> TIMEOUT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff) | ((value as u32) & 0xffff);
+        self.w.bits = (self.w.bits & !0xffff) | (value as u32 & 0xffff);
         self.w
     }
 }
-#[doc = "Reader of field `CSHIGH`"]
-pub type CSHIGH_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CSHIGH`"]
+#[doc = "Field `CSHIGH` reader - This field controls the minimum CS high time, expressed as a number of serial clock periods minus one."]
+pub struct CSHIGH_R(crate::FieldReader<u8, u8>);
+impl CSHIGH_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CSHIGH_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CSHIGH_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CSHIGH` writer - This field controls the minimum CS high time, expressed as a number of serial clock periods minus one."]
 pub struct CSHIGH_W<'a> {
     w: &'a mut W,
 }
@@ -34,13 +80,25 @@ impl<'a> CSHIGH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | ((value as u32 & 0x0f) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `D_PRFTCH_DIS`"]
-pub type D_PRFTCH_DIS_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `D_PRFTCH_DIS`"]
+#[doc = "Field `D_PRFTCH_DIS` reader - This bit allows conditioning of memory mode prefetches based on the AHB HPROT (instruction/data) access information. A 1 in this register means that the SPIFI will not attempt a speculative prefetch when it encounters data accesses."]
+pub struct D_PRFTCH_DIS_R(crate::FieldReader<bool, bool>);
+impl D_PRFTCH_DIS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        D_PRFTCH_DIS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for D_PRFTCH_DIS_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `D_PRFTCH_DIS` writer - This bit allows conditioning of memory mode prefetches based on the AHB HPROT (instruction/data) access information. A 1 in this register means that the SPIFI will not attempt a speculative prefetch when it encounters data accesses."]
 pub struct D_PRFTCH_DIS_W<'a> {
     w: &'a mut W,
 }
@@ -58,13 +116,25 @@ impl<'a> D_PRFTCH_DIS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
-#[doc = "Reader of field `INTEN`"]
-pub type INTEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `INTEN`"]
+#[doc = "Field `INTEN` reader - If this bit is 1 when a command ends, the SPIFI will assert its interrupt request output. See INTRQ in the status register for further details."]
+pub struct INTEN_R(crate::FieldReader<bool, bool>);
+impl INTEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INTEN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for INTEN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INTEN` writer - If this bit is 1 when a command ends, the SPIFI will assert its interrupt request output. See INTRQ in the status register for further details."]
 pub struct INTEN_W<'a> {
     w: &'a mut W,
 }
@@ -82,7 +152,7 @@ impl<'a> INTEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
@@ -100,9 +170,12 @@ impl From<MODE3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MODE3`"]
-pub type MODE3_R = crate::R<bool, MODE3_A>;
+#[doc = "Field `MODE3` reader - SPI Mode 3 select."]
+pub struct MODE3_R(crate::FieldReader<bool, MODE3_A>);
 impl MODE3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MODE3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MODE3_A {
@@ -114,15 +187,22 @@ impl MODE3_R {
     #[doc = "Checks if the value of the field is `SCK_LOW`"]
     #[inline(always)]
     pub fn is_sck_low(&self) -> bool {
-        *self == MODE3_A::SCK_LOW
+        **self == MODE3_A::SCK_LOW
     }
     #[doc = "Checks if the value of the field is `SCK_HIGH`"]
     #[inline(always)]
     pub fn is_sck_high(&self) -> bool {
-        *self == MODE3_A::SCK_HIGH
+        **self == MODE3_A::SCK_HIGH
     }
 }
-#[doc = "Write proxy for field `MODE3`"]
+impl core::ops::Deref for MODE3_R {
+    type Target = crate::FieldReader<bool, MODE3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MODE3` writer - SPI Mode 3 select."]
 pub struct MODE3_W<'a> {
     w: &'a mut W,
 }
@@ -130,9 +210,7 @@ impl<'a> MODE3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MODE3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "SCK LOW. The SPIFI drives SCK low after the rising edge at which the last bit of each command is captured, and keeps it low while CS is HIGH."]
     #[inline(always)]
@@ -157,7 +235,7 @@ impl<'a> MODE3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
         self.w
     }
 }
@@ -175,9 +253,12 @@ impl From<PRFTCH_DIS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `PRFTCH_DIS`"]
-pub type PRFTCH_DIS_R = crate::R<bool, PRFTCH_DIS_A>;
+#[doc = "Field `PRFTCH_DIS` reader - Cache prefetching enable. The SPIFI includes an internal cache. A 1 in this bit disables prefetching of cache lines."]
+pub struct PRFTCH_DIS_R(crate::FieldReader<bool, PRFTCH_DIS_A>);
 impl PRFTCH_DIS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PRFTCH_DIS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PRFTCH_DIS_A {
@@ -189,15 +270,22 @@ impl PRFTCH_DIS_R {
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == PRFTCH_DIS_A::ENABLE
+        **self == PRFTCH_DIS_A::ENABLE
     }
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == PRFTCH_DIS_A::DISABLE
+        **self == PRFTCH_DIS_A::DISABLE
     }
 }
-#[doc = "Write proxy for field `PRFTCH_DIS`"]
+impl core::ops::Deref for PRFTCH_DIS_R {
+    type Target = crate::FieldReader<bool, PRFTCH_DIS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PRFTCH_DIS` writer - Cache prefetching enable. The SPIFI includes an internal cache. A 1 in this bit disables prefetching of cache lines."]
 pub struct PRFTCH_DIS_W<'a> {
     w: &'a mut W,
 }
@@ -205,9 +293,7 @@ impl<'a> PRFTCH_DIS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PRFTCH_DIS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Enable. Cache prefetching enabled."]
     #[inline(always)]
@@ -232,7 +318,7 @@ impl<'a> PRFTCH_DIS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
@@ -250,9 +336,12 @@ impl From<DUAL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DUAL`"]
-pub type DUAL_R = crate::R<bool, DUAL_A>;
+#[doc = "Field `DUAL` reader - Select dual protocol."]
+pub struct DUAL_R(crate::FieldReader<bool, DUAL_A>);
 impl DUAL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DUAL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DUAL_A {
@@ -264,15 +353,22 @@ impl DUAL_R {
     #[doc = "Checks if the value of the field is `QUAD`"]
     #[inline(always)]
     pub fn is_quad(&self) -> bool {
-        *self == DUAL_A::QUAD
+        **self == DUAL_A::QUAD
     }
     #[doc = "Checks if the value of the field is `DUAL`"]
     #[inline(always)]
     pub fn is_dual(&self) -> bool {
-        *self == DUAL_A::DUAL
+        **self == DUAL_A::DUAL
     }
 }
-#[doc = "Write proxy for field `DUAL`"]
+impl core::ops::Deref for DUAL_R {
+    type Target = crate::FieldReader<bool, DUAL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DUAL` writer - Select dual protocol."]
 pub struct DUAL_W<'a> {
     w: &'a mut W,
 }
@@ -280,9 +376,7 @@ impl<'a> DUAL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DUAL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Quad protocol. This protocol uses IO3:0."]
     #[inline(always)]
@@ -307,7 +401,7 @@ impl<'a> DUAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
@@ -325,9 +419,12 @@ impl From<RFCLK_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RFCLK`"]
-pub type RFCLK_R = crate::R<bool, RFCLK_A>;
+#[doc = "Field `RFCLK` reader - Select active clock edge for input data."]
+pub struct RFCLK_R(crate::FieldReader<bool, RFCLK_A>);
 impl RFCLK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RFCLK_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RFCLK_A {
@@ -339,15 +436,22 @@ impl RFCLK_R {
     #[doc = "Checks if the value of the field is `RISING_EDGE`"]
     #[inline(always)]
     pub fn is_rising_edge(&self) -> bool {
-        *self == RFCLK_A::RISING_EDGE
+        **self == RFCLK_A::RISING_EDGE
     }
     #[doc = "Checks if the value of the field is `FALLING_EDGE`"]
     #[inline(always)]
     pub fn is_falling_edge(&self) -> bool {
-        *self == RFCLK_A::FALLING_EDGE
+        **self == RFCLK_A::FALLING_EDGE
     }
 }
-#[doc = "Write proxy for field `RFCLK`"]
+impl core::ops::Deref for RFCLK_R {
+    type Target = crate::FieldReader<bool, RFCLK_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RFCLK` writer - Select active clock edge for input data."]
 pub struct RFCLK_W<'a> {
     w: &'a mut W,
 }
@@ -355,9 +459,7 @@ impl<'a> RFCLK_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RFCLK_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Rising edge. Read data is sampled on rising edges on the clock, as in classic SPI operation."]
     #[inline(always)]
@@ -382,7 +484,7 @@ impl<'a> RFCLK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | ((value as u32 & 0x01) << 29);
         self.w
     }
 }
@@ -400,9 +502,12 @@ impl From<FBCLK_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FBCLK`"]
-pub type FBCLK_R = crate::R<bool, FBCLK_A>;
+#[doc = "Field `FBCLK` reader - Feedback clock select."]
+pub struct FBCLK_R(crate::FieldReader<bool, FBCLK_A>);
 impl FBCLK_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FBCLK_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FBCLK_A {
@@ -414,15 +519,22 @@ impl FBCLK_R {
     #[doc = "Checks if the value of the field is `INTERNAL_CLOCK`"]
     #[inline(always)]
     pub fn is_internal_clock(&self) -> bool {
-        *self == FBCLK_A::INTERNAL_CLOCK
+        **self == FBCLK_A::INTERNAL_CLOCK
     }
     #[doc = "Checks if the value of the field is `FEEDBACK_CLOCK`"]
     #[inline(always)]
     pub fn is_feedback_clock(&self) -> bool {
-        *self == FBCLK_A::FEEDBACK_CLOCK
+        **self == FBCLK_A::FEEDBACK_CLOCK
     }
 }
-#[doc = "Write proxy for field `FBCLK`"]
+impl core::ops::Deref for FBCLK_R {
+    type Target = crate::FieldReader<bool, FBCLK_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FBCLK` writer - Feedback clock select."]
 pub struct FBCLK_W<'a> {
     w: &'a mut W,
 }
@@ -430,9 +542,7 @@ impl<'a> FBCLK_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FBCLK_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal clock. The SPIFI samples read data using an internal clock."]
     #[inline(always)]
@@ -457,13 +567,25 @@ impl<'a> FBCLK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | ((value as u32 & 0x01) << 30);
         self.w
     }
 }
-#[doc = "Reader of field `DMAEN`"]
-pub type DMAEN_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DMAEN`"]
+#[doc = "Field `DMAEN` reader - A 1 in this bit enables the DMA Request output from the SPIFI. Set this bit only when a DMA channel is used to transfer data in peripheral mode. Do not set this bit when a DMA channel is used for memory-to-memory transfers from the SPIFI memory area. DMAEN should only be used in Command mode."]
+pub struct DMAEN_R(crate::FieldReader<bool, bool>);
+impl DMAEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMAEN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DMAEN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMAEN` writer - A 1 in this bit enables the DMA Request output from the SPIFI. Set this bit only when a DMA channel is used to transfer data in peripheral mode. Do not set this bit when a DMA channel is used for memory-to-memory transfers from the SPIFI memory area. DMAEN should only be used in Command mode."]
 pub struct DMAEN_W<'a> {
     w: &'a mut W,
 }
@@ -481,7 +603,7 @@ impl<'a> DMAEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -587,5 +709,30 @@ impl W {
     #[inline(always)]
     pub fn dmaen(&mut self) -> DMAEN_W {
         DMAEN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "SPIFI control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](index.html) module"]
+pub struct CTRL_SPEC;
+impl crate::RegisterSpec for CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctrl::R](R) reader structure"]
+impl crate::Readable for CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
+impl crate::Writable for CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTRL to value 0x400f_ffff"]
+impl crate::Resettable for CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x400f_ffff
     }
 }

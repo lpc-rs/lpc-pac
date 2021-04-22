@@ -1,18 +1,52 @@
-#[doc = "Reader of register RST_N"]
-pub type R = crate::R<u32, super::RST_N>;
-#[doc = "Writer for register RST_N"]
-pub type W = crate::W<u32, super::RST_N>;
-#[doc = "Register RST_N `reset()`'s with value 0x01"]
-impl crate::ResetValue for super::RST_N {
-    type Type = u32;
+#[doc = "Register `RST_N` reader"]
+pub struct R(crate::R<RST_N_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<RST_N_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x01
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `CARD_RESET`"]
-pub type CARD_RESET_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CARD_RESET`"]
+impl core::convert::From<crate::R<RST_N_SPEC>> for R {
+    fn from(reader: crate::R<RST_N_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `RST_N` writer"]
+pub struct W(crate::W<RST_N_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<RST_N_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<RST_N_SPEC>> for W {
+    fn from(writer: crate::W<RST_N_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CARD_RESET` reader - Hardware reset."]
+pub struct CARD_RESET_R(crate::FieldReader<bool, bool>);
+impl CARD_RESET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CARD_RESET_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CARD_RESET_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CARD_RESET` writer - Hardware reset."]
 pub struct CARD_RESET_W<'a> {
     w: &'a mut W,
 }
@@ -30,7 +64,7 @@ impl<'a> CARD_RESET_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -46,5 +80,30 @@ impl W {
     #[inline(always)]
     pub fn card_reset(&mut self) -> CARD_RESET_W {
         CARD_RESET_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Hardware Reset\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rst_n](index.html) module"]
+pub struct RST_N_SPEC;
+impl crate::RegisterSpec for RST_N_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [rst_n::R](R) reader structure"]
+impl crate::Readable for RST_N_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [rst_n::W](W) writer structure"]
+impl crate::Writable for RST_N_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets RST_N to value 0x01"]
+impl crate::Resettable for RST_N_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x01
     }
 }

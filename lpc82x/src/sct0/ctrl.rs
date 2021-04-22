@@ -1,18 +1,52 @@
-#[doc = "Reader of register CTRL"]
-pub type R = crate::R<u32, super::CTRL>;
-#[doc = "Writer for register CTRL"]
-pub type W = crate::W<u32, super::CTRL>;
-#[doc = "Register CTRL `reset()`'s with value 0x0004_0004"]
-impl crate::ResetValue for super::CTRL {
-    type Type = u32;
+#[doc = "Register `CTRL` reader"]
+pub struct R(crate::R<CTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0004_0004
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `DOWN_L`"]
-pub type DOWN_L_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DOWN_L`"]
+impl core::convert::From<crate::R<CTRL_SPEC>> for R {
+    fn from(reader: crate::R<CTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CTRL` writer"]
+pub struct W(crate::W<CTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<CTRL_SPEC>> for W {
+    fn from(writer: crate::W<CTRL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `DOWN_L` reader - This bit is 1 when the L or unified counter is counting down. Hardware sets this bit when the counter is counting up, counter limit occurs, and BIDIR = 1.Hardware clears this bit when the counter is counting down and a limit condition occurs or when the counter reaches 0."]
+pub struct DOWN_L_R(crate::FieldReader<bool, bool>);
+impl DOWN_L_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DOWN_L_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DOWN_L_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DOWN_L` writer - This bit is 1 when the L or unified counter is counting down. Hardware sets this bit when the counter is counting up, counter limit occurs, and BIDIR = 1.Hardware clears this bit when the counter is counting down and a limit condition occurs or when the counter reaches 0."]
 pub struct DOWN_L_W<'a> {
     w: &'a mut W,
 }
@@ -30,13 +64,25 @@ impl<'a> DOWN_L_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Reader of field `STOP_L`"]
-pub type STOP_L_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `STOP_L`"]
+#[doc = "Field `STOP_L` reader - When this bit is 1 and HALT is 0, the L or unified counter does not run, but I/O events related to the counter can occur. If a designated start event occurs, this bit is cleared and counting resumes."]
+pub struct STOP_L_R(crate::FieldReader<bool, bool>);
+impl STOP_L_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STOP_L_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for STOP_L_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STOP_L` writer - When this bit is 1 and HALT is 0, the L or unified counter does not run, but I/O events related to the counter can occur. If a designated start event occurs, this bit is cleared and counting resumes."]
 pub struct STOP_L_W<'a> {
     w: &'a mut W,
 }
@@ -54,13 +100,25 @@ impl<'a> STOP_L_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Reader of field `HALT_L`"]
-pub type HALT_L_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `HALT_L`"]
+#[doc = "Field `HALT_L` reader - When this bit is 1, the L or unified counter does not run and no events can occur. A reset sets this bit. When the HALT_L bit is one, the STOP_L bit is cleared. It is possible to remove the halt condition while keeping the SCT in the stop condition (not running) with a single write to this register to simultaneously clear the HALT bit and set the STOP bit. Once set, only software can clear this bit to restore counter operation. This bit is set on reset."]
+pub struct HALT_L_R(crate::FieldReader<bool, bool>);
+impl HALT_L_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HALT_L_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for HALT_L_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HALT_L` writer - When this bit is 1, the L or unified counter does not run and no events can occur. A reset sets this bit. When the HALT_L bit is one, the STOP_L bit is cleared. It is possible to remove the halt condition while keeping the SCT in the stop condition (not running) with a single write to this register to simultaneously clear the HALT bit and set the STOP bit. Once set, only software can clear this bit to restore counter operation. This bit is set on reset."]
 pub struct HALT_L_W<'a> {
     w: &'a mut W,
 }
@@ -78,13 +136,25 @@ impl<'a> HALT_L_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Reader of field `CLRCTR_L`"]
-pub type CLRCTR_L_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CLRCTR_L`"]
+#[doc = "Field `CLRCTR_L` reader - Writing a 1 to this bit clears the L or unified counter. This bit always reads as 0."]
+pub struct CLRCTR_L_R(crate::FieldReader<bool, bool>);
+impl CLRCTR_L_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CLRCTR_L_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CLRCTR_L_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLRCTR_L` writer - Writing a 1 to this bit clears the L or unified counter. This bit always reads as 0."]
 pub struct CLRCTR_L_W<'a> {
     w: &'a mut W,
 }
@@ -102,7 +172,7 @@ impl<'a> CLRCTR_L_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -120,9 +190,12 @@ impl From<BIDIR_L_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BIDIR_L`"]
-pub type BIDIR_L_R = crate::R<bool, BIDIR_L_A>;
+#[doc = "Field `BIDIR_L` reader - L or unified counter direction select"]
+pub struct BIDIR_L_R(crate::FieldReader<bool, BIDIR_L_A>);
 impl BIDIR_L_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BIDIR_L_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BIDIR_L_A {
@@ -134,15 +207,22 @@ impl BIDIR_L_R {
     #[doc = "Checks if the value of the field is `UP`"]
     #[inline(always)]
     pub fn is_up(&self) -> bool {
-        *self == BIDIR_L_A::UP
+        **self == BIDIR_L_A::UP
     }
     #[doc = "Checks if the value of the field is `UP_DOWN`"]
     #[inline(always)]
     pub fn is_up_down(&self) -> bool {
-        *self == BIDIR_L_A::UP_DOWN
+        **self == BIDIR_L_A::UP_DOWN
     }
 }
-#[doc = "Write proxy for field `BIDIR_L`"]
+impl core::ops::Deref for BIDIR_L_R {
+    type Target = crate::FieldReader<bool, BIDIR_L_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BIDIR_L` writer - L or unified counter direction select"]
 pub struct BIDIR_L_W<'a> {
     w: &'a mut W,
 }
@@ -150,9 +230,7 @@ impl<'a> BIDIR_L_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BIDIR_L_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Up. The counter counts up to a limit condition, then is cleared to zero."]
     #[inline(always)]
@@ -177,13 +255,25 @@ impl<'a> BIDIR_L_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `PRE_L`"]
-pub type PRE_L_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PRE_L`"]
+#[doc = "Field `PRE_L` reader - Specifies the factor by which the SCT clock is prescaled to produce the L or unified counter clock. The counter clock is clocked at the rate of the SCT clock divided by PRE_L+1. Clear the counter (by writing a 1 to the CLRCTR bit) whenever changing the PRE value."]
+pub struct PRE_L_R(crate::FieldReader<u8, u8>);
+impl PRE_L_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PRE_L_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PRE_L_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PRE_L` writer - Specifies the factor by which the SCT clock is prescaled to produce the L or unified counter clock. The counter clock is clocked at the rate of the SCT clock divided by PRE_L+1. Clear the counter (by writing a 1 to the CLRCTR bit) whenever changing the PRE value."]
 pub struct PRE_L_W<'a> {
     w: &'a mut W,
 }
@@ -191,13 +281,25 @@ impl<'a> PRE_L_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 5)) | (((value as u32) & 0xff) << 5);
+        self.w.bits = (self.w.bits & !(0xff << 5)) | ((value as u32 & 0xff) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `DOWN_H`"]
-pub type DOWN_H_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `DOWN_H`"]
+#[doc = "Field `DOWN_H` reader - This bit is 1 when the H counter is counting down. Hardware sets this bit when the counter is counting, a counter limit condition occurs, and BIDIR is 1. Hardware clears this bit when the counter is counting down and a limit condition occurs or when the counter reaches 0."]
+pub struct DOWN_H_R(crate::FieldReader<bool, bool>);
+impl DOWN_H_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DOWN_H_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DOWN_H_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DOWN_H` writer - This bit is 1 when the H counter is counting down. Hardware sets this bit when the counter is counting, a counter limit condition occurs, and BIDIR is 1. Hardware clears this bit when the counter is counting down and a limit condition occurs or when the counter reaches 0."]
 pub struct DOWN_H_W<'a> {
     w: &'a mut W,
 }
@@ -215,13 +317,25 @@ impl<'a> DOWN_H_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `STOP_H`"]
-pub type STOP_H_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `STOP_H`"]
+#[doc = "Field `STOP_H` reader - When this bit is 1 and HALT is 0, the H counter does not, run but I/O events related to the counter can occur. If such an event matches the mask in the Start register, this bit is cleared and counting resumes."]
+pub struct STOP_H_R(crate::FieldReader<bool, bool>);
+impl STOP_H_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STOP_H_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for STOP_H_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STOP_H` writer - When this bit is 1 and HALT is 0, the H counter does not, run but I/O events related to the counter can occur. If such an event matches the mask in the Start register, this bit is cleared and counting resumes."]
 pub struct STOP_H_W<'a> {
     w: &'a mut W,
 }
@@ -239,13 +353,25 @@ impl<'a> STOP_H_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Reader of field `HALT_H`"]
-pub type HALT_H_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `HALT_H`"]
+#[doc = "Field `HALT_H` reader - When this bit is 1, the H counter does not run and no events can occur. A reset sets this bit. When the HALT_H bit is one, the STOP_H bit is cleared. It is possible to remove the halt condition while keeping the SCT in the stop condition (not running) with a single write to this register to simultaneously clear the HALT bit and set the STOP bit. Once set, this bit can only be cleared by software to restore counter operation. This bit is set on reset."]
+pub struct HALT_H_R(crate::FieldReader<bool, bool>);
+impl HALT_H_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HALT_H_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for HALT_H_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HALT_H` writer - When this bit is 1, the H counter does not run and no events can occur. A reset sets this bit. When the HALT_H bit is one, the STOP_H bit is cleared. It is possible to remove the halt condition while keeping the SCT in the stop condition (not running) with a single write to this register to simultaneously clear the HALT bit and set the STOP bit. Once set, this bit can only be cleared by software to restore counter operation. This bit is set on reset."]
 pub struct HALT_H_W<'a> {
     w: &'a mut W,
 }
@@ -263,13 +389,25 @@ impl<'a> HALT_H_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Reader of field `CLRCTR_H`"]
-pub type CLRCTR_H_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `CLRCTR_H`"]
+#[doc = "Field `CLRCTR_H` reader - Writing a 1 to this bit clears the H counter. This bit always reads as 0."]
+pub struct CLRCTR_H_R(crate::FieldReader<bool, bool>);
+impl CLRCTR_H_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CLRCTR_H_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CLRCTR_H_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLRCTR_H` writer - Writing a 1 to this bit clears the H counter. This bit always reads as 0."]
 pub struct CLRCTR_H_W<'a> {
     w: &'a mut W,
 }
@@ -287,7 +425,7 @@ impl<'a> CLRCTR_H_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
@@ -305,9 +443,12 @@ impl From<BIDIR_H_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BIDIR_H`"]
-pub type BIDIR_H_R = crate::R<bool, BIDIR_H_A>;
+#[doc = "Field `BIDIR_H` reader - Direction select"]
+pub struct BIDIR_H_R(crate::FieldReader<bool, BIDIR_H_A>);
 impl BIDIR_H_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BIDIR_H_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BIDIR_H_A {
@@ -319,15 +460,22 @@ impl BIDIR_H_R {
     #[doc = "Checks if the value of the field is `UP`"]
     #[inline(always)]
     pub fn is_up(&self) -> bool {
-        *self == BIDIR_H_A::UP
+        **self == BIDIR_H_A::UP
     }
     #[doc = "Checks if the value of the field is `UP_DOWN`"]
     #[inline(always)]
     pub fn is_up_down(&self) -> bool {
-        *self == BIDIR_H_A::UP_DOWN
+        **self == BIDIR_H_A::UP_DOWN
     }
 }
-#[doc = "Write proxy for field `BIDIR_H`"]
+impl core::ops::Deref for BIDIR_H_R {
+    type Target = crate::FieldReader<bool, BIDIR_H_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BIDIR_H` writer - Direction select"]
 pub struct BIDIR_H_W<'a> {
     w: &'a mut W,
 }
@@ -335,9 +483,7 @@ impl<'a> BIDIR_H_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BIDIR_H_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The H counter counts up to its limit condition, then is cleared to zero."]
     #[inline(always)]
@@ -362,13 +508,25 @@ impl<'a> BIDIR_H_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
-#[doc = "Reader of field `PRE_H`"]
-pub type PRE_H_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PRE_H`"]
+#[doc = "Field `PRE_H` reader - Specifies the factor by which the SCT clock is prescaled to produce the H counter clock. The counter clock is clocked at the rate of the SCT clock divided by PRELH+1. Clear the counter (by writing a 1 to the CLRCTR bit) whenever changing the PRE value."]
+pub struct PRE_H_R(crate::FieldReader<u8, u8>);
+impl PRE_H_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PRE_H_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PRE_H_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PRE_H` writer - Specifies the factor by which the SCT clock is prescaled to produce the H counter clock. The counter clock is clocked at the rate of the SCT clock divided by PRELH+1. Clear the counter (by writing a 1 to the CLRCTR bit) whenever changing the PRE value."]
 pub struct PRE_H_W<'a> {
     w: &'a mut W,
 }
@@ -376,7 +534,7 @@ impl<'a> PRE_H_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 21)) | (((value as u32) & 0xff) << 21);
+        self.w.bits = (self.w.bits & !(0xff << 21)) | ((value as u32 & 0xff) << 21);
         self.w
     }
 }
@@ -502,5 +660,30 @@ impl W {
     #[inline(always)]
     pub fn pre_h(&mut self) -> PRE_H_W {
         PRE_H_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "SCT control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](index.html) module"]
+pub struct CTRL_SPEC;
+impl crate::RegisterSpec for CTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ctrl::R](R) reader structure"]
+impl crate::Readable for CTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ctrl::W](W) writer structure"]
+impl crate::Writable for CTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CTRL to value 0x0004_0004"]
+impl crate::Resettable for CTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0004_0004
     }
 }

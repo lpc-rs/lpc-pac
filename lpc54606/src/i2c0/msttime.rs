@@ -1,13 +1,35 @@
-#[doc = "Reader of register MSTTIME"]
-pub type R = crate::R<u32, super::MSTTIME>;
-#[doc = "Writer for register MSTTIME"]
-pub type W = crate::W<u32, super::MSTTIME>;
-#[doc = "Register MSTTIME `reset()`'s with value 0x77"]
-impl crate::ResetValue for super::MSTTIME {
-    type Type = u32;
+#[doc = "Register `MSTTIME` reader"]
+pub struct R(crate::R<MSTTIME_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MSTTIME_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x77
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<MSTTIME_SPEC>> for R {
+    fn from(reader: crate::R<MSTTIME_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MSTTIME` writer"]
+pub struct W(crate::W<MSTTIME_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MSTTIME_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MSTTIME_SPEC>> for W {
+    fn from(writer: crate::W<MSTTIME_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Master SCL Low time. Specifies the minimum low time that will be asserted by this master on SCL. Other devices on the bus (masters or slaves) could lengthen this time. This corresponds to the parameter t LOW in the I2C bus specification. I2C bus specification parameters tBUF and tSU;STA have the same values and are also controlled by MSTSCLLOW.\n\nValue on reset: 7"]
@@ -37,9 +59,12 @@ impl From<MSTSCLLOW_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `MSTSCLLOW`"]
-pub type MSTSCLLOW_R = crate::R<u8, MSTSCLLOW_A>;
+#[doc = "Field `MSTSCLLOW` reader - Master SCL Low time. Specifies the minimum low time that will be asserted by this master on SCL. Other devices on the bus (masters or slaves) could lengthen this time. This corresponds to the parameter t LOW in the I2C bus specification. I2C bus specification parameters tBUF and tSU;STA have the same values and are also controlled by MSTSCLLOW."]
+pub struct MSTSCLLOW_R(crate::FieldReader<u8, MSTSCLLOW_A>);
 impl MSTSCLLOW_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MSTSCLLOW_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MSTSCLLOW_A {
@@ -58,45 +83,52 @@ impl MSTSCLLOW_R {
     #[doc = "Checks if the value of the field is `CLOCKS_2`"]
     #[inline(always)]
     pub fn is_clocks_2(&self) -> bool {
-        *self == MSTSCLLOW_A::CLOCKS_2
+        **self == MSTSCLLOW_A::CLOCKS_2
     }
     #[doc = "Checks if the value of the field is `CLOCKS_3`"]
     #[inline(always)]
     pub fn is_clocks_3(&self) -> bool {
-        *self == MSTSCLLOW_A::CLOCKS_3
+        **self == MSTSCLLOW_A::CLOCKS_3
     }
     #[doc = "Checks if the value of the field is `CLOCKS_4`"]
     #[inline(always)]
     pub fn is_clocks_4(&self) -> bool {
-        *self == MSTSCLLOW_A::CLOCKS_4
+        **self == MSTSCLLOW_A::CLOCKS_4
     }
     #[doc = "Checks if the value of the field is `CLOCKS_5`"]
     #[inline(always)]
     pub fn is_clocks_5(&self) -> bool {
-        *self == MSTSCLLOW_A::CLOCKS_5
+        **self == MSTSCLLOW_A::CLOCKS_5
     }
     #[doc = "Checks if the value of the field is `CLOCKS_6`"]
     #[inline(always)]
     pub fn is_clocks_6(&self) -> bool {
-        *self == MSTSCLLOW_A::CLOCKS_6
+        **self == MSTSCLLOW_A::CLOCKS_6
     }
     #[doc = "Checks if the value of the field is `CLOCKS_7`"]
     #[inline(always)]
     pub fn is_clocks_7(&self) -> bool {
-        *self == MSTSCLLOW_A::CLOCKS_7
+        **self == MSTSCLLOW_A::CLOCKS_7
     }
     #[doc = "Checks if the value of the field is `CLOCKS_8`"]
     #[inline(always)]
     pub fn is_clocks_8(&self) -> bool {
-        *self == MSTSCLLOW_A::CLOCKS_8
+        **self == MSTSCLLOW_A::CLOCKS_8
     }
     #[doc = "Checks if the value of the field is `CLOCKS_9`"]
     #[inline(always)]
     pub fn is_clocks_9(&self) -> bool {
-        *self == MSTSCLLOW_A::CLOCKS_9
+        **self == MSTSCLLOW_A::CLOCKS_9
     }
 }
-#[doc = "Write proxy for field `MSTSCLLOW`"]
+impl core::ops::Deref for MSTSCLLOW_R {
+    type Target = crate::FieldReader<u8, MSTSCLLOW_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSTSCLLOW` writer - Master SCL Low time. Specifies the minimum low time that will be asserted by this master on SCL. Other devices on the bus (masters or slaves) could lengthen this time. This corresponds to the parameter t LOW in the I2C bus specification. I2C bus specification parameters tBUF and tSU;STA have the same values and are also controlled by MSTSCLLOW."]
 pub struct MSTSCLLOW_W<'a> {
     w: &'a mut W,
 }
@@ -104,9 +136,7 @@ impl<'a> MSTSCLLOW_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSTSCLLOW_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "2 clocks. Minimum SCL low time is 2 clocks of the I2C clock pre-divider."]
     #[inline(always)]
@@ -151,7 +181,7 @@ impl<'a> MSTSCLLOW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
+        self.w.bits = (self.w.bits & !0x07) | (value as u32 & 0x07);
         self.w
     }
 }
@@ -182,9 +212,12 @@ impl From<MSTSCLHIGH_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `MSTSCLHIGH`"]
-pub type MSTSCLHIGH_R = crate::R<u8, MSTSCLHIGH_A>;
+#[doc = "Field `MSTSCLHIGH` reader - Master SCL High time. Specifies the minimum high time that will be asserted by this master on SCL. Other masters in a multi-master system could shorten this time. This corresponds to the parameter tHIGH in the I2C bus specification. I2C bus specification parameters tSU;STO and tHD;STA have the same values and are also controlled by MSTSCLHIGH."]
+pub struct MSTSCLHIGH_R(crate::FieldReader<u8, MSTSCLHIGH_A>);
 impl MSTSCLHIGH_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MSTSCLHIGH_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MSTSCLHIGH_A {
@@ -203,45 +236,52 @@ impl MSTSCLHIGH_R {
     #[doc = "Checks if the value of the field is `CLOCKS_2`"]
     #[inline(always)]
     pub fn is_clocks_2(&self) -> bool {
-        *self == MSTSCLHIGH_A::CLOCKS_2
+        **self == MSTSCLHIGH_A::CLOCKS_2
     }
     #[doc = "Checks if the value of the field is `CLOCKS_3`"]
     #[inline(always)]
     pub fn is_clocks_3(&self) -> bool {
-        *self == MSTSCLHIGH_A::CLOCKS_3
+        **self == MSTSCLHIGH_A::CLOCKS_3
     }
     #[doc = "Checks if the value of the field is `CLOCKS_4`"]
     #[inline(always)]
     pub fn is_clocks_4(&self) -> bool {
-        *self == MSTSCLHIGH_A::CLOCKS_4
+        **self == MSTSCLHIGH_A::CLOCKS_4
     }
     #[doc = "Checks if the value of the field is `CLOCKS_5`"]
     #[inline(always)]
     pub fn is_clocks_5(&self) -> bool {
-        *self == MSTSCLHIGH_A::CLOCKS_5
+        **self == MSTSCLHIGH_A::CLOCKS_5
     }
     #[doc = "Checks if the value of the field is `CLOCKS_6`"]
     #[inline(always)]
     pub fn is_clocks_6(&self) -> bool {
-        *self == MSTSCLHIGH_A::CLOCKS_6
+        **self == MSTSCLHIGH_A::CLOCKS_6
     }
     #[doc = "Checks if the value of the field is `CLOCKS_7`"]
     #[inline(always)]
     pub fn is_clocks_7(&self) -> bool {
-        *self == MSTSCLHIGH_A::CLOCKS_7
+        **self == MSTSCLHIGH_A::CLOCKS_7
     }
     #[doc = "Checks if the value of the field is `CLOCKS_8`"]
     #[inline(always)]
     pub fn is_clocks_8(&self) -> bool {
-        *self == MSTSCLHIGH_A::CLOCKS_8
+        **self == MSTSCLHIGH_A::CLOCKS_8
     }
     #[doc = "Checks if the value of the field is `CLOCKS_9`"]
     #[inline(always)]
     pub fn is_clocks_9(&self) -> bool {
-        *self == MSTSCLHIGH_A::CLOCKS_9
+        **self == MSTSCLHIGH_A::CLOCKS_9
     }
 }
-#[doc = "Write proxy for field `MSTSCLHIGH`"]
+impl core::ops::Deref for MSTSCLHIGH_R {
+    type Target = crate::FieldReader<u8, MSTSCLHIGH_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSTSCLHIGH` writer - Master SCL High time. Specifies the minimum high time that will be asserted by this master on SCL. Other masters in a multi-master system could shorten this time. This corresponds to the parameter tHIGH in the I2C bus specification. I2C bus specification parameters tSU;STO and tHD;STA have the same values and are also controlled by MSTSCLHIGH."]
 pub struct MSTSCLHIGH_W<'a> {
     w: &'a mut W,
 }
@@ -249,9 +289,7 @@ impl<'a> MSTSCLHIGH_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSTSCLHIGH_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "2 clocks. Minimum SCL high time is 2 clock of the I2C clock pre-divider."]
     #[inline(always)]
@@ -296,7 +334,7 @@ impl<'a> MSTSCLHIGH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 4)) | (((value as u32) & 0x07) << 4);
+        self.w.bits = (self.w.bits & !(0x07 << 4)) | ((value as u32 & 0x07) << 4);
         self.w
     }
 }
@@ -322,5 +360,30 @@ impl W {
     #[inline(always)]
     pub fn mstsclhigh(&mut self) -> MSTSCLHIGH_W {
         MSTSCLHIGH_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Master timing configuration.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [msttime](index.html) module"]
+pub struct MSTTIME_SPEC;
+impl crate::RegisterSpec for MSTTIME_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [msttime::R](R) reader structure"]
+impl crate::Readable for MSTTIME_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [msttime::W](W) writer structure"]
+impl crate::Writable for MSTTIME_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MSTTIME to value 0x77"]
+impl crate::Resettable for MSTTIME_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x77
     }
 }

@@ -1,18 +1,52 @@
-#[doc = "Reader of register TIMV"]
-pub type R = crate::R<u32, super::TIMV>;
-#[doc = "Writer for register TIMV"]
-pub type W = crate::W<u32, super::TIMV>;
-#[doc = "Register TIMV `reset()`'s with value 0"]
-impl crate::ResetValue for super::TIMV {
-    type Type = u32;
+#[doc = "Register `TIMV` reader"]
+pub struct R(crate::R<TIMV_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<TIMV_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `LPP`"]
-pub type LPP_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `LPP`"]
+impl core::convert::From<crate::R<TIMV_SPEC>> for R {
+    fn from(reader: crate::R<TIMV_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `TIMV` writer"]
+pub struct W(crate::W<TIMV_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<TIMV_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<TIMV_SPEC>> for W {
+    fn from(writer: crate::W<TIMV_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `LPP` reader - Lines per panel."]
+pub struct LPP_R(crate::FieldReader<u16, u16>);
+impl LPP_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        LPP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LPP_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LPP` writer - Lines per panel."]
 pub struct LPP_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> LPP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03ff) | ((value as u32) & 0x03ff);
+        self.w.bits = (self.w.bits & !0x03ff) | (value as u32 & 0x03ff);
         self.w
     }
 }
-#[doc = "Reader of field `VSW`"]
-pub type VSW_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `VSW`"]
+#[doc = "Field `VSW` reader - Vertical synchronization pulse width."]
+pub struct VSW_R(crate::FieldReader<u8, u8>);
+impl VSW_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        VSW_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for VSW_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `VSW` writer - Vertical synchronization pulse width."]
 pub struct VSW_W<'a> {
     w: &'a mut W,
 }
@@ -34,13 +80,25 @@ impl<'a> VSW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x3f << 10)) | (((value as u32) & 0x3f) << 10);
+        self.w.bits = (self.w.bits & !(0x3f << 10)) | ((value as u32 & 0x3f) << 10);
         self.w
     }
 }
-#[doc = "Reader of field `VFP`"]
-pub type VFP_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `VFP`"]
+#[doc = "Field `VFP` reader - Vertical front porch."]
+pub struct VFP_R(crate::FieldReader<u8, u8>);
+impl VFP_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        VFP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for VFP_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `VFP` writer - Vertical front porch."]
 pub struct VFP_W<'a> {
     w: &'a mut W,
 }
@@ -48,13 +106,25 @@ impl<'a> VFP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
+        self.w.bits = (self.w.bits & !(0xff << 16)) | ((value as u32 & 0xff) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `VBP`"]
-pub type VBP_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `VBP`"]
+#[doc = "Field `VBP` reader - Vertical back porch."]
+pub struct VBP_R(crate::FieldReader<u8, u8>);
+impl VBP_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        VBP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for VBP_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `VBP` writer - Vertical back porch."]
 pub struct VBP_W<'a> {
     w: &'a mut W,
 }
@@ -62,7 +132,7 @@ impl<'a> VBP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
+        self.w.bits = (self.w.bits & !(0xff << 24)) | ((value as u32 & 0xff) << 24);
         self.w
     }
 }
@@ -108,5 +178,30 @@ impl W {
     #[inline(always)]
     pub fn vbp(&mut self) -> VBP_W {
         VBP_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Vertical Timing Control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [timv](index.html) module"]
+pub struct TIMV_SPEC;
+impl crate::RegisterSpec for TIMV_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [timv::R](R) reader structure"]
+impl crate::Readable for TIMV_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [timv::W](W) writer structure"]
+impl crate::Writable for TIMV_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets TIMV to value 0"]
+impl crate::Resettable for TIMV_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

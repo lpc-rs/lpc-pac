@@ -1,18 +1,52 @@
-#[doc = "Reader of register FIFOTH"]
-pub type R = crate::R<u32, super::FIFOTH>;
-#[doc = "Writer for register FIFOTH"]
-pub type W = crate::W<u32, super::FIFOTH>;
-#[doc = "Register FIFOTH `reset()`'s with value 0x001f_0000"]
-impl crate::ResetValue for super::FIFOTH {
-    type Type = u32;
+#[doc = "Register `FIFOTH` reader"]
+pub struct R(crate::R<FIFOTH_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FIFOTH_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x001f_0000
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `TX_WMARK`"]
-pub type TX_WMARK_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `TX_WMARK`"]
+impl core::convert::From<crate::R<FIFOTH_SPEC>> for R {
+    fn from(reader: crate::R<FIFOTH_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FIFOTH` writer"]
+pub struct W(crate::W<FIFOTH_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FIFOTH_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<FIFOTH_SPEC>> for W {
+    fn from(writer: crate::W<FIFOTH_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `TX_WMARK` reader - FIFO threshold watermark level when transmitting data to card."]
+pub struct TX_WMARK_R(crate::FieldReader<u16, u16>);
+impl TX_WMARK_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        TX_WMARK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TX_WMARK_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TX_WMARK` writer - FIFO threshold watermark level when transmitting data to card."]
 pub struct TX_WMARK_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +54,25 @@ impl<'a> TX_WMARK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0fff) | ((value as u32) & 0x0fff);
+        self.w.bits = (self.w.bits & !0x0fff) | (value as u32 & 0x0fff);
         self.w
     }
 }
-#[doc = "Reader of field `RX_WMARK`"]
-pub type RX_WMARK_R = crate::R<u16, u16>;
-#[doc = "Write proxy for field `RX_WMARK`"]
+#[doc = "Field `RX_WMARK` reader - FIFO threshold watermark level when receiving data to card."]
+pub struct RX_WMARK_R(crate::FieldReader<u16, u16>);
+impl RX_WMARK_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        RX_WMARK_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RX_WMARK_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RX_WMARK` writer - FIFO threshold watermark level when receiving data to card."]
 pub struct RX_WMARK_W<'a> {
     w: &'a mut W,
 }
@@ -34,13 +80,25 @@ impl<'a> RX_WMARK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0fff << 16)) | (((value as u32) & 0x0fff) << 16);
+        self.w.bits = (self.w.bits & !(0x0fff << 16)) | ((value as u32 & 0x0fff) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `DMA_MTS`"]
-pub type DMA_MTS_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `DMA_MTS`"]
+#[doc = "Field `DMA_MTS` reader - Burst size of multiple transaction; should be programmed same as DW-DMA controller multiple-transaction-size SRC/DEST_MSIZE."]
+pub struct DMA_MTS_R(crate::FieldReader<u8, u8>);
+impl DMA_MTS_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DMA_MTS_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DMA_MTS_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMA_MTS` writer - Burst size of multiple transaction; should be programmed same as DW-DMA controller multiple-transaction-size SRC/DEST_MSIZE."]
 pub struct DMA_MTS_W<'a> {
     w: &'a mut W,
 }
@@ -48,7 +106,7 @@ impl<'a> DMA_MTS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 28)) | (((value as u32) & 0x07) << 28);
+        self.w.bits = (self.w.bits & !(0x07 << 28)) | ((value as u32 & 0x07) << 28);
         self.w
     }
 }
@@ -84,5 +142,30 @@ impl W {
     #[inline(always)]
     pub fn dma_mts(&mut self) -> DMA_MTS_W {
         DMA_MTS_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "FIFO Threshold Watermark register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fifoth](index.html) module"]
+pub struct FIFOTH_SPEC;
+impl crate::RegisterSpec for FIFOTH_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [fifoth::R](R) reader structure"]
+impl crate::Readable for FIFOTH_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [fifoth::W](W) writer structure"]
+impl crate::Writable for FIFOTH_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FIFOTH to value 0x001f_0000"]
+impl crate::Resettable for FIFOTH_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x001f_0000
     }
 }

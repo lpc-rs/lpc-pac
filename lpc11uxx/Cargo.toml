@@ -15,8 +15,7 @@ keywords = ["arm", "cortex-m", "nxp", "lpc", "svd2rust"]
 edition = "2018"
 
 [dependencies]
-bare-metal = "0.2"
-cortex-m = "0.5"
+cortex-m = "0.7.2"
 vcell = "0.1"
 
 [dependencies.cortex-m-rt]

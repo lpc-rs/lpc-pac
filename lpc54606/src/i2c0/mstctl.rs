@@ -1,13 +1,35 @@
-#[doc = "Reader of register MSTCTL"]
-pub type R = crate::R<u32, super::MSTCTL>;
-#[doc = "Writer for register MSTCTL"]
-pub type W = crate::W<u32, super::MSTCTL>;
-#[doc = "Register MSTCTL `reset()`'s with value 0"]
-impl crate::ResetValue for super::MSTCTL {
-    type Type = u32;
+#[doc = "Register `MSTCTL` reader"]
+pub struct R(crate::R<MSTCTL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MSTCTL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<MSTCTL_SPEC>> for R {
+    fn from(reader: crate::R<MSTCTL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MSTCTL` writer"]
+pub struct W(crate::W<MSTCTL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MSTCTL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MSTCTL_SPEC>> for W {
+    fn from(writer: crate::W<MSTCTL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Master Continue. This bit is write-only.\n\nValue on reset: 0"]
@@ -24,7 +46,7 @@ impl From<MSTCONTINUE_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `MSTCONTINUE`"]
+#[doc = "Field `MSTCONTINUE` writer - Master Continue. This bit is write-only."]
 pub struct MSTCONTINUE_W<'a> {
     w: &'a mut W,
 }
@@ -32,9 +54,7 @@ impl<'a> MSTCONTINUE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSTCONTINUE_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No effect."]
     #[inline(always)]
@@ -59,7 +79,7 @@ impl<'a> MSTCONTINUE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -77,9 +97,12 @@ impl From<MSTSTART_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MSTSTART`"]
-pub type MSTSTART_R = crate::R<bool, MSTSTART_A>;
+#[doc = "Field `MSTSTART` reader - Master Start control. This bit is write-only."]
+pub struct MSTSTART_R(crate::FieldReader<bool, MSTSTART_A>);
 impl MSTSTART_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MSTSTART_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MSTSTART_A {
@@ -91,15 +114,22 @@ impl MSTSTART_R {
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
     #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == MSTSTART_A::NO_EFFECT
+        **self == MSTSTART_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `START`"]
     #[inline(always)]
     pub fn is_start(&self) -> bool {
-        *self == MSTSTART_A::START
+        **self == MSTSTART_A::START
     }
 }
-#[doc = "Write proxy for field `MSTSTART`"]
+impl core::ops::Deref for MSTSTART_R {
+    type Target = crate::FieldReader<bool, MSTSTART_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSTSTART` writer - Master Start control. This bit is write-only."]
 pub struct MSTSTART_W<'a> {
     w: &'a mut W,
 }
@@ -107,9 +137,7 @@ impl<'a> MSTSTART_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSTSTART_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No effect."]
     #[inline(always)]
@@ -134,7 +162,7 @@ impl<'a> MSTSTART_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -152,9 +180,12 @@ impl From<MSTSTOP_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MSTSTOP`"]
-pub type MSTSTOP_R = crate::R<bool, MSTSTOP_A>;
+#[doc = "Field `MSTSTOP` reader - Master Stop control. This bit is write-only."]
+pub struct MSTSTOP_R(crate::FieldReader<bool, MSTSTOP_A>);
 impl MSTSTOP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MSTSTOP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MSTSTOP_A {
@@ -166,15 +197,22 @@ impl MSTSTOP_R {
     #[doc = "Checks if the value of the field is `NO_EFFECT`"]
     #[inline(always)]
     pub fn is_no_effect(&self) -> bool {
-        *self == MSTSTOP_A::NO_EFFECT
+        **self == MSTSTOP_A::NO_EFFECT
     }
     #[doc = "Checks if the value of the field is `STOP`"]
     #[inline(always)]
     pub fn is_stop(&self) -> bool {
-        *self == MSTSTOP_A::STOP
+        **self == MSTSTOP_A::STOP
     }
 }
-#[doc = "Write proxy for field `MSTSTOP`"]
+impl core::ops::Deref for MSTSTOP_R {
+    type Target = crate::FieldReader<bool, MSTSTOP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSTSTOP` writer - Master Stop control. This bit is write-only."]
 pub struct MSTSTOP_W<'a> {
     w: &'a mut W,
 }
@@ -182,9 +220,7 @@ impl<'a> MSTSTOP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSTSTOP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No effect."]
     #[inline(always)]
@@ -209,7 +245,7 @@ impl<'a> MSTSTOP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -227,9 +263,12 @@ impl From<MSTDMA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MSTDMA`"]
-pub type MSTDMA_R = crate::R<bool, MSTDMA_A>;
+#[doc = "Field `MSTDMA` reader - Master DMA enable. Data operations of the I2C can be performed with DMA. Protocol type operations such as Start, address, Stop, and address match must always be done with software, typically via an interrupt. Address acknowledgement must also be done by software except when the I2C is configured to be HSCAPABLE (and address acknowledgement is handled entirely by hardware) or when Automatic Operation is enabled. When a DMA data transfer is complete, MSTDMA must be cleared prior to beginning the next operation, typically a Start or Stop.This bit is read/write."]
+pub struct MSTDMA_R(crate::FieldReader<bool, MSTDMA_A>);
 impl MSTDMA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MSTDMA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MSTDMA_A {
@@ -241,15 +280,22 @@ impl MSTDMA_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == MSTDMA_A::DISABLED
+        **self == MSTDMA_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == MSTDMA_A::ENABLED
+        **self == MSTDMA_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `MSTDMA`"]
+impl core::ops::Deref for MSTDMA_R {
+    type Target = crate::FieldReader<bool, MSTDMA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSTDMA` writer - Master DMA enable. Data operations of the I2C can be performed with DMA. Protocol type operations such as Start, address, Stop, and address match must always be done with software, typically via an interrupt. Address acknowledgement must also be done by software except when the I2C is configured to be HSCAPABLE (and address acknowledgement is handled entirely by hardware) or when Automatic Operation is enabled. When a DMA data transfer is complete, MSTDMA must be cleared prior to beginning the next operation, typically a Start or Stop.This bit is read/write."]
 pub struct MSTDMA_W<'a> {
     w: &'a mut W,
 }
@@ -257,9 +303,7 @@ impl<'a> MSTDMA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSTDMA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disable. No DMA requests are generated for master operation."]
     #[inline(always)]
@@ -284,7 +328,7 @@ impl<'a> MSTDMA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -325,5 +369,30 @@ impl W {
     #[inline(always)]
     pub fn mstdma(&mut self) -> MSTDMA_W {
         MSTDMA_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Master control register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mstctl](index.html) module"]
+pub struct MSTCTL_SPEC;
+impl crate::RegisterSpec for MSTCTL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mstctl::R](R) reader structure"]
+impl crate::Readable for MSTCTL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mstctl::W](W) writer structure"]
+impl crate::Writable for MSTCTL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MSTCTL to value 0"]
+impl crate::Resettable for MSTCTL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

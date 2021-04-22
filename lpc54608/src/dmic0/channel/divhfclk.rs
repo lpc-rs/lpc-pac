@@ -1,18 +1,52 @@
-#[doc = "Reader of register DIVHFCLK"]
-pub type R = crate::R<u32, super::DIVHFCLK>;
-#[doc = "Writer for register DIVHFCLK"]
-pub type W = crate::W<u32, super::DIVHFCLK>;
-#[doc = "Register DIVHFCLK `reset()`'s with value 0"]
-impl crate::ResetValue for super::DIVHFCLK {
-    type Type = u32;
+#[doc = "Register `DIVHFCLK` reader"]
+pub struct R(crate::R<DIVHFCLK_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DIVHFCLK_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `PDMDIV`"]
-pub type PDMDIV_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PDMDIV`"]
+impl core::convert::From<crate::R<DIVHFCLK_SPEC>> for R {
+    fn from(reader: crate::R<DIVHFCLK_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DIVHFCLK` writer"]
+pub struct W(crate::W<DIVHFCLK_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DIVHFCLK_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<DIVHFCLK_SPEC>> for W {
+    fn from(writer: crate::W<DIVHFCLK_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `PDMDIV` reader - PDM clock divider value. 0 = divide by 1 1 = divide by 2 2 = divide by 3 3 = divide by 4 4 = divide by 6 5 = divide by 8 6 = divide by 12 7 = divide by 16 8 = divide by 24 9 = divide by 32 10 = divide by 48 11 = divide by 64 12 = divide by 96 13 = divide by 128 others = reserved."]
+pub struct PDMDIV_R(crate::FieldReader<u8, u8>);
+impl PDMDIV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PDMDIV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PDMDIV_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDMDIV` writer - PDM clock divider value. 0 = divide by 1 1 = divide by 2 2 = divide by 3 3 = divide by 4 4 = divide by 6 5 = divide by 8 6 = divide by 12 7 = divide by 16 8 = divide by 24 9 = divide by 32 10 = divide by 48 11 = divide by 64 12 = divide by 96 13 = divide by 128 others = reserved."]
 pub struct PDMDIV_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +54,7 @@ impl<'a> PDMDIV_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
+        self.w.bits = (self.w.bits & !0x0f) | (value as u32 & 0x0f);
         self.w
     }
 }
@@ -36,5 +70,30 @@ impl W {
     #[inline(always)]
     pub fn pdmdiv(&mut self) -> PDMDIV_W {
         PDMDIV_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "DMIC Clock Register 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [divhfclk](index.html) module"]
+pub struct DIVHFCLK_SPEC;
+impl crate::RegisterSpec for DIVHFCLK_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [divhfclk::R](R) reader structure"]
+impl crate::Readable for DIVHFCLK_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [divhfclk::W](W) writer structure"]
+impl crate::Writable for DIVHFCLK_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DIVHFCLK to value 0"]
+impl crate::Resettable for DIVHFCLK_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

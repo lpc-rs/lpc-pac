@@ -1,13 +1,35 @@
-#[doc = "Reader of register BODCTRL"]
-pub type R = crate::R<u32, super::BODCTRL>;
-#[doc = "Writer for register BODCTRL"]
-pub type W = crate::W<u32, super::BODCTRL>;
-#[doc = "Register BODCTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::BODCTRL {
-    type Type = u32;
+#[doc = "Register `BODCTRL` reader"]
+pub struct R(crate::R<BODCTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<BODCTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<BODCTRL_SPEC>> for R {
+    fn from(reader: crate::R<BODCTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `BODCTRL` writer"]
+pub struct W(crate::W<BODCTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<BODCTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<BODCTRL_SPEC>> for W {
+    fn from(writer: crate::W<BODCTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "BOD reset level\n\nValue on reset: 0"]
@@ -29,9 +51,12 @@ impl From<BODRSTLEV_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `BODRSTLEV`"]
-pub type BODRSTLEV_R = crate::R<u8, BODRSTLEV_A>;
+#[doc = "Field `BODRSTLEV` reader - BOD reset level"]
+pub struct BODRSTLEV_R(crate::FieldReader<u8, BODRSTLEV_A>);
 impl BODRSTLEV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        BODRSTLEV_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BODRSTLEV_A {
@@ -46,25 +71,32 @@ impl BODRSTLEV_R {
     #[doc = "Checks if the value of the field is `LEVEL0`"]
     #[inline(always)]
     pub fn is_level0(&self) -> bool {
-        *self == BODRSTLEV_A::LEVEL0
+        **self == BODRSTLEV_A::LEVEL0
     }
     #[doc = "Checks if the value of the field is `LEVEL1`"]
     #[inline(always)]
     pub fn is_level1(&self) -> bool {
-        *self == BODRSTLEV_A::LEVEL1
+        **self == BODRSTLEV_A::LEVEL1
     }
     #[doc = "Checks if the value of the field is `LEVEL2`"]
     #[inline(always)]
     pub fn is_level2(&self) -> bool {
-        *self == BODRSTLEV_A::LEVEL2
+        **self == BODRSTLEV_A::LEVEL2
     }
     #[doc = "Checks if the value of the field is `LEVEL3`"]
     #[inline(always)]
     pub fn is_level3(&self) -> bool {
-        *self == BODRSTLEV_A::LEVEL3
+        **self == BODRSTLEV_A::LEVEL3
     }
 }
-#[doc = "Write proxy for field `BODRSTLEV`"]
+impl core::ops::Deref for BODRSTLEV_R {
+    type Target = crate::FieldReader<u8, BODRSTLEV_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BODRSTLEV` writer - BOD reset level"]
 pub struct BODRSTLEV_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +104,7 @@ impl<'a> BODRSTLEV_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BODRSTLEV_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Level 0: 1.5 V"]
     #[inline(always)]
@@ -99,7 +129,7 @@ impl<'a> BODRSTLEV_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
@@ -117,9 +147,12 @@ impl From<BODRSTENA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BODRSTENA`"]
-pub type BODRSTENA_R = crate::R<bool, BODRSTENA_A>;
+#[doc = "Field `BODRSTENA` reader - BOD reset enable"]
+pub struct BODRSTENA_R(crate::FieldReader<bool, BODRSTENA_A>);
 impl BODRSTENA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BODRSTENA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BODRSTENA_A {
@@ -131,15 +164,22 @@ impl BODRSTENA_R {
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == BODRSTENA_A::DISABLE
+        **self == BODRSTENA_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == BODRSTENA_A::ENABLE
+        **self == BODRSTENA_A::ENABLE
     }
 }
-#[doc = "Write proxy for field `BODRSTENA`"]
+impl core::ops::Deref for BODRSTENA_R {
+    type Target = crate::FieldReader<bool, BODRSTENA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BODRSTENA` writer - BOD reset enable"]
 pub struct BODRSTENA_W<'a> {
     w: &'a mut W,
 }
@@ -147,9 +187,7 @@ impl<'a> BODRSTENA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BODRSTENA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disable reset function."]
     #[inline(always)]
@@ -174,7 +212,7 @@ impl<'a> BODRSTENA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -197,9 +235,12 @@ impl From<BODINTLEV_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `BODINTLEV`"]
-pub type BODINTLEV_R = crate::R<u8, BODINTLEV_A>;
+#[doc = "Field `BODINTLEV` reader - BOD interrupt level"]
+pub struct BODINTLEV_R(crate::FieldReader<u8, BODINTLEV_A>);
 impl BODINTLEV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        BODINTLEV_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BODINTLEV_A {
@@ -214,25 +255,32 @@ impl BODINTLEV_R {
     #[doc = "Checks if the value of the field is `LEVEL0`"]
     #[inline(always)]
     pub fn is_level0(&self) -> bool {
-        *self == BODINTLEV_A::LEVEL0
+        **self == BODINTLEV_A::LEVEL0
     }
     #[doc = "Checks if the value of the field is `LEVEL1`"]
     #[inline(always)]
     pub fn is_level1(&self) -> bool {
-        *self == BODINTLEV_A::LEVEL1
+        **self == BODINTLEV_A::LEVEL1
     }
     #[doc = "Checks if the value of the field is `LEVEL2`"]
     #[inline(always)]
     pub fn is_level2(&self) -> bool {
-        *self == BODINTLEV_A::LEVEL2
+        **self == BODINTLEV_A::LEVEL2
     }
     #[doc = "Checks if the value of the field is `LEVEL3`"]
     #[inline(always)]
     pub fn is_level3(&self) -> bool {
-        *self == BODINTLEV_A::LEVEL3
+        **self == BODINTLEV_A::LEVEL3
     }
 }
-#[doc = "Write proxy for field `BODINTLEV`"]
+impl core::ops::Deref for BODINTLEV_R {
+    type Target = crate::FieldReader<u8, BODINTLEV_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BODINTLEV` writer - BOD interrupt level"]
 pub struct BODINTLEV_W<'a> {
     w: &'a mut W,
 }
@@ -240,9 +288,7 @@ impl<'a> BODINTLEV_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BODINTLEV_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Level 0: 2.05 V"]
     #[inline(always)]
@@ -267,7 +313,7 @@ impl<'a> BODINTLEV_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 3)) | (((value as u32) & 0x03) << 3);
+        self.w.bits = (self.w.bits & !(0x03 << 3)) | ((value as u32 & 0x03) << 3);
         self.w
     }
 }
@@ -285,9 +331,12 @@ impl From<BODINTENA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BODINTENA`"]
-pub type BODINTENA_R = crate::R<bool, BODINTENA_A>;
+#[doc = "Field `BODINTENA` reader - BOD interrupt enable"]
+pub struct BODINTENA_R(crate::FieldReader<bool, BODINTENA_A>);
 impl BODINTENA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BODINTENA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BODINTENA_A {
@@ -299,15 +348,22 @@ impl BODINTENA_R {
     #[doc = "Checks if the value of the field is `DISABLE`"]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == BODINTENA_A::DISABLE
+        **self == BODINTENA_A::DISABLE
     }
     #[doc = "Checks if the value of the field is `ENABLE`"]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == BODINTENA_A::ENABLE
+        **self == BODINTENA_A::ENABLE
     }
 }
-#[doc = "Write proxy for field `BODINTENA`"]
+impl core::ops::Deref for BODINTENA_R {
+    type Target = crate::FieldReader<bool, BODINTENA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BODINTENA` writer - BOD interrupt enable"]
 pub struct BODINTENA_W<'a> {
     w: &'a mut W,
 }
@@ -315,9 +371,7 @@ impl<'a> BODINTENA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BODINTENA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disable interrupt function."]
     #[inline(always)]
@@ -342,13 +396,25 @@ impl<'a> BODINTENA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Reader of field `BODRSTSTAT`"]
-pub type BODRSTSTAT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `BODRSTSTAT`"]
+#[doc = "Field `BODRSTSTAT` reader - BOD reset status. When 1, a BOD reset has occurred. Cleared by writing 1 to this bit."]
+pub struct BODRSTSTAT_R(crate::FieldReader<bool, bool>);
+impl BODRSTSTAT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BODRSTSTAT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BODRSTSTAT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BODRSTSTAT` writer - BOD reset status. When 1, a BOD reset has occurred. Cleared by writing 1 to this bit."]
 pub struct BODRSTSTAT_W<'a> {
     w: &'a mut W,
 }
@@ -366,13 +432,25 @@ impl<'a> BODRSTSTAT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `BODINTSTAT`"]
-pub type BODINTSTAT_R = crate::R<bool, bool>;
-#[doc = "Write proxy for field `BODINTSTAT`"]
+#[doc = "Field `BODINTSTAT` reader - BOD interrupt status. When 1, a BOD interrupt has occurred. Cleared by writing 1 to this bit."]
+pub struct BODINTSTAT_R(crate::FieldReader<bool, bool>);
+impl BODINTSTAT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BODINTSTAT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BODINTSTAT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BODINTSTAT` writer - BOD interrupt status. When 1, a BOD interrupt has occurred. Cleared by writing 1 to this bit."]
 pub struct BODINTSTAT_W<'a> {
     w: &'a mut W,
 }
@@ -390,7 +468,7 @@ impl<'a> BODINTSTAT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
@@ -456,5 +534,30 @@ impl W {
     #[inline(always)]
     pub fn bodintstat(&mut self) -> BODINTSTAT_W {
         BODINTSTAT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Brown-Out Detect control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bodctrl](index.html) module"]
+pub struct BODCTRL_SPEC;
+impl crate::RegisterSpec for BODCTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [bodctrl::R](R) reader structure"]
+impl crate::Readable for BODCTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [bodctrl::W](W) writer structure"]
+impl crate::Writable for BODCTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets BODCTRL to value 0"]
+impl crate::Resettable for BODCTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

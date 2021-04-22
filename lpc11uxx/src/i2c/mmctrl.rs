@@ -1,13 +1,35 @@
-#[doc = "Reader of register MMCTRL"]
-pub type R = crate::R<u32, super::MMCTRL>;
-#[doc = "Writer for register MMCTRL"]
-pub type W = crate::W<u32, super::MMCTRL>;
-#[doc = "Register MMCTRL `reset()`'s with value 0"]
-impl crate::ResetValue for super::MMCTRL {
-    type Type = u32;
+#[doc = "Register `MMCTRL` reader"]
+pub struct R(crate::R<MMCTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MMCTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::convert::From<crate::R<MMCTRL_SPEC>> for R {
+    fn from(reader: crate::R<MMCTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MMCTRL` writer"]
+pub struct W(crate::W<MMCTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MMCTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl core::convert::From<crate::W<MMCTRL_SPEC>> for W {
+    fn from(writer: crate::W<MMCTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Monitor mode enable.\n\nValue on reset: 0"]
@@ -24,9 +46,12 @@ impl From<MM_ENA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MM_ENA`"]
-pub type MM_ENA_R = crate::R<bool, MM_ENA_A>;
+#[doc = "Field `MM_ENA` reader - Monitor mode enable."]
+pub struct MM_ENA_R(crate::FieldReader<bool, MM_ENA_A>);
 impl MM_ENA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MM_ENA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MM_ENA_A {
@@ -38,15 +63,22 @@ impl MM_ENA_R {
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == MM_ENA_A::DISABLED
+        **self == MM_ENA_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == MM_ENA_A::ENABLED
+        **self == MM_ENA_A::ENABLED
     }
 }
-#[doc = "Write proxy for field `MM_ENA`"]
+impl core::ops::Deref for MM_ENA_R {
+    type Target = crate::FieldReader<bool, MM_ENA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MM_ENA` writer - Monitor mode enable."]
 pub struct MM_ENA_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +86,7 @@ impl<'a> MM_ENA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MM_ENA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Monitor mode disabled."]
     #[inline(always)]
@@ -81,7 +111,7 @@ impl<'a> MM_ENA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +129,12 @@ impl From<ENA_SCL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ENA_SCL`"]
-pub type ENA_SCL_R = crate::R<bool, ENA_SCL_A>;
+#[doc = "Field `ENA_SCL` reader - SCL output enable."]
+pub struct ENA_SCL_R(crate::FieldReader<bool, ENA_SCL_A>);
 impl ENA_SCL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENA_SCL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ENA_SCL_A {
@@ -113,15 +146,22 @@ impl ENA_SCL_R {
     #[doc = "Checks if the value of the field is `HIGH`"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == ENA_SCL_A::HIGH
+        **self == ENA_SCL_A::HIGH
     }
     #[doc = "Checks if the value of the field is `NORMAL`"]
     #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == ENA_SCL_A::NORMAL
+        **self == ENA_SCL_A::NORMAL
     }
 }
-#[doc = "Write proxy for field `ENA_SCL`"]
+impl core::ops::Deref for ENA_SCL_R {
+    type Target = crate::FieldReader<bool, ENA_SCL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENA_SCL` writer - SCL output enable."]
 pub struct ENA_SCL_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +169,7 @@ impl<'a> ENA_SCL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ENA_SCL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "When this bit is cleared to 0, the SCL output will be forced high when the module is in monitor mode. As described above, this will prevent the module from having any control over the I2C clock line."]
     #[inline(always)]
@@ -156,7 +194,7 @@ impl<'a> ENA_SCL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +212,12 @@ impl From<MATCH_ALL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MATCH_ALL`"]
-pub type MATCH_ALL_R = crate::R<bool, MATCH_ALL_A>;
+#[doc = "Field `MATCH_ALL` reader - Select interrupt register match."]
+pub struct MATCH_ALL_R(crate::FieldReader<bool, MATCH_ALL_A>);
 impl MATCH_ALL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MATCH_ALL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MATCH_ALL_A {
@@ -187,16 +228,23 @@ impl MATCH_ALL_R {
     }
     #[doc = "Checks if the value of the field is `MATCH`"]
     #[inline(always)]
-    pub fn is_match_(&self) -> bool {
-        *self == MATCH_ALL_A::MATCH
+    pub fn is_match(&self) -> bool {
+        **self == MATCH_ALL_A::MATCH
     }
     #[doc = "Checks if the value of the field is `ANYADDRESS`"]
     #[inline(always)]
     pub fn is_anyaddress(&self) -> bool {
-        *self == MATCH_ALL_A::ANYADDRESS
+        **self == MATCH_ALL_A::ANYADDRESS
     }
 }
-#[doc = "Write proxy for field `MATCH_ALL`"]
+impl core::ops::Deref for MATCH_ALL_R {
+    type Target = crate::FieldReader<bool, MATCH_ALL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MATCH_ALL` writer - Select interrupt register match."]
 pub struct MATCH_ALL_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +252,7 @@ impl<'a> MATCH_ALL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MATCH_ALL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "When this bit is cleared, an interrupt will only be generated when a match occurs to one of the (up-to) four address registers described above. That is, the module will respond as a normal slave as far as address-recognition is concerned."]
     #[inline(always)]
@@ -231,7 +277,7 @@ impl<'a> MATCH_ALL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -267,5 +313,30 @@ impl W {
     #[inline(always)]
     pub fn match_all(&mut self) -> MATCH_ALL_W {
         MATCH_ALL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Monitor mode control register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mmctrl](index.html) module"]
+pub struct MMCTRL_SPEC;
+impl crate::RegisterSpec for MMCTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mmctrl::R](R) reader structure"]
+impl crate::Readable for MMCTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mmctrl::W](W) writer structure"]
+impl crate::Writable for MMCTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MMCTRL to value 0"]
+impl crate::Resettable for MMCTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }
