@@ -1,3 +1,10 @@
+## 0.8.0 (2021-04-24)
+
+- Upgrade to 2018 edition
+- Re-generate with `svd2rust` 0.18
+- Upgrade to `cortex-m` 0.7
+- Drop dependency on `bare-metal`
+
 <a name="v0.7.0"></a>
 ## 0.7.0 (2019-10-11)
 

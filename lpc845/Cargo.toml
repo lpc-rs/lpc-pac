@@ -1,6 +1,6 @@
 [package]
 name    = "lpc845-pac"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["David Sawatzke <d-lpc@sawatzke.dev>"]
 edition = "2018"
 
