@@ -19,7 +19,7 @@ travis-ci = { repository = "lpc-rs/lpc-pac" }
 
 [dependencies]
 cortex-m    = "0.7.2"
-cortex-m-rt = { version = "0.6.12", optional = true }
+cortex-m-rt = { version = ">=0.6, <0.8", optional = true }
 vcell       = "0.1.2"
 
 
