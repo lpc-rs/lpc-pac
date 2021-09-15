@@ -5,7 +5,7 @@ pub struct RegisterBlock {
     pub mode: crate::Reg<mode::MODE_SPEC>,
     #[doc = "0x04 - CRC seed register"]
     pub seed: crate::Reg<seed::SEED_SPEC>,
-    _reserved_2_sum_wr_data: [u8; 4usize],
+    _reserved_2_sum_wr_data: [u8; 0x04],
 }
 impl RegisterBlock {
     #[doc = "0x08 - CRC data register"]

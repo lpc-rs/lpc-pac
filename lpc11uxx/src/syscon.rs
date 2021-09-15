@@ -13,15 +13,15 @@ pub struct RegisterBlock {
     pub usbpllctrl: crate::Reg<usbpllctrl::USBPLLCTRL_SPEC>,
     #[doc = "0x14 - USB PLL status"]
     pub usbpllstat: crate::Reg<usbpllstat::USBPLLSTAT_SPEC>,
-    _reserved6: [u8; 8usize],
+    _reserved6: [u8; 0x08],
     #[doc = "0x20 - System oscillator control"]
     pub sysoscctrl: crate::Reg<sysoscctrl::SYSOSCCTRL_SPEC>,
     #[doc = "0x24 - Watchdog oscillator control"]
     pub wdtoscctrl: crate::Reg<wdtoscctrl::WDTOSCCTRL_SPEC>,
-    _reserved8: [u8; 8usize],
+    _reserved8: [u8; 0x08],
     #[doc = "0x30 - System reset status register"]
     pub sysrststat: crate::Reg<sysrststat::SYSRSTSTAT_SPEC>,
-    _reserved9: [u8; 12usize],
+    _reserved9: [u8; 0x0c],
     #[doc = "0x40 - System PLL clock source select"]
     pub syspllclksel: crate::Reg<syspllclksel::SYSPLLCLKSEL_SPEC>,
     #[doc = "0x44 - System PLL clock source update enable"]
@@ -30,72 +30,72 @@ pub struct RegisterBlock {
     pub usbpllclksel: crate::Reg<usbpllclksel::USBPLLCLKSEL_SPEC>,
     #[doc = "0x4c - USB PLL clock source update enable"]
     pub usbpllclkuen: crate::Reg<usbpllclkuen::USBPLLCLKUEN_SPEC>,
-    _reserved13: [u8; 32usize],
+    _reserved13: [u8; 0x20],
     #[doc = "0x70 - Main clock source select"]
     pub mainclksel: crate::Reg<mainclksel::MAINCLKSEL_SPEC>,
     #[doc = "0x74 - Main clock source update enable"]
     pub mainclkuen: crate::Reg<mainclkuen::MAINCLKUEN_SPEC>,
     #[doc = "0x78 - System clock divider"]
     pub sysahbclkdiv: crate::Reg<sysahbclkdiv::SYSAHBCLKDIV_SPEC>,
-    _reserved16: [u8; 4usize],
+    _reserved16: [u8; 0x04],
     #[doc = "0x80 - System clock control"]
     pub sysahbclkctrl: crate::Reg<sysahbclkctrl::SYSAHBCLKCTRL_SPEC>,
-    _reserved17: [u8; 16usize],
+    _reserved17: [u8; 0x10],
     #[doc = "0x94 - SSP0 clock divider"]
     pub ssp0clkdiv: crate::Reg<ssp0clkdiv::SSP0CLKDIV_SPEC>,
     #[doc = "0x98 - UART clock divider"]
     pub uartclkdiv: crate::Reg<uartclkdiv::UARTCLKDIV_SPEC>,
     #[doc = "0x9c - SSP1 clock divider"]
     pub ssp1clkdiv: crate::Reg<ssp1clkdiv::SSP1CLKDIV_SPEC>,
-    _reserved20: [u8; 32usize],
+    _reserved20: [u8; 0x20],
     #[doc = "0xc0 - USB clock source select"]
     pub usbclksel: crate::Reg<usbclksel::USBCLKSEL_SPEC>,
     #[doc = "0xc4 - USB clock source update enable"]
     pub usbclkuen: crate::Reg<usbclkuen::USBCLKUEN_SPEC>,
     #[doc = "0xc8 - USB clock source divider"]
     pub usbclkdiv: crate::Reg<usbclkdiv::USBCLKDIV_SPEC>,
-    _reserved23: [u8; 20usize],
+    _reserved23: [u8; 0x14],
     #[doc = "0xe0 - CLKOUT clock source select"]
     pub clkoutsel: crate::Reg<clkoutsel::CLKOUTSEL_SPEC>,
     #[doc = "0xe4 - CLKOUT clock source update enable"]
     pub clkoutuen: crate::Reg<clkoutuen::CLKOUTUEN_SPEC>,
     #[doc = "0xe8 - CLKOUT clock divider"]
     pub clkoutdiv: crate::Reg<clkoutdiv::CLKOUTDIV_SPEC>,
-    _reserved26: [u8; 20usize],
+    _reserved26: [u8; 0x14],
     #[doc = "0x100 - POR captured PIO status 0"]
     pub pioporcap0: crate::Reg<pioporcap0::PIOPORCAP0_SPEC>,
     #[doc = "0x104 - POR captured PIO status 1"]
     pub pioporcap1: crate::Reg<pioporcap1::PIOPORCAP1_SPEC>,
-    _reserved28: [u8; 72usize],
+    _reserved28: [u8; 0x48],
     #[doc = "0x150 - Brown-Out Detect"]
     pub bodctrl: crate::Reg<bodctrl::BODCTRL_SPEC>,
     #[doc = "0x154 - System tick counter calibration"]
     pub systckcal: crate::Reg<systckcal::SYSTCKCAL_SPEC>,
-    _reserved30: [u8; 24usize],
+    _reserved30: [u8; 0x18],
     #[doc = "0x170 - IQR delay. Allows trade-off between interrupt latency and determinism."]
     pub irqlatency: crate::Reg<irqlatency::IRQLATENCY_SPEC>,
     #[doc = "0x174 - NMI Source Control"]
     pub nmisrc: crate::Reg<nmisrc::NMISRC_SPEC>,
-    #[doc = "0x178 - GPIO Pin Interrupt Select register 0"]
+    #[doc = "0x178..0x198 - GPIO Pin Interrupt Select register 0"]
     pub pintsel: [crate::Reg<pintsel::PINTSEL_SPEC>; 8],
     #[doc = "0x198 - USB clock control"]
     pub usbclkctrl: crate::Reg<usbclkctrl::USBCLKCTRL_SPEC>,
     #[doc = "0x19c - USB clock status"]
     pub usbclkst: crate::Reg<usbclkst::USBCLKST_SPEC>,
-    _reserved35: [u8; 100usize],
+    _reserved35: [u8; 0x64],
     #[doc = "0x204 - Start logic 0 interrupt wake-up enable register 0"]
     pub starterp0: crate::Reg<starterp0::STARTERP0_SPEC>,
-    _reserved36: [u8; 12usize],
+    _reserved36: [u8; 0x0c],
     #[doc = "0x214 - Start logic 1 interrupt wake-up enable register 1"]
     pub starterp1: crate::Reg<starterp1::STARTERP1_SPEC>,
-    _reserved37: [u8; 24usize],
+    _reserved37: [u8; 0x18],
     #[doc = "0x230 - Power-down states in deep-sleep mode"]
     pub pdsleepcfg: crate::Reg<pdsleepcfg::PDSLEEPCFG_SPEC>,
     #[doc = "0x234 - Power-down states for wake-up from deep-sleep"]
     pub pdawakecfg: crate::Reg<pdawakecfg::PDAWAKECFG_SPEC>,
     #[doc = "0x238 - Power configuration register"]
     pub pdruncfg: crate::Reg<pdruncfg::PDRUNCFG_SPEC>,
-    _reserved40: [u8; 440usize],
+    _reserved40: [u8; 0x01b8],
     #[doc = "0x3f4 - Device ID"]
     pub device_id: crate::Reg<device_id::DEVICE_ID_SPEC>,
 }

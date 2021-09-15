@@ -1,46 +1,46 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00 - no description available"]
+    #[doc = "0x00..0x40 - no description available"]
     pub b: [B; 2],
-    _reserved1: [u8; 4032usize],
-    #[doc = "0x1000 - no description available"]
+    _reserved1: [u8; 0x0fc0],
+    #[doc = "0x1000..0x1100 - no description available"]
     pub w: [W; 2],
-    _reserved2: [u8; 3840usize],
-    #[doc = "0x2000 - Direction registers"]
+    _reserved2: [u8; 0x0f00],
+    #[doc = "0x2000..0x2008 - Direction registers"]
     pub dir: [crate::Reg<dir::DIR_SPEC>; 2],
-    _reserved3: [u8; 120usize],
-    #[doc = "0x2080 - Mask register"]
+    _reserved3: [u8; 0x78],
+    #[doc = "0x2080..0x2088 - Mask register"]
     pub mask: [crate::Reg<mask::MASK_SPEC>; 2],
-    _reserved4: [u8; 120usize],
-    #[doc = "0x2100 - Port pin register"]
+    _reserved4: [u8; 0x78],
+    #[doc = "0x2100..0x2108 - Port pin register"]
     pub pin: [crate::Reg<pin::PIN_SPEC>; 2],
-    _reserved5: [u8; 120usize],
-    #[doc = "0x2180 - Masked port register"]
+    _reserved5: [u8; 0x78],
+    #[doc = "0x2180..0x2188 - Masked port register"]
     pub mpin: [crate::Reg<mpin::MPIN_SPEC>; 2],
-    _reserved6: [u8; 120usize],
-    #[doc = "0x2200 - Write: Set register for port Read: output bits for port"]
+    _reserved6: [u8; 0x78],
+    #[doc = "0x2200..0x2208 - Write: Set register for port Read: output bits for port"]
     pub set: [crate::Reg<set::SET_SPEC>; 2],
-    _reserved7: [u8; 120usize],
-    #[doc = "0x2280 - Clear port"]
+    _reserved7: [u8; 0x78],
+    #[doc = "0x2280..0x2288 - Clear port"]
     pub clr: [crate::Reg<clr::CLR_SPEC>; 2],
-    _reserved8: [u8; 120usize],
-    #[doc = "0x2300 - Toggle port"]
+    _reserved8: [u8; 0x78],
+    #[doc = "0x2300..0x2308 - Toggle port"]
     pub not: [crate::Reg<not::NOT_SPEC>; 2],
-    _reserved9: [u8; 120usize],
-    #[doc = "0x2380 - Set pin direction bits for port"]
+    _reserved9: [u8; 0x78],
+    #[doc = "0x2380..0x2388 - Set pin direction bits for port"]
     pub dirset: [crate::Reg<dirset::DIRSET_SPEC>; 2],
-    _reserved10: [u8; 120usize],
-    #[doc = "0x2400 - Clear pin direction bits for port"]
+    _reserved10: [u8; 0x78],
+    #[doc = "0x2400..0x2408 - Clear pin direction bits for port"]
     pub dirclr: [crate::Reg<dirclr::DIRCLR_SPEC>; 2],
-    _reserved11: [u8; 120usize],
-    #[doc = "0x2480 - Toggle pin direction bits for port"]
+    _reserved11: [u8; 0x78],
+    #[doc = "0x2480..0x2488 - Toggle pin direction bits for port"]
     pub dirnot: [crate::Reg<dirnot::DIRNOT_SPEC>; 2],
 }
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct B {
-    #[doc = "0x00 - Byte pin registers for all port 0 and 1 GPIO pins"]
+    #[doc = "0x00..0x20 - Byte pin registers for all port 0 and 1 GPIO pins"]
     pub b_: [crate::Reg<self::b::b_::B__SPEC>; 32],
 }
 #[doc = r"Register block"]
@@ -49,7 +49,7 @@ pub mod b;
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct W {
-    #[doc = "0x00 - Word pin registers for all port 0 and 1 GPIO pins"]
+    #[doc = "0x00..0x80 - Word pin registers for all port 0 and 1 GPIO pins"]
     pub w_: [crate::Reg<self::w::w_::W__SPEC>; 32],
 }
 #[doc = r"Register block"]

@@ -25,7 +25,7 @@ pub struct RegisterBlock {
     pub adr3: crate::Reg<adr::ADR_SPEC>,
     #[doc = "0x2c - Data buffer register. The contents of the 8 MSBs of the I2DAT shift register will be transferred to the DATA_BUFFER automatically after every nine bits (8 bits of data plus ACK or NACK) has been received on the bus."]
     pub data_buffer: crate::Reg<data_buffer::DATA_BUFFER_SPEC>,
-    #[doc = "0x30 - I2C Slave address mask register. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000)."]
+    #[doc = "0x30..0x40 - I2C Slave address mask register. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000)."]
     pub mask: [crate::Reg<mask::MASK_SPEC>; 4],
 }
 #[doc = "CONSET register accessor: an alias for `Reg<CONSET_SPEC>`"]

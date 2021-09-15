@@ -3,7 +3,7 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - ADC Control register. Contains the clock divide value, resolution selection, sampling time selection, and mode controls."]
     pub ctrl: crate::Reg<ctrl::CTRL_SPEC>,
-    _reserved1: [u8; 4usize],
+    _reserved1: [u8; 0x04],
     #[doc = "0x08 - ADC Conversion Sequence-n control register: Controls triggering and channel selection for conversion sequence-n. Also specifies interrupt mode for sequence-n."]
     pub seq_ctrla: crate::Reg<seq_ctrl::SEQ_CTRL_SPEC>,
     #[doc = "0x0c - ADC Conversion Sequence-n control register: Controls triggering and channel selection for conversion sequence-n. Also specifies interrupt mode for sequence-n."]
@@ -12,8 +12,8 @@ pub struct RegisterBlock {
     pub seq_gdata: crate::Reg<seq_gdat::SEQ_GDAT_SPEC>,
     #[doc = "0x14 - ADC Sequence-n Global Data register. This register contains the result of the most recent ADC conversion performed under sequence-n."]
     pub seq_gdatb: crate::Reg<seq_gdat::SEQ_GDAT_SPEC>,
-    _reserved5: [u8; 8usize],
-    #[doc = "0x20 - ADC Channel N Data register. This register contains the result of the most recent conversion completed on channel N."]
+    _reserved5: [u8; 0x08],
+    #[doc = "0x20..0x50 - ADC Channel N Data register. This register contains the result of the most recent conversion completed on channel N."]
     pub dat: [crate::Reg<dat::DAT_SPEC>; 12],
     #[doc = "0x50 - ADC Low Compare Threshold register 0: Contains the lower threshold level for automatic threshold comparison for any channels linked to threshold pair 0."]
     pub thr0_low: crate::Reg<thr0_low::THR0_LOW_SPEC>,

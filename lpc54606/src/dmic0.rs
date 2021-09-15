@@ -1,20 +1,20 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00 - no description available"]
+    #[doc = "0x00..0x94 - no description available"]
     pub channel0: CHANNEL,
-    _reserved1: [u8; 108usize],
-    #[doc = "0x100 - no description available"]
+    _reserved1: [u8; 0x6c],
+    #[doc = "0x100..0x194 - no description available"]
     pub channel1: CHANNEL,
-    _reserved2: [u8; 3436usize],
+    _reserved2: [u8; 0x0d6c],
     #[doc = "0xf00 - Channel Enable register"]
     pub chanen: crate::Reg<chanen::CHANEN_SPEC>,
-    _reserved3: [u8; 8usize],
+    _reserved3: [u8; 0x08],
     #[doc = "0xf0c - I/O Configuration register"]
     pub iocfg: crate::Reg<iocfg::IOCFG_SPEC>,
     #[doc = "0xf10 - Use 2FS register"]
     pub use2fs: crate::Reg<use2fs::USE2FS_SPEC>,
-    _reserved5: [u8; 108usize],
+    _reserved5: [u8; 0x6c],
     #[doc = "0xf80 - HWVAD input gain register"]
     pub hwvadgain: crate::Reg<hwvadgain::HWVADGAIN_SPEC>,
     #[doc = "0xf84 - HWVAD filter control register"]
@@ -29,7 +29,7 @@ pub struct RegisterBlock {
     pub hwvadthgs: crate::Reg<hwvadthgs::HWVADTHGS_SPEC>,
     #[doc = "0xf98 - HWVAD noise envelope estimator register"]
     pub hwvadlowz: crate::Reg<hwvadlowz::HWVADLOWZ_SPEC>,
-    _reserved12: [u8; 96usize],
+    _reserved12: [u8; 0x60],
     #[doc = "0xffc - Module Identification register"]
     pub id: crate::Reg<id::ID_SPEC>,
 }
@@ -46,7 +46,7 @@ pub struct CHANNEL {
     pub preac4fscoef: crate::Reg<self::channel::preac4fscoef::PREAC4FSCOEF_SPEC>,
     #[doc = "0x10 - Decimator Gain Shift register"]
     pub gainshift: crate::Reg<self::channel::gainshift::GAINSHIFT_SPEC>,
-    _reserved5: [u8; 108usize],
+    _reserved5: [u8; 0x6c],
     #[doc = "0x80 - FIFO Control register 0"]
     pub fifo_ctrl: crate::Reg<self::channel::fifo_ctrl::FIFO_CTRL_SPEC>,
     #[doc = "0x84 - FIFO Status register 0"]

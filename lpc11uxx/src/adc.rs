@@ -5,10 +5,10 @@ pub struct RegisterBlock {
     pub cr: crate::Reg<cr::CR_SPEC>,
     #[doc = "0x04 - A/D Global Data Register. Contains the result of the most recent A/D conversion."]
     pub gdr: crate::Reg<gdr::GDR_SPEC>,
-    _reserved2: [u8; 4usize],
+    _reserved2: [u8; 0x04],
     #[doc = "0x0c - A/D Interrupt Enable Register. This register contains enable bits that allow the DONE flag of each A/D channel to be included or excluded from contributing to the generation of an A/D interrupt."]
     pub inten: crate::Reg<inten::INTEN_SPEC>,
-    #[doc = "0x10 - A/D Channel Data Register. This register contains the result of the most recent conversion completed on channel N"]
+    #[doc = "0x10..0x30 - A/D Channel Data Register. This register contains the result of the most recent conversion completed on channel N"]
     pub dr: [crate::Reg<dr::DR_SPEC>; 8],
     #[doc = "0x30 - A/D Status Register. This register contains DONE and OVERRUN flags for all of the A/D channels, as well as the A/D interrupt flag."]
     pub stat: crate::Reg<stat::STAT_SPEC>,

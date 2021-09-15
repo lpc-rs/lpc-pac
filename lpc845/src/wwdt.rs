@@ -9,7 +9,7 @@ pub struct RegisterBlock {
     pub feed: crate::Reg<feed::FEED_SPEC>,
     #[doc = "0x0c - Watchdog timer value register. This 24-bit register reads out the current value of the Watchdog timer."]
     pub tv: crate::Reg<tv::TV_SPEC>,
-    _reserved4: [u8; 4usize],
+    _reserved4: [u8; 0x04],
     #[doc = "0x14 - Watchdog Warning Interrupt compare value."]
     pub warnint: crate::Reg<warnint::WARNINT_SPEC>,
     #[doc = "0x18 - Watchdog Window compare value."]

@@ -1,13 +1,13 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00 - DMA output trigger selection to become DMA trigger"]
+    #[doc = "0x00..0x08 - DMA output trigger selection to become DMA trigger"]
     pub dma_inmux_inmux: [crate::Reg<dma_inmux_inmux::DMA_INMUX_INMUX_SPEC>; 2],
-    _reserved1: [u8; 24usize],
-    #[doc = "0x20 - input select register for SCT"]
+    _reserved1: [u8; 0x18],
+    #[doc = "0x20..0x30 - input select register for SCT"]
     pub sct_inmux: [crate::Reg<sct_inmux::SCT_INMUX_SPEC>; 4],
-    _reserved2: [u8; 16usize],
-    #[doc = "0x40 - Trigger select register for DMA channel"]
+    _reserved2: [u8; 0x10],
+    #[doc = "0x40..0xa4 - Trigger select register for DMA channel"]
     pub dma_itrig_inmux: [crate::Reg<dma_itrig_inmux::DMA_ITRIG_INMUX_SPEC>; 25],
 }
 #[doc = "DMA_INMUX_INMUX register accessor: an alias for `Reg<DMA_INMUX_INMUX_SPEC>`"]

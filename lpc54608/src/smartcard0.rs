@@ -1,21 +1,21 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved_0_rbr_thr_dll: [u8; 4usize],
-    _reserved_1_dlm_ier: [u8; 4usize],
-    _reserved_2_iir_fcr: [u8; 4usize],
+    _reserved_0_rbr_thr_dll: [u8; 0x04],
+    _reserved_1_dlm_ier: [u8; 0x04],
+    _reserved_2_iir_fcr: [u8; 0x04],
     #[doc = "0x0c - Line Control Register"]
     pub lcr: crate::Reg<lcr::LCR_SPEC>,
-    _reserved4: [u8; 4usize],
+    _reserved4: [u8; 0x04],
     #[doc = "0x14 - Line Status Register"]
     pub lsr: crate::Reg<lsr::LSR_SPEC>,
-    _reserved5: [u8; 4usize],
+    _reserved5: [u8; 0x04],
     #[doc = "0x1c - Scratch Pad Register"]
     pub scr: crate::Reg<scr::SCR_SPEC>,
-    _reserved6: [u8; 12usize],
+    _reserved6: [u8; 0x0c],
     #[doc = "0x2c - Oversampling register"]
     pub osr: crate::Reg<osr::OSR_SPEC>,
-    _reserved7: [u8; 24usize],
+    _reserved7: [u8; 0x18],
     #[doc = "0x48 - Smart Card Interface control register"]
     pub scictrl: crate::Reg<scictrl::SCICTRL_SPEC>,
 }

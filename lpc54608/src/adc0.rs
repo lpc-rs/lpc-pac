@@ -13,8 +13,8 @@ pub struct RegisterBlock {
     pub seq_gdata: crate::Reg<seq_gdat::SEQ_GDAT_SPEC>,
     #[doc = "0x14 - ADC Sequence-n Global Data register. This register contains the result of the most recent ADC conversion performed under sequence-n."]
     pub seq_gdatb: crate::Reg<seq_gdat::SEQ_GDAT_SPEC>,
-    _reserved6: [u8; 8usize],
-    #[doc = "0x20 - ADC Channel 0 Data register. This register contains the result of the most recent conversion completed on channel 0."]
+    _reserved6: [u8; 0x08],
+    #[doc = "0x20..0x50 - ADC Channel 0 Data register. This register contains the result of the most recent conversion completed on channel 0."]
     pub dat: [crate::Reg<dat::DAT_SPEC>; 12],
     #[doc = "0x50 - ADC Low Compare Threshold register 0: Contains the lower threshold level for automatic threshold comparison for any channels linked to threshold pair 0."]
     pub thr0_low: crate::Reg<thr0_low::THR0_LOW_SPEC>,

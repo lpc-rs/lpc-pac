@@ -7,14 +7,14 @@ pub struct RegisterBlock {
     pub status: crate::Reg<status::STATUS_SPEC>,
     #[doc = "0x08 - Configures operation of the memory controller"]
     pub config: crate::Reg<config::CONFIG_SPEC>,
-    _reserved3: [u8; 20usize],
+    _reserved3: [u8; 0x14],
     #[doc = "0x20 - Controls dynamic memory operation"]
     pub dynamiccontrol: crate::Reg<dynamiccontrol::DYNAMICCONTROL_SPEC>,
     #[doc = "0x24 - Configures dynamic memory refresh"]
     pub dynamicrefresh: crate::Reg<dynamicrefresh::DYNAMICREFRESH_SPEC>,
     #[doc = "0x28 - Configures dynamic memory read strategy"]
     pub dynamicreadconfig: crate::Reg<dynamicreadconfig::DYNAMICREADCONFIG_SPEC>,
-    _reserved6: [u8; 4usize],
+    _reserved6: [u8; 0x04],
     #[doc = "0x30 - Precharge command period"]
     pub dynamicrp: crate::Reg<dynamicrp::DYNAMICRP_SPEC>,
     #[doc = "0x34 - Active to precharge command period"]
@@ -37,32 +37,32 @@ pub struct RegisterBlock {
     pub dynamicrrd: crate::Reg<dynamicrrd::DYNAMICRRD_SPEC>,
     #[doc = "0x58 - Time for load mode register to active command"]
     pub dynamicmrd: crate::Reg<dynamicmrd::DYNAMICMRD_SPEC>,
-    _reserved17: [u8; 36usize],
+    _reserved17: [u8; 0x24],
     #[doc = "0x80 - Time for long static memory read and write transfers"]
     pub staticextendedwait: crate::Reg<staticextendedwait::STATICEXTENDEDWAIT_SPEC>,
-    _reserved18: [u8; 124usize],
-    #[doc = "0x100 - no description available"]
+    _reserved18: [u8; 0x7c],
+    #[doc = "0x100..0x108 - no description available"]
     pub dynamic0: DYNAMIC,
-    _reserved19: [u8; 24usize],
-    #[doc = "0x120 - no description available"]
+    _reserved19: [u8; 0x18],
+    #[doc = "0x120..0x128 - no description available"]
     pub dynamic1: DYNAMIC,
-    _reserved20: [u8; 24usize],
-    #[doc = "0x140 - no description available"]
+    _reserved20: [u8; 0x18],
+    #[doc = "0x140..0x148 - no description available"]
     pub dynamic2: DYNAMIC,
-    _reserved21: [u8; 24usize],
-    #[doc = "0x160 - no description available"]
+    _reserved21: [u8; 0x18],
+    #[doc = "0x160..0x168 - no description available"]
     pub dynamic3: DYNAMIC,
-    _reserved22: [u8; 152usize],
-    #[doc = "0x200 - no description available"]
+    _reserved22: [u8; 0x98],
+    #[doc = "0x200..0x21c - no description available"]
     pub static0: STATIC,
-    _reserved23: [u8; 4usize],
-    #[doc = "0x220 - no description available"]
+    _reserved23: [u8; 0x04],
+    #[doc = "0x220..0x23c - no description available"]
     pub static1: STATIC,
-    _reserved24: [u8; 4usize],
-    #[doc = "0x240 - no description available"]
+    _reserved24: [u8; 0x04],
+    #[doc = "0x240..0x25c - no description available"]
     pub static2: STATIC,
-    _reserved25: [u8; 4usize],
-    #[doc = "0x260 - no description available"]
+    _reserved25: [u8; 0x04],
+    #[doc = "0x260..0x27c - no description available"]
     pub static3: STATIC,
 }
 #[doc = r"Register block"]

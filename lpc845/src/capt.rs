@@ -7,17 +7,17 @@ pub struct RegisterBlock {
     pub status: crate::Reg<status::STATUS_SPEC>,
     #[doc = "0x08 - This sets up the polling counter and measurement counter rules."]
     pub poll_tcnt: crate::Reg<poll_tcnt::POLL_TCNT_SPEC>,
-    _reserved3: [u8; 4usize],
+    _reserved3: [u8; 0x04],
     #[doc = "0x10 - Interrupt enable"]
     pub intenset: crate::Reg<intenset::INTENSET_SPEC>,
     #[doc = "0x14 - Interrupt enable clear"]
     pub intenclr: crate::Reg<intenclr::INTENCLR_SPEC>,
     #[doc = "0x18 - Interrupt status (mask of STATUS and INTEN)"]
     pub intstat: crate::Reg<intstat::INTSTAT_SPEC>,
-    _reserved6: [u8; 4usize],
+    _reserved6: [u8; 0x04],
     #[doc = "0x20 - Last touch event (touch or no-touch) in context."]
     pub touch: crate::Reg<touch::TOUCH_SPEC>,
-    _reserved7: [u8; 4056usize],
+    _reserved7: [u8; 0x0fd8],
     #[doc = "0xffc - Block ID"]
     pub id: crate::Reg<id::ID_SPEC>,
 }

@@ -7,71 +7,71 @@ pub struct RegisterBlock {
     pub ccr: crate::Reg<ccr::CCR_SPEC>,
     #[doc = "0x08 - Trigger Event Register"]
     pub trigger: crate::Reg<trigger::TRIGGER_SPEC>,
-    _reserved3: [u8; 4usize],
+    _reserved3: [u8; 0x04],
     #[doc = "0x10 - ETM Status Register"]
     pub sr: crate::Reg<sr::SR_SPEC>,
     #[doc = "0x14 - System Configuration Register"]
     pub scr: crate::Reg<scr::SCR_SPEC>,
-    _reserved5: [u8; 8usize],
+    _reserved5: [u8; 0x08],
     #[doc = "0x20 - Trace Enable Event Register"]
     pub eevr: crate::Reg<eevr::EEVR_SPEC>,
     #[doc = "0x24 - Trace Enable Control 1 Register"]
     pub tecr1: crate::Reg<tecr1::TECR1_SPEC>,
     #[doc = "0x28 - FIFOFULL Level Register"]
     pub fflr: crate::Reg<fflr::FFLR_SPEC>,
-    _reserved8: [u8; 276usize],
+    _reserved8: [u8; 0x0114],
     #[doc = "0x140 - Free-running counter reload value"]
     pub cntrldvr1: crate::Reg<cntrldvr1::CNTRLDVR1_SPEC>,
-    _reserved9: [u8; 156usize],
+    _reserved9: [u8; 0x9c],
     #[doc = "0x1e0 - Synchronization Frequency Register"]
     pub syncfr: crate::Reg<syncfr::SYNCFR_SPEC>,
     #[doc = "0x1e4 - ID Register"]
     pub idr: crate::Reg<idr::IDR_SPEC>,
     #[doc = "0x1e8 - Configuration Code Extension Register"]
     pub ccer: crate::Reg<ccer::CCER_SPEC>,
-    _reserved12: [u8; 4usize],
+    _reserved12: [u8; 0x04],
     #[doc = "0x1f0 - TraceEnable Start/Stop EmbeddedICE Control Register"]
     pub tesseicr: crate::Reg<tesseicr::TESSEICR_SPEC>,
-    _reserved13: [u8; 4usize],
+    _reserved13: [u8; 0x04],
     #[doc = "0x1f8 - Timestamp Event Register"]
     pub tsevr: crate::Reg<tsevr::TSEVR_SPEC>,
-    _reserved14: [u8; 4usize],
+    _reserved14: [u8; 0x04],
     #[doc = "0x200 - CoreSight Trace ID Register"]
     pub traceidr: crate::Reg<traceidr::TRACEIDR_SPEC>,
-    _reserved15: [u8; 4usize],
+    _reserved15: [u8; 0x04],
     #[doc = "0x208 - ETM ID Register 2"]
     pub idr2: crate::Reg<idr2::IDR2_SPEC>,
-    _reserved16: [u8; 264usize],
+    _reserved16: [u8; 0x0108],
     #[doc = "0x314 - Device Power-Down Status Register"]
     pub pdsr: crate::Reg<pdsr::PDSR_SPEC>,
-    _reserved17: [u8; 3016usize],
+    _reserved17: [u8; 0x0bc8],
     #[doc = "0xee0 - Integration Test Miscelaneous Inputs Register"]
     pub _itmiscin: crate::Reg<_itmiscin::_ITMISCIN_SPEC>,
-    _reserved18: [u8; 4usize],
+    _reserved18: [u8; 0x04],
     #[doc = "0xee8 - Integration Test Trigger Out Register"]
     pub _ittrigout: crate::Reg<_ittrigout::_ITTRIGOUT_SPEC>,
-    _reserved19: [u8; 4usize],
+    _reserved19: [u8; 0x04],
     #[doc = "0xef0 - ETM Integration Test ATB Control 2 Register"]
     pub _itatbctr2: crate::Reg<_itatbctr2::_ITATBCTR2_SPEC>,
-    _reserved20: [u8; 4usize],
+    _reserved20: [u8; 0x04],
     #[doc = "0xef8 - ETM Integration Test ATB Control 0 Register"]
     pub _itatbctr0: crate::Reg<_itatbctr0::_ITATBCTR0_SPEC>,
-    _reserved21: [u8; 4usize],
+    _reserved21: [u8; 0x04],
     #[doc = "0xf00 - Integration Mode Control Register"]
     pub itctrl: crate::Reg<itctrl::ITCTRL_SPEC>,
-    _reserved22: [u8; 156usize],
+    _reserved22: [u8; 0x9c],
     #[doc = "0xfa0 - Claim Tag Set Register"]
     pub claimset: crate::Reg<claimset::CLAIMSET_SPEC>,
     #[doc = "0xfa4 - Claim Tag Clear Register"]
     pub claimclr: crate::Reg<claimclr::CLAIMCLR_SPEC>,
-    _reserved24: [u8; 8usize],
+    _reserved24: [u8; 0x08],
     #[doc = "0xfb0 - Lock Access Register"]
     pub lar: crate::Reg<lar::LAR_SPEC>,
     #[doc = "0xfb4 - Lock Status Register"]
     pub lsr: crate::Reg<lsr::LSR_SPEC>,
     #[doc = "0xfb8 - Authentication Status Register"]
     pub authstatus: crate::Reg<authstatus::AUTHSTATUS_SPEC>,
-    _reserved27: [u8; 16usize],
+    _reserved27: [u8; 0x10],
     #[doc = "0xfcc - CoreSight Device Type Register"]
     pub devtype: crate::Reg<devtype::DEVTYPE_SPEC>,
     #[doc = "0xfd0 - Peripheral Identification Register 4"]

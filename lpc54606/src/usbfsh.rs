@@ -45,7 +45,7 @@ pub struct RegisterBlock {
     pub hcrhstatus: crate::Reg<hcrhstatus::HCRHSTATUS_SPEC>,
     #[doc = "0x54 - Controls and reports the port events on a per-port basis"]
     pub hcrhportstatus: crate::Reg<hcrhportstatus::HCRHPORTSTATUS_SPEC>,
-    _reserved22: [u8; 4usize],
+    _reserved22: [u8; 0x04],
     #[doc = "0x5c - Controls the port if it is attached to the host block or the device block"]
     pub portmode: crate::Reg<portmode::PORTMODE_SPEC>,
 }

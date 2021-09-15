@@ -25,7 +25,7 @@ pub struct RegisterBlock {
     pub pio0_15: crate::Reg<pio0_15::PIO0_15_SPEC>,
     #[doc = "0x2c - Digital I/O control for pins PIO0_1"]
     pub pio0_1: crate::Reg<pio0_1::PIO0_1_SPEC>,
-    _reserved12: [u8; 4usize],
+    _reserved12: [u8; 0x04],
     #[doc = "0x34 - Digital I/O control for pins PIO0_9"]
     pub pio0_9: crate::Reg<pio0_9::PIO0_9_SPEC>,
     #[doc = "0x38 - Digital I/O control for pins PIO0_8"]
@@ -38,7 +38,7 @@ pub struct RegisterBlock {
     pub pio0_0: crate::Reg<pio0_0::PIO0_0_SPEC>,
     #[doc = "0x48 - Digital I/O control for pins PIO0_14"]
     pub pio0_14: crate::Reg<pio0_14::PIO0_14_SPEC>,
-    _reserved18: [u8; 4usize],
+    _reserved18: [u8; 0x04],
     #[doc = "0x50 - Digital I/O control for pins PIO0_28"]
     pub pio0_28: crate::Reg<pio0_28::PIO0_28_SPEC>,
     #[doc = "0x54 - Digital I/O control for pins PIO0_27"]

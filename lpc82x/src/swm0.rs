@@ -25,7 +25,7 @@ pub struct RegisterBlock {
     pub pinassign10: crate::Reg<pinassign10::PINASSIGN10_SPEC>,
     #[doc = "0x2c - Pin assign register 11. Assign movable functions ADC_PINTRIG1, ACMP_O, CLKOUT, GPIO_INT_BMAT"]
     pub pinassign11: crate::Reg<pinassign11::PINASSIGN11_SPEC>,
-    _reserved12: [u8; 400usize],
+    _reserved12: [u8; 0x0190],
     #[doc = "0x1c0 - Pin enable register 0. Enables fixed-pin functions ACMP_I0, ACMP_I1, SWCLK, SWDIO, XTALIN, XTALOUT, RESET, CLKIN, VDDCMP and so on."]
     pub pinenable0: crate::Reg<pinenable0::PINENABLE0_SPEC>,
 }

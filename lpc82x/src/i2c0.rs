@@ -15,23 +15,23 @@ pub struct RegisterBlock {
     pub clkdiv: crate::Reg<clkdiv::CLKDIV_SPEC>,
     #[doc = "0x18 - Interrupt Status register for Master, Slave, and Monitor functions."]
     pub intstat: crate::Reg<intstat::INTSTAT_SPEC>,
-    _reserved7: [u8; 4usize],
+    _reserved7: [u8; 0x04],
     #[doc = "0x20 - Master control register."]
     pub mstctl: crate::Reg<mstctl::MSTCTL_SPEC>,
     #[doc = "0x24 - Master timing configuration."]
     pub msttime: crate::Reg<msttime::MSTTIME_SPEC>,
     #[doc = "0x28 - Combined Master receiver and transmitter data register."]
     pub mstdat: crate::Reg<mstdat::MSTDAT_SPEC>,
-    _reserved10: [u8; 20usize],
+    _reserved10: [u8; 0x14],
     #[doc = "0x40 - Slave control register."]
     pub slvctl: crate::Reg<slvctl::SLVCTL_SPEC>,
     #[doc = "0x44 - Combined Slave receiver and transmitter data register."]
     pub slvdat: crate::Reg<slvdat::SLVDAT_SPEC>,
-    #[doc = "0x48 - Slave address register."]
+    #[doc = "0x48..0x58 - Slave address register."]
     pub slvadr: [crate::Reg<slvadr::SLVADR_SPEC>; 4],
     #[doc = "0x58 - Slave Qualification for address 0."]
     pub slvqual0: crate::Reg<slvqual0::SLVQUAL0_SPEC>,
-    _reserved14: [u8; 36usize],
+    _reserved14: [u8; 0x24],
     #[doc = "0x80 - Monitor receiver data register."]
     pub monrxdat: crate::Reg<monrxdat::MONRXDAT_SPEC>,
 }

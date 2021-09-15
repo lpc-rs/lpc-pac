@@ -1,12 +1,12 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved0: [u8; 16usize],
-    #[doc = "0x10 - Register for reading the AES key."]
+    _reserved0: [u8; 0x10],
+    #[doc = "0x10..0x30 - Register for reading the AES key."]
     pub aeskey: [crate::Reg<aeskey::AESKEY_SPEC>; 8],
     #[doc = "0x30 - ECRP options."]
     pub ecrp: crate::Reg<ecrp::ECRP_SPEC>,
-    _reserved2: [u8; 4usize],
+    _reserved2: [u8; 0x04],
     #[doc = "0x38 - User application specific options."]
     pub user0: crate::Reg<user0::USER0_SPEC>,
     #[doc = "0x3c - User application specific options."]

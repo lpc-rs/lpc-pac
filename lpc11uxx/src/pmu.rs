@@ -3,7 +3,7 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - Power control register"]
     pub pcon: crate::Reg<pcon::PCON_SPEC>,
-    #[doc = "0x04 - General purpose register 0"]
+    #[doc = "0x04..0x14 - General purpose register 0"]
     pub gpreg: [crate::Reg<gpreg::GPREG_SPEC>; 4],
     #[doc = "0x14 - General purpose register 4"]
     pub gpreg4: crate::Reg<gpreg4::GPREG4_SPEC>,

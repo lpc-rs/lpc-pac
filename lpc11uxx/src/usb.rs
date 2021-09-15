@@ -25,7 +25,7 @@ pub struct RegisterBlock {
     pub intsetstat: crate::Reg<intsetstat::INTSETSTAT_SPEC>,
     #[doc = "0x2c - USB interrupt routing register"]
     pub introuting: crate::Reg<introuting::INTROUTING_SPEC>,
-    _reserved12: [u8; 4usize],
+    _reserved12: [u8; 0x04],
     #[doc = "0x34 - USB Endpoint toggle register"]
     pub eptoggle: crate::Reg<eptoggle::EPTOGGLE_SPEC>,
 }

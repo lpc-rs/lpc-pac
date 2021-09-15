@@ -9,8 +9,8 @@ pub struct RegisterBlock {
     pub count: crate::Reg<count::COUNT_SPEC>,
     #[doc = "0x0c - High-resolution/wake-up timer control register"]
     pub wake: crate::Reg<wake::WAKE_SPEC>,
-    _reserved4: [u8; 48usize],
-    #[doc = "0x40 - General Purpose register"]
+    _reserved4: [u8; 0x30],
+    #[doc = "0x40..0x60 - General Purpose register"]
     pub gpreg: [crate::Reg<gpreg::GPREG_SPEC>; 8],
 }
 #[doc = "CTRL register accessor: an alias for `Reg<CTRL_SPEC>`"]

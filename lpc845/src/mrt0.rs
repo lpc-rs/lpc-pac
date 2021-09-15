@@ -1,9 +1,9 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00 - no description available"]
+    #[doc = "0x00..0x40 - no description available"]
     pub channel: [CHANNEL; 4],
-    _reserved1: [u8; 180usize],
+    _reserved1: [u8; 0xb4],
     #[doc = "0xf4 - Idle channel register. This register returns the number of the first idle channel."]
     pub idle_ch: crate::Reg<idle_ch::IDLE_CH_SPEC>,
     #[doc = "0xf8 - Global interrupt flag register"]

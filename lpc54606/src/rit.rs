@@ -13,7 +13,7 @@ pub struct RegisterBlock {
     pub compval_h: crate::Reg<compval_h::COMPVAL_H_SPEC>,
     #[doc = "0x14 - Mask MSB register"]
     pub mask_h: crate::Reg<mask_h::MASK_H_SPEC>,
-    _reserved6: [u8; 4usize],
+    _reserved6: [u8; 0x04],
     #[doc = "0x1c - Counter MSB register"]
     pub counter_h: crate::Reg<counter_h::COUNTER_H_SPEC>,
 }

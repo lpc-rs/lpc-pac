@@ -7,7 +7,8 @@ impl core::ops::Deref for R {
         &self.0
     }
 }
-impl core::convert::From<crate::R<SYSTCKCAL_SPEC>> for R {
+impl From<crate::R<SYSTCKCAL_SPEC>> for R {
+    #[inline(always)]
     fn from(reader: crate::R<SYSTCKCAL_SPEC>) -> Self {
         R(reader)
     }
@@ -27,7 +28,8 @@ impl core::ops::DerefMut for W {
         &mut self.0
     }
 }
-impl core::convert::From<crate::W<SYSTCKCAL_SPEC>> for W {
+impl From<crate::W<SYSTCKCAL_SPEC>> for W {
+    #[inline(always)]
     fn from(writer: crate::W<SYSTCKCAL_SPEC>) -> Self {
         W(writer)
     }
@@ -164,6 +166,7 @@ impl W {
         NOREF_W { w: self }
     }
     #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self

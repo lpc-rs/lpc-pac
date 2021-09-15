@@ -7,7 +7,7 @@ pub struct RegisterBlock {
     pub pwren: crate::Reg<pwren::PWREN_SPEC>,
     #[doc = "0x08 - Clock Divider register"]
     pub clkdiv: crate::Reg<clkdiv::CLKDIV_SPEC>,
-    _reserved3: [u8; 4usize],
+    _reserved3: [u8; 0x04],
     #[doc = "0x10 - Clock Enable register"]
     pub clkena: crate::Reg<clkena::CLKENA_SPEC>,
     #[doc = "0x14 - Time-out register"]
@@ -24,7 +24,7 @@ pub struct RegisterBlock {
     pub cmdarg: crate::Reg<cmdarg::CMDARG_SPEC>,
     #[doc = "0x2c - Command register"]
     pub cmd: crate::Reg<cmd::CMD_SPEC>,
-    #[doc = "0x30 - Response register"]
+    #[doc = "0x30..0x40 - Response register"]
     pub resp: [crate::Reg<resp::RESP_SPEC>; 4],
     #[doc = "0x40 - Masked Interrupt Status register"]
     pub mintsts: crate::Reg<mintsts::MINTSTS_SPEC>,
@@ -38,17 +38,17 @@ pub struct RegisterBlock {
     pub cdetect: crate::Reg<cdetect::CDETECT_SPEC>,
     #[doc = "0x54 - Write Protect register"]
     pub wrtprt: crate::Reg<wrtprt::WRTPRT_SPEC>,
-    _reserved18: [u8; 4usize],
+    _reserved18: [u8; 0x04],
     #[doc = "0x5c - Transferred CIU Card Byte Count register"]
     pub tcbcnt: crate::Reg<tcbcnt::TCBCNT_SPEC>,
     #[doc = "0x60 - Transferred Host to BIU-FIFO Byte Count register"]
     pub tbbcnt: crate::Reg<tbbcnt::TBBCNT_SPEC>,
     #[doc = "0x64 - Debounce Count register"]
     pub debnce: crate::Reg<debnce::DEBNCE_SPEC>,
-    _reserved21: [u8; 16usize],
+    _reserved21: [u8; 0x10],
     #[doc = "0x78 - Hardware Reset"]
     pub rst_n: crate::Reg<rst_n::RST_N_SPEC>,
-    _reserved22: [u8; 4usize],
+    _reserved22: [u8; 0x04],
     #[doc = "0x80 - Bus Mode register"]
     pub bmod: crate::Reg<bmod::BMOD_SPEC>,
     #[doc = "0x84 - Poll Demand register"]
@@ -63,13 +63,13 @@ pub struct RegisterBlock {
     pub dscaddr: crate::Reg<dscaddr::DSCADDR_SPEC>,
     #[doc = "0x98 - Current Buffer Descriptor Address register"]
     pub bufaddr: crate::Reg<bufaddr::BUFADDR_SPEC>,
-    _reserved29: [u8; 100usize],
+    _reserved29: [u8; 0x64],
     #[doc = "0x100 - Card Threshold Control"]
     pub cardthrctl: crate::Reg<cardthrctl::CARDTHRCTL_SPEC>,
     #[doc = "0x104 - Power control"]
     pub backendpwr: crate::Reg<backendpwr::BACKENDPWR_SPEC>,
-    _reserved31: [u8; 248usize],
-    #[doc = "0x200 - SDIF FIFO"]
+    _reserved31: [u8; 0xf8],
+    #[doc = "0x200..0x300 - SDIF FIFO"]
     pub fifo: [crate::Reg<fifo::FIFO_SPEC>; 64],
 }
 #[doc = "CTRL register accessor: an alias for `Reg<CTRL_SPEC>`"]

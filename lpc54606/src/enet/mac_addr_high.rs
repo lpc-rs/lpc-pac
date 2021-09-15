@@ -7,7 +7,8 @@ impl core::ops::Deref for R {
         &self.0
     }
 }
-impl core::convert::From<crate::R<MAC_ADDR_HIGH_SPEC>> for R {
+impl From<crate::R<MAC_ADDR_HIGH_SPEC>> for R {
+    #[inline(always)]
     fn from(reader: crate::R<MAC_ADDR_HIGH_SPEC>) -> Self {
         R(reader)
     }
@@ -27,7 +28,8 @@ impl core::ops::DerefMut for W {
         &mut self.0
     }
 }
-impl core::convert::From<crate::W<MAC_ADDR_HIGH_SPEC>> for W {
+impl From<crate::W<MAC_ADDR_HIGH_SPEC>> for W {
+    #[inline(always)]
     fn from(writer: crate::W<MAC_ADDR_HIGH_SPEC>) -> Self {
         W(writer)
     }
@@ -141,6 +143,7 @@ This field contains the upper 16 bits (47:32) of the 6-byte first MAC address."]
         DCS_W { w: self }
     }
     #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self

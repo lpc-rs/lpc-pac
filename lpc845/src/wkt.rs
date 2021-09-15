@@ -3,7 +3,7 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - Self wake-up timer control register."]
     pub ctrl: crate::Reg<ctrl::CTRL_SPEC>,
-    _reserved1: [u8; 8usize],
+    _reserved1: [u8; 0x08],
     #[doc = "0x0c - Counter register."]
     pub count: crate::Reg<count::COUNT_SPEC>,
 }

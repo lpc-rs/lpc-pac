@@ -9,7 +9,7 @@ pub struct RegisterBlock {
     pub cfg: crate::Reg<cfg::CFG_SPEC>,
     #[doc = "0x0c - Capture clear register."]
     pub capclr: crate::Reg<capclr::CAPCLR_SPEC>,
-    #[doc = "0x10 - Capture register ."]
+    #[doc = "0x10..0x20 - Capture register ."]
     pub cap: [crate::Reg<cap::CAP_SPEC>; 4],
 }
 #[doc = "CTRL register accessor: an alias for `Reg<CTRL_SPEC>`"]

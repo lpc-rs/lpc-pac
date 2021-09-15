@@ -3,21 +3,21 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - Control register"]
     pub fctr: crate::Reg<fctr::FCTR_SPEC>,
-    _reserved1: [u8; 12usize],
+    _reserved1: [u8; 0x0c],
     #[doc = "0x10 - Wait state register"]
     pub fbwst: crate::Reg<fbwst::FBWST_SPEC>,
-    _reserved2: [u8; 12usize],
+    _reserved2: [u8; 0x0c],
     #[doc = "0x20 - Signature start address register"]
     pub fmsstart: crate::Reg<fmsstart::FMSSTART_SPEC>,
     #[doc = "0x24 - Signature stop-address register"]
     pub fmsstop: crate::Reg<fmsstop::FMSSTOP_SPEC>,
-    _reserved4: [u8; 4usize],
-    #[doc = "0x2c - Words of 128-bit signature word"]
+    _reserved4: [u8; 0x04],
+    #[doc = "0x2c..0x3c - Words of 128-bit signature word"]
     pub fmsw: [crate::Reg<fmsw::FMSW_SPEC>; 4],
-    _reserved5: [u8; 4004usize],
+    _reserved5: [u8; 0x0fa4],
     #[doc = "0xfe0 - Signature generation status register"]
     pub fmstat: crate::Reg<fmstat::FMSTAT_SPEC>,
-    _reserved6: [u8; 4usize],
+    _reserved6: [u8; 0x04],
     #[doc = "0xfe8 - Signature generation status clear register"]
     pub fmstatclr: crate::Reg<fmstatclr::FMSTATCLR_SPEC>,
 }

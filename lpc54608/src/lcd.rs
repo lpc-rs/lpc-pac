@@ -27,11 +27,11 @@ pub struct RegisterBlock {
     pub upcurr: crate::Reg<upcurr::UPCURR_SPEC>,
     #[doc = "0x30 - Lower Panel Current Address Value register"]
     pub lpcurr: crate::Reg<lpcurr::LPCURR_SPEC>,
-    _reserved13: [u8; 460usize],
-    #[doc = "0x200 - 256x16-bit Color Palette registers"]
+    _reserved13: [u8; 0x01cc],
+    #[doc = "0x200..0x400 - 256x16-bit Color Palette registers"]
     pub pal: [crate::Reg<pal::PAL_SPEC>; 128],
-    _reserved14: [u8; 1024usize],
-    #[doc = "0x800 - Cursor Image registers"]
+    _reserved14: [u8; 0x0400],
+    #[doc = "0x800..0xc00 - Cursor Image registers"]
     pub crsr_img: [crate::Reg<crsr_img::CRSR_IMG_SPEC>; 256],
     #[doc = "0xc00 - Cursor Control register"]
     pub crsr_ctrl: crate::Reg<crsr_ctrl::CRSR_CTRL_SPEC>,
@@ -45,7 +45,7 @@ pub struct RegisterBlock {
     pub crsr_xy: crate::Reg<crsr_xy::CRSR_XY_SPEC>,
     #[doc = "0xc14 - Cursor Clip Position register"]
     pub crsr_clip: crate::Reg<crsr_clip::CRSR_CLIP_SPEC>,
-    _reserved21: [u8; 8usize],
+    _reserved21: [u8; 0x08],
     #[doc = "0xc20 - Cursor Interrupt Mask register"]
     pub crsr_intmsk: crate::Reg<crsr_intmsk::CRSR_INTMSK_SPEC>,
     #[doc = "0xc24 - Cursor Interrupt Clear register"]

@@ -3,7 +3,7 @@
 pub struct RegisterBlock {
     #[doc = "0x00 - EEPROM command register"]
     pub cmd: crate::Reg<cmd::CMD_SPEC>,
-    _reserved1: [u8; 4usize],
+    _reserved1: [u8; 0x04],
     #[doc = "0x08 - EEPROM read wait state register"]
     pub rwstate: crate::Reg<rwstate::RWSTATE_SPEC>,
     #[doc = "0x0c - EEPROM auto programming register"]
@@ -14,7 +14,7 @@ pub struct RegisterBlock {
     pub clkdiv: crate::Reg<clkdiv::CLKDIV_SPEC>,
     #[doc = "0x18 - EEPROM power-down register"]
     pub pwrdwn: crate::Reg<pwrdwn::PWRDWN_SPEC>,
-    _reserved6: [u8; 4028usize],
+    _reserved6: [u8; 0x0fbc],
     #[doc = "0xfd8 - EEPROM interrupt enable clear"]
     pub intenclr: crate::Reg<intenclr::INTENCLR_SPEC>,
     #[doc = "0xfdc - EEPROM interrupt enable set"]

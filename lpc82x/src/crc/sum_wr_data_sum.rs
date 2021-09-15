@@ -7,7 +7,8 @@ impl core::ops::Deref for R {
         &self.0
     }
 }
-impl core::convert::From<crate::R<SUM_WR_DATA_SUM_SPEC>> for R {
+impl From<crate::R<SUM_WR_DATA_SUM_SPEC>> for R {
+    #[inline(always)]
     fn from(reader: crate::R<SUM_WR_DATA_SUM_SPEC>) -> Self {
         R(reader)
     }

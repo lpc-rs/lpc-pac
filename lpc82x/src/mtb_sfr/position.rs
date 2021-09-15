@@ -7,7 +7,8 @@ impl core::ops::Deref for R {
         &self.0
     }
 }
-impl core::convert::From<crate::R<POSITION_SPEC>> for R {
+impl From<crate::R<POSITION_SPEC>> for R {
+    #[inline(always)]
     fn from(reader: crate::R<POSITION_SPEC>) -> Self {
         R(reader)
     }
@@ -27,7 +28,8 @@ impl core::ops::DerefMut for W {
         &mut self.0
     }
 }
-impl core::convert::From<crate::W<POSITION_SPEC>> for W {
+impl From<crate::W<POSITION_SPEC>> for W {
+    #[inline(always)]
     fn from(writer: crate::W<POSITION_SPEC>) -> Self {
         W(writer)
     }
@@ -122,6 +124,7 @@ of the address, in the SRAM, where the next trace packet will be written. The fi
         POINTER_W { w: self }
     }
     #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self

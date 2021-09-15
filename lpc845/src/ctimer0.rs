@@ -13,20 +13,20 @@ pub struct RegisterBlock {
     pub pc: crate::Reg<pc::PC_SPEC>,
     #[doc = "0x14 - Match Control Register. The MCR is used to control if an interrupt is generated and if the TC is reset when a Match occurs."]
     pub mcr: crate::Reg<mcr::MCR_SPEC>,
-    #[doc = "0x18 - Match Register . MR can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC."]
+    #[doc = "0x18..0x28 - Match Register . MR can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC."]
     pub mr: [crate::Reg<mr::MR_SPEC>; 4],
     #[doc = "0x28 - Capture Control Register. The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated when a capture takes place."]
     pub ccr: crate::Reg<ccr::CCR_SPEC>,
-    #[doc = "0x2c - Capture Register . CR is loaded with the value of TC when there is an event on the CAPn. input."]
+    #[doc = "0x2c..0x3c - Capture Register . CR is loaded with the value of TC when there is an event on the CAPn. input."]
     pub cr: [crate::Reg<cr::CR_SPEC>; 4],
     #[doc = "0x3c - External Match Register. The EMR controls the match function and the external match pins."]
     pub emr: crate::Reg<emr::EMR_SPEC>,
-    _reserved10: [u8; 48usize],
+    _reserved10: [u8; 0x30],
     #[doc = "0x70 - Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting."]
     pub ctcr: crate::Reg<ctcr::CTCR_SPEC>,
     #[doc = "0x74 - PWM Control Register. The PWMCON enables PWM mode for the external match pins."]
     pub pwmc: crate::Reg<pwmc::PWMC_SPEC>,
-    #[doc = "0x78 - Match Shadow Register . If enabled, the Match Register will be automatically reloaded with the contents of this register whenever the TC is reset to zero."]
+    #[doc = "0x78..0x88 - Match Shadow Register . If enabled, the Match Register will be automatically reloaded with the contents of this register whenever the TC is reset to zero."]
     pub msr: [crate::Reg<msr::MSR_SPEC>; 4],
 }
 #[doc = "IR register accessor: an alias for `Reg<IR_SPEC>`"]
