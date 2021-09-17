@@ -1,7 +1,7 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved0: [u8; 4088usize],
+    _reserved0: [u8; 0x0ff8],
     #[doc = "0xff8 - Peripheral Select and Flexcomm ID register."]
     pub pselid: crate::Reg<pselid::PSELID_SPEC>,
     #[doc = "0xffc - Peripheral identification register."]

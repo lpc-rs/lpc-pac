@@ -13,7 +13,7 @@ pub struct RegisterBlock {
     pub stop: crate::Reg<stop::STOP_SPEC>,
     #[doc = "0x14 - SCT start event select register"]
     pub start: crate::Reg<start::START_SPEC>,
-    _reserved6: [u8; 40usize],
+    _reserved6: [u8; 0x28],
     #[doc = "0x40 - SCT counter register"]
     pub count: crate::Reg<count::COUNT_SPEC>,
     #[doc = "0x44 - SCT state register"]
@@ -32,7 +32,7 @@ pub struct RegisterBlock {
     pub dmareq0: crate::Reg<dmareq0::DMAREQ0_SPEC>,
     #[doc = "0x60 - SCT DMA request 1 register"]
     pub dmareq1: crate::Reg<dmareq1::DMAREQ1_SPEC>,
-    _reserved15: [u8; 140usize],
+    _reserved15: [u8; 0x8c],
     #[doc = "0xf0 - SCT event interrupt enable register"]
     pub even: crate::Reg<even::EVEN_SPEC>,
     #[doc = "0xf4 - SCT event flag register"]
@@ -41,32 +41,32 @@ pub struct RegisterBlock {
     pub conen: crate::Reg<conen::CONEN_SPEC>,
     #[doc = "0xfc - SCT conflict flag register"]
     pub conflag: crate::Reg<conflag::CONFLAG_SPEC>,
-    _reserved_19_cap_match: [u8; 4usize],
-    _reserved_20_cap_match: [u8; 4usize],
-    _reserved_21_cap_match: [u8; 4usize],
-    _reserved_22_cap_match: [u8; 4usize],
-    _reserved_23_cap_match: [u8; 4usize],
-    _reserved_24_cap_match: [u8; 4usize],
-    _reserved_25_cap_match: [u8; 4usize],
-    _reserved_26_cap_match: [u8; 4usize],
-    _reserved_27_cap_match: [u8; 4usize],
-    _reserved_28_cap_match: [u8; 4usize],
-    _reserved29: [u8; 216usize],
-    _reserved_29_capctrl_matchrel: [u8; 4usize],
-    _reserved_30_capctrl_matchrel: [u8; 4usize],
-    _reserved_31_capctrl_matchrel: [u8; 4usize],
-    _reserved_32_capctrl_matchrel: [u8; 4usize],
-    _reserved_33_capctrl_matchrel: [u8; 4usize],
-    _reserved_34_capctrl_matchrel: [u8; 4usize],
-    _reserved_35_capctrl_matchrel: [u8; 4usize],
-    _reserved_36_capctrl_matchrel: [u8; 4usize],
-    _reserved_37_capctrl_matchrel: [u8; 4usize],
-    _reserved_38_capctrl_matchrel: [u8; 4usize],
-    _reserved39: [u8; 216usize],
-    #[doc = "0x300 - no description available"]
+    _reserved_19_cap_match: [u8; 0x04],
+    _reserved_20_cap_match: [u8; 0x04],
+    _reserved_21_cap_match: [u8; 0x04],
+    _reserved_22_cap_match: [u8; 0x04],
+    _reserved_23_cap_match: [u8; 0x04],
+    _reserved_24_cap_match: [u8; 0x04],
+    _reserved_25_cap_match: [u8; 0x04],
+    _reserved_26_cap_match: [u8; 0x04],
+    _reserved_27_cap_match: [u8; 0x04],
+    _reserved_28_cap_match: [u8; 0x04],
+    _reserved29: [u8; 0xd8],
+    _reserved_29_capctrl_matchrel: [u8; 0x04],
+    _reserved_30_capctrl_matchrel: [u8; 0x04],
+    _reserved_31_capctrl_matchrel: [u8; 0x04],
+    _reserved_32_capctrl_matchrel: [u8; 0x04],
+    _reserved_33_capctrl_matchrel: [u8; 0x04],
+    _reserved_34_capctrl_matchrel: [u8; 0x04],
+    _reserved_35_capctrl_matchrel: [u8; 0x04],
+    _reserved_36_capctrl_matchrel: [u8; 0x04],
+    _reserved_37_capctrl_matchrel: [u8; 0x04],
+    _reserved_38_capctrl_matchrel: [u8; 0x04],
+    _reserved39: [u8; 0xd8],
+    #[doc = "0x300..0x350 - no description available"]
     pub ev: [EV; 10],
-    _reserved40: [u8; 432usize],
-    #[doc = "0x500 - no description available"]
+    _reserved40: [u8; 0x01b0],
+    #[doc = "0x500..0x550 - no description available"]
     pub out: [OUT; 10],
 }
 impl RegisterBlock {

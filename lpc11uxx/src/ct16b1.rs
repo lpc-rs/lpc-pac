@@ -13,7 +13,7 @@ pub struct RegisterBlock {
     pub pc: crate::Reg<pc::PC_SPEC>,
     #[doc = "0x14 - Match Control Register. The MCR is used to control if an interrupt is generated and if the TC is reset when a Match occurs."]
     pub mcr: crate::Reg<mcr::MCR_SPEC>,
-    #[doc = "0x18 - Match Register 0. MR0 can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR0 matches the TC."]
+    #[doc = "0x18..0x28 - Match Register 0. MR0 can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR0 matches the TC."]
     pub mr: [crate::Reg<mr::MR_SPEC>; 4],
     #[doc = "0x28 - Capture Control Register. The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated when a capture takes place."]
     pub ccr: crate::Reg<ccr::CCR_SPEC>,
@@ -21,11 +21,11 @@ pub struct RegisterBlock {
     pub cr0: crate::Reg<cr0::CR0_SPEC>,
     #[doc = "0x30 - Capture Register 1. CR1 is loaded with the value of TC when there is an event on the CT16B1_CAP1 input."]
     pub cr1: crate::Reg<cr1::CR1_SPEC>,
-    _reserved10: [u8; 8usize],
+    _reserved10: [u8; 0x08],
     #[doc = "0x3c - External Match Register. The EMR controls the match function and the external match pins CT16B0_MAT\\[1:0\\]
 and CT16B1_MAT\\[1:0\\]."]
     pub emr: crate::Reg<emr::EMR_SPEC>,
-    _reserved11: [u8; 48usize],
+    _reserved11: [u8; 0x30],
     #[doc = "0x70 - Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting."]
     pub ctcr: crate::Reg<ctcr::CTCR_SPEC>,
     #[doc = "0x74 - PWM Control Register. The PWMCON enables PWM mode for the external match pins CT16B0_MAT\\[1:0\\]

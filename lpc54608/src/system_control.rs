@@ -1,10 +1,10 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved0: [u8; 8usize],
+    _reserved0: [u8; 0x08],
     #[doc = "0x08 - Auxiliary Control Register,"]
     pub actlr: crate::Reg<actlr::ACTLR_SPEC>,
-    _reserved1: [u8; 3316usize],
+    _reserved1: [u8; 0x0cf4],
     #[doc = "0xd00 - CPUID Base Register"]
     pub cpuid: crate::Reg<cpuid::CPUID_SPEC>,
     #[doc = "0xd04 - Interrupt Control and State Register"]
@@ -37,10 +37,10 @@ pub struct RegisterBlock {
     pub bfar: crate::Reg<bfar::BFAR_SPEC>,
     #[doc = "0xd3c - Auxiliary Fault Status Register"]
     pub afsr: crate::Reg<afsr::AFSR_SPEC>,
-    _reserved17: [u8; 72usize],
+    _reserved17: [u8; 0x48],
     #[doc = "0xd88 - Coprocessor Access Control Register"]
     pub cpacr: crate::Reg<cpacr::CPACR_SPEC>,
-    _reserved18: [u8; 424usize],
+    _reserved18: [u8; 0x01a8],
     #[doc = "0xf34 - Floating-point Context Control Register"]
     pub fpccr: crate::Reg<fpccr::FPCCR_SPEC>,
     #[doc = "0xf38 - Floating-point Context Address Register"]

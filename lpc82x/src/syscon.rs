@@ -9,52 +9,52 @@ pub struct RegisterBlock {
     pub syspllctrl: crate::Reg<syspllctrl::SYSPLLCTRL_SPEC>,
     #[doc = "0x0c - PLL status"]
     pub syspllstat: crate::Reg<syspllstat::SYSPLLSTAT_SPEC>,
-    _reserved4: [u8; 16usize],
+    _reserved4: [u8; 0x10],
     #[doc = "0x20 - system oscillator control"]
     pub sysoscctrl: crate::Reg<sysoscctrl::SYSOSCCTRL_SPEC>,
     #[doc = "0x24 - Watchdog oscillator control"]
     pub wdtoscctrl: crate::Reg<wdtoscctrl::WDTOSCCTRL_SPEC>,
     #[doc = "0x28 - IRC control"]
     pub ircctrl: crate::Reg<ircctrl::IRCCTRL_SPEC>,
-    _reserved7: [u8; 4usize],
+    _reserved7: [u8; 0x04],
     #[doc = "0x30 - System reset status register"]
     pub sysrststat: crate::Reg<sysrststat::SYSRSTSTAT_SPEC>,
-    _reserved8: [u8; 12usize],
+    _reserved8: [u8; 0x0c],
     #[doc = "0x40 - System PLL clock source select register"]
     pub syspllclksel: crate::Reg<syspllclksel::SYSPLLCLKSEL_SPEC>,
     #[doc = "0x44 - System PLL clock source update enable register"]
     pub syspllclkuen: crate::Reg<syspllclkuen::SYSPLLCLKUEN_SPEC>,
-    _reserved10: [u8; 40usize],
+    _reserved10: [u8; 0x28],
     #[doc = "0x70 - Main clock source select"]
     pub mainclksel: crate::Reg<mainclksel::MAINCLKSEL_SPEC>,
     #[doc = "0x74 - Main clock source update enable"]
     pub mainclkuen: crate::Reg<mainclkuen::MAINCLKUEN_SPEC>,
     #[doc = "0x78 - System clock divider"]
     pub sysahbclkdiv: crate::Reg<sysahbclkdiv::SYSAHBCLKDIV_SPEC>,
-    _reserved13: [u8; 4usize],
+    _reserved13: [u8; 0x04],
     #[doc = "0x80 - System clock control"]
     pub sysahbclkctrl: crate::Reg<sysahbclkctrl::SYSAHBCLKCTRL_SPEC>,
-    _reserved14: [u8; 16usize],
+    _reserved14: [u8; 0x10],
     #[doc = "0x94 - USART clock divider"]
     pub uartclkdiv: crate::Reg<uartclkdiv::UARTCLKDIV_SPEC>,
-    _reserved15: [u8; 72usize],
+    _reserved15: [u8; 0x48],
     #[doc = "0xe0 - CLKOUT clock source select"]
     pub clkoutsel: crate::Reg<clkoutsel::CLKOUTSEL_SPEC>,
     #[doc = "0xe4 - CLKOUT clock source update enable"]
     pub clkoutuen: crate::Reg<clkoutuen::CLKOUTUEN_SPEC>,
     #[doc = "0xe8 - PLL control"]
     pub clkoutdiv: crate::Reg<clkoutdiv::CLKOUTDIV_SPEC>,
-    _reserved18: [u8; 4usize],
+    _reserved18: [u8; 0x04],
     #[doc = "0xf0 - USART1 to USART4 common fractional generator divider value"]
     pub uartfrgdiv: crate::Reg<uartfrgdiv::UARTFRGDIV_SPEC>,
     #[doc = "0xf4 - USART common fractional generator divider value"]
     pub uartfrgmult: crate::Reg<uartfrgmult::UARTFRGMULT_SPEC>,
-    _reserved20: [u8; 4usize],
+    _reserved20: [u8; 0x04],
     #[doc = "0xfc - External trace buffer command register"]
     pub exttracecmd: crate::Reg<exttracecmd::EXTTRACECMD_SPEC>,
     #[doc = "0x100 - POR captured PIO status 0"]
     pub pioporcap0: crate::Reg<pioporcap0::PIOPORCAP0_SPEC>,
-    _reserved22: [u8; 48usize],
+    _reserved22: [u8; 0x30],
     #[doc = "0x134 - Peripheral clock 6 to the IOCON block for programmable glitch filter"]
     pub ioconclkdiv6: crate::Reg<ioconclkdiv6::IOCONCLKDIV6_SPEC>,
     #[doc = "0x138 - Peripheral clock 6 to the IOCON block for programmable glitch filter"]
@@ -73,27 +73,27 @@ pub struct RegisterBlock {
     pub bodctrl: crate::Reg<bodctrl::BODCTRL_SPEC>,
     #[doc = "0x154 - System tick timer calibration register"]
     pub systckcal: crate::Reg<systckcal::SYSTCKCAL_SPEC>,
-    _reserved31: [u8; 24usize],
+    _reserved31: [u8; 0x18],
     #[doc = "0x170 - IRQ latency register"]
     pub irqlatency: crate::Reg<irqlatency::IRQLATENCY_SPEC>,
     #[doc = "0x174 - NMI source selection register"]
     pub nmisrc: crate::Reg<nmisrc::NMISRC_SPEC>,
-    #[doc = "0x178 - Pin interrupt select registers N"]
+    #[doc = "0x178..0x198 - Pin interrupt select registers N"]
     pub pintsel: [crate::Reg<pintsel::PINTSEL_SPEC>; 8],
-    _reserved34: [u8; 108usize],
+    _reserved34: [u8; 0x6c],
     #[doc = "0x204 - Start logic 0 pin wake-up enable register 0"]
     pub starterp0: crate::Reg<starterp0::STARTERP0_SPEC>,
-    _reserved35: [u8; 12usize],
+    _reserved35: [u8; 0x0c],
     #[doc = "0x214 - Start logic 1 interrupt wake-up enable register"]
     pub starterp1: crate::Reg<starterp1::STARTERP1_SPEC>,
-    _reserved36: [u8; 24usize],
+    _reserved36: [u8; 0x18],
     #[doc = "0x230 - Deep-sleep configuration register"]
     pub pdsleepcfg: crate::Reg<pdsleepcfg::PDSLEEPCFG_SPEC>,
     #[doc = "0x234 - Wake-up configuration register"]
     pub pdawakecfg: crate::Reg<pdawakecfg::PDAWAKECFG_SPEC>,
     #[doc = "0x238 - Power configuration register"]
     pub pdruncfg: crate::Reg<pdruncfg::PDRUNCFG_SPEC>,
-    _reserved39: [u8; 444usize],
+    _reserved39: [u8; 0x01bc],
     #[doc = "0x3f8 - Part ID register"]
     pub device_id: crate::Reg<device_id::DEVICE_ID_SPEC>,
 }

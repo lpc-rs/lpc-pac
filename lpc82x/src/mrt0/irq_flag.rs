@@ -7,7 +7,8 @@ impl core::ops::Deref for R {
         &self.0
     }
 }
-impl core::convert::From<crate::R<IRQ_FLAG_SPEC>> for R {
+impl From<crate::R<IRQ_FLAG_SPEC>> for R {
+    #[inline(always)]
     fn from(reader: crate::R<IRQ_FLAG_SPEC>) -> Self {
         R(reader)
     }
@@ -27,7 +28,8 @@ impl core::ops::DerefMut for W {
         &mut self.0
     }
 }
-impl core::convert::From<crate::W<IRQ_FLAG_SPEC>> for W {
+impl From<crate::W<IRQ_FLAG_SPEC>> for W {
+    #[inline(always)]
     fn from(writer: crate::W<IRQ_FLAG_SPEC>) -> Self {
         W(writer)
     }
@@ -267,6 +269,7 @@ impl W {
         GFLAG3_W { w: self }
     }
     #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self

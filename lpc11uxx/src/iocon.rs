@@ -109,7 +109,7 @@ pub struct RegisterBlock {
     pub pio1_28: crate::Reg<pio1_28::PIO1_28_SPEC>,
     #[doc = "0xd4 - I/O configuration for pin PIO1_29/SCK0/ CT32B0_CAP1"]
     pub pio1_29: crate::Reg<pio1_29::PIO1_29_SPEC>,
-    _reserved54: [u8; 4usize],
+    _reserved54: [u8; 0x04],
     #[doc = "0xdc - I/O configuration for pin PIO1_31"]
     pub pio1_31: crate::Reg<pio1_31::PIO1_31_SPEC>,
 }

@@ -1,15 +1,15 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved0: [u8; 16usize],
+    _reserved0: [u8; 0x10],
     #[doc = "0x10 - Flash memory access time configuration register"]
     pub flashcfg: crate::Reg<flashcfg::FLASHCFG_SPEC>,
-    _reserved1: [u8; 12usize],
+    _reserved1: [u8; 0x0c],
     #[doc = "0x20 - Signature start address register"]
     pub fmsstart: crate::Reg<fmsstart::FMSSTART_SPEC>,
     #[doc = "0x24 - Signature stop-address register"]
     pub fmsstop: crate::Reg<fmsstop::FMSSTOP_SPEC>,
-    _reserved3: [u8; 4usize],
+    _reserved3: [u8; 0x04],
     #[doc = "0x2c - Word 0 \\[31:0\\]"]
     pub fmsw0: crate::Reg<fmsw0::FMSW0_SPEC>,
     #[doc = "0x30 - Word 1 \\[63:32\\]"]
@@ -18,17 +18,17 @@ pub struct RegisterBlock {
     pub fmsw2: crate::Reg<fmsw2::FMSW2_SPEC>,
     #[doc = "0x38 - Word 3 \\[127:96\\]"]
     pub fmsw3: crate::Reg<fmsw3::FMSW3_SPEC>,
-    _reserved7: [u8; 96usize],
+    _reserved7: [u8; 0x60],
     #[doc = "0x9c - EEPROM BIST start address register"]
     pub eemsstart: crate::Reg<eemsstart::EEMSSTART_SPEC>,
     #[doc = "0xa0 - EEPROM BIST stop address register"]
     pub eemsstop: crate::Reg<eemsstop::EEMSSTOP_SPEC>,
     #[doc = "0xa4 - EEPROM 24-bit BIST signature register"]
     pub eemssig: crate::Reg<eemssig::EEMSSIG_SPEC>,
-    _reserved10: [u8; 3896usize],
+    _reserved10: [u8; 0x0f38],
     #[doc = "0xfe0 - Signature generation status register"]
     pub fmstat: crate::Reg<fmstat::FMSTAT_SPEC>,
-    _reserved11: [u8; 4usize],
+    _reserved11: [u8; 0x04],
     #[doc = "0xfe8 - Signature generation status clear register"]
     pub fmstatclr: crate::Reg<fmstatclr::FMSTATCLR_SPEC>,
 }

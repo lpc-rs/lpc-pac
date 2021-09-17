@@ -1,52 +1,52 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved_0_div: [u8; 3180usize],
-    _reserved1: [u8; 404usize],
+    _reserved_0_div: [u8; 0x0c6c],
+    _reserved1: [u8; 0x0194],
     #[doc = "0xe00 - FIFO configuration and enable register."]
     pub fifocfg: crate::Reg<fifocfg::FIFOCFG_SPEC>,
     #[doc = "0xe04 - FIFO status register."]
     pub fifostat: crate::Reg<fifostat::FIFOSTAT_SPEC>,
     #[doc = "0xe08 - FIFO trigger settings for interrupt and DMA request."]
     pub fifotrig: crate::Reg<fifotrig::FIFOTRIG_SPEC>,
-    _reserved4: [u8; 4usize],
+    _reserved4: [u8; 0x04],
     #[doc = "0xe10 - FIFO interrupt enable set (enable) and read register."]
     pub fifointenset: crate::Reg<fifointenset::FIFOINTENSET_SPEC>,
     #[doc = "0xe14 - FIFO interrupt enable clear (disable) and read register."]
     pub fifointenclr: crate::Reg<fifointenclr::FIFOINTENCLR_SPEC>,
     #[doc = "0xe18 - FIFO interrupt status register."]
     pub fifointstat: crate::Reg<fifointstat::FIFOINTSTAT_SPEC>,
-    _reserved7: [u8; 4usize],
+    _reserved7: [u8; 0x04],
     #[doc = "0xe20 - FIFO write data."]
     pub fifowr: crate::Reg<fifowr::FIFOWR_SPEC>,
     #[doc = "0xe24 - FIFO write data for upper data bits. May only be used if the I2S is configured for 2x 24-bit data and not using DMA."]
     pub fifowr48h: crate::Reg<fifowr48h::FIFOWR48H_SPEC>,
-    _reserved9: [u8; 8usize],
+    _reserved9: [u8; 0x08],
     #[doc = "0xe30 - FIFO read data."]
     pub fiford: crate::Reg<fiford::FIFORD_SPEC>,
     #[doc = "0xe34 - FIFO read data for upper data bits. May only be used if the I2S is configured for 2x 24-bit data and not using DMA."]
     pub fiford48h: crate::Reg<fiford48h::FIFORD48H_SPEC>,
-    _reserved11: [u8; 8usize],
+    _reserved11: [u8; 0x08],
     #[doc = "0xe40 - FIFO data read with no FIFO pop."]
     pub fifordnopop: crate::Reg<fifordnopop::FIFORDNOPOP_SPEC>,
     #[doc = "0xe44 - FIFO data read for upper data bits with no FIFO pop. May only be used if the I2S is configured for 2x 24-bit data and not using DMA."]
     pub fiford48hnopop: crate::Reg<fiford48hnopop::FIFORD48HNOPOP_SPEC>,
-    _reserved13: [u8; 4020usize],
+    _reserved13: [u8; 0x0fb4],
     #[doc = "0x1dfc - I2S Module identification"]
     pub id: crate::Reg<id::ID_SPEC>,
 }
 impl RegisterBlock {
-    #[doc = "0x00 - no description available"]
+    #[doc = "0x00..0xc2c - no description available"]
     #[inline(always)]
     pub fn secchannel0(&self) -> &SECCHANNEL {
         unsafe { &*(((self as *const Self) as *const u8).add(0usize) as *const SECCHANNEL) }
     }
-    #[doc = "0x20 - no description available"]
+    #[doc = "0x20..0xc4c - no description available"]
     #[inline(always)]
     pub fn secchannel1(&self) -> &SECCHANNEL {
         unsafe { &*(((self as *const Self) as *const u8).add(32usize) as *const SECCHANNEL) }
     }
-    #[doc = "0x40 - no description available"]
+    #[doc = "0x40..0xc6c - no description available"]
     #[inline(always)]
     pub fn secchannel2(&self) -> &SECCHANNEL {
         unsafe { &*(((self as *const Self) as *const u8).add(64usize) as *const SECCHANNEL) }
@@ -87,7 +87,7 @@ impl RegisterBlock {
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct SECCHANNEL {
-    _reserved0: [u8; 3104usize],
+    _reserved0: [u8; 0x0c20],
     #[doc = "0xc20 - Configuration register 1 for channel pair"]
     pub pcfg1: crate::Reg<self::secchannel::pcfg1::PCFG1_SPEC>,
     #[doc = "0xc24 - Configuration register 2 for channel pair"]

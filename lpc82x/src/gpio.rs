@@ -59,7 +59,7 @@ pub struct RegisterBlock {
     pub b0_27: crate::Reg<b0_27::B0_27_SPEC>,
     #[doc = "0x1c - Byte pin registers for all port 0 and 1 GPIO pins"]
     pub b0_28: crate::Reg<b0_28::B0_28_SPEC>,
-    _reserved29: [u8; 4067usize],
+    _reserved29: [u8; 0x0fe3],
     #[doc = "0x1000 - Word pin registers for all port 0 and 1 GPIO pins"]
     pub w0_0: crate::Reg<w0_0::W0_0_SPEC>,
     #[doc = "0x1004 - Word pin registers for all port 0 and 1 GPIO pins"]
@@ -118,34 +118,34 @@ pub struct RegisterBlock {
     pub w0_27: crate::Reg<w0_27::W0_27_SPEC>,
     #[doc = "0x1070 - Word pin registers for all port 0 and 1 GPIO pins"]
     pub w0_28: crate::Reg<w0_28::W0_28_SPEC>,
-    _reserved58: [u8; 3980usize],
+    _reserved58: [u8; 0x0f8c],
     #[doc = "0x2000 - Direction registers"]
     pub dir0: crate::Reg<dir0::DIR0_SPEC>,
-    _reserved59: [u8; 124usize],
+    _reserved59: [u8; 0x7c],
     #[doc = "0x2080 - Mask register"]
     pub mask0: crate::Reg<mask0::MASK0_SPEC>,
-    _reserved60: [u8; 124usize],
+    _reserved60: [u8; 0x7c],
     #[doc = "0x2100 - Port pin register"]
     pub pin0: crate::Reg<pin0::PIN0_SPEC>,
-    _reserved61: [u8; 124usize],
+    _reserved61: [u8; 0x7c],
     #[doc = "0x2180 - Masked port register"]
     pub mpin0: crate::Reg<mpin0::MPIN0_SPEC>,
-    _reserved62: [u8; 124usize],
+    _reserved62: [u8; 0x7c],
     #[doc = "0x2200 - Write: Set register for port Read: output bits for port"]
     pub set0: crate::Reg<set0::SET0_SPEC>,
-    _reserved63: [u8; 124usize],
+    _reserved63: [u8; 0x7c],
     #[doc = "0x2280 - Clear port"]
     pub clr0: crate::Reg<clr0::CLR0_SPEC>,
-    _reserved64: [u8; 124usize],
+    _reserved64: [u8; 0x7c],
     #[doc = "0x2300 - Toggle port"]
     pub not0: crate::Reg<not0::NOT0_SPEC>,
-    _reserved65: [u8; 124usize],
+    _reserved65: [u8; 0x7c],
     #[doc = "0x2380 - Set pin direction bits for port"]
     pub dirset0: crate::Reg<dirset0::DIRSET0_SPEC>,
-    _reserved66: [u8; 124usize],
+    _reserved66: [u8; 0x7c],
     #[doc = "0x2400 - Clear pin direction bits for port"]
     pub dirclr0: crate::Reg<dirclr0::DIRCLR0_SPEC>,
-    _reserved67: [u8; 124usize],
+    _reserved67: [u8; 0x7c],
     #[doc = "0x2480 - Toggle pin direction bits for port"]
     pub dirnot0: crate::Reg<dirnot0::DIRNOT0_SPEC>,
 }

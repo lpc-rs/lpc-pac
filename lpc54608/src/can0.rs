@@ -1,10 +1,10 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved0: [u8; 16usize],
+    _reserved0: [u8; 0x10],
     #[doc = "0x10 - Test Register"]
     pub test: crate::Reg<test::TEST_SPEC>,
-    _reserved1: [u8; 4usize],
+    _reserved1: [u8; 0x04],
     #[doc = "0x18 - CC Control Register"]
     pub cccr: crate::Reg<cccr::CCCR_SPEC>,
     #[doc = "0x1c - Nominal Bit Timing and Prescaler Register"]
@@ -17,14 +17,14 @@ pub struct RegisterBlock {
     pub tocc: crate::Reg<tocc::TOCC_SPEC>,
     #[doc = "0x2c - Timeout Counter Value"]
     pub tocv: crate::Reg<tocv::TOCV_SPEC>,
-    _reserved7: [u8; 16usize],
+    _reserved7: [u8; 0x10],
     #[doc = "0x40 - Error Counter Register"]
     pub ecr: crate::Reg<ecr::ECR_SPEC>,
     #[doc = "0x44 - Protocol Status Register"]
     pub psr: crate::Reg<psr::PSR_SPEC>,
     #[doc = "0x48 - Transmitter Delay Compensator Register"]
     pub tdcr: crate::Reg<tdcr::TDCR_SPEC>,
-    _reserved10: [u8; 4usize],
+    _reserved10: [u8; 0x04],
     #[doc = "0x50 - Interrupt Register"]
     pub ir: crate::Reg<ir::IR_SPEC>,
     #[doc = "0x54 - Interrupt Enable"]
@@ -33,14 +33,14 @@ pub struct RegisterBlock {
     pub ils: crate::Reg<ils::ILS_SPEC>,
     #[doc = "0x5c - Interrupt Line Enable"]
     pub ile: crate::Reg<ile::ILE_SPEC>,
-    _reserved14: [u8; 32usize],
+    _reserved14: [u8; 0x20],
     #[doc = "0x80 - Global Filter Configuration"]
     pub gfc: crate::Reg<gfc::GFC_SPEC>,
     #[doc = "0x84 - Standard ID Filter Configuration"]
     pub sidfc: crate::Reg<sidfc::SIDFC_SPEC>,
     #[doc = "0x88 - Extended ID Filter Configuration"]
     pub xidfc: crate::Reg<xidfc::XIDFC_SPEC>,
-    _reserved17: [u8; 4usize],
+    _reserved17: [u8; 0x04],
     #[doc = "0x90 - Extended ID AND Mask"]
     pub xidam: crate::Reg<xidam::XIDAM_SPEC>,
     #[doc = "0x94 - High Priority Message Status"]
@@ -85,20 +85,20 @@ pub struct RegisterBlock {
     pub txbtie: crate::Reg<txbtie::TXBTIE_SPEC>,
     #[doc = "0xe4 - Tx Buffer Cancellation Finished Interrupt Enable"]
     pub txbcie: crate::Reg<txbcie::TXBCIE_SPEC>,
-    _reserved39: [u8; 8usize],
+    _reserved39: [u8; 0x08],
     #[doc = "0xf0 - Tx Event FIFO Configuration"]
     pub txefc: crate::Reg<txefc::TXEFC_SPEC>,
     #[doc = "0xf4 - Tx Event FIFO Status"]
     pub txefs: crate::Reg<txefs::TXEFS_SPEC>,
     #[doc = "0xf8 - Tx Event FIFO Acknowledge"]
     pub txefa: crate::Reg<txefa::TXEFA_SPEC>,
-    _reserved42: [u8; 260usize],
+    _reserved42: [u8; 0x0104],
     #[doc = "0x200 - CAN Message RAM Base Address"]
     pub mrba: crate::Reg<mrba::MRBA_SPEC>,
-    _reserved43: [u8; 508usize],
+    _reserved43: [u8; 0x01fc],
     #[doc = "0x400 - External Timestamp Counter Configuration"]
     pub etscc: crate::Reg<etscc::ETSCC_SPEC>,
-    _reserved44: [u8; 508usize],
+    _reserved44: [u8; 0x01fc],
     #[doc = "0x600 - External Timestamp Counter Value"]
     pub etscv: crate::Reg<etscv::ETSCV_SPEC>,
 }

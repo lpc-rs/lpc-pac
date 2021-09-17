@@ -7,7 +7,8 @@ impl core::ops::Deref for R {
         &self.0
     }
 }
-impl core::convert::From<crate::R<DPDCTRL_SPEC>> for R {
+impl From<crate::R<DPDCTRL_SPEC>> for R {
+    #[inline(always)]
     fn from(reader: crate::R<DPDCTRL_SPEC>) -> Self {
         R(reader)
     }
@@ -27,7 +28,8 @@ impl core::ops::DerefMut for W {
         &mut self.0
     }
 }
-impl core::convert::From<crate::W<DPDCTRL_SPEC>> for W {
+impl From<crate::W<DPDCTRL_SPEC>> for W {
+    #[inline(always)]
     fn from(writer: crate::W<DPDCTRL_SPEC>) -> Self {
         W(writer)
     }
@@ -816,6 +818,7 @@ impl W {
         GPDATA_W { w: self }
     }
     #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self

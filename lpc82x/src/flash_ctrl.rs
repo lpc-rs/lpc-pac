@@ -1,15 +1,15 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved0: [u8; 16usize],
+    _reserved0: [u8; 0x10],
     #[doc = "0x10 - Flash configuration register"]
     pub flashcfg: crate::Reg<flashcfg::FLASHCFG_SPEC>,
-    _reserved1: [u8; 12usize],
+    _reserved1: [u8; 0x0c],
     #[doc = "0x20 - Flash signature start address register"]
     pub fmsstart: crate::Reg<fmsstart::FMSSTART_SPEC>,
     #[doc = "0x24 - Flash signaure stop address register"]
     pub fmsstop: crate::Reg<fmsstop::FMSSTOP_SPEC>,
-    _reserved3: [u8; 4usize],
+    _reserved3: [u8; 0x04],
     #[doc = "0x2c - Flash signature generation result register returns the flash signature produced by the embedded signature generator.."]
     pub fmsw0: crate::Reg<fmsw0::FMSW0_SPEC>,
 }

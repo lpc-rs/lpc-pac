@@ -7,7 +7,8 @@ impl core::ops::Deref for R {
         &self.0
     }
 }
-impl core::convert::From<crate::R<CTLSTAT_SPEC>> for R {
+impl From<crate::R<CTLSTAT_SPEC>> for R {
+    #[inline(always)]
     fn from(reader: crate::R<CTLSTAT_SPEC>) -> Self {
         R(reader)
     }

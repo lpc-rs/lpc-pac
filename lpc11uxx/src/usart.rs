@@ -1,9 +1,9 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved_0_dll: [u8; 4usize],
-    _reserved_1_dlm: [u8; 4usize],
-    _reserved_2_fcr: [u8; 4usize],
+    _reserved_0_dll: [u8; 0x04],
+    _reserved_1_dlm: [u8; 0x04],
+    _reserved_2_fcr: [u8; 0x04],
     #[doc = "0x0c - Line Control Register. Contains controls for frame formatting and break generation."]
     pub lcr: crate::Reg<lcr::LCR_SPEC>,
     #[doc = "0x10 - Modem Control Register."]
@@ -24,10 +24,10 @@ pub struct RegisterBlock {
     pub osr: crate::Reg<osr::OSR_SPEC>,
     #[doc = "0x30 - Transmit Enable Register. Turns off USART transmitter for use with software flow control."]
     pub ter: crate::Reg<ter::TER_SPEC>,
-    _reserved13: [u8; 12usize],
+    _reserved13: [u8; 0x0c],
     #[doc = "0x40 - Half duplex enable register."]
     pub hden: crate::Reg<hden::HDEN_SPEC>,
-    _reserved14: [u8; 4usize],
+    _reserved14: [u8; 0x04],
     #[doc = "0x48 - Smart Card Interface Control register. Enables and configures the Smart Card Interface feature."]
     pub scictrl: crate::Reg<scictrl::SCICTRL_SPEC>,
     #[doc = "0x4c - RS-485/EIA-485 Control. Contains controls to configure various aspects of RS-485/EIA-485 modes."]

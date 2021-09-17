@@ -13,7 +13,7 @@ pub struct RegisterBlock {
     pub stop: crate::Reg<stop::STOP_SPEC>,
     #[doc = "0x14 - SCT start event select register"]
     pub start: crate::Reg<start::START_SPEC>,
-    _reserved6: [u8; 40usize],
+    _reserved6: [u8; 0x28],
     #[doc = "0x40 - SCT counter register"]
     pub count: crate::Reg<count::COUNT_SPEC>,
     #[doc = "0x44 - SCT state register"]
@@ -32,7 +32,7 @@ pub struct RegisterBlock {
     pub dma0request: crate::Reg<dma0request::DMA0REQUEST_SPEC>,
     #[doc = "0x60 - SCT DMA request 1 register"]
     pub dma1request: crate::Reg<dma1request::DMA1REQUEST_SPEC>,
-    _reserved15: [u8; 140usize],
+    _reserved15: [u8; 0x8c],
     #[doc = "0xf0 - SCT event interrupt enable register"]
     pub even: crate::Reg<even::EVEN_SPEC>,
     #[doc = "0xf4 - SCT event flag register"]
@@ -41,18 +41,18 @@ pub struct RegisterBlock {
     pub conen: crate::Reg<conen::CONEN_SPEC>,
     #[doc = "0xfc - SCT conflict flag register"]
     pub conflag: crate::Reg<conflag::CONFLAG_SPEC>,
-    _reserved_19_cap_match: [u8; 32usize],
-    _reserved20: [u8; 224usize],
-    _reserved_20_capctrl_matchrel: [u8; 32usize],
-    _reserved21: [u8; 224usize],
-    #[doc = "0x300 - no description available"]
+    _reserved_19_cap_match: [u8; 0x20],
+    _reserved20: [u8; 0xe0],
+    _reserved_20_capctrl_matchrel: [u8; 0x20],
+    _reserved21: [u8; 0xe0],
+    #[doc = "0x300..0x340 - no description available"]
     pub event: [EVENT; 8],
-    _reserved22: [u8; 448usize],
-    #[doc = "0x500 - no description available"]
+    _reserved22: [u8; 0x01c0],
+    #[doc = "0x500..0x538 - no description available"]
     pub out: [OUT; 7],
 }
 impl RegisterBlock {
-    #[doc = "0x100 - SCT match value register of match channels"]
+    #[doc = "0x100..0x120 - SCT match value register of match channels"]
     #[inline(always)]
     pub fn cap_match_sctmatch(
         &self,
@@ -62,7 +62,7 @@ impl RegisterBlock {
                 as *const [crate::Reg<cap_match_sctmatch::CAP_MATCH_SCTMATCH_SPEC>; 8])
         }
     }
-    #[doc = "0x100 - SCT capture register of capture channel"]
+    #[doc = "0x100..0x120 - SCT capture register of capture channel"]
     #[inline(always)]
     pub fn cap_match_sctcap(&self) -> &[crate::Reg<cap_match_sctcap::CAP_MATCH_SCTCAP_SPEC>; 8] {
         unsafe {
@@ -70,7 +70,7 @@ impl RegisterBlock {
                 as *const [crate::Reg<cap_match_sctcap::CAP_MATCH_SCTCAP_SPEC>; 8])
         }
     }
-    #[doc = "0x200 - SCT match reload value register"]
+    #[doc = "0x200..0x220 - SCT match reload value register"]
     #[inline(always)]
     pub fn capctrl_matchrel_sctmatchrel(
         &self,
@@ -82,7 +82,7 @@ impl RegisterBlock {
                 >; 8])
         }
     }
-    #[doc = "0x200 - SCT capture control register"]
+    #[doc = "0x200..0x220 - SCT capture control register"]
     #[inline(always)]
     pub fn capctrl_matchrel_sctcapctrl(
         &self,

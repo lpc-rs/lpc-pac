@@ -1,7 +1,7 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved0: [u8; 1024usize],
+    _reserved0: [u8; 0x0400],
     #[doc = "0x400 - SPI Configuration register"]
     pub cfg: crate::Reg<cfg::CFG_SPEC>,
     #[doc = "0x404 - SPI Delay register"]
@@ -12,35 +12,35 @@ pub struct RegisterBlock {
     pub intenset: crate::Reg<intenset::INTENSET_SPEC>,
     #[doc = "0x410 - SPI Interrupt Enable Clear. Writing a 1 to any implemented bit position causes the corresponding bit in INTENSET to be cleared."]
     pub intenclr: crate::Reg<intenclr::INTENCLR_SPEC>,
-    _reserved5: [u8; 16usize],
+    _reserved5: [u8; 0x10],
     #[doc = "0x424 - SPI clock Divider"]
     pub div: crate::Reg<div::DIV_SPEC>,
     #[doc = "0x428 - SPI Interrupt Status"]
     pub intstat: crate::Reg<intstat::INTSTAT_SPEC>,
-    _reserved7: [u8; 2516usize],
+    _reserved7: [u8; 0x09d4],
     #[doc = "0xe00 - FIFO configuration and enable register."]
     pub fifocfg: crate::Reg<fifocfg::FIFOCFG_SPEC>,
     #[doc = "0xe04 - FIFO status register."]
     pub fifostat: crate::Reg<fifostat::FIFOSTAT_SPEC>,
     #[doc = "0xe08 - FIFO trigger settings for interrupt and DMA request."]
     pub fifotrig: crate::Reg<fifotrig::FIFOTRIG_SPEC>,
-    _reserved10: [u8; 4usize],
+    _reserved10: [u8; 0x04],
     #[doc = "0xe10 - FIFO interrupt enable set (enable) and read register."]
     pub fifointenset: crate::Reg<fifointenset::FIFOINTENSET_SPEC>,
     #[doc = "0xe14 - FIFO interrupt enable clear (disable) and read register."]
     pub fifointenclr: crate::Reg<fifointenclr::FIFOINTENCLR_SPEC>,
     #[doc = "0xe18 - FIFO interrupt status register."]
     pub fifointstat: crate::Reg<fifointstat::FIFOINTSTAT_SPEC>,
-    _reserved13: [u8; 4usize],
+    _reserved13: [u8; 0x04],
     #[doc = "0xe20 - FIFO write data."]
     pub fifowr: crate::Reg<fifowr::FIFOWR_SPEC>,
-    _reserved14: [u8; 12usize],
+    _reserved14: [u8; 0x0c],
     #[doc = "0xe30 - FIFO read data."]
     pub fiford: crate::Reg<fiford::FIFORD_SPEC>,
-    _reserved15: [u8; 12usize],
+    _reserved15: [u8; 0x0c],
     #[doc = "0xe40 - FIFO data read with no FIFO pop."]
     pub fifordnopop: crate::Reg<fifordnopop::FIFORDNOPOP_SPEC>,
-    _reserved16: [u8; 440usize],
+    _reserved16: [u8; 0x01b8],
     #[doc = "0xffc - Peripheral identification register."]
     pub id: crate::Reg<id::ID_SPEC>,
 }

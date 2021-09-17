@@ -13,7 +13,8 @@ impl core::ops::DerefMut for W {
         &mut self.0
     }
 }
-impl core::convert::From<crate::W<FCR_SPEC>> for W {
+impl From<crate::W<FCR_SPEC>> for W {
+    #[inline(always)]
     fn from(writer: crate::W<FCR_SPEC>) -> Self {
         W(writer)
     }
@@ -255,6 +256,7 @@ impl W {
         RXTL_W { w: self }
     }
     #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self

@@ -31,7 +31,7 @@ pub struct RegisterBlock {
     pub pinassign13: crate::Reg<pinassign13::PINASSIGN13_SPEC>,
     #[doc = "0x38 - Pin assign register 14. Assign movable functions T0_MAT3, T0_CAP0, T0_CAP1, T0_CAP2."]
     pub pinassign14: crate::Reg<pinassign14::PINASSIGN14_SPEC>,
-    _reserved15: [u8; 388usize],
+    _reserved15: [u8; 0x0184],
     #[doc = "0x1c0 - Pin enable register 0. Enables fixed-pin functions ACMP_I0, ACMP_I1, SWCLK, SWDIO, XTALIN, XTALOUT, RESET, CLKIN, VDDCMP and so on."]
     pub pinenable0: crate::Reg<pinenable0::PINENABLE0_SPEC>,
     #[doc = "0x1c4 - Pin enable register 1. Enables fixed-pin functions CAPT_X4, CAPT_X5, CAPT_X6, CAPT_X7, CAPT_X8, CAPT_X4, CAPT_YL and CAPT_YH."]
