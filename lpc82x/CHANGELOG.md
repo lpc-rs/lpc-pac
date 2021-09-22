@@ -1,3 +1,12 @@
+## 0.8.1 (2021-09-23)
+
+- Allow using cortex-m-rt 0.6 or 0.7 ([#60])
+- Re-generate with svd2rust 0.19 ([#61])
+
+[#60]: https://github.com/lpc-rs/lpc-pac/pull/60
+[#61]: https://github.com/lpc-rs/lpc-pac/pull/61
+
+
 ## 0.8.0 (2021-04-24)
 
 - Upgrade to 2018 edition
