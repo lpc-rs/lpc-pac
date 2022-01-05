@@ -75,7 +75,13 @@ generate_pac() {
     rm -rf src
     crate=$1
     shift
-    svd2rust "$@" -i "${crate}.svd" 2> >(tee svd2rust-warnings.log >&2)
+    if [[ -f "${crate}.svd.patched" ]]; then
+	svd_file="${crate}.svd.patched"
+    elif [[ -f "${crate}.svd" ]]; then
+	svd_file="${crate}.svd"
+    fi
+    cecho "$CYAN" "Using svd file: ${svd_file}..."
+    svd2rust "$@" -i "${svd_file}" 2> >(tee svd2rust-warnings.log >&2)
     RUST_LOG=form=warn form -i lib.rs -o src
     rm lib.rs
     cecho "$CYAN" "Formatting generated code..."
