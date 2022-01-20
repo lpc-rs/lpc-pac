@@ -14,11 +14,12 @@ set -euo pipefail
 
 PACS=(
     "lpc11uxx:--nightly"
-    "lpc54606"
-    "lpc54608"
     "lpc82x"
     "lpc845"
-    
+)
+
+SUPERPACS=(
+    "lpc546xx-pac"
 )
 
 # everything is relative to the generate script
@@ -103,4 +104,15 @@ for PAC in ${PACS[*]}; do
     cecho "$BOLDGREEN" "Done"
     popd >/dev/null
 done
+
+for SUPERPAC in ${SUPERPACS[*]}; do
+    IFS=: read -ra parts <<< "$SUPERPAC"
+    crate=${parts[0]}
+    cecho "$BOLDGREEN" "\nEntering $crate/"
+    pushd "$crate" >/dev/null
+    ./generate-super-pac.sh
+    cecho "$BOLDGREEN" "Done"
+    popd >/dev/null
+done
+
 echo ""
