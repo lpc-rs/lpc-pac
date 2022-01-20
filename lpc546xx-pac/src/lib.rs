@@ -18,7 +18,7 @@ pub use self::generic::*;
 #[cfg(feature = "lpc54605")]
 pub mod lpc54605;
 
-#[cfg(feature = "lpc54605")]
+#[cfg(feature = "lpc54606")]
 pub mod lpc54606;
 
 #[cfg(feature = "lpc54607")]
