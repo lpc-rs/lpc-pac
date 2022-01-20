@@ -51,6 +51,7 @@ impl From<IRCOUT_PD_A> for bool {
 #[doc = "Field `IRCOUT_PD` reader - IRC oscillator output power-down"]
 pub struct IRCOUT_PD_R(crate::FieldReader<bool, IRCOUT_PD_A>);
 impl IRCOUT_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IRCOUT_PD_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<IRC_PD_A> for bool {
 #[doc = "Field `IRC_PD` reader - IRC oscillator power-down"]
 pub struct IRC_PD_R(crate::FieldReader<bool, IRC_PD_A>);
 impl IRC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IRC_PD_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<FLASH_PD_A> for bool {
 #[doc = "Field `FLASH_PD` reader - Flash power-down"]
 pub struct FLASH_PD_R(crate::FieldReader<bool, FLASH_PD_A>);
 impl FLASH_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FLASH_PD_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<BOD_PD_A> for bool {
 #[doc = "Field `BOD_PD` reader - BOD power-down"]
 pub struct BOD_PD_R(crate::FieldReader<bool, BOD_PD_A>);
 impl BOD_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BOD_PD_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<ADC_PD_A> for bool {
 #[doc = "Field `ADC_PD` reader - ADC power-down"]
 pub struct ADC_PD_R(crate::FieldReader<bool, ADC_PD_A>);
 impl ADC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_PD_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<SYSOSC_PD_A> for bool {
 #[doc = "Field `SYSOSC_PD` reader - Crystal oscillator power-down"]
 pub struct SYSOSC_PD_R(crate::FieldReader<bool, SYSOSC_PD_A>);
 impl SYSOSC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYSOSC_PD_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<WDTOSC_PD_A> for bool {
 #[doc = "Field `WDTOSC_PD` reader - Watchdog oscillator power-down"]
 pub struct WDTOSC_PD_R(crate::FieldReader<bool, WDTOSC_PD_A>);
 impl WDTOSC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDTOSC_PD_R(crate::FieldReader::new(bits))
     }
@@ -632,6 +639,7 @@ impl From<SYSPLL_PD_A> for bool {
 #[doc = "Field `SYSPLL_PD` reader - System PLL power-down"]
 pub struct SYSPLL_PD_R(crate::FieldReader<bool, SYSPLL_PD_A>);
 impl SYSPLL_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYSPLL_PD_R(crate::FieldReader::new(bits))
     }
@@ -715,6 +723,7 @@ impl From<USBPLL_PD_A> for bool {
 #[doc = "Field `USBPLL_PD` reader - USB PLL power-down"]
 pub struct USBPLL_PD_R(crate::FieldReader<bool, USBPLL_PD_A>);
 impl USBPLL_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USBPLL_PD_R(crate::FieldReader::new(bits))
     }
@@ -798,6 +807,7 @@ impl From<USBPAD_PD_A> for bool {
 #[doc = "Field `USBPAD_PD` reader - USB transceiver power-down configuration"]
 pub struct USBPAD_PD_R(crate::FieldReader<bool, USBPAD_PD_A>);
 impl USBPAD_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USBPAD_PD_R(crate::FieldReader::new(bits))
     }

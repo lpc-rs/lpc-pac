@@ -37,6 +37,7 @@ impl From<crate::W<DMA_INMUX_INMUX_SPEC>> for W {
 #[doc = "Field `INP` reader - DMA trigger output number (decimal value) for DMA channel n (n = 0 to 24)."]
 pub struct INP_R(crate::FieldReader<u8, u8>);
 impl INP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         INP_R(crate::FieldReader::new(bits))
     }

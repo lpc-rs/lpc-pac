@@ -51,6 +51,7 @@ impl From<PWMEN0_A> for bool {
 #[doc = "Field `PWMEN0` reader - PWM mode enable for channel0."]
 pub struct PWMEN0_R(crate::FieldReader<bool, PWMEN0_A>);
 impl PWMEN0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PWMEN0_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<PWMEN1_A> for bool {
 #[doc = "Field `PWMEN1` reader - PWM mode enable for channel1."]
 pub struct PWMEN1_R(crate::FieldReader<bool, PWMEN1_A>);
 impl PWMEN1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PWMEN1_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<PWMEN2_A> for bool {
 #[doc = "Field `PWMEN2` reader - PWM mode enable for channel2."]
 pub struct PWMEN2_R(crate::FieldReader<bool, PWMEN2_A>);
 impl PWMEN2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PWMEN2_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<PWMEN3_A> for bool {
 #[doc = "Field `PWMEN3` reader - PWM mode enable for channel3."]
 pub struct PWMEN3_R(crate::FieldReader<bool, PWMEN3_A>);
 impl PWMEN3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PWMEN3_R(crate::FieldReader::new(bits))
     }

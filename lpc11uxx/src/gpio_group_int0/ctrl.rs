@@ -51,6 +51,7 @@ impl From<INT_A> for bool {
 #[doc = "Field `INT` reader - Group interrupt status. This bit is cleared by writing a one to it. Writing zero has no effect."]
 pub struct INT_R(crate::FieldReader<bool, INT_A>);
 impl INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INT_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<COMB_A> for bool {
 #[doc = "Field `COMB` reader - Combine enabled inputs for group interrupt"]
 pub struct COMB_R(crate::FieldReader<bool, COMB_A>);
 impl COMB_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         COMB_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<TRIG_A> for bool {
 #[doc = "Field `TRIG` reader - Group interrupt trigger"]
 pub struct TRIG_R(crate::FieldReader<bool, TRIG_A>);
 impl TRIG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TRIG_R(crate::FieldReader::new(bits))
     }

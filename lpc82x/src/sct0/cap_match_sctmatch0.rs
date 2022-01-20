@@ -37,6 +37,7 @@ impl From<crate::W<CAP_MATCH_SCTMATCH0_SPEC>> for W {
 #[doc = "Field `MATCHn_L` reader - When UNIFY = 0, read or write the 16-bit value to be compared to the L counter. When UNIFY = 1, read or write the lower 16 bits of the 32-bit value to be compared to the unified counter."]
 pub struct MATCHN_L_R(crate::FieldReader<u16, u16>);
 impl MATCHN_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         MATCHN_L_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> MATCHN_L_W<'a> {
 #[doc = "Field `MATCHn_H` reader - When UNIFY = 0, read or write the 16-bit value to be compared to the H counter. When UNIFY = 1, read or write the upper 16 bits of the 32-bit value to be compared to the unified counter."]
 pub struct MATCHN_H_R(crate::FieldReader<u16, u16>);
 impl MATCHN_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         MATCHN_H_R(crate::FieldReader::new(bits))
     }

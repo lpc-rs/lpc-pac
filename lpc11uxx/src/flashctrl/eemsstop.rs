@@ -37,6 +37,7 @@ impl From<crate::W<EEMSSTOP_SPEC>> for W {
 #[doc = "Field `STOPA` reader - BIST stop address: Bit 0 is fixed zero since only even addresses are allowed."]
 pub struct STOPA_R(crate::FieldReader<u16, u16>);
 impl STOPA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         STOPA_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> STOPA_W<'a> {
 #[doc = "Field `DEVSEL` reader - BIST device select bit 0: the BIST signature is generated over the total memory space. Singe pages are interleaved over the EEPROM devices when multiple devices are used, the signature is generated over memory of multiple devices. 1: the BIST signature is generated only over a memory range located on a single EEPROM device. Therefore the internal address generation is done such that the address' CS bits are kept stable to select only the same device. The address' MSB and LSB bits are used to step through the memory range specified by the start and stop address fields. Note: if this bit is set the start and stop address fields must be programmed such that they both address the same EEPROM device. Therefore the address' CS bits in both the start and stop address must be the same."]
 pub struct DEVSEL_R(crate::FieldReader<bool, bool>);
 impl DEVSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DEVSEL_R(crate::FieldReader::new(bits))
     }
@@ -99,6 +101,7 @@ impl<'a> DEVSEL_W<'a> {
 #[doc = "Field `STRTBIST` reader - BIST start bit Setting this bit will start the BIST. This bit is self-clearing."]
 pub struct STRTBIST_R(crate::FieldReader<bool, bool>);
 impl STRTBIST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STRTBIST_R(crate::FieldReader::new(bits))
     }

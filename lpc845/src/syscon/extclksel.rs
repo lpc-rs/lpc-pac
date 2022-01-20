@@ -51,6 +51,7 @@ impl From<SEL_A> for bool {
 #[doc = "Field `SEL` reader - Clock source for external clock"]
 pub struct SEL_R(crate::FieldReader<bool, SEL_A>);
 impl SEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEL_R(crate::FieldReader::new(bits))
     }

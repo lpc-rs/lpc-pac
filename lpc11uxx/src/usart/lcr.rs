@@ -56,6 +56,7 @@ impl From<WLS_A> for u8 {
 #[doc = "Field `WLS` reader - Word Length Select"]
 pub struct WLS_R(crate::FieldReader<u8, WLS_A>);
 impl WLS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         WLS_R(crate::FieldReader::new(bits))
     }
@@ -152,6 +153,7 @@ impl From<SBS_A> for bool {
 #[doc = "Field `SBS` reader - Stop Bit Select"]
 pub struct SBS_R(crate::FieldReader<bool, SBS_A>);
 impl SBS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SBS_R(crate::FieldReader::new(bits))
     }
@@ -235,6 +237,7 @@ impl From<PE_A> for bool {
 #[doc = "Field `PE` reader - Parity Enable"]
 pub struct PE_R(crate::FieldReader<bool, PE_A>);
 impl PE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PE_R(crate::FieldReader::new(bits))
     }
@@ -323,6 +326,7 @@ impl From<PS_A> for u8 {
 #[doc = "Field `PS` reader - Parity Select"]
 pub struct PS_R(crate::FieldReader<u8, PS_A>);
 impl PS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PS_R(crate::FieldReader::new(bits))
     }
@@ -420,6 +424,7 @@ impl From<BC_A> for bool {
 #[doc = "Field `BC` reader - Break Control"]
 pub struct BC_R(crate::FieldReader<bool, BC_A>);
 impl BC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BC_R(crate::FieldReader::new(bits))
     }
@@ -504,6 +509,7 @@ impl From<DLAB_A> for bool {
 #[doc = "Field `DLAB` reader - Divisor Latch Access Bit"]
 pub struct DLAB_R(crate::FieldReader<bool, DLAB_A>);
 impl DLAB_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DLAB_R(crate::FieldReader::new(bits))
     }

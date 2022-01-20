@@ -37,6 +37,7 @@ impl From<crate::W<IRQLATENCY_SPEC>> for W {
 #[doc = "Field `LATENCY` reader - 8-bit latency value."]
 pub struct LATENCY_R(crate::FieldReader<u8, u8>);
 impl LATENCY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         LATENCY_R(crate::FieldReader::new(bits))
     }

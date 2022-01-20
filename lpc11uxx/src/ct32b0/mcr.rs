@@ -51,6 +51,7 @@ impl From<MR0I_A> for bool {
 #[doc = "Field `MR0I` reader - Interrupt on MR0: an interrupt is generated when MR0 matches the value in the TC."]
 pub struct MR0I_R(crate::FieldReader<bool, MR0I_A>);
 impl MR0I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR0I_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<MR0R_A> for bool {
 #[doc = "Field `MR0R` reader - Reset on MR0: the TC will be reset if MR0 matches it."]
 pub struct MR0R_R(crate::FieldReader<bool, MR0R_A>);
 impl MR0R_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR0R_R(crate::FieldReader::new(bits))
     }
@@ -219,6 +221,7 @@ impl From<MR0S_A> for bool {
 will be set to 0 if MR0 matches the TC."]
 pub struct MR0S_R(crate::FieldReader<bool, MR0S_A>);
 impl MR0S_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR0S_R(crate::FieldReader::new(bits))
     }
@@ -303,6 +306,7 @@ impl From<MR1I_A> for bool {
 #[doc = "Field `MR1I` reader - Interrupt on MR1: an interrupt is generated when MR1 matches the value in the TC."]
 pub struct MR1I_R(crate::FieldReader<bool, MR1I_A>);
 impl MR1I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR1I_R(crate::FieldReader::new(bits))
     }
@@ -386,6 +390,7 @@ impl From<MR1R_A> for bool {
 #[doc = "Field `MR1R` reader - Reset on MR1: the TC will be reset if MR1 matches it."]
 pub struct MR1R_R(crate::FieldReader<bool, MR1R_A>);
 impl MR1R_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR1R_R(crate::FieldReader::new(bits))
     }
@@ -471,6 +476,7 @@ impl From<MR1S_A> for bool {
 will be set to 0 if MR1 matches the TC."]
 pub struct MR1S_R(crate::FieldReader<bool, MR1S_A>);
 impl MR1S_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR1S_R(crate::FieldReader::new(bits))
     }
@@ -555,6 +561,7 @@ impl From<MR2I_A> for bool {
 #[doc = "Field `MR2I` reader - Interrupt on MR2: an interrupt is generated when MR2 matches the value in the TC."]
 pub struct MR2I_R(crate::FieldReader<bool, MR2I_A>);
 impl MR2I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR2I_R(crate::FieldReader::new(bits))
     }
@@ -638,6 +645,7 @@ impl From<MR2R_A> for bool {
 #[doc = "Field `MR2R` reader - Reset on MR2: the TC will be reset if MR2 matches it."]
 pub struct MR2R_R(crate::FieldReader<bool, MR2R_A>);
 impl MR2R_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR2R_R(crate::FieldReader::new(bits))
     }
@@ -723,6 +731,7 @@ impl From<MR2S_A> for bool {
 will be set to 0 if MR2 matches the TC."]
 pub struct MR2S_R(crate::FieldReader<bool, MR2S_A>);
 impl MR2S_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR2S_R(crate::FieldReader::new(bits))
     }
@@ -807,6 +816,7 @@ impl From<MR3I_A> for bool {
 #[doc = "Field `MR3I` reader - Interrupt on MR3: an interrupt is generated when MR3 matches the value in the TC."]
 pub struct MR3I_R(crate::FieldReader<bool, MR3I_A>);
 impl MR3I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR3I_R(crate::FieldReader::new(bits))
     }
@@ -890,6 +900,7 @@ impl From<MR3R_A> for bool {
 #[doc = "Field `MR3R` reader - Reset on MR3: the TC will be reset if MR3 matches it."]
 pub struct MR3R_R(crate::FieldReader<bool, MR3R_A>);
 impl MR3R_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR3R_R(crate::FieldReader::new(bits))
     }
@@ -975,6 +986,7 @@ impl From<MR3S_A> for bool {
 will be set to 0 if MR3 matches the TC."]
 pub struct MR3S_R(crate::FieldReader<bool, MR3S_A>);
 impl MR3S_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MR3S_R(crate::FieldReader::new(bits))
     }

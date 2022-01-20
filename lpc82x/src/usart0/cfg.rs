@@ -51,6 +51,7 @@ impl From<ENABLE_A> for bool {
 #[doc = "Field `ENABLE` reader - USART Enable."]
 pub struct ENABLE_R(crate::FieldReader<bool, ENABLE_A>);
 impl ENABLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENABLE_R(crate::FieldReader::new(bits))
     }
@@ -137,6 +138,7 @@ impl From<DATALEN_A> for u8 {
 #[doc = "Field `DATALEN` reader - Selects the data size for the USART."]
 pub struct DATALEN_R(crate::FieldReader<u8, DATALEN_A>);
 impl DATALEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DATALEN_R(crate::FieldReader::new(bits))
     }
@@ -225,6 +227,7 @@ impl From<PARITYSEL_A> for u8 {
 #[doc = "Field `PARITYSEL` reader - Selects what type of parity is used by the USART."]
 pub struct PARITYSEL_R(crate::FieldReader<u8, PARITYSEL_A>);
 impl PARITYSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PARITYSEL_R(crate::FieldReader::new(bits))
     }
@@ -310,6 +313,7 @@ impl From<STOPLEN_A> for bool {
 #[doc = "Field `STOPLEN` reader - Number of stop bits appended to transmitted data. Only a single stop bit is required for received data."]
 pub struct STOPLEN_R(crate::FieldReader<bool, STOPLEN_A>);
 impl STOPLEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STOPLEN_R(crate::FieldReader::new(bits))
     }
@@ -393,6 +397,7 @@ impl From<CTSEN_A> for bool {
 #[doc = "Field `CTSEN` reader - CTS Enable. Determines whether CTS is used for flow control. CTS can be from the input pin, or from the USART's own RTS if loopback mode is enabled."]
 pub struct CTSEN_R(crate::FieldReader<bool, CTSEN_A>);
 impl CTSEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CTSEN_R(crate::FieldReader::new(bits))
     }
@@ -476,6 +481,7 @@ impl From<SYNCEN_A> for bool {
 #[doc = "Field `SYNCEN` reader - Selects synchronous or asynchronous operation."]
 pub struct SYNCEN_R(crate::FieldReader<bool, SYNCEN_A>);
 impl SYNCEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYNCEN_R(crate::FieldReader::new(bits))
     }
@@ -559,6 +565,7 @@ impl From<CLKPOL_A> for bool {
 #[doc = "Field `CLKPOL` reader - Selects the clock polarity and sampling edge of received data in synchronous mode."]
 pub struct CLKPOL_R(crate::FieldReader<bool, CLKPOL_A>);
 impl CLKPOL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLKPOL_R(crate::FieldReader::new(bits))
     }
@@ -642,6 +649,7 @@ impl From<SYNCMST_A> for bool {
 #[doc = "Field `SYNCMST` reader - Synchronous mode Master select."]
 pub struct SYNCMST_R(crate::FieldReader<bool, SYNCMST_A>);
 impl SYNCMST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYNCMST_R(crate::FieldReader::new(bits))
     }
@@ -725,6 +733,7 @@ impl From<LOOP_A> for bool {
 #[doc = "Field `LOOP` reader - Selects data loopback mode."]
 pub struct LOOP_R(crate::FieldReader<bool, LOOP_A>);
 impl LOOP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LOOP_R(crate::FieldReader::new(bits))
     }
@@ -808,6 +817,7 @@ impl From<OETA_A> for bool {
 #[doc = "Field `OETA` reader - Output Enable Turnaround time enable for RS-485 operation."]
 pub struct OETA_R(crate::FieldReader<bool, OETA_A>);
 impl OETA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OETA_R(crate::FieldReader::new(bits))
     }
@@ -891,6 +901,7 @@ impl From<AUTOADDR_A> for bool {
 #[doc = "Field `AUTOADDR` reader - Automatic Address matching enable."]
 pub struct AUTOADDR_R(crate::FieldReader<bool, AUTOADDR_A>);
 impl AUTOADDR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AUTOADDR_R(crate::FieldReader::new(bits))
     }
@@ -974,6 +985,7 @@ impl From<OESEL_A> for bool {
 #[doc = "Field `OESEL` reader - Output Enable Select."]
 pub struct OESEL_R(crate::FieldReader<bool, OESEL_A>);
 impl OESEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OESEL_R(crate::FieldReader::new(bits))
     }
@@ -1057,6 +1069,7 @@ impl From<OEPOL_A> for bool {
 #[doc = "Field `OEPOL` reader - Output Enable Polarity."]
 pub struct OEPOL_R(crate::FieldReader<bool, OEPOL_A>);
 impl OEPOL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OEPOL_R(crate::FieldReader::new(bits))
     }
@@ -1140,6 +1153,7 @@ impl From<RXPOL_A> for bool {
 #[doc = "Field `RXPOL` reader - Receive data polarity."]
 pub struct RXPOL_R(crate::FieldReader<bool, RXPOL_A>);
 impl RXPOL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXPOL_R(crate::FieldReader::new(bits))
     }
@@ -1223,6 +1237,7 @@ impl From<TXPOL_A> for bool {
 #[doc = "Field `TXPOL` reader - Transmit data polarity."]
 pub struct TXPOL_R(crate::FieldReader<bool, TXPOL_A>);
 impl TXPOL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXPOL_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<BYPASS_A> for bool {
 #[doc = "Field `BYPASS` reader - Bypass system oscillator"]
 pub struct BYPASS_R(crate::FieldReader<bool, BYPASS_A>);
 impl BYPASS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BYPASS_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<FREQRANGE_A> for bool {
 #[doc = "Field `FREQRANGE` reader - Determines frequency range for Low-power oscillator."]
 pub struct FREQRANGE_R(crate::FieldReader<bool, FREQRANGE_A>);
 impl FREQRANGE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FREQRANGE_R(crate::FieldReader::new(bits))
     }

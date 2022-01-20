@@ -51,6 +51,7 @@ impl From<SYNC_A> for bool {
 #[doc = "Field `SYNC` reader - Enables synchronous mode."]
 pub struct SYNC_R(crate::FieldReader<bool, SYNC_A>);
 impl SYNC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYNC_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<CSRC_A> for bool {
 #[doc = "Field `CSRC` reader - Clock source select."]
 pub struct CSRC_R(crate::FieldReader<bool, CSRC_A>);
 impl CSRC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CSRC_R(crate::FieldReader::new(bits))
     }
@@ -203,7 +205,7 @@ impl<'a> CSRC_W<'a> {
 #[doc = "Falling edge sampling.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FES_A {
-    #[doc = "0: RxD is sampled on the rising edge of SCLK "]
+    #[doc = "0: RxD is sampled on the rising edge of SCLK"]
     RISING = 0,
     #[doc = "1: RxD is sampled on the falling edge of SCLK"]
     FALLING = 1,
@@ -217,6 +219,7 @@ impl From<FES_A> for bool {
 #[doc = "Field `FES` reader - Falling edge sampling."]
 pub struct FES_R(crate::FieldReader<bool, FES_A>);
 impl FES_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FES_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<TSBYPASS_A> for bool {
 #[doc = "Field `TSBYPASS` reader - Transmit synchronization bypass in synchronous slave mode."]
 pub struct TSBYPASS_R(crate::FieldReader<bool, TSBYPASS_A>);
 impl TSBYPASS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TSBYPASS_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<CSCEN_A> for bool {
 #[doc = "Field `CSCEN` reader - Continuous master clock enable (used only when CSRC is 1)"]
 pub struct CSCEN_R(crate::FieldReader<bool, CSCEN_A>);
 impl CSCEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CSCEN_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<SSDIS_A> for bool {
 #[doc = "Field `SSDIS` reader - Start/stop bits"]
 pub struct SSDIS_R(crate::FieldReader<bool, SSDIS_A>);
 impl SSDIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSDIS_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<CCCLR_A> for bool {
 #[doc = "Field `CCCLR` reader - Continuous clock clear"]
 pub struct CCCLR_R(crate::FieldReader<bool, CCCLR_A>);
 impl CCCLR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CCCLR_R(crate::FieldReader::new(bits))
     }

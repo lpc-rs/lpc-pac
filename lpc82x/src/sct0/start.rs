@@ -37,6 +37,7 @@ impl From<crate::W<START_SPEC>> for W {
 #[doc = "Field `STARTMSK_L` reader - If bit n is one, event n clears the STOP_L bit in the CTRL register (event 0 = bit 0, event 1 = bit 1, etc.). The number of bits = number of events in this SCT."]
 pub struct STARTMSK_L_R(crate::FieldReader<u8, u8>);
 impl STARTMSK_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         STARTMSK_L_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> STARTMSK_L_W<'a> {
 #[doc = "Field `STARTMSK_H` reader - If bit n is one, event n clears the STOP_H bit in the CTRL register (event 0 = bit 16, event 1 = bit 17, etc.). The number of bits = number of events in this SCT."]
 pub struct STARTMSK_H_R(crate::FieldReader<u8, u8>);
 impl STARTMSK_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         STARTMSK_H_R(crate::FieldReader::new(bits))
     }

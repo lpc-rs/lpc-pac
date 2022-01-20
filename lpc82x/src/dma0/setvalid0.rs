@@ -37,6 +37,7 @@ impl From<crate::W<SETVALID0_SPEC>> for W {
 #[doc = "Field `SV` reader - SETVALID control for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = no effect. 1 = sets the VALIDPENDING control bit for DMA channel n"]
 pub struct SV_R(crate::FieldReader<u32, u32>);
 impl SV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         SV_R(crate::FieldReader::new(bits))
     }

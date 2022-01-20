@@ -37,6 +37,7 @@ impl From<crate::W<SYSTCKCAL_SPEC>> for W {
 #[doc = "Field `CAL` reader - System tick timer calibration value."]
 pub struct CAL_R(crate::FieldReader<u32, u32>);
 impl CAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         CAL_R(crate::FieldReader::new(bits))
     }

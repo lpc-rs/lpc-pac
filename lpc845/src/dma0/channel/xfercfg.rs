@@ -51,6 +51,7 @@ impl From<CFGVALID_A> for bool {
 #[doc = "Field `CFGVALID` reader - Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled."]
 pub struct CFGVALID_R(crate::FieldReader<bool, CFGVALID_A>);
 impl CFGVALID_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CFGVALID_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<RELOAD_A> for bool {
 #[doc = "Field `RELOAD` reader - Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers."]
 pub struct RELOAD_R(crate::FieldReader<bool, RELOAD_A>);
 impl RELOAD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RELOAD_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<SWTRIG_A> for bool {
 #[doc = "Field `SWTRIG` reader - Software Trigger."]
 pub struct SWTRIG_R(crate::FieldReader<bool, SWTRIG_A>);
 impl SWTRIG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SWTRIG_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<CLRTRIG_A> for bool {
 #[doc = "Field `CLRTRIG` reader - Clear Trigger."]
 pub struct CLRTRIG_R(crate::FieldReader<bool, CLRTRIG_A>);
 impl CLRTRIG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLRTRIG_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<SETINTA_A> for bool {
 #[doc = "Field `SETINTA` reader - Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
 pub struct SETINTA_R(crate::FieldReader<bool, SETINTA_A>);
 impl SETINTA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETINTA_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<SETINTB_A> for bool {
 #[doc = "Field `SETINTB` reader - Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed."]
 pub struct SETINTB_R(crate::FieldReader<bool, SETINTB_A>);
 impl SETINTB_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETINTB_R(crate::FieldReader::new(bits))
     }
@@ -552,6 +558,7 @@ impl From<WIDTH_A> for u8 {
 #[doc = "Field `WIDTH` reader - Transfer width used for this DMA channel."]
 pub struct WIDTH_R(crate::FieldReader<u8, WIDTH_A>);
 impl WIDTH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         WIDTH_R(crate::FieldReader::new(bits))
     }
@@ -642,6 +649,7 @@ impl From<SRCINC_A> for u8 {
 #[doc = "Field `SRCINC` reader - Determines whether the source address is incremented for each DMA transfer."]
 pub struct SRCINC_R(crate::FieldReader<u8, SRCINC_A>);
 impl SRCINC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SRCINC_R(crate::FieldReader::new(bits))
     }
@@ -743,6 +751,7 @@ impl From<DSTINC_A> for u8 {
 #[doc = "Field `DSTINC` reader - Determines whether the destination address is incremented for each DMA transfer."]
 pub struct DSTINC_R(crate::FieldReader<u8, DSTINC_A>);
 impl DSTINC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DSTINC_R(crate::FieldReader::new(bits))
     }
@@ -825,6 +834,7 @@ impl<'a> DSTINC_W<'a> {
 #[doc = "Field `XFERCOUNT` reader - Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. 0x3FF = a total of 1,024 transfers will be performed."]
 pub struct XFERCOUNT_R(crate::FieldReader<u16, u16>);
 impl XFERCOUNT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         XFERCOUNT_R(crate::FieldReader::new(bits))
     }

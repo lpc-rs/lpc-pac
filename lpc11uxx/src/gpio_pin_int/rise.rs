@@ -37,6 +37,7 @@ impl From<crate::W<RISE_SPEC>> for W {
 #[doc = "Field `RDET0` reader - Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin."]
 pub struct RDET0_R(crate::FieldReader<bool, bool>);
 impl RDET0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RDET0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> RDET0_W<'a> {
 #[doc = "Field `RDET1` reader - Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin."]
 pub struct RDET1_R(crate::FieldReader<bool, bool>);
 impl RDET1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RDET1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> RDET1_W<'a> {
 #[doc = "Field `RDET2` reader - Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin."]
 pub struct RDET2_R(crate::FieldReader<bool, bool>);
 impl RDET2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RDET2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> RDET2_W<'a> {
 #[doc = "Field `RDET3` reader - Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin."]
 pub struct RDET3_R(crate::FieldReader<bool, bool>);
 impl RDET3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RDET3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> RDET3_W<'a> {
 #[doc = "Field `RDET4` reader - Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin."]
 pub struct RDET4_R(crate::FieldReader<bool, bool>);
 impl RDET4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RDET4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> RDET4_W<'a> {
 #[doc = "Field `RDET5` reader - Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin."]
 pub struct RDET5_R(crate::FieldReader<bool, bool>);
 impl RDET5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RDET5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> RDET5_W<'a> {
 #[doc = "Field `RDET6` reader - Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin."]
 pub struct RDET6_R(crate::FieldReader<bool, bool>);
 impl RDET6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RDET6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> RDET6_W<'a> {
 #[doc = "Field `RDET7` reader - Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin."]
 pub struct RDET7_R(crate::FieldReader<bool, bool>);
 impl RDET7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RDET7_R(crate::FieldReader::new(bits))
     }

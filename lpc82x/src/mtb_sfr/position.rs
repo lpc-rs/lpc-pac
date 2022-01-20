@@ -37,6 +37,7 @@ impl From<crate::W<POSITION_SPEC>> for W {
 #[doc = "Field `WRAP` reader - This bit is set to 1 automatically when the POINTER value wraps as determined by the MASTER.MASK field in the MASTER Trace Control Register."]
 pub struct WRAP_R(crate::FieldReader<bool, bool>);
 impl WRAP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WRAP_R(crate::FieldReader::new(bits))
     }
@@ -74,6 +75,7 @@ impl<'a> WRAP_W<'a> {
 of the address, in the SRAM, where the next trace packet will be written. The field points to an unused location and is automatically incremented. A debug agent can calculate the system address, on the AHB-Lite bus, of the SRAM location pointed to by the POSITION register using the following equation: system address = BASE + ((P + (2AWIDTH - (BASE MOD 2AWIDTH))) MOD 2AWIDTH). Where P = POSITION AND 0xFFFF_FFF8. Where BASE is the BASE register value"]
 pub struct POINTER_R(crate::FieldReader<u32, u32>);
 impl POINTER_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         POINTER_R(crate::FieldReader::new(bits))
     }

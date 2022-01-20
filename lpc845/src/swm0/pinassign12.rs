@@ -37,6 +37,7 @@ impl From<crate::W<PINASSIGN12_SPEC>> for W {
 #[doc = "Field `UART3_RXD` reader - UART3_RXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct UART3_RXD_R(crate::FieldReader<u8, u8>);
 impl UART3_RXD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         UART3_RXD_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> UART3_RXD_W<'a> {
 #[doc = "Field `UART3_SCLK` reader - UART3_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct UART3_SCLK_R(crate::FieldReader<u8, u8>);
 impl UART3_SCLK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         UART3_SCLK_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> UART3_SCLK_W<'a> {
 #[doc = "Field `UART4_TXD` reader - UART4_TXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct UART4_TXD_R(crate::FieldReader<u8, u8>);
 impl UART4_TXD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         UART4_TXD_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> UART4_TXD_W<'a> {
 #[doc = "Field `UART4_RXD` reader - UART4_TXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct UART4_RXD_R(crate::FieldReader<u8, u8>);
 impl UART4_RXD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         UART4_RXD_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<PR_SPEC>> for W {
 #[doc = "Field `PCVAL` reader - Prescaler value."]
 pub struct PCVAL_R(crate::FieldReader<u32, u32>);
 impl PCVAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         PCVAL_R(crate::FieldReader::new(bits))
     }
@@ -56,7 +57,7 @@ impl<'a> PCVAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff_ffff) | (value as u32 & 0xffff_ffff);
+        self.w.bits = value;
         self.w
     }
 }
@@ -64,7 +65,7 @@ impl R {
     #[doc = "Bits 0:31 - Prescaler value."]
     #[inline(always)]
     pub fn pcval(&self) -> PCVAL_R {
-        PCVAL_R::new((self.bits & 0xffff_ffff) as u32)
+        PCVAL_R::new(self.bits)
     }
 }
 impl W {

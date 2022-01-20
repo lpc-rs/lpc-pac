@@ -37,6 +37,7 @@ impl From<crate::W<DIV_SPEC>> for W {
 #[doc = "Field `DIVVAL` reader - Rate divider value. Specifies how the Flexcomm clock (FCLK) is divided to produce the SPI clock rate in master mode. DIVVAL is -1 encoded such that the value 0 results in FCLK/1, the value 1 results in FCLK/2, up to the maximum possible divide value of 0xFFFF, which results in FCLK/65536."]
 pub struct DIVVAL_R(crate::FieldReader<u16, u16>);
 impl DIVVAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         DIVVAL_R(crate::FieldReader::new(bits))
     }

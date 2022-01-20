@@ -16,6 +16,7 @@ impl From<crate::R<FMSTAT_SPEC>> for R {
 #[doc = "Field `SIG_DONE` reader - This status bit is set at the end of signature computation"]
 pub struct SIG_DONE_R(crate::FieldReader<bool, bool>);
 impl SIG_DONE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SIG_DONE_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<INTROUTING_SPEC>> for W {
 #[doc = "Field `ROUTE_INT9_0` reader - This bit can control on which hardware interrupt line the interrupt will be generated: 0: IRQ interrupt line is selected for this interrupt bit 1: FIQ interrupt line is selected for this interrupt bit"]
 pub struct ROUTE_INT9_0_R(crate::FieldReader<u16, u16>);
 impl ROUTE_INT9_0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         ROUTE_INT9_0_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> ROUTE_INT9_0_W<'a> {
 #[doc = "Field `ROUTE_INT30` reader - This bit can control on which hardware interrupt line the interrupt will be generated: 0: IRQ interrupt line is selected for this interrupt bit 1: FIQ interrupt line is selected for this interrupt bit"]
 pub struct ROUTE_INT30_R(crate::FieldReader<bool, bool>);
 impl ROUTE_INT30_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ROUTE_INT30_R(crate::FieldReader::new(bits))
     }
@@ -99,6 +101,7 @@ impl<'a> ROUTE_INT30_W<'a> {
 #[doc = "Field `ROUTE_INT31` reader - This bit can control on which hardware interrupt line the interrupt will be generated: 0: IRQ interrupt line is selected for this interrupt bit 1: FIQ interrupt line is selected for this interrupt bit"]
 pub struct ROUTE_INT31_R(crate::FieldReader<bool, bool>);
 impl ROUTE_INT31_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ROUTE_INT31_R(crate::FieldReader::new(bits))
     }

@@ -16,6 +16,7 @@ impl From<crate::R<STAT_SPEC>> for R {
 #[doc = "Field `Status` reader - These bits give the actual status information about the I2C interface."]
 pub struct STATUS_R(crate::FieldReader<u8, u8>);
 impl STATUS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         STATUS_R(crate::FieldReader::new(bits))
     }

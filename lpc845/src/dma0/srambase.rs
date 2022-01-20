@@ -37,6 +37,7 @@ impl From<crate::W<SRAMBASE_SPEC>> for W {
 #[doc = "Field `OFFSET` reader - Address bits 31:9 of the beginning of the DMA descriptor table. For 18 channels, the table must begin on a 512 byte boundary."]
 pub struct OFFSET_R(crate::FieldReader<u32, u32>);
 impl OFFSET_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         OFFSET_R(crate::FieldReader::new(bits))
     }

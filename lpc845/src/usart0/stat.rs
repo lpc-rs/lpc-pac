@@ -37,6 +37,7 @@ impl From<crate::W<STAT_SPEC>> for W {
 #[doc = "Field `RXRDY` reader - Receiver Ready flag. When 1, indicates that data is available to be read from the receiver buffer. Cleared after a read of the RXDAT or RXDATSTAT registers."]
 pub struct RXRDY_R(crate::FieldReader<bool, bool>);
 impl RXRDY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXRDY_R(crate::FieldReader::new(bits))
     }
@@ -51,6 +52,7 @@ impl core::ops::Deref for RXRDY_R {
 #[doc = "Field `RXIDLE` reader - Receiver Idle. When 0, indicates that the receiver is currently in the process of receiving data. When 1, indicates that the receiver is not currently in the process of receiving data."]
 pub struct RXIDLE_R(crate::FieldReader<bool, bool>);
 impl RXIDLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXIDLE_R(crate::FieldReader::new(bits))
     }
@@ -65,6 +67,7 @@ impl core::ops::Deref for RXIDLE_R {
 #[doc = "Field `TXRDY` reader - Transmitter Ready flag. When 1, this bit indicates that data may be written to the transmit buffer. Previous data may still be in the process of being transmitted. Cleared when data is written to TXDAT. Set when the data is moved from the transmit buffer to the transmit shift register."]
 pub struct TXRDY_R(crate::FieldReader<bool, bool>);
 impl TXRDY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXRDY_R(crate::FieldReader::new(bits))
     }
@@ -79,6 +82,7 @@ impl core::ops::Deref for TXRDY_R {
 #[doc = "Field `TXIDLE` reader - Transmitter Idle. When 0, indicates that the transmitter is currently in the process of sending data.When 1, indicate that the transmitter is not currently in the process of sending data."]
 pub struct TXIDLE_R(crate::FieldReader<bool, bool>);
 impl TXIDLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXIDLE_R(crate::FieldReader::new(bits))
     }
@@ -93,6 +97,7 @@ impl core::ops::Deref for TXIDLE_R {
 #[doc = "Field `CTS` reader - This bit reflects the current state of the CTS signal, regardless of the setting of the CTSEN bit in the CFG register. This will be the value of the CTS input pin unless loopback mode is enabled."]
 pub struct CTS_R(crate::FieldReader<bool, bool>);
 impl CTS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CTS_R(crate::FieldReader::new(bits))
     }
@@ -107,6 +112,7 @@ impl core::ops::Deref for CTS_R {
 #[doc = "Field `DELTACTS` reader - This bit is set when a change in the state is detected for the CTS flag above. This bit is cleared by software."]
 pub struct DELTACTS_R(crate::FieldReader<bool, bool>);
 impl DELTACTS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DELTACTS_R(crate::FieldReader::new(bits))
     }
@@ -143,6 +149,7 @@ impl<'a> DELTACTS_W<'a> {
 #[doc = "Field `TXDISSTAT` reader - Transmitter Disabled Interrupt flag. When 1, this bit indicates that the USART transmitter is fully idle after being disabled via the TXDIS in the CTL register (TXDIS = 1)."]
 pub struct TXDISSTAT_R(crate::FieldReader<bool, bool>);
 impl TXDISSTAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXDISSTAT_R(crate::FieldReader::new(bits))
     }
@@ -157,6 +164,7 @@ impl core::ops::Deref for TXDISSTAT_R {
 #[doc = "Field `OVERRUNINT` reader - Overrun Error interrupt flag. This flag is set when a new character is received while the receiver buffer is still in use. If this occurs, the newly received character in the shift register is lost."]
 pub struct OVERRUNINT_R(crate::FieldReader<bool, bool>);
 impl OVERRUNINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUNINT_R(crate::FieldReader::new(bits))
     }
@@ -193,6 +201,7 @@ impl<'a> OVERRUNINT_W<'a> {
 #[doc = "Field `RXBRK` reader - Received Break. This bit reflects the current state of the receiver break detection logic. It is set when the Un_RXD pin remains low for 16 bit times. Note that FRAMERRINT will also be set when this condition occurs because the stop bit(s) for the character would be missing. RXBRK is cleared when the Un_RXD pin goes high."]
 pub struct RXBRK_R(crate::FieldReader<bool, bool>);
 impl RXBRK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXBRK_R(crate::FieldReader::new(bits))
     }
@@ -207,6 +216,7 @@ impl core::ops::Deref for RXBRK_R {
 #[doc = "Field `DELTARXBRK` reader - This bit is set when a change in the state of receiver break detection occurs.Cleared by software."]
 pub struct DELTARXBRK_R(crate::FieldReader<bool, bool>);
 impl DELTARXBRK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DELTARXBRK_R(crate::FieldReader::new(bits))
     }
@@ -243,6 +253,7 @@ impl<'a> DELTARXBRK_W<'a> {
 #[doc = "Field `START` reader - This bit is set when a start is detected on the receiver input. Its purpose is primarily to allow wake-up from Deep-sleep or Power-down mode immediately when a start is detected. Cleared by software."]
 pub struct START_R(crate::FieldReader<bool, bool>);
 impl START_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         START_R(crate::FieldReader::new(bits))
     }
@@ -279,6 +290,7 @@ impl<'a> START_W<'a> {
 #[doc = "Field `FRAMERRINT` reader - Framing Error interrupt flag. This flag is set when a character is received with a missing stop bit at the expected location. This could be an indication of a baud rate or configuration mismatch with the transmitting source."]
 pub struct FRAMERRINT_R(crate::FieldReader<bool, bool>);
 impl FRAMERRINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FRAMERRINT_R(crate::FieldReader::new(bits))
     }
@@ -315,6 +327,7 @@ impl<'a> FRAMERRINT_W<'a> {
 #[doc = "Field `PARITYERRINT` reader - Parity Error interrupt flag. This flag is set when a parity error is detected in a received character."]
 pub struct PARITYERRINT_R(crate::FieldReader<bool, bool>);
 impl PARITYERRINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PARITYERRINT_R(crate::FieldReader::new(bits))
     }
@@ -351,6 +364,7 @@ impl<'a> PARITYERRINT_W<'a> {
 #[doc = "Field `RXNOISEINT` reader - Received Noise interrupt flag. Three samples of received data are taken in order to determine the value of each received data bit, except in synchronous mode. This acts as a noise filter if one sample disagrees. This flag is set when a received data bit contains one disagreeing sample. This could indicate line noise, a baud rate or character format mismatch, or loss of synchronization during data reception."]
 pub struct RXNOISEINT_R(crate::FieldReader<bool, bool>);
 impl RXNOISEINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXNOISEINT_R(crate::FieldReader::new(bits))
     }
@@ -387,6 +401,7 @@ impl<'a> RXNOISEINT_W<'a> {
 #[doc = "Field `ABERR` reader - Autobaud Error. An autobaud error can occur if the BRG counts to its limit before the end of the start bit that is being measured, essentially an autobaud time-out."]
 pub struct ABERR_R(crate::FieldReader<bool, bool>);
 impl ABERR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ABERR_R(crate::FieldReader::new(bits))
     }

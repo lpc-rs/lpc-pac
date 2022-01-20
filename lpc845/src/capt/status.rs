@@ -37,6 +37,7 @@ impl From<crate::W<STATUS_SPEC>> for W {
 #[doc = "Field `YESTOUCH` reader - Is 1 if a touch has been detected, including a wakeup from low-power mode."]
 pub struct YESTOUCH_R(crate::FieldReader<bool, bool>);
 impl YESTOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         YESTOUCH_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> YESTOUCH_W<'a> {
 #[doc = "Field `NOTOUCH` reader - Is 1 if a no-touch has been detected (ie. completed an integration cycle and found no-touch). This is not set when in low-power mode."]
 pub struct NOTOUCH_R(crate::FieldReader<bool, bool>);
 impl NOTOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NOTOUCH_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> NOTOUCH_W<'a> {
 #[doc = "Field `POLLDONE` reader - Is 1 if a poll or POLLNOW is complete."]
 pub struct POLLDONE_R(crate::FieldReader<bool, bool>);
 impl POLLDONE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POLLDONE_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> POLLDONE_W<'a> {
 #[doc = "Field `TIMEOUT` reader - Is 1 if an integration cycle ended with a timeout (should not happen)."]
 pub struct TIMEOUT_R(crate::FieldReader<bool, bool>);
 impl TIMEOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TIMEOUT_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> TIMEOUT_W<'a> {
 #[doc = "Field `OVERUN` reader - Is 1 if new data was collected before application read out previous ISTOUCH. No-touch (ISTOUCH==0) data will be silently overrun. Is not possible if WAIT=1."]
 pub struct OVERUN_R(crate::FieldReader<bool, bool>);
 impl OVERUN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERUN_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> OVERUN_W<'a> {
 #[doc = "Field `BUSY` reader - In a poll now."]
 pub struct BUSY_R(crate::FieldReader<bool, bool>);
 impl BUSY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BUSY_R(crate::FieldReader::new(bits))
     }
@@ -231,6 +237,7 @@ impl core::ops::Deref for BUSY_R {
 #[doc = "Field `XMAX` reader - Indicates the maximum number of X pins allowed 0-relative. So, 15 means there are pins 0 to 15, or 16 total X pins. INTERNAL note: this may be setup to be written by ROM boot."]
 pub struct XMAX_R(crate::FieldReader<u8, u8>);
 impl XMAX_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         XMAX_R(crate::FieldReader::new(bits))
     }

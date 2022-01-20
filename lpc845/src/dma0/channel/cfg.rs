@@ -51,6 +51,7 @@ impl From<PERIPHREQEN_A> for bool {
 #[doc = "Field `PERIPHREQEN` reader - Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller."]
 pub struct PERIPHREQEN_R(crate::FieldReader<bool, PERIPHREQEN_A>);
 impl PERIPHREQEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PERIPHREQEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<HWTRIGEN_A> for bool {
 #[doc = "Field `HWTRIGEN` reader - Hardware Triggering Enable for this channel."]
 pub struct HWTRIGEN_R(crate::FieldReader<bool, HWTRIGEN_A>);
 impl HWTRIGEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         HWTRIGEN_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<TRIGPOL_A> for bool {
 #[doc = "Field `TRIGPOL` reader - Trigger Polarity. Selects the polarity of a hardware trigger for this channel."]
 pub struct TRIGPOL_R(crate::FieldReader<bool, TRIGPOL_A>);
 impl TRIGPOL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TRIGPOL_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<TRIGTYPE_A> for bool {
 #[doc = "Field `TRIGTYPE` reader - Trigger Type. Selects hardware trigger as edge triggered or level triggered."]
 pub struct TRIGTYPE_R(crate::FieldReader<bool, TRIGTYPE_A>);
 impl TRIGTYPE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TRIGTYPE_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<TRIGBURST_A> for bool {
 #[doc = "Field `TRIGBURST` reader - Trigger Burst. Selects whether hardware triggers cause a single or burst transfer."]
 pub struct TRIGBURST_R(crate::FieldReader<bool, TRIGBURST_A>);
 impl TRIGBURST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TRIGBURST_R(crate::FieldReader::new(bits))
     }
@@ -452,6 +457,7 @@ impl<'a> TRIGBURST_W<'a> {
 #[doc = "Field `BURSTPOWER` reader - Burst Power is used in two ways. It always selects the address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported. The total transfer length as defined in the XFERCOUNT bits in the XFERCFG register must be an even multiple of the burst size."]
 pub struct BURSTPOWER_R(crate::FieldReader<u8, u8>);
 impl BURSTPOWER_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         BURSTPOWER_R(crate::FieldReader::new(bits))
     }
@@ -492,6 +498,7 @@ impl From<SRCBURSTWRAP_A> for bool {
 #[doc = "Field `SRCBURSTWRAP` reader - Source Burst Wrap. When enabled, the source data address for the DMA is 'wrapped', meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst."]
 pub struct SRCBURSTWRAP_R(crate::FieldReader<bool, SRCBURSTWRAP_A>);
 impl SRCBURSTWRAP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SRCBURSTWRAP_R(crate::FieldReader::new(bits))
     }
@@ -575,6 +582,7 @@ impl From<DSTBURSTWRAP_A> for bool {
 #[doc = "Field `DSTBURSTWRAP` reader - Destination Burst Wrap. When enabled, the destination data address for the DMA is 'wrapped', meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst."]
 pub struct DSTBURSTWRAP_R(crate::FieldReader<bool, DSTBURSTWRAP_A>);
 impl DSTBURSTWRAP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DSTBURSTWRAP_R(crate::FieldReader::new(bits))
     }
@@ -644,6 +652,7 @@ impl<'a> DSTBURSTWRAP_W<'a> {
 #[doc = "Field `CHPRIORITY` reader - Priority of this channel when multiple DMA requests are pending. Eight priority levels are supported: 0x0 = highest priority. 0x7 = lowest priority."]
 pub struct CHPRIORITY_R(crate::FieldReader<u8, u8>);
 impl CHPRIORITY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CHPRIORITY_R(crate::FieldReader::new(bits))
     }

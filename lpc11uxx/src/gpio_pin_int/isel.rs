@@ -37,6 +37,7 @@ impl From<crate::W<ISEL_SPEC>> for W {
 #[doc = "Field `PMODE0` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE0_R(crate::FieldReader<bool, bool>);
 impl PMODE0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PMODE0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> PMODE0_W<'a> {
 #[doc = "Field `PMODE1` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE1_R(crate::FieldReader<bool, bool>);
 impl PMODE1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PMODE1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> PMODE1_W<'a> {
 #[doc = "Field `PMODE2` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE2_R(crate::FieldReader<bool, bool>);
 impl PMODE2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PMODE2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> PMODE2_W<'a> {
 #[doc = "Field `PMODE3` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE3_R(crate::FieldReader<bool, bool>);
 impl PMODE3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PMODE3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> PMODE3_W<'a> {
 #[doc = "Field `PMODE4` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE4_R(crate::FieldReader<bool, bool>);
 impl PMODE4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PMODE4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> PMODE4_W<'a> {
 #[doc = "Field `PMODE5` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE5_R(crate::FieldReader<bool, bool>);
 impl PMODE5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PMODE5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> PMODE5_W<'a> {
 #[doc = "Field `PMODE6` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE6_R(crate::FieldReader<bool, bool>);
 impl PMODE6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PMODE6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> PMODE6_W<'a> {
 #[doc = "Field `PMODE7` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
 pub struct PMODE7_R(crate::FieldReader<bool, bool>);
 impl PMODE7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PMODE7_R(crate::FieldReader::new(bits))
     }

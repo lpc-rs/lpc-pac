@@ -16,6 +16,7 @@ impl From<crate::R<RIS_SPEC>> for R {
 #[doc = "Field `RORRIS` reader - This bit is 1 if another frame was completely received while the RxFIFO was full. The ARM spec implies that the preceding frame data is overwritten by the new frame data when this occurs."]
 pub struct RORRIS_R(crate::FieldReader<bool, bool>);
 impl RORRIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RORRIS_R(crate::FieldReader::new(bits))
     }
@@ -30,6 +31,7 @@ impl core::ops::Deref for RORRIS_R {
 #[doc = "Field `RTRIS` reader - This bit is 1 if the Rx FIFO is not empty, and has not been read for a time-out period. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR X \\[SCR+1\\])."]
 pub struct RTRIS_R(crate::FieldReader<bool, bool>);
 impl RTRIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RTRIS_R(crate::FieldReader::new(bits))
     }
@@ -44,6 +46,7 @@ impl core::ops::Deref for RTRIS_R {
 #[doc = "Field `RXRIS` reader - This bit is 1 if the Rx FIFO is at least half full."]
 pub struct RXRIS_R(crate::FieldReader<bool, bool>);
 impl RXRIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXRIS_R(crate::FieldReader::new(bits))
     }
@@ -58,6 +61,7 @@ impl core::ops::Deref for RXRIS_R {
 #[doc = "Field `TXRIS` reader - This bit is 1 if the Tx FIFO is at least half empty."]
 pub struct TXRIS_R(crate::FieldReader<bool, bool>);
 impl TXRIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXRIS_R(crate::FieldReader::new(bits))
     }

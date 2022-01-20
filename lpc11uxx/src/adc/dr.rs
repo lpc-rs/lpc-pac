@@ -16,6 +16,7 @@ impl From<crate::R<DR_SPEC>> for R {
 #[doc = "Field `V_VREF` reader - When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin, divided by the voltage on the VREF pin. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREF, while 0x3FF indicates that the voltage on AD input was close to, equal to, or greater than that on VREF."]
 pub struct V_VREF_R(crate::FieldReader<u16, u16>);
 impl V_VREF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         V_VREF_R(crate::FieldReader::new(bits))
     }
@@ -30,6 +31,7 @@ impl core::ops::Deref for V_VREF_R {
 #[doc = "Field `OVERRUN` reader - This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register."]
 pub struct OVERRUN_R(crate::FieldReader<bool, bool>);
 impl OVERRUN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN_R(crate::FieldReader::new(bits))
     }
@@ -44,6 +46,7 @@ impl core::ops::Deref for OVERRUN_R {
 #[doc = "Field `DONE` reader - This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read."]
 pub struct DONE_R(crate::FieldReader<bool, bool>);
 impl DONE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DONE_R(crate::FieldReader::new(bits))
     }

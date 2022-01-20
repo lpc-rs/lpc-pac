@@ -37,6 +37,7 @@ impl From<crate::W<UARTFRGDIV_SPEC>> for W {
 #[doc = "Field `DIV` reader - Denominator of the fractional divider. DIV is equal to the programmed value +1. Always set to 0xFF to use with the fractional baud rate generator."]
 pub struct DIV_R(crate::FieldReader<u8, u8>);
 impl DIV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DIV_R(crate::FieldReader::new(bits))
     }

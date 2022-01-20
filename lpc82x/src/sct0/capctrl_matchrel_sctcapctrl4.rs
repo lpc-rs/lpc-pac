@@ -37,6 +37,7 @@ impl From<crate::W<CAPCTRL_MATCHREL_SCTCAPCTRL4_SPEC>> for W {
 #[doc = "Field `CAPCONn_L` reader - If bit m is one, event m causes the CAPn_L (UNIFY = 0) or the CAPn (UNIFY = 1) register to be loaded (event 0 = bit 0, event 1 = bit 1, etc.). The number of bits = number of match/captures in this SCT."]
 pub struct CAPCONN_L_R(crate::FieldReader<u8, u8>);
 impl CAPCONN_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CAPCONN_L_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> CAPCONN_L_W<'a> {
 #[doc = "Field `CAPCONn_H` reader - If bit m is one, event m causes the CAPn_H (UNIFY = 0) register to be loaded (event 0 = bit 16, event 1 = bit 17, etc.). The number of bits = number of match/captures in this SCT."]
 pub struct CAPCONN_H_R(crate::FieldReader<u8, u8>);
 impl CAPCONN_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CAPCONN_H_R(crate::FieldReader::new(bits))
     }

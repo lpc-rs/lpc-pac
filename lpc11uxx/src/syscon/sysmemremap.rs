@@ -54,6 +54,7 @@ impl From<MAP_A> for u8 {
 #[doc = "Field `MAP` reader - System memory remap. Value 0x3 is reserved."]
 pub struct MAP_R(crate::FieldReader<u8, MAP_A>);
 impl MAP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MAP_R(crate::FieldReader::new(bits))
     }

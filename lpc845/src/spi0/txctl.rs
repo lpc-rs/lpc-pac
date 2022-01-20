@@ -37,6 +37,7 @@ impl From<crate::W<TXCTL_SPEC>> for W {
 #[doc = "Field `TXSSEL0_N` reader - Transmit Slave Select 0."]
 pub struct TXSSEL0_N_R(crate::FieldReader<bool, bool>);
 impl TXSSEL0_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXSSEL0_N_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> TXSSEL0_N_W<'a> {
 #[doc = "Field `TXSSEL1_N` reader - Transmit Slave Select 1."]
 pub struct TXSSEL1_N_R(crate::FieldReader<bool, bool>);
 impl TXSSEL1_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXSSEL1_N_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> TXSSEL1_N_W<'a> {
 #[doc = "Field `TXSSEL2_N` reader - Transmit Slave Select 2."]
 pub struct TXSSEL2_N_R(crate::FieldReader<bool, bool>);
 impl TXSSEL2_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXSSEL2_N_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> TXSSEL2_N_W<'a> {
 #[doc = "Field `TXSSEL3_N` reader - Transmit Slave Select 3."]
 pub struct TXSSEL3_N_R(crate::FieldReader<bool, bool>);
 impl TXSSEL3_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXSSEL3_N_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> TXSSEL3_N_W<'a> {
 #[doc = "Field `EOT` reader - End of Transfer."]
 pub struct EOT_R(crate::FieldReader<bool, bool>);
 impl EOT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EOT_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> EOT_W<'a> {
 #[doc = "Field `EOF` reader - End of Frame."]
 pub struct EOF_R(crate::FieldReader<bool, bool>);
 impl EOF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EOF_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> EOF_W<'a> {
 #[doc = "Field `RXIGNORE` reader - Receive Ignore."]
 pub struct RXIGNORE_R(crate::FieldReader<bool, bool>);
 impl RXIGNORE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXIGNORE_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> RXIGNORE_W<'a> {
 #[doc = "Field `LEN` reader - Data transfer Length."]
 pub struct LEN_R(crate::FieldReader<u8, u8>);
 impl LEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         LEN_R(crate::FieldReader::new(bits))
     }

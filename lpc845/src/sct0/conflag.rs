@@ -37,6 +37,7 @@ impl From<crate::W<CONFLAG_SPEC>> for W {
 #[doc = "Field `NCFLAG` reader - Bit n is one if a no-change conflict event occurred on output n since reset or a 1 was last written to this bit (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT."]
 pub struct NCFLAG_R(crate::FieldReader<u8, u8>);
 impl NCFLAG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         NCFLAG_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> NCFLAG_W<'a> {
 #[doc = "Field `BUSERRL` reader - The most recent bus error from this SCT involved writing CTR L/Unified, STATE L/Unified, MATCH L/Unified, or the Output register when the L/U counter was not halted. A word write to certain L and H registers can be half successful and half unsuccessful."]
 pub struct BUSERRL_R(crate::FieldReader<bool, bool>);
 impl BUSERRL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BUSERRL_R(crate::FieldReader::new(bits))
     }
@@ -99,6 +101,7 @@ impl<'a> BUSERRL_W<'a> {
 #[doc = "Field `BUSERRH` reader - The most recent bus error from this SCT involved writing CTR H, STATE H, MATCH H, or the Output register when the H counter was not halted."]
 pub struct BUSERRH_R(crate::FieldReader<bool, bool>);
 impl BUSERRH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BUSERRH_R(crate::FieldReader::new(bits))
     }

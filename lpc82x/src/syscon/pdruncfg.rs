@@ -51,6 +51,7 @@ impl From<IRCOUT_PD_A> for bool {
 #[doc = "Field `IRCOUT_PD` reader - IRC oscillator output wake-up configuration"]
 pub struct IRCOUT_PD_R(crate::FieldReader<bool, IRCOUT_PD_A>);
 impl IRCOUT_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IRCOUT_PD_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<IRC_PD_A> for bool {
 #[doc = "Field `IRC_PD` reader - IRC oscillator power-down wake-up configuration"]
 pub struct IRC_PD_R(crate::FieldReader<bool, IRC_PD_A>);
 impl IRC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IRC_PD_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<FLASH_PD_A> for bool {
 #[doc = "Field `FLASH_PD` reader - Flash wake-up configuration"]
 pub struct FLASH_PD_R(crate::FieldReader<bool, FLASH_PD_A>);
 impl FLASH_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FLASH_PD_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<BOD_PD_A> for bool {
 #[doc = "Field `BOD_PD` reader - BOD wake-up configuration"]
 pub struct BOD_PD_R(crate::FieldReader<bool, BOD_PD_A>);
 impl BOD_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BOD_PD_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<ADC_PD_A> for bool {
 #[doc = "Field `ADC_PD` reader - ADC wake-up configuration"]
 pub struct ADC_PD_R(crate::FieldReader<bool, ADC_PD_A>);
 impl ADC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_PD_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<SYSOSC_PD_A> for bool {
 #[doc = "Field `SYSOSC_PD` reader - Crystal oscillator wake-up configuration"]
 pub struct SYSOSC_PD_R(crate::FieldReader<bool, SYSOSC_PD_A>);
 impl SYSOSC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYSOSC_PD_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<WDTOSC_PD_A> for bool {
 #[doc = "Field `WDTOSC_PD` reader - Watchdog oscillator wake-up configuration. Changing this bit to powered-down has no effect when the LOCK bit in the WWDT MOD register is set. In this case, the watchdog oscillator is always running"]
 pub struct WDTOSC_PD_R(crate::FieldReader<bool, WDTOSC_PD_A>);
 impl WDTOSC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDTOSC_PD_R(crate::FieldReader::new(bits))
     }
@@ -632,6 +639,7 @@ impl From<SYSPLL_PD_A> for bool {
 #[doc = "Field `SYSPLL_PD` reader - System PLL wake-up configuration"]
 pub struct SYSPLL_PD_R(crate::FieldReader<bool, SYSPLL_PD_A>);
 impl SYSPLL_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYSPLL_PD_R(crate::FieldReader::new(bits))
     }
@@ -715,6 +723,7 @@ impl From<ACMP_A> for bool {
 #[doc = "Field `ACMP` reader - Analog comparator wake-up configuration"]
 pub struct ACMP_R(crate::FieldReader<bool, ACMP_A>);
 impl ACMP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ACMP_R(crate::FieldReader::new(bits))
     }

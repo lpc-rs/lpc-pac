@@ -37,6 +37,7 @@ impl From<crate::W<MPIN_SPEC>> for W {
 #[doc = "Field `MPORTP0` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP0_R(crate::FieldReader<bool, bool>);
 impl MPORTP0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> MPORTP0_W<'a> {
 #[doc = "Field `MPORTP1` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP1_R(crate::FieldReader<bool, bool>);
 impl MPORTP1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> MPORTP1_W<'a> {
 #[doc = "Field `MPORTP2` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP2_R(crate::FieldReader<bool, bool>);
 impl MPORTP2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> MPORTP2_W<'a> {
 #[doc = "Field `MPORTP3` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP3_R(crate::FieldReader<bool, bool>);
 impl MPORTP3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> MPORTP3_W<'a> {
 #[doc = "Field `MPORTP4` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP4_R(crate::FieldReader<bool, bool>);
 impl MPORTP4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> MPORTP4_W<'a> {
 #[doc = "Field `MPORTP5` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP5_R(crate::FieldReader<bool, bool>);
 impl MPORTP5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> MPORTP5_W<'a> {
 #[doc = "Field `MPORTP6` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP6_R(crate::FieldReader<bool, bool>);
 impl MPORTP6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> MPORTP6_W<'a> {
 #[doc = "Field `MPORTP7` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP7_R(crate::FieldReader<bool, bool>);
 impl MPORTP7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP7_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> MPORTP7_W<'a> {
 #[doc = "Field `MPORTP8` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP8_R(crate::FieldReader<bool, bool>);
 impl MPORTP8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP8_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> MPORTP8_W<'a> {
 #[doc = "Field `MPORTP9` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP9_R(crate::FieldReader<bool, bool>);
 impl MPORTP9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP9_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> MPORTP9_W<'a> {
 #[doc = "Field `MPORTP10` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP10_R(crate::FieldReader<bool, bool>);
 impl MPORTP10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP10_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> MPORTP10_W<'a> {
 #[doc = "Field `MPORTP11` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP11_R(crate::FieldReader<bool, bool>);
 impl MPORTP11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP11_R(crate::FieldReader::new(bits))
     }
@@ -469,6 +481,7 @@ impl<'a> MPORTP11_W<'a> {
 #[doc = "Field `MPORTP12` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP12_R(crate::FieldReader<bool, bool>);
 impl MPORTP12_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP12_R(crate::FieldReader::new(bits))
     }
@@ -505,6 +518,7 @@ impl<'a> MPORTP12_W<'a> {
 #[doc = "Field `MPORTP13` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP13_R(crate::FieldReader<bool, bool>);
 impl MPORTP13_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP13_R(crate::FieldReader::new(bits))
     }
@@ -541,6 +555,7 @@ impl<'a> MPORTP13_W<'a> {
 #[doc = "Field `MPORTP14` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP14_R(crate::FieldReader<bool, bool>);
 impl MPORTP14_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP14_R(crate::FieldReader::new(bits))
     }
@@ -577,6 +592,7 @@ impl<'a> MPORTP14_W<'a> {
 #[doc = "Field `MPORTP15` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP15_R(crate::FieldReader<bool, bool>);
 impl MPORTP15_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP15_R(crate::FieldReader::new(bits))
     }
@@ -613,6 +629,7 @@ impl<'a> MPORTP15_W<'a> {
 #[doc = "Field `MPORTP16` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP16_R(crate::FieldReader<bool, bool>);
 impl MPORTP16_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP16_R(crate::FieldReader::new(bits))
     }
@@ -649,6 +666,7 @@ impl<'a> MPORTP16_W<'a> {
 #[doc = "Field `MPORTP17` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP17_R(crate::FieldReader<bool, bool>);
 impl MPORTP17_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP17_R(crate::FieldReader::new(bits))
     }
@@ -685,6 +703,7 @@ impl<'a> MPORTP17_W<'a> {
 #[doc = "Field `MPORTP18` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP18_R(crate::FieldReader<bool, bool>);
 impl MPORTP18_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP18_R(crate::FieldReader::new(bits))
     }
@@ -721,6 +740,7 @@ impl<'a> MPORTP18_W<'a> {
 #[doc = "Field `MPORTP19` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP19_R(crate::FieldReader<bool, bool>);
 impl MPORTP19_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP19_R(crate::FieldReader::new(bits))
     }
@@ -757,6 +777,7 @@ impl<'a> MPORTP19_W<'a> {
 #[doc = "Field `MPORTP20` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP20_R(crate::FieldReader<bool, bool>);
 impl MPORTP20_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP20_R(crate::FieldReader::new(bits))
     }
@@ -793,6 +814,7 @@ impl<'a> MPORTP20_W<'a> {
 #[doc = "Field `MPORTP21` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP21_R(crate::FieldReader<bool, bool>);
 impl MPORTP21_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP21_R(crate::FieldReader::new(bits))
     }
@@ -829,6 +851,7 @@ impl<'a> MPORTP21_W<'a> {
 #[doc = "Field `MPORTP22` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP22_R(crate::FieldReader<bool, bool>);
 impl MPORTP22_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP22_R(crate::FieldReader::new(bits))
     }
@@ -865,6 +888,7 @@ impl<'a> MPORTP22_W<'a> {
 #[doc = "Field `MPORTP23` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP23_R(crate::FieldReader<bool, bool>);
 impl MPORTP23_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP23_R(crate::FieldReader::new(bits))
     }
@@ -901,6 +925,7 @@ impl<'a> MPORTP23_W<'a> {
 #[doc = "Field `MPORTP24` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP24_R(crate::FieldReader<bool, bool>);
 impl MPORTP24_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP24_R(crate::FieldReader::new(bits))
     }
@@ -937,6 +962,7 @@ impl<'a> MPORTP24_W<'a> {
 #[doc = "Field `MPORTP25` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP25_R(crate::FieldReader<bool, bool>);
 impl MPORTP25_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP25_R(crate::FieldReader::new(bits))
     }
@@ -973,6 +999,7 @@ impl<'a> MPORTP25_W<'a> {
 #[doc = "Field `MPORTP26` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP26_R(crate::FieldReader<bool, bool>);
 impl MPORTP26_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP26_R(crate::FieldReader::new(bits))
     }
@@ -1009,6 +1036,7 @@ impl<'a> MPORTP26_W<'a> {
 #[doc = "Field `MPORTP27` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP27_R(crate::FieldReader<bool, bool>);
 impl MPORTP27_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP27_R(crate::FieldReader::new(bits))
     }
@@ -1045,6 +1073,7 @@ impl<'a> MPORTP27_W<'a> {
 #[doc = "Field `MPORTP28` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP28_R(crate::FieldReader<bool, bool>);
 impl MPORTP28_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP28_R(crate::FieldReader::new(bits))
     }
@@ -1081,6 +1110,7 @@ impl<'a> MPORTP28_W<'a> {
 #[doc = "Field `MPORTP29` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP29_R(crate::FieldReader<bool, bool>);
 impl MPORTP29_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP29_R(crate::FieldReader::new(bits))
     }
@@ -1117,6 +1147,7 @@ impl<'a> MPORTP29_W<'a> {
 #[doc = "Field `MPORTP30` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP30_R(crate::FieldReader<bool, bool>);
 impl MPORTP30_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP30_R(crate::FieldReader::new(bits))
     }
@@ -1153,6 +1184,7 @@ impl<'a> MPORTP30_W<'a> {
 #[doc = "Field `MPORTP31` reader - Masked port register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP31_R(crate::FieldReader<bool, bool>);
 impl MPORTP31_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MPORTP31_R(crate::FieldReader::new(bits))
     }

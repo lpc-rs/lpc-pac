@@ -37,6 +37,7 @@ impl From<crate::W<SET_SPEC>> for W {
 #[doc = "Field `SETP0` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP0_R(crate::FieldReader<bool, bool>);
 impl SETP0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> SETP0_W<'a> {
 #[doc = "Field `SETP1` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP1_R(crate::FieldReader<bool, bool>);
 impl SETP1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> SETP1_W<'a> {
 #[doc = "Field `SETP2` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP2_R(crate::FieldReader<bool, bool>);
 impl SETP2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> SETP2_W<'a> {
 #[doc = "Field `SETP3` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP3_R(crate::FieldReader<bool, bool>);
 impl SETP3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> SETP3_W<'a> {
 #[doc = "Field `SETP4` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP4_R(crate::FieldReader<bool, bool>);
 impl SETP4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> SETP4_W<'a> {
 #[doc = "Field `SETP5` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP5_R(crate::FieldReader<bool, bool>);
 impl SETP5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> SETP5_W<'a> {
 #[doc = "Field `SETP6` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP6_R(crate::FieldReader<bool, bool>);
 impl SETP6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> SETP6_W<'a> {
 #[doc = "Field `SETP7` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP7_R(crate::FieldReader<bool, bool>);
 impl SETP7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP7_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> SETP7_W<'a> {
 #[doc = "Field `SETP8` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP8_R(crate::FieldReader<bool, bool>);
 impl SETP8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP8_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> SETP8_W<'a> {
 #[doc = "Field `SETP9` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP9_R(crate::FieldReader<bool, bool>);
 impl SETP9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP9_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> SETP9_W<'a> {
 #[doc = "Field `SETP10` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP10_R(crate::FieldReader<bool, bool>);
 impl SETP10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP10_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> SETP10_W<'a> {
 #[doc = "Field `SETP11` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP11_R(crate::FieldReader<bool, bool>);
 impl SETP11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP11_R(crate::FieldReader::new(bits))
     }
@@ -469,6 +481,7 @@ impl<'a> SETP11_W<'a> {
 #[doc = "Field `SETP12` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP12_R(crate::FieldReader<bool, bool>);
 impl SETP12_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP12_R(crate::FieldReader::new(bits))
     }
@@ -505,6 +518,7 @@ impl<'a> SETP12_W<'a> {
 #[doc = "Field `SETP13` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP13_R(crate::FieldReader<bool, bool>);
 impl SETP13_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP13_R(crate::FieldReader::new(bits))
     }
@@ -541,6 +555,7 @@ impl<'a> SETP13_W<'a> {
 #[doc = "Field `SETP14` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP14_R(crate::FieldReader<bool, bool>);
 impl SETP14_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP14_R(crate::FieldReader::new(bits))
     }
@@ -577,6 +592,7 @@ impl<'a> SETP14_W<'a> {
 #[doc = "Field `SETP15` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP15_R(crate::FieldReader<bool, bool>);
 impl SETP15_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP15_R(crate::FieldReader::new(bits))
     }
@@ -613,6 +629,7 @@ impl<'a> SETP15_W<'a> {
 #[doc = "Field `SETP16` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP16_R(crate::FieldReader<bool, bool>);
 impl SETP16_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP16_R(crate::FieldReader::new(bits))
     }
@@ -649,6 +666,7 @@ impl<'a> SETP16_W<'a> {
 #[doc = "Field `SETP17` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP17_R(crate::FieldReader<bool, bool>);
 impl SETP17_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP17_R(crate::FieldReader::new(bits))
     }
@@ -685,6 +703,7 @@ impl<'a> SETP17_W<'a> {
 #[doc = "Field `SETP18` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP18_R(crate::FieldReader<bool, bool>);
 impl SETP18_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP18_R(crate::FieldReader::new(bits))
     }
@@ -721,6 +740,7 @@ impl<'a> SETP18_W<'a> {
 #[doc = "Field `SETP19` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP19_R(crate::FieldReader<bool, bool>);
 impl SETP19_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP19_R(crate::FieldReader::new(bits))
     }
@@ -757,6 +777,7 @@ impl<'a> SETP19_W<'a> {
 #[doc = "Field `SETP20` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP20_R(crate::FieldReader<bool, bool>);
 impl SETP20_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP20_R(crate::FieldReader::new(bits))
     }
@@ -793,6 +814,7 @@ impl<'a> SETP20_W<'a> {
 #[doc = "Field `SETP21` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP21_R(crate::FieldReader<bool, bool>);
 impl SETP21_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP21_R(crate::FieldReader::new(bits))
     }
@@ -829,6 +851,7 @@ impl<'a> SETP21_W<'a> {
 #[doc = "Field `SETP22` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP22_R(crate::FieldReader<bool, bool>);
 impl SETP22_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP22_R(crate::FieldReader::new(bits))
     }
@@ -865,6 +888,7 @@ impl<'a> SETP22_W<'a> {
 #[doc = "Field `SETP23` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP23_R(crate::FieldReader<bool, bool>);
 impl SETP23_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP23_R(crate::FieldReader::new(bits))
     }
@@ -901,6 +925,7 @@ impl<'a> SETP23_W<'a> {
 #[doc = "Field `SETP24` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP24_R(crate::FieldReader<bool, bool>);
 impl SETP24_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP24_R(crate::FieldReader::new(bits))
     }
@@ -937,6 +962,7 @@ impl<'a> SETP24_W<'a> {
 #[doc = "Field `SETP25` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP25_R(crate::FieldReader<bool, bool>);
 impl SETP25_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP25_R(crate::FieldReader::new(bits))
     }
@@ -973,6 +999,7 @@ impl<'a> SETP25_W<'a> {
 #[doc = "Field `SETP26` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP26_R(crate::FieldReader<bool, bool>);
 impl SETP26_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP26_R(crate::FieldReader::new(bits))
     }
@@ -1009,6 +1036,7 @@ impl<'a> SETP26_W<'a> {
 #[doc = "Field `SETP27` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP27_R(crate::FieldReader<bool, bool>);
 impl SETP27_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP27_R(crate::FieldReader::new(bits))
     }
@@ -1045,6 +1073,7 @@ impl<'a> SETP27_W<'a> {
 #[doc = "Field `SETP28` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP28_R(crate::FieldReader<bool, bool>);
 impl SETP28_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP28_R(crate::FieldReader::new(bits))
     }
@@ -1081,6 +1110,7 @@ impl<'a> SETP28_W<'a> {
 #[doc = "Field `SETP29` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP29_R(crate::FieldReader<bool, bool>);
 impl SETP29_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP29_R(crate::FieldReader::new(bits))
     }
@@ -1117,6 +1147,7 @@ impl<'a> SETP29_W<'a> {
 #[doc = "Field `SETP30` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP30_R(crate::FieldReader<bool, bool>);
 impl SETP30_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP30_R(crate::FieldReader::new(bits))
     }
@@ -1153,6 +1184,7 @@ impl<'a> SETP30_W<'a> {
 #[doc = "Field `SETP31` reader - Read or set output bits. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP31_R(crate::FieldReader<bool, bool>);
 impl SETP31_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETP31_R(crate::FieldReader::new(bits))
     }

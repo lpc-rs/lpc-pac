@@ -37,6 +37,7 @@ impl From<crate::W<IRCCTRL_SPEC>> for W {
 #[doc = "Field `TRIM` reader - Trim value"]
 pub struct TRIM_R(crate::FieldReader<u8, u8>);
 impl TRIM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         TRIM_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<PORT_ENA_SPEC>> for W {
 #[doc = "Field `ENA_0` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_0_R(crate::FieldReader<bool, bool>);
 impl ENA_0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> ENA_0_W<'a> {
 #[doc = "Field `ENA_1` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_1_R(crate::FieldReader<bool, bool>);
 impl ENA_1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> ENA_1_W<'a> {
 #[doc = "Field `ENA_2` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_2_R(crate::FieldReader<bool, bool>);
 impl ENA_2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> ENA_2_W<'a> {
 #[doc = "Field `ENA_3` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_3_R(crate::FieldReader<bool, bool>);
 impl ENA_3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> ENA_3_W<'a> {
 #[doc = "Field `ENA_4` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_4_R(crate::FieldReader<bool, bool>);
 impl ENA_4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> ENA_4_W<'a> {
 #[doc = "Field `ENA_5` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_5_R(crate::FieldReader<bool, bool>);
 impl ENA_5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> ENA_5_W<'a> {
 #[doc = "Field `ENA_6` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_6_R(crate::FieldReader<bool, bool>);
 impl ENA_6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> ENA_6_W<'a> {
 #[doc = "Field `ENA_7` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_7_R(crate::FieldReader<bool, bool>);
 impl ENA_7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_7_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> ENA_7_W<'a> {
 #[doc = "Field `ENA_8` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_8_R(crate::FieldReader<bool, bool>);
 impl ENA_8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_8_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> ENA_8_W<'a> {
 #[doc = "Field `ENA_9` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_9_R(crate::FieldReader<bool, bool>);
 impl ENA_9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_9_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> ENA_9_W<'a> {
 #[doc = "Field `ENA_10` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_10_R(crate::FieldReader<bool, bool>);
 impl ENA_10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_10_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> ENA_10_W<'a> {
 #[doc = "Field `ENA_11` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_11_R(crate::FieldReader<bool, bool>);
 impl ENA_11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_11_R(crate::FieldReader::new(bits))
     }
@@ -469,6 +481,7 @@ impl<'a> ENA_11_W<'a> {
 #[doc = "Field `ENA_12` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_12_R(crate::FieldReader<bool, bool>);
 impl ENA_12_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_12_R(crate::FieldReader::new(bits))
     }
@@ -505,6 +518,7 @@ impl<'a> ENA_12_W<'a> {
 #[doc = "Field `ENA_13` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_13_R(crate::FieldReader<bool, bool>);
 impl ENA_13_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_13_R(crate::FieldReader::new(bits))
     }
@@ -541,6 +555,7 @@ impl<'a> ENA_13_W<'a> {
 #[doc = "Field `ENA_14` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_14_R(crate::FieldReader<bool, bool>);
 impl ENA_14_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_14_R(crate::FieldReader::new(bits))
     }
@@ -577,6 +592,7 @@ impl<'a> ENA_14_W<'a> {
 #[doc = "Field `ENA_15` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_15_R(crate::FieldReader<bool, bool>);
 impl ENA_15_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_15_R(crate::FieldReader::new(bits))
     }
@@ -613,6 +629,7 @@ impl<'a> ENA_15_W<'a> {
 #[doc = "Field `ENA_16` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_16_R(crate::FieldReader<bool, bool>);
 impl ENA_16_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_16_R(crate::FieldReader::new(bits))
     }
@@ -649,6 +666,7 @@ impl<'a> ENA_16_W<'a> {
 #[doc = "Field `ENA_17` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_17_R(crate::FieldReader<bool, bool>);
 impl ENA_17_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_17_R(crate::FieldReader::new(bits))
     }
@@ -685,6 +703,7 @@ impl<'a> ENA_17_W<'a> {
 #[doc = "Field `ENA_18` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_18_R(crate::FieldReader<bool, bool>);
 impl ENA_18_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_18_R(crate::FieldReader::new(bits))
     }
@@ -721,6 +740,7 @@ impl<'a> ENA_18_W<'a> {
 #[doc = "Field `ENA_19` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_19_R(crate::FieldReader<bool, bool>);
 impl ENA_19_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_19_R(crate::FieldReader::new(bits))
     }
@@ -757,6 +777,7 @@ impl<'a> ENA_19_W<'a> {
 #[doc = "Field `ENA_20` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_20_R(crate::FieldReader<bool, bool>);
 impl ENA_20_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_20_R(crate::FieldReader::new(bits))
     }
@@ -793,6 +814,7 @@ impl<'a> ENA_20_W<'a> {
 #[doc = "Field `ENA_21` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_21_R(crate::FieldReader<bool, bool>);
 impl ENA_21_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_21_R(crate::FieldReader::new(bits))
     }
@@ -829,6 +851,7 @@ impl<'a> ENA_21_W<'a> {
 #[doc = "Field `ENA_22` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_22_R(crate::FieldReader<bool, bool>);
 impl ENA_22_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_22_R(crate::FieldReader::new(bits))
     }
@@ -865,6 +888,7 @@ impl<'a> ENA_22_W<'a> {
 #[doc = "Field `ENA_23` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_23_R(crate::FieldReader<bool, bool>);
 impl ENA_23_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_23_R(crate::FieldReader::new(bits))
     }
@@ -901,6 +925,7 @@ impl<'a> ENA_23_W<'a> {
 #[doc = "Field `ENA_24` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_24_R(crate::FieldReader<bool, bool>);
 impl ENA_24_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_24_R(crate::FieldReader::new(bits))
     }
@@ -937,6 +962,7 @@ impl<'a> ENA_24_W<'a> {
 #[doc = "Field `ENA_25` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_25_R(crate::FieldReader<bool, bool>);
 impl ENA_25_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_25_R(crate::FieldReader::new(bits))
     }
@@ -973,6 +999,7 @@ impl<'a> ENA_25_W<'a> {
 #[doc = "Field `ENA_26` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_26_R(crate::FieldReader<bool, bool>);
 impl ENA_26_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_26_R(crate::FieldReader::new(bits))
     }
@@ -1009,6 +1036,7 @@ impl<'a> ENA_26_W<'a> {
 #[doc = "Field `ENA_27` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_27_R(crate::FieldReader<bool, bool>);
 impl ENA_27_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_27_R(crate::FieldReader::new(bits))
     }
@@ -1045,6 +1073,7 @@ impl<'a> ENA_27_W<'a> {
 #[doc = "Field `ENA_28` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_28_R(crate::FieldReader<bool, bool>);
 impl ENA_28_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_28_R(crate::FieldReader::new(bits))
     }
@@ -1081,6 +1110,7 @@ impl<'a> ENA_28_W<'a> {
 #[doc = "Field `ENA_29` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_29_R(crate::FieldReader<bool, bool>);
 impl ENA_29_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_29_R(crate::FieldReader::new(bits))
     }
@@ -1117,6 +1147,7 @@ impl<'a> ENA_29_W<'a> {
 #[doc = "Field `ENA_30` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_30_R(crate::FieldReader<bool, bool>);
 impl ENA_30_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_30_R(crate::FieldReader::new(bits))
     }
@@ -1153,6 +1184,7 @@ impl<'a> ENA_30_W<'a> {
 #[doc = "Field `ENA_31` reader - Enable port 0/1 pin for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the port 0/1 pin is disabled and does not contribute to the grouped interrupt. 1 = the port 0/1 pin is enabled and contributes to the grouped interrupt."]
 pub struct ENA_31_R(crate::FieldReader<bool, bool>);
 impl ENA_31_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_31_R(crate::FieldReader::new(bits))
     }

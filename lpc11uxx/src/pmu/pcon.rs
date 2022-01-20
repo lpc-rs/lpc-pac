@@ -56,6 +56,7 @@ impl From<PM_A> for u8 {
 #[doc = "Field `PM` reader - Power mode"]
 pub struct PM_R(crate::FieldReader<u8, PM_A>);
 impl PM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PM_R(crate::FieldReader::new(bits))
     }
@@ -138,6 +139,7 @@ impl<'a> PM_W<'a> {
 #[doc = "Field `NODPD` reader - A 1 in this bit prevents entry to Deep power-down mode when 0x3 is written to the PM field above, the SLEEPDEEP bit is set, and a WFI is executed. Execution continues after the WFI if this bit is 1. This bit is cleared only by power-on reset, so writing a one to this bit locks the part in a mode in which Deep power-down mode is blocked."]
 pub struct NODPD_R(crate::FieldReader<bool, bool>);
 impl NODPD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NODPD_R(crate::FieldReader::new(bits))
     }
@@ -188,6 +190,7 @@ impl From<SLEEPFLAG_A> for bool {
 #[doc = "Field `SLEEPFLAG` reader - Sleep mode flag"]
 pub struct SLEEPFLAG_R(crate::FieldReader<bool, SLEEPFLAG_A>);
 impl SLEEPFLAG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLEEPFLAG_R(crate::FieldReader::new(bits))
     }
@@ -257,7 +260,7 @@ impl<'a> SLEEPFLAG_W<'a> {
 #[doc = "Deep power-down flag\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DPDFLAG_A {
-    #[doc = "0: Read: Deep power-down mode  not entered. Write: No effect."]
+    #[doc = "0: Read: Deep power-down mode not entered. Write: No effect."]
     DPNOTENTERED = 0,
     #[doc = "1: Read: Deep power-down mode entered. Write: Clear the Deep power-down flag."]
     DPENTERED = 1,
@@ -271,6 +274,7 @@ impl From<DPDFLAG_A> for bool {
 #[doc = "Field `DPDFLAG` reader - Deep power-down flag"]
 pub struct DPDFLAG_R(crate::FieldReader<bool, DPDFLAG_A>);
 impl DPDFLAG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DPDFLAG_R(crate::FieldReader::new(bits))
     }

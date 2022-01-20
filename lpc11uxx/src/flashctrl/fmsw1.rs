@@ -16,6 +16,7 @@ impl From<crate::R<FMSW1_SPEC>> for R {
 #[doc = "Field `SW1_63_32` reader - Word 1 of 128-bit signature (bits 63 to 32)."]
 pub struct SW1_63_32_R(crate::FieldReader<u32, u32>);
 impl SW1_63_32_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         SW1_63_32_R(crate::FieldReader::new(bits))
     }
@@ -31,7 +32,7 @@ impl R {
     #[doc = "Bits 0:31 - Word 1 of 128-bit signature (bits 63 to 32)."]
     #[inline(always)]
     pub fn sw1_63_32(&self) -> SW1_63_32_R {
-        SW1_63_32_R::new((self.bits & 0xffff_ffff) as u32)
+        SW1_63_32_R::new(self.bits)
     }
 }
 #[doc = "Word 1 \\[63:32\\]\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fmsw1](index.html) module"]

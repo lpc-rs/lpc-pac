@@ -51,6 +51,7 @@ impl From<SADISABLE_A> for bool {
 #[doc = "Field `SADISABLE` reader - Slave Address n Disable."]
 pub struct SADISABLE_R(crate::FieldReader<bool, SADISABLE_A>);
 impl SADISABLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SADISABLE_R(crate::FieldReader::new(bits))
     }
@@ -120,6 +121,7 @@ impl<'a> SADISABLE_W<'a> {
 #[doc = "Field `SLVADR` reader - Slave Address. Seven bit slave address that is compared to received addresses if enabled."]
 pub struct SLVADR_R(crate::FieldReader<u8, u8>);
 impl SLVADR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SLVADR_R(crate::FieldReader::new(bits))
     }

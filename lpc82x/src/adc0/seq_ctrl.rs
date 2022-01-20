@@ -37,6 +37,7 @@ impl From<crate::W<SEQ_CTRL_SPEC>> for W {
 #[doc = "Field `CHANNELS` reader - Selects which one or more of the ADC channels will be sampled and converted when this sequence is launched. A 1 in any bit of this field will cause the corresponding channel to be included in the conversion sequence, where bit 0 corresponds to channel 0, bit 1 to channel 1 and so forth. When this conversion sequence is triggered, either by a hardware trigger or via software command, ADC conversions will be performed on each enabled channel, in sequence, beginning with the lowest-ordered channel. This field can ONLY be changed while SEQA_ENA (bit 31) is LOW. It is allowed to change this field and set bit 31 in the same write."]
 pub struct CHANNELS_R(crate::FieldReader<u16, u16>);
 impl CHANNELS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         CHANNELS_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> CHANNELS_W<'a> {
 #[doc = "Field `TRIGGER` reader - Selects which of the available hardware trigger sources will cause this conversion sequence to be initiated. Program the trigger input number in this field. See Table 476. In order to avoid generating a spurious trigger, it is recommended writing to this field only when SEQA_ENA (bit 31) is low. It is safe to change this field and set bit 31 in the same write."]
 pub struct TRIGGER_R(crate::FieldReader<u8, u8>);
 impl TRIGGER_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         TRIGGER_R(crate::FieldReader::new(bits))
     }
@@ -103,6 +105,7 @@ impl From<TRIGPOL_A> for bool {
 #[doc = "Field `TRIGPOL` reader - Select the polarity of the selected input trigger for this conversion sequence. In order to avoid generating a spurious trigger, it is recommended writing to this field only when SEQA_ENA (bit 31) is low. It is safe to change this field and set bit 31 in the same write."]
 pub struct TRIGPOL_R(crate::FieldReader<bool, TRIGPOL_A>);
 impl TRIGPOL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TRIGPOL_R(crate::FieldReader::new(bits))
     }
@@ -186,6 +189,7 @@ impl From<SYNCBYPASS_A> for bool {
 #[doc = "Field `SYNCBYPASS` reader - Setting this bit allows the hardware trigger input to bypass synchronization flip-flop stages and therefore shorten the time between the trigger input signal and the start of a conversion. There are slightly different criteria for whether or not this bit can be set depending on the clock operating mode: Synchronous mode (the ASYNMODE in the CTRL register = 0): Synchronization may be bypassed (this bit may be set) if the selected trigger source is already synchronous with the main system clock (eg. coming from an on-chip, system-clock-based timer). Whether this bit is set or not, a trigger pulse must be maintained for at least one system clock period. Asynchronous mode (the ASYNMODE in the CTRL register = 1): Synchronization may be bypassed (this bit may be set) if it is certain that the duration of a trigger input pulse will be at least one cycle of the ADC clock (regardless of whether the trigger comes from and on-chip or off-chip source). If this bit is NOT set, the trigger pulse must at least be maintained for one system clock period."]
 pub struct SYNCBYPASS_R(crate::FieldReader<bool, SYNCBYPASS_A>);
 impl SYNCBYPASS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYNCBYPASS_R(crate::FieldReader::new(bits))
     }
@@ -255,6 +259,7 @@ impl<'a> SYNCBYPASS_W<'a> {
 #[doc = "Field `START` reader - Writing a 1 to this field will launch one pass through this conversion sequence. The behavior will be identical to a sequence triggered by a hardware trigger. Do not write 1 to this bit if the BURST bit is set. This bit is only set to a 1 momentarily when written to launch a conversion sequence. It will consequently always read back as a zero."]
 pub struct START_R(crate::FieldReader<bool, bool>);
 impl START_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         START_R(crate::FieldReader::new(bits))
     }
@@ -291,6 +296,7 @@ impl<'a> START_W<'a> {
 #[doc = "Field `BURST` reader - Writing a 1 to this bit will cause this conversion sequence to be continuously cycled through. Other sequence A triggers will be ignored while this bit is set. Repeated conversions can be halted by clearing this bit. The sequence currently in progress will be completed before conversions are terminated. Note that a new sequence could begin just before BURST is cleared."]
 pub struct BURST_R(crate::FieldReader<bool, bool>);
 impl BURST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BURST_R(crate::FieldReader::new(bits))
     }
@@ -327,6 +333,7 @@ impl<'a> BURST_W<'a> {
 #[doc = "Field `SINGLESTEP` reader - When this bit is set, a hardware trigger or a write to the START bit will launch a single conversion on the next channel in the sequence instead of the default response of launching an entire sequence of conversions. Once all of the channels comprising a sequence have been converted, a subsequent trigger will repeat the sequence beginning with the first enabled channel. Interrupt generation will still occur either after each individual conversion or at the end of the entire sequence, depending on the state of the MODE bit."]
 pub struct SINGLESTEP_R(crate::FieldReader<bool, bool>);
 impl SINGLESTEP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SINGLESTEP_R(crate::FieldReader::new(bits))
     }
@@ -377,6 +384,7 @@ impl From<LOWPRIO_A> for bool {
 #[doc = "Field `LOWPRIO` reader - Set priority for sequence A."]
 pub struct LOWPRIO_R(crate::FieldReader<bool, LOWPRIO_A>);
 impl LOWPRIO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LOWPRIO_R(crate::FieldReader::new(bits))
     }
@@ -460,6 +468,7 @@ impl From<MODE_A> for bool {
 #[doc = "Field `MODE` reader - Indicates whether the primary method for retrieving conversion results for this sequence will be accomplished via reading the global data register (SEQA_GDAT) at the end of each conversion, or the individual channel result registers at the end of the entire sequence. Impacts when conversion-complete interrupt/DMA trigger for sequence-A will be generated and which overrun conditions contribute to an overrun interrupt as described below."]
 pub struct MODE_R(crate::FieldReader<bool, MODE_A>);
 impl MODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MODE_R(crate::FieldReader::new(bits))
     }
@@ -543,6 +552,7 @@ impl From<SEQ_ENA_A> for bool {
 #[doc = "Field `SEQ_ENA` reader - Sequence Enable. In order to avoid spuriously triggering the sequence, care should be taken to only set the SEQn_ENA bit when the selected trigger input is in its INACTIVE state (as defined by the TRIGPOL bit). If this condition is not met, the sequence will be triggered immediately upon being enabled. In order to avoid spuriously triggering the sequence, care should be taken to only set the SEQn_ENA bit when the selected trigger input is in its INACTIVE state (as defined by the TRIGPOL bit). If this condition is not met, the sequence will be triggered immediately upon being enabled."]
 pub struct SEQ_ENA_R(crate::FieldReader<bool, SEQ_ENA_A>);
 impl SEQ_ENA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEQ_ENA_R(crate::FieldReader::new(bits))
     }

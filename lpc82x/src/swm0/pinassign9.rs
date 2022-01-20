@@ -37,6 +37,7 @@ impl From<crate::W<PINASSIGN9_SPEC>> for W {
 #[doc = "Field `SCT_OUT5_O` reader - SCT_OUT5 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct SCT_OUT5_O_R(crate::FieldReader<u8, u8>);
 impl SCT_OUT5_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCT_OUT5_O_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> SCT_OUT5_O_W<'a> {
 #[doc = "Field `I2C1_SDA_IO` reader - I2C1_SDA function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct I2C1_SDA_IO_R(crate::FieldReader<u8, u8>);
 impl I2C1_SDA_IO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         I2C1_SDA_IO_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> I2C1_SDA_IO_W<'a> {
 #[doc = "Field `I2C1_SCL_IO` reader - I2C1_SCL function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct I2C1_SCL_IO_R(crate::FieldReader<u8, u8>);
 impl I2C1_SCL_IO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         I2C1_SCL_IO_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> I2C1_SCL_IO_W<'a> {
 #[doc = "Field `I2C2_SDA_IO` reader - I2C1_SDA function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct I2C2_SDA_IO_R(crate::FieldReader<u8, u8>);
 impl I2C2_SDA_IO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         I2C2_SDA_IO_R(crate::FieldReader::new(bits))
     }

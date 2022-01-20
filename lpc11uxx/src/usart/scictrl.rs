@@ -51,6 +51,7 @@ impl From<SCIEN_A> for bool {
 #[doc = "Field `SCIEN` reader - Smart Card Interface Enable."]
 pub struct SCIEN_R(crate::FieldReader<bool, SCIEN_A>);
 impl SCIEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SCIEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<NACKDIS_A> for bool {
 #[doc = "Field `NACKDIS` reader - NACK response disable. Only applicable in T=0."]
 pub struct NACKDIS_R(crate::FieldReader<bool, NACKDIS_A>);
 impl NACKDIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NACKDIS_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<PROTSEL_A> for bool {
 #[doc = "Field `PROTSEL` reader - Protocol selection as defined in the ISO7816-3 standard."]
 pub struct PROTSEL_R(crate::FieldReader<bool, PROTSEL_A>);
 impl PROTSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PROTSEL_R(crate::FieldReader::new(bits))
     }
@@ -286,6 +289,7 @@ impl<'a> PROTSEL_W<'a> {
 #[doc = "Field `TXRETRY` reader - When the protocol selection T bit (above) is 0, the field controls the maximum number of retransmissions that the USART will attempt if the remote device signals NACK. When NACK has occurred this number of times plus one, the Tx Error bit in the LSR is set, an interrupt is requested if enabled, and the USART is locked until the FIFO is cleared."]
 pub struct TXRETRY_R(crate::FieldReader<u8, u8>);
 impl TXRETRY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         TXRETRY_R(crate::FieldReader::new(bits))
     }
@@ -312,6 +316,7 @@ impl<'a> TXRETRY_W<'a> {
 #[doc = "Field `XTRAGUARD` reader - When the protocol selection T bit (above) is 0, this field indicates the number of bit times (ETUs) by which the guard time after a character transmitted by the USART should exceed the nominal 2 bit times. 0xFF in this field may indicate that there is just a single bit after a character and 11 bit times/character"]
 pub struct XTRAGUARD_R(crate::FieldReader<u8, u8>);
 impl XTRAGUARD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         XTRAGUARD_R(crate::FieldReader::new(bits))
     }

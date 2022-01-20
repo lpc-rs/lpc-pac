@@ -37,6 +37,7 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `MATCHSEL` reader - Selects the Match register associated with this event (if any). A match can occur only when the counter selected by the HEVENT bit is running."]
 pub struct MATCHSEL_R(crate::FieldReader<u8, u8>);
 impl MATCHSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MATCHSEL_R(crate::FieldReader::new(bits))
     }
@@ -77,6 +78,7 @@ impl From<HEVENT_A> for bool {
 #[doc = "Field `HEVENT` reader - Select L/H counter. Do not set this bit if UNIFY = 1."]
 pub struct HEVENT_R(crate::FieldReader<bool, HEVENT_A>);
 impl HEVENT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         HEVENT_R(crate::FieldReader::new(bits))
     }
@@ -160,6 +162,7 @@ impl From<OUTSEL_A> for bool {
 #[doc = "Field `OUTSEL` reader - Input/output select"]
 pub struct OUTSEL_R(crate::FieldReader<bool, OUTSEL_A>);
 impl OUTSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OUTSEL_R(crate::FieldReader::new(bits))
     }
@@ -229,6 +232,7 @@ impl<'a> OUTSEL_W<'a> {
 #[doc = "Field `IOSEL` reader - Selects the input or output signal number associated with this event (if any). Do not select an input in this register if CKMODE is 1x. In this case the clock input is an implicit ingredient of every event."]
 pub struct IOSEL_R(crate::FieldReader<u8, u8>);
 impl IOSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         IOSEL_R(crate::FieldReader::new(bits))
     }
@@ -274,6 +278,7 @@ impl From<IOCOND_A> for u8 {
 #[doc = "Field `IOCOND` reader - Selects the I/O condition for event n. (The detection of edges on outputs lag the conditions that switch the outputs by one SCT clock). In order to guarantee proper edge/state detection, an input must have a minimum pulse width of at least one SCT clock period ."]
 pub struct IOCOND_R(crate::FieldReader<u8, IOCOND_A>);
 impl IOCOND_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         IOCOND_R(crate::FieldReader::new(bits))
     }
@@ -375,6 +380,7 @@ impl From<COMBMODE_A> for u8 {
 #[doc = "Field `COMBMODE` reader - Selects how the specified match and I/O condition are used and combined."]
 pub struct COMBMODE_R(crate::FieldReader<u8, COMBMODE_A>);
 impl COMBMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         COMBMODE_R(crate::FieldReader::new(bits))
     }
@@ -471,6 +477,7 @@ impl From<STATELD_A> for bool {
 #[doc = "Field `STATELD` reader - This bit controls how the STATEV value modifies the state selected by HEVENT when this event is the highest-numbered event occurring for that state."]
 pub struct STATELD_R(crate::FieldReader<bool, STATELD_A>);
 impl STATELD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STATELD_R(crate::FieldReader::new(bits))
     }
@@ -540,6 +547,7 @@ impl<'a> STATELD_W<'a> {
 #[doc = "Field `STATEV` reader - This value is loaded into or added to the state selected by HEVENT, depending on STATELD, when this event is the highest-numbered event occurring for that state. If STATELD and STATEV are both zero, there is no change to the STATE value."]
 pub struct STATEV_R(crate::FieldReader<u8, u8>);
 impl STATEV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         STATEV_R(crate::FieldReader::new(bits))
     }
@@ -566,6 +574,7 @@ impl<'a> STATEV_W<'a> {
 #[doc = "Field `MATCHMEM` reader - If this bit is one and the COMBMODE field specifies a match component to the triggering of this event, then a match is considered to be active whenever the counter value is GREATER THAN OR EQUAL TO the value specified in the match register when counting up, LESS THEN OR EQUAL TO the match value when counting down. If this bit is zero, a match is only be active during the cycle when the counter is equal to the match value."]
 pub struct MATCHMEM_R(crate::FieldReader<bool, bool>);
 impl MATCHMEM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MATCHMEM_R(crate::FieldReader::new(bits))
     }
@@ -619,6 +628,7 @@ impl From<DIRECTION_A> for u8 {
 #[doc = "Field `DIRECTION` reader - Direction qualifier for event generation. This field only applies when the counters are operating in BIDIR mode. If BIDIR = 0, the SCT ignores this field. Value 0x3 is reserved."]
 pub struct DIRECTION_R(crate::FieldReader<u8, DIRECTION_A>);
 impl DIRECTION_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DIRECTION_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<INTSTAT_SPEC>> for W {
 #[doc = "Field `YESTOUCH` reader - the status of touch interrrupt"]
 pub struct YESTOUCH_R(crate::FieldReader<bool, bool>);
 impl YESTOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         YESTOUCH_R(crate::FieldReader::new(bits))
     }
@@ -51,6 +52,7 @@ impl core::ops::Deref for YESTOUCH_R {
 #[doc = "Field `NOTOUCH` reader - the status of no-touch interrrupt"]
 pub struct NOTOUCH_R(crate::FieldReader<bool, bool>);
 impl NOTOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NOTOUCH_R(crate::FieldReader::new(bits))
     }
@@ -65,6 +67,7 @@ impl core::ops::Deref for NOTOUCH_R {
 #[doc = "Field `POLLDONE` reader - the status of poll or pollnow completing interrupt"]
 pub struct POLLDONE_R(crate::FieldReader<bool, bool>);
 impl POLLDONE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POLLDONE_R(crate::FieldReader::new(bits))
     }
@@ -79,6 +82,7 @@ impl core::ops::Deref for POLLDONE_R {
 #[doc = "Field `TIMEOUT` reader - the status of timeout interrupt"]
 pub struct TIMEOUT_R(crate::FieldReader<bool, bool>);
 impl TIMEOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TIMEOUT_R(crate::FieldReader::new(bits))
     }
@@ -93,6 +97,7 @@ impl core::ops::Deref for TIMEOUT_R {
 #[doc = "Field `OVERUN` reader - the status of overrun interrupt"]
 pub struct OVERUN_R(crate::FieldReader<bool, bool>);
 impl OVERUN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERUN_R(crate::FieldReader::new(bits))
     }

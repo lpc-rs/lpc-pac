@@ -1,3 +1,8 @@
+# DEPRECIATED, you should use lpc546xx-pac instead
+
+
+
+
 # LPC54606 PAC [![crates.io](https://img.shields.io/crates/v/lpc54606-pac.svg)](https://crates.io/crates/lpc54606-pac) [![Documentation](https://docs.rs/lpc54606-pac/badge.svg)](https://docs.rs/lpc54606-pac) [![Build Status](https://travis-ci.com/lpc-rs/lpc-pac.svg?branch=master)](https://travis-ci.com/lpc-rs/lpc-pac)
 
 ## Introduction

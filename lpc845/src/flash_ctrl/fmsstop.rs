@@ -37,6 +37,7 @@ impl From<crate::W<FMSSTOP_SPEC>> for W {
 #[doc = "Field `STOPA` reader - Stop address for signature generation (the word specified by STOP is included in the address range). The address is in units of memory words, not bytes."]
 pub struct STOPA_R(crate::FieldReader<u32, u32>);
 impl STOPA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         STOPA_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> STOPA_W<'a> {
 #[doc = "Field `STRTBIST` reader - When this bit is written to 1, signature generation starts. At the end of signature generation, this bit is automatically cleared."]
 pub struct STRTBIST_R(crate::FieldReader<bool, bool>);
 impl STRTBIST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STRTBIST_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<WAKEUPHYS_A> for bool {
 #[doc = "Field `WAKEUPHYS` reader - WAKEUP pin hysteresis enable"]
 pub struct WAKEUPHYS_R(crate::FieldReader<bool, WAKEUPHYS_A>);
 impl WAKEUPHYS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WAKEUPHYS_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<WAKEPAD_DISABLE_A> for bool {
 #[doc = "Field `WAKEPAD_DISABLE` reader - WAKEUP pin disable. Setting this bit disables the wake-up pin, so it can be used for other purposes. Remark: Never set this bit if you intend to use a pin to wake up the part from Deep power-down mode. You can only disable the wake-up pin if the self wake-up timer is enabled and configured. Remark: Setting this bit is not necessary if Deep power-down mode is not used."]
 pub struct WAKEPAD_DISABLE_R(crate::FieldReader<bool, WAKEPAD_DISABLE_A>);
 impl WAKEPAD_DISABLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WAKEPAD_DISABLE_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<LPOSCEN_A> for bool {
 #[doc = "Field `LPOSCEN` reader - Enable the low-power oscillator for use with the 10 kHz self wake-up timer clock. You must set this bit if the CLKSEL bit in the self wake-up timer CTRL bit is set. Do not enable the low-power oscillator if the self wake-up timer is clocked by the divided IRC or the external clock input."]
 pub struct LPOSCEN_R(crate::FieldReader<bool, LPOSCEN_A>);
 impl LPOSCEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LPOSCEN_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<LPOSCDPDEN_A> for bool {
 #[doc = "Field `LPOSCDPDEN` reader - causes the low-power oscillator to remain running during Deep power-down mode provided that bit 2 in this register is set as well. You must set this bit for the self wake-up timer to be able to wake up the part from Deep power-down mode. Remark: Do not set this bit unless you use the self wake-up timer with the low-power oscillator clock source to wake up from Deep power-down mode."]
 pub struct LPOSCDPDEN_R(crate::FieldReader<bool, LPOSCDPDEN_A>);
 impl LPOSCDPDEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LPOSCDPDEN_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<WAKEUPCLKHYS_A> for bool {
 #[doc = "Field `WAKEUPCLKHYS` reader - External clock input for the self wake-up timer WKTCLKIN hysteresis enable."]
 pub struct WAKEUPCLKHYS_R(crate::FieldReader<bool, WAKEUPCLKHYS_A>);
 impl WAKEUPCLKHYS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WAKEUPCLKHYS_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<WAKECLKPAD_DISABLE_A> for bool {
 #[doc = "Field `WAKECLKPAD_DISABLE` reader - Disable the external clock input for the self-wake-up timer. Setting this bit enables the self-wake-up timer clock pin WKTCLKLIN. To minimize power consumption, especially in deep power-down mode, disable this clock input when not using the external clock option for the self-wake-up timer."]
 pub struct WAKECLKPAD_DISABLE_R(crate::FieldReader<bool, WAKECLKPAD_DISABLE_A>);
 impl WAKECLKPAD_DISABLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WAKECLKPAD_DISABLE_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<RESETHYS_A> for bool {
 #[doc = "Field `RESETHYS` reader - RESET pin hysteresis enable."]
 pub struct RESETHYS_R(crate::FieldReader<bool, RESETHYS_A>);
 impl RESETHYS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RESETHYS_R(crate::FieldReader::new(bits))
     }
@@ -632,6 +639,7 @@ impl From<RESET_DISABLE_A> for bool {
 #[doc = "Field `RESET_DISABLE` reader - RESET pin disable. Setting this bit disables the reset wake-up function, so the pin can be used for other purposes. Remark: Setting this bit is not necessary if deep power-down mode is not used."]
 pub struct RESET_DISABLE_R(crate::FieldReader<bool, RESET_DISABLE_A>);
 impl RESET_DISABLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RESET_DISABLE_R(crate::FieldReader::new(bits))
     }
@@ -701,6 +709,7 @@ impl<'a> RESET_DISABLE_W<'a> {
 #[doc = "Field `GPDATA` reader - Data retained during Deep power-down mode."]
 pub struct GPDATA_R(crate::FieldReader<u32, u32>);
 impl GPDATA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         GPDATA_R(crate::FieldReader::new(bits))
     }

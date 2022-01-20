@@ -51,6 +51,7 @@ impl From<WWDTINT_A> for bool {
 #[doc = "Field `WWDTINT` reader - WWDT interrupt wake-up"]
 pub struct WWDTINT_R(crate::FieldReader<bool, WWDTINT_A>);
 impl WWDTINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WWDTINT_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<BODINT_A> for bool {
 #[doc = "Field `BODINT` reader - Brown Out Detect (BOD) interrupt wake-up"]
 pub struct BODINT_R(crate::FieldReader<bool, BODINT_A>);
 impl BODINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BODINT_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<USB_WAKEUP_A> for bool {
 #[doc = "Field `USB_WAKEUP` reader - USB need_clock signal wake-up"]
 pub struct USB_WAKEUP_R(crate::FieldReader<bool, USB_WAKEUP_A>);
 impl USB_WAKEUP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USB_WAKEUP_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<GPIOINT0_A> for bool {
 #[doc = "Field `GPIOINT0` reader - GPIO GROUP0 interrupt wake-up"]
 pub struct GPIOINT0_R(crate::FieldReader<bool, GPIOINT0_A>);
 impl GPIOINT0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GPIOINT0_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<GPIOINT1_A> for bool {
 #[doc = "Field `GPIOINT1` reader - GPIO GROUP1 interrupt wake-up"]
 pub struct GPIOINT1_R(crate::FieldReader<bool, GPIOINT1_A>);
 impl GPIOINT1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GPIOINT1_R(crate::FieldReader::new(bits))
     }

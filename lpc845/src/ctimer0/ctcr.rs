@@ -56,6 +56,7 @@ impl From<CTMODE_A> for u8 {
 #[doc = "Field `CTMODE` reader - Counter/Timer Mode This field selects which rising APB bus clock edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). Timer Mode: the TC is incremented when the Prescale Counter matches the Prescale Register."]
 pub struct CTMODE_R(crate::FieldReader<u8, CTMODE_A>);
 impl CTMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CTMODE_R(crate::FieldReader::new(bits))
     }
@@ -157,6 +158,7 @@ impl From<CINSEL_A> for u8 {
 #[doc = "Field `CINSEL` reader - Count Input Select When bits 1:0 in this register are not 00, these bits select which CAP pin is sampled for clocking. Note: If Counter mode is selected for a particular CAPn input in the CTCR, the 3 bits for that input in the Capture Control Register (CCR) must be programmed as 000. However, capture and/or interrupt can be selected for the other 3 CAPn inputs in the same timer."]
 pub struct CINSEL_R(crate::FieldReader<u8, CINSEL_A>);
 impl CINSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CINSEL_R(crate::FieldReader::new(bits))
     }
@@ -239,6 +241,7 @@ impl<'a> CINSEL_W<'a> {
 #[doc = "Field `ENCC` reader - Setting this bit to 1 enables clearing of the timer and the prescaler when the capture-edge event specified in bits 7:5 occurs."]
 pub struct ENCC_R(crate::FieldReader<bool, bool>);
 impl ENCC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENCC_R(crate::FieldReader::new(bits))
     }
@@ -302,6 +305,7 @@ impl From<SELCC_A> for u8 {
 #[doc = "Field `SELCC` reader - Edge select. When bit 4 is 1, these bits select which capture input edge will cause the timer and prescaler to be cleared. These bits have no effect when bit 4 is low. Values 0x2 to 0x3 and 0x6 to 0x7 are reserved."]
 pub struct SELCC_R(crate::FieldReader<u8, SELCC_A>);
 impl SELCC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SELCC_R(crate::FieldReader::new(bits))
     }

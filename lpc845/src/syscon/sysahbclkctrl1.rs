@@ -51,6 +51,7 @@ impl From<CAPT_A> for bool {
 #[doc = "Field `CAPT` reader - Enables clock for CAPT."]
 pub struct CAPT_R(crate::FieldReader<bool, CAPT_A>);
 impl CAPT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAPT_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<DAC1_A> for bool {
 #[doc = "Field `DAC1` reader - Enables clock for DAC1."]
 pub struct DAC1_R(crate::FieldReader<bool, DAC1_A>);
 impl DAC1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DAC1_R(crate::FieldReader::new(bits))
     }

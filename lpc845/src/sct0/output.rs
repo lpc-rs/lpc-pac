@@ -37,6 +37,7 @@ impl From<crate::W<OUTPUT_SPEC>> for W {
 #[doc = "Field `OUT` reader - Writing a 1 to bit n forces the corresponding output HIGH. Writing a 0 forces the corresponding output LOW (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT."]
 pub struct OUT_R(crate::FieldReader<u8, u8>);
 impl OUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         OUT_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<ENA_A> for bool {
 #[doc = "Field `ENA` reader - Enable system PLL clock source update"]
 pub struct ENA_R(crate::FieldReader<bool, ENA_A>);
 impl ENA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_R(crate::FieldReader::new(bits))
     }

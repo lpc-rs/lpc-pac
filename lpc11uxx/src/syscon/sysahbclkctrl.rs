@@ -49,6 +49,7 @@ impl From<SYS_A> for bool {
 #[doc = "Field `SYS` reader - Enables the clock for the AHB, the APB bridge, the Cortex-M0 FCLK and HCLK, SysCon, and the PMU. This bit is read only and always reads as 1."]
 pub struct SYS_R(crate::FieldReader<bool, SYS_A>);
 impl SYS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYS_R(crate::FieldReader::new(bits))
     }
@@ -122,6 +123,7 @@ impl From<ROM_A> for bool {
 #[doc = "Field `ROM` reader - Enables clock for ROM."]
 pub struct ROM_R(crate::FieldReader<bool, ROM_A>);
 impl ROM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ROM_R(crate::FieldReader::new(bits))
     }
@@ -205,6 +207,7 @@ impl From<RAM0_A> for bool {
 #[doc = "Field `RAM0` reader - Enables clock for RAM."]
 pub struct RAM0_R(crate::FieldReader<bool, RAM0_A>);
 impl RAM0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RAM0_R(crate::FieldReader::new(bits))
     }
@@ -288,6 +291,7 @@ impl From<FLASHREG_A> for bool {
 #[doc = "Field `FLASHREG` reader - Enables clock for flash register interface."]
 pub struct FLASHREG_R(crate::FieldReader<bool, FLASHREG_A>);
 impl FLASHREG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FLASHREG_R(crate::FieldReader::new(bits))
     }
@@ -371,6 +375,7 @@ impl From<FLASHARRAY_A> for bool {
 #[doc = "Field `FLASHARRAY` reader - Enables clock for flash array access."]
 pub struct FLASHARRAY_R(crate::FieldReader<bool, FLASHARRAY_A>);
 impl FLASHARRAY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FLASHARRAY_R(crate::FieldReader::new(bits))
     }
@@ -454,6 +459,7 @@ impl From<I2C_A> for bool {
 #[doc = "Field `I2C` reader - Enables clock for I2C."]
 pub struct I2C_R(crate::FieldReader<bool, I2C_A>);
 impl I2C_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         I2C_R(crate::FieldReader::new(bits))
     }
@@ -537,6 +543,7 @@ impl From<GPIO_A> for bool {
 #[doc = "Field `GPIO` reader - Enables clock for GPIO port registers."]
 pub struct GPIO_R(crate::FieldReader<bool, GPIO_A>);
 impl GPIO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GPIO_R(crate::FieldReader::new(bits))
     }
@@ -620,6 +627,7 @@ impl From<CT16B0_A> for bool {
 #[doc = "Field `CT16B0` reader - Enables clock for 16-bit counter/timer 0."]
 pub struct CT16B0_R(crate::FieldReader<bool, CT16B0_A>);
 impl CT16B0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CT16B0_R(crate::FieldReader::new(bits))
     }
@@ -703,6 +711,7 @@ impl From<CT16B1_A> for bool {
 #[doc = "Field `CT16B1` reader - Enables clock for 16-bit counter/timer 1."]
 pub struct CT16B1_R(crate::FieldReader<bool, CT16B1_A>);
 impl CT16B1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CT16B1_R(crate::FieldReader::new(bits))
     }
@@ -786,6 +795,7 @@ impl From<CT32B0_A> for bool {
 #[doc = "Field `CT32B0` reader - Enables clock for 32-bit counter/timer 0."]
 pub struct CT32B0_R(crate::FieldReader<bool, CT32B0_A>);
 impl CT32B0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CT32B0_R(crate::FieldReader::new(bits))
     }
@@ -869,6 +879,7 @@ impl From<CT32B1_A> for bool {
 #[doc = "Field `CT32B1` reader - Enables clock for 32-bit counter/timer 1."]
 pub struct CT32B1_R(crate::FieldReader<bool, CT32B1_A>);
 impl CT32B1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CT32B1_R(crate::FieldReader::new(bits))
     }
@@ -952,6 +963,7 @@ impl From<SSP0_A> for bool {
 #[doc = "Field `SSP0` reader - Enables clock for SSP0."]
 pub struct SSP0_R(crate::FieldReader<bool, SSP0_A>);
 impl SSP0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSP0_R(crate::FieldReader::new(bits))
     }
@@ -1035,6 +1047,7 @@ impl From<USART_A> for bool {
 #[doc = "Field `USART` reader - Enables clock for UART."]
 pub struct USART_R(crate::FieldReader<bool, USART_A>);
 impl USART_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USART_R(crate::FieldReader::new(bits))
     }
@@ -1118,6 +1131,7 @@ impl From<ADC_A> for bool {
 #[doc = "Field `ADC` reader - Enables clock for ADC."]
 pub struct ADC_R(crate::FieldReader<bool, ADC_A>);
 impl ADC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_R(crate::FieldReader::new(bits))
     }
@@ -1201,6 +1215,7 @@ impl From<USB_A> for bool {
 #[doc = "Field `USB` reader - Enables clock to the USB register interface."]
 pub struct USB_R(crate::FieldReader<bool, USB_A>);
 impl USB_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USB_R(crate::FieldReader::new(bits))
     }
@@ -1284,6 +1299,7 @@ impl From<WWDT_A> for bool {
 #[doc = "Field `WWDT` reader - Enables clock for WWDT."]
 pub struct WWDT_R(crate::FieldReader<bool, WWDT_A>);
 impl WWDT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WWDT_R(crate::FieldReader::new(bits))
     }
@@ -1367,6 +1383,7 @@ impl From<IOCON_A> for bool {
 #[doc = "Field `IOCON` reader - Enables clock for I/O configuration block."]
 pub struct IOCON_R(crate::FieldReader<bool, IOCON_A>);
 impl IOCON_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IOCON_R(crate::FieldReader::new(bits))
     }
@@ -1450,6 +1467,7 @@ impl From<SSP1_A> for bool {
 #[doc = "Field `SSP1` reader - Enables clock for SSP1."]
 pub struct SSP1_R(crate::FieldReader<bool, SSP1_A>);
 impl SSP1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSP1_R(crate::FieldReader::new(bits))
     }
@@ -1533,6 +1551,7 @@ impl From<PINT_A> for bool {
 #[doc = "Field `PINT` reader - Enables clock to GPIO Pin interrupts register interface."]
 pub struct PINT_R(crate::FieldReader<bool, PINT_A>);
 impl PINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PINT_R(crate::FieldReader::new(bits))
     }
@@ -1616,6 +1635,7 @@ impl From<GROUP0INT_A> for bool {
 #[doc = "Field `GROUP0INT` reader - Enables clock to GPIO GROUP0 interrupt register interface."]
 pub struct GROUP0INT_R(crate::FieldReader<bool, GROUP0INT_A>);
 impl GROUP0INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GROUP0INT_R(crate::FieldReader::new(bits))
     }
@@ -1699,6 +1719,7 @@ impl From<GROUP1INT_A> for bool {
 #[doc = "Field `GROUP1INT` reader - Enables clock to GPIO GROUP1 interrupt register interface."]
 pub struct GROUP1INT_R(crate::FieldReader<bool, GROUP1INT_A>);
 impl GROUP1INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GROUP1INT_R(crate::FieldReader::new(bits))
     }
@@ -1782,6 +1803,7 @@ impl From<RAM1_A> for bool {
 #[doc = "Field `RAM1` reader - Enables SRAM1 block at address 0x2000 0000. See Section 3.1 for availability of this bit."]
 pub struct RAM1_R(crate::FieldReader<bool, RAM1_A>);
 impl RAM1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RAM1_R(crate::FieldReader::new(bits))
     }
@@ -1865,6 +1887,7 @@ impl From<USBRAM_A> for bool {
 #[doc = "Field `USBRAM` reader - Enables USB SRAM block at address 0x2000 4000."]
 pub struct USBRAM_R(crate::FieldReader<bool, USBRAM_A>);
 impl USBRAM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USBRAM_R(crate::FieldReader::new(bits))
     }

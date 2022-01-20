@@ -37,6 +37,7 @@ impl From<crate::W<MASK_SPEC>> for W {
 #[doc = "Field `MASKP0` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP0_R(crate::FieldReader<bool, bool>);
 impl MASKP0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> MASKP0_W<'a> {
 #[doc = "Field `MASKP1` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP1_R(crate::FieldReader<bool, bool>);
 impl MASKP1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> MASKP1_W<'a> {
 #[doc = "Field `MASKP2` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP2_R(crate::FieldReader<bool, bool>);
 impl MASKP2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> MASKP2_W<'a> {
 #[doc = "Field `MASKP3` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP3_R(crate::FieldReader<bool, bool>);
 impl MASKP3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> MASKP3_W<'a> {
 #[doc = "Field `MASKP4` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP4_R(crate::FieldReader<bool, bool>);
 impl MASKP4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> MASKP4_W<'a> {
 #[doc = "Field `MASKP5` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP5_R(crate::FieldReader<bool, bool>);
 impl MASKP5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> MASKP5_W<'a> {
 #[doc = "Field `MASKP6` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP6_R(crate::FieldReader<bool, bool>);
 impl MASKP6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> MASKP6_W<'a> {
 #[doc = "Field `MASKP7` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP7_R(crate::FieldReader<bool, bool>);
 impl MASKP7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP7_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> MASKP7_W<'a> {
 #[doc = "Field `MASKP8` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP8_R(crate::FieldReader<bool, bool>);
 impl MASKP8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP8_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> MASKP8_W<'a> {
 #[doc = "Field `MASKP9` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP9_R(crate::FieldReader<bool, bool>);
 impl MASKP9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP9_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> MASKP9_W<'a> {
 #[doc = "Field `MASKP10` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP10_R(crate::FieldReader<bool, bool>);
 impl MASKP10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP10_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> MASKP10_W<'a> {
 #[doc = "Field `MASKP11` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP11_R(crate::FieldReader<bool, bool>);
 impl MASKP11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP11_R(crate::FieldReader::new(bits))
     }
@@ -469,6 +481,7 @@ impl<'a> MASKP11_W<'a> {
 #[doc = "Field `MASKP12` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP12_R(crate::FieldReader<bool, bool>);
 impl MASKP12_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP12_R(crate::FieldReader::new(bits))
     }
@@ -505,6 +518,7 @@ impl<'a> MASKP12_W<'a> {
 #[doc = "Field `MASKP13` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP13_R(crate::FieldReader<bool, bool>);
 impl MASKP13_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP13_R(crate::FieldReader::new(bits))
     }
@@ -541,6 +555,7 @@ impl<'a> MASKP13_W<'a> {
 #[doc = "Field `MASKP14` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP14_R(crate::FieldReader<bool, bool>);
 impl MASKP14_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP14_R(crate::FieldReader::new(bits))
     }
@@ -577,6 +592,7 @@ impl<'a> MASKP14_W<'a> {
 #[doc = "Field `MASKP15` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP15_R(crate::FieldReader<bool, bool>);
 impl MASKP15_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP15_R(crate::FieldReader::new(bits))
     }
@@ -613,6 +629,7 @@ impl<'a> MASKP15_W<'a> {
 #[doc = "Field `MASKP16` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP16_R(crate::FieldReader<bool, bool>);
 impl MASKP16_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP16_R(crate::FieldReader::new(bits))
     }
@@ -649,6 +666,7 @@ impl<'a> MASKP16_W<'a> {
 #[doc = "Field `MASKP17` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP17_R(crate::FieldReader<bool, bool>);
 impl MASKP17_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP17_R(crate::FieldReader::new(bits))
     }
@@ -685,6 +703,7 @@ impl<'a> MASKP17_W<'a> {
 #[doc = "Field `MASKP18` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP18_R(crate::FieldReader<bool, bool>);
 impl MASKP18_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP18_R(crate::FieldReader::new(bits))
     }
@@ -721,6 +740,7 @@ impl<'a> MASKP18_W<'a> {
 #[doc = "Field `MASKP19` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP19_R(crate::FieldReader<bool, bool>);
 impl MASKP19_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP19_R(crate::FieldReader::new(bits))
     }
@@ -757,6 +777,7 @@ impl<'a> MASKP19_W<'a> {
 #[doc = "Field `MASKP20` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP20_R(crate::FieldReader<bool, bool>);
 impl MASKP20_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP20_R(crate::FieldReader::new(bits))
     }
@@ -793,6 +814,7 @@ impl<'a> MASKP20_W<'a> {
 #[doc = "Field `MASKP21` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP21_R(crate::FieldReader<bool, bool>);
 impl MASKP21_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP21_R(crate::FieldReader::new(bits))
     }
@@ -829,6 +851,7 @@ impl<'a> MASKP21_W<'a> {
 #[doc = "Field `MASKP22` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP22_R(crate::FieldReader<bool, bool>);
 impl MASKP22_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP22_R(crate::FieldReader::new(bits))
     }
@@ -865,6 +888,7 @@ impl<'a> MASKP22_W<'a> {
 #[doc = "Field `MASKP23` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP23_R(crate::FieldReader<bool, bool>);
 impl MASKP23_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP23_R(crate::FieldReader::new(bits))
     }
@@ -901,6 +925,7 @@ impl<'a> MASKP23_W<'a> {
 #[doc = "Field `MASKP24` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP24_R(crate::FieldReader<bool, bool>);
 impl MASKP24_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP24_R(crate::FieldReader::new(bits))
     }
@@ -937,6 +962,7 @@ impl<'a> MASKP24_W<'a> {
 #[doc = "Field `MASKP25` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP25_R(crate::FieldReader<bool, bool>);
 impl MASKP25_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP25_R(crate::FieldReader::new(bits))
     }
@@ -973,6 +999,7 @@ impl<'a> MASKP25_W<'a> {
 #[doc = "Field `MASKP26` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP26_R(crate::FieldReader<bool, bool>);
 impl MASKP26_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP26_R(crate::FieldReader::new(bits))
     }
@@ -1009,6 +1036,7 @@ impl<'a> MASKP26_W<'a> {
 #[doc = "Field `MASKP27` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP27_R(crate::FieldReader<bool, bool>);
 impl MASKP27_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP27_R(crate::FieldReader::new(bits))
     }
@@ -1045,6 +1073,7 @@ impl<'a> MASKP27_W<'a> {
 #[doc = "Field `MASKP28` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP28_R(crate::FieldReader<bool, bool>);
 impl MASKP28_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP28_R(crate::FieldReader::new(bits))
     }
@@ -1081,6 +1110,7 @@ impl<'a> MASKP28_W<'a> {
 #[doc = "Field `MASKP29` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP29_R(crate::FieldReader<bool, bool>);
 impl MASKP29_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP29_R(crate::FieldReader::new(bits))
     }
@@ -1117,6 +1147,7 @@ impl<'a> MASKP29_W<'a> {
 #[doc = "Field `MASKP30` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP30_R(crate::FieldReader<bool, bool>);
 impl MASKP30_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP30_R(crate::FieldReader::new(bits))
     }
@@ -1153,6 +1184,7 @@ impl<'a> MASKP30_W<'a> {
 #[doc = "Field `MASKP31` reader - Controls which bits corresponding to P0/1_n are active in the P0/1 PIN register (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP31_R(crate::FieldReader<bool, bool>);
 impl MASKP31_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASKP31_R(crate::FieldReader::new(bits))
     }

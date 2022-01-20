@@ -37,6 +37,7 @@ impl From<crate::W<EVFLAG_SPEC>> for W {
 #[doc = "Field `FLAG` reader - Bit n is one if event n has occurred since reset or a 1 was last written to this bit (event 0 = bit 0, event 1 = bit 1, etc.). The number of bits = number of events in this SCT."]
 pub struct FLAG_R(crate::FieldReader<u8, u8>);
 impl FLAG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FLAG_R(crate::FieldReader::new(bits))
     }

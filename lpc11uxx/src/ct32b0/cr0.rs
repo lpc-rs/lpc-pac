@@ -16,6 +16,7 @@ impl From<crate::R<CR0_SPEC>> for R {
 #[doc = "Field `CAP` reader - Timer counter capture value."]
 pub struct CAP_R(crate::FieldReader<u32, u32>);
 impl CAP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         CAP_R(crate::FieldReader::new(bits))
     }
@@ -31,7 +32,7 @@ impl R {
     #[doc = "Bits 0:31 - Timer counter capture value."]
     #[inline(always)]
     pub fn cap(&self) -> CAP_R {
-        CAP_R::new((self.bits & 0xffff_ffff) as u32)
+        CAP_R::new(self.bits)
     }
 }
 #[doc = "Capture Register 0. CR0 is loaded with the value of TC when there is an event on the CT32B0_CAP0 input.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cr0](index.html) module"]

@@ -51,6 +51,7 @@ impl From<HDEN_A> for bool {
 #[doc = "Field `HDEN` reader - Half-duplex mode enable"]
 pub struct HDEN_R(crate::FieldReader<bool, HDEN_A>);
 impl HDEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         HDEN_R(crate::FieldReader::new(bits))
     }

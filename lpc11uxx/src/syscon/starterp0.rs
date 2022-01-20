@@ -51,6 +51,7 @@ impl From<PINT0_A> for bool {
 #[doc = "Field `PINT0` reader - Pin interrupt 0 wake-up"]
 pub struct PINT0_R(crate::FieldReader<bool, PINT0_A>);
 impl PINT0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PINT0_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<PINT1_A> for bool {
 #[doc = "Field `PINT1` reader - Pin interrupt 1 wake-up"]
 pub struct PINT1_R(crate::FieldReader<bool, PINT1_A>);
 impl PINT1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PINT1_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<PINT2_A> for bool {
 #[doc = "Field `PINT2` reader - Pin interrupt 2 wake-up"]
 pub struct PINT2_R(crate::FieldReader<bool, PINT2_A>);
 impl PINT2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PINT2_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<PINT3_A> for bool {
 #[doc = "Field `PINT3` reader - Pin interrupt 3 wake-up"]
 pub struct PINT3_R(crate::FieldReader<bool, PINT3_A>);
 impl PINT3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PINT3_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<PINT4_A> for bool {
 #[doc = "Field `PINT4` reader - Pin interrupt 4 wake-up"]
 pub struct PINT4_R(crate::FieldReader<bool, PINT4_A>);
 impl PINT4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PINT4_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<PINT5_A> for bool {
 #[doc = "Field `PINT5` reader - Pin interrupt 5 wake-up"]
 pub struct PINT5_R(crate::FieldReader<bool, PINT5_A>);
 impl PINT5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PINT5_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<PINT6_A> for bool {
 #[doc = "Field `PINT6` reader - Pin interrupt 6 wake-up"]
 pub struct PINT6_R(crate::FieldReader<bool, PINT6_A>);
 impl PINT6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PINT6_R(crate::FieldReader::new(bits))
     }
@@ -632,6 +639,7 @@ impl From<PINT7_A> for bool {
 #[doc = "Field `PINT7` reader - Pin interrupt 7 wake-up"]
 pub struct PINT7_R(crate::FieldReader<bool, PINT7_A>);
 impl PINT7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PINT7_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<ENABLE_A> for bool {
 #[doc = "Field `ENABLE` reader - SPI enable."]
 pub struct ENABLE_R(crate::FieldReader<bool, ENABLE_A>);
 impl ENABLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENABLE_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<MASTER_A> for bool {
 #[doc = "Field `MASTER` reader - Master mode select."]
 pub struct MASTER_R(crate::FieldReader<bool, MASTER_A>);
 impl MASTER_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MASTER_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<LSBF_A> for bool {
 #[doc = "Field `LSBF` reader - LSB First mode enable."]
 pub struct LSBF_R(crate::FieldReader<bool, LSBF_A>);
 impl LSBF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LSBF_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<CPHA_A> for bool {
 #[doc = "Field `CPHA` reader - Clock Phase select."]
 pub struct CPHA_R(crate::FieldReader<bool, CPHA_A>);
 impl CPHA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CPHA_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<CPOL_A> for bool {
 #[doc = "Field `CPOL` reader - Clock Polarity select."]
 pub struct CPOL_R(crate::FieldReader<bool, CPOL_A>);
 impl CPOL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CPOL_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<LOOP_A> for bool {
 #[doc = "Field `LOOP` reader - Loopback mode enable. Loopback mode applies only to Master mode, and connects transmit and receive data connected together to allow simple software testing."]
 pub struct LOOP_R(crate::FieldReader<bool, LOOP_A>);
 impl LOOP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LOOP_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<SPOL0_A> for bool {
 #[doc = "Field `SPOL0` reader - SSEL0 Polarity select."]
 pub struct SPOL0_R(crate::FieldReader<bool, SPOL0_A>);
 impl SPOL0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SPOL0_R(crate::FieldReader::new(bits))
     }
@@ -632,6 +639,7 @@ impl From<SPOL1_A> for bool {
 #[doc = "Field `SPOL1` reader - SSEL1 Polarity select."]
 pub struct SPOL1_R(crate::FieldReader<bool, SPOL1_A>);
 impl SPOL1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SPOL1_R(crate::FieldReader::new(bits))
     }
@@ -715,6 +723,7 @@ impl From<SPOL2_A> for bool {
 #[doc = "Field `SPOL2` reader - SSEL2 Polarity select."]
 pub struct SPOL2_R(crate::FieldReader<bool, SPOL2_A>);
 impl SPOL2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SPOL2_R(crate::FieldReader::new(bits))
     }
@@ -798,6 +807,7 @@ impl From<SPOL3_A> for bool {
 #[doc = "Field `SPOL3` reader - SSEL3 Polarity select."]
 pub struct SPOL3_R(crate::FieldReader<bool, SPOL3_A>);
 impl SPOL3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SPOL3_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<IST_SPEC>> for W {
 #[doc = "Field `PSTAT0` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the PINTENT_F register)."]
 pub struct PSTAT0_R(crate::FieldReader<bool, bool>);
 impl PSTAT0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PSTAT0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> PSTAT0_W<'a> {
 #[doc = "Field `PSTAT1` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the PINTENT_F register)."]
 pub struct PSTAT1_R(crate::FieldReader<bool, bool>);
 impl PSTAT1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PSTAT1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> PSTAT1_W<'a> {
 #[doc = "Field `PSTAT2` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the PINTENT_F register)."]
 pub struct PSTAT2_R(crate::FieldReader<bool, bool>);
 impl PSTAT2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PSTAT2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> PSTAT2_W<'a> {
 #[doc = "Field `PSTAT3` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the PINTENT_F register)."]
 pub struct PSTAT3_R(crate::FieldReader<bool, bool>);
 impl PSTAT3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PSTAT3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> PSTAT3_W<'a> {
 #[doc = "Field `PSTAT4` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the PINTENT_F register)."]
 pub struct PSTAT4_R(crate::FieldReader<bool, bool>);
 impl PSTAT4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PSTAT4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> PSTAT4_W<'a> {
 #[doc = "Field `PSTAT5` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the PINTENT_F register)."]
 pub struct PSTAT5_R(crate::FieldReader<bool, bool>);
 impl PSTAT5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PSTAT5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> PSTAT5_W<'a> {
 #[doc = "Field `PSTAT6` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the PINTENT_F register)."]
 pub struct PSTAT6_R(crate::FieldReader<bool, bool>);
 impl PSTAT6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PSTAT6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> PSTAT6_W<'a> {
 #[doc = "Field `PSTAT7` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the PINTENT_F register)."]
 pub struct PSTAT7_R(crate::FieldReader<bool, bool>);
 impl PSTAT7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PSTAT7_R(crate::FieldReader::new(bits))
     }

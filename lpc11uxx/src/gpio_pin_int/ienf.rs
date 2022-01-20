@@ -37,6 +37,7 @@ impl From<crate::W<IENF_SPEC>> for W {
 #[doc = "Field `ENAF0` reader - Enables the falling edge or configures the active level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable falling edge interrupt or set active interrupt level LOW. 1 = Enable falling edge interrupt enabled or set active interrupt level HIGH."]
 pub struct ENAF0_R(crate::FieldReader<bool, bool>);
 impl ENAF0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENAF0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> ENAF0_W<'a> {
 #[doc = "Field `ENAF1` reader - Enables the falling edge or configures the active level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable falling edge interrupt or set active interrupt level LOW. 1 = Enable falling edge interrupt enabled or set active interrupt level HIGH."]
 pub struct ENAF1_R(crate::FieldReader<bool, bool>);
 impl ENAF1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENAF1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> ENAF1_W<'a> {
 #[doc = "Field `ENAF2` reader - Enables the falling edge or configures the active level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable falling edge interrupt or set active interrupt level LOW. 1 = Enable falling edge interrupt enabled or set active interrupt level HIGH."]
 pub struct ENAF2_R(crate::FieldReader<bool, bool>);
 impl ENAF2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENAF2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> ENAF2_W<'a> {
 #[doc = "Field `ENAF3` reader - Enables the falling edge or configures the active level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable falling edge interrupt or set active interrupt level LOW. 1 = Enable falling edge interrupt enabled or set active interrupt level HIGH."]
 pub struct ENAF3_R(crate::FieldReader<bool, bool>);
 impl ENAF3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENAF3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> ENAF3_W<'a> {
 #[doc = "Field `ENAF4` reader - Enables the falling edge or configures the active level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable falling edge interrupt or set active interrupt level LOW. 1 = Enable falling edge interrupt enabled or set active interrupt level HIGH."]
 pub struct ENAF4_R(crate::FieldReader<bool, bool>);
 impl ENAF4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENAF4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> ENAF4_W<'a> {
 #[doc = "Field `ENAF5` reader - Enables the falling edge or configures the active level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable falling edge interrupt or set active interrupt level LOW. 1 = Enable falling edge interrupt enabled or set active interrupt level HIGH."]
 pub struct ENAF5_R(crate::FieldReader<bool, bool>);
 impl ENAF5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENAF5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> ENAF5_W<'a> {
 #[doc = "Field `ENAF6` reader - Enables the falling edge or configures the active level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable falling edge interrupt or set active interrupt level LOW. 1 = Enable falling edge interrupt enabled or set active interrupt level HIGH."]
 pub struct ENAF6_R(crate::FieldReader<bool, bool>);
 impl ENAF6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENAF6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> ENAF6_W<'a> {
 #[doc = "Field `ENAF7` reader - Enables the falling edge or configures the active level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable falling edge interrupt or set active interrupt level LOW. 1 = Enable falling edge interrupt enabled or set active interrupt level HIGH."]
 pub struct ENAF7_R(crate::FieldReader<bool, bool>);
 impl ENAF7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENAF7_R(crate::FieldReader::new(bits))
     }

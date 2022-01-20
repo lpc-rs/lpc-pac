@@ -37,6 +37,7 @@ impl From<crate::W<OSR_SPEC>> for W {
 #[doc = "Field `OSFRAC` reader - Fractional part of the oversampling ratio, in units of 1/8th of an input clock period. (001 = 0.125, ..., 111 = 0.875)"]
 pub struct OSFRAC_R(crate::FieldReader<u8, u8>);
 impl OSFRAC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         OSFRAC_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> OSFRAC_W<'a> {
 #[doc = "Field `OSINT` reader - Integer part of the oversampling ratio, minus 1. The reset values equate to the normal operating mode of 16 input clocks per bit time."]
 pub struct OSINT_R(crate::FieldReader<u8, u8>);
 impl OSINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         OSINT_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> OSINT_W<'a> {
 #[doc = "Field `FDINT` reader - In Smart Card mode, these bits act as a more-significant extension of the OSint field, allowing an oversampling ratio up to 2048 as required by ISO7816-3. In Smart Card mode, bits 14:4 should initially be set to 371, yielding an oversampling ratio of 372."]
 pub struct FDINT_R(crate::FieldReader<u8, u8>);
 impl FDINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FDINT_R(crate::FieldReader::new(bits))
     }

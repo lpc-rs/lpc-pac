@@ -37,6 +37,7 @@ impl From<crate::W<FMSSTOP_SPEC>> for W {
 #[doc = "Field `STOP` reader - BIST stop address divided by 16 (corresponds to AHB byte address \\[20:4\\])."]
 pub struct STOP_R(crate::FieldReader<u32, u32>);
 impl STOP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         STOP_R(crate::FieldReader::new(bits))
     }
@@ -77,6 +78,7 @@ impl From<SIG_START_A> for bool {
 #[doc = "Field `SIG_START` reader - Start control bit for signature generation."]
 pub struct SIG_START_R(crate::FieldReader<bool, SIG_START_A>);
 impl SIG_START_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SIG_START_R(crate::FieldReader::new(bits))
     }

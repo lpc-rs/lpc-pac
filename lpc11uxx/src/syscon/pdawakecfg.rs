@@ -51,6 +51,7 @@ impl From<IRCOUT_PD_A> for bool {
 #[doc = "Field `IRCOUT_PD` reader - IRC oscillator output wake-up configuration"]
 pub struct IRCOUT_PD_R(crate::FieldReader<bool, IRCOUT_PD_A>);
 impl IRCOUT_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IRCOUT_PD_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<IRC_PD_A> for bool {
 #[doc = "Field `IRC_PD` reader - IRC oscillator power-down wake-up configuration"]
 pub struct IRC_PD_R(crate::FieldReader<bool, IRC_PD_A>);
 impl IRC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IRC_PD_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<FLASH_PD_A> for bool {
 #[doc = "Field `FLASH_PD` reader - Flash wake-up configuration"]
 pub struct FLASH_PD_R(crate::FieldReader<bool, FLASH_PD_A>);
 impl FLASH_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FLASH_PD_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<BOD_PD_A> for bool {
 #[doc = "Field `BOD_PD` reader - BOD wake-up configuration"]
 pub struct BOD_PD_R(crate::FieldReader<bool, BOD_PD_A>);
 impl BOD_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BOD_PD_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<ADC_PD_A> for bool {
 #[doc = "Field `ADC_PD` reader - ADC wake-up configuration"]
 pub struct ADC_PD_R(crate::FieldReader<bool, ADC_PD_A>);
 impl ADC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_PD_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<SYSOSC_PD_A> for bool {
 #[doc = "Field `SYSOSC_PD` reader - Crystal oscillator wake-up configuration"]
 pub struct SYSOSC_PD_R(crate::FieldReader<bool, SYSOSC_PD_A>);
 impl SYSOSC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYSOSC_PD_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<WDTOSC_PD_A> for bool {
 #[doc = "Field `WDTOSC_PD` reader - Watchdog oscillator wake-up configuration"]
 pub struct WDTOSC_PD_R(crate::FieldReader<bool, WDTOSC_PD_A>);
 impl WDTOSC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDTOSC_PD_R(crate::FieldReader::new(bits))
     }
@@ -632,6 +639,7 @@ impl From<SYSPLL_PD_A> for bool {
 #[doc = "Field `SYSPLL_PD` reader - System PLL wake-up configuration"]
 pub struct SYSPLL_PD_R(crate::FieldReader<bool, SYSPLL_PD_A>);
 impl SYSPLL_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYSPLL_PD_R(crate::FieldReader::new(bits))
     }
@@ -715,6 +723,7 @@ impl From<USBPLL_PD_A> for bool {
 #[doc = "Field `USBPLL_PD` reader - USB PLL wake-up configuration"]
 pub struct USBPLL_PD_R(crate::FieldReader<bool, USBPLL_PD_A>);
 impl USBPLL_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USBPLL_PD_R(crate::FieldReader::new(bits))
     }
@@ -798,6 +807,7 @@ impl From<USBPAD_PD_A> for bool {
 #[doc = "Field `USBPAD_PD` reader - USB transceiver wake-up configuration"]
 pub struct USBPAD_PD_R(crate::FieldReader<bool, USBPAD_PD_A>);
 impl USBPAD_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USBPAD_PD_R(crate::FieldReader::new(bits))
     }
@@ -867,6 +877,7 @@ impl<'a> USBPAD_PD_W<'a> {
 #[doc = "Field `RESERVED_11` reader - Reserved. Always write this bit as 1."]
 pub struct RESERVED_11_R(crate::FieldReader<bool, bool>);
 impl RESERVED_11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RESERVED_11_R(crate::FieldReader::new(bits))
     }
@@ -903,6 +914,7 @@ impl<'a> RESERVED_11_W<'a> {
 #[doc = "Field `RESERVED_12` reader - Reserved. Always write this bit as 0."]
 pub struct RESERVED_12_R(crate::FieldReader<bool, bool>);
 impl RESERVED_12_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RESERVED_12_R(crate::FieldReader::new(bits))
     }
@@ -939,6 +951,7 @@ impl<'a> RESERVED_12_W<'a> {
 #[doc = "Field `RESERVED_13_15` reader - Reserved. Always write these bits as 111."]
 pub struct RESERVED_13_15_R(crate::FieldReader<u8, u8>);
 impl RESERVED_13_15_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         RESERVED_13_15_R(crate::FieldReader::new(bits))
     }
@@ -965,6 +978,7 @@ impl<'a> RESERVED_13_15_W<'a> {
 #[doc = "Field `RESERVED_16_31` reader - Reserved"]
 pub struct RESERVED_16_31_R(crate::FieldReader<u16, u16>);
 impl RESERVED_16_31_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         RESERVED_16_31_R(crate::FieldReader::new(bits))
     }

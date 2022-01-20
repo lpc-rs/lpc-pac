@@ -16,6 +16,7 @@ impl From<crate::R<FMSTAT_SPEC>> for R {
 #[doc = "Field `SIG_DONE` reader - When 1, a previously started signature generation has completed. See FMSTATCLR register description for clearing this flag."]
 pub struct SIG_DONE_R(crate::FieldReader<bool, bool>);
 impl SIG_DONE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SIG_DONE_R(crate::FieldReader::new(bits))
     }

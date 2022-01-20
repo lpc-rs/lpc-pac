@@ -37,6 +37,7 @@ impl From<crate::W<PINASSIGN1_SPEC>> for W {
 #[doc = "Field `U0_SCLK_IO` reader - U0_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct U0_SCLK_IO_R(crate::FieldReader<u8, u8>);
 impl U0_SCLK_IO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         U0_SCLK_IO_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> U0_SCLK_IO_W<'a> {
 #[doc = "Field `U1_TXD_O` reader - U1_TXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct U1_TXD_O_R(crate::FieldReader<u8, u8>);
 impl U1_TXD_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         U1_TXD_O_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> U1_TXD_O_W<'a> {
 #[doc = "Field `U1_RXD_I` reader - U1_RXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct U1_RXD_I_R(crate::FieldReader<u8, u8>);
 impl U1_RXD_I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         U1_RXD_I_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> U1_RXD_I_W<'a> {
 #[doc = "Field `U1_RTS_O` reader - U1_RTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct U1_RTS_O_R(crate::FieldReader<u8, u8>);
 impl U1_RTS_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         U1_RTS_O_R(crate::FieldReader::new(bits))
     }

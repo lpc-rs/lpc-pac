@@ -51,6 +51,7 @@ impl From<CAPT_RST_N_A> for bool {
 #[doc = "Field `CAPT_RST_N` reader - Capacitive touch reset control"]
 pub struct CAPT_RST_N_R(crate::FieldReader<bool, CAPT_RST_N_A>);
 impl CAPT_RST_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAPT_RST_N_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<DAC1_RST_N_A> for bool {
 #[doc = "Field `DAC1_RST_N` reader - DAC1 reset control"]
 pub struct DAC1_RST_N_R(crate::FieldReader<bool, DAC1_RST_N_A>);
 impl DAC1_RST_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DAC1_RST_N_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<FRG0_RST_N_A> for bool {
 #[doc = "Field `FRG0_RST_N` reader - Fractional baud rate generator 0 reset control"]
 pub struct FRG0_RST_N_R(crate::FieldReader<bool, FRG0_RST_N_A>);
 impl FRG0_RST_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FRG0_RST_N_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<FRG1_RST_N_A> for bool {
 #[doc = "Field `FRG1_RST_N` reader - Fractional baud rate generator 1 reset control"]
 pub struct FRG1_RST_N_R(crate::FieldReader<bool, FRG1_RST_N_A>);
 impl FRG1_RST_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FRG1_RST_N_R(crate::FieldReader::new(bits))
     }

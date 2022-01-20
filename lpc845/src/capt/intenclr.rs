@@ -37,6 +37,7 @@ impl From<crate::W<INTENCLR_SPEC>> for W {
 #[doc = "Field `YESTOUCH` reader - clear the touch interrupt"]
 pub struct YESTOUCH_R(crate::FieldReader<bool, bool>);
 impl YESTOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         YESTOUCH_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> YESTOUCH_W<'a> {
 #[doc = "Field `NOTOUCH` reader - clear the no-touch interrupt"]
 pub struct NOTOUCH_R(crate::FieldReader<bool, bool>);
 impl NOTOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NOTOUCH_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> NOTOUCH_W<'a> {
 #[doc = "Field `POLLDONE` reader - clear the poll or POLLNOW completing interrupt"]
 pub struct POLLDONE_R(crate::FieldReader<bool, bool>);
 impl POLLDONE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POLLDONE_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> POLLDONE_W<'a> {
 #[doc = "Field `TIMEOUT` reader - clear the timeout interrupt"]
 pub struct TIMEOUT_R(crate::FieldReader<bool, bool>);
 impl TIMEOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TIMEOUT_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> TIMEOUT_W<'a> {
 #[doc = "Field `OVERUN` reader - clear the overrun interrupt"]
 pub struct OVERUN_R(crate::FieldReader<bool, bool>);
 impl OVERUN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERUN_R(crate::FieldReader::new(bits))
     }

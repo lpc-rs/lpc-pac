@@ -37,6 +37,7 @@ impl From<crate::W<MSTDAT_SPEC>> for W {
 #[doc = "Field `DATA` reader - Master function data register. Read: read the most recently received data for the Master function. Write: transmit data using the Master function."]
 pub struct DATA_R(crate::FieldReader<u8, u8>);
 impl DATA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DATA_R(crate::FieldReader::new(bits))
     }

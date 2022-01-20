@@ -50,6 +50,7 @@ impl From<FUNC_A> for u8 {
 #[doc = "Field `FUNC` reader - Selects pin function. Values 0x2 to 0x7 are reserved."]
 pub struct FUNC_R(crate::FieldReader<u8, FUNC_A>);
 impl FUNC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FUNC_R(crate::FieldReader::new(bits))
     }
@@ -118,6 +119,7 @@ impl From<MODE_A> for u8 {
 #[doc = "Field `MODE` reader - Selects function mode (on-chip pull-up/pull-down resistor control)."]
 pub struct MODE_R(crate::FieldReader<u8, MODE_A>);
 impl MODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MODE_R(crate::FieldReader::new(bits))
     }
@@ -214,6 +216,7 @@ impl From<HYS_A> for bool {
 #[doc = "Field `HYS` reader - Hysteresis."]
 pub struct HYS_R(crate::FieldReader<bool, HYS_A>);
 impl HYS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         HYS_R(crate::FieldReader::new(bits))
     }
@@ -297,6 +300,7 @@ impl From<INV_A> for bool {
 #[doc = "Field `INV` reader - Invert input"]
 pub struct INV_R(crate::FieldReader<bool, INV_A>);
 impl INV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INV_R(crate::FieldReader::new(bits))
     }
@@ -380,6 +384,7 @@ impl From<OD_A> for bool {
 #[doc = "Field `OD` reader - Open-drain mode."]
 pub struct OD_R(crate::FieldReader<bool, OD_A>);
 impl OD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OD_R(crate::FieldReader::new(bits))
     }

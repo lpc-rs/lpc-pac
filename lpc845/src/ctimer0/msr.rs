@@ -37,6 +37,7 @@ impl From<crate::W<MSR_SPEC>> for W {
 #[doc = "Field `MATCH_SHADOW` reader - Timer counter match value."]
 pub struct MATCH_SHADOW_R(crate::FieldReader<u32, u32>);
 impl MATCH_SHADOW_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         MATCH_SHADOW_R(crate::FieldReader::new(bits))
     }
@@ -56,7 +57,7 @@ impl<'a> MATCH_SHADOW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff_ffff) | (value as u32 & 0xffff_ffff);
+        self.w.bits = value;
         self.w
     }
 }
@@ -64,7 +65,7 @@ impl R {
     #[doc = "Bits 0:31 - Timer counter match value."]
     #[inline(always)]
     pub fn match_shadow(&self) -> MATCH_SHADOW_R {
-        MATCH_SHADOW_R::new((self.bits & 0xffff_ffff) as u32)
+        MATCH_SHADOW_R::new(self.bits)
     }
 }
 impl W {

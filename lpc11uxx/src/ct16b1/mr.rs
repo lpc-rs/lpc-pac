@@ -37,6 +37,7 @@ impl From<crate::W<MR_SPEC>> for W {
 #[doc = "Field `MATCH` reader - Timer counter match value."]
 pub struct MATCH_R(crate::FieldReader<u16, u16>);
 impl MATCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         MATCH_R(crate::FieldReader::new(bits))
     }

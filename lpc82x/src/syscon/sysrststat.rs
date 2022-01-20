@@ -51,6 +51,7 @@ impl From<POR_A> for bool {
 #[doc = "Field `POR` reader - POR reset status."]
 pub struct POR_R(crate::FieldReader<bool, POR_A>);
 impl POR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POR_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<EXTRST_A> for bool {
 #[doc = "Field `EXTRST` reader - Status of the external RESET pin. External reset status."]
 pub struct EXTRST_R(crate::FieldReader<bool, EXTRST_A>);
 impl EXTRST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EXTRST_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<WDT_A> for bool {
 #[doc = "Field `WDT` reader - Status of the Watchdog reset."]
 pub struct WDT_R(crate::FieldReader<bool, WDT_A>);
 impl WDT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDT_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<BOD_A> for bool {
 #[doc = "Field `BOD` reader - Status of the Brown-out detect reset."]
 pub struct BOD_R(crate::FieldReader<bool, BOD_A>);
 impl BOD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BOD_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<SYSRST_A> for bool {
 #[doc = "Field `SYSRST` reader - Status of the software system reset."]
 pub struct SYSRST_R(crate::FieldReader<bool, SYSRST_A>);
 impl SYSRST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SYSRST_R(crate::FieldReader::new(bits))
     }

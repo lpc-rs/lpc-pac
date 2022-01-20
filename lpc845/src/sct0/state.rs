@@ -37,6 +37,7 @@ impl From<crate::W<STATE_SPEC>> for W {
 #[doc = "Field `STATE_L` reader - State variable."]
 pub struct STATE_L_R(crate::FieldReader<u8, u8>);
 impl STATE_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         STATE_L_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> STATE_L_W<'a> {
 #[doc = "Field `STATE_H` reader - State variable."]
 pub struct STATE_H_R(crate::FieldReader<u8, u8>);
 impl STATE_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         STATE_H_R(crate::FieldReader::new(bits))
     }

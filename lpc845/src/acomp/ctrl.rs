@@ -56,6 +56,7 @@ impl From<EDGESEL_A> for u8 {
 #[doc = "Field `EDGESEL` reader - This field controls which edges on the comparator output set the COMPEDGE bit (bit 23 below):"]
 pub struct EDGESEL_R(crate::FieldReader<u8, EDGESEL_A>);
 impl EDGESEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         EDGESEL_R(crate::FieldReader::new(bits))
     }
@@ -152,6 +153,7 @@ impl From<COMPSA_A> for bool {
 #[doc = "Field `COMPSA` reader - Comparator output control"]
 pub struct COMPSA_R(crate::FieldReader<bool, COMPSA_A>);
 impl COMPSA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         COMPSA_R(crate::FieldReader::new(bits))
     }
@@ -248,6 +250,7 @@ impl From<COMP_VP_SEL_A> for u8 {
 #[doc = "Field `COMP_VP_SEL` reader - Selects positive voltage input"]
 pub struct COMP_VP_SEL_R(crate::FieldReader<u8, COMP_VP_SEL_A>);
 impl COMP_VP_SEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         COMP_VP_SEL_R(crate::FieldReader::new(bits))
     }
@@ -401,6 +404,7 @@ impl From<COMP_VM_SEL_A> for u8 {
 #[doc = "Field `COMP_VM_SEL` reader - Selects negative voltage input"]
 pub struct COMP_VM_SEL_R(crate::FieldReader<u8, COMP_VM_SEL_A>);
 impl COMP_VM_SEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         COMP_VM_SEL_R(crate::FieldReader::new(bits))
     }
@@ -527,6 +531,7 @@ impl<'a> COMP_VM_SEL_W<'a> {
 #[doc = "Field `EDGECLR` reader - Interrupt clear bit. To clear the COMPEDGE bit and thus negate the interrupt request, toggle the EDGECLR bit by first writing a 1 and then a 0."]
 pub struct EDGECLR_R(crate::FieldReader<bool, bool>);
 impl EDGECLR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EDGECLR_R(crate::FieldReader::new(bits))
     }
@@ -563,6 +568,7 @@ impl<'a> EDGECLR_W<'a> {
 #[doc = "Field `COMPSTAT` reader - Comparator status. This bit reflects the state of the comparator output."]
 pub struct COMPSTAT_R(crate::FieldReader<bool, bool>);
 impl COMPSTAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         COMPSTAT_R(crate::FieldReader::new(bits))
     }
@@ -599,6 +605,7 @@ impl<'a> COMPSTAT_W<'a> {
 #[doc = "Field `COMPEDGE` reader - Comparator edge-detect status."]
 pub struct COMPEDGE_R(crate::FieldReader<bool, bool>);
 impl COMPEDGE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         COMPEDGE_R(crate::FieldReader::new(bits))
     }
@@ -635,6 +642,7 @@ impl<'a> COMPEDGE_W<'a> {
 #[doc = "Field `INTENA` reader - Must be set to generate interrupts."]
 pub struct INTENA_R(crate::FieldReader<bool, bool>);
 impl INTENA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INTENA_R(crate::FieldReader::new(bits))
     }
@@ -690,6 +698,7 @@ impl From<HYS_A> for u8 {
 #[doc = "Field `HYS` reader - Controls the hysteresis of the comparator. When the comparator is outputting a certain state, this is the difference between the selected signals, in the opposite direction from the state being output, that will switch the output."]
 pub struct HYS_R(crate::FieldReader<u8, HYS_A>);
 impl HYS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         HYS_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<SPI0_A> for bool {
 #[doc = "Field `SPI0` reader - SPI0 interrupt wake-up"]
 pub struct SPI0_R(crate::FieldReader<bool, SPI0_A>);
 impl SPI0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SPI0_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<SPI1_A> for bool {
 #[doc = "Field `SPI1` reader - SPI1 interrupt wake-up"]
 pub struct SPI1_R(crate::FieldReader<bool, SPI1_A>);
 impl SPI1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SPI1_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<USART0_A> for bool {
 #[doc = "Field `USART0` reader - USART0 interrupt wake-up. Configure USART in synchronous slave mode."]
 pub struct USART0_R(crate::FieldReader<bool, USART0_A>);
 impl USART0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USART0_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<USART1_A> for bool {
 #[doc = "Field `USART1` reader - USART1 interrupt wake-up. Configure USART in synchronous slave mode."]
 pub struct USART1_R(crate::FieldReader<bool, USART1_A>);
 impl USART1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USART1_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<USART2_A> for bool {
 #[doc = "Field `USART2` reader - USART2 interrupt wake-up. Configure USART in synchronous slave mode."]
 pub struct USART2_R(crate::FieldReader<bool, USART2_A>);
 impl USART2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         USART2_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<I2C1_A> for bool {
 #[doc = "Field `I2C1` reader - I2C1 interrupt wake-up."]
 pub struct I2C1_R(crate::FieldReader<bool, I2C1_A>);
 impl I2C1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         I2C1_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<I2C0_A> for bool {
 #[doc = "Field `I2C0` reader - I2C0 interrupt wake-up."]
 pub struct I2C0_R(crate::FieldReader<bool, I2C0_A>);
 impl I2C0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         I2C0_R(crate::FieldReader::new(bits))
     }
@@ -632,6 +639,7 @@ impl From<CAP_TOUCH_A> for bool {
 #[doc = "Field `Cap_Touch` reader - Cap Touch interrupt wake-up."]
 pub struct CAP_TOUCH_R(crate::FieldReader<bool, CAP_TOUCH_A>);
 impl CAP_TOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP_TOUCH_R(crate::FieldReader::new(bits))
     }
@@ -715,6 +723,7 @@ impl From<WWDT_A> for bool {
 #[doc = "Field `WWDT` reader - WWDT interrupt wake-up"]
 pub struct WWDT_R(crate::FieldReader<bool, WWDT_A>);
 impl WWDT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WWDT_R(crate::FieldReader::new(bits))
     }
@@ -798,6 +807,7 @@ impl From<BOD_A> for bool {
 #[doc = "Field `BOD` reader - BOD interrupt wake-up"]
 pub struct BOD_R(crate::FieldReader<bool, BOD_A>);
 impl BOD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BOD_R(crate::FieldReader::new(bits))
     }
@@ -881,6 +891,7 @@ impl From<WKT_A> for bool {
 #[doc = "Field `WKT` reader - Self-wake-up timer interrupt wake-up"]
 pub struct WKT_R(crate::FieldReader<bool, WKT_A>);
 impl WKT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WKT_R(crate::FieldReader::new(bits))
     }
@@ -964,6 +975,7 @@ impl From<I2C2_A> for bool {
 #[doc = "Field `I2C2` reader - I2C2 interrupt wake-up"]
 pub struct I2C2_R(crate::FieldReader<bool, I2C2_A>);
 impl I2C2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         I2C2_R(crate::FieldReader::new(bits))
     }
@@ -1047,6 +1059,7 @@ impl From<I2C3_A> for bool {
 #[doc = "Field `I2C3` reader - I2C3 interrupt wake-up"]
 pub struct I2C3_R(crate::FieldReader<bool, I2C3_A>);
 impl I2C3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         I2C3_R(crate::FieldReader::new(bits))
     }
@@ -1130,6 +1143,7 @@ impl From<UART3_A> for bool {
 #[doc = "Field `UART3` reader - UART3 interrupt wake-up"]
 pub struct UART3_R(crate::FieldReader<bool, UART3_A>);
 impl UART3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         UART3_R(crate::FieldReader::new(bits))
     }
@@ -1213,6 +1227,7 @@ impl From<UART4_A> for bool {
 #[doc = "Field `UART4` reader - UART4 interrupt wake-up"]
 pub struct UART4_R(crate::FieldReader<bool, UART4_A>);
 impl UART4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         UART4_R(crate::FieldReader::new(bits))
     }

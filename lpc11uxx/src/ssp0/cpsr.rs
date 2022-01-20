@@ -37,6 +37,7 @@ impl From<crate::W<CPSR_SPEC>> for W {
 #[doc = "Field `CPSDVSR` reader - This even value between 2 and 254, by which SPI_PCLK is divided to yield the prescaler output clock. Bit 0 always reads as 0."]
 pub struct CPSDVSR_R(crate::FieldReader<u8, u8>);
 impl CPSDVSR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CPSDVSR_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<NMISRC_SPEC>> for W {
 #[doc = "Field `IRQN` reader - The IRQ number of the interrupt that acts as the Non-Maskable Interrupt (NMI) if bit 31 is 1"]
 pub struct IRQN_R(crate::FieldReader<u8, u8>);
 impl IRQN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         IRQN_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> IRQN_W<'a> {
 #[doc = "Field `NMIEN` reader - Write a 1 to this bit to enable the Non-Maskable Interrupt (NMI) source selected by bits 4:0."]
 pub struct NMIEN_R(crate::FieldReader<bool, bool>);
 impl NMIEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NMIEN_R(crate::FieldReader::new(bits))
     }

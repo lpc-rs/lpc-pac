@@ -64,6 +64,7 @@ impl From<MSTSCLLOW_A> for u8 {
 #[doc = "Field `MSTSCLLOW` reader - Master SCL Low time. Specifies the minimum low time that will be asserted by this master on SCL. Other devices on the bus (masters or slaves) could lengthen this time. This corresponds to the parameter t LOW in the I2C bus specification. I2C bus specification parameters tBUF and tSU;STA have the same values and are also controlled by MSTSCLLOW."]
 pub struct MSTSCLLOW_R(crate::FieldReader<u8, MSTSCLLOW_A>);
 impl MSTSCLLOW_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MSTSCLLOW_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +218,7 @@ impl From<MSTSCLHIGH_A> for u8 {
 #[doc = "Field `MSTSCLHIGH` reader - Master SCL High time. Specifies the minimum high time that will be asserted by this master on SCL. Other masters in a multi-master system could shorten this time. This corresponds to the parameter tHIGH in the I2C bus specification. I2C bus specification parameters tSU;STO and tHD;STA have the same values and are also controlled by MSTSCLHIGH."]
 pub struct MSTSCLHIGH_R(crate::FieldReader<u8, MSTSCLHIGH_A>);
 impl MSTSCLHIGH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MSTSCLHIGH_R(crate::FieldReader::new(bits))
     }

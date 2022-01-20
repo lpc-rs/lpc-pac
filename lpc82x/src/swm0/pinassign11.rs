@@ -37,6 +37,7 @@ impl From<crate::W<PINASSIGN11_SPEC>> for W {
 #[doc = "Field `ADC_PINTRIG1_I` reader - ADC_PINTRIG1 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct ADC_PINTRIG1_I_R(crate::FieldReader<u8, u8>);
 impl ADC_PINTRIG1_I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADC_PINTRIG1_I_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> ADC_PINTRIG1_I_W<'a> {
 #[doc = "Field `ACMP_O_O` reader - ACMP_O function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct ACMP_O_O_R(crate::FieldReader<u8, u8>);
 impl ACMP_O_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ACMP_O_O_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> ACMP_O_O_W<'a> {
 #[doc = "Field `CLKOUT_O` reader - CLKOUT function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct CLKOUT_O_R(crate::FieldReader<u8, u8>);
 impl CLKOUT_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CLKOUT_O_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> CLKOUT_O_W<'a> {
 #[doc = "Field `GPIO_INT_BMAT_O` reader - GPIO_INT_BMAT function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct GPIO_INT_BMAT_O_R(crate::FieldReader<u8, u8>);
 impl GPIO_INT_BMAT_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         GPIO_INT_BMAT_O_R(crate::FieldReader::new(bits))
     }

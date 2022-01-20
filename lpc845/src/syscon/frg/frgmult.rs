@@ -37,6 +37,7 @@ impl From<crate::W<FRGMULT_SPEC>> for W {
 #[doc = "Field `MULT` reader - Numerator of the fractional divider. MULT is equal to the programmed value."]
 pub struct MULT_R(crate::FieldReader<u8, u8>);
 impl MULT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MULT_R(crate::FieldReader::new(bits))
     }

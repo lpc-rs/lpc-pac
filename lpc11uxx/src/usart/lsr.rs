@@ -32,6 +32,7 @@ impl From<RDR_A> for bool {
 is set when the RBR holds an unread character and is cleared when the USART RBR FIFO is empty."]
 pub struct RDR_R(crate::FieldReader<bool, RDR_A>);
 impl RDR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RDR_R(crate::FieldReader::new(bits))
     }
@@ -80,6 +81,7 @@ impl From<OE_A> for bool {
 is set when USART RSR has a new character assembled and the USART RBR FIFO is full. In this case, the USART RBR FIFO will not be overwritten and the character in the USART RSR will be lost."]
 pub struct OE_R(crate::FieldReader<bool, OE_A>);
 impl OE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OE_R(crate::FieldReader::new(bits))
     }
@@ -126,6 +128,7 @@ impl From<PE_A> for bool {
 #[doc = "Field `PE` reader - Parity Error. When the parity bit of a received character is in the wrong state, a parity error occurs. A LSR read clears LSR\\[2\\]. Time of parity error detection is dependent on FCR\\[0\\]. Note: A parity error is associated with the character at the top of the USART RBR FIFO."]
 pub struct PE_R(crate::FieldReader<bool, PE_A>);
 impl PE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PE_R(crate::FieldReader::new(bits))
     }
@@ -172,6 +175,7 @@ impl From<FE_A> for bool {
 #[doc = "Field `FE` reader - Framing Error. When the stop bit of a received character is a logic 0, a framing error occurs. A LSR read clears LSR\\[3\\]. The time of the framing error detection is dependent on FCR0. Upon detection of a framing error, the RX will attempt to re-synchronize to the data and assume that the bad stop bit is actually an early start bit. However, it cannot be assumed that the next received byte will be correct even if there is no Framing Error. Note: A framing error is associated with the character at the top of the USART RBR FIFO."]
 pub struct FE_R(crate::FieldReader<bool, FE_A>);
 impl FE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FE_R(crate::FieldReader::new(bits))
     }
@@ -218,6 +222,7 @@ impl From<BI_A> for bool {
 #[doc = "Field `BI` reader - Break Interrupt. When RXD1 is held in the spacing state (all zeros) for one full character transmission (start, data, parity, stop), a break interrupt occurs. Once the break condition has been detected, the receiver goes idle until RXD1 goes to marking state (all ones). A LSR read clears this status bit. The time of break detection is dependent on FCR\\[0\\]. Note: The break interrupt is associated with the character at the top of the USART RBR FIFO."]
 pub struct BI_R(crate::FieldReader<bool, BI_A>);
 impl BI_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BI_R(crate::FieldReader::new(bits))
     }
@@ -264,6 +269,7 @@ impl From<THRE_A> for bool {
 #[doc = "Field `THRE` reader - Transmitter Holding Register Empty. THRE is set immediately upon detection of an empty USART THR and is cleared on a THR write."]
 pub struct THRE_R(crate::FieldReader<bool, THRE_A>);
 impl THRE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THRE_R(crate::FieldReader::new(bits))
     }
@@ -310,6 +316,7 @@ impl From<TEMT_A> for bool {
 #[doc = "Field `TEMT` reader - Transmitter Empty. TEMT is set when both THR and TSR are empty; TEMT is cleared when either the TSR or the THR contain valid data."]
 pub struct TEMT_R(crate::FieldReader<bool, TEMT_A>);
 impl TEMT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TEMT_R(crate::FieldReader::new(bits))
     }
@@ -358,6 +365,7 @@ impl From<RXFE_A> for bool {
 is set when a character with a RX error such as framing error, parity error or break interrupt, is loaded into the RBR. This bit is cleared when the LSR register is read and there are no subsequent errors in the USART FIFO."]
 pub struct RXFE_R(crate::FieldReader<bool, RXFE_A>);
 impl RXFE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXFE_R(crate::FieldReader::new(bits))
     }
@@ -390,6 +398,7 @@ impl core::ops::Deref for RXFE_R {
 #[doc = "Field `TXERR` reader - Tx Error. In smart card T=0 operation, this bit is set when the smart card has NACKed a transmitted character, one more than the number of times indicated by the TXRETRY field."]
 pub struct TXERR_R(crate::FieldReader<bool, bool>);
 impl TXERR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXERR_R(crate::FieldReader::new(bits))
     }

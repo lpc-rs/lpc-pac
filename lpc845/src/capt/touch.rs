@@ -37,6 +37,7 @@ impl From<crate::W<TOUCH_SPEC>> for W {
 #[doc = "Field `COUNT` reader - Count value reached at trigger. If timeout, will be (1 bigger than TOUT)-1; e.g. if TOUT=12, then 0xFFF."]
 pub struct COUNT_R(crate::FieldReader<u16, u16>);
 impl COUNT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         COUNT_R(crate::FieldReader::new(bits))
     }
@@ -51,6 +52,7 @@ impl core::ops::Deref for COUNT_R {
 #[doc = "Field `XVAL` reader - Is the X that triggered this, or lowest X if more than one."]
 pub struct XVAL_R(crate::FieldReader<u8, u8>);
 impl XVAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         XVAL_R(crate::FieldReader::new(bits))
     }
@@ -65,6 +67,7 @@ impl core::ops::Deref for XVAL_R {
 #[doc = "Field `ISTOUCH` reader - 1 if is Touch (by count) or 0 if is no-touch."]
 pub struct ISTOUCH_R(crate::FieldReader<bool, bool>);
 impl ISTOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ISTOUCH_R(crate::FieldReader::new(bits))
     }
@@ -79,6 +82,7 @@ impl core::ops::Deref for ISTOUCH_R {
 #[doc = "Field `ISTO` reader - 1 if is Timeout."]
 pub struct ISTO_R(crate::FieldReader<bool, bool>);
 impl ISTO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ISTO_R(crate::FieldReader::new(bits))
     }
@@ -93,6 +97,7 @@ impl core::ops::Deref for ISTO_R {
 #[doc = "Field `SEQ` reader - Sequence number - rolling counter of polls. Changes after all selected Xs per poll (so, 0 for 1st set of Xs, then 1 for next set, etc)."]
 pub struct SEQ_R(crate::FieldReader<u8, u8>);
 impl SEQ_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SEQ_R(crate::FieldReader::new(bits))
     }
@@ -107,6 +112,7 @@ impl core::ops::Deref for SEQ_R {
 #[doc = "Field `CHANGE` reader - If 1, the rest of the register is 0 because the data is changing. This will only happen for 1 cycle and would never happen if using interrupts to read, unless took so long as to overrun."]
 pub struct CHANGE_R(crate::FieldReader<bool, bool>);
 impl CHANGE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CHANGE_R(crate::FieldReader::new(bits))
     }

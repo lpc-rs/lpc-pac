@@ -16,6 +16,7 @@ impl From<crate::R<EEMSSIG_SPEC>> for R {
 #[doc = "Field `DATA_SIG` reader - BIST 16-bit signature calculated from only the data bytes"]
 pub struct DATA_SIG_R(crate::FieldReader<u16, u16>);
 impl DATA_SIG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         DATA_SIG_R(crate::FieldReader::new(bits))
     }
@@ -30,6 +31,7 @@ impl core::ops::Deref for DATA_SIG_R {
 #[doc = "Field `PARITY_SIG` reader - BIST 16-bit signature calculated from only the parity bits of the data bytes"]
 pub struct PARITY_SIG_R(crate::FieldReader<u16, u16>);
 impl PARITY_SIG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         PARITY_SIG_R(crate::FieldReader::new(bits))
     }

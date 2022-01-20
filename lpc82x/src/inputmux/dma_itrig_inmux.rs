@@ -66,6 +66,7 @@ impl From<INP_A> for u8 {
 #[doc = "Field `INP` reader - Input mux register for trigger inputs 0 to 23 connected to DMA channel 0. Selects from ADC, SCT, ACMP, pin interrupts, and DMA requests."]
 pub struct INP_R(crate::FieldReader<u8, INP_A>);
 impl INP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         INP_R(crate::FieldReader::new(bits))
     }

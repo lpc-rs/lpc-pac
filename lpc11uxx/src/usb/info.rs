@@ -37,6 +37,7 @@ impl From<crate::W<INFO_SPEC>> for W {
 #[doc = "Field `FRAME_NR` reader - Frame number. This contains the frame number of the last successfully received SOF. In case no SOF was received by the device at the beginning of a frame, the frame number returned is that of the last successfully received SOF. In case the SOF frame number contained a CRC error, the frame number returned will be the corrupted frame number as received by the device."]
 pub struct FRAME_NR_R(crate::FieldReader<u16, u16>);
 impl FRAME_NR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         FRAME_NR_R(crate::FieldReader::new(bits))
     }
@@ -106,6 +107,7 @@ impl From<ERR_CODE_A> for u8 {
 #[doc = "Field `ERR_CODE` reader - The error code which last occurred:"]
 pub struct ERR_CODE_R(crate::FieldReader<u8, ERR_CODE_A>);
 impl ERR_CODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ERR_CODE_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<WAKEUPHYS_A> for bool {
 #[doc = "Field `WAKEUPHYS` reader - WAKEUP pin hysteresis enable"]
 pub struct WAKEUPHYS_R(crate::FieldReader<bool, WAKEUPHYS_A>);
 impl WAKEUPHYS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WAKEUPHYS_R(crate::FieldReader::new(bits))
     }
@@ -120,6 +121,7 @@ impl<'a> WAKEUPHYS_W<'a> {
 #[doc = "Field `GPDATA` reader - Data retained during Deep power-down mode."]
 pub struct GPDATA_R(crate::FieldReader<u32, u32>);
 impl GPDATA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         GPDATA_R(crate::FieldReader::new(bits))
     }

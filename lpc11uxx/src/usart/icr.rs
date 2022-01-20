@@ -51,6 +51,7 @@ impl From<IRDAEN_A> for bool {
 #[doc = "Field `IRDAEN` reader - IrDA mode enable"]
 pub struct IRDAEN_R(crate::FieldReader<bool, IRDAEN_A>);
 impl IRDAEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IRDAEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<IRDAINV_A> for bool {
 #[doc = "Field `IRDAINV` reader - Serial input inverter"]
 pub struct IRDAINV_R(crate::FieldReader<bool, IRDAINV_A>);
 impl IRDAINV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         IRDAINV_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<FIXPULSEEN_A> for bool {
 #[doc = "Field `FIXPULSEEN` reader - IrDA fixed pulse width mode."]
 pub struct FIXPULSEEN_R(crate::FieldReader<bool, FIXPULSEEN_A>);
 impl FIXPULSEEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FIXPULSEEN_R(crate::FieldReader::new(bits))
     }
@@ -313,6 +316,7 @@ impl From<PULSEDIV_A> for u8 {
 #[doc = "Field `PULSEDIV` reader - Configures the pulse width when FixPulseEn = 1."]
 pub struct PULSEDIV_R(crate::FieldReader<u8, PULSEDIV_A>);
 impl PULSEDIV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PULSEDIV_R(crate::FieldReader::new(bits))
     }

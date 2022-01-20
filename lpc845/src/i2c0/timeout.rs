@@ -37,6 +37,7 @@ impl From<crate::W<TIMEOUT_SPEC>> for W {
 #[doc = "Field `TOMIN` reader - Time-out time value, bottom four bits. These are hard-wired to 0xF. This gives a minimum time-out of 16 I2C function clocks and also a time-out resolution of 16 I2C function clocks."]
 pub struct TOMIN_R(crate::FieldReader<u8, u8>);
 impl TOMIN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         TOMIN_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> TOMIN_W<'a> {
 #[doc = "Field `TO` reader - Time-out time value. Specifies the time-out interval value in increments of 16 I 2C function clocks, as defined by the CLKDIV register. To change this value while I2C is in operation, disable all time-outs, write a new value to TIMEOUT, then re-enable time-outs. 0x000 = A time-out will occur after 16 counts of the I2C function clock. 0x001 = A time-out will occur after 32 counts of the I2C function clock. 0xFFF = A time-out will occur after 65,536 counts of the I2C function clock."]
 pub struct TO_R(crate::FieldReader<u16, u16>);
 impl TO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         TO_R(crate::FieldReader::new(bits))
     }

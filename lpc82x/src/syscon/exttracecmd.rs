@@ -37,6 +37,7 @@ impl From<crate::W<EXTTRACECMD_SPEC>> for W {
 #[doc = "Field `START` reader - Trace start command. Writing a one to this bit sets the TSTART signal to the MTB to HIGH and starts tracing if the TSTARTEN bit in the MTB master register is set to one as well."]
 pub struct START_R(crate::FieldReader<bool, bool>);
 impl START_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         START_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> START_W<'a> {
 #[doc = "Field `STOP` reader - Trace stop command. Writing a one to this bit sets the TSTOP signal in the MTB to HIGH and stops tracing if the TSTOPEN bit in the MTB master register is set to one as well."]
 pub struct STOP_R(crate::FieldReader<bool, bool>);
 impl STOP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STOP_R(crate::FieldReader::new(bits))
     }

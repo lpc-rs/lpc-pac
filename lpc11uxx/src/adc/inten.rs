@@ -37,6 +37,7 @@ impl From<crate::W<INTEN_SPEC>> for W {
 #[doc = "Field `ADINTEN` reader - These bits allow control over which A/D channels generate interrupts for conversion completion. When bit 0 is one, completion of a conversion on A/D channel 0 will generate an interrupt, when bit 1 is one, completion of a conversion on A/D channel 1 will generate an interrupt, etc."]
 pub struct ADINTEN_R(crate::FieldReader<u8, u8>);
 impl ADINTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADINTEN_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> ADINTEN_W<'a> {
 #[doc = "Field `ADGINTEN` reader - When 1, enables the global DONE flag in ADDR to generate an interrupt. When 0, only the individual A/D channels enabled by ADINTEN 7:0 will generate interrupts. This bit must be set to 0 in burst mode (BURST = 1 in the CR register)."]
 pub struct ADGINTEN_R(crate::FieldReader<bool, bool>);
 impl ADGINTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADGINTEN_R(crate::FieldReader::new(bits))
     }

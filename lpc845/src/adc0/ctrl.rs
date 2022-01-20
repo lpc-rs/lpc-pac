@@ -37,6 +37,7 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `CLKDIV` reader - In synchronous mode only, the system clock is divided by this value plus one to produce the clock for the ADC converter, which should be less than or equal to 72 MHz. Typically, software should program the smallest value in this field that yields this maximum clock rate or slightly less, but in certain cases (such as a high-impedance analog source) a slower clock may be desirable. This field is ignored in the asynchronous operating mode."]
 pub struct CLKDIV_R(crate::FieldReader<u8, u8>);
 impl CLKDIV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CLKDIV_R(crate::FieldReader::new(bits))
     }
@@ -77,6 +78,7 @@ impl From<ASYNMODE_A> for bool {
 #[doc = "Field `ASYNMODE` reader - Select clock mode."]
 pub struct ASYNMODE_R(crate::FieldReader<bool, ASYNMODE_A>);
 impl ASYNMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ASYNMODE_R(crate::FieldReader::new(bits))
     }
@@ -160,6 +162,7 @@ impl From<LPWRMODE_A> for bool {
 #[doc = "Field `LPWRMODE` reader - The low-power ADC mode"]
 pub struct LPWRMODE_R(crate::FieldReader<bool, LPWRMODE_A>);
 impl LPWRMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LPWRMODE_R(crate::FieldReader::new(bits))
     }
@@ -229,6 +232,7 @@ impl<'a> LPWRMODE_W<'a> {
 #[doc = "Field `CALMODE` reader - Writing a '1' to this bit will initiate a sef-calibration cycle. This bit will be automatically cleared by hardware after the calibration cycle is complete. Note: Other bits of this register may be written to concurrently with setting this bit, however once this bit has been set no further writes to this register are permitted unitl the full calibration cycle has ended."]
 pub struct CALMODE_R(crate::FieldReader<bool, bool>);
 impl CALMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CALMODE_R(crate::FieldReader::new(bits))
     }

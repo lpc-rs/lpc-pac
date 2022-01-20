@@ -37,6 +37,7 @@ impl From<crate::W<TXDAT_SPEC>> for W {
 #[doc = "Field `DATA` reader - Transmit Data. This field provides from 4 to 16 bits of data to be transmitted."]
 pub struct DATA_R(crate::FieldReader<u16, u16>);
 impl DATA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         DATA_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<CAP0RE_A> for bool {
 #[doc = "Field `CAP0RE` reader - Capture on CT16B1_CAP0 rising edge: a sequence of 0 then 1 on CT16B1_CAP0 will cause CR0 to be loaded with the contents of TC."]
 pub struct CAP0RE_R(crate::FieldReader<bool, CAP0RE_A>);
 impl CAP0RE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP0RE_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<CAP0FE_A> for bool {
 #[doc = "Field `CAP0FE` reader - Capture on CT16B11_CAP0 falling edge: a sequence of 1 then 0 on CT16B1_CAP0 will cause CR0 to be loaded with the contents of TC."]
 pub struct CAP0FE_R(crate::FieldReader<bool, CAP0FE_A>);
 impl CAP0FE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP0FE_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<CAP0I_A> for bool {
 #[doc = "Field `CAP0I` reader - Interrupt on CT16B1_CAP0 event: a CR0 load due to a CT16B1_CAP0 event will generate an interrupt."]
 pub struct CAP0I_R(crate::FieldReader<bool, CAP0I_A>);
 impl CAP0I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP0I_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<CAP1RE_A> for bool {
 #[doc = "Field `CAP1RE` reader - Capture on CT16B1_CAP1 rising edge: a sequence of 0 then 1 on CT16B1_CAP1 will cause CR1 to be loaded with the contents of TC."]
 pub struct CAP1RE_R(crate::FieldReader<bool, CAP1RE_A>);
 impl CAP1RE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP1RE_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<CAP1FE_A> for bool {
 #[doc = "Field `CAP1FE` reader - Capture on CT16B1_CAP1 falling edge: a sequence of 1 then 0 on CT16B1_CAP1 will cause CR1 to be loaded with the contents of TC."]
 pub struct CAP1FE_R(crate::FieldReader<bool, CAP1FE_A>);
 impl CAP1FE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP1FE_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<CAP1I_A> for bool {
 #[doc = "Field `CAP1I` reader - Interrupt on CT16B1_CAP1 event: a CR1 load due to a CT16B0_CAP1 event will generate an interrupt."]
 pub struct CAP1I_R(crate::FieldReader<bool, CAP1I_A>);
 impl CAP1I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP1I_R(crate::FieldReader::new(bits))
     }

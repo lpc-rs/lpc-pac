@@ -37,6 +37,7 @@ impl From<crate::W<FALL_SPEC>> for W {
 #[doc = "Field `FDET0` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET0_R(crate::FieldReader<bool, bool>);
 impl FDET0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FDET0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> FDET0_W<'a> {
 #[doc = "Field `FDET1` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET1_R(crate::FieldReader<bool, bool>);
 impl FDET1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FDET1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> FDET1_W<'a> {
 #[doc = "Field `FDET2` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET2_R(crate::FieldReader<bool, bool>);
 impl FDET2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FDET2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> FDET2_W<'a> {
 #[doc = "Field `FDET3` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET3_R(crate::FieldReader<bool, bool>);
 impl FDET3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FDET3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> FDET3_W<'a> {
 #[doc = "Field `FDET4` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET4_R(crate::FieldReader<bool, bool>);
 impl FDET4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FDET4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> FDET4_W<'a> {
 #[doc = "Field `FDET5` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET5_R(crate::FieldReader<bool, bool>);
 impl FDET5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FDET5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> FDET5_W<'a> {
 #[doc = "Field `FDET6` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET6_R(crate::FieldReader<bool, bool>);
 impl FDET6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FDET6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> FDET6_W<'a> {
 #[doc = "Field `FDET7` reader - Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin."]
 pub struct FDET7_R(crate::FieldReader<bool, bool>);
 impl FDET7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FDET7_R(crate::FieldReader::new(bits))
     }

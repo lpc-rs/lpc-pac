@@ -37,6 +37,7 @@ impl From<crate::W<REGMODE_SPEC>> for W {
 #[doc = "Field `REGMOD_L` reader - Each bit controls one match/capture register (register 0 = bit 0, register 1 = bit 1, etc.). The number of bits = number of match/captures in this SCT. 0 = register operates as match register. 1 = register operates as capture register."]
 pub struct REGMOD_L_R(crate::FieldReader<u8, u8>);
 impl REGMOD_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         REGMOD_L_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> REGMOD_L_W<'a> {
 #[doc = "Field `REGMOD_H` reader - Each bit controls one match/capture register (register 0 = bit 16, register 1 = bit 17, etc.). The number of bits = number of match/captures in this SCT. 0 = register operates as match registers. 1 = register operates as capture registers."]
 pub struct REGMOD_H_R(crate::FieldReader<u8, u8>);
 impl REGMOD_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         REGMOD_H_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<TXDATCTL_SPEC>> for W {
 #[doc = "Field `TXDAT` reader - Transmit Data. This field provides from 1 to 16 bits of data to be transmitted."]
 pub struct TXDAT_R(crate::FieldReader<u16, u16>);
 impl TXDAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         TXDAT_R(crate::FieldReader::new(bits))
     }
@@ -77,6 +78,7 @@ impl From<TXSSEL0_N_A> for bool {
 #[doc = "Field `TXSSEL0_N` reader - Transmit Slave Select. This field asserts SSEL0 in master mode. The output on the pin is active LOW by default. Remark: The active state of the SSEL0 pin is configured by bits in the CFG register."]
 pub struct TXSSEL0_N_R(crate::FieldReader<bool, TXSSEL0_N_A>);
 impl TXSSEL0_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXSSEL0_N_R(crate::FieldReader::new(bits))
     }
@@ -160,6 +162,7 @@ impl From<TXSSEL1_N_A> for bool {
 #[doc = "Field `TXSSEL1_N` reader - Transmit Slave Select. This field asserts SSEL1 in master mode. The output on the pin is active LOW by default. Remark: The active state of the SSEL1 pin is configured by bits in the CFG register."]
 pub struct TXSSEL1_N_R(crate::FieldReader<bool, TXSSEL1_N_A>);
 impl TXSSEL1_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXSSEL1_N_R(crate::FieldReader::new(bits))
     }
@@ -243,6 +246,7 @@ impl From<TXSSEL2_N_A> for bool {
 #[doc = "Field `TXSSEL2_N` reader - Transmit Slave Select. This field asserts SSEL2 in master mode. The output on the pin is active LOW by default. Remark: The active state of the SSEL2 pin is configured by bits in the CFG register."]
 pub struct TXSSEL2_N_R(crate::FieldReader<bool, TXSSEL2_N_A>);
 impl TXSSEL2_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXSSEL2_N_R(crate::FieldReader::new(bits))
     }
@@ -326,6 +330,7 @@ impl From<TXSSEL3_N_A> for bool {
 #[doc = "Field `TXSSEL3_N` reader - Transmit Slave Select. This field asserts SSEL3 in master mode. The output on the pin is active LOW by default. Remark: The active state of the SSEL3 pin is configured by bits in the CFG register."]
 pub struct TXSSEL3_N_R(crate::FieldReader<bool, TXSSEL3_N_A>);
 impl TXSSEL3_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXSSEL3_N_R(crate::FieldReader::new(bits))
     }
@@ -409,6 +414,7 @@ impl From<EOT_A> for bool {
 #[doc = "Field `EOT` reader - End of Transfer. The asserted SSEL will be deasserted at the end of a transfer, and remain so for at least the time specified by the Transfer_delay value in the DLY register."]
 pub struct EOT_R(crate::FieldReader<bool, EOT_A>);
 impl EOT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EOT_R(crate::FieldReader::new(bits))
     }
@@ -492,6 +498,7 @@ impl From<EOF_A> for bool {
 #[doc = "Field `EOF` reader - End of Frame. Between frames, a delay may be inserted, as defined by the FRAME_DELAY value in the DLY register. The end of a frame may not be particularly meaningful if the FRAME_DELAY value = 0. This control can be used as part of the support for frame lengths greater than 16 bits."]
 pub struct EOF_R(crate::FieldReader<bool, EOF_A>);
 impl EOF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EOF_R(crate::FieldReader::new(bits))
     }
@@ -575,6 +582,7 @@ impl From<RXIGNORE_A> for bool {
 #[doc = "Field `RXIGNORE` reader - Receive Ignore. This allows data to be transmitted using the SPI without the need to read unneeded data from the receiver.Setting this bit simplifies the transmit process and can be used with the DMA."]
 pub struct RXIGNORE_R(crate::FieldReader<bool, RXIGNORE_A>);
 impl RXIGNORE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXIGNORE_R(crate::FieldReader::new(bits))
     }
@@ -687,6 +695,7 @@ impl From<LEN_A> for u8 {
 #[doc = "Field `LEN` reader - Data Length. Specifies the data length from 1 to 16 bits. Note that transfer lengths greater than 16 bits are supported by implementing multiple sequential transmits. 0x0 = Data transfer is 1 bit in length. 0x1 = Data transfer is 2 bits in length. 0x2 = Data transfer is 3 bits in length. ... 0xF = Data transfer is 16 bits in length."]
 pub struct LEN_R(crate::FieldReader<u8, LEN_A>);
 impl LEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         LEN_R(crate::FieldReader::new(bits))
     }

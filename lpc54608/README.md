@@ -1,3 +1,6 @@
+# DEPRECIATED, you should use lpc546xx-pac instead
+
+
 # lpc54608-pac
 
 This crate is a Peripheral Access Crate (or PAC) for the LPC54608 from NXP, generated using svd2rust and the svd file from the LPC54608 SDK 2.8.2 (the file has an xml extension in the SDK)

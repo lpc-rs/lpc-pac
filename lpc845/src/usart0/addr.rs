@@ -37,6 +37,7 @@ impl From<crate::W<ADDR_SPEC>> for W {
 #[doc = "Field `ADDRESS` reader - 8-bit address used with automatic address matching. Used when address detection is enabled (ADDRDET in CTL = 1) and automatic address matching is enabled (AUTOADDR in CFG = 1)."]
 pub struct ADDRESS_R(crate::FieldReader<u8, u8>);
 impl ADDRESS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADDRESS_R(crate::FieldReader::new(bits))
     }

@@ -16,6 +16,7 @@ impl From<crate::R<EPTOGGLE_SPEC>> for R {
 #[doc = "Field `TOGGLE` reader - Endpoint data toggle: This field indicates the current value of the data toggle for the corresponding endpoint."]
 pub struct TOGGLE_R(crate::FieldReader<u16, u16>);
 impl TOGGLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         TOGGLE_R(crate::FieldReader::new(bits))
     }

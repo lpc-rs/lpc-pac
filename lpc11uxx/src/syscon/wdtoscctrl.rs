@@ -37,6 +37,7 @@ impl From<crate::W<WDTOSCCTRL_SPEC>> for W {
 #[doc = "Field `DIVSEL` reader - Select divider for Fclkana. wdt_osc_clk = Fclkana/ (2 x (1 + DIVSEL)) 00000: 2 x (1 + DIVSEL) = 2 00001: 2 x (1 + DIVSEL) = 4 to 11111: 2 x (1 + DIVSEL) = 64"]
 pub struct DIVSEL_R(crate::FieldReader<u8, u8>);
 impl DIVSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DIVSEL_R(crate::FieldReader::new(bits))
     }
@@ -104,6 +105,7 @@ impl From<FREQSEL_A> for u8 {
 #[doc = "Field `FREQSEL` reader - Select watchdog oscillator analog output frequency (Fclkana)."]
 pub struct FREQSEL_R(crate::FieldReader<u8, FREQSEL_A>);
 impl FREQSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FREQSEL_R(crate::FieldReader::new(bits))
     }

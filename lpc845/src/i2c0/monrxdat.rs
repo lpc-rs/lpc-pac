@@ -16,6 +16,7 @@ impl From<crate::R<MONRXDAT_SPEC>> for R {
 #[doc = "Field `MONRXDAT` reader - Monitor function Receiver Data. This reflects every data byte that passes on the I2C pins."]
 pub struct MONRXDAT_R(crate::FieldReader<u8, u8>);
 impl MONRXDAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MONRXDAT_R(crate::FieldReader::new(bits))
     }
@@ -44,6 +45,7 @@ impl From<MONSTART_A> for bool {
 #[doc = "Field `MONSTART` reader - Monitor Received Start."]
 pub struct MONSTART_R(crate::FieldReader<bool, MONSTART_A>);
 impl MONSTART_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONSTART_R(crate::FieldReader::new(bits))
     }
@@ -90,6 +92,7 @@ impl From<MONRESTART_A> for bool {
 #[doc = "Field `MONRESTART` reader - Monitor Received Repeated Start."]
 pub struct MONRESTART_R(crate::FieldReader<bool, MONRESTART_A>);
 impl MONRESTART_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONRESTART_R(crate::FieldReader::new(bits))
     }
@@ -136,6 +139,7 @@ impl From<MONNACK_A> for bool {
 #[doc = "Field `MONNACK` reader - Monitor Received NACK."]
 pub struct MONNACK_R(crate::FieldReader<bool, MONNACK_A>);
 impl MONNACK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONNACK_R(crate::FieldReader::new(bits))
     }

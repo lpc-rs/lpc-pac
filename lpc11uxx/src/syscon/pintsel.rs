@@ -37,6 +37,7 @@ impl From<crate::W<PINTSEL_SPEC>> for W {
 #[doc = "Field `INTPIN` reader - Pin number select for pin interrupt. (PIO0_0 to PIO0_23 correspond to numbers 0 to 23 and PIO1_0 to PIO1_31 correspond to numbers 24 to 55)."]
 pub struct INTPIN_R(crate::FieldReader<u8, u8>);
 impl INTPIN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         INTPIN_R(crate::FieldReader::new(bits))
     }

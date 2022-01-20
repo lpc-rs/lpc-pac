@@ -51,6 +51,7 @@ impl From<LBM_A> for bool {
 #[doc = "Field `LBM` reader - Loop Back Mode."]
 pub struct LBM_R(crate::FieldReader<bool, LBM_A>);
 impl LBM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LBM_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<SSE_A> for bool {
 #[doc = "Field `SSE` reader - SPI Enable."]
 pub struct SSE_R(crate::FieldReader<bool, SSE_A>);
 impl SSE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSE_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<MS_A> for bool {
 #[doc = "Field `MS` reader - Master/Slave Mode.This bit can only be written when the SSE bit is 0."]
 pub struct MS_R(crate::FieldReader<bool, MS_A>);
 impl MS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MS_R(crate::FieldReader::new(bits))
     }
@@ -286,6 +289,7 @@ impl<'a> MS_W<'a> {
 #[doc = "Field `SOD` reader - Slave Output Disable. This bit is relevant only in slave mode (MS = 1). If it is 1, this blocks this SPI controller from driving the transmit data line (MISO)."]
 pub struct SOD_R(crate::FieldReader<bool, bool>);
 impl SOD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SOD_R(crate::FieldReader::new(bits))
     }

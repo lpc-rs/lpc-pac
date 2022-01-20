@@ -16,6 +16,7 @@ impl From<crate::R<MIS_SPEC>> for R {
 #[doc = "Field `RORMIS` reader - This bit is 1 if another frame was completely received while the RxFIFO was full, and this interrupt is enabled."]
 pub struct RORMIS_R(crate::FieldReader<bool, bool>);
 impl RORMIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RORMIS_R(crate::FieldReader::new(bits))
     }
@@ -30,6 +31,7 @@ impl core::ops::Deref for RORMIS_R {
 #[doc = "Field `RTMIS` reader - This bit is 1 if the Rx FIFO is not empty, has not been read for a time-out period, and this interrupt is enabled. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR X \\[SCR+1\\])."]
 pub struct RTMIS_R(crate::FieldReader<bool, bool>);
 impl RTMIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RTMIS_R(crate::FieldReader::new(bits))
     }
@@ -44,6 +46,7 @@ impl core::ops::Deref for RTMIS_R {
 #[doc = "Field `RXMIS` reader - This bit is 1 if the Rx FIFO is at least half full, and this interrupt is enabled."]
 pub struct RXMIS_R(crate::FieldReader<bool, bool>);
 impl RXMIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXMIS_R(crate::FieldReader::new(bits))
     }
@@ -58,6 +61,7 @@ impl core::ops::Deref for RXMIS_R {
 #[doc = "Field `TXMIS` reader - This bit is 1 if the Tx FIFO is at least half empty, and this interrupt is enabled."]
 pub struct TXMIS_R(crate::FieldReader<bool, bool>);
 impl TXMIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXMIS_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<CAP_MATCH_SCTCAP7_SPEC>> for W {
 #[doc = "Field `CAPn_L` reader - When UNIFY = 0, read the 16-bit counter value at which this register was last captured. When UNIFY = 1, read the lower 16 bits of the 32-bit value at which this register was last captured."]
 pub struct CAPN_L_R(crate::FieldReader<u16, u16>);
 impl CAPN_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         CAPN_L_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> CAPN_L_W<'a> {
 #[doc = "Field `CAPn_H` reader - When UNIFY = 0, read the 16-bit counter value at which this register was last captured. When UNIFY = 1, read the upper 16 bits of the 32-bit value at which this register was last captured."]
 pub struct CAPN_H_R(crate::FieldReader<u16, u16>);
 impl CAPN_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         CAPN_H_R(crate::FieldReader::new(bits))
     }

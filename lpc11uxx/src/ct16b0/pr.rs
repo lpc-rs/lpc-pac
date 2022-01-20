@@ -37,6 +37,7 @@ impl From<crate::W<PR_SPEC>> for W {
 #[doc = "Field `PCVAL` reader - Prescale value."]
 pub struct PCVAL_R(crate::FieldReader<u16, u16>);
 impl PCVAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         PCVAL_R(crate::FieldReader::new(bits))
     }

@@ -54,6 +54,7 @@ impl From<FUNC_A> for u8 {
 #[doc = "Field `FUNC` reader - Selects pin function. This pin functions as WAKEUP pin if the LPC11Uxx is in Deep power-down mode regardless of the value of FUNC. Values 0x3 to 0x7 are reserved."]
 pub struct FUNC_R(crate::FieldReader<u8, FUNC_A>);
 impl FUNC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FUNC_R(crate::FieldReader::new(bits))
     }
@@ -144,6 +145,7 @@ impl From<MODE_A> for u8 {
 #[doc = "Field `MODE` reader - Selects function mode (on-chip pull-up/pull-down resistor control)."]
 pub struct MODE_R(crate::FieldReader<u8, MODE_A>);
 impl MODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MODE_R(crate::FieldReader::new(bits))
     }
@@ -240,6 +242,7 @@ impl From<HYS_A> for bool {
 #[doc = "Field `HYS` reader - Hysteresis."]
 pub struct HYS_R(crate::FieldReader<bool, HYS_A>);
 impl HYS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         HYS_R(crate::FieldReader::new(bits))
     }
@@ -323,6 +326,7 @@ impl From<INV_A> for bool {
 #[doc = "Field `INV` reader - Invert input"]
 pub struct INV_R(crate::FieldReader<bool, INV_A>);
 impl INV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INV_R(crate::FieldReader::new(bits))
     }
@@ -406,6 +410,7 @@ impl From<ADMODE_A> for bool {
 #[doc = "Field `ADMODE` reader - Selects Analog/Digital mode."]
 pub struct ADMODE_R(crate::FieldReader<bool, ADMODE_A>);
 impl ADMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADMODE_R(crate::FieldReader::new(bits))
     }
@@ -489,6 +494,7 @@ impl From<FILTR_A> for bool {
 #[doc = "Field `FILTR` reader - Selects 10 ns input glitch filter."]
 pub struct FILTR_R(crate::FieldReader<bool, FILTR_A>);
 impl FILTR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FILTR_R(crate::FieldReader::new(bits))
     }
@@ -560,7 +566,7 @@ impl<'a> FILTR_W<'a> {
 pub enum OD_A {
     #[doc = "0: Disable."]
     DISABLED = 0,
-    #[doc = "1: Open-drain mode enabled.  This is not a true open-drain mode."]
+    #[doc = "1: Open-drain mode enabled. This is not a true open-drain mode."]
     OPEN_DRAIN = 1,
 }
 impl From<OD_A> for bool {
@@ -572,6 +578,7 @@ impl From<OD_A> for bool {
 #[doc = "Field `OD` reader - Open-drain mode."]
 pub struct OD_R(crate::FieldReader<bool, OD_A>);
 impl OD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OD_R(crate::FieldReader::new(bits))
     }
