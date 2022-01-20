@@ -37,6 +37,7 @@ impl From<crate::W<SYSOSCCTRL_SPEC>> for W {
 #[doc = "Field `BYPASS` reader - Bypass system oscillator"]
 pub struct BYPASS_R(crate::FieldReader<bool, bool>);
 impl BYPASS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BYPASS_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> BYPASS_W<'a> {
 #[doc = "Field `FREQ_RANGE` reader - oscillator low / high transconductance selection input (Active High) 1-20MHz '0' : 15-50MHz '1'"]
 pub struct FREQ_RANGE_R(crate::FieldReader<bool, bool>);
 impl FREQ_RANGE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FREQ_RANGE_R(crate::FieldReader::new(bits))
     }

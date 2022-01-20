@@ -30,6 +30,7 @@ impl From<NEED_CLKST_A> for bool {
 #[doc = "Field `NEED_CLKST` reader - USB need_clock signal status"]
 pub struct NEED_CLKST_R(crate::FieldReader<bool, NEED_CLKST_A>);
 impl NEED_CLKST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NEED_CLKST_R(crate::FieldReader::new(bits))
     }

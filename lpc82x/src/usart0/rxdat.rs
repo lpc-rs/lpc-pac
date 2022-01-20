@@ -16,6 +16,7 @@ impl From<crate::R<RXDAT_SPEC>> for R {
 #[doc = "Field `RXDAT` reader - The USART Receiver Data register contains the next received character. The number of bits that are relevant depends on the USART configuration settings."]
 pub struct RXDAT_R(crate::FieldReader<u16, u16>);
 impl RXDAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         RXDAT_R(crate::FieldReader::new(bits))
     }

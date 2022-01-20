@@ -16,6 +16,7 @@ impl From<crate::R<SR_SPEC>> for R {
 #[doc = "Field `TFE` reader - Transmit FIFO Empty. This bit is 1 is the Transmit FIFO is empty, 0 if not."]
 pub struct TFE_R(crate::FieldReader<bool, bool>);
 impl TFE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TFE_R(crate::FieldReader::new(bits))
     }
@@ -30,6 +31,7 @@ impl core::ops::Deref for TFE_R {
 #[doc = "Field `TNF` reader - Transmit FIFO Not Full. This bit is 0 if the Tx FIFO is full, 1 if not."]
 pub struct TNF_R(crate::FieldReader<bool, bool>);
 impl TNF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TNF_R(crate::FieldReader::new(bits))
     }
@@ -44,6 +46,7 @@ impl core::ops::Deref for TNF_R {
 #[doc = "Field `RNE` reader - Receive FIFO Not Empty. This bit is 0 if the Receive FIFO is empty, 1 if not."]
 pub struct RNE_R(crate::FieldReader<bool, bool>);
 impl RNE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RNE_R(crate::FieldReader::new(bits))
     }
@@ -58,6 +61,7 @@ impl core::ops::Deref for RNE_R {
 #[doc = "Field `RFF` reader - Receive FIFO Full. This bit is 1 if the Receive FIFO is full, 0 if not."]
 pub struct RFF_R(crate::FieldReader<bool, bool>);
 impl RFF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RFF_R(crate::FieldReader::new(bits))
     }
@@ -72,6 +76,7 @@ impl core::ops::Deref for RFF_R {
 #[doc = "Field `BSY` reader - Busy. This bit is 0 if the SPI controller is idle, 1 if it is currently sending/receiving a frame and/or the Tx FIFO is not empty."]
 pub struct BSY_R(crate::FieldReader<bool, bool>);
 impl BSY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BSY_R(crate::FieldReader::new(bits))
     }

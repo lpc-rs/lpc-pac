@@ -37,6 +37,7 @@ impl From<crate::W<EPSKIP_SPEC>> for W {
 #[doc = "Field `SKIP` reader - Endpoint skip: Writing 1 to one of these bits, will indicate to HW that it must deactivate the buffer assigned to this endpoint and return control back to software. When HW has deactivated the endpoint, it will clear this bit, but it will not modify the EPINUSE bit. An interrupt will be generated when the Active bit goes from 1 to 0. Note: In case of double-buffering, HW will only clear the Active bit of the buffer indicated by the EPINUSE bit."]
 pub struct SKIP_R(crate::FieldReader<u32, u32>);
 impl SKIP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         SKIP_R(crate::FieldReader::new(bits))
     }

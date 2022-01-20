@@ -37,6 +37,7 @@ impl From<crate::W<LPM_SPEC>> for W {
 #[doc = "Field `HIRD_HW` reader - Host Initiated Resume Duration - HW. This is the HIRD value from the last received LPM token"]
 pub struct HIRD_HW_R(crate::FieldReader<u8, u8>);
 impl HIRD_HW_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         HIRD_HW_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> HIRD_HW_W<'a> {
 #[doc = "Field `HIRD_SW` reader - Host Initiated Resume Duration - SW. This is the time duration required by the USB device system to come out of LPM initiated suspend after receiving the host initiated LPM resume."]
 pub struct HIRD_SW_R(crate::FieldReader<u8, u8>);
 impl HIRD_SW_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         HIRD_SW_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> HIRD_SW_W<'a> {
 #[doc = "Field `DATA_PENDING` reader - As long as this bit is set to one and LPM supported bit is set to one, HW will return a NYET handshake on every LPM token it receives. If LPM supported bit is set to one and this bit is zero, HW will return an ACK handshake on every LPM token it receives. If SW has still data pending and LPM is supported, it must set this bit to 1."]
 pub struct DATA_PENDING_R(crate::FieldReader<bool, bool>);
 impl DATA_PENDING_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DATA_PENDING_R(crate::FieldReader::new(bits))
     }

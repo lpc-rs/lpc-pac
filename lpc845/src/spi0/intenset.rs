@@ -51,6 +51,7 @@ impl From<RXRDYEN_A> for bool {
 #[doc = "Field `RXRDYEN` reader - Determines whether an interrupt occurs when receiver data is available."]
 pub struct RXRDYEN_R(crate::FieldReader<bool, RXRDYEN_A>);
 impl RXRDYEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXRDYEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<TXRDYEN_A> for bool {
 #[doc = "Field `TXRDYEN` reader - Determines whether an interrupt occurs when the transmitter holding register is available."]
 pub struct TXRDYEN_R(crate::FieldReader<bool, TXRDYEN_A>);
 impl TXRDYEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXRDYEN_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<RXOVEN_A> for bool {
 #[doc = "Field `RXOVEN` reader - Determines whether an interrupt occurs when a receiver overrun occurs. This happens in slave mode when there is a need for the receiver to move newly received data to the RXDAT register when it is already in use. The interface prevents receiver overrun in Master mode by not allowing a new transmission to begin when a receiver overrun would otherwise occur."]
 pub struct RXOVEN_R(crate::FieldReader<bool, RXOVEN_A>);
 impl RXOVEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXOVEN_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<TXUREN_A> for bool {
 #[doc = "Field `TXUREN` reader - Determines whether an interrupt occurs when a transmitter underrun occurs. This happens in slave mode when there is a need to transmit data when none is available."]
 pub struct TXUREN_R(crate::FieldReader<bool, TXUREN_A>);
 impl TXUREN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXUREN_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<SSAEN_A> for bool {
 #[doc = "Field `SSAEN` reader - Determines whether an interrupt occurs when the Slave Select is asserted."]
 pub struct SSAEN_R(crate::FieldReader<bool, SSAEN_A>);
 impl SSAEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSAEN_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<SSDEN_A> for bool {
 #[doc = "Field `SSDEN` reader - Determines whether an interrupt occurs when the Slave Select is deasserted."]
 pub struct SSDEN_R(crate::FieldReader<bool, SSDEN_A>);
 impl SSDEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSDEN_R(crate::FieldReader::new(bits))
     }

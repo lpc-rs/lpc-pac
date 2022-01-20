@@ -37,6 +37,7 @@ impl From<crate::W<MODE_SPEC>> for W {
 #[doc = "Field `CRC_POLY` reader - CRC polynomial: 1X = CRC-32 polynomial 01 = CRC-16 polynomial 00 = CRC-CCITT polynomial"]
 pub struct CRC_POLY_R(crate::FieldReader<u8, u8>);
 impl CRC_POLY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CRC_POLY_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> CRC_POLY_W<'a> {
 #[doc = "Field `BIT_RVS_WR` reader - Data bit order: 1 = Bit order reverse for CRC_WR_DATA (per byte) 0 = No bit order reverse for CRC_WR_DATA (per byte)"]
 pub struct BIT_RVS_WR_R(crate::FieldReader<bool, bool>);
 impl BIT_RVS_WR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BIT_RVS_WR_R(crate::FieldReader::new(bits))
     }
@@ -99,6 +101,7 @@ impl<'a> BIT_RVS_WR_W<'a> {
 #[doc = "Field `CMPL_WR` reader - Data complement: 1 = 1's complement for CRC_WR_DATA 0 = No 1's complement for CRC_WR_DATA"]
 pub struct CMPL_WR_R(crate::FieldReader<bool, bool>);
 impl CMPL_WR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CMPL_WR_R(crate::FieldReader::new(bits))
     }
@@ -135,6 +138,7 @@ impl<'a> CMPL_WR_W<'a> {
 #[doc = "Field `BIT_RVS_SUM` reader - CRC sum bit order: 1 = Bit order reverse for CRC_SUM 0 = No bit order reverse for CRC_SUM"]
 pub struct BIT_RVS_SUM_R(crate::FieldReader<bool, bool>);
 impl BIT_RVS_SUM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BIT_RVS_SUM_R(crate::FieldReader::new(bits))
     }
@@ -171,6 +175,7 @@ impl<'a> BIT_RVS_SUM_W<'a> {
 #[doc = "Field `CMPL_SUM` reader - CRC sum complement: 1 = 1's complement for CRC_SUM 0 = No 1's complement for CRC_SUM"]
 pub struct CMPL_SUM_R(crate::FieldReader<bool, bool>);
 impl CMPL_SUM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CMPL_SUM_R(crate::FieldReader::new(bits))
     }

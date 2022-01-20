@@ -37,6 +37,7 @@ impl From<crate::W<CNTVAL_SPEC>> for W {
 #[doc = "Field `VALUE` reader - 16-bit reload value for the DAC interrupt/DMA timer."]
 pub struct VALUE_R(crate::FieldReader<u16, u16>);
 impl VALUE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         VALUE_R(crate::FieldReader::new(bits))
     }

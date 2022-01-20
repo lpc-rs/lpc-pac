@@ -30,6 +30,7 @@ impl From<DCTS_A> for bool {
 #[doc = "Field `DCTS` reader - Delta CTS. Set upon state change of input CTS. Cleared on an MSR read."]
 pub struct DCTS_R(crate::FieldReader<bool, DCTS_A>);
 impl DCTS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DCTS_R(crate::FieldReader::new(bits))
     }
@@ -76,6 +77,7 @@ impl From<DDSR_A> for bool {
 #[doc = "Field `DDSR` reader - Delta DSR. Set upon state change of input DSR. Cleared on an MSR read."]
 pub struct DDSR_R(crate::FieldReader<bool, DDSR_A>);
 impl DDSR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DDSR_R(crate::FieldReader::new(bits))
     }
@@ -122,6 +124,7 @@ impl From<TERI_A> for bool {
 #[doc = "Field `TERI` reader - Trailing Edge RI. Set upon low to high transition of input RI. Cleared on an MSR read."]
 pub struct TERI_R(crate::FieldReader<bool, TERI_A>);
 impl TERI_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TERI_R(crate::FieldReader::new(bits))
     }
@@ -168,6 +171,7 @@ impl From<DDCD_A> for bool {
 #[doc = "Field `DDCD` reader - Delta DCD. Set upon state change of input DCD. Cleared on an MSR read."]
 pub struct DDCD_R(crate::FieldReader<bool, DDCD_A>);
 impl DDCD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DDCD_R(crate::FieldReader::new(bits))
     }
@@ -201,6 +205,7 @@ impl core::ops::Deref for DDCD_R {
 in modem loopback mode."]
 pub struct CTS_R(crate::FieldReader<bool, bool>);
 impl CTS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CTS_R(crate::FieldReader::new(bits))
     }
@@ -216,6 +221,7 @@ impl core::ops::Deref for CTS_R {
 in modem loopback mode."]
 pub struct DSR_R(crate::FieldReader<bool, bool>);
 impl DSR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DSR_R(crate::FieldReader::new(bits))
     }
@@ -231,6 +237,7 @@ impl core::ops::Deref for DSR_R {
 in modem loopback mode."]
 pub struct RI_R(crate::FieldReader<bool, bool>);
 impl RI_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RI_R(crate::FieldReader::new(bits))
     }
@@ -246,6 +253,7 @@ impl core::ops::Deref for RI_R {
 in modem loopback mode."]
 pub struct DCD_R(crate::FieldReader<bool, bool>);
 impl DCD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DCD_R(crate::FieldReader::new(bits))
     }

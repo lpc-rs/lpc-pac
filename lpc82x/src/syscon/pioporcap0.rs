@@ -37,6 +37,7 @@ impl From<crate::W<PIOPORCAP0_SPEC>> for W {
 #[doc = "Field `PIOSTAT` reader - State of PIO0_17 through PIO0_0 at power-on reset"]
 pub struct PIOSTAT_R(crate::FieldReader<u32, u32>);
 impl PIOSTAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         PIOSTAT_R(crate::FieldReader::new(bits))
     }

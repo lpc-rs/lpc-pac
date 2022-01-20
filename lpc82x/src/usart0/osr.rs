@@ -37,6 +37,7 @@ impl From<crate::W<OSR_SPEC>> for W {
 #[doc = "Field `OSRVAL` reader - Oversample Selection Value. 0 to 3 = not supported 0x4 = 5 function clocks are used to transmit and receive each data bit. 0x5 = 6 function clocks are used to transmit and receive each data bit. 0xF= 16 function clocks are used to transmit and receive each data bit."]
 pub struct OSRVAL_R(crate::FieldReader<u8, u8>);
 impl OSRVAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         OSRVAL_R(crate::FieldReader::new(bits))
     }

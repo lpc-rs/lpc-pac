@@ -37,6 +37,7 @@ impl From<crate::W<SLVDAT_SPEC>> for W {
 #[doc = "Field `DATA` reader - Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function."]
 pub struct DATA_R(crate::FieldReader<u8, u8>);
 impl DATA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DATA_R(crate::FieldReader::new(bits))
     }

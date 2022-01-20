@@ -51,6 +51,7 @@ impl From<MM_ENA_A> for bool {
 #[doc = "Field `MM_ENA` reader - Monitor mode enable."]
 pub struct MM_ENA_R(crate::FieldReader<bool, MM_ENA_A>);
 impl MM_ENA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MM_ENA_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<ENA_SCL_A> for bool {
 #[doc = "Field `ENA_SCL` reader - SCL output enable."]
 pub struct ENA_SCL_R(crate::FieldReader<bool, ENA_SCL_A>);
 impl ENA_SCL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_SCL_R(crate::FieldReader::new(bits))
     }
@@ -203,7 +205,7 @@ impl<'a> ENA_SCL_W<'a> {
 #[doc = "Select interrupt register match.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MATCH_ALL_A {
-    #[doc = "0: When this bit is cleared, an interrupt will only be generated when a match occurs to one of the (up-to) four address registers described above.   That is, the module will respond as a normal slave as far as address-recognition is concerned."]
+    #[doc = "0: When this bit is cleared, an interrupt will only be generated when a match occurs to one of the (up-to) four address registers described above. That is, the module will respond as a normal slave as far as address-recognition is concerned."]
     MATCH = 0,
     #[doc = "1: When this bit is set to 1 and the I2C is in monitor mode, an interrupt will be generated on ANY address received. This will enable the part to monitor all traffic on the bus."]
     ANYADDRESS = 1,
@@ -217,6 +219,7 @@ impl From<MATCH_ALL_A> for bool {
 #[doc = "Field `MATCH_ALL` reader - Select interrupt register match."]
 pub struct MATCH_ALL_R(crate::FieldReader<bool, MATCH_ALL_A>);
 impl MATCH_ALL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MATCH_ALL_R(crate::FieldReader::new(bits))
     }

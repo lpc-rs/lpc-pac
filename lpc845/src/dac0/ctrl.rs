@@ -51,6 +51,7 @@ impl From<INT_DMA_REQ_A> for bool {
 #[doc = "Field `INT_DMA_REQ` reader - DMA request"]
 pub struct INT_DMA_REQ_R(crate::FieldReader<bool, INT_DMA_REQ_A>);
 impl INT_DMA_REQ_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INT_DMA_REQ_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<DBLBUF_ENA_A> for bool {
 #[doc = "Field `DBLBUF_ENA` reader - dacr double buffer"]
 pub struct DBLBUF_ENA_R(crate::FieldReader<bool, DBLBUF_ENA_A>);
 impl DBLBUF_ENA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DBLBUF_ENA_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<CNT_ENA_A> for bool {
 #[doc = "Field `CNT_ENA` reader - time-out counter operation"]
 pub struct CNT_ENA_R(crate::FieldReader<bool, CNT_ENA_A>);
 impl CNT_ENA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CNT_ENA_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<DMA_ENA_A> for bool {
 #[doc = "Field `DMA_ENA` reader - DMA access"]
 pub struct DMA_ENA_R(crate::FieldReader<bool, DMA_ENA_A>);
 impl DMA_ENA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DMA_ENA_R(crate::FieldReader::new(bits))
     }

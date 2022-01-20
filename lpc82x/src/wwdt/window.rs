@@ -37,6 +37,7 @@ impl From<crate::W<WINDOW_SPEC>> for W {
 #[doc = "Field `WINDOW` reader - Watchdog window value."]
 pub struct WINDOW_R(crate::FieldReader<u32, u32>);
 impl WINDOW_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         WINDOW_R(crate::FieldReader::new(bits))
     }

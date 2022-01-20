@@ -37,6 +37,7 @@ impl From<crate::W<INTSETSTAT_SPEC>> for W {
 #[doc = "Field `EP_SET_INT` reader - If software writes a one to one of these bits, the corresponding USB interrupt status bit is set. When this register is read, the same value as the USB interrupt status register is returned."]
 pub struct EP_SET_INT_R(crate::FieldReader<u16, u16>);
 impl EP_SET_INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         EP_SET_INT_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> EP_SET_INT_W<'a> {
 #[doc = "Field `FRAME_SET_INT` reader - If software writes a one to one of these bits, the corresponding USB interrupt status bit is set. When this register is read, the same value as the USB interrupt status register is returned."]
 pub struct FRAME_SET_INT_R(crate::FieldReader<bool, bool>);
 impl FRAME_SET_INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FRAME_SET_INT_R(crate::FieldReader::new(bits))
     }
@@ -99,6 +101,7 @@ impl<'a> FRAME_SET_INT_W<'a> {
 #[doc = "Field `DEV_SET_INT` reader - If software writes a one to one of these bits, the corresponding USB interrupt status bit is set. When this register is read, the same value as the USB interrupt status register is returned."]
 pub struct DEV_SET_INT_R(crate::FieldReader<bool, bool>);
 impl DEV_SET_INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DEV_SET_INT_R(crate::FieldReader::new(bits))
     }

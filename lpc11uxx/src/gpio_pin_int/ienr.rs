@@ -37,6 +37,7 @@ impl From<crate::W<IENR_SPEC>> for W {
 #[doc = "Field `ENRL0` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL0_R(crate::FieldReader<bool, bool>);
 impl ENRL0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENRL0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> ENRL0_W<'a> {
 #[doc = "Field `ENRL1` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL1_R(crate::FieldReader<bool, bool>);
 impl ENRL1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENRL1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> ENRL1_W<'a> {
 #[doc = "Field `ENRL2` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL2_R(crate::FieldReader<bool, bool>);
 impl ENRL2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENRL2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> ENRL2_W<'a> {
 #[doc = "Field `ENRL3` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL3_R(crate::FieldReader<bool, bool>);
 impl ENRL3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENRL3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> ENRL3_W<'a> {
 #[doc = "Field `ENRL4` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL4_R(crate::FieldReader<bool, bool>);
 impl ENRL4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENRL4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> ENRL4_W<'a> {
 #[doc = "Field `ENRL5` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL5_R(crate::FieldReader<bool, bool>);
 impl ENRL5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENRL5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> ENRL5_W<'a> {
 #[doc = "Field `ENRL6` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL6_R(crate::FieldReader<bool, bool>);
 impl ENRL6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENRL6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> ENRL6_W<'a> {
 #[doc = "Field `ENRL7` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL7_R(crate::FieldReader<bool, bool>);
 impl ENRL7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENRL7_R(crate::FieldReader::new(bits))
     }

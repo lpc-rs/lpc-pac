@@ -37,6 +37,7 @@ impl From<crate::W<ABORT0_SPEC>> for W {
 #[doc = "Field `ABORTCTRL` reader - Abort control for DMA channel 0. Bit n corresponds to DMA channel n. 0 = no effect. 1 = aborts DMA operations on channel n."]
 pub struct ABORTCTRL_R(crate::FieldReader<u32, u32>);
 impl ABORTCTRL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         ABORTCTRL_R(crate::FieldReader::new(bits))
     }

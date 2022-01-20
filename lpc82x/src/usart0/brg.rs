@@ -37,6 +37,7 @@ impl From<crate::W<BRG_SPEC>> for W {
 #[doc = "Field `BRGVAL` reader - This value is used to divide the USART input clock to determine the baud rate, based on the input clock from the FRG. 0 = FCLK is used directly by the USART function. 1 = FCLK is divided by 2 before use by the USART function. 2 = FCLK is divided by 3 before use by the USART function. 0xFFFF = FCLK is divided by 65,536 before use by the USART function."]
 pub struct BRGVAL_R(crate::FieldReader<u16, u16>);
 impl BRGVAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         BRGVAL_R(crate::FieldReader::new(bits))
     }

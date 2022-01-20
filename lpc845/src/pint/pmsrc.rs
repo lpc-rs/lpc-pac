@@ -64,6 +64,7 @@ impl From<SRC0_A> for u8 {
 #[doc = "Field `SRC0` reader - Selects the input source for bit slice 0"]
 pub struct SRC0_R(crate::FieldReader<u8, SRC0_A>);
 impl SRC0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SRC0_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +218,7 @@ impl From<SRC1_A> for u8 {
 #[doc = "Field `SRC1` reader - Selects the input source for bit slice 1"]
 pub struct SRC1_R(crate::FieldReader<u8, SRC1_A>);
 impl SRC1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SRC1_R(crate::FieldReader::new(bits))
     }
@@ -370,6 +372,7 @@ impl From<SRC2_A> for u8 {
 #[doc = "Field `SRC2` reader - Selects the input source for bit slice 2"]
 pub struct SRC2_R(crate::FieldReader<u8, SRC2_A>);
 impl SRC2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SRC2_R(crate::FieldReader::new(bits))
     }
@@ -523,6 +526,7 @@ impl From<SRC3_A> for u8 {
 #[doc = "Field `SRC3` reader - Selects the input source for bit slice 3"]
 pub struct SRC3_R(crate::FieldReader<u8, SRC3_A>);
 impl SRC3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SRC3_R(crate::FieldReader::new(bits))
     }
@@ -676,6 +680,7 @@ impl From<SRC4_A> for u8 {
 #[doc = "Field `SRC4` reader - Selects the input source for bit slice 4"]
 pub struct SRC4_R(crate::FieldReader<u8, SRC4_A>);
 impl SRC4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SRC4_R(crate::FieldReader::new(bits))
     }
@@ -829,6 +834,7 @@ impl From<SRC5_A> for u8 {
 #[doc = "Field `SRC5` reader - Selects the input source for bit slice 5"]
 pub struct SRC5_R(crate::FieldReader<u8, SRC5_A>);
 impl SRC5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SRC5_R(crate::FieldReader::new(bits))
     }
@@ -982,6 +988,7 @@ impl From<SRC6_A> for u8 {
 #[doc = "Field `SRC6` reader - Selects the input source for bit slice 6"]
 pub struct SRC6_R(crate::FieldReader<u8, SRC6_A>);
 impl SRC6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SRC6_R(crate::FieldReader::new(bits))
     }
@@ -1135,6 +1142,7 @@ impl From<SRC7_A> for u8 {
 #[doc = "Field `SRC7` reader - Selects the input source for bit slice 7"]
 pub struct SRC7_R(crate::FieldReader<u8, SRC7_A>);
 impl SRC7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SRC7_R(crate::FieldReader::new(bits))
     }

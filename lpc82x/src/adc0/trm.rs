@@ -51,6 +51,7 @@ impl From<VRANGE_A> for bool {
 #[doc = "Field `VRANGE` reader - 2.4V to 3.6V Vdd range: This bit MUST be set to '1' if operation below 2.7V is to be used. Failure to set this bit will result in invalid ADC results. Note: This bit will not be spec'd on parts that do not support operation below 2.7V"]
 pub struct VRANGE_R(crate::FieldReader<bool, VRANGE_A>);
 impl VRANGE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         VRANGE_R(crate::FieldReader::new(bits))
     }

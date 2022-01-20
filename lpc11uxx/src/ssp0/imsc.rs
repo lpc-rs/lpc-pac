@@ -37,6 +37,7 @@ impl From<crate::W<IMSC_SPEC>> for W {
 #[doc = "Field `RORIM` reader - Software should set this bit to enable interrupt when a Receive Overrun occurs, that is, when the Rx FIFO is full and another frame is completely received. The ARM spec implies that the preceding frame data is overwritten by the new frame data when this occurs."]
 pub struct RORIM_R(crate::FieldReader<bool, bool>);
 impl RORIM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RORIM_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> RORIM_W<'a> {
 #[doc = "Field `RTIM` reader - Software should set this bit to enable interrupt when a Receive Time-out condition occurs. A Receive Time-out occurs when the Rx FIFO is not empty, and no has not been read for a time-out period. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR X \\[SCR+1\\])."]
 pub struct RTIM_R(crate::FieldReader<bool, bool>);
 impl RTIM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RTIM_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> RTIM_W<'a> {
 #[doc = "Field `RXIM` reader - Software should set this bit to enable interrupt when the Rx FIFO is at least half full."]
 pub struct RXIM_R(crate::FieldReader<bool, bool>);
 impl RXIM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXIM_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> RXIM_W<'a> {
 #[doc = "Field `TXIM` reader - Software should set this bit to enable interrupt when the Tx FIFO is at least half empty."]
 pub struct TXIM_R(crate::FieldReader<bool, bool>);
 impl TXIM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXIM_R(crate::FieldReader::new(bits))
     }

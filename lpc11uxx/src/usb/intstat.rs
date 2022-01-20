@@ -37,6 +37,7 @@ impl From<crate::W<INTSTAT_SPEC>> for W {
 #[doc = "Field `EP0OUT` reader - Interrupt status register bit for the Control EP0 OUT direction. This bit will be set if NBytes transitions to zero or the skip bit is set by software or a SETUP packet is successfully received for the control EP0. If the IntOnNAK_CO is set, this bit will also be set when a NAK is transmitted for the Control EP0 OUT direction. Software can clear this bit by writing a one to it."]
 pub struct EP0OUT_R(crate::FieldReader<bool, bool>);
 impl EP0OUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP0OUT_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> EP0OUT_W<'a> {
 #[doc = "Field `EP0IN` reader - Interrupt status register bit for the Control EP0 IN direction. This bit will be set if NBytes transitions to zero or the skip bit is set by software. If the IntOnNAK_CI is set, this bit will also be set when a NAK is transmitted for the Control EP0 IN direction. Software can clear this bit by writing a one to it."]
 pub struct EP0IN_R(crate::FieldReader<bool, bool>);
 impl EP0IN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP0IN_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> EP0IN_W<'a> {
 #[doc = "Field `EP1OUT` reader - Interrupt status register bit for the EP1 OUT direction. This bit will be set if the corresponding Active bit is cleared by HW. This is done in case the programmed NBytes transitions to zero or the skip bit is set by software. If the IntOnNAK_AO is set, this bit will also be set when a NAK is transmitted for the EP1 OUT direction. Software can clear this bit by writing a one to it."]
 pub struct EP1OUT_R(crate::FieldReader<bool, bool>);
 impl EP1OUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP1OUT_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> EP1OUT_W<'a> {
 #[doc = "Field `EP1IN` reader - Interrupt status register bit for the EP1 IN direction. This bit will be set if the corresponding Active bit is cleared by HW. This is done in case the programmed NBytes transitions to zero or the skip bit is set by software. If the IntOnNAK_AI is set, this bit will also be set when a NAK is transmitted for the EP1 IN direction. Software can clear this bit by writing a one to it."]
 pub struct EP1IN_R(crate::FieldReader<bool, bool>);
 impl EP1IN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP1IN_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> EP1IN_W<'a> {
 #[doc = "Field `EP2OUT` reader - Interrupt status register bit for the EP2 OUT direction. This bit will be set if the corresponding Active bit is cleared by HW. This is done in case the programmed NBytes transitions to zero or the skip bit is set by software. If the IntOnNAK_AO is set, this bit will also be set when a NAK is transmitted for the EP2 OUT direction. Software can clear this bit by writing a one to it."]
 pub struct EP2OUT_R(crate::FieldReader<bool, bool>);
 impl EP2OUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP2OUT_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> EP2OUT_W<'a> {
 #[doc = "Field `EP2IN` reader - Interrupt status register bit for the EP2 IN direction. This bit will be set if the corresponding Active bit is cleared by HW. This is done in case the programmed NBytes transitions to zero or the skip bit is set by software. If the IntOnNAK_AI is set, this bit will also be set when a NAK is transmitted for the EP2 IN direction. Software can clear this bit by writing a one to it."]
 pub struct EP2IN_R(crate::FieldReader<bool, bool>);
 impl EP2IN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP2IN_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> EP2IN_W<'a> {
 #[doc = "Field `EP3OUT` reader - Interrupt status register bit for the EP3 OUT direction. This bit will be set if the corresponding Active bit is cleared by HW. This is done in case the programmed NBytes transitions to zero or the skip bit is set by software. If the IntOnNAK_AO is set, this bit will also be set when a NAK is transmitted for the EP3 OUT direction. Software can clear this bit by writing a one to it."]
 pub struct EP3OUT_R(crate::FieldReader<bool, bool>);
 impl EP3OUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP3OUT_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> EP3OUT_W<'a> {
 #[doc = "Field `EP3IN` reader - Interrupt status register bit for the EP3 IN direction. This bit will be set if the corresponding Active bit is cleared by HW. This is done in case the programmed NBytes transitions to zero or the skip bit is set by software. If the IntOnNAK_AI is set, this bit will also be set when a NAK is transmitted for the EP3 IN direction. Software can clear this bit by writing a one to it."]
 pub struct EP3IN_R(crate::FieldReader<bool, bool>);
 impl EP3IN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP3IN_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> EP3IN_W<'a> {
 #[doc = "Field `EP4OUT` reader - Interrupt status register bit for the EP4 OUT direction. This bit will be set if the corresponding Active bit is cleared by HW. This is done in case the programmed NBytes transitions to zero or the skip bit is set by software. If the IntOnNAK_AO is set, this bit will also be set when a NAK is transmitted for the EP4 OUT direction. Software can clear this bit by writing a one to it."]
 pub struct EP4OUT_R(crate::FieldReader<bool, bool>);
 impl EP4OUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP4OUT_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> EP4OUT_W<'a> {
 #[doc = "Field `EP4IN` reader - Interrupt status register bit for the EP4 IN direction. This bit will be set if the corresponding Active bit is cleared by HW. This is done in case the programmed NBytes transitions to zero or the skip bit is set by software. If the IntOnNAK_AI is set, this bit will also be set when a NAK is transmitted for the EP4 IN direction. Software can clear this bit by writing a one to it."]
 pub struct EP4IN_R(crate::FieldReader<bool, bool>);
 impl EP4IN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EP4IN_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> EP4IN_W<'a> {
 #[doc = "Field `FRAME_INT` reader - Frame interrupt. This bit is set to one every millisecond when the VbusDebounced bit and the DCON bit are set. This bit can be used by software when handling isochronous endpoints. Software can clear this bit by writing a one to it."]
 pub struct FRAME_INT_R(crate::FieldReader<bool, bool>);
 impl FRAME_INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FRAME_INT_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> FRAME_INT_W<'a> {
 #[doc = "Field `DEV_INT` reader - Device status interrupt. This bit is set by HW when one of the bits in the Device Status Change register are set. Software can clear this bit by writing a one to it."]
 pub struct DEV_INT_R(crate::FieldReader<bool, bool>);
 impl DEV_INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DEV_INT_R(crate::FieldReader::new(bits))
     }

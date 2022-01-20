@@ -16,6 +16,7 @@ impl From<crate::R<CR0_SPEC>> for R {
 #[doc = "Field `CAP` reader - Timer counter capture value."]
 pub struct CAP_R(crate::FieldReader<u16, u16>);
 impl CAP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         CAP_R(crate::FieldReader::new(bits))
     }

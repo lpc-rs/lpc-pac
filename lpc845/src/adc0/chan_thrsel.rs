@@ -51,6 +51,7 @@ impl From<CH0_THRSEL_A> for bool {
 #[doc = "Field `CH0_THRSEL` reader - Threshold select for channel 0."]
 pub struct CH0_THRSEL_R(crate::FieldReader<bool, CH0_THRSEL_A>);
 impl CH0_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH0_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -120,6 +121,7 @@ impl<'a> CH0_THRSEL_W<'a> {
 #[doc = "Field `CH1_THRSEL` reader - Threshold select for channel 1. See description for channel 0."]
 pub struct CH1_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH1_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH1_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -156,6 +158,7 @@ impl<'a> CH1_THRSEL_W<'a> {
 #[doc = "Field `CH2_THRSEL` reader - Threshold select for channel 2. See description for channel 0."]
 pub struct CH2_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH2_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH2_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -192,6 +195,7 @@ impl<'a> CH2_THRSEL_W<'a> {
 #[doc = "Field `CH3_THRSEL` reader - Threshold select for channel 3. See description for channel 0."]
 pub struct CH3_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH3_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH3_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -228,6 +232,7 @@ impl<'a> CH3_THRSEL_W<'a> {
 #[doc = "Field `CH4_THRSEL` reader - Threshold select for channel 4. See description for channel 0."]
 pub struct CH4_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH4_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH4_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -264,6 +269,7 @@ impl<'a> CH4_THRSEL_W<'a> {
 #[doc = "Field `CH5_THRSEL` reader - Threshold select for channel 5. See description for channel 0."]
 pub struct CH5_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH5_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH5_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +306,7 @@ impl<'a> CH5_THRSEL_W<'a> {
 #[doc = "Field `CH6_THRSEL` reader - Threshold select for channel 6. See description for channel 0."]
 pub struct CH6_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH6_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH6_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -336,6 +343,7 @@ impl<'a> CH6_THRSEL_W<'a> {
 #[doc = "Field `CH7_THRSEL` reader - Threshold select for channel 7. See description for channel 0."]
 pub struct CH7_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH7_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH7_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -372,6 +380,7 @@ impl<'a> CH7_THRSEL_W<'a> {
 #[doc = "Field `CH8_THRSEL` reader - Threshold select for channel 8. See description for channel 0."]
 pub struct CH8_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH8_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH8_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -408,6 +417,7 @@ impl<'a> CH8_THRSEL_W<'a> {
 #[doc = "Field `CH9_THRSEL` reader - Threshold select for channel 9. See description for channel 0."]
 pub struct CH9_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH9_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH9_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -444,6 +454,7 @@ impl<'a> CH9_THRSEL_W<'a> {
 #[doc = "Field `CH10_THRSEL` reader - Threshold select for channel 10. See description for channel 0."]
 pub struct CH10_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH10_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH10_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -480,6 +491,7 @@ impl<'a> CH10_THRSEL_W<'a> {
 #[doc = "Field `CH11_THRSEL` reader - Threshold select for channel 11. See description for channel 0."]
 pub struct CH11_THRSEL_R(crate::FieldReader<bool, bool>);
 impl CH11_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH11_THRSEL_R(crate::FieldReader::new(bits))
     }

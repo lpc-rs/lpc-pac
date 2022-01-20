@@ -51,6 +51,7 @@ impl From<MSTEN_A> for bool {
 #[doc = "Field `MSTEN` reader - Master Enable. When disabled, configurations settings for the Master function are not changed, but the Master function is internally reset."]
 pub struct MSTEN_R(crate::FieldReader<bool, MSTEN_A>);
 impl MSTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSTEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<SLVEN_A> for bool {
 #[doc = "Field `SLVEN` reader - Slave Enable. When disabled, configurations settings for the Slave function are not changed, but the Slave function is internally reset."]
 pub struct SLVEN_R(crate::FieldReader<bool, SLVEN_A>);
 impl SLVEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVEN_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<MONEN_A> for bool {
 #[doc = "Field `MONEN` reader - Monitor Enable. When disabled, configurations settings for the Monitor function are not changed, but the Monitor function is internally reset."]
 pub struct MONEN_R(crate::FieldReader<bool, MONEN_A>);
 impl MONEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONEN_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<TIMEOUTEN_A> for bool {
 #[doc = "Field `TIMEOUTEN` reader - I2C bus Time-out Enable. When disabled, the time-out function is internally reset."]
 pub struct TIMEOUTEN_R(crate::FieldReader<bool, TIMEOUTEN_A>);
 impl TIMEOUTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TIMEOUTEN_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<MONCLKSTR_A> for bool {
 #[doc = "Field `MONCLKSTR` reader - Monitor function Clock Stretching."]
 pub struct MONCLKSTR_R(crate::FieldReader<bool, MONCLKSTR_A>);
 impl MONCLKSTR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONCLKSTR_R(crate::FieldReader::new(bits))
     }

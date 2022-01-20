@@ -51,6 +51,7 @@ impl From<INTEN_A> for bool {
 #[doc = "Field `INTEN` reader - Enable the TIMERn interrupt."]
 pub struct INTEN_R(crate::FieldReader<bool, INTEN_A>);
 impl INTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INTEN_R(crate::FieldReader::new(bits))
     }
@@ -137,6 +138,7 @@ impl From<MODE_A> for u8 {
 #[doc = "Field `MODE` reader - Selects timer mode."]
 pub struct MODE_R(crate::FieldReader<u8, MODE_A>);
 impl MODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MODE_R(crate::FieldReader::new(bits))
     }

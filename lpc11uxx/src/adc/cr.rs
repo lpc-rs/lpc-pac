@@ -37,6 +37,7 @@ impl From<crate::W<CR_SPEC>> for W {
 #[doc = "Field `SEL` reader - Selects which of the AD7:0 pins is (are) to be sampled and converted. Bit 0 selects Pin AD0, bit 1 selects pin AD1,..., and bit 7 selects pin AD7. In software-controlled mode (BURST = 0), only one channel can be selected, i.e. only one of these bits should be 1. In hardware scan mode (BURST = 1), any numbers of channels can be selected, i.e any or all bits can be set to 1. If all bits are set to 0, channel 0 is selected automatically (SEL = 0x01)."]
 pub struct SEL_R(crate::FieldReader<u8, u8>);
 impl SEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SEL_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> SEL_W<'a> {
 #[doc = "Field `CLKDIV` reader - The APB clock (PCLK) is divided by CLKDIV +1 to produce the clock for the ADC, which should be less than or equal to 4.5 MHz. Typically, software should program the smallest value in this field that yields a clock of 4.5 MHz or slightly less, but in certain cases (such as a high-impedance analog source) a slower clock may be desirable."]
 pub struct CLKDIV_R(crate::FieldReader<u8, u8>);
 impl CLKDIV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CLKDIV_R(crate::FieldReader::new(bits))
     }
@@ -91,7 +93,7 @@ impl<'a> CLKDIV_W<'a> {
 pub enum BURST_A {
     #[doc = "0: Software-controlled mode: Conversions are software-controlled and require 11 clocks."]
     SOFTWARE_CONTROLLED = 0,
-    #[doc = "1: Hardware scan mode: The AD converter does repeated conversions at the rate selected by the CLKS field, scanning (if necessary) through the pins selected by 1s in the SEL field. The first conversion after the start corresponds to the least-significant bit set to 1 in the SEL field, then the next higher  bits (pins) set to 1 are scanned if applicable. Repeated conversions can be terminated by clearing this bit, but the conversion in progress when this bit is cleared will be completed. Important: START bits must be 000 when BURST = 1 or conversions will not start."]
+    #[doc = "1: Hardware scan mode: The AD converter does repeated conversions at the rate selected by the CLKS field, scanning (if necessary) through the pins selected by 1s in the SEL field. The first conversion after the start corresponds to the least-significant bit set to 1 in the SEL field, then the next higher bits (pins) set to 1 are scanned if applicable. Repeated conversions can be terminated by clearing this bit, but the conversion in progress when this bit is cleared will be completed. Important: START bits must be 000 when BURST = 1 or conversions will not start."]
     HARDWARE_SCAN = 1,
 }
 impl From<BURST_A> for bool {
@@ -103,6 +105,7 @@ impl From<BURST_A> for bool {
 #[doc = "Field `BURST` reader - Burst mode If BURST is set to 1, the ADGINTEN bit in the INTEN register (Table 276) must be set to 0."]
 pub struct BURST_R(crate::FieldReader<bool, BURST_A>);
 impl BURST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BURST_R(crate::FieldReader::new(bits))
     }
@@ -199,6 +202,7 @@ impl From<CLKS_A> for u8 {
 #[doc = "Field `CLKS` reader - This field selects the number of clocks used for each conversion in Burst mode, and the number of bits of accuracy of the result in the LS bits of ADDR, between 11 clocks (10 bits) and 4 clocks (3 bits)."]
 pub struct CLKS_R(crate::FieldReader<u8, CLKS_A>);
 impl CLKS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CLKS_R(crate::FieldReader::new(bits))
     }
@@ -352,6 +356,7 @@ impl From<START_A> for u8 {
 #[doc = "Field `START` reader - When the BURST bit is 0, these bits control whether and when an A/D conversion is started:"]
 pub struct START_R(crate::FieldReader<u8, START_A>);
 impl START_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         START_R(crate::FieldReader::new(bits))
     }
@@ -492,6 +497,7 @@ impl From<EDGE_A> for bool {
 #[doc = "Field `EDGE` reader - This bit is significant only when the START field contains 010-111. In these cases:"]
 pub struct EDGE_R(crate::FieldReader<bool, EDGE_A>);
 impl EDGE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EDGE_R(crate::FieldReader::new(bits))
     }

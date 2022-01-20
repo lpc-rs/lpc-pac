@@ -37,6 +37,7 @@ impl From<crate::W<EEMSSTART_SPEC>> for W {
 #[doc = "Field `STARTA` reader - BIST start address: Bit 0 is fixed zero since only even addresses are allowed."]
 pub struct STARTA_R(crate::FieldReader<u16, u16>);
 impl STARTA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         STARTA_R(crate::FieldReader::new(bits))
     }

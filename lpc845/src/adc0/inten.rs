@@ -51,6 +51,7 @@ impl From<SEQA_INTEN_A> for bool {
 #[doc = "Field `SEQA_INTEN` reader - Sequence A interrupt enable."]
 pub struct SEQA_INTEN_R(crate::FieldReader<bool, SEQA_INTEN_A>);
 impl SEQA_INTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEQA_INTEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<SEQB_INTEN_A> for bool {
 #[doc = "Field `SEQB_INTEN` reader - Sequence B interrupt enable."]
 pub struct SEQB_INTEN_R(crate::FieldReader<bool, SEQB_INTEN_A>);
 impl SEQB_INTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEQB_INTEN_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<OVR_INTEN_A> for bool {
 #[doc = "Field `OVR_INTEN` reader - Overrun interrupt enable."]
 pub struct OVR_INTEN_R(crate::FieldReader<bool, OVR_INTEN_A>);
 impl OVR_INTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVR_INTEN_R(crate::FieldReader::new(bits))
     }
@@ -303,6 +306,7 @@ impl From<ADCMPINTEN0_A> for u8 {
 #[doc = "Field `ADCMPINTEN0` reader - Threshold comparison interrupt enable for channel 0."]
 pub struct ADCMPINTEN0_R(crate::FieldReader<u8, ADCMPINTEN0_A>);
 impl ADCMPINTEN0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN0_R(crate::FieldReader::new(bits))
     }
@@ -374,6 +378,7 @@ impl<'a> ADCMPINTEN0_W<'a> {
 #[doc = "Field `ADCMPINTEN1` reader - Channel 1 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN1_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN1_R(crate::FieldReader::new(bits))
     }
@@ -400,6 +405,7 @@ impl<'a> ADCMPINTEN1_W<'a> {
 #[doc = "Field `ADCMPINTEN2` reader - Channel 2 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN2_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN2_R(crate::FieldReader::new(bits))
     }
@@ -426,6 +432,7 @@ impl<'a> ADCMPINTEN2_W<'a> {
 #[doc = "Field `ADCMPINTEN3` reader - Channel 3 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN3_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN3_R(crate::FieldReader::new(bits))
     }
@@ -452,6 +459,7 @@ impl<'a> ADCMPINTEN3_W<'a> {
 #[doc = "Field `ADCMPINTEN4` reader - Channel 4 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN4_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN4_R(crate::FieldReader::new(bits))
     }
@@ -478,6 +486,7 @@ impl<'a> ADCMPINTEN4_W<'a> {
 #[doc = "Field `ADCMPINTEN5` reader - Channel 5 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN5_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN5_R(crate::FieldReader::new(bits))
     }
@@ -504,6 +513,7 @@ impl<'a> ADCMPINTEN5_W<'a> {
 #[doc = "Field `ADCMPINTEN6` reader - Channel 6 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN6_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN6_R(crate::FieldReader::new(bits))
     }
@@ -530,6 +540,7 @@ impl<'a> ADCMPINTEN6_W<'a> {
 #[doc = "Field `ADCMPINTEN7` reader - Channel 7 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN7_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN7_R(crate::FieldReader::new(bits))
     }
@@ -556,6 +567,7 @@ impl<'a> ADCMPINTEN7_W<'a> {
 #[doc = "Field `ADCMPINTEN8` reader - Channel 8 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN8_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN8_R(crate::FieldReader::new(bits))
     }
@@ -582,6 +594,7 @@ impl<'a> ADCMPINTEN8_W<'a> {
 #[doc = "Field `ADCMPINTEN9` reader - Channel 9 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN9_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN9_R(crate::FieldReader::new(bits))
     }
@@ -608,6 +621,7 @@ impl<'a> ADCMPINTEN9_W<'a> {
 #[doc = "Field `ADCMPINTEN10` reader - Channel 10 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN10_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN10_R(crate::FieldReader::new(bits))
     }
@@ -634,6 +648,7 @@ impl<'a> ADCMPINTEN10_W<'a> {
 #[doc = "Field `ADCMPINTEN11` reader - Channel 21 threshold comparison interrupt enable. See description for channel 0."]
 pub struct ADCMPINTEN11_R(crate::FieldReader<u8, u8>);
 impl ADCMPINTEN11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADCMPINTEN11_R(crate::FieldReader::new(bits))
     }

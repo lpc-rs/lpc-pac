@@ -56,6 +56,7 @@ impl From<MODE_A> for u8 {
 #[doc = "Field `MODE` reader - Selects function mode (on-chip pull-up/pull-down resistor control)."]
 pub struct MODE_R(crate::FieldReader<u8, MODE_A>);
 impl MODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MODE_R(crate::FieldReader::new(bits))
     }
@@ -152,6 +153,7 @@ impl From<HYS_A> for bool {
 #[doc = "Field `HYS` reader - Hysteresis."]
 pub struct HYS_R(crate::FieldReader<bool, HYS_A>);
 impl HYS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         HYS_R(crate::FieldReader::new(bits))
     }
@@ -235,6 +237,7 @@ impl From<INV_A> for bool {
 #[doc = "Field `INV` reader - Invert input"]
 pub struct INV_R(crate::FieldReader<bool, INV_A>);
 impl INV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INV_R(crate::FieldReader::new(bits))
     }
@@ -318,6 +321,7 @@ impl From<OD_A> for bool {
 #[doc = "Field `OD` reader - Open-drain mode."]
 pub struct OD_R(crate::FieldReader<bool, OD_A>);
 impl OD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OD_R(crate::FieldReader::new(bits))
     }
@@ -406,6 +410,7 @@ impl From<S_MODE_A> for u8 {
 #[doc = "Field `S_MODE` reader - Digital filter sample mode."]
 pub struct S_MODE_R(crate::FieldReader<u8, S_MODE_A>);
 impl S_MODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         S_MODE_R(crate::FieldReader::new(bits))
     }
@@ -513,6 +518,7 @@ impl From<CLK_DIV_A> for u8 {
 #[doc = "Field `CLK_DIV` reader - Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved."]
 pub struct CLK_DIV_R(crate::FieldReader<u8, CLK_DIV_A>);
 impl CLK_DIV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CLK_DIV_R(crate::FieldReader::new(bits))
     }
@@ -642,6 +648,7 @@ impl From<DACMODE_A> for bool {
 #[doc = "Field `DACMODE` reader - DAC mode enable."]
 pub struct DACMODE_R(crate::FieldReader<bool, DACMODE_A>);
 impl DACMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DACMODE_R(crate::FieldReader::new(bits))
     }

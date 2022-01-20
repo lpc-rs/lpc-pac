@@ -16,6 +16,7 @@ impl From<crate::R<FMSW0_SPEC>> for R {
 #[doc = "Field `SIG` reader - 32-bit signature."]
 pub struct SIG_R(crate::FieldReader<u32, u32>);
 impl SIG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         SIG_R(crate::FieldReader::new(bits))
     }
@@ -31,7 +32,7 @@ impl R {
     #[doc = "Bits 0:31 - 32-bit signature."]
     #[inline(always)]
     pub fn sig(&self) -> SIG_R {
-        SIG_R::new((self.bits & 0xffff_ffff) as u32)
+        SIG_R::new(self.bits)
     }
 }
 #[doc = "Flash signature generation result register returns the flash signature produced by the embedded signature generator..\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fmsw0](index.html) module"]

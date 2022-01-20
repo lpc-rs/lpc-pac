@@ -37,6 +37,7 @@ impl From<crate::W<PIN_SPEC>> for W {
 #[doc = "Field `PORT0` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT0_R(crate::FieldReader<bool, bool>);
 impl PORT0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> PORT0_W<'a> {
 #[doc = "Field `PORT1` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT1_R(crate::FieldReader<bool, bool>);
 impl PORT1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> PORT1_W<'a> {
 #[doc = "Field `PORT2` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT2_R(crate::FieldReader<bool, bool>);
 impl PORT2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> PORT2_W<'a> {
 #[doc = "Field `PORT3` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT3_R(crate::FieldReader<bool, bool>);
 impl PORT3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> PORT3_W<'a> {
 #[doc = "Field `PORT4` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT4_R(crate::FieldReader<bool, bool>);
 impl PORT4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> PORT4_W<'a> {
 #[doc = "Field `PORT5` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT5_R(crate::FieldReader<bool, bool>);
 impl PORT5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> PORT5_W<'a> {
 #[doc = "Field `PORT6` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT6_R(crate::FieldReader<bool, bool>);
 impl PORT6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> PORT6_W<'a> {
 #[doc = "Field `PORT7` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT7_R(crate::FieldReader<bool, bool>);
 impl PORT7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT7_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> PORT7_W<'a> {
 #[doc = "Field `PORT8` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT8_R(crate::FieldReader<bool, bool>);
 impl PORT8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT8_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> PORT8_W<'a> {
 #[doc = "Field `PORT9` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT9_R(crate::FieldReader<bool, bool>);
 impl PORT9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT9_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> PORT9_W<'a> {
 #[doc = "Field `PORT10` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT10_R(crate::FieldReader<bool, bool>);
 impl PORT10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT10_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> PORT10_W<'a> {
 #[doc = "Field `PORT11` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT11_R(crate::FieldReader<bool, bool>);
 impl PORT11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT11_R(crate::FieldReader::new(bits))
     }
@@ -469,6 +481,7 @@ impl<'a> PORT11_W<'a> {
 #[doc = "Field `PORT12` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT12_R(crate::FieldReader<bool, bool>);
 impl PORT12_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT12_R(crate::FieldReader::new(bits))
     }
@@ -505,6 +518,7 @@ impl<'a> PORT12_W<'a> {
 #[doc = "Field `PORT13` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT13_R(crate::FieldReader<bool, bool>);
 impl PORT13_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT13_R(crate::FieldReader::new(bits))
     }
@@ -541,6 +555,7 @@ impl<'a> PORT13_W<'a> {
 #[doc = "Field `PORT14` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT14_R(crate::FieldReader<bool, bool>);
 impl PORT14_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT14_R(crate::FieldReader::new(bits))
     }
@@ -577,6 +592,7 @@ impl<'a> PORT14_W<'a> {
 #[doc = "Field `PORT15` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT15_R(crate::FieldReader<bool, bool>);
 impl PORT15_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT15_R(crate::FieldReader::new(bits))
     }
@@ -613,6 +629,7 @@ impl<'a> PORT15_W<'a> {
 #[doc = "Field `PORT16` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT16_R(crate::FieldReader<bool, bool>);
 impl PORT16_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT16_R(crate::FieldReader::new(bits))
     }
@@ -649,6 +666,7 @@ impl<'a> PORT16_W<'a> {
 #[doc = "Field `PORT17` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT17_R(crate::FieldReader<bool, bool>);
 impl PORT17_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT17_R(crate::FieldReader::new(bits))
     }
@@ -685,6 +703,7 @@ impl<'a> PORT17_W<'a> {
 #[doc = "Field `PORT18` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT18_R(crate::FieldReader<bool, bool>);
 impl PORT18_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT18_R(crate::FieldReader::new(bits))
     }
@@ -721,6 +740,7 @@ impl<'a> PORT18_W<'a> {
 #[doc = "Field `PORT19` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT19_R(crate::FieldReader<bool, bool>);
 impl PORT19_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT19_R(crate::FieldReader::new(bits))
     }
@@ -757,6 +777,7 @@ impl<'a> PORT19_W<'a> {
 #[doc = "Field `PORT20` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT20_R(crate::FieldReader<bool, bool>);
 impl PORT20_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT20_R(crate::FieldReader::new(bits))
     }
@@ -793,6 +814,7 @@ impl<'a> PORT20_W<'a> {
 #[doc = "Field `PORT21` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT21_R(crate::FieldReader<bool, bool>);
 impl PORT21_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT21_R(crate::FieldReader::new(bits))
     }
@@ -829,6 +851,7 @@ impl<'a> PORT21_W<'a> {
 #[doc = "Field `PORT22` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT22_R(crate::FieldReader<bool, bool>);
 impl PORT22_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT22_R(crate::FieldReader::new(bits))
     }
@@ -865,6 +888,7 @@ impl<'a> PORT22_W<'a> {
 #[doc = "Field `PORT23` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT23_R(crate::FieldReader<bool, bool>);
 impl PORT23_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT23_R(crate::FieldReader::new(bits))
     }
@@ -901,6 +925,7 @@ impl<'a> PORT23_W<'a> {
 #[doc = "Field `PORT24` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT24_R(crate::FieldReader<bool, bool>);
 impl PORT24_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT24_R(crate::FieldReader::new(bits))
     }
@@ -937,6 +962,7 @@ impl<'a> PORT24_W<'a> {
 #[doc = "Field `PORT25` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT25_R(crate::FieldReader<bool, bool>);
 impl PORT25_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT25_R(crate::FieldReader::new(bits))
     }
@@ -973,6 +999,7 @@ impl<'a> PORT25_W<'a> {
 #[doc = "Field `PORT26` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT26_R(crate::FieldReader<bool, bool>);
 impl PORT26_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT26_R(crate::FieldReader::new(bits))
     }
@@ -1009,6 +1036,7 @@ impl<'a> PORT26_W<'a> {
 #[doc = "Field `PORT27` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT27_R(crate::FieldReader<bool, bool>);
 impl PORT27_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT27_R(crate::FieldReader::new(bits))
     }
@@ -1045,6 +1073,7 @@ impl<'a> PORT27_W<'a> {
 #[doc = "Field `PORT28` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT28_R(crate::FieldReader<bool, bool>);
 impl PORT28_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT28_R(crate::FieldReader::new(bits))
     }
@@ -1081,6 +1110,7 @@ impl<'a> PORT28_W<'a> {
 #[doc = "Field `PORT29` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT29_R(crate::FieldReader<bool, bool>);
 impl PORT29_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT29_R(crate::FieldReader::new(bits))
     }
@@ -1117,6 +1147,7 @@ impl<'a> PORT29_W<'a> {
 #[doc = "Field `PORT30` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT30_R(crate::FieldReader<bool, bool>);
 impl PORT30_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT30_R(crate::FieldReader::new(bits))
     }
@@ -1153,6 +1184,7 @@ impl<'a> PORT30_W<'a> {
 #[doc = "Field `PORT31` reader - Reads pin states or loads output bits (bit 0 = P0/1_0, bit 1 = P0/1_1, ..., bit 31 = P0/1_31). 0 = Read: pin is low; write: clear output bit. 1 = Read: pin is high; write: set output bit."]
 pub struct PORT31_R(crate::FieldReader<bool, bool>);
 impl PORT31_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PORT31_R(crate::FieldReader::new(bits))
     }

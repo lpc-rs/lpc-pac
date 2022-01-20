@@ -51,6 +51,7 @@ impl From<CEN_A> for bool {
 #[doc = "Field `CEN` reader - Counter enable."]
 pub struct CEN_R(crate::FieldReader<bool, CEN_A>);
 impl CEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CEN_R(crate::FieldReader::new(bits))
     }
@@ -135,6 +136,7 @@ impl From<CRST_A> for bool {
 #[doc = "Field `CRST` reader - Counter reset."]
 pub struct CRST_R(crate::FieldReader<bool, CRST_A>);
 impl CRST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CRST_R(crate::FieldReader::new(bits))
     }

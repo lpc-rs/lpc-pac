@@ -17,6 +17,7 @@ impl From<crate::R<BASE_SPEC>> for R {
 signal."]
 pub struct BASE_R(crate::FieldReader<u32, u32>);
 impl BASE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         BASE_R(crate::FieldReader::new(bits))
     }
@@ -33,7 +34,7 @@ impl R {
 signal."]
     #[inline(always)]
     pub fn base(&self) -> BASE_R {
-        BASE_R::new((self.bits & 0xffff_ffff) as u32)
+        BASE_R::new(self.bits)
     }
 }
 #[doc = "Indicates where the SRAM is located in the processor memory map. This register is provided to enable auto discovery of the MTB SRAM location, by a debug agent.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [base](index.html) module"]

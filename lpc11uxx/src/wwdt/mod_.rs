@@ -51,6 +51,7 @@ impl From<WDEN_A> for bool {
 #[doc = "Field `WDEN` reader - Watchdog enable bit. Once this bit has been written with a 1 it cannot be rewritten with a 0."]
 pub struct WDEN_R(crate::FieldReader<bool, WDEN_A>);
 impl WDEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<WDRESET_A> for bool {
 #[doc = "Field `WDRESET` reader - Watchdog reset enable bit. Once this bit has been written with a 1 it cannot be rewritten with a 0."]
 pub struct WDRESET_R(crate::FieldReader<bool, WDRESET_A>);
 impl WDRESET_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDRESET_R(crate::FieldReader::new(bits))
     }
@@ -203,6 +205,7 @@ impl<'a> WDRESET_W<'a> {
 #[doc = "Field `WDTOF` reader - Watchdog time-out flag. Set when the watchdog timer times out, by a feed error, or by events associated with WDPROTECT. Cleared by software. Causes a chip reset if WDRESET = 1."]
 pub struct WDTOF_R(crate::FieldReader<bool, bool>);
 impl WDTOF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDTOF_R(crate::FieldReader::new(bits))
     }
@@ -239,6 +242,7 @@ impl<'a> WDTOF_W<'a> {
 #[doc = "Field `WDINT` reader - Warning interrupt flag. Set when the timer reaches the value in WDWARNINT. Cleared by software."]
 pub struct WDINT_R(crate::FieldReader<bool, bool>);
 impl WDINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDINT_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +293,7 @@ impl From<WDPROTECT_A> for bool {
 #[doc = "Field `WDPROTECT` reader - Watchdog update mode. This bit can be set once by software and is only cleared by a reset."]
 pub struct WDPROTECT_R(crate::FieldReader<bool, WDPROTECT_A>);
 impl WDPROTECT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDPROTECT_R(crate::FieldReader::new(bits))
     }
@@ -358,6 +363,7 @@ impl<'a> WDPROTECT_W<'a> {
 #[doc = "Field `LOCK` reader - A 1 in this bit prevents disabling or powering down the clock source selected by bit 0 of the WDCLKSRC register and also prevents switching to a clock source that is disabled or powered down. This bit can be set once by software and is only cleared by any reset. If this bit is one and the WWDT clock source is the IRC when Deep-sleep or Power-down modes are entered, the IRC remains running thereby increasing power consumption in Deep-sleep mode and potentially preventing the part of entering Power-down mode correctly (see Section 15.7)."]
 pub struct LOCK_R(crate::FieldReader<bool, bool>);
 impl LOCK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LOCK_R(crate::FieldReader::new(bits))
     }

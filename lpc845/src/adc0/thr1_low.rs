@@ -37,6 +37,7 @@ impl From<crate::W<THR1_LOW_SPEC>> for W {
 #[doc = "Field `THRLOW` reader - Low threshold value against which ADC results will be compared"]
 pub struct THRLOW_R(crate::FieldReader<u16, u16>);
 impl THRLOW_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         THRLOW_R(crate::FieldReader::new(bits))
     }

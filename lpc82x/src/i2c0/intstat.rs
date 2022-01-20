@@ -16,6 +16,7 @@ impl From<crate::R<INTSTAT_SPEC>> for R {
 #[doc = "Field `MSTPENDING` reader - Master Pending."]
 pub struct MSTPENDING_R(crate::FieldReader<bool, bool>);
 impl MSTPENDING_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSTPENDING_R(crate::FieldReader::new(bits))
     }
@@ -30,6 +31,7 @@ impl core::ops::Deref for MSTPENDING_R {
 #[doc = "Field `MSTARBLOSS` reader - Master Arbitration Loss flag."]
 pub struct MSTARBLOSS_R(crate::FieldReader<bool, bool>);
 impl MSTARBLOSS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSTARBLOSS_R(crate::FieldReader::new(bits))
     }
@@ -44,6 +46,7 @@ impl core::ops::Deref for MSTARBLOSS_R {
 #[doc = "Field `MSTSTSTPERR` reader - Master Start/Stop Error flag."]
 pub struct MSTSTSTPERR_R(crate::FieldReader<bool, bool>);
 impl MSTSTSTPERR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSTSTSTPERR_R(crate::FieldReader::new(bits))
     }
@@ -58,6 +61,7 @@ impl core::ops::Deref for MSTSTSTPERR_R {
 #[doc = "Field `SLVPENDING` reader - Slave Pending."]
 pub struct SLVPENDING_R(crate::FieldReader<bool, bool>);
 impl SLVPENDING_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVPENDING_R(crate::FieldReader::new(bits))
     }
@@ -72,6 +76,7 @@ impl core::ops::Deref for SLVPENDING_R {
 #[doc = "Field `SLVNOTSTR` reader - Slave Not Stretching status."]
 pub struct SLVNOTSTR_R(crate::FieldReader<bool, bool>);
 impl SLVNOTSTR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVNOTSTR_R(crate::FieldReader::new(bits))
     }
@@ -86,6 +91,7 @@ impl core::ops::Deref for SLVNOTSTR_R {
 #[doc = "Field `SLVDESEL` reader - Slave Deselected flag."]
 pub struct SLVDESEL_R(crate::FieldReader<bool, bool>);
 impl SLVDESEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVDESEL_R(crate::FieldReader::new(bits))
     }
@@ -100,6 +106,7 @@ impl core::ops::Deref for SLVDESEL_R {
 #[doc = "Field `MONRDY` reader - Monitor Ready."]
 pub struct MONRDY_R(crate::FieldReader<bool, bool>);
 impl MONRDY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONRDY_R(crate::FieldReader::new(bits))
     }
@@ -114,6 +121,7 @@ impl core::ops::Deref for MONRDY_R {
 #[doc = "Field `MONOV` reader - Monitor Overflow flag."]
 pub struct MONOV_R(crate::FieldReader<bool, bool>);
 impl MONOV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONOV_R(crate::FieldReader::new(bits))
     }
@@ -128,6 +136,7 @@ impl core::ops::Deref for MONOV_R {
 #[doc = "Field `MONIDLE` reader - Monitor Idle flag."]
 pub struct MONIDLE_R(crate::FieldReader<bool, bool>);
 impl MONIDLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONIDLE_R(crate::FieldReader::new(bits))
     }
@@ -142,6 +151,7 @@ impl core::ops::Deref for MONIDLE_R {
 #[doc = "Field `EVENTTIMEOUT` reader - Event time-out Interrupt flag."]
 pub struct EVENTTIMEOUT_R(crate::FieldReader<bool, bool>);
 impl EVENTTIMEOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EVENTTIMEOUT_R(crate::FieldReader::new(bits))
     }
@@ -156,6 +166,7 @@ impl core::ops::Deref for EVENTTIMEOUT_R {
 #[doc = "Field `SCLTIMEOUT` reader - SCL time-out Interrupt flag."]
 pub struct SCLTIMEOUT_R(crate::FieldReader<bool, bool>);
 impl SCLTIMEOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SCLTIMEOUT_R(crate::FieldReader::new(bits))
     }

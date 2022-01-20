@@ -37,6 +37,7 @@ impl From<crate::W<MPIN0_SPEC>> for W {
 #[doc = "Field `MPORTP` reader - Masked port register (bit 0 = PIOn_0, bit 1 = PIOn_1, etc.). Supported pins depends on the specific device and package. 0 = Read: pin is LOW and/or the corresponding bit in the MASK register is 1; write: clear output bit if the corresponding bit in the MASK register is 0. 1 = Read: pin is HIGH and the corresponding bit in the MASK register is 0; write: set output bit if the corresponding bit in the MASK register is 0."]
 pub struct MPORTP_R(crate::FieldReader<u32, u32>);
 impl MPORTP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         MPORTP_R(crate::FieldReader::new(bits))
     }

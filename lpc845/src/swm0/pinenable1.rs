@@ -51,6 +51,7 @@ impl From<CAPT_X4_A> for bool {
 #[doc = "Field `CAPT_X4` reader - CAPT_X4 function select."]
 pub struct CAPT_X4_R(crate::FieldReader<bool, CAPT_X4_A>);
 impl CAPT_X4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAPT_X4_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<CAPT_X5_A> for bool {
 #[doc = "Field `CAPT_X5` reader - CAPT_X5 function select."]
 pub struct CAPT_X5_R(crate::FieldReader<bool, CAPT_X5_A>);
 impl CAPT_X5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAPT_X5_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<CAPT_X6_A> for bool {
 #[doc = "Field `CAPT_X6` reader - CAPT_X6 function select."]
 pub struct CAPT_X6_R(crate::FieldReader<bool, CAPT_X6_A>);
 impl CAPT_X6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAPT_X6_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<CAPT_X7_A> for bool {
 #[doc = "Field `CAPT_X7` reader - CAPT_X7 function select."]
 pub struct CAPT_X7_R(crate::FieldReader<bool, CAPT_X7_A>);
 impl CAPT_X7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAPT_X7_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<CAPT_X8_A> for bool {
 #[doc = "Field `CAPT_X8` reader - CAPT_X8 function select."]
 pub struct CAPT_X8_R(crate::FieldReader<bool, CAPT_X8_A>);
 impl CAPT_X8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAPT_X8_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<CAPT_YL_A> for bool {
 #[doc = "Field `CAPT_YL` reader - CAPT_YL function select."]
 pub struct CAPT_YL_R(crate::FieldReader<bool, CAPT_YL_A>);
 impl CAPT_YL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAPT_YL_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<CAPT_YH_A> for bool {
 #[doc = "Field `CAPT_YH` reader - CAPT_YH function select."]
 pub struct CAPT_YH_R(crate::FieldReader<bool, CAPT_YH_A>);
 impl CAPT_YH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAPT_YH_R(crate::FieldReader::new(bits))
     }

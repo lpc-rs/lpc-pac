@@ -37,6 +37,7 @@ impl From<crate::W<INTENSET_SPEC>> for W {
 #[doc = "Field `YESTOUCH` reader - Is 1 if a touch detected should interrupt. This includes wake from low-power mode."]
 pub struct YESTOUCH_R(crate::FieldReader<bool, bool>);
 impl YESTOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         YESTOUCH_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> YESTOUCH_W<'a> {
 #[doc = "Field `NOTOUCH` reader - Is 1 if a no-touch detected should interrupt"]
 pub struct NOTOUCH_R(crate::FieldReader<bool, bool>);
 impl NOTOUCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NOTOUCH_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> NOTOUCH_W<'a> {
 #[doc = "Field `POLLDONE` reader - Is 1 if a poll or POLLNOW completing should interrupt"]
 pub struct POLLDONE_R(crate::FieldReader<bool, bool>);
 impl POLLDONE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POLLDONE_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> POLLDONE_W<'a> {
 #[doc = "Field `TIMEOUT` reader - Is 1 if an integration cycle ending with timeout should interrupt"]
 pub struct TIMEOUT_R(crate::FieldReader<bool, bool>);
 impl TIMEOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TIMEOUT_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> TIMEOUT_W<'a> {
 #[doc = "Field `OVERUN` reader - Is 1 if an overrun should interrupt."]
 pub struct OVERUN_R(crate::FieldReader<bool, bool>);
 impl OVERUN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERUN_R(crate::FieldReader::new(bits))
     }

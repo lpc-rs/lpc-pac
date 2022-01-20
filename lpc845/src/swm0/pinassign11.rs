@@ -37,6 +37,7 @@ impl From<crate::W<PINASSIGN11_SPEC>> for W {
 #[doc = "Field `COMP0_OUT_O` reader - COMP0_OUT function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct COMP0_OUT_O_R(crate::FieldReader<u8, u8>);
 impl COMP0_OUT_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         COMP0_OUT_O_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> COMP0_OUT_O_W<'a> {
 #[doc = "Field `CLKOUT_O` reader - CLKOUT function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct CLKOUT_O_R(crate::FieldReader<u8, u8>);
 impl CLKOUT_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CLKOUT_O_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> CLKOUT_O_W<'a> {
 #[doc = "Field `GPIO_INT_BMAT_O` reader - GPIO_INT_BMAT function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct GPIO_INT_BMAT_O_R(crate::FieldReader<u8, u8>);
 impl GPIO_INT_BMAT_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         GPIO_INT_BMAT_O_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> GPIO_INT_BMAT_O_W<'a> {
 #[doc = "Field `UART3_TXD` reader - UART3_TXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct UART3_TXD_R(crate::FieldReader<u8, u8>);
 impl UART3_TXD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         UART3_TXD_R(crate::FieldReader::new(bits))
     }

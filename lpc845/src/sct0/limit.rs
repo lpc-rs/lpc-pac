@@ -37,6 +37,7 @@ impl From<crate::W<LIMIT_SPEC>> for W {
 #[doc = "Field `LIMMSK_L` reader - If bit n is one, event n is used as a counter limit for the L or unified counter (event 0 = bit 0, event 1 = bit 1, etc.). The number of bits = number of events in this SCT."]
 pub struct LIMMSK_L_R(crate::FieldReader<u8, u8>);
 impl LIMMSK_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         LIMMSK_L_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> LIMMSK_L_W<'a> {
 #[doc = "Field `LIMMSK_H` reader - If bit n is one, event n is used as a counter limit for the H counter (event 0 = bit 16, event 1 = bit 17, etc.). The number of bits = number of events in this SCT."]
 pub struct LIMMSK_H_R(crate::FieldReader<u8, u8>);
 impl LIMMSK_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         LIMMSK_H_R(crate::FieldReader::new(bits))
     }

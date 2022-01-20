@@ -37,6 +37,7 @@ impl From<crate::W<SET0_SPEC>> for W {
 #[doc = "Field `SETP` reader - Read or set output bits (bit 0 = PIOn_0, bit 1 = PIOn_1, etc.). Supported pins depends on the specific device and package. 0 = Read: output bit: write: no operation. 1 = Read: output bit; write: set output bit."]
 pub struct SETP_R(crate::FieldReader<u32, u32>);
 impl SETP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         SETP_R(crate::FieldReader::new(bits))
     }

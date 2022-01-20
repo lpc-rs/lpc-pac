@@ -51,6 +51,7 @@ impl From<TXBRKEN_A> for bool {
 #[doc = "Field `TXBRKEN` reader - Break Enable."]
 pub struct TXBRKEN_R(crate::FieldReader<bool, TXBRKEN_A>);
 impl TXBRKEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXBRKEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<ADDRDET_A> for bool {
 #[doc = "Field `ADDRDET` reader - Enable address detect mode."]
 pub struct ADDRDET_R(crate::FieldReader<bool, ADDRDET_A>);
 impl ADDRDET_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADDRDET_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<TXDIS_A> for bool {
 #[doc = "Field `TXDIS` reader - Transmit Disable."]
 pub struct TXDIS_R(crate::FieldReader<bool, TXDIS_A>);
 impl TXDIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXDIS_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<CC_A> for bool {
 #[doc = "Field `CC` reader - Continuous Clock generation. By default, SCLK is only output while data is being transmitted in synchronous mode."]
 pub struct CC_R(crate::FieldReader<bool, CC_A>);
 impl CC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CC_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<CLRCCONRX_A> for bool {
 #[doc = "Field `CLRCCONRX` reader - Clear Continuous Clock."]
 pub struct CLRCCONRX_R(crate::FieldReader<bool, CLRCCONRX_A>);
 impl CLRCCONRX_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLRCCONRX_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<AUTOBAUD_A> for bool {
 #[doc = "Field `AUTOBAUD` reader - Autobaud enable."]
 pub struct AUTOBAUD_R(crate::FieldReader<bool, AUTOBAUD_A>);
 impl AUTOBAUD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AUTOBAUD_R(crate::FieldReader::new(bits))
     }

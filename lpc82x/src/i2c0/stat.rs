@@ -51,6 +51,7 @@ impl From<MSTPENDING_A> for bool {
 #[doc = "Field `MSTPENDING` reader - Master Pending. Indicates that the Master is waiting to continue communication on the I2C-bus (pending) or is idle. When the master is pending, the MSTSTATE bits indicate what type of software service if any the master expects. This flag will cause an interrupt when set if, enabled via the INTENSET register. The MSTPENDING flag is not set when the DMA is handling an event (if the MSTDMA bit in the MSTCTL register is set). If the master is in the idle state, and no communication is needed, mask this interrupt."]
 pub struct MSTPENDING_R(crate::FieldReader<bool, MSTPENDING_A>);
 impl MSTPENDING_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSTPENDING_R(crate::FieldReader::new(bits))
     }
@@ -104,6 +105,7 @@ impl From<MSTSTATE_A> for u8 {
 #[doc = "Field `MSTSTATE` reader - Master State code. The master state code reflects the master state when the MSTPENDING bit is set, that is the master is pending or in the idle state. Each value of this field indicates a specific required service for the Master function. All other values are reserved. See Table 400 for details of state values and appropriate responses."]
 pub struct MSTSTATE_R(crate::FieldReader<u8, MSTSTATE_A>);
 impl MSTSTATE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MSTSTATE_R(crate::FieldReader::new(bits))
     }
@@ -169,6 +171,7 @@ impl From<MSTARBLOSS_A> for bool {
 #[doc = "Field `MSTARBLOSS` reader - Master Arbitration Loss flag. This flag can be cleared by software writing a 1 to this bit. It is also cleared automatically a 1 is written to MSTCONTINUE."]
 pub struct MSTARBLOSS_R(crate::FieldReader<bool, MSTARBLOSS_A>);
 impl MSTARBLOSS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSTARBLOSS_R(crate::FieldReader::new(bits))
     }
@@ -252,6 +255,7 @@ impl From<MSTSTSTPERR_A> for bool {
 #[doc = "Field `MSTSTSTPERR` reader - Master Start/Stop Error flag. This flag can be cleared by software writing a 1 to this bit. It is also cleared automatically a 1 is written to MSTCONTINUE."]
 pub struct MSTSTSTPERR_R(crate::FieldReader<bool, MSTSTSTPERR_A>);
 impl MSTSTSTPERR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSTSTSTPERR_R(crate::FieldReader::new(bits))
     }
@@ -335,6 +339,7 @@ impl From<SLVPENDING_A> for bool {
 #[doc = "Field `SLVPENDING` reader - Slave Pending. Indicates that the Slave function is waiting to continue communication on the I2C-bus and needs software service. This flag will cause an interrupt when set if enabled via INTENSET. The SLVPENDING flag is not set when the DMA is handling an event (if the SLVDMA bit in the SLVCTL register is set). The SLVPENDING flag is read-only and is automatically cleared when a 1 is written to the SLVCONTINUE bit in the SLVCTL register. The point in time when SlvPending is set depends on whether the I2C interface is in HSCAPABLE mode. See Section 25.7.2.2.2. When the I2C interface is configured to be HSCAPABLE, HS master codes are detected automatically. Due to the requirements of the HS I2C specification, slave addresses must also be detected automatically, since the address must be acknowledged before the clock can be stretched."]
 pub struct SLVPENDING_R(crate::FieldReader<bool, SLVPENDING_A>);
 impl SLVPENDING_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVPENDING_R(crate::FieldReader::new(bits))
     }
@@ -384,6 +389,7 @@ impl From<SLVSTATE_A> for u8 {
 #[doc = "Field `SLVSTATE` reader - Slave State code. Each value of this field indicates a specific required service for the Slave function. All other values are reserved. See Table 401 for state values and actions. note that the occurrence of some states and how they are handled are affected by DMA mode and Automatic Operation modes."]
 pub struct SLVSTATE_R(crate::FieldReader<u8, SLVSTATE_A>);
 impl SLVSTATE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SLVSTATE_R(crate::FieldReader::new(bits))
     }
@@ -437,6 +443,7 @@ impl From<SLVNOTSTR_A> for bool {
 #[doc = "Field `SLVNOTSTR` reader - Slave Not Stretching. Indicates when the slave function is stretching the I2C clock. This is needed in order to gracefully invoke Deep Sleep or Power-down modes during slave operation. This read-only flag reflects the slave function status in real time."]
 pub struct SLVNOTSTR_R(crate::FieldReader<bool, SLVNOTSTR_A>);
 impl SLVNOTSTR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVNOTSTR_R(crate::FieldReader::new(bits))
     }
@@ -488,6 +495,7 @@ impl From<SLVIDX_A> for u8 {
 #[doc = "Field `SLVIDX` reader - Slave address match Index. This field is valid when the I2C slave function has been selected by receiving an address that matches one of the slave addresses defined by any enabled slave address registers, and provides an identification of the address that was matched. It is possible that more than one address could be matched, but only one match can be reported here."]
 pub struct SLVIDX_R(crate::FieldReader<u8, SLVIDX_A>);
 impl SLVIDX_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SLVIDX_R(crate::FieldReader::new(bits))
     }
@@ -547,6 +555,7 @@ impl From<SLVSEL_A> for bool {
 #[doc = "Field `SLVSEL` reader - Slave selected flag. SLVSEL is set after an address match when software tells the Slave function to acknowledge the address, or when the address has been automatically acknowledged. It is cleared when another address cycle presents an address that does not match an enabled address on the Slave function, when slave software decides to NACK a matched address, when there is a Stop detected on the bus, when the master NACKs slave data, and in some combinations of Automatic Operation. SLVSEL is not cleared if software NACKs data."]
 pub struct SLVSEL_R(crate::FieldReader<bool, SLVSEL_A>);
 impl SLVSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVSEL_R(crate::FieldReader::new(bits))
     }
@@ -593,6 +602,7 @@ impl From<SLVDESEL_A> for bool {
 #[doc = "Field `SLVDESEL` reader - Slave Deselected flag. This flag will cause an interrupt when set if enabled via INTENSET. This flag can be cleared by writing a 1 to this bit."]
 pub struct SLVDESEL_R(crate::FieldReader<bool, SLVDESEL_A>);
 impl SLVDESEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVDESEL_R(crate::FieldReader::new(bits))
     }
@@ -676,6 +686,7 @@ impl From<MONRDY_A> for bool {
 #[doc = "Field `MONRDY` reader - Monitor Ready. This flag is cleared when the MONRXDAT register is read."]
 pub struct MONRDY_R(crate::FieldReader<bool, MONRDY_A>);
 impl MONRDY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONRDY_R(crate::FieldReader::new(bits))
     }
@@ -722,6 +733,7 @@ impl From<MONOV_A> for bool {
 #[doc = "Field `MONOV` reader - Monitor Overflow flag."]
 pub struct MONOV_R(crate::FieldReader<bool, MONOV_A>);
 impl MONOV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONOV_R(crate::FieldReader::new(bits))
     }
@@ -805,6 +817,7 @@ impl From<MONACTIVE_A> for bool {
 #[doc = "Field `MONACTIVE` reader - Monitor Active flag. Indicates when the Monitor function considers the I 2C bus to be active. Active is defined here as when some Master is on the bus: a bus Start has occurred more recently than a bus Stop."]
 pub struct MONACTIVE_R(crate::FieldReader<bool, MONACTIVE_A>);
 impl MONACTIVE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONACTIVE_R(crate::FieldReader::new(bits))
     }
@@ -851,6 +864,7 @@ impl From<MONIDLE_A> for bool {
 #[doc = "Field `MONIDLE` reader - Monitor Idle flag. This flag is set when the Monitor function sees the I2C bus change from active to inactive. This can be used by software to decide when to process data accumulated by the Monitor function. This flag will cause an interrupt when set if enabled via the INTENSET register. The flag can be cleared by writing a 1 to this bit."]
 pub struct MONIDLE_R(crate::FieldReader<bool, MONIDLE_A>);
 impl MONIDLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MONIDLE_R(crate::FieldReader::new(bits))
     }
@@ -934,6 +948,7 @@ impl From<EVENTTIMEOUT_A> for bool {
 #[doc = "Field `EVENTTIMEOUT` reader - Event Time-out Interrupt flag. Indicates when the time between events has been longer than the time specified by the TIMEOUT register. Events include Start, Stop, and clock edges. The flag is cleared by writing a 1 to this bit. No time-out is created when the I2C-bus is idle."]
 pub struct EVENTTIMEOUT_R(crate::FieldReader<bool, EVENTTIMEOUT_A>);
 impl EVENTTIMEOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EVENTTIMEOUT_R(crate::FieldReader::new(bits))
     }
@@ -1017,6 +1032,7 @@ impl From<SCLTIMEOUT_A> for bool {
 #[doc = "Field `SCLTIMEOUT` reader - SCL Time-out Interrupt flag. Indicates when SCL has remained low longer than the time specific by the TIMEOUT register. The flag is cleared by writing a 1 to this bit."]
 pub struct SCLTIMEOUT_R(crate::FieldReader<bool, SCLTIMEOUT_A>);
 impl SCLTIMEOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SCLTIMEOUT_R(crate::FieldReader::new(bits))
     }

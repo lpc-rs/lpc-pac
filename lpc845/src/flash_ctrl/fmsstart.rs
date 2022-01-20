@@ -37,6 +37,7 @@ impl From<crate::W<FMSSTART_SPEC>> for W {
 #[doc = "Field `START` reader - Signature generation start address (corresponds to AHB byte address bits\\[18:2\\])."]
 pub struct START_R(crate::FieldReader<u32, u32>);
 impl START_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         START_R(crate::FieldReader::new(bits))
     }

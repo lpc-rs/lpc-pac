@@ -37,6 +37,7 @@ impl From<crate::W<FLOW_SPEC>> for W {
 #[doc = "Field `AUTOSTOP` reader - If this bit is 1 and WATERMARK is equal to POSITION.POINTER, then the MASTER.EN bit is automatically set to 0. This stops tracing."]
 pub struct AUTOSTOP_R(crate::FieldReader<bool, bool>);
 impl AUTOSTOP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AUTOSTOP_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> AUTOSTOP_W<'a> {
 #[doc = "Field `AUTOHALT` reader - If this bit is 1 and WATERMARK is equal to POSITION.POINTER, then the MASTER.HALTREQ bit is automatically set to 1. If the DBGEN signal is HIGH, the MTB asserts this halt request to the Cortex-M0+ processor by asserting the EDBGRQ signal."]
 pub struct AUTOHALT_R(crate::FieldReader<bool, bool>);
 impl AUTOHALT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AUTOHALT_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> AUTOHALT_W<'a> {
 #[doc = "Field `WATERMARK` reader - WATERMARK value. This field contains an address in the same format as the POSITION.POINTER field. When the POSITION.POINTER matches the WATERMARK field value, actions defined by the AUTOHALT and AUTOSTOP bits are performed."]
 pub struct WATERMARK_R(crate::FieldReader<u32, u32>);
 impl WATERMARK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         WATERMARK_R(crate::FieldReader::new(bits))
     }

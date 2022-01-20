@@ -51,6 +51,7 @@ impl From<START_A> for bool {
 #[doc = "Field `START` reader - This bit is automatically cleared after auto-baud completion."]
 pub struct START_R(crate::FieldReader<bool, START_A>);
 impl START_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         START_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<MODE_A> for bool {
 #[doc = "Field `MODE` reader - Auto-baud mode select bit."]
 pub struct MODE_R(crate::FieldReader<bool, MODE_A>);
 impl MODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MODE_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<AUTORESTART_A> for bool {
 #[doc = "Field `AUTORESTART` reader - Start mode"]
 pub struct AUTORESTART_R(crate::FieldReader<bool, AUTORESTART_A>);
 impl AUTORESTART_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AUTORESTART_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<ABEOINTCLR_A> for bool {
 #[doc = "Field `ABEOINTCLR` reader - End of auto-baud interrupt clear bit (write only accessible)."]
 pub struct ABEOINTCLR_R(crate::FieldReader<bool, ABEOINTCLR_A>);
 impl ABEOINTCLR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ABEOINTCLR_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<ABTOINTCLR_A> for bool {
 #[doc = "Field `ABTOINTCLR` reader - Auto-baud time-out interrupt clear bit (write only accessible)."]
 pub struct ABTOINTCLR_R(crate::FieldReader<bool, ABTOINTCLR_A>);
 impl ABTOINTCLR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ABTOINTCLR_R(crate::FieldReader::new(bits))
     }

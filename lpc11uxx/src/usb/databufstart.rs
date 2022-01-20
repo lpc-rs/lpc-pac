@@ -37,6 +37,7 @@ impl From<crate::W<DATABUFSTART_SPEC>> for W {
 #[doc = "Field `DA_BUF` reader - Start address of the buffer pointer page where all endpoint data buffers are located."]
 pub struct DA_BUF_R(crate::FieldReader<u16, u16>);
 impl DA_BUF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         DA_BUF_R(crate::FieldReader::new(bits))
     }

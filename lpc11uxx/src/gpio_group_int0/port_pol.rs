@@ -37,6 +37,7 @@ impl From<crate::W<PORT_POL_SPEC>> for W {
 #[doc = "Field `POL_0` reader - Configure pin polarity of port pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1 . 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_0_R(crate::FieldReader<bool, bool>);
 impl POL_0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> POL_0_W<'a> {
 #[doc = "Field `POL_1` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_1_R(crate::FieldReader<bool, bool>);
 impl POL_1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> POL_1_W<'a> {
 #[doc = "Field `POL_2` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_2_R(crate::FieldReader<bool, bool>);
 impl POL_2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> POL_2_W<'a> {
 #[doc = "Field `POL_3` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_3_R(crate::FieldReader<bool, bool>);
 impl POL_3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> POL_3_W<'a> {
 #[doc = "Field `POL_4` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_4_R(crate::FieldReader<bool, bool>);
 impl POL_4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> POL_4_W<'a> {
 #[doc = "Field `POL_5` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_5_R(crate::FieldReader<bool, bool>);
 impl POL_5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> POL_5_W<'a> {
 #[doc = "Field `POL_6` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_6_R(crate::FieldReader<bool, bool>);
 impl POL_6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> POL_6_W<'a> {
 #[doc = "Field `POL_7` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_7_R(crate::FieldReader<bool, bool>);
 impl POL_7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_7_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> POL_7_W<'a> {
 #[doc = "Field `POL_8` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_8_R(crate::FieldReader<bool, bool>);
 impl POL_8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_8_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> POL_8_W<'a> {
 #[doc = "Field `POL_9` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_9_R(crate::FieldReader<bool, bool>);
 impl POL_9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_9_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> POL_9_W<'a> {
 #[doc = "Field `POL_10` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_10_R(crate::FieldReader<bool, bool>);
 impl POL_10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_10_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> POL_10_W<'a> {
 #[doc = "Field `POL_11` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_11_R(crate::FieldReader<bool, bool>);
 impl POL_11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_11_R(crate::FieldReader::new(bits))
     }
@@ -469,6 +481,7 @@ impl<'a> POL_11_W<'a> {
 #[doc = "Field `POL_12` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_12_R(crate::FieldReader<bool, bool>);
 impl POL_12_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_12_R(crate::FieldReader::new(bits))
     }
@@ -505,6 +518,7 @@ impl<'a> POL_12_W<'a> {
 #[doc = "Field `POL_13` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_13_R(crate::FieldReader<bool, bool>);
 impl POL_13_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_13_R(crate::FieldReader::new(bits))
     }
@@ -541,6 +555,7 @@ impl<'a> POL_13_W<'a> {
 #[doc = "Field `POL_14` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_14_R(crate::FieldReader<bool, bool>);
 impl POL_14_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_14_R(crate::FieldReader::new(bits))
     }
@@ -577,6 +592,7 @@ impl<'a> POL_14_W<'a> {
 #[doc = "Field `POL_15` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_15_R(crate::FieldReader<bool, bool>);
 impl POL_15_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_15_R(crate::FieldReader::new(bits))
     }
@@ -613,6 +629,7 @@ impl<'a> POL_15_W<'a> {
 #[doc = "Field `POL_16` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_16_R(crate::FieldReader<bool, bool>);
 impl POL_16_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_16_R(crate::FieldReader::new(bits))
     }
@@ -649,6 +666,7 @@ impl<'a> POL_16_W<'a> {
 #[doc = "Field `POL_17` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_17_R(crate::FieldReader<bool, bool>);
 impl POL_17_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_17_R(crate::FieldReader::new(bits))
     }
@@ -685,6 +703,7 @@ impl<'a> POL_17_W<'a> {
 #[doc = "Field `POL_18` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_18_R(crate::FieldReader<bool, bool>);
 impl POL_18_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_18_R(crate::FieldReader::new(bits))
     }
@@ -721,6 +740,7 @@ impl<'a> POL_18_W<'a> {
 #[doc = "Field `POL_19` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_19_R(crate::FieldReader<bool, bool>);
 impl POL_19_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_19_R(crate::FieldReader::new(bits))
     }
@@ -757,6 +777,7 @@ impl<'a> POL_19_W<'a> {
 #[doc = "Field `POL_20` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_20_R(crate::FieldReader<bool, bool>);
 impl POL_20_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_20_R(crate::FieldReader::new(bits))
     }
@@ -793,6 +814,7 @@ impl<'a> POL_20_W<'a> {
 #[doc = "Field `POL_21` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_21_R(crate::FieldReader<bool, bool>);
 impl POL_21_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_21_R(crate::FieldReader::new(bits))
     }
@@ -829,6 +851,7 @@ impl<'a> POL_21_W<'a> {
 #[doc = "Field `POL_22` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_22_R(crate::FieldReader<bool, bool>);
 impl POL_22_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_22_R(crate::FieldReader::new(bits))
     }
@@ -865,6 +888,7 @@ impl<'a> POL_22_W<'a> {
 #[doc = "Field `POL_23` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_23_R(crate::FieldReader<bool, bool>);
 impl POL_23_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_23_R(crate::FieldReader::new(bits))
     }
@@ -901,6 +925,7 @@ impl<'a> POL_23_W<'a> {
 #[doc = "Field `POL_24` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_24_R(crate::FieldReader<bool, bool>);
 impl POL_24_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_24_R(crate::FieldReader::new(bits))
     }
@@ -937,6 +962,7 @@ impl<'a> POL_24_W<'a> {
 #[doc = "Field `POL_25` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_25_R(crate::FieldReader<bool, bool>);
 impl POL_25_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_25_R(crate::FieldReader::new(bits))
     }
@@ -973,6 +999,7 @@ impl<'a> POL_25_W<'a> {
 #[doc = "Field `POL_26` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_26_R(crate::FieldReader<bool, bool>);
 impl POL_26_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_26_R(crate::FieldReader::new(bits))
     }
@@ -1009,6 +1036,7 @@ impl<'a> POL_26_W<'a> {
 #[doc = "Field `POL_27` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_27_R(crate::FieldReader<bool, bool>);
 impl POL_27_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_27_R(crate::FieldReader::new(bits))
     }
@@ -1045,6 +1073,7 @@ impl<'a> POL_27_W<'a> {
 #[doc = "Field `POL_28` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_28_R(crate::FieldReader<bool, bool>);
 impl POL_28_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_28_R(crate::FieldReader::new(bits))
     }
@@ -1081,6 +1110,7 @@ impl<'a> POL_28_W<'a> {
 #[doc = "Field `POL_29` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_29_R(crate::FieldReader<bool, bool>);
 impl POL_29_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_29_R(crate::FieldReader::new(bits))
     }
@@ -1117,6 +1147,7 @@ impl<'a> POL_29_W<'a> {
 #[doc = "Field `POL_30` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_30_R(crate::FieldReader<bool, bool>);
 impl POL_30_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_30_R(crate::FieldReader::new(bits))
     }
@@ -1153,6 +1184,7 @@ impl<'a> POL_30_W<'a> {
 #[doc = "Field `POL_31` reader - Configure pin polarity of port 0/1 pins for group interrupt. Bit n corresponds to pin P0/1_n of port 0/1. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt."]
 pub struct POL_31_R(crate::FieldReader<bool, bool>);
 impl POL_31_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_31_R(crate::FieldReader::new(bits))
     }

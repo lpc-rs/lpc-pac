@@ -39,6 +39,7 @@ bits are set to zero, and the POSITION.POINTER\\[AWIDTH-4:MASK+1\\]
 bits remain unchanged. This field causes the trace packet information to be stored in a circular buffer of size 2(MASK+4) bytes, that can be positioned in memory at multiples of this size. Valid values of this field are zero to AWIDTH-4. Values greater than the maximum have the same effect as the maximum."]
 pub struct MASK_R(crate::FieldReader<u8, u8>);
 impl MASK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MASK_R(crate::FieldReader::new(bits))
     }
@@ -67,6 +68,7 @@ impl<'a> MASK_W<'a> {
 #[doc = "Field `TSTARTEN` reader - Trace start input enable. If this bit is 1 and the TSTART signal is HIGH, then the EN bit is set to 1. Tracing continues until a stop condition occurs."]
 pub struct TSTARTEN_R(crate::FieldReader<bool, bool>);
 impl TSTARTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TSTARTEN_R(crate::FieldReader::new(bits))
     }
@@ -103,6 +105,7 @@ impl<'a> TSTARTEN_W<'a> {
 #[doc = "Field `TSTOPEN` reader - Trace stop input enable. If this bit is 1 and the TSTOP signal is HIGH, then the EN bit is set to 0. If a trace packet is being written to memory, the write is completed before tracing is stopped."]
 pub struct TSTOPEN_R(crate::FieldReader<bool, bool>);
 impl TSTOPEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TSTOPEN_R(crate::FieldReader::new(bits))
     }
@@ -140,6 +143,7 @@ impl<'a> TSTOPEN_W<'a> {
 signal determines if an access is User or Privileged."]
 pub struct SFRWPRIV_R(crate::FieldReader<bool, bool>);
 impl SFRWPRIV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SFRWPRIV_R(crate::FieldReader::new(bits))
     }
@@ -178,6 +182,7 @@ impl<'a> SFRWPRIV_W<'a> {
 signal determines if an access is User or Privileged."]
 pub struct RAMPRIV_R(crate::FieldReader<bool, bool>);
 impl RAMPRIV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RAMPRIV_R(crate::FieldReader::new(bits))
     }
@@ -215,6 +220,7 @@ impl<'a> RAMPRIV_W<'a> {
 #[doc = "Field `HALTREQ` reader - Halt request bit. This bit is connected to the halt request signal of the trace logic, EDBGRQ. When HALTREQ is set to 1, EDBGRQ is asserted if DBGEN is also HIGH. The HALTREQ bit can be automatically set to 1 using the FLOW.WATERMARK field."]
 pub struct HALTREQ_R(crate::FieldReader<bool, bool>);
 impl HALTREQ_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         HALTREQ_R(crate::FieldReader::new(bits))
     }
@@ -251,6 +257,7 @@ impl<'a> HALTREQ_W<'a> {
 #[doc = "Field `EN` reader - Main trace enable bit. When this bit is 1 trace data is written into the SRAM memory location addressed by POSITION.POINTER. The POSITION.POINTER value auto increments after the trace data packet is written. The EN bit can be automatically set to 0 using the FLOW.WATERMARK field and the FLOW.AUTOSTOP bit. The EN bit is automatically set to 1 if the TSTARTEN bit is 1 and the TSTART signal is HIGH. The EN bit is automatically set to 0 if TSTOPEN bit is 1 and the TSTOP signal is HIGH."]
 pub struct EN_R(crate::FieldReader<bool, bool>);
 impl EN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         EN_R(crate::FieldReader::new(bits))
     }

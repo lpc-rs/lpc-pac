@@ -30,6 +30,7 @@ impl From<VALIDPENDING_A> for bool {
 #[doc = "Field `VALIDPENDING` reader - Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel."]
 pub struct VALIDPENDING_R(crate::FieldReader<bool, VALIDPENDING_A>);
 impl VALIDPENDING_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         VALIDPENDING_R(crate::FieldReader::new(bits))
     }
@@ -76,6 +77,7 @@ impl From<TRIG_A> for bool {
 #[doc = "Field `TRIG` reader - Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1."]
 pub struct TRIG_R(crate::FieldReader<bool, TRIG_A>);
 impl TRIG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TRIG_R(crate::FieldReader::new(bits))
     }

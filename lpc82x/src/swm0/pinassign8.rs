@@ -37,6 +37,7 @@ impl From<crate::W<PINASSIGN8_SPEC>> for W {
 #[doc = "Field `SCT_OUT1_O` reader - SCT_OUT1 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct SCT_OUT1_O_R(crate::FieldReader<u8, u8>);
 impl SCT_OUT1_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCT_OUT1_O_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> SCT_OUT1_O_W<'a> {
 #[doc = "Field `SCT_OUT2_O` reader - SCT_OUT2 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct SCT_OUT2_O_R(crate::FieldReader<u8, u8>);
 impl SCT_OUT2_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCT_OUT2_O_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> SCT_OUT2_O_W<'a> {
 #[doc = "Field `SCT_OUT3_O` reader - SCT_OUT3 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct SCT_OUT3_O_R(crate::FieldReader<u8, u8>);
 impl SCT_OUT3_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCT_OUT3_O_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> SCT_OUT3_O_W<'a> {
 #[doc = "Field `SCT_OUT4_O` reader - SCT_OUT4 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct SCT_OUT4_O_R(crate::FieldReader<u8, u8>);
 impl SCT_OUT4_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCT_OUT4_O_R(crate::FieldReader::new(bits))
     }

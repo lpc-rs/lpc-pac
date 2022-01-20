@@ -51,6 +51,7 @@ impl From<FRO_DIRECT_A> for bool {
 #[doc = "Field `FRO_DIRECT` reader - fro direct clock select"]
 pub struct FRO_DIRECT_R(crate::FieldReader<bool, FRO_DIRECT_A>);
 impl FRO_DIRECT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FRO_DIRECT_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<RBRINTEN_A> for bool {
 #[doc = "Field `RBRINTEN` reader - RBR Interrupt Enable. Enables the Receive Data Available interrupt. It also controls the Character Receive Time-out interrupt."]
 pub struct RBRINTEN_R(crate::FieldReader<bool, RBRINTEN_A>);
 impl RBRINTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RBRINTEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<THREINTEN_A> for bool {
 #[doc = "Field `THREINTEN` reader - THRE Interrupt Enable. Enables the THRE interrupt. The status of this interrupt can be read from LSR\\[5\\]."]
 pub struct THREINTEN_R(crate::FieldReader<bool, THREINTEN_A>);
 impl THREINTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THREINTEN_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<RLSINTEN_A> for bool {
 #[doc = "Field `RLSINTEN` reader - Enables the Receive Line Status interrupt. The status of this interrupt can be read from LSR\\[4:1\\]."]
 pub struct RLSINTEN_R(crate::FieldReader<bool, RLSINTEN_A>);
 impl RLSINTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RLSINTEN_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<MSINTEN_A> for bool {
 #[doc = "Field `MSINTEN` reader - Enables the Modem Status interrupt. The components of this interrupt can be read from the MSR."]
 pub struct MSINTEN_R(crate::FieldReader<bool, MSINTEN_A>);
 impl MSINTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSINTEN_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<ABEOINTEN_A> for bool {
 #[doc = "Field `ABEOINTEN` reader - Enables the end of auto-baud interrupt."]
 pub struct ABEOINTEN_R(crate::FieldReader<bool, ABEOINTEN_A>);
 impl ABEOINTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ABEOINTEN_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<ABTOINTEN_A> for bool {
 #[doc = "Field `ABTOINTEN` reader - Enables the auto-baud time-out interrupt."]
 pub struct ABTOINTEN_R(crate::FieldReader<bool, ABTOINTEN_A>);
 impl ABTOINTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ABTOINTEN_R(crate::FieldReader::new(bits))
     }

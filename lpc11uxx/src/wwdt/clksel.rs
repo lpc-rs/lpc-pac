@@ -51,6 +51,7 @@ impl From<CLKSEL_A> for bool {
 #[doc = "Field `CLKSEL` reader - Selects source of WDT clock"]
 pub struct CLKSEL_R(crate::FieldReader<bool, CLKSEL_A>);
 impl CLKSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLKSEL_R(crate::FieldReader::new(bits))
     }
@@ -120,6 +121,7 @@ impl<'a> CLKSEL_W<'a> {
 #[doc = "Field `LOCK` reader - If this bit is set to one writing to this register does not affect bit 0. The clock source can only be changed by first clearing this bit, then writing the new value of bit 0."]
 pub struct LOCK_R(crate::FieldReader<bool, bool>);
 impl LOCK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LOCK_R(crate::FieldReader::new(bits))
     }

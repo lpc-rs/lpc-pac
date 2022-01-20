@@ -37,6 +37,7 @@ impl From<crate::W<RS485ADRMATCH_SPEC>> for W {
 #[doc = "Field `ADRMATCH` reader - Contains the address match value."]
 pub struct ADRMATCH_R(crate::FieldReader<u8, u8>);
 impl ADRMATCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADRMATCH_R(crate::FieldReader::new(bits))
     }

@@ -16,6 +16,7 @@ impl From<crate::R<SYSPLLSTAT_SPEC>> for R {
 #[doc = "Field `LOCK` reader - PLL0 lock indicator"]
 pub struct LOCK_R(crate::FieldReader<bool, bool>);
 impl LOCK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LOCK_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<DLY_SPEC>> for W {
 #[doc = "Field `PRE_DELAY` reader - Controls the amount of time between SSEL assertion and the beginning of a data transfer. There is always one SPI clock time between SSEL assertion and the first clock edge. This is not considered part of the pre-delay. 0x0 = No additional time is inserted. 0x1 = 1 SPI clock time is inserted. 0x2 = 2 SPI clock times are inserted. 0xF = 15 SPI clock times are inserted."]
 pub struct PRE_DELAY_R(crate::FieldReader<u8, u8>);
 impl PRE_DELAY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PRE_DELAY_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> PRE_DELAY_W<'a> {
 #[doc = "Field `POST_DELAY` reader - Controls the amount of time between the end of a data transfer and SSEL deassertion. 0x0 = No additional time is inserted. 0x1 = 1 SPI clock time is inserted. 0x2 = 2 SPI clock times are inserted. 0xF = 15 SPI clock times are inserted."]
 pub struct POST_DELAY_R(crate::FieldReader<u8, u8>);
 impl POST_DELAY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         POST_DELAY_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> POST_DELAY_W<'a> {
 #[doc = "Field `FRAME_DELAY` reader - If the EOF flag is set, controls the minimum amount of time between the current frame and the next frame (or SSEL deassertion if EOT). 0x0 = No additional time is inserted. 0x1 = 1 SPI clock time is inserted. 0x2 = 2 SPI clock times are inserted. 0xF = 15 SPI clock times are inserted."]
 pub struct FRAME_DELAY_R(crate::FieldReader<u8, u8>);
 impl FRAME_DELAY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FRAME_DELAY_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> FRAME_DELAY_W<'a> {
 #[doc = "Field `TRANSFER_DELAY` reader - Controls the minimum amount of time that the SSEL is deasserted between transfers. 0x0 = The minimum time that SSEL is deasserted is 1 SPI clock time. (Zero added time.) 0x1 = The minimum time that SSEL is deasserted is 2 SPI clock times. 0x2 = The minimum time that SSEL is deasserted is 3 SPI clock times. 0xF = The minimum time that SSEL is deasserted is 16 SPI clock times."]
 pub struct TRANSFER_DELAY_R(crate::FieldReader<u8, u8>);
 impl TRANSFER_DELAY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         TRANSFER_DELAY_R(crate::FieldReader::new(bits))
     }

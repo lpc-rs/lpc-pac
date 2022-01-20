@@ -37,6 +37,7 @@ impl From<crate::W<EPINUSE_SPEC>> for W {
 #[doc = "Field `BUF` reader - Buffer in use: This register has one bit per physical endpoint. 0: HW is accessing buffer 0. 1: HW is accessing buffer 1."]
 pub struct BUF_R(crate::FieldReader<u8, u8>);
 impl BUF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         BUF_R(crate::FieldReader::new(bits))
     }

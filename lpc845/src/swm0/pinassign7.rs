@@ -37,6 +37,7 @@ impl From<crate::W<PINASSIGN7_SPEC>> for W {
 #[doc = "Field `SCT0_GPIO_IN_B_I` reader - SCT0_GPIO_IN_B function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct SCT0_GPIO_IN_B_I_R(crate::FieldReader<u8, u8>);
 impl SCT0_GPIO_IN_B_I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCT0_GPIO_IN_B_I_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> SCT0_GPIO_IN_B_I_W<'a> {
 #[doc = "Field `SCT0_GPIO_IN_C_I` reader - SCT0_GPIO_IN_C function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct SCT0_GPIO_IN_C_I_R(crate::FieldReader<u8, u8>);
 impl SCT0_GPIO_IN_C_I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCT0_GPIO_IN_C_I_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> SCT0_GPIO_IN_C_I_W<'a> {
 #[doc = "Field `SCT0_GPIO_IN_D_I` reader - SCT0_GPIO_IN_D function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct SCT0_GPIO_IN_D_I_R(crate::FieldReader<u8, u8>);
 impl SCT0_GPIO_IN_D_I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCT0_GPIO_IN_D_I_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> SCT0_GPIO_IN_D_I_W<'a> {
 #[doc = "Field `SCT_OUT0_O` reader - SCT_OUT0 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct SCT_OUT0_O_R(crate::FieldReader<u8, u8>);
 impl SCT_OUT0_O_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCT_OUT0_O_R(crate::FieldReader::new(bits))
     }

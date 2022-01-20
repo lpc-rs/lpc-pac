@@ -54,6 +54,7 @@ impl From<SETCLR0_A> for u8 {
 #[doc = "Field `SETCLR0` reader - Set/clear operation on output 0. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR0_R(crate::FieldReader<u8, SETCLR0_A>);
 impl SETCLR0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SETCLR0_R(crate::FieldReader::new(bits))
     }
@@ -142,6 +143,7 @@ impl From<SETCLR1_A> for u8 {
 #[doc = "Field `SETCLR1` reader - Set/clear operation on output 1. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR1_R(crate::FieldReader<u8, SETCLR1_A>);
 impl SETCLR1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SETCLR1_R(crate::FieldReader::new(bits))
     }
@@ -230,6 +232,7 @@ impl From<SETCLR2_A> for u8 {
 #[doc = "Field `SETCLR2` reader - Set/clear operation on output 2. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR2_R(crate::FieldReader<u8, SETCLR2_A>);
 impl SETCLR2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SETCLR2_R(crate::FieldReader::new(bits))
     }
@@ -318,6 +321,7 @@ impl From<SETCLR3_A> for u8 {
 #[doc = "Field `SETCLR3` reader - Set/clear operation on output 3. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR3_R(crate::FieldReader<u8, SETCLR3_A>);
 impl SETCLR3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SETCLR3_R(crate::FieldReader::new(bits))
     }
@@ -406,6 +410,7 @@ impl From<SETCLR4_A> for u8 {
 #[doc = "Field `SETCLR4` reader - Set/clear operation on output 4. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR4_R(crate::FieldReader<u8, SETCLR4_A>);
 impl SETCLR4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SETCLR4_R(crate::FieldReader::new(bits))
     }
@@ -494,6 +499,7 @@ impl From<SETCLR5_A> for u8 {
 #[doc = "Field `SETCLR5` reader - Set/clear operation on output 5. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR5_R(crate::FieldReader<u8, SETCLR5_A>);
 impl SETCLR5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SETCLR5_R(crate::FieldReader::new(bits))
     }
@@ -582,6 +588,7 @@ impl From<SETCLR6_A> for u8 {
 #[doc = "Field `SETCLR6` reader - Set/clear operation on output 6. Value 0x3 is reserved. Do not program this value."]
 pub struct SETCLR6_R(crate::FieldReader<u8, SETCLR6_A>);
 impl SETCLR6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SETCLR6_R(crate::FieldReader::new(bits))
     }

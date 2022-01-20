@@ -37,6 +37,7 @@ impl From<crate::W<LAD_SPEC>> for W {
 #[doc = "Field `LADEN` reader - Voltage ladder enable"]
 pub struct LADEN_R(crate::FieldReader<bool, bool>);
 impl LADEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LADEN_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> LADEN_W<'a> {
 #[doc = "Field `LADSEL` reader - Voltage ladder value. The reference voltage Vref depends on the LADREF bit below. 00000 = VSS 00001 = 1 x Vref/31 00010 = 2 x Vref/31 ... 11111 = Vref"]
 pub struct LADSEL_R(crate::FieldReader<u8, u8>);
 impl LADSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         LADSEL_R(crate::FieldReader::new(bits))
     }
@@ -113,6 +115,7 @@ impl From<LADREF_A> for bool {
 #[doc = "Field `LADREF` reader - Selects the reference voltage Vref for the voltage ladder."]
 pub struct LADREF_R(crate::FieldReader<bool, LADREF_A>);
 impl LADREF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LADREF_R(crate::FieldReader::new(bits))
     }

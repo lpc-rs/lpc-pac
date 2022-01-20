@@ -37,6 +37,7 @@ impl From<crate::W<DMA_ITRIG_INMUX_SPEC>> for W {
 #[doc = "Field `INP` reader - Trigger input number (decimal value) for DMA channel n (n = 0 to 12). 0 = ADC0 Sequence A interrupt 1 = ADC0 Sequence B interrupt 2 = SCT0 DMA request 0 3 = SCT0 DMA request 1 4= Comparator out 5 = Pin interrupt 4 6 = Pin interrupt 5 7 = Pin interrupt 6 8 = Pin interrupt 7 9= Timer CTIMER0 Match 0 dma request 10 = Timer CTIMER0 Match 1 dma request 11 = DMA output trigger mux 0 12 = DMA output trigger mux 1"]
 pub struct INP_R(crate::FieldReader<u8, u8>);
 impl INP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         INP_R(crate::FieldReader::new(bits))
     }

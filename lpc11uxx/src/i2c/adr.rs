@@ -37,6 +37,7 @@ impl From<crate::W<ADR_SPEC>> for W {
 #[doc = "Field `GC` reader - General Call enable bit."]
 pub struct GC_R(crate::FieldReader<bool, bool>);
 impl GC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GC_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> GC_W<'a> {
 #[doc = "Field `Address` reader - The I2C device address for slave mode."]
 pub struct ADDRESS_R(crate::FieldReader<u8, u8>);
 impl ADDRESS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ADDRESS_R(crate::FieldReader::new(bits))
     }

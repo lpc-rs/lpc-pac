@@ -37,6 +37,7 @@ impl From<crate::W<RS485DLY_SPEC>> for W {
 #[doc = "Field `DLY` reader - Contains the direction control (RTS or DTR) delay value. This register works in conjunction with an 8-bit counter."]
 pub struct DLY_R(crate::FieldReader<u8, u8>);
 impl DLY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DLY_R(crate::FieldReader::new(bits))
     }

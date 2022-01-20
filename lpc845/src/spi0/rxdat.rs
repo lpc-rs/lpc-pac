@@ -16,6 +16,7 @@ impl From<crate::R<RXDAT_SPEC>> for R {
 #[doc = "Field `RXDAT` reader - Receiver Data. This contains the next piece of received data. The number of bits that are used depends on the LEN setting in TXCTL / TXDATCTL."]
 pub struct RXDAT_R(crate::FieldReader<u16, u16>);
 impl RXDAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         RXDAT_R(crate::FieldReader::new(bits))
     }
@@ -30,6 +31,7 @@ impl core::ops::Deref for RXDAT_R {
 #[doc = "Field `RXSSEL0_N` reader - Slave Select for receive. This field allows the state of the SSEL0 pin to be saved along with received data. The value will reflect the SSEL0 pin for both master and slave operation. A zero indicates that a slave select is active. The actual polarity of each slave select pin is configured by the related SPOL bit in CFG."]
 pub struct RXSSEL0_N_R(crate::FieldReader<bool, bool>);
 impl RXSSEL0_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXSSEL0_N_R(crate::FieldReader::new(bits))
     }
@@ -44,6 +46,7 @@ impl core::ops::Deref for RXSSEL0_N_R {
 #[doc = "Field `RXSSEL1_N` reader - Slave Select for receive. This field allows the state of the SSEL1 pin to be saved along with received data. The value will reflect the SSEL1 pin for both master and slave operation. A zero indicates that a slave select is active. The actual polarity of each slave select pin is configured by the related SPOL bit in CFG."]
 pub struct RXSSEL1_N_R(crate::FieldReader<bool, bool>);
 impl RXSSEL1_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXSSEL1_N_R(crate::FieldReader::new(bits))
     }
@@ -58,6 +61,7 @@ impl core::ops::Deref for RXSSEL1_N_R {
 #[doc = "Field `RXSSEL2_N` reader - Slave Select for receive. This field allows the state of the SSEL2 pin to be saved along with received data. The value will reflect the SSEL2 pin for both master and slave operation. A zero indicates that a slave select is active. The actual polarity of each slave select pin is configured by the related SPOL bit in CFG."]
 pub struct RXSSEL2_N_R(crate::FieldReader<bool, bool>);
 impl RXSSEL2_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXSSEL2_N_R(crate::FieldReader::new(bits))
     }
@@ -72,6 +76,7 @@ impl core::ops::Deref for RXSSEL2_N_R {
 #[doc = "Field `RXSSEL3_N` reader - Slave Select for receive. This field allows the state of the SSEL3 pin to be saved along with received data. The value will reflect the SSEL3 pin for both master and slave operation. A zero indicates that a slave select is active. The actual polarity of each slave select pin is configured by the related SPOL bit in CFG."]
 pub struct RXSSEL3_N_R(crate::FieldReader<bool, bool>);
 impl RXSSEL3_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXSSEL3_N_R(crate::FieldReader::new(bits))
     }
@@ -86,6 +91,7 @@ impl core::ops::Deref for RXSSEL3_N_R {
 #[doc = "Field `SOT` reader - Start of Transfer flag. This flag will be 1 if this is the first data after the SSELs went from deasserted to asserted (i.e., any previous transfer has ended). This information can be used to identify the first piece of data in cases where the transfer length is greater than 16 bit."]
 pub struct SOT_R(crate::FieldReader<bool, bool>);
 impl SOT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SOT_R(crate::FieldReader::new(bits))
     }

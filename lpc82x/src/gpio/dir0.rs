@@ -37,6 +37,7 @@ impl From<crate::W<DIR0_SPEC>> for W {
 #[doc = "Field `DIRP` reader - Selects pin direction for pin PIOm_n (bit 0 = PIOn_0, bit 1 = PIOn_1, etc.). Supported pins depends on the specific device and package. 0 = input. 1 = output."]
 pub struct DIRP_R(crate::FieldReader<u32, u32>);
 impl DIRP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         DIRP_R(crate::FieldReader::new(bits))
     }

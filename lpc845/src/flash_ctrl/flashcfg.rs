@@ -54,6 +54,7 @@ impl From<FLASHTIM_A> for u8 {
 #[doc = "Field `FLASHTIM` reader - Flash memory access time. FLASHTIM +1 is equal to the number of system clocks used for flash access."]
 pub struct FLASHTIM_R(crate::FieldReader<u8, FLASHTIM_A>);
 impl FLASHTIM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FLASHTIM_R(crate::FieldReader::new(bits))
     }

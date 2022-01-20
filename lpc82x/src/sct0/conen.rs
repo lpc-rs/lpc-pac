@@ -37,6 +37,7 @@ impl From<crate::W<CONEN_SPEC>> for W {
 #[doc = "Field `NCEN` reader - The SCT requests an interrupt when bit n of this register and the SCT conflict flag register are both one (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT."]
 pub struct NCEN_R(crate::FieldReader<u8, u8>);
 impl NCEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         NCEN_R(crate::FieldReader::new(bits))
     }

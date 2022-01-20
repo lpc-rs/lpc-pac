@@ -37,6 +37,7 @@ impl From<crate::W<TXDAT_SPEC>> for W {
 #[doc = "Field `TXDAT` reader - Writing to the USART Transmit Data Register causes the data to be transmitted as soon as the transmit shift register is available and any conditions for transmitting data are met: CTS low (if CTSEN bit = 1), TXDIS bit = 0."]
 pub struct TXDAT_R(crate::FieldReader<u16, u16>);
 impl TXDAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         TXDAT_R(crate::FieldReader::new(bits))
     }

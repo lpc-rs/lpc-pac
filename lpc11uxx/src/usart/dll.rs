@@ -37,6 +37,7 @@ impl From<crate::W<DLL_SPEC>> for W {
 #[doc = "Field `DLLSB` reader - The USART Divisor Latch LSB Register, along with the DLM register, determines the baud rate of the USART."]
 pub struct DLLSB_R(crate::FieldReader<u8, u8>);
 impl DLLSB_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DLLSB_R(crate::FieldReader::new(bits))
     }

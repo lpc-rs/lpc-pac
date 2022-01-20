@@ -51,6 +51,7 @@ impl From<SEL_PMATCH_A> for bool {
 #[doc = "Field `SEL_PMATCH` reader - Specifies whether the 8 pin interrupts are controlled by the pin interrupt function or by the pattern match function."]
 pub struct SEL_PMATCH_R(crate::FieldReader<bool, SEL_PMATCH_A>);
 impl SEL_PMATCH_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEL_PMATCH_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<ENA_RXEV_A> for bool {
 #[doc = "Field `ENA_RXEV` reader - Enables the RXEV output to the CPU and/or to a GPIO output when the specified boolean expression evaluates to true."]
 pub struct ENA_RXEV_R(crate::FieldReader<bool, ENA_RXEV_A>);
 impl ENA_RXEV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENA_RXEV_R(crate::FieldReader::new(bits))
     }
@@ -203,6 +205,7 @@ impl<'a> ENA_RXEV_W<'a> {
 #[doc = "Field `PMAT` reader - This field displays the current state of pattern matches. A 1 in any bit of this field indicates that the corresponding product term is matched by the current state of the appropriate inputs."]
 pub struct PMAT_R(crate::FieldReader<u8, u8>);
 impl PMAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PMAT_R(crate::FieldReader::new(bits))
     }

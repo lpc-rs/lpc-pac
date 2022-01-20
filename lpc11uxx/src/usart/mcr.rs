@@ -37,6 +37,7 @@ impl From<crate::W<MCR_SPEC>> for W {
 #[doc = "Field `DTRCTRL` reader - Source for modem output pin DTR. This bit reads as 0 when modem loopback mode is active."]
 pub struct DTRCTRL_R(crate::FieldReader<bool, bool>);
 impl DTRCTRL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DTRCTRL_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> DTRCTRL_W<'a> {
 #[doc = "Field `RTSCTRL` reader - Source for modem output pin RTS. This bit reads as 0 when modem loopback mode is active."]
 pub struct RTSCTRL_R(crate::FieldReader<bool, bool>);
 impl RTSCTRL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RTSCTRL_R(crate::FieldReader::new(bits))
     }
@@ -123,6 +125,7 @@ impl From<LMS_A> for bool {
 #[doc = "Field `LMS` reader - Loopback Mode Select. The modem loopback mode provides a mechanism to perform diagnostic loopback testing. Serial data from the transmitter is connected internally to serial input of the receiver. Input pin, RXD, has no effect on loopback and output pin, TXD is held in marking state. The DSR, CTS, DCD, and RI pins are ignored. Externally, DTR and RTS are set inactive. Internally, the upper four bits of the MSR are driven by the lower four bits of the MCR. This permits modem status interrupts to be generated in loopback mode by writing the lower four bits of MCR."]
 pub struct LMS_R(crate::FieldReader<bool, LMS_A>);
 impl LMS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LMS_R(crate::FieldReader::new(bits))
     }
@@ -206,6 +209,7 @@ impl From<RTSEN_A> for bool {
 #[doc = "Field `RTSEN` reader - RTS enable"]
 pub struct RTSEN_R(crate::FieldReader<bool, RTSEN_A>);
 impl RTSEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RTSEN_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +293,7 @@ impl From<CTSEN_A> for bool {
 #[doc = "Field `CTSEN` reader - CTS enable"]
 pub struct CTSEN_R(crate::FieldReader<bool, CTSEN_A>);
 impl CTSEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CTSEN_R(crate::FieldReader::new(bits))
     }

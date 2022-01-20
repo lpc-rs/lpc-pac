@@ -37,6 +37,7 @@ impl From<crate::W<DIR_SPEC>> for W {
 #[doc = "Field `DIRP0` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP0_R(crate::FieldReader<bool, bool>);
 impl DIRP0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> DIRP0_W<'a> {
 #[doc = "Field `DIRP1` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP1_R(crate::FieldReader<bool, bool>);
 impl DIRP1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> DIRP1_W<'a> {
 #[doc = "Field `DIRP2` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP2_R(crate::FieldReader<bool, bool>);
 impl DIRP2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> DIRP2_W<'a> {
 #[doc = "Field `DIRP3` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP3_R(crate::FieldReader<bool, bool>);
 impl DIRP3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> DIRP3_W<'a> {
 #[doc = "Field `DIRP4` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP4_R(crate::FieldReader<bool, bool>);
 impl DIRP4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> DIRP4_W<'a> {
 #[doc = "Field `DIRP5` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP5_R(crate::FieldReader<bool, bool>);
 impl DIRP5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> DIRP5_W<'a> {
 #[doc = "Field `DIRP6` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP6_R(crate::FieldReader<bool, bool>);
 impl DIRP6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> DIRP6_W<'a> {
 #[doc = "Field `DIRP7` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP7_R(crate::FieldReader<bool, bool>);
 impl DIRP7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP7_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> DIRP7_W<'a> {
 #[doc = "Field `DIRP8` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP8_R(crate::FieldReader<bool, bool>);
 impl DIRP8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP8_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> DIRP8_W<'a> {
 #[doc = "Field `DIRP9` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP9_R(crate::FieldReader<bool, bool>);
 impl DIRP9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP9_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> DIRP9_W<'a> {
 #[doc = "Field `DIRP10` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP10_R(crate::FieldReader<bool, bool>);
 impl DIRP10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP10_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> DIRP10_W<'a> {
 #[doc = "Field `DIRP11` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP11_R(crate::FieldReader<bool, bool>);
 impl DIRP11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP11_R(crate::FieldReader::new(bits))
     }
@@ -469,6 +481,7 @@ impl<'a> DIRP11_W<'a> {
 #[doc = "Field `DIRP12` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP12_R(crate::FieldReader<bool, bool>);
 impl DIRP12_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP12_R(crate::FieldReader::new(bits))
     }
@@ -505,6 +518,7 @@ impl<'a> DIRP12_W<'a> {
 #[doc = "Field `DIRP13` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP13_R(crate::FieldReader<bool, bool>);
 impl DIRP13_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP13_R(crate::FieldReader::new(bits))
     }
@@ -541,6 +555,7 @@ impl<'a> DIRP13_W<'a> {
 #[doc = "Field `DIRP14` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP14_R(crate::FieldReader<bool, bool>);
 impl DIRP14_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP14_R(crate::FieldReader::new(bits))
     }
@@ -577,6 +592,7 @@ impl<'a> DIRP14_W<'a> {
 #[doc = "Field `DIRP15` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP15_R(crate::FieldReader<bool, bool>);
 impl DIRP15_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP15_R(crate::FieldReader::new(bits))
     }
@@ -613,6 +629,7 @@ impl<'a> DIRP15_W<'a> {
 #[doc = "Field `DIRP16` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP16_R(crate::FieldReader<bool, bool>);
 impl DIRP16_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP16_R(crate::FieldReader::new(bits))
     }
@@ -649,6 +666,7 @@ impl<'a> DIRP16_W<'a> {
 #[doc = "Field `DIRP17` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP17_R(crate::FieldReader<bool, bool>);
 impl DIRP17_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP17_R(crate::FieldReader::new(bits))
     }
@@ -685,6 +703,7 @@ impl<'a> DIRP17_W<'a> {
 #[doc = "Field `DIRP18` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP18_R(crate::FieldReader<bool, bool>);
 impl DIRP18_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP18_R(crate::FieldReader::new(bits))
     }
@@ -721,6 +740,7 @@ impl<'a> DIRP18_W<'a> {
 #[doc = "Field `DIRP19` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP19_R(crate::FieldReader<bool, bool>);
 impl DIRP19_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP19_R(crate::FieldReader::new(bits))
     }
@@ -757,6 +777,7 @@ impl<'a> DIRP19_W<'a> {
 #[doc = "Field `DIRP20` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP20_R(crate::FieldReader<bool, bool>);
 impl DIRP20_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP20_R(crate::FieldReader::new(bits))
     }
@@ -793,6 +814,7 @@ impl<'a> DIRP20_W<'a> {
 #[doc = "Field `DIRP21` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP21_R(crate::FieldReader<bool, bool>);
 impl DIRP21_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP21_R(crate::FieldReader::new(bits))
     }
@@ -829,6 +851,7 @@ impl<'a> DIRP21_W<'a> {
 #[doc = "Field `DIRP22` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP22_R(crate::FieldReader<bool, bool>);
 impl DIRP22_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP22_R(crate::FieldReader::new(bits))
     }
@@ -865,6 +888,7 @@ impl<'a> DIRP22_W<'a> {
 #[doc = "Field `DIRP23` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP23_R(crate::FieldReader<bool, bool>);
 impl DIRP23_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP23_R(crate::FieldReader::new(bits))
     }
@@ -901,6 +925,7 @@ impl<'a> DIRP23_W<'a> {
 #[doc = "Field `DIRP24` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP24_R(crate::FieldReader<bool, bool>);
 impl DIRP24_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP24_R(crate::FieldReader::new(bits))
     }
@@ -937,6 +962,7 @@ impl<'a> DIRP24_W<'a> {
 #[doc = "Field `DIRP25` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP25_R(crate::FieldReader<bool, bool>);
 impl DIRP25_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP25_R(crate::FieldReader::new(bits))
     }
@@ -973,6 +999,7 @@ impl<'a> DIRP25_W<'a> {
 #[doc = "Field `DIRP26` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP26_R(crate::FieldReader<bool, bool>);
 impl DIRP26_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP26_R(crate::FieldReader::new(bits))
     }
@@ -1009,6 +1036,7 @@ impl<'a> DIRP26_W<'a> {
 #[doc = "Field `DIRP27` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP27_R(crate::FieldReader<bool, bool>);
 impl DIRP27_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP27_R(crate::FieldReader::new(bits))
     }
@@ -1045,6 +1073,7 @@ impl<'a> DIRP27_W<'a> {
 #[doc = "Field `DIRP28` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP28_R(crate::FieldReader<bool, bool>);
 impl DIRP28_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP28_R(crate::FieldReader::new(bits))
     }
@@ -1081,6 +1110,7 @@ impl<'a> DIRP28_W<'a> {
 #[doc = "Field `DIRP29` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP29_R(crate::FieldReader<bool, bool>);
 impl DIRP29_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP29_R(crate::FieldReader::new(bits))
     }
@@ -1117,6 +1147,7 @@ impl<'a> DIRP29_W<'a> {
 #[doc = "Field `DIRP30` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP30_R(crate::FieldReader<bool, bool>);
 impl DIRP30_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP30_R(crate::FieldReader::new(bits))
     }
@@ -1153,6 +1184,7 @@ impl<'a> DIRP30_W<'a> {
 #[doc = "Field `DIRP31` reader - Selects pin direction for pin P0/1_n (bit 0 = P0/1_0, bit 1 = P0_1, ..., bit 31 = P0/1_31). 0 = input. 1 = output."]
 pub struct DIRP31_R(crate::FieldReader<bool, bool>);
 impl DIRP31_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DIRP31_R(crate::FieldReader::new(bits))
     }

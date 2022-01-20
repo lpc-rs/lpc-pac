@@ -37,6 +37,7 @@ impl From<crate::W<POLL_TCNT_SPEC>> for W {
 #[doc = "Field `TCNT` reader - Sets the threshold between touch and no-touch count. If not used, then the block will treat all events as touch or no-touch, depending whether at max or min. This is in terms of divided FCLK. If the comparator triggers it is no-touch; if bigger than TCNT counts, it is a touch event."]
 pub struct TCNT_R(crate::FieldReader<u16, u16>);
 impl TCNT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         TCNT_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> TCNT_W<'a> {
 #[doc = "Field `TOUT` reader - Time-out count expressed as 1 is smaller than TOUT, allowing for up to 12 bits. Must be less than 13. So, for example, 1 is smaller than 12=4096 counts; if TOUT=12, then if 4096 counts occur without a trigger, it is a time-out. This should be set to be large enough above TCNT to prevent timeout invalidly."]
 pub struct TOUT_R(crate::FieldReader<u8, u8>);
 impl TOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         TOUT_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> TOUT_W<'a> {
 #[doc = "Field `POLL` reader - Poll counter in (internal) 12-bit counter wraparounds (loosely 1msec), so related to divided FCLK. This expresses time delay between measurement cycles (ie. after one set of X measurements, time before starting next). This count is used to delay before the next set of measurements. Measuring too often wastes power and does not add value since movement of fingers is relatively slow. For low power mode, this must allow for the clock being used (e.g. a 1MHz osc) so 12 bit count will be potentially much longer. That means, lowering the count to get the reasonable delay period."]
 pub struct POLL_R(crate::FieldReader<u8, u8>);
 impl POLL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         POLL_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> POLL_W<'a> {
 #[doc = "Field `MDELAY` reader - If not 0, this selects the number of divided FCLKs to wait after entry of measurement mode before deciding if has triggered. This gives the ACMP time to react to the transferred charge. It is used as 1+(1 smaller than MDELAY), , so between 2 and 8 ticks of the divided FCLK added during the measurement."]
 pub struct MDELAY_R(crate::FieldReader<u8, u8>);
 impl MDELAY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MDELAY_R(crate::FieldReader::new(bits))
     }
@@ -141,6 +145,7 @@ impl<'a> MDELAY_W<'a> {
 #[doc = "Field `RDELAY` reader - If not 0, this is the number of divided FCLKs to hold in Step 0 'Reset' state (draining capacitance). It is used as (1 is smaller than RDELAY), so between 2 and 8 ticks of the divided FCLK added to the 'Reset' state."]
 pub struct RDELAY_R(crate::FieldReader<u8, u8>);
 impl RDELAY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         RDELAY_R(crate::FieldReader::new(bits))
     }
@@ -167,6 +172,7 @@ impl<'a> RDELAY_W<'a> {
 #[doc = "Field `TCHLOW_ER` reader - If 1, then the touch/no-touch boundary of TCNT is reversed. In a floating system (most common), the no-touch case triggers at a lower count vs. touch; this is due to touch drawing off charge. In a grounded system, the reverse is true and the touch adds to the charge and so touch is a lower count. In a system which can switch between grounded and non-grounded, the SW will check for all of the Xs looking like they have been touched and reverse the setting of this bit. This should only be changed between polls."]
 pub struct TCHLOW_ER_R(crate::FieldReader<bool, bool>);
 impl TCHLOW_ER_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TCHLOW_ER_R(crate::FieldReader::new(bits))
     }

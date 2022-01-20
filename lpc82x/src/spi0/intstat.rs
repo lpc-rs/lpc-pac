@@ -37,6 +37,7 @@ impl From<crate::W<INTSTAT_SPEC>> for W {
 #[doc = "Field `RXRDY` reader - Receiver Ready flag."]
 pub struct RXRDY_R(crate::FieldReader<bool, bool>);
 impl RXRDY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXRDY_R(crate::FieldReader::new(bits))
     }
@@ -51,6 +52,7 @@ impl core::ops::Deref for RXRDY_R {
 #[doc = "Field `TXRDY` reader - Transmitter Ready flag."]
 pub struct TXRDY_R(crate::FieldReader<bool, bool>);
 impl TXRDY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXRDY_R(crate::FieldReader::new(bits))
     }
@@ -65,6 +67,7 @@ impl core::ops::Deref for TXRDY_R {
 #[doc = "Field `RXOV` reader - Receiver Overrun interrupt flag."]
 pub struct RXOV_R(crate::FieldReader<bool, bool>);
 impl RXOV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXOV_R(crate::FieldReader::new(bits))
     }
@@ -79,6 +82,7 @@ impl core::ops::Deref for RXOV_R {
 #[doc = "Field `TXUR` reader - Transmitter Underrun interrupt flag."]
 pub struct TXUR_R(crate::FieldReader<bool, bool>);
 impl TXUR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXUR_R(crate::FieldReader::new(bits))
     }
@@ -93,6 +97,7 @@ impl core::ops::Deref for TXUR_R {
 #[doc = "Field `SSA` reader - Slave Select Assert."]
 pub struct SSA_R(crate::FieldReader<bool, bool>);
 impl SSA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSA_R(crate::FieldReader::new(bits))
     }
@@ -107,6 +112,7 @@ impl core::ops::Deref for SSA_R {
 #[doc = "Field `SSD` reader - Slave Select Deassert."]
 pub struct SSD_R(crate::FieldReader<bool, bool>);
 impl SSD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSD_R(crate::FieldReader::new(bits))
     }
@@ -121,6 +127,7 @@ impl core::ops::Deref for SSD_R {
 #[doc = "Field `MSTIDLE` reader - Master Idle status flag."]
 pub struct MSTIDLE_R(crate::FieldReader<bool, bool>);
 impl MSTIDLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSTIDLE_R(crate::FieldReader::new(bits))
     }

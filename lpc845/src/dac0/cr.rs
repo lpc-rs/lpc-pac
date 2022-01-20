@@ -37,6 +37,7 @@ impl From<crate::W<CR_SPEC>> for W {
 #[doc = "Field `VALUE` reader - After the selected settling time after this field is written with a new VALUE, the voltage on the DAC_OUT pin (with respect to VSSA) is VALUE (VREFP - VREFN)/1024 + VREFN."]
 pub struct VALUE_R(crate::FieldReader<u16, u16>);
 impl VALUE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         VALUE_R(crate::FieldReader::new(bits))
     }
@@ -77,6 +78,7 @@ impl From<BIAS_A> for bool {
 #[doc = "Field `BIAS` reader - The settling time of the DAC"]
 pub struct BIAS_R(crate::FieldReader<bool, BIAS_A>);
 impl BIAS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BIAS_R(crate::FieldReader::new(bits))
     }

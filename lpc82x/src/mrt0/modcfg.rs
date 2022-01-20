@@ -37,6 +37,7 @@ impl From<crate::W<MODCFG_SPEC>> for W {
 #[doc = "Field `NOC` reader - Identifies the number of channels in this MRT.(4 channels on this device.)"]
 pub struct NOC_R(crate::FieldReader<u8, u8>);
 impl NOC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         NOC_R(crate::FieldReader::new(bits))
     }
@@ -51,6 +52,7 @@ impl core::ops::Deref for NOC_R {
 #[doc = "Field `NOB` reader - Identifies the number of timer bits in this MRT. (31 bits wide on this device.)"]
 pub struct NOB_R(crate::FieldReader<u8, u8>);
 impl NOB_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         NOB_R(crate::FieldReader::new(bits))
     }

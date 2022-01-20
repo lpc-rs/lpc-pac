@@ -37,6 +37,7 @@ impl From<crate::W<INTEN_SPEC>> for W {
 #[doc = "Field `EP_INT_EN` reader - If this bit is set and the corresponding USB interrupt status bit is set, a HW interrupt is generated on the interrupt line indicated by the corresponding USB interrupt routing bit."]
 pub struct EP_INT_EN_R(crate::FieldReader<u16, u16>);
 impl EP_INT_EN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         EP_INT_EN_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> EP_INT_EN_W<'a> {
 #[doc = "Field `FRAME_INT_EN` reader - If this bit is set and the corresponding USB interrupt status bit is set, a HW interrupt is generated on the interrupt line indicated by the corresponding USB interrupt routing bit."]
 pub struct FRAME_INT_EN_R(crate::FieldReader<bool, bool>);
 impl FRAME_INT_EN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         FRAME_INT_EN_R(crate::FieldReader::new(bits))
     }
@@ -99,6 +101,7 @@ impl<'a> FRAME_INT_EN_W<'a> {
 #[doc = "Field `DEV_INT_EN` reader - If this bit is set and the corresponding USB interrupt status bit is set, a HW interrupt is generated on the interrupt line indicated by the corresponding USB interrupt routing bit."]
 pub struct DEV_INT_EN_R(crate::FieldReader<bool, bool>);
 impl DEV_INT_EN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DEV_INT_EN_R(crate::FieldReader::new(bits))
     }

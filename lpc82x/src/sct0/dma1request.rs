@@ -37,6 +37,7 @@ impl From<crate::W<DMA1REQUEST_SPEC>> for W {
 #[doc = "Field `DEV_1` reader - If bit n is one, event n triggers DMA request 1 (event 0 = bit 0, event 1 = bit 1, etc.). The number of bits = number of events in this SCT."]
 pub struct DEV_1_R(crate::FieldReader<u8, u8>);
 impl DEV_1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DEV_1_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> DEV_1_W<'a> {
 #[doc = "Field `DRL1` reader - A 1 in this bit triggers DMA request 1 when it loads the Match L/Unified registers from the Reload L/Unified registers."]
 pub struct DRL1_R(crate::FieldReader<bool, bool>);
 impl DRL1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DRL1_R(crate::FieldReader::new(bits))
     }
@@ -99,6 +101,7 @@ impl<'a> DRL1_W<'a> {
 #[doc = "Field `DRQ1` reader - This read-only bit indicates the state of DMA Request 1. Note that if the related DMA channel is enabled and properly set up, it is unlikely that software will see this flag, it will be cleared rapidly by the DMA service. The flag remaining set could point to an issue with DMA setup."]
 pub struct DRQ1_R(crate::FieldReader<bool, bool>);
 impl DRQ1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DRQ1_R(crate::FieldReader::new(bits))
     }

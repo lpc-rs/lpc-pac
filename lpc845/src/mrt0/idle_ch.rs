@@ -16,6 +16,7 @@ impl From<crate::R<IDLE_CH_SPEC>> for R {
 #[doc = "Field `CHAN` reader - Idle channel. Reading the CHAN bits, returns the lowest idle timer channel. The number is positioned such that it can be used as an offset from the MRT base address in order to access the registers for the allocated channel. If all timer channels are running, CHAN = 0xF. See text above for more details."]
 pub struct CHAN_R(crate::FieldReader<u8, u8>);
 impl CHAN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CHAN_R(crate::FieldReader::new(bits))
     }

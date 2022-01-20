@@ -37,6 +37,7 @@ impl From<crate::W<RISE_SPEC>> for W {
 #[doc = "Field `RDET` reader - Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin."]
 pub struct RDET_R(crate::FieldReader<u8, u8>);
 impl RDET_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         RDET_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<CTRL_SPEC>> for W {
 #[doc = "Field `DOWN_L` reader - This bit is 1 when the L or unified counter is counting down. Hardware sets this bit when the counter is counting up, counter limit occurs, and BIDIR = 1.Hardware clears this bit when the counter is counting down and a limit condition occurs or when the counter reaches 0."]
 pub struct DOWN_L_R(crate::FieldReader<bool, bool>);
 impl DOWN_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DOWN_L_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> DOWN_L_W<'a> {
 #[doc = "Field `STOP_L` reader - When this bit is 1 and HALT is 0, the L or unified counter does not run, but I/O events related to the counter can occur. If a designated start event occurs, this bit is cleared and counting resumes."]
 pub struct STOP_L_R(crate::FieldReader<bool, bool>);
 impl STOP_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STOP_L_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> STOP_L_W<'a> {
 #[doc = "Field `HALT_L` reader - When this bit is 1, the L or unified counter does not run and no events can occur. A reset sets this bit. When the HALT_L bit is one, the STOP_L bit is cleared. It is possible to remove the halt condition while keeping the SCT in the stop condition (not running) with a single write to this register to simultaneously clear the HALT bit and set the STOP bit. Once set, only software can clear this bit to restore counter operation. This bit is set on reset."]
 pub struct HALT_L_R(crate::FieldReader<bool, bool>);
 impl HALT_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         HALT_L_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> HALT_L_W<'a> {
 #[doc = "Field `CLRCTR_L` reader - Writing a 1 to this bit clears the L or unified counter. This bit always reads as 0."]
 pub struct CLRCTR_L_R(crate::FieldReader<bool, bool>);
 impl CLRCTR_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLRCTR_L_R(crate::FieldReader::new(bits))
     }
@@ -195,6 +199,7 @@ impl From<BIDIR_L_A> for bool {
 #[doc = "Field `BIDIR_L` reader - L or unified counter direction select"]
 pub struct BIDIR_L_R(crate::FieldReader<bool, BIDIR_L_A>);
 impl BIDIR_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BIDIR_L_R(crate::FieldReader::new(bits))
     }
@@ -264,6 +269,7 @@ impl<'a> BIDIR_L_W<'a> {
 #[doc = "Field `PRE_L` reader - Specifies the factor by which the SCT clock is prescaled to produce the L or unified counter clock. The counter clock is clocked at the rate of the SCT clock divided by PRE_L+1. Clear the counter (by writing a 1 to the CLRCTR bit) whenever changing the PRE value."]
 pub struct PRE_L_R(crate::FieldReader<u8, u8>);
 impl PRE_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PRE_L_R(crate::FieldReader::new(bits))
     }
@@ -290,6 +296,7 @@ impl<'a> PRE_L_W<'a> {
 #[doc = "Field `DOWN_H` reader - This bit is 1 when the H counter is counting down. Hardware sets this bit when the counter is counting, a counter limit condition occurs, and BIDIR is 1. Hardware clears this bit when the counter is counting down and a limit condition occurs or when the counter reaches 0."]
 pub struct DOWN_H_R(crate::FieldReader<bool, bool>);
 impl DOWN_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DOWN_H_R(crate::FieldReader::new(bits))
     }
@@ -326,6 +333,7 @@ impl<'a> DOWN_H_W<'a> {
 #[doc = "Field `STOP_H` reader - When this bit is 1 and HALT is 0, the H counter does not, run but I/O events related to the counter can occur. If such an event matches the mask in the Start register, this bit is cleared and counting resumes."]
 pub struct STOP_H_R(crate::FieldReader<bool, bool>);
 impl STOP_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STOP_H_R(crate::FieldReader::new(bits))
     }
@@ -362,6 +370,7 @@ impl<'a> STOP_H_W<'a> {
 #[doc = "Field `HALT_H` reader - When this bit is 1, the H counter does not run and no events can occur. A reset sets this bit. When the HALT_H bit is one, the STOP_H bit is cleared. It is possible to remove the halt condition while keeping the SCT in the stop condition (not running) with a single write to this register to simultaneously clear the HALT bit and set the STOP bit. Once set, this bit can only be cleared by software to restore counter operation. This bit is set on reset."]
 pub struct HALT_H_R(crate::FieldReader<bool, bool>);
 impl HALT_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         HALT_H_R(crate::FieldReader::new(bits))
     }
@@ -398,6 +407,7 @@ impl<'a> HALT_H_W<'a> {
 #[doc = "Field `CLRCTR_H` reader - Writing a 1 to this bit clears the H counter. This bit always reads as 0."]
 pub struct CLRCTR_H_R(crate::FieldReader<bool, bool>);
 impl CLRCTR_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLRCTR_H_R(crate::FieldReader::new(bits))
     }
@@ -448,6 +458,7 @@ impl From<BIDIR_H_A> for bool {
 #[doc = "Field `BIDIR_H` reader - Direction select"]
 pub struct BIDIR_H_R(crate::FieldReader<bool, BIDIR_H_A>);
 impl BIDIR_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BIDIR_H_R(crate::FieldReader::new(bits))
     }
@@ -517,6 +528,7 @@ impl<'a> BIDIR_H_W<'a> {
 #[doc = "Field `PRE_H` reader - Specifies the factor by which the SCT clock is prescaled to produce the H counter clock. The counter clock is clocked at the rate of the SCT clock divided by PRELH+1. Clear the counter (by writing a 1 to the CLRCTR bit) whenever changing the PRE value."]
 pub struct PRE_H_R(crate::FieldReader<u8, u8>);
 impl PRE_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PRE_H_R(crate::FieldReader::new(bits))
     }

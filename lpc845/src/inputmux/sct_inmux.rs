@@ -37,6 +37,7 @@ impl From<crate::W<SCT_INMUX_SPEC>> for W {
 #[doc = "Field `INP_N` reader - Input mux register for SCT input n (n = 0 to 3). 0 = sct input 0 1=sct input 1 2= sct input 2 3= sct gpio input 3 4= adc_thcmp_irq 5 = comparator out 6 = timer ct32b0 match2 7=gpio_int_bmatch 8=arm_txev 9=debug_halted"]
 pub struct INP_N_R(crate::FieldReader<u8, u8>);
 impl INP_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         INP_N_R(crate::FieldReader::new(bits))
     }

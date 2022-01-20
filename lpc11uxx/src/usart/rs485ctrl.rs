@@ -51,6 +51,7 @@ impl From<NMMEN_A> for bool {
 #[doc = "Field `NMMEN` reader - NMM enable."]
 pub struct NMMEN_R(crate::FieldReader<bool, NMMEN_A>);
 impl NMMEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NMMEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<RXDIS_A> for bool {
 #[doc = "Field `RXDIS` reader - Receiver enable."]
 pub struct RXDIS_R(crate::FieldReader<bool, RXDIS_A>);
 impl RXDIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXDIS_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<AADEN_A> for bool {
 #[doc = "Field `AADEN` reader - AAD enable."]
 pub struct AADEN_R(crate::FieldReader<bool, AADEN_A>);
 impl AADEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AADEN_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<SEL_A> for bool {
 #[doc = "Field `SEL` reader - Select direction control pin"]
 pub struct SEL_R(crate::FieldReader<bool, SEL_A>);
 impl SEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEL_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<DCTRL_A> for bool {
 #[doc = "Field `DCTRL` reader - Auto direction control enable."]
 pub struct DCTRL_R(crate::FieldReader<bool, DCTRL_A>);
 impl DCTRL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DCTRL_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<OINV_A> for bool {
 #[doc = "Field `OINV` reader - Polarity control. This bit reverses the polarity of the direction control signal on the RTS (or DTR) pin."]
 pub struct OINV_R(crate::FieldReader<bool, OINV_A>);
 impl OINV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OINV_R(crate::FieldReader::new(bits))
     }

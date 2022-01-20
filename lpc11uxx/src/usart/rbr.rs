@@ -16,6 +16,7 @@ impl From<crate::R<RBR_SPEC>> for R {
 #[doc = "Field `RBR` reader - The USART Receiver Buffer Register contains the oldest received byte in the USART RX FIFO."]
 pub struct RBR_R(crate::FieldReader<u8, u8>);
 impl RBR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         RBR_R(crate::FieldReader::new(bits))
     }

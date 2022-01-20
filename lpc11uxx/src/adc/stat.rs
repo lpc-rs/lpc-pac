@@ -16,6 +16,7 @@ impl From<crate::R<STAT_SPEC>> for R {
 #[doc = "Field `DONE` reader - These bits mirror the DONE status flags that appear in the result register for each A/D channel n."]
 pub struct DONE_R(crate::FieldReader<u8, u8>);
 impl DONE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DONE_R(crate::FieldReader::new(bits))
     }
@@ -30,6 +31,7 @@ impl core::ops::Deref for DONE_R {
 #[doc = "Field `OVERRUN` reader - These bits mirror the OVERRRUN status flags that appear in the result register for each A/D channel n. Reading ADSTAT allows checking the status of all A/D channels simultaneously."]
 pub struct OVERRUN_R(crate::FieldReader<u8, u8>);
 impl OVERRUN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         OVERRUN_R(crate::FieldReader::new(bits))
     }
@@ -44,6 +46,7 @@ impl core::ops::Deref for OVERRUN_R {
 #[doc = "Field `ADINT` reader - This bit is the A/D interrupt flag. It is one when any of the individual A/D channel Done flags is asserted and enabled to contribute to the A/D interrupt via the ADINTEN register."]
 pub struct ADINT_R(crate::FieldReader<bool, bool>);
 impl ADINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADINT_R(crate::FieldReader::new(bits))
     }

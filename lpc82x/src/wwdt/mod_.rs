@@ -51,6 +51,7 @@ impl From<WDEN_A> for bool {
 #[doc = "Field `WDEN` reader - Watchdog enable bit. Once this bit is set to one and a watchdog feed is performed, the watchdog timer will run permanently."]
 pub struct WDEN_R(crate::FieldReader<bool, WDEN_A>);
 impl WDEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDEN_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<WDRESET_A> for bool {
 #[doc = "Field `WDRESET` reader - Watchdog reset enable bit. Once this bit has been written with a 1 it cannot be re-written with a 0."]
 pub struct WDRESET_R(crate::FieldReader<bool, WDRESET_A>);
 impl WDRESET_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDRESET_R(crate::FieldReader::new(bits))
     }
@@ -203,6 +205,7 @@ impl<'a> WDRESET_W<'a> {
 #[doc = "Field `WDTOF` reader - Watchdog time-out flag. Set when the watchdog timer times out, by a feed error, or by events associated with WDPROTECT. Cleared by software writing a 0 to this bit position. Causes a chip reset if WDRESET = 1."]
 pub struct WDTOF_R(crate::FieldReader<bool, bool>);
 impl WDTOF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDTOF_R(crate::FieldReader::new(bits))
     }
@@ -239,6 +242,7 @@ impl<'a> WDTOF_W<'a> {
 #[doc = "Field `WDINT` reader - Warning interrupt flag. Set when the timer is at or below the value in WDWARNINT. Cleared by software writing a 1 to this bit position. Note that this bit cannot be cleared while the WARNINT value is equal to the value of the TV register. This can occur if the value of WARNINT is 0 and the WDRESET bit is 0 when TV decrements to 0."]
 pub struct WDINT_R(crate::FieldReader<bool, bool>);
 impl WDINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDINT_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +293,7 @@ impl From<WDPROTECT_A> for bool {
 #[doc = "Field `WDPROTECT` reader - Watchdog update mode. This bit can be set once by software and is only cleared by a reset."]
 pub struct WDPROTECT_R(crate::FieldReader<bool, WDPROTECT_A>);
 impl WDPROTECT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDPROTECT_R(crate::FieldReader::new(bits))
     }
@@ -358,6 +363,7 @@ impl<'a> WDPROTECT_W<'a> {
 #[doc = "Field `LOCK` reader - Once this bit is set to one and a watchdog feed is performed, disabling or powering down the watchdog oscillator is prevented by hardware. This bit can be set once by software and is only cleared by any reset."]
 pub struct LOCK_R(crate::FieldReader<bool, bool>);
 impl LOCK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LOCK_R(crate::FieldReader::new(bits))
     }

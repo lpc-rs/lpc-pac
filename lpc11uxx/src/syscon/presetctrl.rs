@@ -51,6 +51,7 @@ impl From<SSP0_RST_N_A> for bool {
 #[doc = "Field `SSP0_RST_N` reader - SSP0 reset control"]
 pub struct SSP0_RST_N_R(crate::FieldReader<bool, SSP0_RST_N_A>);
 impl SSP0_RST_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSP0_RST_N_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<I2C_RST_N_A> for bool {
 #[doc = "Field `I2C_RST_N` reader - I2C reset control"]
 pub struct I2C_RST_N_R(crate::FieldReader<bool, I2C_RST_N_A>);
 impl I2C_RST_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         I2C_RST_N_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<SSP1_RST_N_A> for bool {
 #[doc = "Field `SSP1_RST_N` reader - SSP1 reset control"]
 pub struct SSP1_RST_N_R(crate::FieldReader<bool, SSP1_RST_N_A>);
 impl SSP1_RST_N_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SSP1_RST_N_R(crate::FieldReader::new(bits))
     }

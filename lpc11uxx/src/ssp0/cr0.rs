@@ -74,6 +74,7 @@ impl From<DSS_A> for u8 {
 #[doc = "Field `DSS` reader - Data Size Select. This field controls the number of bits transferred in each frame. Values 0000-0010 are not supported and should not be used."]
 pub struct DSS_R(crate::FieldReader<u8, DSS_A>);
 impl DSS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DSS_R(crate::FieldReader::new(bits))
     }
@@ -272,6 +273,7 @@ impl From<FRF_A> for u8 {
 #[doc = "Field `FRF` reader - Frame Format."]
 pub struct FRF_R(crate::FieldReader<u8, FRF_A>);
 impl FRF_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FRF_R(crate::FieldReader::new(bits))
     }
@@ -357,6 +359,7 @@ impl From<CPOL_A> for bool {
 #[doc = "Field `CPOL` reader - Clock Out Polarity. This bit is only used in SPI mode."]
 pub struct CPOL_R(crate::FieldReader<bool, CPOL_A>);
 impl CPOL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CPOL_R(crate::FieldReader::new(bits))
     }
@@ -440,6 +443,7 @@ impl From<CPHA_A> for bool {
 #[doc = "Field `CPHA` reader - Clock Out Phase. This bit is only used in SPI mode."]
 pub struct CPHA_R(crate::FieldReader<bool, CPHA_A>);
 impl CPHA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CPHA_R(crate::FieldReader::new(bits))
     }
@@ -509,6 +513,7 @@ impl<'a> CPHA_W<'a> {
 #[doc = "Field `SCR` reader - Serial Clock Rate. The number of prescaler output clocks per bit on the bus, minus one. Given that CPSDVSR is the prescale divider, and the APB clock PCLK clocks the prescaler, the bit frequency is PCLK / (CPSDVSR X \\[SCR+1\\])."]
 pub struct SCR_R(crate::FieldReader<u8, u8>);
 impl SCR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SCR_R(crate::FieldReader::new(bits))
     }

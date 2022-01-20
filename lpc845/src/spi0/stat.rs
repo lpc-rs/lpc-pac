@@ -37,6 +37,7 @@ impl From<crate::W<STAT_SPEC>> for W {
 #[doc = "Field `RXRDY` reader - Receiver Ready flag. When 1, indicates that data is available to be read from the receiver buffer. Cleared after a read of the RXDAT register."]
 pub struct RXRDY_R(crate::FieldReader<bool, bool>);
 impl RXRDY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RXRDY_R(crate::FieldReader::new(bits))
     }
@@ -51,6 +52,7 @@ impl core::ops::Deref for RXRDY_R {
 #[doc = "Field `TXRDY` reader - Transmitter Ready flag. When 1, this bit indicates that data may be written to the transmit buffer. Previous data may still be in the process of being transmitted. Cleared when data is written to TXDAT or TXDATCTL until the data is moved to the transmit shift register."]
 pub struct TXRDY_R(crate::FieldReader<bool, bool>);
 impl TXRDY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TXRDY_R(crate::FieldReader::new(bits))
     }
@@ -153,6 +155,7 @@ impl<'a> SSD_W<'a> {
 #[doc = "Field `STALLED` reader - Stalled status flag. This indicates whether the SPI is currently in a stall condition."]
 pub struct STALLED_R(crate::FieldReader<bool, bool>);
 impl STALLED_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STALLED_R(crate::FieldReader::new(bits))
     }
@@ -167,6 +170,7 @@ impl core::ops::Deref for STALLED_R {
 #[doc = "Field `ENDTRANSFER` reader - End Transfer control bit. Software can set this bit to force an end to the current transfer when the transmitter finishes any activity already in progress, as if the EOT flag had been set prior to the last transmission. This capability is included to support cases where it is not known when transmit data is written that it will be the end of a transfer. The bit is cleared when the transmitter becomes idle as the transfer comes to an end. Forcing an end of transfer in this manner causes any specified FRAME_DELAY and TRANSFER_DELAY to be inserted."]
 pub struct ENDTRANSFER_R(crate::FieldReader<bool, bool>);
 impl ENDTRANSFER_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENDTRANSFER_R(crate::FieldReader::new(bits))
     }
@@ -203,6 +207,7 @@ impl<'a> ENDTRANSFER_W<'a> {
 #[doc = "Field `MSTIDLE` reader - Master idle status flag. This bit is 1 whenever the SPI master function is fully idle. This means that the transmit holding register is empty and the transmitter is not in the process of sending data."]
 pub struct MSTIDLE_R(crate::FieldReader<bool, bool>);
 impl MSTIDLE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         MSTIDLE_R(crate::FieldReader::new(bits))
     }

@@ -56,6 +56,7 @@ impl From<CTM_A> for u8 {
 #[doc = "Field `CTM` reader - Counter/Timer Mode. This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). If Counter mode is selected in the CTCR, bits 2:0 in the Capture Control Register (CCR) must be programmed as 000."]
 pub struct CTM_R(crate::FieldReader<u8, CTM_A>);
 impl CTM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CTM_R(crate::FieldReader::new(bits))
     }
@@ -153,6 +154,7 @@ impl From<CIS_A> for u8 {
 #[doc = "Field `CIS` reader - Count Input Select. In counter mode (when bits 1:0 in this register are not 00), these bits select which CAP pin or comparator output is sampled for clocking. Values 0x2 to 0x3 are reserved."]
 pub struct CIS_R(crate::FieldReader<u8, CIS_A>);
 impl CIS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CIS_R(crate::FieldReader::new(bits))
     }
@@ -213,6 +215,7 @@ impl<'a> CIS_W<'a> {
 #[doc = "Field `ENCC` reader - Setting this bit to 1 enables clearing of the timer and the prescaler when the capture-edge event specified in bits 7:5 occurs."]
 pub struct ENCC_R(crate::FieldReader<bool, bool>);
 impl ENCC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ENCC_R(crate::FieldReader::new(bits))
     }
@@ -272,6 +275,7 @@ impl From<SELCC_A> for u8 {
 #[doc = "Field `SELCC` reader - When bit 4 is a 1, these bits select which capture input edge will cause the timer and prescaler to be cleared. These bits have no effect when bit 4 is low. Values 0x6 to 0x7 are reserved."]
 pub struct SELCC_R(crate::FieldReader<u8, SELCC_A>);
 impl SELCC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SELCC_R(crate::FieldReader::new(bits))
     }

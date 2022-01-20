@@ -37,6 +37,7 @@ impl From<crate::W<B1_SPEC>> for W {
 #[doc = "Field `PBYTE` reader - Read: state of the pin P1_n, regardless of direction, masking, or alternate function, except that pins configured as analog I/O always read as 0. Write: loads the pin's output bit."]
 pub struct PBYTE_R(crate::FieldReader<bool, bool>);
 impl PBYTE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PBYTE_R(crate::FieldReader::new(bits))
     }

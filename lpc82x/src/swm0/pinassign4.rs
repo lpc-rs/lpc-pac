@@ -37,6 +37,7 @@ impl From<crate::W<PINASSIGN4_SPEC>> for W {
 #[doc = "Field `SPI0_MOSI_IO` reader - SPI0_MOSI function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct SPI0_MOSI_IO_R(crate::FieldReader<u8, u8>);
 impl SPI0_MOSI_IO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SPI0_MOSI_IO_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> SPI0_MOSI_IO_W<'a> {
 #[doc = "Field `SPI0_MISO_IO` reader - SPI0_MISIO function assignment. The value is the pin number to be assigned to this function. The following pins are available:PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct SPI0_MISO_IO_R(crate::FieldReader<u8, u8>);
 impl SPI0_MISO_IO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SPI0_MISO_IO_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> SPI0_MISO_IO_W<'a> {
 #[doc = "Field `SPI0_SSEL0_IO` reader - SPI0_SSEL0 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct SPI0_SSEL0_IO_R(crate::FieldReader<u8, u8>);
 impl SPI0_SSEL0_IO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SPI0_SSEL0_IO_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> SPI0_SSEL0_IO_W<'a> {
 #[doc = "Field `SPI0_SSEL1_IO` reader - SPI0_SSEL1 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_28 (= 0x1C)."]
 pub struct SPI0_SSEL1_IO_R(crate::FieldReader<u8, u8>);
 impl SPI0_SSEL1_IO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SPI0_SSEL1_IO_R(crate::FieldReader::new(bits))
     }

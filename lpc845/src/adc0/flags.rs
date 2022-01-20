@@ -37,6 +37,7 @@ impl From<crate::W<FLAGS_SPEC>> for W {
 #[doc = "Field `THCMP0` reader - Threshold comparison event on Channel 0. Set to 1 upon either an out-of-range result or a threshold-crossing result if enabled to do so in the INTEN register. This bit is cleared by writing a 1."]
 pub struct THCMP0_R(crate::FieldReader<bool, bool>);
 impl THCMP0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP0_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> THCMP0_W<'a> {
 #[doc = "Field `THCMP1` reader - Threshold comparison event on Channel 1. See description for channel 0."]
 pub struct THCMP1_R(crate::FieldReader<bool, bool>);
 impl THCMP1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP1_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> THCMP1_W<'a> {
 #[doc = "Field `THCMP2` reader - Threshold comparison event on Channel 2. See description for channel 0."]
 pub struct THCMP2_R(crate::FieldReader<bool, bool>);
 impl THCMP2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP2_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> THCMP2_W<'a> {
 #[doc = "Field `THCMP3` reader - Threshold comparison event on Channel 3. See description for channel 0."]
 pub struct THCMP3_R(crate::FieldReader<bool, bool>);
 impl THCMP3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP3_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> THCMP3_W<'a> {
 #[doc = "Field `THCMP4` reader - Threshold comparison event on Channel 4. See description for channel 0."]
 pub struct THCMP4_R(crate::FieldReader<bool, bool>);
 impl THCMP4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP4_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> THCMP4_W<'a> {
 #[doc = "Field `THCMP5` reader - Threshold comparison event on Channel 5. See description for channel 0."]
 pub struct THCMP5_R(crate::FieldReader<bool, bool>);
 impl THCMP5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP5_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> THCMP5_W<'a> {
 #[doc = "Field `THCMP6` reader - Threshold comparison event on Channel 6. See description for channel 0."]
 pub struct THCMP6_R(crate::FieldReader<bool, bool>);
 impl THCMP6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP6_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> THCMP6_W<'a> {
 #[doc = "Field `THCMP7` reader - Threshold comparison event on Channel 7. See description for channel 0."]
 pub struct THCMP7_R(crate::FieldReader<bool, bool>);
 impl THCMP7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP7_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> THCMP7_W<'a> {
 #[doc = "Field `THCMP8` reader - Threshold comparison event on Channel 8. See description for channel 0."]
 pub struct THCMP8_R(crate::FieldReader<bool, bool>);
 impl THCMP8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP8_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> THCMP8_W<'a> {
 #[doc = "Field `THCMP9` reader - Threshold comparison event on Channel 9. See description for channel 0."]
 pub struct THCMP9_R(crate::FieldReader<bool, bool>);
 impl THCMP9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP9_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> THCMP9_W<'a> {
 #[doc = "Field `THCMP10` reader - Threshold comparison event on Channel 10. See description for channel 0."]
 pub struct THCMP10_R(crate::FieldReader<bool, bool>);
 impl THCMP10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP10_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> THCMP10_W<'a> {
 #[doc = "Field `THCMP11` reader - Threshold comparison event on Channel 11. See description for channel 0."]
 pub struct THCMP11_R(crate::FieldReader<bool, bool>);
 impl THCMP11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP11_R(crate::FieldReader::new(bits))
     }
@@ -469,6 +481,7 @@ impl<'a> THCMP11_W<'a> {
 #[doc = "Field `OVERRUN0` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 0"]
 pub struct OVERRUN0_R(crate::FieldReader<bool, bool>);
 impl OVERRUN0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN0_R(crate::FieldReader::new(bits))
     }
@@ -483,6 +496,7 @@ impl core::ops::Deref for OVERRUN0_R {
 #[doc = "Field `OVERRUN1` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 1"]
 pub struct OVERRUN1_R(crate::FieldReader<bool, bool>);
 impl OVERRUN1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN1_R(crate::FieldReader::new(bits))
     }
@@ -497,6 +511,7 @@ impl core::ops::Deref for OVERRUN1_R {
 #[doc = "Field `OVERRUN2` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 2"]
 pub struct OVERRUN2_R(crate::FieldReader<bool, bool>);
 impl OVERRUN2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN2_R(crate::FieldReader::new(bits))
     }
@@ -511,6 +526,7 @@ impl core::ops::Deref for OVERRUN2_R {
 #[doc = "Field `OVERRUN3` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 3"]
 pub struct OVERRUN3_R(crate::FieldReader<bool, bool>);
 impl OVERRUN3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN3_R(crate::FieldReader::new(bits))
     }
@@ -525,6 +541,7 @@ impl core::ops::Deref for OVERRUN3_R {
 #[doc = "Field `OVERRUN4` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 4"]
 pub struct OVERRUN4_R(crate::FieldReader<bool, bool>);
 impl OVERRUN4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN4_R(crate::FieldReader::new(bits))
     }
@@ -539,6 +556,7 @@ impl core::ops::Deref for OVERRUN4_R {
 #[doc = "Field `OVERRUN5` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 5"]
 pub struct OVERRUN5_R(crate::FieldReader<bool, bool>);
 impl OVERRUN5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN5_R(crate::FieldReader::new(bits))
     }
@@ -553,6 +571,7 @@ impl core::ops::Deref for OVERRUN5_R {
 #[doc = "Field `OVERRUN6` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 6"]
 pub struct OVERRUN6_R(crate::FieldReader<bool, bool>);
 impl OVERRUN6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN6_R(crate::FieldReader::new(bits))
     }
@@ -567,6 +586,7 @@ impl core::ops::Deref for OVERRUN6_R {
 #[doc = "Field `OVERRUN7` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 7"]
 pub struct OVERRUN7_R(crate::FieldReader<bool, bool>);
 impl OVERRUN7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN7_R(crate::FieldReader::new(bits))
     }
@@ -581,6 +601,7 @@ impl core::ops::Deref for OVERRUN7_R {
 #[doc = "Field `OVERRUN8` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 8"]
 pub struct OVERRUN8_R(crate::FieldReader<bool, bool>);
 impl OVERRUN8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN8_R(crate::FieldReader::new(bits))
     }
@@ -595,6 +616,7 @@ impl core::ops::Deref for OVERRUN8_R {
 #[doc = "Field `OVERRUN9` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 9"]
 pub struct OVERRUN9_R(crate::FieldReader<bool, bool>);
 impl OVERRUN9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN9_R(crate::FieldReader::new(bits))
     }
@@ -609,6 +631,7 @@ impl core::ops::Deref for OVERRUN9_R {
 #[doc = "Field `OVERRUN10` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 10"]
 pub struct OVERRUN10_R(crate::FieldReader<bool, bool>);
 impl OVERRUN10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN10_R(crate::FieldReader::new(bits))
     }
@@ -623,6 +646,7 @@ impl core::ops::Deref for OVERRUN10_R {
 #[doc = "Field `OVERRUN11` reader - Mirrors the OVERRRUN status flag from the result register for ADC channel 11"]
 pub struct OVERRUN11_R(crate::FieldReader<bool, bool>);
 impl OVERRUN11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN11_R(crate::FieldReader::new(bits))
     }
@@ -637,6 +661,7 @@ impl core::ops::Deref for OVERRUN11_R {
 #[doc = "Field `SEQA_OVR` reader - Mirrors the global OVERRUN status flag in the SEQA_GDAT register"]
 pub struct SEQA_OVR_R(crate::FieldReader<bool, bool>);
 impl SEQA_OVR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEQA_OVR_R(crate::FieldReader::new(bits))
     }
@@ -651,6 +676,7 @@ impl core::ops::Deref for SEQA_OVR_R {
 #[doc = "Field `SEQB_OVR` reader - Mirrors the global OVERRUN status flag in the SEQB_GDAT register"]
 pub struct SEQB_OVR_R(crate::FieldReader<bool, bool>);
 impl SEQB_OVR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEQB_OVR_R(crate::FieldReader::new(bits))
     }
@@ -665,6 +691,7 @@ impl core::ops::Deref for SEQB_OVR_R {
 #[doc = "Field `SEQA_INT` reader - Sequence A interrupt/DMA trigger. If the MODE bit in the SEQA_CTRL register is 0, this flag will mirror the DATAVALID bit in the sequence A global data register (SEQA_GDAT), which is set at the end of every ADC conversion performed as part of sequence A. It will be cleared automatically when the SEQA_GDAT register is read. If the MODE bit in the SEQA_CTRL register is 1, this flag will be set upon completion of an entire A sequence. In this case it must be cleared by writing a 1 to this SEQA_INT bit. This interrupt must be enabled in the INTEN register."]
 pub struct SEQA_INT_R(crate::FieldReader<bool, bool>);
 impl SEQA_INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEQA_INT_R(crate::FieldReader::new(bits))
     }
@@ -679,6 +706,7 @@ impl core::ops::Deref for SEQA_INT_R {
 #[doc = "Field `SEQB_INT` reader - Sequence A interrupt/DMA trigger. If the MODE bit in the SEQB_CTRL register is 0, this flag will mirror the DATAVALID bit in the sequence A global data register (SEQB_GDAT), which is set at the end of every ADC conversion performed as part of sequence B. It will be cleared automatically when the SEQB_GDAT register is read. If the MODE bit in the SEQB_CTRL register is 1, this flag will be set upon completion of an entire B sequence. In this case it must be cleared by writing a 1 to this SEQB_INT bit. This interrupt must be enabled in the INTEN register."]
 pub struct SEQB_INT_R(crate::FieldReader<bool, bool>);
 impl SEQB_INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEQB_INT_R(crate::FieldReader::new(bits))
     }
@@ -693,6 +721,7 @@ impl core::ops::Deref for SEQB_INT_R {
 #[doc = "Field `THCMP_INT` reader - Threshold Comparison Interrupt. This bit will be set if any of the THCMP flags in the lower bits of this register are set to 1 (due to an enabled out-of-range or threshold-crossing event on any channel). Each type of threshold comparison interrupt on each channel must be individually enabled in the INTEN register to cause this interrupt. This bit will be cleared when all of the individual threshold flags are cleared via writing 1s to those bits."]
 pub struct THCMP_INT_R(crate::FieldReader<bool, bool>);
 impl THCMP_INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         THCMP_INT_R(crate::FieldReader::new(bits))
     }
@@ -707,6 +736,7 @@ impl core::ops::Deref for THCMP_INT_R {
 #[doc = "Field `OVR_INT` reader - Overrun Interrupt flag. Any overrun bit in any of the individual channel data registers will cause this interrupt. In addition, if the MODE bit in either of the SEQn_CTRL registers is 0 then the OVERRUN bit in the corresponding SEQn_GDAT register will also cause this interrupt. This interrupt must be enabled in the INTEN register. This bit will be cleared when all of the individual overrun bits have been cleared via reading the corresponding data registers."]
 pub struct OVR_INT_R(crate::FieldReader<bool, bool>);
 impl OVR_INT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVR_INT_R(crate::FieldReader::new(bits))
     }

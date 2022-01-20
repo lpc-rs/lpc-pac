@@ -37,6 +37,7 @@ impl From<crate::W<STATE_SPEC>> for W {
 #[doc = "Field `STATEMSKn` reader - If bit m is one, event n happens in state m of the counter selected by the HEVENT bit (n = event number, m = state number; state 0 = bit 0, state 1= bit 1, etc.). The number of bits = number of states in this SCT."]
 pub struct STATEMSKN_R(crate::FieldReader<u8, u8>);
 impl STATEMSKN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         STATEMSKN_R(crate::FieldReader::new(bits))
     }

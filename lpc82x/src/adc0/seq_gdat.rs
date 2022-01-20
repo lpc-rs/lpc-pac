@@ -37,6 +37,7 @@ impl From<crate::W<SEQ_GDAT_SPEC>> for W {
 #[doc = "Field `RESULT` reader - This field contains the 12-bit ADC conversion result from the most recent conversion performed under conversion sequence associated with this register. The result is a binary fraction representing the voltage on the currently-selected input channel as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the input pin was less than, equal to, or close to that on VREFN, while 0xFFF indicates that the voltage on the input was close to, equal to, or greater than that on VREFP. DATAVALID = 1 indicates that this result has not yet been read."]
 pub struct RESULT_R(crate::FieldReader<u16, u16>);
 impl RESULT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         RESULT_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> RESULT_W<'a> {
 #[doc = "Field `THCMPRANGE` reader - Indicates whether the result of the last conversion performed was above, below or within the range established by the designated threshold comparison registers (THRn_LOW and THRn_HIGH)."]
 pub struct THCMPRANGE_R(crate::FieldReader<u8, u8>);
 impl THCMPRANGE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         THCMPRANGE_R(crate::FieldReader::new(bits))
     }
@@ -77,6 +79,7 @@ impl core::ops::Deref for THCMPRANGE_R {
 #[doc = "Field `THCMPCROSS` reader - Indicates whether the result of the last conversion performed represented a crossing of the threshold level established by the designated LOW threshold comparison register (THRn_LOW) and, if so, in what direction the crossing occurred."]
 pub struct THCMPCROSS_R(crate::FieldReader<u8, u8>);
 impl THCMPCROSS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         THCMPCROSS_R(crate::FieldReader::new(bits))
     }
@@ -91,6 +94,7 @@ impl core::ops::Deref for THCMPCROSS_R {
 #[doc = "Field `CHN` reader - These bits contain the channel from which the RESULT bits were converted (e.g. 0000 identifies channel 0, 0001 channel 1, etc.)."]
 pub struct CHN_R(crate::FieldReader<u8, u8>);
 impl CHN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CHN_R(crate::FieldReader::new(bits))
     }
@@ -105,6 +109,7 @@ impl core::ops::Deref for CHN_R {
 #[doc = "Field `OVERRUN` reader - This bit is set if a new conversion result is loaded into the RESULT field before a previous result has been read - i.e. while the DATAVALID bit is set. This bit is cleared, along with the DATAVALID bit, whenever this register is read. This bit will contribute to an overrun interrupt/DMA trigger if the MODE bit (in SEQAA_CTRL) for the corresponding sequence is set to '0' (and if the overrun interrupt is enabled)."]
 pub struct OVERRUN_R(crate::FieldReader<bool, bool>);
 impl OVERRUN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         OVERRUN_R(crate::FieldReader::new(bits))
     }
@@ -119,6 +124,7 @@ impl core::ops::Deref for OVERRUN_R {
 #[doc = "Field `DATAVALID` reader - This bit is set to '1' at the end of each conversion when a new result is loaded into the RESULT field. It is cleared whenever this register is read. This bit will cause a conversion-complete interrupt for the corresponding sequence if the MODE bit (in SEQA_CTRL) for that sequence is set to 0 (and if the interrupt is enabled)."]
 pub struct DATAVALID_R(crate::FieldReader<bool, bool>);
 impl DATAVALID_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DATAVALID_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<EPLISTSTART_SPEC>> for W {
 #[doc = "Field `EP_LIST` reader - Start address of the USB EP Command/Status List."]
 pub struct EP_LIST_R(crate::FieldReader<u32, u32>);
 impl EP_LIST_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         EP_LIST_R(crate::FieldReader::new(bits))
     }

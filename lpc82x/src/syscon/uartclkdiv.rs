@@ -37,6 +37,7 @@ impl From<crate::W<UARTCLKDIV_SPEC>> for W {
 #[doc = "Field `DIV` reader - USART fractional baud rate generator clock divider values. 0: Clock disabled. 1: Divide by 1. to 255: Divide by 255."]
 pub struct DIV_R(crate::FieldReader<u8, u8>);
 impl DIV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DIV_R(crate::FieldReader::new(bits))
     }

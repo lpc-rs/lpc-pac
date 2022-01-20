@@ -51,6 +51,7 @@ impl From<INTFLAG_A> for bool {
 #[doc = "Field `INTFLAG` reader - Monitors the interrupt flag."]
 pub struct INTFLAG_R(crate::FieldReader<bool, INTFLAG_A>);
 impl INTFLAG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INTFLAG_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<RUN_A> for bool {
 #[doc = "Field `RUN` reader - Indicates the state of TIMERn. This bit is read-only."]
 pub struct RUN_R(crate::FieldReader<bool, RUN_A>);
 impl RUN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RUN_R(crate::FieldReader::new(bits))
     }

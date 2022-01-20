@@ -16,6 +16,7 @@ impl From<crate::R<BUSY0_SPEC>> for R {
 #[doc = "Field `BSY` reader - Busy flag for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = not busy. 1 = busy."]
 pub struct BSY_R(crate::FieldReader<u32, u32>);
 impl BSY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         BSY_R(crate::FieldReader::new(bits))
     }

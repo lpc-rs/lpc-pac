@@ -37,6 +37,7 @@ impl From<crate::W<CLR_SPEC>> for W {
 #[doc = "Field `CLR` reader - A 1 in bit m selects event m to clear output n (or set it if SETCLRn = 0x1 or 0x2) event 0 = bit 0, event 1 = bit 1, etc. The number of bits = number of events in this SCT. When the counter is used in bi-directional mode, it is possible to reverse the action specified by the output set and clear registers when counting down, See the OUTPUTCTRL register."]
 pub struct CLR_R(crate::FieldReader<u8, u8>);
 impl CLR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CLR_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<CONSET_SPEC>> for W {
 #[doc = "Field `AA` reader - Assert acknowledge flag."]
 pub struct AA_R(crate::FieldReader<bool, bool>);
 impl AA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AA_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> AA_W<'a> {
 #[doc = "Field `SI` reader - I2C interrupt flag."]
 pub struct SI_R(crate::FieldReader<bool, bool>);
 impl SI_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SI_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> SI_W<'a> {
 #[doc = "Field `STO` reader - STOP flag."]
 pub struct STO_R(crate::FieldReader<bool, bool>);
 impl STO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STO_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> STO_W<'a> {
 #[doc = "Field `STA` reader - START flag."]
 pub struct STA_R(crate::FieldReader<bool, bool>);
 impl STA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         STA_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> STA_W<'a> {
 #[doc = "Field `I2EN` reader - I2C interface enable."]
 pub struct I2EN_R(crate::FieldReader<bool, bool>);
 impl I2EN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         I2EN_R(crate::FieldReader::new(bits))
     }

@@ -37,6 +37,7 @@ impl From<crate::W<ERRINT0_SPEC>> for W {
 #[doc = "Field `ERR` reader - Error Interrupt flag for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = error interrupt is not active. 1 = error interrupt is active."]
 pub struct ERR_R(crate::FieldReader<u32, u32>);
 impl ERR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         ERR_R(crate::FieldReader::new(bits))
     }

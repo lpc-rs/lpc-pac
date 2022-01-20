@@ -37,6 +37,7 @@ impl From<crate::W<IST_SPEC>> for W {
 #[doc = "Field `PSTAT` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register)."]
 pub struct PSTAT_R(crate::FieldReader<u8, u8>);
 impl PSTAT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PSTAT_R(crate::FieldReader::new(bits))
     }

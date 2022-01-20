@@ -51,6 +51,7 @@ impl From<SLVCONTINUE_A> for bool {
 #[doc = "Field `SLVCONTINUE` reader - Slave Continue."]
 pub struct SLVCONTINUE_R(crate::FieldReader<bool, SLVCONTINUE_A>);
 impl SLVCONTINUE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVCONTINUE_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<SLVNACK_A> for bool {
 #[doc = "Field `SLVNACK` reader - Slave NACK."]
 pub struct SLVNACK_R(crate::FieldReader<bool, SLVNACK_A>);
 impl SLVNACK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVNACK_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<SLVDMA_A> for bool {
 #[doc = "Field `SLVDMA` reader - Slave DMA enable."]
 pub struct SLVDMA_R(crate::FieldReader<bool, SLVDMA_A>);
 impl SLVDMA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SLVDMA_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<BOD_PD_A> for bool {
 #[doc = "Field `BOD_PD` reader - BOD power-down control for Deep-sleep and Power-down mode"]
 pub struct BOD_PD_R(crate::FieldReader<bool, BOD_PD_A>);
 impl BOD_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BOD_PD_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<WDTOSC_PD_A> for bool {
 #[doc = "Field `WDTOSC_PD` reader - Watchdog oscillator power-down control for Deep-sleep and Power-down mode. Changing this bit to powered-down has no effect when the LOCK bit in the WWDT MOD register is set. In this case, the watchdog oscillator is always running."]
 pub struct WDTOSC_PD_R(crate::FieldReader<bool, WDTOSC_PD_A>);
 impl WDTOSC_PD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WDTOSC_PD_R(crate::FieldReader::new(bits))
     }

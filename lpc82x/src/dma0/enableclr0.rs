@@ -37,6 +37,7 @@ impl From<crate::W<ENABLECLR0_SPEC>> for W {
 #[doc = "Field `CLR` reader - Writing ones to this register clears the corresponding bits in ENABLESET0. Bit n clears the channel enable bit n. The number of bits = number of DMA channels in this device. Other bits are reserved."]
 pub struct CLR_R(crate::FieldReader<u32, u32>);
 impl CLR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         CLR_R(crate::FieldReader::new(bits))
     }

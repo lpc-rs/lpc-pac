@@ -37,6 +37,7 @@ impl From<crate::W<EVEN_SPEC>> for W {
 #[doc = "Field `IEN` reader - The SCT requests an interrupt when bit n of this register and the event flag register are both one (event 0 = bit 0, event 1 = bit 1, etc.). The number of bits = number of events in this SCT."]
 pub struct IEN_R(crate::FieldReader<u8, u8>);
 impl IEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         IEN_R(crate::FieldReader::new(bits))
     }

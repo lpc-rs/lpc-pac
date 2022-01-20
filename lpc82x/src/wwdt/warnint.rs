@@ -37,6 +37,7 @@ impl From<crate::W<WARNINT_SPEC>> for W {
 #[doc = "Field `WARNINT` reader - Watchdog warning interrupt compare value."]
 pub struct WARNINT_R(crate::FieldReader<u16, u16>);
 impl WARNINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         WARNINT_R(crate::FieldReader::new(bits))
     }

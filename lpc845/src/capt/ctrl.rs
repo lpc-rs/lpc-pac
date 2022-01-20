@@ -56,6 +56,7 @@ impl From<POLLMODE_A> for u8 {
 #[doc = "Field `POLLMODE` reader - Mode of operation. May only change from 0 to another value. So, if 2 or 3, must be changed to 0 1st. Any attempt to go from non-0 to non-0 will result in 0 anyway."]
 pub struct POLLMODE_R(crate::FieldReader<u8, POLLMODE_A>);
 impl POLLMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         POLLMODE_R(crate::FieldReader::new(bits))
     }
@@ -157,6 +158,7 @@ impl From<TYPE_A> for u8 {
 #[doc = "Field `TYPE` reader - Selects type of Touch arrangement to use and so how to handle XPINSEL bits"]
 pub struct TYPE_R(crate::FieldReader<u8, TYPE_A>);
 impl TYPE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         TYPE_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +255,7 @@ impl From<TRIGGER_A> for bool {
 #[doc = "Field `TRIGGER` reader - This selects what is being used as the trigger"]
 pub struct TRIGGER_R(crate::FieldReader<bool, TRIGGER_A>);
 impl TRIGGER_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         TRIGGER_R(crate::FieldReader::new(bits))
     }
@@ -322,6 +325,7 @@ impl<'a> TRIGGER_W<'a> {
 #[doc = "Field `WAIT` reader - If 0, the block will continue its X based measurements, even if the TOUCH register has not been read (and so could OVERRUN). If 1, it will wait until read when a touch (TOUCH's ISTOUCH bit is set) before starting the next. This should not normally be needed."]
 pub struct WAIT_R(crate::FieldReader<bool, bool>);
 impl WAIT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         WAIT_R(crate::FieldReader::new(bits))
     }
@@ -377,6 +381,7 @@ impl From<DMA_A> for u8 {
 #[doc = "Field `DMA` reader - If not 0, will use the DMA to read out touch events from TOUCH register. The values are shown below. This may be changed while active."]
 pub struct DMA_R(crate::FieldReader<u8, DMA_A>);
 impl DMA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DMA_R(crate::FieldReader::new(bits))
     }
@@ -500,6 +505,7 @@ impl From<FDIV_A> for u8 {
 #[doc = "Field `FDIV` reader - Functional clock divider, or 0 if no divide. The term \"clocks\" in this spec then refer to divided clocks. For a 12MHz input (e.g. FRO 12MHz), this would normally be set to generate a 4MHz output (so, 2). For a 1MHz input, it should be 0. Note for internal use: this does not produce a 50/50 duty cycle when non even divide."]
 pub struct FDIV_R(crate::FieldReader<u8, FDIV_A>);
 impl FDIV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FDIV_R(crate::FieldReader::new(bits))
     }
@@ -718,6 +724,7 @@ impl From<XPINUSE_A> for u8 {
 #[doc = "Field `XPINUSE` reader - Controls how X pins selected in XPINSEL are used when not active in the current polling round."]
 pub struct XPINUSE_R(crate::FieldReader<u8, XPINUSE_A>);
 impl XPINUSE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         XPINUSE_R(crate::FieldReader::new(bits))
     }
@@ -778,6 +785,7 @@ impl<'a> XPINUSE_W<'a> {
 #[doc = "Field `INCHANGE` reader - If 1, do not attempt to write to this register again. This means the last change has not been propagated. This can only happen after changing POLLMODE and DMA. Worse case time would be based on divided FCLK."]
 pub struct INCHANGE_R(crate::FieldReader<bool, bool>);
 impl INCHANGE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INCHANGE_R(crate::FieldReader::new(bits))
     }
@@ -792,6 +800,7 @@ impl core::ops::Deref for INCHANGE_R {
 #[doc = "Field `XPINSEL` reader - Selects which of the X pins are to be used within the allowed pins - see XMAX in STATUS. The X pins are mapped via the IOCON (as are the YH and YL pins) to physical pads. So, this only selects which are to be used as the X half of the touch element. Note: when polling, these are \"walked\" (active) one at a time. When using POLLNOW, the 1 or more selected are used at the same time. Likewise, when in low-power mode, they are used at the same time (or small groups). X pads not selected by XPINSEL are kept at High-Z if they are connected to a pad. This allows using controlled sets for touch detection based on context."]
 pub struct XPINSEL_R(crate::FieldReader<u16, u16>);
 impl XPINSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         XPINSEL_R(crate::FieldReader::new(bits))
     }

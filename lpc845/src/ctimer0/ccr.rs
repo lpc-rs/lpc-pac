@@ -37,6 +37,7 @@ impl From<crate::W<CCR_SPEC>> for W {
 #[doc = "Field `CAP0RE` reader - Rising edge of capture channel 0: a sequence of 0 then 1 causes CR0 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP0RE_R(crate::FieldReader<bool, bool>);
 impl CAP0RE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP0RE_R(crate::FieldReader::new(bits))
     }
@@ -73,6 +74,7 @@ impl<'a> CAP0RE_W<'a> {
 #[doc = "Field `CAP0FE` reader - Falling edge of capture channel 0: a sequence of 1 then 0 causes CR0 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP0FE_R(crate::FieldReader<bool, bool>);
 impl CAP0FE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP0FE_R(crate::FieldReader::new(bits))
     }
@@ -109,6 +111,7 @@ impl<'a> CAP0FE_W<'a> {
 #[doc = "Field `CAP0I` reader - Generate interrupt on channel 0 capture event: a CR0 load generates an interrupt."]
 pub struct CAP0I_R(crate::FieldReader<bool, bool>);
 impl CAP0I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP0I_R(crate::FieldReader::new(bits))
     }
@@ -145,6 +148,7 @@ impl<'a> CAP0I_W<'a> {
 #[doc = "Field `CAP1RE` reader - Rising edge of capture channel 1: a sequence of 0 then 1 causes CR1 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP1RE_R(crate::FieldReader<bool, bool>);
 impl CAP1RE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP1RE_R(crate::FieldReader::new(bits))
     }
@@ -181,6 +185,7 @@ impl<'a> CAP1RE_W<'a> {
 #[doc = "Field `CAP1FE` reader - Falling edge of capture channel 1: a sequence of 1 then 0 causes CR1 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP1FE_R(crate::FieldReader<bool, bool>);
 impl CAP1FE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP1FE_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +222,7 @@ impl<'a> CAP1FE_W<'a> {
 #[doc = "Field `CAP1I` reader - Generate interrupt on channel 1 capture event: a CR1 load generates an interrupt."]
 pub struct CAP1I_R(crate::FieldReader<bool, bool>);
 impl CAP1I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP1I_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +259,7 @@ impl<'a> CAP1I_W<'a> {
 #[doc = "Field `CAP2RE` reader - Rising edge of capture channel 2: a sequence of 0 then 1 causes CR2 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP2RE_R(crate::FieldReader<bool, bool>);
 impl CAP2RE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP2RE_R(crate::FieldReader::new(bits))
     }
@@ -289,6 +296,7 @@ impl<'a> CAP2RE_W<'a> {
 #[doc = "Field `CAP2FE` reader - Falling edge of capture channel 2: a sequence of 1 then 0 causes CR2 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP2FE_R(crate::FieldReader<bool, bool>);
 impl CAP2FE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP2FE_R(crate::FieldReader::new(bits))
     }
@@ -325,6 +333,7 @@ impl<'a> CAP2FE_W<'a> {
 #[doc = "Field `CAP2I` reader - Generate interrupt on channel 2 capture event: a CR2 load generates an interrupt."]
 pub struct CAP2I_R(crate::FieldReader<bool, bool>);
 impl CAP2I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP2I_R(crate::FieldReader::new(bits))
     }
@@ -361,6 +370,7 @@ impl<'a> CAP2I_W<'a> {
 #[doc = "Field `CAP3RE` reader - Rising edge of capture channel 3: a sequence of 0 then 1 causes CR3 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP3RE_R(crate::FieldReader<bool, bool>);
 impl CAP3RE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP3RE_R(crate::FieldReader::new(bits))
     }
@@ -397,6 +407,7 @@ impl<'a> CAP3RE_W<'a> {
 #[doc = "Field `CAP3FE` reader - Falling edge of capture channel 3: a sequence of 1 then 0 causes CR3 to be loaded with the contents of TC. 0 = disabled. 1 = enabled."]
 pub struct CAP3FE_R(crate::FieldReader<bool, bool>);
 impl CAP3FE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP3FE_R(crate::FieldReader::new(bits))
     }
@@ -433,6 +444,7 @@ impl<'a> CAP3FE_W<'a> {
 #[doc = "Field `CAP3I` reader - Generate interrupt on channel 3 capture event: a CR3 load generates an interrupt."]
 pub struct CAP3I_R(crate::FieldReader<bool, bool>);
 impl CAP3I_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CAP3I_R(crate::FieldReader::new(bits))
     }

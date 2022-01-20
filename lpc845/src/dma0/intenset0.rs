@@ -37,6 +37,7 @@ impl From<crate::W<INTENSET0_SPEC>> for W {
 #[doc = "Field `INTEN` reader - Interrupt Enable read and set for DMA channel n. Bit n corresponds to DMA channel n. The number of bits = number of DMA channels in this device. Other bits are reserved. 0 = interrupt for DMA channel is disabled. 1 = interrupt for DMA channel is enabled."]
 pub struct INTEN_R(crate::FieldReader<u32, u32>);
 impl INTEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         INTEN_R(crate::FieldReader::new(bits))
     }

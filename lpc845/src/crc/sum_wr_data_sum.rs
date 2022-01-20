@@ -16,6 +16,7 @@ impl From<crate::R<SUM_WR_DATA_SUM_SPEC>> for R {
 #[doc = "Field `CRC_SUM` reader - The most recent CRC sum can be read through this register with selected bit order and 1's complement post-processes."]
 pub struct CRC_SUM_R(crate::FieldReader<u32, u32>);
 impl CRC_SUM_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         CRC_SUM_R(crate::FieldReader::new(bits))
     }
@@ -31,7 +32,7 @@ impl R {
     #[doc = "Bits 0:31 - The most recent CRC sum can be read through this register with selected bit order and 1's complement post-processes."]
     #[inline(always)]
     pub fn crc_sum(&self) -> CRC_SUM_R {
-        CRC_SUM_R::new((self.bits & 0xffff_ffff) as u32)
+        CRC_SUM_R::new(self.bits)
     }
 }
 #[doc = "CRC checksum register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sum_wr_data_sum](index.html) module"]

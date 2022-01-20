@@ -51,6 +51,7 @@ impl From<CLKSEL_A> for bool {
 #[doc = "Field `CLKSEL` reader - Select the self wake-up timer clock source. Remark: This bit only has an effect if the SEL_EXTCLK bit is not set."]
 pub struct CLKSEL_R(crate::FieldReader<bool, CLKSEL_A>);
 impl CLKSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLKSEL_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<ALARMFLAG_A> for bool {
 #[doc = "Field `ALARMFLAG` reader - Wake-up or alarm timer flag."]
 pub struct ALARMFLAG_R(crate::FieldReader<bool, ALARMFLAG_A>);
 impl ALARMFLAG_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ALARMFLAG_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<CLEARCTR_A> for bool {
 #[doc = "Field `CLEARCTR` reader - Clears the self wake-up timer."]
 pub struct CLEARCTR_R(crate::FieldReader<bool, CLEARCTR_A>);
 impl CLEARCTR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLEARCTR_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<SEL_EXTCLK_A> for bool {
 #[doc = "Field `SEL_EXTCLK` reader - Select external or internal clock source for the self wake-up timer. The internal clock source is selected by the CLKSEL bit in this register if SET_EXTCLK is set to internal."]
 pub struct SEL_EXTCLK_R(crate::FieldReader<bool, SEL_EXTCLK_A>);
 impl SEL_EXTCLK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SEL_EXTCLK_R(crate::FieldReader::new(bits))
     }

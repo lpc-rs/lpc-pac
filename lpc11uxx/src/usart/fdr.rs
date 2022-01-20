@@ -37,6 +37,7 @@ impl From<crate::W<FDR_SPEC>> for W {
 #[doc = "Field `DIVADDVAL` reader - Baud rate generation pre-scaler divisor value. If this field is 0, fractional baud rate generator will not impact the USART baud rate."]
 pub struct DIVADDVAL_R(crate::FieldReader<u8, u8>);
 impl DIVADDVAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DIVADDVAL_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> DIVADDVAL_W<'a> {
 #[doc = "Field `MULVAL` reader - Baud rate pre-scaler multiplier value. This field must be greater or equal 1 for USART to operate properly, regardless of whether the fractional baud rate generator is used or not."]
 pub struct MULVAL_R(crate::FieldReader<u8, u8>);
 impl MULVAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MULVAL_R(crate::FieldReader::new(bits))
     }

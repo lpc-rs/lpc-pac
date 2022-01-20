@@ -37,6 +37,7 @@ impl From<crate::W<SCR_SPEC>> for W {
 #[doc = "Field `PAD` reader - A readable, writable byte."]
 pub struct PAD_R(crate::FieldReader<u8, u8>);
 impl PAD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PAD_R(crate::FieldReader::new(bits))
     }

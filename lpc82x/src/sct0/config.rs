@@ -51,6 +51,7 @@ impl From<UNIFY_A> for bool {
 #[doc = "Field `UNIFY` reader - SCT operation"]
 pub struct UNIFY_R(crate::FieldReader<bool, UNIFY_A>);
 impl UNIFY_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         UNIFY_R(crate::FieldReader::new(bits))
     }
@@ -139,6 +140,7 @@ impl From<CLKMODE_A> for u8 {
 #[doc = "Field `CLKMODE` reader - SCT clock mode"]
 pub struct CLKMODE_R(crate::FieldReader<u8, CLKMODE_A>);
 impl CLKMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CLKMODE_R(crate::FieldReader::new(bits))
     }
@@ -248,6 +250,7 @@ impl From<CKSEL_A> for u8 {
 #[doc = "Field `CKSEL` reader - SCT clock select. The specific functionality of the designated input/edge is dependent on the CLKMODE bit selection in this register."]
 pub struct CKSEL_R(crate::FieldReader<u8, CKSEL_A>);
 impl CKSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         CKSEL_R(crate::FieldReader::new(bits))
     }
@@ -374,6 +377,7 @@ impl<'a> CKSEL_W<'a> {
 #[doc = "Field `NORELAOD_L` reader - A 1 in this bit prevents the lower match registers from being reloaded from their respective reload registers. Setting this bit eliminates the need to write to the reload registers MATCHREL if the match values are fixed. Software can write to set or clear this bit at any time. This bit applies to both the higher and lower registers when the UNIFY bit is set."]
 pub struct NORELAOD_L_R(crate::FieldReader<bool, bool>);
 impl NORELAOD_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NORELAOD_L_R(crate::FieldReader::new(bits))
     }
@@ -410,6 +414,7 @@ impl<'a> NORELAOD_L_W<'a> {
 #[doc = "Field `NORELOAD_H` reader - A 1 in this bit prevents the higher match registers from being reloaded from their respective reload registers. Setting this bit eliminates the need to write to the reload registers MATCHREL if the match values are fixed. Software can write to set or clear this bit at any time. This bit is not used when the UNIFY bit is set."]
 pub struct NORELOAD_H_R(crate::FieldReader<bool, bool>);
 impl NORELOAD_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         NORELOAD_H_R(crate::FieldReader::new(bits))
     }
@@ -446,6 +451,7 @@ impl<'a> NORELOAD_H_W<'a> {
 #[doc = "Field `INSYNC` reader - Synchronization for input N (bit 9 = input 0, bit 10 = input 1,, bit 12 = input 3); all other bits are reserved. A 1 in one of these bits subjects the corresponding input to synchronization to the SCT clock, before it is used to create an event. If an input is known to already be synchronous to the SCT clock, this bit may be set to 0 for faster input response. (Note: The SCT clock is the system clock for CKMODEs 0-2. It is the selected, asynchronous SCT input clock for CKMODE3). Note that the INSYNC field only affects inputs used for event generation. It does not apply to the clock input specified in the CKSEL field."]
 pub struct INSYNC_R(crate::FieldReader<u8, u8>);
 impl INSYNC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         INSYNC_R(crate::FieldReader::new(bits))
     }
@@ -472,6 +478,7 @@ impl<'a> INSYNC_W<'a> {
 #[doc = "Field `AUTOLIMIT_L` reader - A one in this bit causes a match on match register 0 to be treated as a de-facto LIMIT condition without the need to define an associated event. As with any LIMIT event, this automatic limit causes the counter to be cleared to zero in unidirectional mode or to change the direction of count in bi-directional mode. Software can write to set or clear this bit at any time. This bit applies to both the higher and lower registers when the UNIFY bit is set."]
 pub struct AUTOLIMIT_L_R(crate::FieldReader<bool, bool>);
 impl AUTOLIMIT_L_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AUTOLIMIT_L_R(crate::FieldReader::new(bits))
     }
@@ -508,6 +515,7 @@ impl<'a> AUTOLIMIT_L_W<'a> {
 #[doc = "Field `AUTOLIMIT_H` reader - A one in this bit will cause a match on match register 0 to be treated as a de-facto LIMIT condition without the need to define an associated event. As with any LIMIT event, this automatic limit causes the counter to be cleared to zero in unidirectional mode or to change the direction of count in bi-directional mode. Software can write to set or clear this bit at any time. This bit is not used when the UNIFY bit is set."]
 pub struct AUTOLIMIT_H_R(crate::FieldReader<bool, bool>);
 impl AUTOLIMIT_H_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AUTOLIMIT_H_R(crate::FieldReader::new(bits))
     }

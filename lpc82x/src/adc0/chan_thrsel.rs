@@ -51,6 +51,7 @@ impl From<CH0_THRSEL_A> for bool {
 #[doc = "Field `CH0_THRSEL` reader - Threshold select for channel 0."]
 pub struct CH0_THRSEL_R(crate::FieldReader<bool, CH0_THRSEL_A>);
 impl CH0_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH0_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<CH1_THRSEL_A> for bool {
 #[doc = "Field `CH1_THRSEL` reader - Threshold select for channel 1"]
 pub struct CH1_THRSEL_R(crate::FieldReader<bool, CH1_THRSEL_A>);
 impl CH1_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH1_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<CH2_THRSEL_A> for bool {
 #[doc = "Field `CH2_THRSEL` reader - Threshold select for channel 2."]
 pub struct CH2_THRSEL_R(crate::FieldReader<bool, CH2_THRSEL_A>);
 impl CH2_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH2_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<CH3_THRSEL_A> for bool {
 #[doc = "Field `CH3_THRSEL` reader - Threshold select for channel 3."]
 pub struct CH3_THRSEL_R(crate::FieldReader<bool, CH3_THRSEL_A>);
 impl CH3_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH3_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<CH4_THRSEL_A> for bool {
 #[doc = "Field `CH4_THRSEL` reader - Threshold select for channel 4."]
 pub struct CH4_THRSEL_R(crate::FieldReader<bool, CH4_THRSEL_A>);
 impl CH4_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH4_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<CH5_THRSEL_A> for bool {
 #[doc = "Field `CH5_THRSEL` reader - Threshold select for channel 5."]
 pub struct CH5_THRSEL_R(crate::FieldReader<bool, CH5_THRSEL_A>);
 impl CH5_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH5_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<CH6_THRSEL_A> for bool {
 #[doc = "Field `CH6_THRSEL` reader - Threshold select for channel 6."]
 pub struct CH6_THRSEL_R(crate::FieldReader<bool, CH6_THRSEL_A>);
 impl CH6_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH6_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -632,6 +639,7 @@ impl From<CH7_THRSEL_A> for bool {
 #[doc = "Field `CH7_THRSEL` reader - Threshold select for channel 7."]
 pub struct CH7_THRSEL_R(crate::FieldReader<bool, CH7_THRSEL_A>);
 impl CH7_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH7_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -715,6 +723,7 @@ impl From<CH8_THRSEL_A> for bool {
 #[doc = "Field `CH8_THRSEL` reader - Threshold select for channel 8."]
 pub struct CH8_THRSEL_R(crate::FieldReader<bool, CH8_THRSEL_A>);
 impl CH8_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH8_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -798,6 +807,7 @@ impl From<CH9_THRSEL_A> for bool {
 #[doc = "Field `CH9_THRSEL` reader - Threshold select for channel 9."]
 pub struct CH9_THRSEL_R(crate::FieldReader<bool, CH9_THRSEL_A>);
 impl CH9_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH9_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -881,6 +891,7 @@ impl From<CH10_THRSEL_A> for bool {
 #[doc = "Field `CH10_THRSEL` reader - Threshold select for channel 10."]
 pub struct CH10_THRSEL_R(crate::FieldReader<bool, CH10_THRSEL_A>);
 impl CH10_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH10_THRSEL_R(crate::FieldReader::new(bits))
     }
@@ -964,6 +975,7 @@ impl From<CH11_THRSEL_A> for bool {
 #[doc = "Field `CH11_THRSEL` reader - Threshold select for channel 11."]
 pub struct CH11_THRSEL_R(crate::FieldReader<bool, CH11_THRSEL_A>);
 impl CH11_THRSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CH11_THRSEL_R(crate::FieldReader::new(bits))
     }

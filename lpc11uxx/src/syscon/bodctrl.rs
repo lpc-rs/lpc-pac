@@ -56,6 +56,7 @@ impl From<BODRSTLEV_A> for u8 {
 #[doc = "Field `BODRSTLEV` reader - BOD reset level"]
 pub struct BODRSTLEV_R(crate::FieldReader<u8, BODRSTLEV_A>);
 impl BODRSTLEV_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         BODRSTLEV_R(crate::FieldReader::new(bits))
     }
@@ -157,6 +158,7 @@ impl From<BODINTVAL_A> for u8 {
 #[doc = "Field `BODINTVAL` reader - BOD interrupt level"]
 pub struct BODINTVAL_R(crate::FieldReader<u8, BODINTVAL_A>);
 impl BODINTVAL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         BODINTVAL_R(crate::FieldReader::new(bits))
     }
@@ -253,6 +255,7 @@ impl From<BODRSTENA_A> for bool {
 #[doc = "Field `BODRSTENA` reader - BOD reset enable"]
 pub struct BODRSTENA_R(crate::FieldReader<bool, BODRSTENA_A>);
 impl BODRSTENA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         BODRSTENA_R(crate::FieldReader::new(bits))
     }

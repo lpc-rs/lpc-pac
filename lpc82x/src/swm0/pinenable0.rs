@@ -51,6 +51,7 @@ impl From<ACMP_I1_A> for bool {
 #[doc = "Field `ACMP_I1` reader - ACMP_I1 function select."]
 pub struct ACMP_I1_R(crate::FieldReader<bool, ACMP_I1_A>);
 impl ACMP_I1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ACMP_I1_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<ACMP_I2_A> for bool {
 #[doc = "Field `ACMP_I2` reader - ACMP_I2 function select."]
 pub struct ACMP_I2_R(crate::FieldReader<bool, ACMP_I2_A>);
 impl ACMP_I2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ACMP_I2_R(crate::FieldReader::new(bits))
     }
@@ -217,6 +219,7 @@ impl From<ACMP_I3_A> for bool {
 #[doc = "Field `ACMP_I3` reader - ACMP_I3 function select."]
 pub struct ACMP_I3_R(crate::FieldReader<bool, ACMP_I3_A>);
 impl ACMP_I3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ACMP_I3_R(crate::FieldReader::new(bits))
     }
@@ -300,6 +303,7 @@ impl From<ACMP_I4_A> for bool {
 #[doc = "Field `ACMP_I4` reader - ACMP_I4 function select."]
 pub struct ACMP_I4_R(crate::FieldReader<bool, ACMP_I4_A>);
 impl ACMP_I4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ACMP_I4_R(crate::FieldReader::new(bits))
     }
@@ -383,6 +387,7 @@ impl From<SWCLK_A> for bool {
 #[doc = "Field `SWCLK` reader - SWCLK function select."]
 pub struct SWCLK_R(crate::FieldReader<bool, SWCLK_A>);
 impl SWCLK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SWCLK_R(crate::FieldReader::new(bits))
     }
@@ -466,6 +471,7 @@ impl From<SWDIO_A> for bool {
 #[doc = "Field `SWDIO` reader - SWDIO function select."]
 pub struct SWDIO_R(crate::FieldReader<bool, SWDIO_A>);
 impl SWDIO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SWDIO_R(crate::FieldReader::new(bits))
     }
@@ -549,6 +555,7 @@ impl From<XTALIN_A> for bool {
 #[doc = "Field `XTALIN` reader - XTALIN function select."]
 pub struct XTALIN_R(crate::FieldReader<bool, XTALIN_A>);
 impl XTALIN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         XTALIN_R(crate::FieldReader::new(bits))
     }
@@ -632,6 +639,7 @@ impl From<XTALOUT_A> for bool {
 #[doc = "Field `XTALOUT` reader - XTALOUT function select."]
 pub struct XTALOUT_R(crate::FieldReader<bool, XTALOUT_A>);
 impl XTALOUT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         XTALOUT_R(crate::FieldReader::new(bits))
     }
@@ -715,6 +723,7 @@ impl From<RESETN_A> for bool {
 #[doc = "Field `RESETN` reader - RESETN function select."]
 pub struct RESETN_R(crate::FieldReader<bool, RESETN_A>);
 impl RESETN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         RESETN_R(crate::FieldReader::new(bits))
     }
@@ -798,6 +807,7 @@ impl From<CLKIN_A> for bool {
 #[doc = "Field `CLKIN` reader - CLKIN function select."]
 pub struct CLKIN_R(crate::FieldReader<bool, CLKIN_A>);
 impl CLKIN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         CLKIN_R(crate::FieldReader::new(bits))
     }
@@ -881,6 +891,7 @@ impl From<VDDCMP_A> for bool {
 #[doc = "Field `VDDCMP` reader - VDDCMP function select."]
 pub struct VDDCMP_R(crate::FieldReader<bool, VDDCMP_A>);
 impl VDDCMP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         VDDCMP_R(crate::FieldReader::new(bits))
     }
@@ -964,6 +975,7 @@ impl From<I2C0_SDA_A> for bool {
 #[doc = "Field `I2C0_SDA` reader - I2C0_SDA function select."]
 pub struct I2C0_SDA_R(crate::FieldReader<bool, I2C0_SDA_A>);
 impl I2C0_SDA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         I2C0_SDA_R(crate::FieldReader::new(bits))
     }
@@ -1047,6 +1059,7 @@ impl From<I2C0_SCL_A> for bool {
 #[doc = "Field `I2C0_SCL` reader - I2C0_SCL function select."]
 pub struct I2C0_SCL_R(crate::FieldReader<bool, I2C0_SCL_A>);
 impl I2C0_SCL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         I2C0_SCL_R(crate::FieldReader::new(bits))
     }
@@ -1130,6 +1143,7 @@ impl From<ADC_0_A> for bool {
 #[doc = "Field `ADC_0` reader - ADC_0 function select."]
 pub struct ADC_0_R(crate::FieldReader<bool, ADC_0_A>);
 impl ADC_0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_0_R(crate::FieldReader::new(bits))
     }
@@ -1213,6 +1227,7 @@ impl From<ADC_1_A> for bool {
 #[doc = "Field `ADC_1` reader - ADC_1 function select."]
 pub struct ADC_1_R(crate::FieldReader<bool, ADC_1_A>);
 impl ADC_1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_1_R(crate::FieldReader::new(bits))
     }
@@ -1296,6 +1311,7 @@ impl From<ADC_2_A> for bool {
 #[doc = "Field `ADC_2` reader - ADC_2 function select."]
 pub struct ADC_2_R(crate::FieldReader<bool, ADC_2_A>);
 impl ADC_2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_2_R(crate::FieldReader::new(bits))
     }
@@ -1379,6 +1395,7 @@ impl From<ADC_3_A> for bool {
 #[doc = "Field `ADC_3` reader - ADC_3 function select."]
 pub struct ADC_3_R(crate::FieldReader<bool, ADC_3_A>);
 impl ADC_3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_3_R(crate::FieldReader::new(bits))
     }
@@ -1462,6 +1479,7 @@ impl From<ADC_4_A> for bool {
 #[doc = "Field `ADC_4` reader - ADC_4 function select."]
 pub struct ADC_4_R(crate::FieldReader<bool, ADC_4_A>);
 impl ADC_4_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_4_R(crate::FieldReader::new(bits))
     }
@@ -1545,6 +1563,7 @@ impl From<ADC_5_A> for bool {
 #[doc = "Field `ADC_5` reader - ADC_5 function select."]
 pub struct ADC_5_R(crate::FieldReader<bool, ADC_5_A>);
 impl ADC_5_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_5_R(crate::FieldReader::new(bits))
     }
@@ -1628,6 +1647,7 @@ impl From<ADC_6_A> for bool {
 #[doc = "Field `ADC_6` reader - ADC_6 function select."]
 pub struct ADC_6_R(crate::FieldReader<bool, ADC_6_A>);
 impl ADC_6_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_6_R(crate::FieldReader::new(bits))
     }
@@ -1711,6 +1731,7 @@ impl From<ADC_7_A> for bool {
 #[doc = "Field `ADC_7` reader - ADC_7 function select."]
 pub struct ADC_7_R(crate::FieldReader<bool, ADC_7_A>);
 impl ADC_7_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_7_R(crate::FieldReader::new(bits))
     }
@@ -1794,6 +1815,7 @@ impl From<ADC_8_A> for bool {
 #[doc = "Field `ADC_8` reader - ADC_8 function select."]
 pub struct ADC_8_R(crate::FieldReader<bool, ADC_8_A>);
 impl ADC_8_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_8_R(crate::FieldReader::new(bits))
     }
@@ -1877,6 +1899,7 @@ impl From<ADC_9_A> for bool {
 #[doc = "Field `ADC_9` reader - ADC_9 function select."]
 pub struct ADC_9_R(crate::FieldReader<bool, ADC_9_A>);
 impl ADC_9_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_9_R(crate::FieldReader::new(bits))
     }
@@ -1960,6 +1983,7 @@ impl From<ADC_10_A> for bool {
 #[doc = "Field `ADC_10` reader - ADC_10 function select."]
 pub struct ADC_10_R(crate::FieldReader<bool, ADC_10_A>);
 impl ADC_10_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_10_R(crate::FieldReader::new(bits))
     }
@@ -2043,6 +2067,7 @@ impl From<ADC_11_A> for bool {
 #[doc = "Field `ADC_11` reader - ADC_11 function select."]
 pub struct ADC_11_R(crate::FieldReader<bool, ADC_11_A>);
 impl ADC_11_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ADC_11_R(crate::FieldReader::new(bits))
     }

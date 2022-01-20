@@ -37,6 +37,7 @@ impl From<crate::W<DEVCMDSTAT_SPEC>> for W {
 #[doc = "Field `DEV_ADDR` reader - USB device address. After bus reset, the address is reset to 0x00. If the enable bit is set, the device will respond on packets for function address DEV_ADDR. When receiving a SetAddress Control Request from the USB host, software must program the new address before completing the status phase of the SetAddress Control Request."]
 pub struct DEV_ADDR_R(crate::FieldReader<u8, u8>);
 impl DEV_ADDR_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DEV_ADDR_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> DEV_ADDR_W<'a> {
 #[doc = "Field `DEV_EN` reader - USB device enable. If this bit is set, the HW will start responding on packets for function address DEV_ADDR."]
 pub struct DEV_EN_R(crate::FieldReader<bool, bool>);
 impl DEV_EN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DEV_EN_R(crate::FieldReader::new(bits))
     }
@@ -99,6 +101,7 @@ impl<'a> DEV_EN_W<'a> {
 #[doc = "Field `SETUP` reader - SETUP token received. If a SETUP token is received and acknowledged by the device, this bit is set. As long as this bit is set all received IN and OUT tokens will be NAKed by HW. SW must clear this bit by writing a one. If this bit is zero, HW will handle the tokens to the CTRL EP0 as indicated by the CTRL EP0 IN and OUT data information programmed by SW."]
 pub struct SETUP_R(crate::FieldReader<bool, bool>);
 impl SETUP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         SETUP_R(crate::FieldReader::new(bits))
     }
@@ -149,6 +152,7 @@ impl From<PLL_ON_A> for bool {
 #[doc = "Field `PLL_ON` reader - Always PLL Clock on:"]
 pub struct PLL_ON_R(crate::FieldReader<bool, PLL_ON_A>);
 impl PLL_ON_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         PLL_ON_R(crate::FieldReader::new(bits))
     }
@@ -232,6 +236,7 @@ impl From<LPM_SUP_A> for bool {
 #[doc = "Field `LPM_SUP` reader - LPM Supported:"]
 pub struct LPM_SUP_R(crate::FieldReader<bool, LPM_SUP_A>);
 impl LPM_SUP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LPM_SUP_R(crate::FieldReader::new(bits))
     }
@@ -315,6 +320,7 @@ impl From<INTONNAK_AO_A> for bool {
 #[doc = "Field `INTONNAK_AO` reader - Interrupt on NAK for interrupt and bulk OUT EP"]
 pub struct INTONNAK_AO_R(crate::FieldReader<bool, INTONNAK_AO_A>);
 impl INTONNAK_AO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INTONNAK_AO_R(crate::FieldReader::new(bits))
     }
@@ -398,6 +404,7 @@ impl From<INTONNAK_AI_A> for bool {
 #[doc = "Field `INTONNAK_AI` reader - Interrupt on NAK for interrupt and bulk IN EP"]
 pub struct INTONNAK_AI_R(crate::FieldReader<bool, INTONNAK_AI_A>);
 impl INTONNAK_AI_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INTONNAK_AI_R(crate::FieldReader::new(bits))
     }
@@ -481,6 +488,7 @@ impl From<INTONNAK_CO_A> for bool {
 #[doc = "Field `INTONNAK_CO` reader - Interrupt on NAK for control OUT EP"]
 pub struct INTONNAK_CO_R(crate::FieldReader<bool, INTONNAK_CO_A>);
 impl INTONNAK_CO_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INTONNAK_CO_R(crate::FieldReader::new(bits))
     }
@@ -564,6 +572,7 @@ impl From<INTONNAK_CI_A> for bool {
 #[doc = "Field `INTONNAK_CI` reader - Interrupt on NAK for control IN EP"]
 pub struct INTONNAK_CI_R(crate::FieldReader<bool, INTONNAK_CI_A>);
 impl INTONNAK_CI_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INTONNAK_CI_R(crate::FieldReader::new(bits))
     }
@@ -633,6 +642,7 @@ impl<'a> INTONNAK_CI_W<'a> {
 #[doc = "Field `DCON` reader - Device status - connect. The connect bit must be set by SW to indicate that the device must signal a connect. The pull-up resistor on USB_DP will be enabled when this bit is set and the VbusDebounced bit is one."]
 pub struct DCON_R(crate::FieldReader<bool, bool>);
 impl DCON_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DCON_R(crate::FieldReader::new(bits))
     }
@@ -669,6 +679,7 @@ impl<'a> DCON_W<'a> {
 #[doc = "Field `DSUS` reader - Device status - suspend. The suspend bit indicates the current suspend state. It is set to 1 when the device hasn't seen any activity on its upstream port for more than 3 milliseconds. It is reset to 0 on any activity. When the device is suspended (Suspend bit DSUS = 1) and the software writes a 0 to it, the device will generate a remote wake-up. This will only happen when the device is connected (Connect bit = 1). When the device is not connected or not suspended, a writing a 0 has no effect. Writing a 1 never has an effect."]
 pub struct DSUS_R(crate::FieldReader<bool, bool>);
 impl DSUS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DSUS_R(crate::FieldReader::new(bits))
     }
@@ -705,6 +716,7 @@ impl<'a> DSUS_W<'a> {
 #[doc = "Field `LPM_SUS` reader - Device status - LPM Suspend. This bit represents the current LPM suspend state. It is set to 1 by HW when the device has acknowledged the LPM request from the USB host and the Token Retry Time of 10us has elapsed. When the device is in the LPM suspended state (LPM suspend bit = 1) and the software writes a zero to this bit, the device will generate a remote walk-up. Software can only write a zero to this bit when the LPM_REWP bit is set to 1. HW resets this bit when it receives a host initiated resume. HW only updates the LPM_SUS bit when the LPM_SUPP bit is equal to one."]
 pub struct LPM_SUS_R(crate::FieldReader<bool, bool>);
 impl LPM_SUS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LPM_SUS_R(crate::FieldReader::new(bits))
     }
@@ -741,6 +753,7 @@ impl<'a> LPM_SUS_W<'a> {
 #[doc = "Field `LPM_REWP` reader - LPM Remote Wake-up Enabled by USB host. HW sets this bit to one when the bRemoteWake bit in the LPM extended token is set to 1. HW will reset this bit to 0 when it receives the host initiated LPM resume, when a remote wake-up is sent by the device or when a USB bus reset is received. Software can use this bit to check if the remote wake-up feature is enabled by the host for the LPM transaction."]
 pub struct LPM_REWP_R(crate::FieldReader<bool, bool>);
 impl LPM_REWP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LPM_REWP_R(crate::FieldReader::new(bits))
     }
@@ -777,6 +790,7 @@ impl<'a> LPM_REWP_W<'a> {
 #[doc = "Field `DCON_C` reader - Device status - connect change. The Connect Change bit is set when the device's pull-up resistor is disconnected because VBus disappeared. The bit is reset by writing a one to it."]
 pub struct DCON_C_R(crate::FieldReader<bool, bool>);
 impl DCON_C_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DCON_C_R(crate::FieldReader::new(bits))
     }
@@ -813,6 +827,7 @@ impl<'a> DCON_C_W<'a> {
 #[doc = "Field `DSUS_C` reader - Device status - suspend change. The suspend change bit is set to 1 when the suspend bit toggles. The suspend bit can toggle because: - The device goes in the suspended state - The device is disconnected - The device receives resume signaling on its upstream port. The bit is reset by writing a one to it."]
 pub struct DSUS_C_R(crate::FieldReader<bool, bool>);
 impl DSUS_C_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DSUS_C_R(crate::FieldReader::new(bits))
     }
@@ -849,6 +864,7 @@ impl<'a> DSUS_C_W<'a> {
 #[doc = "Field `DRES_C` reader - Device status - reset change. This bit is set when the device received a bus reset. On a bus reset the device will automatically go to the default state (unconfigured and responding to address 0). The bit is reset by writing a one to it."]
 pub struct DRES_C_R(crate::FieldReader<bool, bool>);
 impl DRES_C_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         DRES_C_R(crate::FieldReader::new(bits))
     }
@@ -885,6 +901,7 @@ impl<'a> DRES_C_W<'a> {
 #[doc = "Field `VBUSDEBOUNCED` reader - This bit indicates if Vbus is detected or not. The bit raises immediately when Vbus becomes high. It drops to zero if Vbus is low for at least 3 ms. If this bit is high and the DCon bit is set, the HW will enable the pull-up resistor to signal a connect."]
 pub struct VBUSDEBOUNCED_R(crate::FieldReader<bool, bool>);
 impl VBUSDEBOUNCED_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         VBUSDEBOUNCED_R(crate::FieldReader::new(bits))
     }

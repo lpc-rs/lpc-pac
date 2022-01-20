@@ -37,6 +37,7 @@ impl From<crate::W<EPBUFCFG_SPEC>> for W {
 #[doc = "Field `BUF_SB` reader - Buffer usage: This register has one bit per physical endpoint. 0: Single-buffer. 1: Double-buffer. If the bit is set to single-buffer (0), it will not toggle the corresponding EPINUSE bit when it clears the active bit. If the bit is set to double-buffer (1), HW will toggle the EPINUSE bit when it clears the Active bit for the buffer."]
 pub struct BUF_SB_R(crate::FieldReader<u8, u8>);
 impl BUF_SB_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         BUF_SB_R(crate::FieldReader::new(bits))
     }

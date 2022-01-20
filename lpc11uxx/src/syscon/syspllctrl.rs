@@ -37,6 +37,7 @@ impl From<crate::W<SYSPLLCTRL_SPEC>> for W {
 #[doc = "Field `MSEL` reader - Feedback divider value. The division value M is the programmed MSEL value + 1. 00000: Division ratio M = 1 to 11111: Division ratio M = 32"]
 pub struct MSEL_R(crate::FieldReader<u8, u8>);
 impl MSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MSEL_R(crate::FieldReader::new(bits))
     }
@@ -82,6 +83,7 @@ impl From<PSEL_A> for u8 {
 #[doc = "Field `PSEL` reader - Post divider ratio P. The division ratio is 2 x P."]
 pub struct PSEL_R(crate::FieldReader<u8, PSEL_A>);
 impl PSEL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         PSEL_R(crate::FieldReader::new(bits))
     }

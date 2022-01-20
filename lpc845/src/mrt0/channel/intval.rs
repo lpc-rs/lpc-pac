@@ -37,6 +37,7 @@ impl From<crate::W<INTVAL_SPEC>> for W {
 #[doc = "Field `IVALUE` reader - Time interval load value. This value is loaded into the TIMERn register and the MRT channel n starts counting down from IVALUE -1. If the timer is idle, writing a non-zero value to this bit field starts the timer immediately. If the timer is running, writing a zero to this bit field does the following: If LOAD = 1, the timer stops immediately. If LOAD = 0, the timer stops at the end of the time interval."]
 pub struct IVALUE_R(crate::FieldReader<u32, u32>);
 impl IVALUE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         IVALUE_R(crate::FieldReader::new(bits))
     }
@@ -77,6 +78,7 @@ impl From<LOAD_A> for bool {
 #[doc = "Field `LOAD` reader - Determines how the timer interval value IVALUE -1 is loaded into the TIMERn register. This bit is write-only. Reading this bit always returns 0."]
 pub struct LOAD_R(crate::FieldReader<bool, LOAD_A>);
 impl LOAD_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         LOAD_R(crate::FieldReader::new(bits))
     }

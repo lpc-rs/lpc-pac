@@ -37,6 +37,7 @@ impl From<crate::W<IENR_SPEC>> for W {
 #[doc = "Field `ENRL` reader - Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt."]
 pub struct ENRL_R(crate::FieldReader<u8, u8>);
 impl ENRL_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         ENRL_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<GFLAG0_A> for bool {
 #[doc = "Field `GFLAG0` reader - Monitors the interrupt flag of TIMER0."]
 pub struct GFLAG0_R(crate::FieldReader<bool, GFLAG0_A>);
 impl GFLAG0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GFLAG0_R(crate::FieldReader::new(bits))
     }
@@ -120,6 +121,7 @@ impl<'a> GFLAG0_W<'a> {
 #[doc = "Field `GFLAG1` reader - Monitors the interrupt flag of TIMER1. See description of channel 0."]
 pub struct GFLAG1_R(crate::FieldReader<bool, bool>);
 impl GFLAG1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GFLAG1_R(crate::FieldReader::new(bits))
     }
@@ -156,6 +158,7 @@ impl<'a> GFLAG1_W<'a> {
 #[doc = "Field `GFLAG2` reader - Monitors the interrupt flag of TIMER2. See description of channel 0."]
 pub struct GFLAG2_R(crate::FieldReader<bool, bool>);
 impl GFLAG2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GFLAG2_R(crate::FieldReader::new(bits))
     }
@@ -192,6 +195,7 @@ impl<'a> GFLAG2_W<'a> {
 #[doc = "Field `GFLAG3` reader - Monitors the interrupt flag of TIMER3. See description of channel 0."]
 pub struct GFLAG3_R(crate::FieldReader<bool, bool>);
 impl GFLAG3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         GFLAG3_R(crate::FieldReader::new(bits))
     }

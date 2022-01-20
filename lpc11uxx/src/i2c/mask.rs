@@ -37,6 +37,7 @@ impl From<crate::W<MASK_SPEC>> for W {
 #[doc = "Field `MASK` reader - Mask bits."]
 pub struct MASK_R(crate::FieldReader<u8, u8>);
 impl MASK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MASK_R(crate::FieldReader::new(bits))
     }

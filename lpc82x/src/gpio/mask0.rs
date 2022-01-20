@@ -37,6 +37,7 @@ impl From<crate::W<MASK0_SPEC>> for W {
 #[doc = "Field `MASKP` reader - Controls which bits corresponding to PIOm_n are active in the MPORT register (bit 0 = PIOn_0, bit 1 = PIOn_1, etc.). Supported pins depends on the specific device and package. 0 = Read MPORT: pin state; write MPORT: load output bit. 1 = Read MPORT: 0; write MPORT: output bit not affected."]
 pub struct MASKP_R(crate::FieldReader<u32, u32>);
 impl MASKP_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u32) -> Self {
         MASKP_R(crate::FieldReader::new(bits))
     }

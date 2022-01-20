@@ -32,6 +32,7 @@ impl From<INTSTATUS_A> for bool {
 is active low. The pending interrupt can be determined by evaluating IIR\\[3:1\\]."]
 pub struct INTSTATUS_R(crate::FieldReader<bool, INTSTATUS_A>);
 impl INTSTATUS_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         INTSTATUS_R(crate::FieldReader::new(bits))
     }
@@ -67,15 +68,15 @@ not listed below are reserved.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[repr(u8)]
 pub enum INTID_A {
-    #[doc = "3: 1   - Receive Line Status (RLS)."]
+    #[doc = "3: 1 - Receive Line Status (RLS)."]
     RECEIVE_LINE_STATUS = 3,
     #[doc = "2: 2a - Receive Data Available (RDA)."]
     RECEIVE_DATA_AVAILABLE = 2,
     #[doc = "6: 2b - Character Time-out Indicator (CTI)."]
     CHARACTER_TIMEOUT_INDICATOR = 6,
-    #[doc = "1: 3   - THRE Interrupt."]
+    #[doc = "1: 3 - THRE Interrupt."]
     THRE_INTERRUPT = 1,
-    #[doc = "0: 4   - Modem status"]
+    #[doc = "0: 4 - Modem status"]
     MODEM_STATUS = 0,
 }
 impl From<INTID_A> for u8 {
@@ -89,6 +90,7 @@ identifies an interrupt corresponding to the USART Rx FIFO. All other values of 
 not listed below are reserved."]
 pub struct INTID_R(crate::FieldReader<u8, INTID_A>);
 impl INTID_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         INTID_R(crate::FieldReader::new(bits))
     }
@@ -140,6 +142,7 @@ impl core::ops::Deref for INTID_R {
 #[doc = "Field `FIFOEN` reader - These bits are equivalent to FCR\\[0\\]."]
 pub struct FIFOEN_R(crate::FieldReader<u8, u8>);
 impl FIFOEN_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FIFOEN_R(crate::FieldReader::new(bits))
     }
@@ -154,6 +157,7 @@ impl core::ops::Deref for FIFOEN_R {
 #[doc = "Field `ABEOINT` reader - End of auto-baud interrupt. True if auto-baud has finished successfully and interrupt is enabled."]
 pub struct ABEOINT_R(crate::FieldReader<bool, bool>);
 impl ABEOINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ABEOINT_R(crate::FieldReader::new(bits))
     }
@@ -168,6 +172,7 @@ impl core::ops::Deref for ABEOINT_R {
 #[doc = "Field `ABTOINT` reader - Auto-baud time-out interrupt. True if auto-baud has timed out and interrupt is enabled."]
 pub struct ABTOINT_R(crate::FieldReader<bool, bool>);
 impl ABTOINT_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         ABTOINT_R(crate::FieldReader::new(bits))
     }

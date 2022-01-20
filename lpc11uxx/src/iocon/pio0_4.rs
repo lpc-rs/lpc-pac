@@ -52,6 +52,7 @@ impl From<FUNC_A> for u8 {
 #[doc = "Field `FUNC` reader - Selects pin function. Values 0x2 to 0x7 are reserved."]
 pub struct FUNC_R(crate::FieldReader<u8, FUNC_A>);
 impl FUNC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         FUNC_R(crate::FieldReader::new(bits))
     }
@@ -129,6 +130,7 @@ impl From<I2CMODE_A> for u8 {
 #[doc = "Field `I2CMODE` reader - Selects I2C mode (see Section 7.3.8). Select Standard mode (I2CMODE = 00, default) or Standard I/O functionality (I2CMODE = 01) if the pin function is GPIO (FUNC = 000)."]
 pub struct I2CMODE_R(crate::FieldReader<u8, I2CMODE_A>);
 impl I2CMODE_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         I2CMODE_R(crate::FieldReader::new(bits))
     }

@@ -51,6 +51,7 @@ impl From<AP_CLK_A> for bool {
 #[doc = "Field `AP_CLK` reader - USB need_clock signal control"]
 pub struct AP_CLK_R(crate::FieldReader<bool, AP_CLK_A>);
 impl AP_CLK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         AP_CLK_R(crate::FieldReader::new(bits))
     }
@@ -134,6 +135,7 @@ impl From<POL_CLK_A> for bool {
 #[doc = "Field `POL_CLK` reader - USB need_clock polarity for triggering the USB wake-up interrupt"]
 pub struct POL_CLK_R(crate::FieldReader<bool, POL_CLK_A>);
 impl POL_CLK_R {
+    #[inline(always)]
     pub(crate) fn new(bits: bool) -> Self {
         POL_CLK_R(crate::FieldReader::new(bits))
     }

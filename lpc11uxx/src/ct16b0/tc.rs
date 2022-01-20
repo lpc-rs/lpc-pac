@@ -37,6 +37,7 @@ impl From<crate::W<TC_SPEC>> for W {
 #[doc = "Field `TC` reader - Timer counter value."]
 pub struct TC_R(crate::FieldReader<u16, u16>);
 impl TC_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u16) -> Self {
         TC_R(crate::FieldReader::new(bits))
     }

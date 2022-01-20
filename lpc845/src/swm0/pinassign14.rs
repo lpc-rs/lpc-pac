@@ -37,6 +37,7 @@ impl From<crate::W<PINASSIGN14_SPEC>> for W {
 #[doc = "Field `T0_MAT3` reader - T0_MAT3 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct T0_MAT3_R(crate::FieldReader<u8, u8>);
 impl T0_MAT3_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         T0_MAT3_R(crate::FieldReader::new(bits))
     }
@@ -63,6 +64,7 @@ impl<'a> T0_MAT3_W<'a> {
 #[doc = "Field `T0_CAP0` reader - T0_CAP0 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct T0_CAP0_R(crate::FieldReader<u8, u8>);
 impl T0_CAP0_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         T0_CAP0_R(crate::FieldReader::new(bits))
     }
@@ -89,6 +91,7 @@ impl<'a> T0_CAP0_W<'a> {
 #[doc = "Field `T0_CAP1` reader - T0_CAP1 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct T0_CAP1_R(crate::FieldReader<u8, u8>);
 impl T0_CAP1_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         T0_CAP1_R(crate::FieldReader::new(bits))
     }
@@ -115,6 +118,7 @@ impl<'a> T0_CAP1_W<'a> {
 #[doc = "Field `T0_CAP2` reader - T0_CAP2 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_31 (= 0x1F) and from PIO1_0 (=0x20) to PIO1_21(=0x35)."]
 pub struct T0_CAP2_R(crate::FieldReader<u8, u8>);
 impl T0_CAP2_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         T0_CAP2_R(crate::FieldReader::new(bits))
     }

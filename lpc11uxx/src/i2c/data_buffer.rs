@@ -16,6 +16,7 @@ impl From<crate::R<DATA_BUFFER_SPEC>> for R {
 #[doc = "Field `Data` reader - This register holds contents of the 8 MSBs of the DAT shift register."]
 pub struct DATA_R(crate::FieldReader<u8, u8>);
 impl DATA_R {
+    #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         DATA_R(crate::FieldReader::new(bits))
     }
