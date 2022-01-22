@@ -71,17 +71,33 @@ require_command cargo-fmt
 require_command form  0.8.0
 
 generate_pac() {
-    cecho "$CYAN" "Running svd2rust..."
-    rm -rf $1
-    mkdir -p $1
     crate=$1
+    shopt -s nullglob
+    cecho "$CYAN" "patching svd..."
+    cp "${crate}.svd" "${crate}.svd.patched"
+    for patch in ./patches/common/*.patch; do
+        [ -f "$patch" ] || continue # ensure that there actually is a file
+        cecho "$CYAN" "Applying patch ${patch} to ${crate}"
+        patch -u "${crate}.svd.patched" -i $patch
+    done
+
+    for patch in ./patches/${crate}/*.patch; do
+        [ -f "$patch" ] || continue # ensure that there actually is a file
+        cecho "$CYAN" "Applying patch ${patch} to ${crate}"
+        patch -u "${crate}.svd.patched" -i $patch
+    done
+    # remove .orig, don't fail if it does not exist because it was not patched
+    rm -f "${crate}.svd.patched.orig"
+
+    rm -rf $crate
+    mkdir -p $crate
     shift
     if [[ -f "${crate}.svd.patched" ]]; then
 	svd_file="${crate}.svd.patched"
     elif [[ -f "${crate}.svd" ]]; then
 	svd_file="${crate}.svd"
     fi
-    cecho "$CYAN" "Using svd file: ${svd_file}..."
+    cecho "$CYAN" "Running svd2rust using svd file: ${svd_file}..."
     svd2rust "$@" -m -g --strict -i "${svd_file}" -o ${crate} 2> >(tee svd2rust-warnings.log >&2)
     pushd $crate/ >/dev/null
     rustfmt ./*.rs
