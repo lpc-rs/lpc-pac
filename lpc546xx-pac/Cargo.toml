@@ -1,7 +1,7 @@
 [package]
 edition = "2018"
 name = "lpc546xx-pac"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Alexis Marquet <alexis@alexismarquet.com>", "lpc-rs Contributors"]
 description = "Device support crates for LPC546xx devices"
 repository = "https://github.com/lpc-rs/lpc-pac"
@@ -20,7 +20,7 @@ optional = true
 version = ">=0.6.15,<0.8"
 
 [package.metadata.docs.rs]
-features = ['rt', 'lpc54605', 'lpc54606', 'lpc54607', 'lpc54608', 'lpc54616', 'lpc54618', 'lpc54628']
+features = ['rt', 'lpc54628']
 default-target = "thumbv7em-none-eabihf"
 targets = []
 
