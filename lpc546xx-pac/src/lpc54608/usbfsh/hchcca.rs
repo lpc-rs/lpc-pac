@@ -1,4 +1,4 @@
-#[doc = "Register `HCHCCA` reader"]
+///Register `HCHCCA` reader
 pub struct R(crate::R<HCHCCA_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<HCHCCA_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<HCHCCA_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `HCHCCA` writer"]
+///Register `HCHCCA` writer
 pub struct W(crate::W<HCHCCA_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<HCHCCA_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<HCHCCA_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `HCCA` reader - Base address of the Host Controller Communication Area."]
+///Field `HCCA` reader - Base address of the Host Controller Communication Area.
 pub struct HCCA_R(crate::FieldReader<u32, u32>);
 impl HCCA_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for HCCA_R {
         &self.0
     }
 }
-#[doc = "Field `HCCA` writer - Base address of the Host Controller Communication Area."]
+///Field `HCCA` writer - Base address of the Host Controller Communication Area.
 pub struct HCCA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> HCCA_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x00ff_ffff << 8)) | ((value as u32 & 0x00ff_ffff) << 8);
@@ -62,39 +62,43 @@ impl<'a> HCCA_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 8:31 - Base address of the Host Controller Communication Area."]
+    ///Bits 8:31 - Base address of the Host Controller Communication Area.
     #[inline(always)]
     pub fn hcca(&self) -> HCCA_R {
         HCCA_R::new(((self.bits >> 8) & 0x00ff_ffff) as u32)
     }
 }
 impl W {
-    #[doc = "Bits 8:31 - Base address of the Host Controller Communication Area."]
+    ///Bits 8:31 - Base address of the Host Controller Communication Area.
     #[inline(always)]
     pub fn hcca(&mut self) -> HCCA_W {
         HCCA_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Contains the physical address of the host controller communication area\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hchcca](index.html) module"]
+///Contains the physical address of the host controller communication area
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [hchcca](index.html) module
 pub struct HCHCCA_SPEC;
 impl crate::RegisterSpec for HCHCCA_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [hchcca::R](R) reader structure"]
+///`read()` method returns [hchcca::R](R) reader structure
 impl crate::Readable for HCHCCA_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [hchcca::W](W) writer structure"]
+///`write(|w| ..)` method takes [hchcca::W](W) writer structure
 impl crate::Writable for HCHCCA_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets HCHCCA to value 0"]
+///`reset()` method sets HCHCCA to value 0
 impl crate::Resettable for HCHCCA_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

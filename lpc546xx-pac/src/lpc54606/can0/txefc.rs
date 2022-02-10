@@ -1,4 +1,4 @@
-#[doc = "Register `TXEFC` reader"]
+///Register `TXEFC` reader
 pub struct R(crate::R<TXEFC_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<TXEFC_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<TXEFC_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `TXEFC` writer"]
+///Register `TXEFC` writer
 pub struct W(crate::W<TXEFC_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<TXEFC_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<TXEFC_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `EFSA` reader - Event FIFO start address."]
+///Field `EFSA` reader - Event FIFO start address.
 pub struct EFSA_R(crate::FieldReader<u16, u16>);
 impl EFSA_R {
     #[inline(always)]
@@ -49,19 +49,19 @@ impl core::ops::Deref for EFSA_R {
         &self.0
     }
 }
-#[doc = "Field `EFSA` writer - Event FIFO start address."]
+///Field `EFSA` writer - Event FIFO start address.
 pub struct EFSA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> EFSA_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x3fff << 2)) | ((value as u32 & 0x3fff) << 2);
         self.w
     }
 }
-#[doc = "Field `EFS` reader - Event FIFO size 0 = Tx event FIFO disabled."]
+///Field `EFS` reader - Event FIFO size 0 = Tx event FIFO disabled.
 pub struct EFS_R(crate::FieldReader<u8, u8>);
 impl EFS_R {
     #[inline(always)]
@@ -76,19 +76,19 @@ impl core::ops::Deref for EFS_R {
         &self.0
     }
 }
-#[doc = "Field `EFS` writer - Event FIFO size 0 = Tx event FIFO disabled."]
+///Field `EFS` writer - Event FIFO size 0 = Tx event FIFO disabled.
 pub struct EFS_W<'a> {
     w: &'a mut W,
 }
 impl<'a> EFS_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x3f << 16)) | ((value as u32 & 0x3f) << 16);
         self.w
     }
 }
-#[doc = "Field `EFWM` reader - Event FIFO watermark 0 = Watermark interrupt disabled."]
+///Field `EFWM` reader - Event FIFO watermark 0 = Watermark interrupt disabled.
 pub struct EFWM_R(crate::FieldReader<u8, u8>);
 impl EFWM_R {
     #[inline(always)]
@@ -103,12 +103,12 @@ impl core::ops::Deref for EFWM_R {
         &self.0
     }
 }
-#[doc = "Field `EFWM` writer - Event FIFO watermark 0 = Watermark interrupt disabled."]
+///Field `EFWM` writer - Event FIFO watermark 0 = Watermark interrupt disabled.
 pub struct EFWM_W<'a> {
     w: &'a mut W,
 }
 impl<'a> EFWM_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x3f << 24)) | ((value as u32 & 0x3f) << 24);
@@ -116,59 +116,63 @@ impl<'a> EFWM_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 2:15 - Event FIFO start address."]
+    ///Bits 2:15 - Event FIFO start address.
     #[inline(always)]
     pub fn efsa(&self) -> EFSA_R {
         EFSA_R::new(((self.bits >> 2) & 0x3fff) as u16)
     }
-    #[doc = "Bits 16:21 - Event FIFO size 0 = Tx event FIFO disabled."]
+    ///Bits 16:21 - Event FIFO size 0 = Tx event FIFO disabled.
     #[inline(always)]
     pub fn efs(&self) -> EFS_R {
         EFS_R::new(((self.bits >> 16) & 0x3f) as u8)
     }
-    #[doc = "Bits 24:29 - Event FIFO watermark 0 = Watermark interrupt disabled."]
+    ///Bits 24:29 - Event FIFO watermark 0 = Watermark interrupt disabled.
     #[inline(always)]
     pub fn efwm(&self) -> EFWM_R {
         EFWM_R::new(((self.bits >> 24) & 0x3f) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 2:15 - Event FIFO start address."]
+    ///Bits 2:15 - Event FIFO start address.
     #[inline(always)]
     pub fn efsa(&mut self) -> EFSA_W {
         EFSA_W { w: self }
     }
-    #[doc = "Bits 16:21 - Event FIFO size 0 = Tx event FIFO disabled."]
+    ///Bits 16:21 - Event FIFO size 0 = Tx event FIFO disabled.
     #[inline(always)]
     pub fn efs(&mut self) -> EFS_W {
         EFS_W { w: self }
     }
-    #[doc = "Bits 24:29 - Event FIFO watermark 0 = Watermark interrupt disabled."]
+    ///Bits 24:29 - Event FIFO watermark 0 = Watermark interrupt disabled.
     #[inline(always)]
     pub fn efwm(&mut self) -> EFWM_W {
         EFWM_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Tx Event FIFO Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [txefc](index.html) module"]
+///Tx Event FIFO Configuration
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [txefc](index.html) module
 pub struct TXEFC_SPEC;
 impl crate::RegisterSpec for TXEFC_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [txefc::R](R) reader structure"]
+///`read()` method returns [txefc::R](R) reader structure
 impl crate::Readable for TXEFC_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [txefc::W](W) writer structure"]
+///`write(|w| ..)` method takes [txefc::W](W) writer structure
 impl crate::Writable for TXEFC_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets TXEFC to value 0"]
+///`reset()` method sets TXEFC to value 0
 impl crate::Resettable for TXEFC_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

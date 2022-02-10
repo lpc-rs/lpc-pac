@@ -1,4 +1,4 @@
-#[doc = "Register `MATCHREL9` reader"]
+///Register `MATCHREL9` reader
 pub struct R(crate::R<CAPCTRL_MATCHREL_MATCHREL9_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<CAPCTRL_MATCHREL_MATCHREL9_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<CAPCTRL_MATCHREL_MATCHREL9_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `MATCHREL9` writer"]
+///Register `MATCHREL9` writer
 pub struct W(crate::W<CAPCTRL_MATCHREL_MATCHREL9_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<CAPCTRL_MATCHREL_MATCHREL9_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<CAPCTRL_MATCHREL_MATCHREL9_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `RELOADn_L` reader - When UNIFY = 0, specifies the 16-bit value to be loaded into the MATCHn_L register. When UNIFY = 1, specifies the lower 16 bits of the 32-bit value to be loaded into the MATCHn register."]
+///Field `RELOADn_L` reader - When UNIFY = 0, specifies the 16-bit value to be loaded into the MATCHn_L register. When UNIFY = 1, specifies the lower 16 bits of the 32-bit value to be loaded into the MATCHn register.
 pub struct RELOADN_L_R(crate::FieldReader<u16, u16>);
 impl RELOADN_L_R {
     #[inline(always)]
@@ -49,19 +49,19 @@ impl core::ops::Deref for RELOADN_L_R {
         &self.0
     }
 }
-#[doc = "Field `RELOADn_L` writer - When UNIFY = 0, specifies the 16-bit value to be loaded into the MATCHn_L register. When UNIFY = 1, specifies the lower 16 bits of the 32-bit value to be loaded into the MATCHn register."]
+///Field `RELOADn_L` writer - When UNIFY = 0, specifies the 16-bit value to be loaded into the MATCHn_L register. When UNIFY = 1, specifies the lower 16 bits of the 32-bit value to be loaded into the MATCHn register.
 pub struct RELOADN_L_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RELOADN_L_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !0xffff) | (value as u32 & 0xffff);
         self.w
     }
 }
-#[doc = "Field `RELOADn_H` reader - When UNIFY = 0, specifies the 16-bit to be loaded into the MATCHn_H register. When UNIFY = 1, specifies the upper 16 bits of the 32-bit value to be loaded into the MATCHn register."]
+///Field `RELOADn_H` reader - When UNIFY = 0, specifies the 16-bit to be loaded into the MATCHn_H register. When UNIFY = 1, specifies the upper 16 bits of the 32-bit value to be loaded into the MATCHn register.
 pub struct RELOADN_H_R(crate::FieldReader<u16, u16>);
 impl RELOADN_H_R {
     #[inline(always)]
@@ -76,12 +76,12 @@ impl core::ops::Deref for RELOADN_H_R {
         &self.0
     }
 }
-#[doc = "Field `RELOADn_H` writer - When UNIFY = 0, specifies the 16-bit to be loaded into the MATCHn_H register. When UNIFY = 1, specifies the upper 16 bits of the 32-bit value to be loaded into the MATCHn register."]
+///Field `RELOADn_H` writer - When UNIFY = 0, specifies the 16-bit to be loaded into the MATCHn_H register. When UNIFY = 1, specifies the upper 16 bits of the 32-bit value to be loaded into the MATCHn register.
 pub struct RELOADN_H_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RELOADN_H_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0xffff << 16)) | ((value as u32 & 0xffff) << 16);
@@ -89,49 +89,53 @@ impl<'a> RELOADN_H_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:15 - When UNIFY = 0, specifies the 16-bit value to be loaded into the MATCHn_L register. When UNIFY = 1, specifies the lower 16 bits of the 32-bit value to be loaded into the MATCHn register."]
+    ///Bits 0:15 - When UNIFY = 0, specifies the 16-bit value to be loaded into the MATCHn_L register. When UNIFY = 1, specifies the lower 16 bits of the 32-bit value to be loaded into the MATCHn register.
     #[inline(always)]
     pub fn reloadn_l(&self) -> RELOADN_L_R {
         RELOADN_L_R::new((self.bits & 0xffff) as u16)
     }
-    #[doc = "Bits 16:31 - When UNIFY = 0, specifies the 16-bit to be loaded into the MATCHn_H register. When UNIFY = 1, specifies the upper 16 bits of the 32-bit value to be loaded into the MATCHn register."]
+    ///Bits 16:31 - When UNIFY = 0, specifies the 16-bit to be loaded into the MATCHn_H register. When UNIFY = 1, specifies the upper 16 bits of the 32-bit value to be loaded into the MATCHn register.
     #[inline(always)]
     pub fn reloadn_h(&self) -> RELOADN_H_R {
         RELOADN_H_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
 impl W {
-    #[doc = "Bits 0:15 - When UNIFY = 0, specifies the 16-bit value to be loaded into the MATCHn_L register. When UNIFY = 1, specifies the lower 16 bits of the 32-bit value to be loaded into the MATCHn register."]
+    ///Bits 0:15 - When UNIFY = 0, specifies the 16-bit value to be loaded into the MATCHn_L register. When UNIFY = 1, specifies the lower 16 bits of the 32-bit value to be loaded into the MATCHn register.
     #[inline(always)]
     pub fn reloadn_l(&mut self) -> RELOADN_L_W {
         RELOADN_L_W { w: self }
     }
-    #[doc = "Bits 16:31 - When UNIFY = 0, specifies the 16-bit to be loaded into the MATCHn_H register. When UNIFY = 1, specifies the upper 16 bits of the 32-bit value to be loaded into the MATCHn register."]
+    ///Bits 16:31 - When UNIFY = 0, specifies the 16-bit to be loaded into the MATCHn_H register. When UNIFY = 1, specifies the upper 16 bits of the 32-bit value to be loaded into the MATCHn register.
     #[inline(always)]
     pub fn reloadn_h(&mut self) -> RELOADN_H_W {
         RELOADN_H_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "SCT match reload value register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [capctrl_matchrel_matchrel9](index.html) module"]
+///SCT match reload value register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [capctrl_matchrel_matchrel9](index.html) module
 pub struct CAPCTRL_MATCHREL_MATCHREL9_SPEC;
 impl crate::RegisterSpec for CAPCTRL_MATCHREL_MATCHREL9_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [capctrl_matchrel_matchrel9::R](R) reader structure"]
+///`read()` method returns [capctrl_matchrel_matchrel9::R](R) reader structure
 impl crate::Readable for CAPCTRL_MATCHREL_MATCHREL9_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [capctrl_matchrel_matchrel9::W](W) writer structure"]
+///`write(|w| ..)` method takes [capctrl_matchrel_matchrel9::W](W) writer structure
 impl crate::Writable for CAPCTRL_MATCHREL_MATCHREL9_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets MATCHREL9 to value 0"]
+///`reset()` method sets MATCHREL9 to value 0
 impl crate::Resettable for CAPCTRL_MATCHREL_MATCHREL9_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

@@ -1,4 +1,4 @@
-#[doc = "Register `MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND` reader"]
+///Register `MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND` reader
 pub struct R(crate::R<MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND` writer"]
+///Register `MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND` writer
 pub struct W(crate::W<MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TSIC` reader - Transmit ingress correction."]
+///Field `TSIC` reader - Transmit ingress correction.
 pub struct TSIC_R(crate::FieldReader<u32, u32>);
 impl TSIC_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for TSIC_R {
         &self.0
     }
 }
-#[doc = "Field `TSIC` writer - Transmit ingress correction."]
+///Field `TSIC` writer - Transmit ingress correction.
 pub struct TSIC_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TSIC_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,39 +62,43 @@ impl<'a> TSIC_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Transmit ingress correction."]
+    ///Bits 0:31 - Transmit ingress correction.
     #[inline(always)]
     pub fn tsic(&self) -> TSIC_R {
         TSIC_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Transmit ingress correction."]
+    ///Bits 0:31 - Transmit ingress correction.
     #[inline(always)]
     pub fn tsic(&mut self) -> TSIC_W {
         TSIC_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Timestamp ingress correction\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mac_timestamp_ingress_corr_nanosecond](index.html) module"]
+///Timestamp ingress correction
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [mac_timestamp_ingress_corr_nanosecond](index.html) module
 pub struct MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC;
 impl crate::RegisterSpec for MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [mac_timestamp_ingress_corr_nanosecond::R](R) reader structure"]
+///`read()` method returns [mac_timestamp_ingress_corr_nanosecond::R](R) reader structure
 impl crate::Readable for MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [mac_timestamp_ingress_corr_nanosecond::W](W) writer structure"]
+///`write(|w| ..)` method takes [mac_timestamp_ingress_corr_nanosecond::W](W) writer structure
 impl crate::Writable for MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND to value 0"]
+///`reset()` method sets MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND to value 0
 impl crate::Resettable for MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

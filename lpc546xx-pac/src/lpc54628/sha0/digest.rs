@@ -1,4 +1,4 @@
-#[doc = "Register `DIGEST[%s]` reader"]
+///Register `DIGEST[%s]` reader
 pub struct R(crate::R<DIGEST_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<DIGEST_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<DIGEST_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `DIGEST` reader - This field contains one word of the Digest."]
+///Field `DIGEST` reader - This field contains one word of the Digest.
 pub struct DIGEST_R(crate::FieldReader<u32, u32>);
 impl DIGEST_R {
     #[inline(always)]
@@ -29,23 +29,27 @@ impl core::ops::Deref for DIGEST_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - This field contains one word of the Digest."]
+    ///Bits 0:31 - This field contains one word of the Digest.
     #[inline(always)]
     pub fn digest(&self) -> DIGEST_R {
         DIGEST_R::new(self.bits)
     }
 }
-#[doc = "Digest register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [digest](index.html) module"]
+///Digest register
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [digest](index.html) module
 pub struct DIGEST_SPEC;
 impl crate::RegisterSpec for DIGEST_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [digest::R](R) reader structure"]
+///`read()` method returns [digest::R](R) reader structure
 impl crate::Readable for DIGEST_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets DIGEST[%s]
-to value 0"]
+///`reset()` method sets DIGEST[%s]
+///to value 0
 impl crate::Resettable for DIGEST_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

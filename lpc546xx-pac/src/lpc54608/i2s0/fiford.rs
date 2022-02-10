@@ -1,4 +1,4 @@
-#[doc = "Register `FIFORD` reader"]
+///Register `FIFORD` reader
 pub struct R(crate::R<FIFORD_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<FIFORD_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<FIFORD_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `RXDATA` reader - Received data from the FIFO. The number of bits used depends on configuration details."]
+///Field `RXDATA` reader - Received data from the FIFO. The number of bits used depends on configuration details.
 pub struct RXDATA_R(crate::FieldReader<u32, u32>);
 impl RXDATA_R {
     #[inline(always)]
@@ -29,22 +29,26 @@ impl core::ops::Deref for RXDATA_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Received data from the FIFO. The number of bits used depends on configuration details."]
+    ///Bits 0:31 - Received data from the FIFO. The number of bits used depends on configuration details.
     #[inline(always)]
     pub fn rxdata(&self) -> RXDATA_R {
         RXDATA_R::new(self.bits)
     }
 }
-#[doc = "FIFO read data.\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fiford](index.html) module"]
+///FIFO read data.
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [fiford](index.html) module
 pub struct FIFORD_SPEC;
 impl crate::RegisterSpec for FIFORD_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fiford::R](R) reader structure"]
+///`read()` method returns [fiford::R](R) reader structure
 impl crate::Readable for FIFORD_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets FIFORD to value 0"]
+///`reset()` method sets FIFORD to value 0
 impl crate::Resettable for FIFORD_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

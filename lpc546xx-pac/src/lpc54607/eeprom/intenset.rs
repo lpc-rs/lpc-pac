@@ -1,4 +1,4 @@
-#[doc = "Register `INTENSET` writer"]
+///Register `INTENSET` writer
 pub struct W(crate::W<INTENSET_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<INTENSET_SPEC>;
@@ -19,22 +19,22 @@ impl From<crate::W<INTENSET_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `PROG_SET_EN` writer - Set program operation finished interrupt enable bit for EEPROM device 1."]
+///Field `PROG_SET_EN` writer - Set program operation finished interrupt enable bit for EEPROM device 1.
 pub struct PROG_SET_EN_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PROG_SET_EN_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
@@ -42,28 +42,32 @@ impl<'a> PROG_SET_EN_W<'a> {
     }
 }
 impl W {
-    #[doc = "Bit 2 - Set program operation finished interrupt enable bit for EEPROM device 1."]
+    ///Bit 2 - Set program operation finished interrupt enable bit for EEPROM device 1.
     #[inline(always)]
     pub fn prog_set_en(&mut self) -> PROG_SET_EN_W {
         PROG_SET_EN_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "EEPROM interrupt enable set\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset](index.html) module"]
+///EEPROM interrupt enable set
+///
+///This register you can [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [intenset](index.html) module
 pub struct INTENSET_SPEC;
 impl crate::RegisterSpec for INTENSET_SPEC {
     type Ux = u32;
 }
-#[doc = "`write(|w| ..)` method takes [intenset::W](W) writer structure"]
+///`write(|w| ..)` method takes [intenset::W](W) writer structure
 impl crate::Writable for INTENSET_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets INTENSET to value 0"]
+///`reset()` method sets INTENSET to value 0
 impl crate::Resettable for INTENSET_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

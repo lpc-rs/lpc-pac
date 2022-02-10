@@ -1,4 +1,4 @@
-#[doc = "Register `DYNAMICMRD` reader"]
+///Register `DYNAMICMRD` reader
 pub struct R(crate::R<DYNAMICMRD_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<DYNAMICMRD_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<DYNAMICMRD_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `DYNAMICMRD` writer"]
+///Register `DYNAMICMRD` writer
 pub struct W(crate::W<DYNAMICMRD_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<DYNAMICMRD_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<DYNAMICMRD_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TMRD` reader - Load mode register to active command time."]
+///Field `TMRD` reader - Load mode register to active command time.
 pub struct TMRD_R(crate::FieldReader<u8, u8>);
 impl TMRD_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for TMRD_R {
         &self.0
     }
 }
-#[doc = "Field `TMRD` writer - Load mode register to active command time."]
+///Field `TMRD` writer - Load mode register to active command time.
 pub struct TMRD_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TMRD_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x0f) | (value as u32 & 0x0f);
@@ -62,39 +62,43 @@ impl<'a> TMRD_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:3 - Load mode register to active command time."]
+    ///Bits 0:3 - Load mode register to active command time.
     #[inline(always)]
     pub fn tmrd(&self) -> TMRD_R {
         TMRD_R::new((self.bits & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:3 - Load mode register to active command time."]
+    ///Bits 0:3 - Load mode register to active command time.
     #[inline(always)]
     pub fn tmrd(&mut self) -> TMRD_W {
         TMRD_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Time for load mode register to active command\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dynamicmrd](index.html) module"]
+///Time for load mode register to active command
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [dynamicmrd](index.html) module
 pub struct DYNAMICMRD_SPEC;
 impl crate::RegisterSpec for DYNAMICMRD_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [dynamicmrd::R](R) reader structure"]
+///`read()` method returns [dynamicmrd::R](R) reader structure
 impl crate::Readable for DYNAMICMRD_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [dynamicmrd::W](W) writer structure"]
+///`write(|w| ..)` method takes [dynamicmrd::W](W) writer structure
 impl crate::Writable for DYNAMICMRD_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets DYNAMICMRD to value 0x0f"]
+///`reset()` method sets DYNAMICMRD to value 0x0f
 impl crate::Resettable for DYNAMICMRD_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

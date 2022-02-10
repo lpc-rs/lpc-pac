@@ -1,4 +1,4 @@
-#[doc = "Register `_ITMISCIN` reader"]
+///Register `_ITMISCIN` reader
 pub struct R(crate::R<_ITMISCIN_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<_ITMISCIN_SPEC>;
@@ -13,8 +13,8 @@ impl From<crate::R<_ITMISCIN_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `EXTIN` reader - A read of these bits returns the value of the EXTIN\\[1:0\\]
-input pins."]
+///Field `EXTIN` reader - A read of these bits returns the value of the EXTIN\[1:0\]
+///input pins.
 pub struct EXTIN_R(crate::FieldReader<u8, u8>);
 impl EXTIN_R {
     #[inline(always)]
@@ -29,7 +29,7 @@ impl core::ops::Deref for EXTIN_R {
         &self.0
     }
 }
-#[doc = "Field `COREHALT` reader - A read of this bit returns the value of the COREHALT input pin."]
+///Field `COREHALT` reader - A read of this bit returns the value of the COREHALT input pin.
 pub struct COREHALT_R(crate::FieldReader<bool, bool>);
 impl COREHALT_R {
     #[inline(always)]
@@ -45,28 +45,32 @@ impl core::ops::Deref for COREHALT_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:1 - A read of these bits returns the value of the EXTIN\\[1:0\\]
-input pins."]
+    ///Bits 0:1 - A read of these bits returns the value of the EXTIN\[1:0\]
+    ///input pins.
     #[inline(always)]
     pub fn extin(&self) -> EXTIN_R {
         EXTIN_R::new((self.bits & 0x03) as u8)
     }
-    #[doc = "Bit 4 - A read of this bit returns the value of the COREHALT input pin."]
+    ///Bit 4 - A read of this bit returns the value of the COREHALT input pin.
     #[inline(always)]
     pub fn corehalt(&self) -> COREHALT_R {
         COREHALT_R::new(((self.bits >> 4) & 0x01) != 0)
     }
 }
-#[doc = "Integration Test Miscelaneous Inputs Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [_itmiscin](index.html) module"]
+///Integration Test Miscelaneous Inputs Register
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [_itmiscin](index.html) module
 pub struct _ITMISCIN_SPEC;
 impl crate::RegisterSpec for _ITMISCIN_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [_itmiscin::R](R) reader structure"]
+///`read()` method returns [_itmiscin::R](R) reader structure
 impl crate::Readable for _ITMISCIN_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets _ITMISCIN to value 0"]
+///`reset()` method sets _ITMISCIN to value 0
 impl crate::Resettable for _ITMISCIN_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

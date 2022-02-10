@@ -1,4 +1,4 @@
-#[doc = "Register `TRIGGER` reader"]
+///Register `TRIGGER` reader
 pub struct R(crate::R<TRIGGER_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<TRIGGER_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<TRIGGER_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `TRIGGER` writer"]
+///Register `TRIGGER` writer
 pub struct W(crate::W<TRIGGER_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<TRIGGER_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<TRIGGER_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TriggerEvent` reader - Trigger event"]
+///Field `TriggerEvent` reader - Trigger event
 pub struct TRIGGEREVENT_R(crate::FieldReader<u32, u32>);
 impl TRIGGEREVENT_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for TRIGGEREVENT_R {
         &self.0
     }
 }
-#[doc = "Field `TriggerEvent` writer - Trigger event"]
+///Field `TriggerEvent` writer - Trigger event
 pub struct TRIGGEREVENT_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TRIGGEREVENT_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x0001_ffff) | (value as u32 & 0x0001_ffff);
@@ -62,39 +62,43 @@ impl<'a> TRIGGEREVENT_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:16 - Trigger event"]
+    ///Bits 0:16 - Trigger event
     #[inline(always)]
     pub fn trigger_event(&self) -> TRIGGEREVENT_R {
         TRIGGEREVENT_R::new((self.bits & 0x0001_ffff) as u32)
     }
 }
 impl W {
-    #[doc = "Bits 0:16 - Trigger event"]
+    ///Bits 0:16 - Trigger event
     #[inline(always)]
     pub fn trigger_event(&mut self) -> TRIGGEREVENT_W {
         TRIGGEREVENT_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Trigger Event Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [trigger](index.html) module"]
+///Trigger Event Register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [trigger](index.html) module
 pub struct TRIGGER_SPEC;
 impl crate::RegisterSpec for TRIGGER_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [trigger::R](R) reader structure"]
+///`read()` method returns [trigger::R](R) reader structure
 impl crate::Readable for TRIGGER_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [trigger::W](W) writer structure"]
+///`write(|w| ..)` method takes [trigger::W](W) writer structure
 impl crate::Writable for TRIGGER_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets TRIGGER to value 0"]
+///`reset()` method sets TRIGGER to value 0
 impl crate::Resettable for TRIGGER_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

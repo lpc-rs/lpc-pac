@@ -1,4 +1,4 @@
-#[doc = "Register `CONEN` reader"]
+///Register `CONEN` reader
 pub struct R(crate::R<CONEN_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<CONEN_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<CONEN_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `CONEN` writer"]
+///Register `CONEN` writer
 pub struct W(crate::W<CONEN_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<CONEN_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<CONEN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `NCEN` reader - The SCT requests an interrupt when bit n of this register and the SCT conflict flag register are both one (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT."]
+///Field `NCEN` reader - The SCT requests an interrupt when bit n of this register and the SCT conflict flag register are both one (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT.
 pub struct NCEN_R(crate::FieldReader<u16, u16>);
 impl NCEN_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for NCEN_R {
         &self.0
     }
 }
-#[doc = "Field `NCEN` writer - The SCT requests an interrupt when bit n of this register and the SCT conflict flag register are both one (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT."]
+///Field `NCEN` writer - The SCT requests an interrupt when bit n of this register and the SCT conflict flag register are both one (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT.
 pub struct NCEN_W<'a> {
     w: &'a mut W,
 }
 impl<'a> NCEN_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !0xffff) | (value as u32 & 0xffff);
@@ -62,39 +62,43 @@ impl<'a> NCEN_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:15 - The SCT requests an interrupt when bit n of this register and the SCT conflict flag register are both one (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT."]
+    ///Bits 0:15 - The SCT requests an interrupt when bit n of this register and the SCT conflict flag register are both one (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT.
     #[inline(always)]
     pub fn ncen(&self) -> NCEN_R {
         NCEN_R::new((self.bits & 0xffff) as u16)
     }
 }
 impl W {
-    #[doc = "Bits 0:15 - The SCT requests an interrupt when bit n of this register and the SCT conflict flag register are both one (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT."]
+    ///Bits 0:15 - The SCT requests an interrupt when bit n of this register and the SCT conflict flag register are both one (output 0 = bit 0, output 1 = bit 1, etc.). The number of bits = number of outputs in this SCT.
     #[inline(always)]
     pub fn ncen(&mut self) -> NCEN_W {
         NCEN_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "SCT conflict interrupt enable register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [conen](index.html) module"]
+///SCT conflict interrupt enable register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [conen](index.html) module
 pub struct CONEN_SPEC;
 impl crate::RegisterSpec for CONEN_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [conen::R](R) reader structure"]
+///`read()` method returns [conen::R](R) reader structure
 impl crate::Readable for CONEN_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [conen::W](W) writer structure"]
+///`write(|w| ..)` method takes [conen::W](W) writer structure
 impl crate::Writable for CONEN_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets CONEN to value 0"]
+///`reset()` method sets CONEN to value 0
 impl crate::Resettable for CONEN_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

@@ -1,4 +1,4 @@
-#[doc = "Register `BUFADDR` reader"]
+///Register `BUFADDR` reader
 pub struct R(crate::R<BUFADDR_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<BUFADDR_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<BUFADDR_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `BUFADDR` writer"]
+///Register `BUFADDR` writer
 pub struct W(crate::W<BUFADDR_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<BUFADDR_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<BUFADDR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `HBA` reader - Host Buffer Address Pointer."]
+///Field `HBA` reader - Host Buffer Address Pointer.
 pub struct HBA_R(crate::FieldReader<u32, u32>);
 impl HBA_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for HBA_R {
         &self.0
     }
 }
-#[doc = "Field `HBA` writer - Host Buffer Address Pointer."]
+///Field `HBA` writer - Host Buffer Address Pointer.
 pub struct HBA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> HBA_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,39 +62,43 @@ impl<'a> HBA_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Host Buffer Address Pointer."]
+    ///Bits 0:31 - Host Buffer Address Pointer.
     #[inline(always)]
     pub fn hba(&self) -> HBA_R {
         HBA_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Host Buffer Address Pointer."]
+    ///Bits 0:31 - Host Buffer Address Pointer.
     #[inline(always)]
     pub fn hba(&mut self) -> HBA_W {
         HBA_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Current Buffer Descriptor Address register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bufaddr](index.html) module"]
+///Current Buffer Descriptor Address register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [bufaddr](index.html) module
 pub struct BUFADDR_SPEC;
 impl crate::RegisterSpec for BUFADDR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [bufaddr::R](R) reader structure"]
+///`read()` method returns [bufaddr::R](R) reader structure
 impl crate::Readable for BUFADDR_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [bufaddr::W](W) writer structure"]
+///`write(|w| ..)` method takes [bufaddr::W](W) writer structure
 impl crate::Writable for BUFADDR_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets BUFADDR to value 0"]
+///`reset()` method sets BUFADDR to value 0
 impl crate::Resettable for BUFADDR_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

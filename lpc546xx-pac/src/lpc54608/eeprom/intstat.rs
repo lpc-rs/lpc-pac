@@ -1,4 +1,4 @@
-#[doc = "Register `INTSTAT` reader"]
+///Register `INTSTAT` reader
 pub struct R(crate::R<INTSTAT_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<INTSTAT_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<INTSTAT_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `END_OF_PROG` reader - EEPROM program operation finished interrupt status bit."]
+///Field `END_OF_PROG` reader - EEPROM program operation finished interrupt status bit.
 pub struct END_OF_PROG_R(crate::FieldReader<bool, bool>);
 impl END_OF_PROG_R {
     #[inline(always)]
@@ -29,22 +29,26 @@ impl core::ops::Deref for END_OF_PROG_R {
     }
 }
 impl R {
-    #[doc = "Bit 2 - EEPROM program operation finished interrupt status bit."]
+    ///Bit 2 - EEPROM program operation finished interrupt status bit.
     #[inline(always)]
     pub fn end_of_prog(&self) -> END_OF_PROG_R {
         END_OF_PROG_R::new(((self.bits >> 2) & 0x01) != 0)
     }
 }
-#[doc = "EEPROM interrupt status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intstat](index.html) module"]
+///EEPROM interrupt status
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [intstat](index.html) module
 pub struct INTSTAT_SPEC;
 impl crate::RegisterSpec for INTSTAT_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [intstat::R](R) reader structure"]
+///`read()` method returns [intstat::R](R) reader structure
 impl crate::Readable for INTSTAT_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets INTSTAT to value 0"]
+///`reset()` method sets INTSTAT to value 0
 impl crate::Resettable for INTSTAT_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

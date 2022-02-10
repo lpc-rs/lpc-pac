@@ -1,34 +1,34 @@
-#[doc = r"Register block"]
+///Register block
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00 - Control register."]
+    ///0x00 - Control register.
     pub ctrl: crate::Reg<ctrl::CTRL_SPEC>,
-    #[doc = "0x04 - Status register."]
+    ///0x04 - Status register.
     pub stat: crate::Reg<stat::STAT_SPEC>,
-    #[doc = "0x08 - Capture configuration register."]
+    ///0x08 - Capture configuration register.
     pub cfg: crate::Reg<cfg::CFG_SPEC>,
-    #[doc = "0x0c - Capture clear register."]
+    ///0x0c - Capture clear register.
     pub capclr: crate::Reg<capclr::CAPCLR_SPEC>,
-    #[doc = "0x10..0x20 - Capture register ."]
+    ///0x10..0x20 - Capture register .
     pub cap: [crate::Reg<cap::CAP_SPEC>; 4],
 }
-#[doc = "CTRL register accessor: an alias for `Reg<CTRL_SPEC>`"]
+///CTRL register accessor: an alias for `Reg<CTRL_SPEC>`
 pub type CTRL = crate::Reg<ctrl::CTRL_SPEC>;
-#[doc = "Control register."]
+///Control register.
 pub mod ctrl;
-#[doc = "STAT register accessor: an alias for `Reg<STAT_SPEC>`"]
+///STAT register accessor: an alias for `Reg<STAT_SPEC>`
 pub type STAT = crate::Reg<stat::STAT_SPEC>;
-#[doc = "Status register."]
+///Status register.
 pub mod stat;
-#[doc = "CFG register accessor: an alias for `Reg<CFG_SPEC>`"]
+///CFG register accessor: an alias for `Reg<CFG_SPEC>`
 pub type CFG = crate::Reg<cfg::CFG_SPEC>;
-#[doc = "Capture configuration register."]
+///Capture configuration register.
 pub mod cfg;
-#[doc = "CAPCLR register accessor: an alias for `Reg<CAPCLR_SPEC>`"]
+///CAPCLR register accessor: an alias for `Reg<CAPCLR_SPEC>`
 pub type CAPCLR = crate::Reg<capclr::CAPCLR_SPEC>;
-#[doc = "Capture clear register."]
+///Capture clear register.
 pub mod capclr;
-#[doc = "CAP register accessor: an alias for `Reg<CAP_SPEC>`"]
+///CAP register accessor: an alias for `Reg<CAP_SPEC>`
 pub type CAP = crate::Reg<cap::CAP_SPEC>;
-#[doc = "Capture register ."]
+///Capture register .
 pub mod cap;

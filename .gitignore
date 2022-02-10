@@ -1,3 +1,9 @@
 */svd2rust-warnings.log
 */target/
 svd2rust-warnings.log
+
+**/__pycache__/
+**/target/
+**/*.rs.bk
+**/Cargo.lock
+.deps/

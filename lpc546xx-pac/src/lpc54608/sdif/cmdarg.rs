@@ -1,4 +1,4 @@
-#[doc = "Register `CMDARG` reader"]
+///Register `CMDARG` reader
 pub struct R(crate::R<CMDARG_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<CMDARG_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<CMDARG_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `CMDARG` writer"]
+///Register `CMDARG` writer
 pub struct W(crate::W<CMDARG_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<CMDARG_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<CMDARG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CMD_ARG` reader - Value indicates command argument to be passed to card."]
+///Field `CMD_ARG` reader - Value indicates command argument to be passed to card.
 pub struct CMD_ARG_R(crate::FieldReader<u32, u32>);
 impl CMD_ARG_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for CMD_ARG_R {
         &self.0
     }
 }
-#[doc = "Field `CMD_ARG` writer - Value indicates command argument to be passed to card."]
+///Field `CMD_ARG` writer - Value indicates command argument to be passed to card.
 pub struct CMD_ARG_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CMD_ARG_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,39 +62,43 @@ impl<'a> CMD_ARG_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Value indicates command argument to be passed to card."]
+    ///Bits 0:31 - Value indicates command argument to be passed to card.
     #[inline(always)]
     pub fn cmd_arg(&self) -> CMD_ARG_R {
         CMD_ARG_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Value indicates command argument to be passed to card."]
+    ///Bits 0:31 - Value indicates command argument to be passed to card.
     #[inline(always)]
     pub fn cmd_arg(&mut self) -> CMD_ARG_W {
         CMD_ARG_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Command Argument register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cmdarg](index.html) module"]
+///Command Argument register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [cmdarg](index.html) module
 pub struct CMDARG_SPEC;
 impl crate::RegisterSpec for CMDARG_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cmdarg::R](R) reader structure"]
+///`read()` method returns [cmdarg::R](R) reader structure
 impl crate::Readable for CMDARG_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [cmdarg::W](W) writer structure"]
+///`write(|w| ..)` method takes [cmdarg::W](W) writer structure
 impl crate::Writable for CMDARG_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets CMDARG to value 0"]
+///`reset()` method sets CMDARG to value 0
 impl crate::Resettable for CMDARG_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

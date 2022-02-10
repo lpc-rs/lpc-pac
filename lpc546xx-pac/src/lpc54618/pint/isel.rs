@@ -1,4 +1,4 @@
-#[doc = "Register `ISEL` reader"]
+///Register `ISEL` reader
 pub struct R(crate::R<ISEL_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<ISEL_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<ISEL_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `ISEL` writer"]
+///Register `ISEL` writer
 pub struct W(crate::W<ISEL_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<ISEL_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<ISEL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `PMODE` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+///Field `PMODE` reader - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive
 pub struct PMODE_R(crate::FieldReader<u8, u8>);
 impl PMODE_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for PMODE_R {
         &self.0
     }
 }
-#[doc = "Field `PMODE` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+///Field `PMODE` writer - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive
 pub struct PMODE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PMODE_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
@@ -62,39 +62,43 @@ impl<'a> PMODE_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+    ///Bits 0:7 - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive
     #[inline(always)]
     pub fn pmode(&self) -> PMODE_R {
         PMODE_R::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive"]
+    ///Bits 0:7 - Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive
     #[inline(always)]
     pub fn pmode(&mut self) -> PMODE_W {
         PMODE_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Pin Interrupt Mode register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [isel](index.html) module"]
+///Pin Interrupt Mode register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [isel](index.html) module
 pub struct ISEL_SPEC;
 impl crate::RegisterSpec for ISEL_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [isel::R](R) reader structure"]
+///`read()` method returns [isel::R](R) reader structure
 impl crate::Readable for ISEL_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [isel::W](W) writer structure"]
+///`write(|w| ..)` method takes [isel::W](W) writer structure
 impl crate::Writable for ISEL_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets ISEL to value 0"]
+///`reset()` method sets ISEL to value 0
 impl crate::Resettable for ISEL_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

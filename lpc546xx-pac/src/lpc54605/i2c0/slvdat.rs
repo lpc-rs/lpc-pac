@@ -1,4 +1,4 @@
-#[doc = "Register `SLVDAT` reader"]
+///Register `SLVDAT` reader
 pub struct R(crate::R<SLVDAT_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<SLVDAT_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<SLVDAT_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `SLVDAT` writer"]
+///Register `SLVDAT` writer
 pub struct W(crate::W<SLVDAT_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<SLVDAT_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<SLVDAT_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `DATA` reader - Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function."]
+///Field `DATA` reader - Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function.
 pub struct DATA_R(crate::FieldReader<u8, u8>);
 impl DATA_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for DATA_R {
         &self.0
     }
 }
-#[doc = "Field `DATA` writer - Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function."]
+///Field `DATA` writer - Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function.
 pub struct DATA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> DATA_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
@@ -62,39 +62,43 @@ impl<'a> DATA_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function."]
+    ///Bits 0:7 - Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function.
     #[inline(always)]
     pub fn data(&self) -> DATA_R {
         DATA_R::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function."]
+    ///Bits 0:7 - Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function.
     #[inline(always)]
     pub fn data(&mut self) -> DATA_W {
         DATA_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Combined Slave receiver and transmitter data register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [slvdat](index.html) module"]
+///Combined Slave receiver and transmitter data register.
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [slvdat](index.html) module
 pub struct SLVDAT_SPEC;
 impl crate::RegisterSpec for SLVDAT_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [slvdat::R](R) reader structure"]
+///`read()` method returns [slvdat::R](R) reader structure
 impl crate::Readable for SLVDAT_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [slvdat::W](W) writer structure"]
+///`write(|w| ..)` method takes [slvdat::W](W) writer structure
 impl crate::Writable for SLVDAT_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets SLVDAT to value 0"]
+///`reset()` method sets SLVDAT to value 0
 impl crate::Resettable for SLVDAT_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

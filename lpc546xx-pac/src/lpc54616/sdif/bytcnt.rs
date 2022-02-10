@@ -1,4 +1,4 @@
-#[doc = "Register `BYTCNT` reader"]
+///Register `BYTCNT` reader
 pub struct R(crate::R<BYTCNT_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<BYTCNT_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<BYTCNT_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `BYTCNT` writer"]
+///Register `BYTCNT` writer
 pub struct W(crate::W<BYTCNT_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<BYTCNT_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<BYTCNT_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `BYTE_COUNT` reader - Number of bytes to be transferred; should be integer multiple of Block Size for block transfers."]
+///Field `BYTE_COUNT` reader - Number of bytes to be transferred; should be integer multiple of Block Size for block transfers.
 pub struct BYTE_COUNT_R(crate::FieldReader<u32, u32>);
 impl BYTE_COUNT_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for BYTE_COUNT_R {
         &self.0
     }
 }
-#[doc = "Field `BYTE_COUNT` writer - Number of bytes to be transferred; should be integer multiple of Block Size for block transfers."]
+///Field `BYTE_COUNT` writer - Number of bytes to be transferred; should be integer multiple of Block Size for block transfers.
 pub struct BYTE_COUNT_W<'a> {
     w: &'a mut W,
 }
 impl<'a> BYTE_COUNT_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,39 +62,43 @@ impl<'a> BYTE_COUNT_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Number of bytes to be transferred; should be integer multiple of Block Size for block transfers."]
+    ///Bits 0:31 - Number of bytes to be transferred; should be integer multiple of Block Size for block transfers.
     #[inline(always)]
     pub fn byte_count(&self) -> BYTE_COUNT_R {
         BYTE_COUNT_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Number of bytes to be transferred; should be integer multiple of Block Size for block transfers."]
+    ///Bits 0:31 - Number of bytes to be transferred; should be integer multiple of Block Size for block transfers.
     #[inline(always)]
     pub fn byte_count(&mut self) -> BYTE_COUNT_W {
         BYTE_COUNT_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Byte Count register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bytcnt](index.html) module"]
+///Byte Count register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [bytcnt](index.html) module
 pub struct BYTCNT_SPEC;
 impl crate::RegisterSpec for BYTCNT_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [bytcnt::R](R) reader structure"]
+///`read()` method returns [bytcnt::R](R) reader structure
 impl crate::Readable for BYTCNT_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [bytcnt::W](W) writer structure"]
+///`write(|w| ..)` method takes [bytcnt::W](W) writer structure
 impl crate::Writable for BYTCNT_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets BYTCNT to value 0x0200"]
+///`reset()` method sets BYTCNT to value 0x0200
 impl crate::Resettable for BYTCNT_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

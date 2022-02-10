@@ -1,4 +1,4 @@
-#[doc = "Register `INTENSET` reader"]
+///Register `INTENSET` reader
 pub struct R(crate::R<INTENSET_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<INTENSET_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<INTENSET_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `INTENSET` writer"]
+///Register `INTENSET` writer
 pub struct W(crate::W<INTENSET_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<INTENSET_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<INTENSET_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `WAITING` reader - This field indicates if interrupt should be enabled when waiting for input data."]
+///Field `WAITING` reader - This field indicates if interrupt should be enabled when waiting for input data.
 pub struct WAITING_R(crate::FieldReader<bool, bool>);
 impl WAITING_R {
     #[inline(always)]
@@ -49,29 +49,29 @@ impl core::ops::Deref for WAITING_R {
         &self.0
     }
 }
-#[doc = "Field `WAITING` writer - This field indicates if interrupt should be enabled when waiting for input data."]
+///Field `WAITING` writer - This field indicates if interrupt should be enabled when waiting for input data.
 pub struct WAITING_W<'a> {
     w: &'a mut W,
 }
 impl<'a> WAITING_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Field `DIGEST` reader - This field indicates if interrupt is generated when Digest is ready (completed a Hash or completed a full sequence)."]
+///Field `DIGEST` reader - This field indicates if interrupt is generated when Digest is ready (completed a Hash or completed a full sequence).
 pub struct DIGEST_R(crate::FieldReader<bool, bool>);
 impl DIGEST_R {
     #[inline(always)]
@@ -86,29 +86,29 @@ impl core::ops::Deref for DIGEST_R {
         &self.0
     }
 }
-#[doc = "Field `DIGEST` writer - This field indicates if interrupt is generated when Digest is ready (completed a Hash or completed a full sequence)."]
+///Field `DIGEST` writer - This field indicates if interrupt is generated when Digest is ready (completed a Hash or completed a full sequence).
 pub struct DIGEST_W<'a> {
     w: &'a mut W,
 }
 impl<'a> DIGEST_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Field `ERROR` reader - This field indicates if interrupt is generated on an ERROR (as defined in STAT register)."]
+///Field `ERROR` reader - This field indicates if interrupt is generated on an ERROR (as defined in STAT register).
 pub struct ERROR_R(crate::FieldReader<bool, bool>);
 impl ERROR_R {
     #[inline(always)]
@@ -123,22 +123,22 @@ impl core::ops::Deref for ERROR_R {
         &self.0
     }
 }
-#[doc = "Field `ERROR` writer - This field indicates if interrupt is generated on an ERROR (as defined in STAT register)."]
+///Field `ERROR` writer - This field indicates if interrupt is generated on an ERROR (as defined in STAT register).
 pub struct ERROR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ERROR_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
@@ -146,59 +146,63 @@ impl<'a> ERROR_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - This field indicates if interrupt should be enabled when waiting for input data."]
+    ///Bit 0 - This field indicates if interrupt should be enabled when waiting for input data.
     #[inline(always)]
     pub fn waiting(&self) -> WAITING_R {
         WAITING_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 1 - This field indicates if interrupt is generated when Digest is ready (completed a Hash or completed a full sequence)."]
+    ///Bit 1 - This field indicates if interrupt is generated when Digest is ready (completed a Hash or completed a full sequence).
     #[inline(always)]
     pub fn digest(&self) -> DIGEST_R {
         DIGEST_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - This field indicates if interrupt is generated on an ERROR (as defined in STAT register)."]
+    ///Bit 2 - This field indicates if interrupt is generated on an ERROR (as defined in STAT register).
     #[inline(always)]
     pub fn error(&self) -> ERROR_R {
         ERROR_R::new(((self.bits >> 2) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - This field indicates if interrupt should be enabled when waiting for input data."]
+    ///Bit 0 - This field indicates if interrupt should be enabled when waiting for input data.
     #[inline(always)]
     pub fn waiting(&mut self) -> WAITING_W {
         WAITING_W { w: self }
     }
-    #[doc = "Bit 1 - This field indicates if interrupt is generated when Digest is ready (completed a Hash or completed a full sequence)."]
+    ///Bit 1 - This field indicates if interrupt is generated when Digest is ready (completed a Hash or completed a full sequence).
     #[inline(always)]
     pub fn digest(&mut self) -> DIGEST_W {
         DIGEST_W { w: self }
     }
-    #[doc = "Bit 2 - This field indicates if interrupt is generated on an ERROR (as defined in STAT register)."]
+    ///Bit 2 - This field indicates if interrupt is generated on an ERROR (as defined in STAT register).
     #[inline(always)]
     pub fn error(&mut self) -> ERROR_W {
         ERROR_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Interrupt Enable register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset](index.html) module"]
+///Interrupt Enable register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [intenset](index.html) module
 pub struct INTENSET_SPEC;
 impl crate::RegisterSpec for INTENSET_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [intenset::R](R) reader structure"]
+///`read()` method returns [intenset::R](R) reader structure
 impl crate::Readable for INTENSET_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [intenset::W](W) writer structure"]
+///`write(|w| ..)` method takes [intenset::W](W) writer structure
 impl crate::Writable for INTENSET_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets INTENSET to value 0"]
+///`reset()` method sets INTENSET to value 0
 impl crate::Resettable for INTENSET_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

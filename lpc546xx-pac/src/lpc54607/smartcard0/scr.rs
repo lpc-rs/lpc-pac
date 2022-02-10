@@ -1,4 +1,4 @@
-#[doc = "Register `SCR` reader"]
+///Register `SCR` reader
 pub struct R(crate::R<SCR_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<SCR_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<SCR_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `SCR` writer"]
+///Register `SCR` writer
 pub struct W(crate::W<SCR_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<SCR_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<SCR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `PAD` reader - A readable, writable byte."]
+///Field `PAD` reader - A readable, writable byte.
 pub struct PAD_R(crate::FieldReader<u8, u8>);
 impl PAD_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for PAD_R {
         &self.0
     }
 }
-#[doc = "Field `PAD` writer - A readable, writable byte."]
+///Field `PAD` writer - A readable, writable byte.
 pub struct PAD_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PAD_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
@@ -62,39 +62,43 @@ impl<'a> PAD_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - A readable, writable byte."]
+    ///Bits 0:7 - A readable, writable byte.
     #[inline(always)]
     pub fn pad(&self) -> PAD_R {
         PAD_R::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - A readable, writable byte."]
+    ///Bits 0:7 - A readable, writable byte.
     #[inline(always)]
     pub fn pad(&mut self) -> PAD_W {
         PAD_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Scratch Pad Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [scr](index.html) module"]
+///Scratch Pad Register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [scr](index.html) module
 pub struct SCR_SPEC;
 impl crate::RegisterSpec for SCR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [scr::R](R) reader structure"]
+///`read()` method returns [scr::R](R) reader structure
 impl crate::Readable for SCR_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [scr::W](W) writer structure"]
+///`write(|w| ..)` method takes [scr::W](W) writer structure
 impl crate::Writable for SCR_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets SCR to value 0"]
+///`reset()` method sets SCR to value 0
 impl crate::Resettable for SCR_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

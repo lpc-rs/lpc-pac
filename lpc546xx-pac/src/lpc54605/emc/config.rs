@@ -1,4 +1,4 @@
-#[doc = "Register `CONFIG` reader"]
+///Register `CONFIG` reader
 pub struct R(crate::R<CONFIG_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<CONFIG_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<CONFIG_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `CONFIG` writer"]
+///Register `CONFIG` writer
 pub struct W(crate::W<CONFIG_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<CONFIG_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<CONFIG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `EM` reader - Endian mode."]
+///Field `EM` reader - Endian mode.
 pub struct EM_R(crate::FieldReader<bool, bool>);
 impl EM_R {
     #[inline(always)]
@@ -49,29 +49,29 @@ impl core::ops::Deref for EM_R {
         &self.0
     }
 }
-#[doc = "Field `EM` writer - Endian mode."]
+///Field `EM` writer - Endian mode.
 pub struct EM_W<'a> {
     w: &'a mut W,
 }
 impl<'a> EM_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Field `CLKR` reader - This bit must contain 0 for proper operation of the EMC."]
+///Field `CLKR` reader - This bit must contain 0 for proper operation of the EMC.
 pub struct CLKR_R(crate::FieldReader<bool, bool>);
 impl CLKR_R {
     #[inline(always)]
@@ -86,22 +86,22 @@ impl core::ops::Deref for CLKR_R {
         &self.0
     }
 }
-#[doc = "Field `CLKR` writer - This bit must contain 0 for proper operation of the EMC."]
+///Field `CLKR` writer - This bit must contain 0 for proper operation of the EMC.
 pub struct CLKR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CLKR_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
@@ -109,49 +109,53 @@ impl<'a> CLKR_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Endian mode."]
+    ///Bit 0 - Endian mode.
     #[inline(always)]
     pub fn em(&self) -> EM_R {
         EM_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 8 - This bit must contain 0 for proper operation of the EMC."]
+    ///Bit 8 - This bit must contain 0 for proper operation of the EMC.
     #[inline(always)]
     pub fn clkr(&self) -> CLKR_R {
         CLKR_R::new(((self.bits >> 8) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Endian mode."]
+    ///Bit 0 - Endian mode.
     #[inline(always)]
     pub fn em(&mut self) -> EM_W {
         EM_W { w: self }
     }
-    #[doc = "Bit 8 - This bit must contain 0 for proper operation of the EMC."]
+    ///Bit 8 - This bit must contain 0 for proper operation of the EMC.
     #[inline(always)]
     pub fn clkr(&mut self) -> CLKR_W {
         CLKR_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Configures operation of the memory controller\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [config](index.html) module"]
+///Configures operation of the memory controller
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [config](index.html) module
 pub struct CONFIG_SPEC;
 impl crate::RegisterSpec for CONFIG_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [config::R](R) reader structure"]
+///`read()` method returns [config::R](R) reader structure
 impl crate::Readable for CONFIG_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [config::W](W) writer structure"]
+///`write(|w| ..)` method takes [config::W](W) writer structure
 impl crate::Writable for CONFIG_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets CONFIG to value 0"]
+///`reset()` method sets CONFIG to value 0
 impl crate::Resettable for CONFIG_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

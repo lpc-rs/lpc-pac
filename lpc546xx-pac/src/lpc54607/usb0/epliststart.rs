@@ -1,4 +1,4 @@
-#[doc = "Register `EPLISTSTART` reader"]
+///Register `EPLISTSTART` reader
 pub struct R(crate::R<EPLISTSTART_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<EPLISTSTART_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<EPLISTSTART_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `EPLISTSTART` writer"]
+///Register `EPLISTSTART` writer
 pub struct W(crate::W<EPLISTSTART_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<EPLISTSTART_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<EPLISTSTART_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `EP_LIST` reader - Start address of the USB EP Command/Status List."]
+///Field `EP_LIST` reader - Start address of the USB EP Command/Status List.
 pub struct EP_LIST_R(crate::FieldReader<u32, u32>);
 impl EP_LIST_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for EP_LIST_R {
         &self.0
     }
 }
-#[doc = "Field `EP_LIST` writer - Start address of the USB EP Command/Status List."]
+///Field `EP_LIST` writer - Start address of the USB EP Command/Status List.
 pub struct EP_LIST_W<'a> {
     w: &'a mut W,
 }
 impl<'a> EP_LIST_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x00ff_ffff << 8)) | ((value as u32 & 0x00ff_ffff) << 8);
@@ -62,39 +62,43 @@ impl<'a> EP_LIST_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 8:31 - Start address of the USB EP Command/Status List."]
+    ///Bits 8:31 - Start address of the USB EP Command/Status List.
     #[inline(always)]
     pub fn ep_list(&self) -> EP_LIST_R {
         EP_LIST_R::new(((self.bits >> 8) & 0x00ff_ffff) as u32)
     }
 }
 impl W {
-    #[doc = "Bits 8:31 - Start address of the USB EP Command/Status List."]
+    ///Bits 8:31 - Start address of the USB EP Command/Status List.
     #[inline(always)]
     pub fn ep_list(&mut self) -> EP_LIST_W {
         EP_LIST_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "USB EP Command/Status List start address\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [epliststart](index.html) module"]
+///USB EP Command/Status List start address
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [epliststart](index.html) module
 pub struct EPLISTSTART_SPEC;
 impl crate::RegisterSpec for EPLISTSTART_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [epliststart::R](R) reader structure"]
+///`read()` method returns [epliststart::R](R) reader structure
 impl crate::Readable for EPLISTSTART_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [epliststart::W](W) writer structure"]
+///`write(|w| ..)` method takes [epliststart::W](W) writer structure
 impl crate::Writable for EPLISTSTART_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets EPLISTSTART to value 0"]
+///`reset()` method sets EPLISTSTART to value 0
 impl crate::Resettable for EPLISTSTART_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

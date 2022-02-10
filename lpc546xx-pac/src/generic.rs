@@ -103,7 +103,7 @@ impl<REG: Resettable + Writable> Reg<REG> {
     #[inline(always)]
     pub fn write<F>(&self, f: F)
     where
-        F: FnOnce(&mut REG::Writer) -> &mut W<REG>,
+        F: FnOnce(&mut REG::Writer) -> &mut W<REG>
     {
         self.register.set(
             f(&mut REG::Writer::from(W {
@@ -125,7 +125,7 @@ where
     #[inline(always)]
     pub unsafe fn write_with_zero<F>(&self, f: F)
     where
-        F: FnOnce(&mut REG::Writer) -> &mut W<REG>,
+        F: FnOnce(&mut REG::Writer) -> &mut W<REG>
     {
         self.register.set(
             (*f(&mut REG::Writer::from(W {
@@ -158,7 +158,7 @@ impl<REG: Readable + Writable> Reg<REG> {
     #[inline(always)]
     pub fn modify<F>(&self, f: F)
     where
-        for<'w> F: FnOnce(&REG::Reader, &'w mut REG::Writer) -> &'w mut W<REG>,
+        for<'w> F: FnOnce(&REG::Reader, &'w mut REG::Writer) -> &'w mut W<REG>
     {
         let bits = self.register.get();
         self.register.set(
@@ -280,3 +280,4 @@ impl<FI> FieldReader<bool, FI> {
         self.bit()
     }
 }
+

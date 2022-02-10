@@ -1,4 +1,4 @@
-#[doc = "Register `FREQMECTRL` reader"]
+///Register `FREQMECTRL` reader
 pub struct R(crate::R<FREQMECTRL_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<FREQMECTRL_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<FREQMECTRL_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `FREQMECTRL` writer"]
+///Register `FREQMECTRL` writer
 pub struct W(crate::W<FREQMECTRL_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<FREQMECTRL_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<FREQMECTRL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CAPVAL` reader - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only."]
+///Field `CAPVAL` reader - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only.
 pub struct CAPVAL_R(crate::FieldReader<u16, u16>);
 impl CAPVAL_R {
     #[inline(always)]
@@ -49,19 +49,19 @@ impl core::ops::Deref for CAPVAL_R {
         &self.0
     }
 }
-#[doc = "Field `CAPVAL` writer - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only."]
+///Field `CAPVAL` writer - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only.
 pub struct CAPVAL_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CAPVAL_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x3fff) | (value as u32 & 0x3fff);
         self.w
     }
 }
-#[doc = "Field `PROG` reader - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0)."]
+///Field `PROG` reader - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0).
 pub struct PROG_R(crate::FieldReader<bool, bool>);
 impl PROG_R {
     #[inline(always)]
@@ -76,22 +76,22 @@ impl core::ops::Deref for PROG_R {
         &self.0
     }
 }
-#[doc = "Field `PROG` writer - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0)."]
+///Field `PROG` writer - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0).
 pub struct PROG_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PROG_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
@@ -99,49 +99,53 @@ impl<'a> PROG_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:13 - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only."]
+    ///Bits 0:13 - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only.
     #[inline(always)]
     pub fn capval(&self) -> CAPVAL_R {
         CAPVAL_R::new((self.bits & 0x3fff) as u16)
     }
-    #[doc = "Bit 31 - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0)."]
+    ///Bit 31 - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0).
     #[inline(always)]
     pub fn prog(&self) -> PROG_R {
         PROG_R::new(((self.bits >> 31) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bits 0:13 - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only."]
+    ///Bits 0:13 - Stores the capture result which is used to calculate the frequency of the target clock. This field is read-only.
     #[inline(always)]
     pub fn capval(&mut self) -> CAPVAL_W {
         CAPVAL_W { w: self }
     }
-    #[doc = "Bit 31 - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0)."]
+    ///Bit 31 - Set this bit to one to initiate a frequency measurement cycle. Hardware clears this bit when the measurement cycle has completed and there is valid capture data in the CAPVAL field (bits 13:0).
     #[inline(always)]
     pub fn prog(&mut self) -> PROG_W {
         PROG_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Frequency measure register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [freqmectrl](index.html) module"]
+///Frequency measure register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [freqmectrl](index.html) module
 pub struct FREQMECTRL_SPEC;
 impl crate::RegisterSpec for FREQMECTRL_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [freqmectrl::R](R) reader structure"]
+///`read()` method returns [freqmectrl::R](R) reader structure
 impl crate::Readable for FREQMECTRL_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [freqmectrl::W](W) writer structure"]
+///`write(|w| ..)` method takes [freqmectrl::W](W) writer structure
 impl crate::Writable for FREQMECTRL_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets FREQMECTRL to value 0"]
+///`reset()` method sets FREQMECTRL to value 0
 impl crate::Resettable for FREQMECTRL_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

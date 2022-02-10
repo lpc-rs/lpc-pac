@@ -1,4 +1,4 @@
-#[doc = "Register `DBADDR` reader"]
+///Register `DBADDR` reader
 pub struct R(crate::R<DBADDR_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<DBADDR_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<DBADDR_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `DBADDR` writer"]
+///Register `DBADDR` writer
 pub struct W(crate::W<DBADDR_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<DBADDR_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<DBADDR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `SDL` reader - Start of Descriptor List."]
+///Field `SDL` reader - Start of Descriptor List.
 pub struct SDL_R(crate::FieldReader<u32, u32>);
 impl SDL_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for SDL_R {
         &self.0
     }
 }
-#[doc = "Field `SDL` writer - Start of Descriptor List."]
+///Field `SDL` writer - Start of Descriptor List.
 pub struct SDL_W<'a> {
     w: &'a mut W,
 }
 impl<'a> SDL_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,39 +62,43 @@ impl<'a> SDL_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Start of Descriptor List."]
+    ///Bits 0:31 - Start of Descriptor List.
     #[inline(always)]
     pub fn sdl(&self) -> SDL_R {
         SDL_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Start of Descriptor List."]
+    ///Bits 0:31 - Start of Descriptor List.
     #[inline(always)]
     pub fn sdl(&mut self) -> SDL_W {
         SDL_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Descriptor List Base Address register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dbaddr](index.html) module"]
+///Descriptor List Base Address register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [dbaddr](index.html) module
 pub struct DBADDR_SPEC;
 impl crate::RegisterSpec for DBADDR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [dbaddr::R](R) reader structure"]
+///`read()` method returns [dbaddr::R](R) reader structure
 impl crate::Readable for DBADDR_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [dbaddr::W](W) writer structure"]
+///`write(|w| ..)` method takes [dbaddr::W](W) writer structure
 impl crate::Writable for DBADDR_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets DBADDR to value 0"]
+///`reset()` method sets DBADDR to value 0
 impl crate::Resettable for DBADDR_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

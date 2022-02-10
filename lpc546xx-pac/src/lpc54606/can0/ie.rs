@@ -1,4 +1,4 @@
-#[doc = "Register `IE` reader"]
+///Register `IE` reader
 pub struct R(crate::R<IE_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<IE_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<IE_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `IE` writer"]
+///Register `IE` writer
 pub struct W(crate::W<IE_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<IE_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<IE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `RF0NE` reader - Rx FIFO 0 new message interrupt enable."]
+///Field `RF0NE` reader - Rx FIFO 0 new message interrupt enable.
 pub struct RF0NE_R(crate::FieldReader<bool, bool>);
 impl RF0NE_R {
     #[inline(always)]
@@ -49,29 +49,29 @@ impl core::ops::Deref for RF0NE_R {
         &self.0
     }
 }
-#[doc = "Field `RF0NE` writer - Rx FIFO 0 new message interrupt enable."]
+///Field `RF0NE` writer - Rx FIFO 0 new message interrupt enable.
 pub struct RF0NE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RF0NE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Field `RF0WE` reader - Rx FIFO 0 watermark reached interrupt enable."]
+///Field `RF0WE` reader - Rx FIFO 0 watermark reached interrupt enable.
 pub struct RF0WE_R(crate::FieldReader<bool, bool>);
 impl RF0WE_R {
     #[inline(always)]
@@ -86,29 +86,29 @@ impl core::ops::Deref for RF0WE_R {
         &self.0
     }
 }
-#[doc = "Field `RF0WE` writer - Rx FIFO 0 watermark reached interrupt enable."]
+///Field `RF0WE` writer - Rx FIFO 0 watermark reached interrupt enable.
 pub struct RF0WE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RF0WE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Field `RF0FE` reader - Rx FIFO 0 full interrupt enable."]
+///Field `RF0FE` reader - Rx FIFO 0 full interrupt enable.
 pub struct RF0FE_R(crate::FieldReader<bool, bool>);
 impl RF0FE_R {
     #[inline(always)]
@@ -123,29 +123,29 @@ impl core::ops::Deref for RF0FE_R {
         &self.0
     }
 }
-#[doc = "Field `RF0FE` writer - Rx FIFO 0 full interrupt enable."]
+///Field `RF0FE` writer - Rx FIFO 0 full interrupt enable.
 pub struct RF0FE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RF0FE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Field `RF0LE` reader - Rx FIFO 0 message lost interrupt enable."]
+///Field `RF0LE` reader - Rx FIFO 0 message lost interrupt enable.
 pub struct RF0LE_R(crate::FieldReader<bool, bool>);
 impl RF0LE_R {
     #[inline(always)]
@@ -160,29 +160,29 @@ impl core::ops::Deref for RF0LE_R {
         &self.0
     }
 }
-#[doc = "Field `RF0LE` writer - Rx FIFO 0 message lost interrupt enable."]
+///Field `RF0LE` writer - Rx FIFO 0 message lost interrupt enable.
 pub struct RF0LE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RF0LE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Field `RF1NE` reader - Rx FIFO 1 new message interrupt enable."]
+///Field `RF1NE` reader - Rx FIFO 1 new message interrupt enable.
 pub struct RF1NE_R(crate::FieldReader<bool, bool>);
 impl RF1NE_R {
     #[inline(always)]
@@ -197,29 +197,29 @@ impl core::ops::Deref for RF1NE_R {
         &self.0
     }
 }
-#[doc = "Field `RF1NE` writer - Rx FIFO 1 new message interrupt enable."]
+///Field `RF1NE` writer - Rx FIFO 1 new message interrupt enable.
 pub struct RF1NE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RF1NE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Field `RF1WE` reader - Rx FIFO 1 watermark reached interrupt enable."]
+///Field `RF1WE` reader - Rx FIFO 1 watermark reached interrupt enable.
 pub struct RF1WE_R(crate::FieldReader<bool, bool>);
 impl RF1WE_R {
     #[inline(always)]
@@ -234,29 +234,29 @@ impl core::ops::Deref for RF1WE_R {
         &self.0
     }
 }
-#[doc = "Field `RF1WE` writer - Rx FIFO 1 watermark reached interrupt enable."]
+///Field `RF1WE` writer - Rx FIFO 1 watermark reached interrupt enable.
 pub struct RF1WE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RF1WE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Field `RF1FE` reader - Rx FIFO 1 full interrupt enable."]
+///Field `RF1FE` reader - Rx FIFO 1 full interrupt enable.
 pub struct RF1FE_R(crate::FieldReader<bool, bool>);
 impl RF1FE_R {
     #[inline(always)]
@@ -271,29 +271,29 @@ impl core::ops::Deref for RF1FE_R {
         &self.0
     }
 }
-#[doc = "Field `RF1FE` writer - Rx FIFO 1 full interrupt enable."]
+///Field `RF1FE` writer - Rx FIFO 1 full interrupt enable.
 pub struct RF1FE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RF1FE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Field `RF1LE` reader - Rx FIFO 1 message lost interrupt enable."]
+///Field `RF1LE` reader - Rx FIFO 1 message lost interrupt enable.
 pub struct RF1LE_R(crate::FieldReader<bool, bool>);
 impl RF1LE_R {
     #[inline(always)]
@@ -308,29 +308,29 @@ impl core::ops::Deref for RF1LE_R {
         &self.0
     }
 }
-#[doc = "Field `RF1LE` writer - Rx FIFO 1 message lost interrupt enable."]
+///Field `RF1LE` writer - Rx FIFO 1 message lost interrupt enable.
 pub struct RF1LE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RF1LE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Field `HPME` reader - High priority message interrupt enable."]
+///Field `HPME` reader - High priority message interrupt enable.
 pub struct HPME_R(crate::FieldReader<bool, bool>);
 impl HPME_R {
     #[inline(always)]
@@ -345,29 +345,29 @@ impl core::ops::Deref for HPME_R {
         &self.0
     }
 }
-#[doc = "Field `HPME` writer - High priority message interrupt enable."]
+///Field `HPME` writer - High priority message interrupt enable.
 pub struct HPME_W<'a> {
     w: &'a mut W,
 }
 impl<'a> HPME_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Field `TCE` reader - Transmission completed interrupt enable."]
+///Field `TCE` reader - Transmission completed interrupt enable.
 pub struct TCE_R(crate::FieldReader<bool, bool>);
 impl TCE_R {
     #[inline(always)]
@@ -382,29 +382,29 @@ impl core::ops::Deref for TCE_R {
         &self.0
     }
 }
-#[doc = "Field `TCE` writer - Transmission completed interrupt enable."]
+///Field `TCE` writer - Transmission completed interrupt enable.
 pub struct TCE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TCE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Field `TCFE` reader - Transmission cancellation finished interrupt enable."]
+///Field `TCFE` reader - Transmission cancellation finished interrupt enable.
 pub struct TCFE_R(crate::FieldReader<bool, bool>);
 impl TCFE_R {
     #[inline(always)]
@@ -419,29 +419,29 @@ impl core::ops::Deref for TCFE_R {
         &self.0
     }
 }
-#[doc = "Field `TCFE` writer - Transmission cancellation finished interrupt enable."]
+///Field `TCFE` writer - Transmission cancellation finished interrupt enable.
 pub struct TCFE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TCFE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
-#[doc = "Field `TFEE` reader - Tx FIFO empty interrupt enable."]
+///Field `TFEE` reader - Tx FIFO empty interrupt enable.
 pub struct TFEE_R(crate::FieldReader<bool, bool>);
 impl TFEE_R {
     #[inline(always)]
@@ -456,29 +456,29 @@ impl core::ops::Deref for TFEE_R {
         &self.0
     }
 }
-#[doc = "Field `TFEE` writer - Tx FIFO empty interrupt enable."]
+///Field `TFEE` writer - Tx FIFO empty interrupt enable.
 pub struct TFEE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TFEE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
-#[doc = "Field `TEFNE` reader - Tx event FIFO new entry interrupt enable."]
+///Field `TEFNE` reader - Tx event FIFO new entry interrupt enable.
 pub struct TEFNE_R(crate::FieldReader<bool, bool>);
 impl TEFNE_R {
     #[inline(always)]
@@ -493,29 +493,29 @@ impl core::ops::Deref for TEFNE_R {
         &self.0
     }
 }
-#[doc = "Field `TEFNE` writer - Tx event FIFO new entry interrupt enable."]
+///Field `TEFNE` writer - Tx event FIFO new entry interrupt enable.
 pub struct TEFNE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TEFNE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Field `TEFWE` reader - Tx event FIFO watermark reached interrupt enable."]
+///Field `TEFWE` reader - Tx event FIFO watermark reached interrupt enable.
 pub struct TEFWE_R(crate::FieldReader<bool, bool>);
 impl TEFWE_R {
     #[inline(always)]
@@ -530,29 +530,29 @@ impl core::ops::Deref for TEFWE_R {
         &self.0
     }
 }
-#[doc = "Field `TEFWE` writer - Tx event FIFO watermark reached interrupt enable."]
+///Field `TEFWE` writer - Tx event FIFO watermark reached interrupt enable.
 pub struct TEFWE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TEFWE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Field `TEFFE` reader - Tx event FIFO full interrupt enable."]
+///Field `TEFFE` reader - Tx event FIFO full interrupt enable.
 pub struct TEFFE_R(crate::FieldReader<bool, bool>);
 impl TEFFE_R {
     #[inline(always)]
@@ -567,29 +567,29 @@ impl core::ops::Deref for TEFFE_R {
         &self.0
     }
 }
-#[doc = "Field `TEFFE` writer - Tx event FIFO full interrupt enable."]
+///Field `TEFFE` writer - Tx event FIFO full interrupt enable.
 pub struct TEFFE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TEFFE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
-#[doc = "Field `TEFLE` reader - Tx event FIFO element lost interrupt enable."]
+///Field `TEFLE` reader - Tx event FIFO element lost interrupt enable.
 pub struct TEFLE_R(crate::FieldReader<bool, bool>);
 impl TEFLE_R {
     #[inline(always)]
@@ -604,29 +604,29 @@ impl core::ops::Deref for TEFLE_R {
         &self.0
     }
 }
-#[doc = "Field `TEFLE` writer - Tx event FIFO element lost interrupt enable."]
+///Field `TEFLE` writer - Tx event FIFO element lost interrupt enable.
 pub struct TEFLE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TEFLE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
-#[doc = "Field `TSWE` reader - Timestamp wraparound interrupt enable."]
+///Field `TSWE` reader - Timestamp wraparound interrupt enable.
 pub struct TSWE_R(crate::FieldReader<bool, bool>);
 impl TSWE_R {
     #[inline(always)]
@@ -641,29 +641,29 @@ impl core::ops::Deref for TSWE_R {
         &self.0
     }
 }
-#[doc = "Field `TSWE` writer - Timestamp wraparound interrupt enable."]
+///Field `TSWE` writer - Timestamp wraparound interrupt enable.
 pub struct TSWE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TSWE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
-#[doc = "Field `MRAFE` reader - Message RAM access failure interrupt enable."]
+///Field `MRAFE` reader - Message RAM access failure interrupt enable.
 pub struct MRAFE_R(crate::FieldReader<bool, bool>);
 impl MRAFE_R {
     #[inline(always)]
@@ -678,29 +678,29 @@ impl core::ops::Deref for MRAFE_R {
         &self.0
     }
 }
-#[doc = "Field `MRAFE` writer - Message RAM access failure interrupt enable."]
+///Field `MRAFE` writer - Message RAM access failure interrupt enable.
 pub struct MRAFE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> MRAFE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
-#[doc = "Field `TOOE` reader - Timeout occurred interrupt enable."]
+///Field `TOOE` reader - Timeout occurred interrupt enable.
 pub struct TOOE_R(crate::FieldReader<bool, bool>);
 impl TOOE_R {
     #[inline(always)]
@@ -715,29 +715,29 @@ impl core::ops::Deref for TOOE_R {
         &self.0
     }
 }
-#[doc = "Field `TOOE` writer - Timeout occurred interrupt enable."]
+///Field `TOOE` writer - Timeout occurred interrupt enable.
 pub struct TOOE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TOOE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
-#[doc = "Field `DRXE` reader - Message stored in dedicated Rx buffer interrupt enable."]
+///Field `DRXE` reader - Message stored in dedicated Rx buffer interrupt enable.
 pub struct DRXE_R(crate::FieldReader<bool, bool>);
 impl DRXE_R {
     #[inline(always)]
@@ -752,29 +752,29 @@ impl core::ops::Deref for DRXE_R {
         &self.0
     }
 }
-#[doc = "Field `DRXE` writer - Message stored in dedicated Rx buffer interrupt enable."]
+///Field `DRXE` writer - Message stored in dedicated Rx buffer interrupt enable.
 pub struct DRXE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> DRXE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
-#[doc = "Field `BECE` reader - Bit error corrected interrupt enable."]
+///Field `BECE` reader - Bit error corrected interrupt enable.
 pub struct BECE_R(crate::FieldReader<bool, bool>);
 impl BECE_R {
     #[inline(always)]
@@ -789,29 +789,29 @@ impl core::ops::Deref for BECE_R {
         &self.0
     }
 }
-#[doc = "Field `BECE` writer - Bit error corrected interrupt enable."]
+///Field `BECE` writer - Bit error corrected interrupt enable.
 pub struct BECE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> BECE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
-#[doc = "Field `BEUE` reader - Bit error uncorrected interrupt enable."]
+///Field `BEUE` reader - Bit error uncorrected interrupt enable.
 pub struct BEUE_R(crate::FieldReader<bool, bool>);
 impl BEUE_R {
     #[inline(always)]
@@ -826,29 +826,29 @@ impl core::ops::Deref for BEUE_R {
         &self.0
     }
 }
-#[doc = "Field `BEUE` writer - Bit error uncorrected interrupt enable."]
+///Field `BEUE` writer - Bit error uncorrected interrupt enable.
 pub struct BEUE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> BEUE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
-#[doc = "Field `ELOE` reader - Error logging overflow interrupt enable."]
+///Field `ELOE` reader - Error logging overflow interrupt enable.
 pub struct ELOE_R(crate::FieldReader<bool, bool>);
 impl ELOE_R {
     #[inline(always)]
@@ -863,29 +863,29 @@ impl core::ops::Deref for ELOE_R {
         &self.0
     }
 }
-#[doc = "Field `ELOE` writer - Error logging overflow interrupt enable."]
+///Field `ELOE` writer - Error logging overflow interrupt enable.
 pub struct ELOE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ELOE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
-#[doc = "Field `EPE` reader - Error passive interrupt enable."]
+///Field `EPE` reader - Error passive interrupt enable.
 pub struct EPE_R(crate::FieldReader<bool, bool>);
 impl EPE_R {
     #[inline(always)]
@@ -900,29 +900,29 @@ impl core::ops::Deref for EPE_R {
         &self.0
     }
 }
-#[doc = "Field `EPE` writer - Error passive interrupt enable."]
+///Field `EPE` writer - Error passive interrupt enable.
 pub struct EPE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> EPE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
         self.w
     }
 }
-#[doc = "Field `EWE` reader - Warning status interrupt enable."]
+///Field `EWE` reader - Warning status interrupt enable.
 pub struct EWE_R(crate::FieldReader<bool, bool>);
 impl EWE_R {
     #[inline(always)]
@@ -937,29 +937,29 @@ impl core::ops::Deref for EWE_R {
         &self.0
     }
 }
-#[doc = "Field `EWE` writer - Warning status interrupt enable."]
+///Field `EWE` writer - Warning status interrupt enable.
 pub struct EWE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> EWE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 24)) | ((value as u32 & 0x01) << 24);
         self.w
     }
 }
-#[doc = "Field `BOE` reader - Bus_Off Status interrupt enable."]
+///Field `BOE` reader - Bus_Off Status interrupt enable.
 pub struct BOE_R(crate::FieldReader<bool, bool>);
 impl BOE_R {
     #[inline(always)]
@@ -974,29 +974,29 @@ impl core::ops::Deref for BOE_R {
         &self.0
     }
 }
-#[doc = "Field `BOE` writer - Bus_Off Status interrupt enable."]
+///Field `BOE` writer - Bus_Off Status interrupt enable.
 pub struct BOE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> BOE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
-#[doc = "Field `WDIE` reader - Watchdog interrupt enable."]
+///Field `WDIE` reader - Watchdog interrupt enable.
 pub struct WDIE_R(crate::FieldReader<bool, bool>);
 impl WDIE_R {
     #[inline(always)]
@@ -1011,29 +1011,29 @@ impl core::ops::Deref for WDIE_R {
         &self.0
     }
 }
-#[doc = "Field `WDIE` writer - Watchdog interrupt enable."]
+///Field `WDIE` writer - Watchdog interrupt enable.
 pub struct WDIE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> WDIE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 26)) | ((value as u32 & 0x01) << 26);
         self.w
     }
 }
-#[doc = "Field `PEAE` reader - Protocol error in arbitration phase interrupt enable."]
+///Field `PEAE` reader - Protocol error in arbitration phase interrupt enable.
 pub struct PEAE_R(crate::FieldReader<bool, bool>);
 impl PEAE_R {
     #[inline(always)]
@@ -1048,29 +1048,29 @@ impl core::ops::Deref for PEAE_R {
         &self.0
     }
 }
-#[doc = "Field `PEAE` writer - Protocol error in arbitration phase interrupt enable."]
+///Field `PEAE` writer - Protocol error in arbitration phase interrupt enable.
 pub struct PEAE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PEAE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
-#[doc = "Field `PEDE` reader - Protocol error in data phase interrupt enable."]
+///Field `PEDE` reader - Protocol error in data phase interrupt enable.
 pub struct PEDE_R(crate::FieldReader<bool, bool>);
 impl PEDE_R {
     #[inline(always)]
@@ -1085,29 +1085,29 @@ impl core::ops::Deref for PEDE_R {
         &self.0
     }
 }
-#[doc = "Field `PEDE` writer - Protocol error in data phase interrupt enable."]
+///Field `PEDE` writer - Protocol error in data phase interrupt enable.
 pub struct PEDE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PEDE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
-#[doc = "Field `ARAE` reader - Access to reserved address interrupt enable."]
+///Field `ARAE` reader - Access to reserved address interrupt enable.
 pub struct ARAE_R(crate::FieldReader<bool, bool>);
 impl ARAE_R {
     #[inline(always)]
@@ -1122,22 +1122,22 @@ impl core::ops::Deref for ARAE_R {
         &self.0
     }
 }
-#[doc = "Field `ARAE` writer - Access to reserved address interrupt enable."]
+///Field `ARAE` writer - Access to reserved address interrupt enable.
 pub struct ARAE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ARAE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 29)) | ((value as u32 & 0x01) << 29);
@@ -1145,329 +1145,333 @@ impl<'a> ARAE_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Rx FIFO 0 new message interrupt enable."]
+    ///Bit 0 - Rx FIFO 0 new message interrupt enable.
     #[inline(always)]
     pub fn rf0ne(&self) -> RF0NE_R {
         RF0NE_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 1 - Rx FIFO 0 watermark reached interrupt enable."]
+    ///Bit 1 - Rx FIFO 0 watermark reached interrupt enable.
     #[inline(always)]
     pub fn rf0we(&self) -> RF0WE_R {
         RF0WE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - Rx FIFO 0 full interrupt enable."]
+    ///Bit 2 - Rx FIFO 0 full interrupt enable.
     #[inline(always)]
     pub fn rf0fe(&self) -> RF0FE_R {
         RF0FE_R::new(((self.bits >> 2) & 0x01) != 0)
     }
-    #[doc = "Bit 3 - Rx FIFO 0 message lost interrupt enable."]
+    ///Bit 3 - Rx FIFO 0 message lost interrupt enable.
     #[inline(always)]
     pub fn rf0le(&self) -> RF0LE_R {
         RF0LE_R::new(((self.bits >> 3) & 0x01) != 0)
     }
-    #[doc = "Bit 4 - Rx FIFO 1 new message interrupt enable."]
+    ///Bit 4 - Rx FIFO 1 new message interrupt enable.
     #[inline(always)]
     pub fn rf1ne(&self) -> RF1NE_R {
         RF1NE_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bit 5 - Rx FIFO 1 watermark reached interrupt enable."]
+    ///Bit 5 - Rx FIFO 1 watermark reached interrupt enable.
     #[inline(always)]
     pub fn rf1we(&self) -> RF1WE_R {
         RF1WE_R::new(((self.bits >> 5) & 0x01) != 0)
     }
-    #[doc = "Bit 6 - Rx FIFO 1 full interrupt enable."]
+    ///Bit 6 - Rx FIFO 1 full interrupt enable.
     #[inline(always)]
     pub fn rf1fe(&self) -> RF1FE_R {
         RF1FE_R::new(((self.bits >> 6) & 0x01) != 0)
     }
-    #[doc = "Bit 7 - Rx FIFO 1 message lost interrupt enable."]
+    ///Bit 7 - Rx FIFO 1 message lost interrupt enable.
     #[inline(always)]
     pub fn rf1le(&self) -> RF1LE_R {
         RF1LE_R::new(((self.bits >> 7) & 0x01) != 0)
     }
-    #[doc = "Bit 8 - High priority message interrupt enable."]
+    ///Bit 8 - High priority message interrupt enable.
     #[inline(always)]
     pub fn hpme(&self) -> HPME_R {
         HPME_R::new(((self.bits >> 8) & 0x01) != 0)
     }
-    #[doc = "Bit 9 - Transmission completed interrupt enable."]
+    ///Bit 9 - Transmission completed interrupt enable.
     #[inline(always)]
     pub fn tce(&self) -> TCE_R {
         TCE_R::new(((self.bits >> 9) & 0x01) != 0)
     }
-    #[doc = "Bit 10 - Transmission cancellation finished interrupt enable."]
+    ///Bit 10 - Transmission cancellation finished interrupt enable.
     #[inline(always)]
     pub fn tcfe(&self) -> TCFE_R {
         TCFE_R::new(((self.bits >> 10) & 0x01) != 0)
     }
-    #[doc = "Bit 11 - Tx FIFO empty interrupt enable."]
+    ///Bit 11 - Tx FIFO empty interrupt enable.
     #[inline(always)]
     pub fn tfee(&self) -> TFEE_R {
         TFEE_R::new(((self.bits >> 11) & 0x01) != 0)
     }
-    #[doc = "Bit 12 - Tx event FIFO new entry interrupt enable."]
+    ///Bit 12 - Tx event FIFO new entry interrupt enable.
     #[inline(always)]
     pub fn tefne(&self) -> TEFNE_R {
         TEFNE_R::new(((self.bits >> 12) & 0x01) != 0)
     }
-    #[doc = "Bit 13 - Tx event FIFO watermark reached interrupt enable."]
+    ///Bit 13 - Tx event FIFO watermark reached interrupt enable.
     #[inline(always)]
     pub fn tefwe(&self) -> TEFWE_R {
         TEFWE_R::new(((self.bits >> 13) & 0x01) != 0)
     }
-    #[doc = "Bit 14 - Tx event FIFO full interrupt enable."]
+    ///Bit 14 - Tx event FIFO full interrupt enable.
     #[inline(always)]
     pub fn teffe(&self) -> TEFFE_R {
         TEFFE_R::new(((self.bits >> 14) & 0x01) != 0)
     }
-    #[doc = "Bit 15 - Tx event FIFO element lost interrupt enable."]
+    ///Bit 15 - Tx event FIFO element lost interrupt enable.
     #[inline(always)]
     pub fn tefle(&self) -> TEFLE_R {
         TEFLE_R::new(((self.bits >> 15) & 0x01) != 0)
     }
-    #[doc = "Bit 16 - Timestamp wraparound interrupt enable."]
+    ///Bit 16 - Timestamp wraparound interrupt enable.
     #[inline(always)]
     pub fn tswe(&self) -> TSWE_R {
         TSWE_R::new(((self.bits >> 16) & 0x01) != 0)
     }
-    #[doc = "Bit 17 - Message RAM access failure interrupt enable."]
+    ///Bit 17 - Message RAM access failure interrupt enable.
     #[inline(always)]
     pub fn mrafe(&self) -> MRAFE_R {
         MRAFE_R::new(((self.bits >> 17) & 0x01) != 0)
     }
-    #[doc = "Bit 18 - Timeout occurred interrupt enable."]
+    ///Bit 18 - Timeout occurred interrupt enable.
     #[inline(always)]
     pub fn tooe(&self) -> TOOE_R {
         TOOE_R::new(((self.bits >> 18) & 0x01) != 0)
     }
-    #[doc = "Bit 19 - Message stored in dedicated Rx buffer interrupt enable."]
+    ///Bit 19 - Message stored in dedicated Rx buffer interrupt enable.
     #[inline(always)]
     pub fn drxe(&self) -> DRXE_R {
         DRXE_R::new(((self.bits >> 19) & 0x01) != 0)
     }
-    #[doc = "Bit 20 - Bit error corrected interrupt enable."]
+    ///Bit 20 - Bit error corrected interrupt enable.
     #[inline(always)]
     pub fn bece(&self) -> BECE_R {
         BECE_R::new(((self.bits >> 20) & 0x01) != 0)
     }
-    #[doc = "Bit 21 - Bit error uncorrected interrupt enable."]
+    ///Bit 21 - Bit error uncorrected interrupt enable.
     #[inline(always)]
     pub fn beue(&self) -> BEUE_R {
         BEUE_R::new(((self.bits >> 21) & 0x01) != 0)
     }
-    #[doc = "Bit 22 - Error logging overflow interrupt enable."]
+    ///Bit 22 - Error logging overflow interrupt enable.
     #[inline(always)]
     pub fn eloe(&self) -> ELOE_R {
         ELOE_R::new(((self.bits >> 22) & 0x01) != 0)
     }
-    #[doc = "Bit 23 - Error passive interrupt enable."]
+    ///Bit 23 - Error passive interrupt enable.
     #[inline(always)]
     pub fn epe(&self) -> EPE_R {
         EPE_R::new(((self.bits >> 23) & 0x01) != 0)
     }
-    #[doc = "Bit 24 - Warning status interrupt enable."]
+    ///Bit 24 - Warning status interrupt enable.
     #[inline(always)]
     pub fn ewe(&self) -> EWE_R {
         EWE_R::new(((self.bits >> 24) & 0x01) != 0)
     }
-    #[doc = "Bit 25 - Bus_Off Status interrupt enable."]
+    ///Bit 25 - Bus_Off Status interrupt enable.
     #[inline(always)]
     pub fn boe(&self) -> BOE_R {
         BOE_R::new(((self.bits >> 25) & 0x01) != 0)
     }
-    #[doc = "Bit 26 - Watchdog interrupt enable."]
+    ///Bit 26 - Watchdog interrupt enable.
     #[inline(always)]
     pub fn wdie(&self) -> WDIE_R {
         WDIE_R::new(((self.bits >> 26) & 0x01) != 0)
     }
-    #[doc = "Bit 27 - Protocol error in arbitration phase interrupt enable."]
+    ///Bit 27 - Protocol error in arbitration phase interrupt enable.
     #[inline(always)]
     pub fn peae(&self) -> PEAE_R {
         PEAE_R::new(((self.bits >> 27) & 0x01) != 0)
     }
-    #[doc = "Bit 28 - Protocol error in data phase interrupt enable."]
+    ///Bit 28 - Protocol error in data phase interrupt enable.
     #[inline(always)]
     pub fn pede(&self) -> PEDE_R {
         PEDE_R::new(((self.bits >> 28) & 0x01) != 0)
     }
-    #[doc = "Bit 29 - Access to reserved address interrupt enable."]
+    ///Bit 29 - Access to reserved address interrupt enable.
     #[inline(always)]
     pub fn arae(&self) -> ARAE_R {
         ARAE_R::new(((self.bits >> 29) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Rx FIFO 0 new message interrupt enable."]
+    ///Bit 0 - Rx FIFO 0 new message interrupt enable.
     #[inline(always)]
     pub fn rf0ne(&mut self) -> RF0NE_W {
         RF0NE_W { w: self }
     }
-    #[doc = "Bit 1 - Rx FIFO 0 watermark reached interrupt enable."]
+    ///Bit 1 - Rx FIFO 0 watermark reached interrupt enable.
     #[inline(always)]
     pub fn rf0we(&mut self) -> RF0WE_W {
         RF0WE_W { w: self }
     }
-    #[doc = "Bit 2 - Rx FIFO 0 full interrupt enable."]
+    ///Bit 2 - Rx FIFO 0 full interrupt enable.
     #[inline(always)]
     pub fn rf0fe(&mut self) -> RF0FE_W {
         RF0FE_W { w: self }
     }
-    #[doc = "Bit 3 - Rx FIFO 0 message lost interrupt enable."]
+    ///Bit 3 - Rx FIFO 0 message lost interrupt enable.
     #[inline(always)]
     pub fn rf0le(&mut self) -> RF0LE_W {
         RF0LE_W { w: self }
     }
-    #[doc = "Bit 4 - Rx FIFO 1 new message interrupt enable."]
+    ///Bit 4 - Rx FIFO 1 new message interrupt enable.
     #[inline(always)]
     pub fn rf1ne(&mut self) -> RF1NE_W {
         RF1NE_W { w: self }
     }
-    #[doc = "Bit 5 - Rx FIFO 1 watermark reached interrupt enable."]
+    ///Bit 5 - Rx FIFO 1 watermark reached interrupt enable.
     #[inline(always)]
     pub fn rf1we(&mut self) -> RF1WE_W {
         RF1WE_W { w: self }
     }
-    #[doc = "Bit 6 - Rx FIFO 1 full interrupt enable."]
+    ///Bit 6 - Rx FIFO 1 full interrupt enable.
     #[inline(always)]
     pub fn rf1fe(&mut self) -> RF1FE_W {
         RF1FE_W { w: self }
     }
-    #[doc = "Bit 7 - Rx FIFO 1 message lost interrupt enable."]
+    ///Bit 7 - Rx FIFO 1 message lost interrupt enable.
     #[inline(always)]
     pub fn rf1le(&mut self) -> RF1LE_W {
         RF1LE_W { w: self }
     }
-    #[doc = "Bit 8 - High priority message interrupt enable."]
+    ///Bit 8 - High priority message interrupt enable.
     #[inline(always)]
     pub fn hpme(&mut self) -> HPME_W {
         HPME_W { w: self }
     }
-    #[doc = "Bit 9 - Transmission completed interrupt enable."]
+    ///Bit 9 - Transmission completed interrupt enable.
     #[inline(always)]
     pub fn tce(&mut self) -> TCE_W {
         TCE_W { w: self }
     }
-    #[doc = "Bit 10 - Transmission cancellation finished interrupt enable."]
+    ///Bit 10 - Transmission cancellation finished interrupt enable.
     #[inline(always)]
     pub fn tcfe(&mut self) -> TCFE_W {
         TCFE_W { w: self }
     }
-    #[doc = "Bit 11 - Tx FIFO empty interrupt enable."]
+    ///Bit 11 - Tx FIFO empty interrupt enable.
     #[inline(always)]
     pub fn tfee(&mut self) -> TFEE_W {
         TFEE_W { w: self }
     }
-    #[doc = "Bit 12 - Tx event FIFO new entry interrupt enable."]
+    ///Bit 12 - Tx event FIFO new entry interrupt enable.
     #[inline(always)]
     pub fn tefne(&mut self) -> TEFNE_W {
         TEFNE_W { w: self }
     }
-    #[doc = "Bit 13 - Tx event FIFO watermark reached interrupt enable."]
+    ///Bit 13 - Tx event FIFO watermark reached interrupt enable.
     #[inline(always)]
     pub fn tefwe(&mut self) -> TEFWE_W {
         TEFWE_W { w: self }
     }
-    #[doc = "Bit 14 - Tx event FIFO full interrupt enable."]
+    ///Bit 14 - Tx event FIFO full interrupt enable.
     #[inline(always)]
     pub fn teffe(&mut self) -> TEFFE_W {
         TEFFE_W { w: self }
     }
-    #[doc = "Bit 15 - Tx event FIFO element lost interrupt enable."]
+    ///Bit 15 - Tx event FIFO element lost interrupt enable.
     #[inline(always)]
     pub fn tefle(&mut self) -> TEFLE_W {
         TEFLE_W { w: self }
     }
-    #[doc = "Bit 16 - Timestamp wraparound interrupt enable."]
+    ///Bit 16 - Timestamp wraparound interrupt enable.
     #[inline(always)]
     pub fn tswe(&mut self) -> TSWE_W {
         TSWE_W { w: self }
     }
-    #[doc = "Bit 17 - Message RAM access failure interrupt enable."]
+    ///Bit 17 - Message RAM access failure interrupt enable.
     #[inline(always)]
     pub fn mrafe(&mut self) -> MRAFE_W {
         MRAFE_W { w: self }
     }
-    #[doc = "Bit 18 - Timeout occurred interrupt enable."]
+    ///Bit 18 - Timeout occurred interrupt enable.
     #[inline(always)]
     pub fn tooe(&mut self) -> TOOE_W {
         TOOE_W { w: self }
     }
-    #[doc = "Bit 19 - Message stored in dedicated Rx buffer interrupt enable."]
+    ///Bit 19 - Message stored in dedicated Rx buffer interrupt enable.
     #[inline(always)]
     pub fn drxe(&mut self) -> DRXE_W {
         DRXE_W { w: self }
     }
-    #[doc = "Bit 20 - Bit error corrected interrupt enable."]
+    ///Bit 20 - Bit error corrected interrupt enable.
     #[inline(always)]
     pub fn bece(&mut self) -> BECE_W {
         BECE_W { w: self }
     }
-    #[doc = "Bit 21 - Bit error uncorrected interrupt enable."]
+    ///Bit 21 - Bit error uncorrected interrupt enable.
     #[inline(always)]
     pub fn beue(&mut self) -> BEUE_W {
         BEUE_W { w: self }
     }
-    #[doc = "Bit 22 - Error logging overflow interrupt enable."]
+    ///Bit 22 - Error logging overflow interrupt enable.
     #[inline(always)]
     pub fn eloe(&mut self) -> ELOE_W {
         ELOE_W { w: self }
     }
-    #[doc = "Bit 23 - Error passive interrupt enable."]
+    ///Bit 23 - Error passive interrupt enable.
     #[inline(always)]
     pub fn epe(&mut self) -> EPE_W {
         EPE_W { w: self }
     }
-    #[doc = "Bit 24 - Warning status interrupt enable."]
+    ///Bit 24 - Warning status interrupt enable.
     #[inline(always)]
     pub fn ewe(&mut self) -> EWE_W {
         EWE_W { w: self }
     }
-    #[doc = "Bit 25 - Bus_Off Status interrupt enable."]
+    ///Bit 25 - Bus_Off Status interrupt enable.
     #[inline(always)]
     pub fn boe(&mut self) -> BOE_W {
         BOE_W { w: self }
     }
-    #[doc = "Bit 26 - Watchdog interrupt enable."]
+    ///Bit 26 - Watchdog interrupt enable.
     #[inline(always)]
     pub fn wdie(&mut self) -> WDIE_W {
         WDIE_W { w: self }
     }
-    #[doc = "Bit 27 - Protocol error in arbitration phase interrupt enable."]
+    ///Bit 27 - Protocol error in arbitration phase interrupt enable.
     #[inline(always)]
     pub fn peae(&mut self) -> PEAE_W {
         PEAE_W { w: self }
     }
-    #[doc = "Bit 28 - Protocol error in data phase interrupt enable."]
+    ///Bit 28 - Protocol error in data phase interrupt enable.
     #[inline(always)]
     pub fn pede(&mut self) -> PEDE_W {
         PEDE_W { w: self }
     }
-    #[doc = "Bit 29 - Access to reserved address interrupt enable."]
+    ///Bit 29 - Access to reserved address interrupt enable.
     #[inline(always)]
     pub fn arae(&mut self) -> ARAE_W {
         ARAE_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Interrupt Enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ie](index.html) module"]
+///Interrupt Enable
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [ie](index.html) module
 pub struct IE_SPEC;
 impl crate::RegisterSpec for IE_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ie::R](R) reader structure"]
+///`read()` method returns [ie::R](R) reader structure
 impl crate::Readable for IE_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [ie::W](W) writer structure"]
+///`write(|w| ..)` method takes [ie::W](W) writer structure
 impl crate::Writable for IE_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets IE to value 0"]
+///`reset()` method sets IE to value 0
 impl crate::Resettable for IE_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

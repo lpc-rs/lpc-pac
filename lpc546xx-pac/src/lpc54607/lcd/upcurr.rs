@@ -1,4 +1,4 @@
-#[doc = "Register `UPCURR` reader"]
+///Register `UPCURR` reader
 pub struct R(crate::R<UPCURR_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<UPCURR_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<UPCURR_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `LCDUPCURR` reader - LCD Upper Panel Current Address."]
+///Field `LCDUPCURR` reader - LCD Upper Panel Current Address.
 pub struct LCDUPCURR_R(crate::FieldReader<u32, u32>);
 impl LCDUPCURR_R {
     #[inline(always)]
@@ -29,22 +29,26 @@ impl core::ops::Deref for LCDUPCURR_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - LCD Upper Panel Current Address."]
+    ///Bits 0:31 - LCD Upper Panel Current Address.
     #[inline(always)]
     pub fn lcdupcurr(&self) -> LCDUPCURR_R {
         LCDUPCURR_R::new(self.bits)
     }
 }
-#[doc = "Upper Panel Current Address Value register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [upcurr](index.html) module"]
+///Upper Panel Current Address Value register
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [upcurr](index.html) module
 pub struct UPCURR_SPEC;
 impl crate::RegisterSpec for UPCURR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [upcurr::R](R) reader structure"]
+///`read()` method returns [upcurr::R](R) reader structure
 impl crate::Readable for UPCURR_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets UPCURR to value 0"]
+///`reset()` method sets UPCURR to value 0
 impl crate::Resettable for UPCURR_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

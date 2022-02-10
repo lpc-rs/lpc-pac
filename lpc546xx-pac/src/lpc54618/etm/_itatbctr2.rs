@@ -1,4 +1,4 @@
-#[doc = "Register `_ITATBCTR2` reader"]
+///Register `_ITATBCTR2` reader
 pub struct R(crate::R<_ITATBCTR2_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<_ITATBCTR2_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<_ITATBCTR2_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `ATREADY` reader - A read of this bit returns the value of the ETM ATREADY input."]
+///Field `ATREADY` reader - A read of this bit returns the value of the ETM ATREADY input.
 pub struct ATREADY_R(crate::FieldReader<bool, bool>);
 impl ATREADY_R {
     #[inline(always)]
@@ -29,22 +29,26 @@ impl core::ops::Deref for ATREADY_R {
     }
 }
 impl R {
-    #[doc = "Bit 0 - A read of this bit returns the value of the ETM ATREADY input."]
+    ///Bit 0 - A read of this bit returns the value of the ETM ATREADY input.
     #[inline(always)]
     pub fn atready(&self) -> ATREADY_R {
         ATREADY_R::new((self.bits & 0x01) != 0)
     }
 }
-#[doc = "ETM Integration Test ATB Control 2 Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [_itatbctr2](index.html) module"]
+///ETM Integration Test ATB Control 2 Register
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [_itatbctr2](index.html) module
 pub struct _ITATBCTR2_SPEC;
 impl crate::RegisterSpec for _ITATBCTR2_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [_itatbctr2::R](R) reader structure"]
+///`read()` method returns [_itatbctr2::R](R) reader structure
 impl crate::Readable for _ITATBCTR2_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets _ITATBCTR2 to value 0"]
+///`reset()` method sets _ITATBCTR2 to value 0
 impl crate::Resettable for _ITATBCTR2_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

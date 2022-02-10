@@ -1,4 +1,4 @@
-#[doc = "Register `AUDPLLFRAC` reader"]
+///Register `AUDPLLFRAC` reader
 pub struct R(crate::R<AUDPLLFRAC_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<AUDPLLFRAC_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<AUDPLLFRAC_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `AUDPLLFRAC` writer"]
+///Register `AUDPLLFRAC` writer
 pub struct W(crate::W<AUDPLLFRAC_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<AUDPLLFRAC_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<AUDPLLFRAC_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CTRL` reader - PLL fractional divider control word"]
+///Field `CTRL` reader - PLL fractional divider control word
 pub struct CTRL_R(crate::FieldReader<u32, u32>);
 impl CTRL_R {
     #[inline(always)]
@@ -49,19 +49,19 @@ impl core::ops::Deref for CTRL_R {
         &self.0
     }
 }
-#[doc = "Field `CTRL` writer - PLL fractional divider control word"]
+///Field `CTRL` writer - PLL fractional divider control word
 pub struct CTRL_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CTRL_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x003f_ffff) | (value as u32 & 0x003f_ffff);
         self.w
     }
 }
-#[doc = "Field `REQ` reader - Writing 1 to REQ signal loads CTRL value into fractional wrapper modulator."]
+///Field `REQ` reader - Writing 1 to REQ signal loads CTRL value into fractional wrapper modulator.
 pub struct REQ_R(crate::FieldReader<bool, bool>);
 impl REQ_R {
     #[inline(always)]
@@ -76,29 +76,29 @@ impl core::ops::Deref for REQ_R {
         &self.0
     }
 }
-#[doc = "Field `REQ` writer - Writing 1 to REQ signal loads CTRL value into fractional wrapper modulator."]
+///Field `REQ` writer - Writing 1 to REQ signal loads CTRL value into fractional wrapper modulator.
 pub struct REQ_W<'a> {
     w: &'a mut W,
 }
 impl<'a> REQ_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
-#[doc = "Field `SEL_EXT` reader - Select fractional divider."]
+///Field `SEL_EXT` reader - Select fractional divider.
 pub struct SEL_EXT_R(crate::FieldReader<bool, bool>);
 impl SEL_EXT_R {
     #[inline(always)]
@@ -113,22 +113,22 @@ impl core::ops::Deref for SEL_EXT_R {
         &self.0
     }
 }
-#[doc = "Field `SEL_EXT` writer - Select fractional divider."]
+///Field `SEL_EXT` writer - Select fractional divider.
 pub struct SEL_EXT_W<'a> {
     w: &'a mut W,
 }
 impl<'a> SEL_EXT_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
@@ -136,59 +136,63 @@ impl<'a> SEL_EXT_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:21 - PLL fractional divider control word"]
+    ///Bits 0:21 - PLL fractional divider control word
     #[inline(always)]
     pub fn ctrl(&self) -> CTRL_R {
         CTRL_R::new((self.bits & 0x003f_ffff) as u32)
     }
-    #[doc = "Bit 22 - Writing 1 to REQ signal loads CTRL value into fractional wrapper modulator."]
+    ///Bit 22 - Writing 1 to REQ signal loads CTRL value into fractional wrapper modulator.
     #[inline(always)]
     pub fn req(&self) -> REQ_R {
         REQ_R::new(((self.bits >> 22) & 0x01) != 0)
     }
-    #[doc = "Bit 23 - Select fractional divider."]
+    ///Bit 23 - Select fractional divider.
     #[inline(always)]
     pub fn sel_ext(&self) -> SEL_EXT_R {
         SEL_EXT_R::new(((self.bits >> 23) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bits 0:21 - PLL fractional divider control word"]
+    ///Bits 0:21 - PLL fractional divider control word
     #[inline(always)]
     pub fn ctrl(&mut self) -> CTRL_W {
         CTRL_W { w: self }
     }
-    #[doc = "Bit 22 - Writing 1 to REQ signal loads CTRL value into fractional wrapper modulator."]
+    ///Bit 22 - Writing 1 to REQ signal loads CTRL value into fractional wrapper modulator.
     #[inline(always)]
     pub fn req(&mut self) -> REQ_W {
         REQ_W { w: self }
     }
-    #[doc = "Bit 23 - Select fractional divider."]
+    ///Bit 23 - Select fractional divider.
     #[inline(always)]
     pub fn sel_ext(&mut self) -> SEL_EXT_W {
         SEL_EXT_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Audio PLL fractional divider control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [audpllfrac](index.html) module"]
+///Audio PLL fractional divider control
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [audpllfrac](index.html) module
 pub struct AUDPLLFRAC_SPEC;
 impl crate::RegisterSpec for AUDPLLFRAC_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [audpllfrac::R](R) reader structure"]
+///`read()` method returns [audpllfrac::R](R) reader structure
 impl crate::Readable for AUDPLLFRAC_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [audpllfrac::W](W) writer structure"]
+///`write(|w| ..)` method takes [audpllfrac::W](W) writer structure
 impl crate::Writable for AUDPLLFRAC_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets AUDPLLFRAC to value 0"]
+///`reset()` method sets AUDPLLFRAC to value 0
 impl crate::Resettable for AUDPLLFRAC_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

@@ -1,4 +1,4 @@
-#[doc = "Register `DYNAMICRFC` reader"]
+///Register `DYNAMICRFC` reader
 pub struct R(crate::R<DYNAMICRFC_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<DYNAMICRFC_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<DYNAMICRFC_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `DYNAMICRFC` writer"]
+///Register `DYNAMICRFC` writer
 pub struct W(crate::W<DYNAMICRFC_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<DYNAMICRFC_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<DYNAMICRFC_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TRFC` reader - Auto-refresh period and auto-refresh to active command period."]
+///Field `TRFC` reader - Auto-refresh period and auto-refresh to active command period.
 pub struct TRFC_R(crate::FieldReader<u8, u8>);
 impl TRFC_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for TRFC_R {
         &self.0
     }
 }
-#[doc = "Field `TRFC` writer - Auto-refresh period and auto-refresh to active command period."]
+///Field `TRFC` writer - Auto-refresh period and auto-refresh to active command period.
 pub struct TRFC_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TRFC_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x1f) | (value as u32 & 0x1f);
@@ -62,39 +62,43 @@ impl<'a> TRFC_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:4 - Auto-refresh period and auto-refresh to active command period."]
+    ///Bits 0:4 - Auto-refresh period and auto-refresh to active command period.
     #[inline(always)]
     pub fn trfc(&self) -> TRFC_R {
         TRFC_R::new((self.bits & 0x1f) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:4 - Auto-refresh period and auto-refresh to active command period."]
+    ///Bits 0:4 - Auto-refresh period and auto-refresh to active command period.
     #[inline(always)]
     pub fn trfc(&mut self) -> TRFC_W {
         TRFC_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Selects the auto-refresh period\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dynamicrfc](index.html) module"]
+///Selects the auto-refresh period
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [dynamicrfc](index.html) module
 pub struct DYNAMICRFC_SPEC;
 impl crate::RegisterSpec for DYNAMICRFC_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [dynamicrfc::R](R) reader structure"]
+///`read()` method returns [dynamicrfc::R](R) reader structure
 impl crate::Readable for DYNAMICRFC_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [dynamicrfc::W](W) writer structure"]
+///`write(|w| ..)` method takes [dynamicrfc::W](W) writer structure
 impl crate::Writable for DYNAMICRFC_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets DYNAMICRFC to value 0x1f"]
+///`reset()` method sets DYNAMICRFC to value 0x1f
 impl crate::Resettable for DYNAMICRFC_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

@@ -1,4 +1,4 @@
-#[doc = "Register `DMA_CHx_SLOT_FUNC_CTRL_STAT` reader"]
+///Register `DMA_CHx_SLOT_FUNC_CTRL_STAT` reader
 pub struct R(crate::R<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `DMA_CHx_SLOT_FUNC_CTRL_STAT` writer"]
+///Register `DMA_CHx_SLOT_FUNC_CTRL_STAT` writer
 pub struct W(crate::W<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `ESC` reader - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field."]
+///Field `ESC` reader - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field.
 pub struct ESC_R(crate::FieldReader<bool, bool>);
 impl ESC_R {
     #[inline(always)]
@@ -49,29 +49,29 @@ impl core::ops::Deref for ESC_R {
         &self.0
     }
 }
-#[doc = "Field `ESC` writer - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field."]
+///Field `ESC` writer - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field.
 pub struct ESC_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ESC_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Field `ASC` reader - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set."]
+///Field `ASC` reader - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set.
 pub struct ASC_R(crate::FieldReader<bool, bool>);
 impl ASC_R {
     #[inline(always)]
@@ -86,29 +86,29 @@ impl core::ops::Deref for ASC_R {
         &self.0
     }
 }
-#[doc = "Field `ASC` writer - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set."]
+///Field `ASC` writer - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set.
 pub struct ASC_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ASC_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Field `RSN` reader - Reference Slot Number This field gives the current value of the reference slot number in the DMA."]
+///Field `RSN` reader - Reference Slot Number This field gives the current value of the reference slot number in the DMA.
 pub struct RSN_R(crate::FieldReader<u8, u8>);
 impl RSN_R {
     #[inline(always)]
@@ -124,54 +124,58 @@ impl core::ops::Deref for RSN_R {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field."]
+    ///Bit 0 - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field.
     #[inline(always)]
     pub fn esc(&self) -> ESC_R {
         ESC_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 1 - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set."]
+    ///Bit 1 - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set.
     #[inline(always)]
     pub fn asc(&self) -> ASC_R {
         ASC_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bits 16:19 - Reference Slot Number This field gives the current value of the reference slot number in the DMA."]
+    ///Bits 16:19 - Reference Slot Number This field gives the current value of the reference slot number in the DMA.
     #[inline(always)]
     pub fn rsn(&self) -> RSN_R {
         RSN_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field."]
+    ///Bit 0 - Enable Slot Comparison When set, this bit enables the checking of the slot numbers programmed in the Tx descriptor with the current reference given in the RSN field.
     #[inline(always)]
     pub fn esc(&mut self) -> ESC_W {
         ESC_W { w: self }
     }
-    #[doc = "Bit 1 - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set."]
+    ///Bit 1 - Advance Slot Check When set, this bit enables the D MA to fetch the data from the buffer when the slot number (SLOTNUM) programmed in the Tx descriptor is equal to the reference slot number given in the RSN field or, ahead of the reference slot number by up to two slots This bit is applicable only when the ESC bit is set.
     #[inline(always)]
     pub fn asc(&mut self) -> ASC_W {
         ASC_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Slot Function Control and Status\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dma_chx_slot_func_ctrl_stat](index.html) module"]
+///Slot Function Control and Status
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [dma_chx_slot_func_ctrl_stat](index.html) module
 pub struct DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC;
 impl crate::RegisterSpec for DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [dma_chx_slot_func_ctrl_stat::R](R) reader structure"]
+///`read()` method returns [dma_chx_slot_func_ctrl_stat::R](R) reader structure
 impl crate::Readable for DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [dma_chx_slot_func_ctrl_stat::W](W) writer structure"]
+///`write(|w| ..)` method takes [dma_chx_slot_func_ctrl_stat::W](W) writer structure
 impl crate::Writable for DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets DMA_CHx_SLOT_FUNC_CTRL_STAT to value 0"]
+///`reset()` method sets DMA_CHx_SLOT_FUNC_CTRL_STAT to value 0
 impl crate::Resettable for DMA_CHX_SLOT_FUNC_CTRL_STAT_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

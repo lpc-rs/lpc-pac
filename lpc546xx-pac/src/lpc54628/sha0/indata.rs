@@ -1,4 +1,4 @@
-#[doc = "Register `INDATA` reader"]
+///Register `INDATA` reader
 pub struct R(crate::R<INDATA_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<INDATA_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<INDATA_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `INDATA` writer"]
+///Register `INDATA` writer
 pub struct W(crate::W<INDATA_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<INDATA_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<INDATA_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `DATA` reader - In this field the next word is written in little-endian format."]
+///Field `DATA` reader - In this field the next word is written in little-endian format.
 pub struct DATA_R(crate::FieldReader<u32, u32>);
 impl DATA_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for DATA_R {
         &self.0
     }
 }
-#[doc = "Field `DATA` writer - In this field the next word is written in little-endian format."]
+///Field `DATA` writer - In this field the next word is written in little-endian format.
 pub struct DATA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> DATA_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,39 +62,43 @@ impl<'a> DATA_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - In this field the next word is written in little-endian format."]
+    ///Bits 0:31 - In this field the next word is written in little-endian format.
     #[inline(always)]
     pub fn data(&self) -> DATA_R {
         DATA_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - In this field the next word is written in little-endian format."]
+    ///Bits 0:31 - In this field the next word is written in little-endian format.
     #[inline(always)]
     pub fn data(&mut self) -> DATA_W {
         DATA_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Input Data register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [indata](index.html) module"]
+///Input Data register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [indata](index.html) module
 pub struct INDATA_SPEC;
 impl crate::RegisterSpec for INDATA_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [indata::R](R) reader structure"]
+///`read()` method returns [indata::R](R) reader structure
 impl crate::Readable for INDATA_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [indata::W](W) writer structure"]
+///`write(|w| ..)` method takes [indata::W](W) writer structure
 impl crate::Writable for INDATA_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets INDATA to value 0"]
+///`reset()` method sets INDATA to value 0
 impl crate::Resettable for INDATA_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

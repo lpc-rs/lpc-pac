@@ -1,4 +1,4 @@
-#[doc = "Register `IST` reader"]
+///Register `IST` reader
 pub struct R(crate::R<IST_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<IST_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<IST_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `IST` writer"]
+///Register `IST` writer
 pub struct W(crate::W<IST_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<IST_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<IST_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `PSTAT` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register)."]
+///Field `PSTAT` reader - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register).
 pub struct PSTAT_R(crate::FieldReader<u8, u8>);
 impl PSTAT_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for PSTAT_R {
         &self.0
     }
 }
-#[doc = "Field `PSTAT` writer - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register)."]
+///Field `PSTAT` writer - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register).
 pub struct PSTAT_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PSTAT_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
@@ -62,39 +62,43 @@ impl<'a> PSTAT_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register)."]
+    ///Bits 0:7 - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register).
     #[inline(always)]
     pub fn pstat(&self) -> PSTAT_R {
         PSTAT_R::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register)."]
+    ///Bits 0:7 - Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin. Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register).
     #[inline(always)]
     pub fn pstat(&mut self) -> PSTAT_W {
         PSTAT_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Pin interrupt status register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ist](index.html) module"]
+///Pin interrupt status register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [ist](index.html) module
 pub struct IST_SPEC;
 impl crate::RegisterSpec for IST_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ist::R](R) reader structure"]
+///`read()` method returns [ist::R](R) reader structure
 impl crate::Readable for IST_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [ist::W](W) writer structure"]
+///`write(|w| ..)` method takes [ist::W](W) writer structure
 impl crate::Writable for IST_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets IST to value 0"]
+///`reset()` method sets IST to value 0
 impl crate::Resettable for IST_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

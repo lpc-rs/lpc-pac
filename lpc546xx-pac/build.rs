@@ -19,9 +19,7 @@ fn main() {
             "src/lpc54618/device.x"
         } else if env::var_os("CARGO_FEATURE_LPC54628").is_some() {
             "src/lpc54628/device.x"
-        } else {
-            panic!("No device features selected");
-        };
+        } else { panic!("No device features selected"); };
         fs::copy(device_file, out.join("device.x")).unwrap();
         println!("cargo:rerun-if-changed={}", device_file);
     }

@@ -1,20 +1,24 @@
-//! Peripheral access API for LPC546xx microcontrollers
+//! Peripheral access API for LPC546XX microcontrollers
 //! (generated using [svd2rust](https://github.com/rust-embedded/svd2rust)
 //! 0.21.0)
 //!
 //! You can find an overview of the API here:
-//! [svd2rust/#peripheral-api](https://docs.rs/svd2rust/0.20.0/svd2rust/#peripheral-api)
+//! [svd2rust/#peripheral-api](https://docs.rs/svd2rust/0.21.0/svd2rust/#peripheral-api)
 //!
 //! For more details see the README here:
-//! [lpc-pac](https://github.com/lpc-rs/lpc-pac)
-
+//! [stm32-rs](https://github.com/lpc-rs/lpc-pac)
+//!
+//! This crate supports all LPC546XX devices; for the complete list please
+//! see:
+//! [lpc546xx-pac](https://crates.io/crates/lpc546xx-pac)
+//!
+//! Due to doc build limitations, not all devices may be shown on docs.rs;
+//! a representative few have been selected instead.
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![no_std]
-
 mod generic;
 pub use self::generic::*;
-
 #[cfg(feature = "lpc54605")]
 pub mod lpc54605;
 
@@ -35,3 +39,4 @@ pub mod lpc54618;
 
 #[cfg(feature = "lpc54628")]
 pub mod lpc54628;
+

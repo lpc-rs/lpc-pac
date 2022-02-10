@@ -1,4 +1,4 @@
-#[doc = "Register `W_[%s]` reader"]
+///Register `W_[%s]` reader
 pub struct R(crate::R<W__SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<W__SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<W__SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `W_[%s]` writer"]
+///Register `W_[%s]` writer
 pub struct W(crate::W<W__SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<W__SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<W__SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `PWORD` reader - Read 0: pin PIOm_n is LOW. Write 0: clear output bit. Read 0xFFFF FFFF: pin PIOm_n is HIGH. Write any value 0x0000 0001 to 0xFFFF FFFF: set output bit. Only 0 or 0xFFFF FFFF can be read. Writing any value other than 0 will set the output bit. One register for each port pin. Supported pins depends on the specific device and package."]
+///Field `PWORD` reader - Read 0: pin PIOm_n is LOW. Write 0: clear output bit. Read 0xFFFF FFFF: pin PIOm_n is HIGH. Write any value 0x0000 0001 to 0xFFFF FFFF: set output bit. Only 0 or 0xFFFF FFFF can be read. Writing any value other than 0 will set the output bit. One register for each port pin. Supported pins depends on the specific device and package.
 pub struct PWORD_R(crate::FieldReader<u32, u32>);
 impl PWORD_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for PWORD_R {
         &self.0
     }
 }
-#[doc = "Field `PWORD` writer - Read 0: pin PIOm_n is LOW. Write 0: clear output bit. Read 0xFFFF FFFF: pin PIOm_n is HIGH. Write any value 0x0000 0001 to 0xFFFF FFFF: set output bit. Only 0 or 0xFFFF FFFF can be read. Writing any value other than 0 will set the output bit. One register for each port pin. Supported pins depends on the specific device and package."]
+///Field `PWORD` writer - Read 0: pin PIOm_n is LOW. Write 0: clear output bit. Read 0xFFFF FFFF: pin PIOm_n is HIGH. Write any value 0x0000 0001 to 0xFFFF FFFF: set output bit. Only 0 or 0xFFFF FFFF can be read. Writing any value other than 0 will set the output bit. One register for each port pin. Supported pins depends on the specific device and package.
 pub struct PWORD_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PWORD_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,40 +62,44 @@ impl<'a> PWORD_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Read 0: pin PIOm_n is LOW. Write 0: clear output bit. Read 0xFFFF FFFF: pin PIOm_n is HIGH. Write any value 0x0000 0001 to 0xFFFF FFFF: set output bit. Only 0 or 0xFFFF FFFF can be read. Writing any value other than 0 will set the output bit. One register for each port pin. Supported pins depends on the specific device and package."]
+    ///Bits 0:31 - Read 0: pin PIOm_n is LOW. Write 0: clear output bit. Read 0xFFFF FFFF: pin PIOm_n is HIGH. Write any value 0x0000 0001 to 0xFFFF FFFF: set output bit. Only 0 or 0xFFFF FFFF can be read. Writing any value other than 0 will set the output bit. One register for each port pin. Supported pins depends on the specific device and package.
     #[inline(always)]
     pub fn pword(&self) -> PWORD_R {
         PWORD_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Read 0: pin PIOm_n is LOW. Write 0: clear output bit. Read 0xFFFF FFFF: pin PIOm_n is HIGH. Write any value 0x0000 0001 to 0xFFFF FFFF: set output bit. Only 0 or 0xFFFF FFFF can be read. Writing any value other than 0 will set the output bit. One register for each port pin. Supported pins depends on the specific device and package."]
+    ///Bits 0:31 - Read 0: pin PIOm_n is LOW. Write 0: clear output bit. Read 0xFFFF FFFF: pin PIOm_n is HIGH. Write any value 0x0000 0001 to 0xFFFF FFFF: set output bit. Only 0 or 0xFFFF FFFF can be read. Writing any value other than 0 will set the output bit. One register for each port pin. Supported pins depends on the specific device and package.
     #[inline(always)]
     pub fn pword(&mut self) -> PWORD_W {
         PWORD_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Word pin registers for all port 0 and 1 GPIO pins\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [w_](index.html) module"]
+///Word pin registers for all port 0 and 1 GPIO pins
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [w_](index.html) module
 pub struct W__SPEC;
 impl crate::RegisterSpec for W__SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [w_::R](R) reader structure"]
+///`read()` method returns [w_::R](R) reader structure
 impl crate::Readable for W__SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [w_::W](W) writer structure"]
+///`write(|w| ..)` method takes [w_::W](W) writer structure
 impl crate::Writable for W__SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets W_[%s]
-to value 0"]
+///`reset()` method sets W_[%s]
+///to value 0
 impl crate::Resettable for W__SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

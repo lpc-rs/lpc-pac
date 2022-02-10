@@ -1,4 +1,4 @@
-#[doc = "Register `COMPVAL_H` reader"]
+///Register `COMPVAL_H` reader
 pub struct R(crate::R<COMPVAL_H_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<COMPVAL_H_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<COMPVAL_H_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `COMPVAL_H` writer"]
+///Register `COMPVAL_H` writer
 pub struct W(crate::W<COMPVAL_H_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<COMPVAL_H_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<COMPVAL_H_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `RICOMP` reader - Compare value MSB register."]
+///Field `RICOMP` reader - Compare value MSB register.
 pub struct RICOMP_R(crate::FieldReader<u16, u16>);
 impl RICOMP_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for RICOMP_R {
         &self.0
     }
 }
-#[doc = "Field `RICOMP` writer - Compare value MSB register."]
+///Field `RICOMP` writer - Compare value MSB register.
 pub struct RICOMP_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RICOMP_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !0xffff) | (value as u32 & 0xffff);
@@ -62,39 +62,43 @@ impl<'a> RICOMP_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:15 - Compare value MSB register."]
+    ///Bits 0:15 - Compare value MSB register.
     #[inline(always)]
     pub fn ricomp(&self) -> RICOMP_R {
         RICOMP_R::new((self.bits & 0xffff) as u16)
     }
 }
 impl W {
-    #[doc = "Bits 0:15 - Compare value MSB register."]
+    ///Bits 0:15 - Compare value MSB register.
     #[inline(always)]
     pub fn ricomp(&mut self) -> RICOMP_W {
         RICOMP_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Compare value MSB register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [compval_h](index.html) module"]
+///Compare value MSB register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [compval_h](index.html) module
 pub struct COMPVAL_H_SPEC;
 impl crate::RegisterSpec for COMPVAL_H_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [compval_h::R](R) reader structure"]
+///`read()` method returns [compval_h::R](R) reader structure
 impl crate::Readable for COMPVAL_H_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [compval_h::W](W) writer structure"]
+///`write(|w| ..)` method takes [compval_h::W](W) writer structure
 impl crate::Writable for COMPVAL_H_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets COMPVAL_H to value 0xffff"]
+///`reset()` method sets COMPVAL_H to value 0xffff
 impl crate::Resettable for COMPVAL_H_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

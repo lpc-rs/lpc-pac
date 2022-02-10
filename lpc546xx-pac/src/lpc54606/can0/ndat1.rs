@@ -1,4 +1,4 @@
-#[doc = "Register `NDAT1` reader"]
+///Register `NDAT1` reader
 pub struct R(crate::R<NDAT1_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<NDAT1_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<NDAT1_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `NDAT1` writer"]
+///Register `NDAT1` writer
 pub struct W(crate::W<NDAT1_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<NDAT1_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<NDAT1_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `ND` reader - New Data."]
+///Field `ND` reader - New Data.
 pub struct ND_R(crate::FieldReader<u32, u32>);
 impl ND_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for ND_R {
         &self.0
     }
 }
-#[doc = "Field `ND` writer - New Data."]
+///Field `ND` writer - New Data.
 pub struct ND_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ND_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,39 +62,43 @@ impl<'a> ND_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - New Data."]
+    ///Bits 0:31 - New Data.
     #[inline(always)]
     pub fn nd(&self) -> ND_R {
         ND_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - New Data."]
+    ///Bits 0:31 - New Data.
     #[inline(always)]
     pub fn nd(&mut self) -> ND_W {
         ND_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "New Data 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ndat1](index.html) module"]
+///New Data 1
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [ndat1](index.html) module
 pub struct NDAT1_SPEC;
 impl crate::RegisterSpec for NDAT1_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ndat1::R](R) reader structure"]
+///`read()` method returns [ndat1::R](R) reader structure
 impl crate::Readable for NDAT1_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [ndat1::W](W) writer structure"]
+///`write(|w| ..)` method takes [ndat1::W](W) writer structure
 impl crate::Writable for NDAT1_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets NDAT1 to value 0"]
+///`reset()` method sets NDAT1 to value 0
 impl crate::Resettable for NDAT1_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

@@ -1,0 +1,26 @@
+# This file contains a table of all supported lpc microcontrollers.
+#
+# It lists them by family (which corresponds to a crate),
+# then by the "device" in that family (corresponds to an SVD file,
+# and to a module within each crate).
+#
+# For each device, there is a link to the product page and reference manual,
+# the reference manual ID, the title from the reference manual,
+# and a list of actual members of this family (without size/package codes).
+#
+# This data is used to generate more informative crate READMEs.
+
+lpc546:
+  lpc546:
+    url: https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpc54000-cortex-m4-/power-efficient-microcontrollers-mcus-with-advanced-peripherals-based-on-arm-cortex-m4-core:LPC546XX
+    um: UM10912
+    um_title: LPC546xx User manual
+    um_url: https://www.nxp.com/webapp/Download?colCode=UM10912
+    members:
+      - lpc54605
+      - lpc54606
+      - lpc54607
+      - lpc54608
+      - lpc54616
+      - lpc54618
+      - lpc54628

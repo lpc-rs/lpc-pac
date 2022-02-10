@@ -1,4 +1,4 @@
-#[doc = "Register `RXF0A` reader"]
+///Register `RXF0A` reader
 pub struct R(crate::R<RXF0A_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<RXF0A_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<RXF0A_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `RXF0A` writer"]
+///Register `RXF0A` writer
 pub struct W(crate::W<RXF0A_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<RXF0A_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<RXF0A_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `F0AI` reader - Rx FIFO 0 acknowledge index."]
+///Field `F0AI` reader - Rx FIFO 0 acknowledge index.
 pub struct F0AI_R(crate::FieldReader<u8, u8>);
 impl F0AI_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for F0AI_R {
         &self.0
     }
 }
-#[doc = "Field `F0AI` writer - Rx FIFO 0 acknowledge index."]
+///Field `F0AI` writer - Rx FIFO 0 acknowledge index.
 pub struct F0AI_W<'a> {
     w: &'a mut W,
 }
 impl<'a> F0AI_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x3f) | (value as u32 & 0x3f);
@@ -62,39 +62,43 @@ impl<'a> F0AI_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:5 - Rx FIFO 0 acknowledge index."]
+    ///Bits 0:5 - Rx FIFO 0 acknowledge index.
     #[inline(always)]
     pub fn f0ai(&self) -> F0AI_R {
         F0AI_R::new((self.bits & 0x3f) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:5 - Rx FIFO 0 acknowledge index."]
+    ///Bits 0:5 - Rx FIFO 0 acknowledge index.
     #[inline(always)]
     pub fn f0ai(&mut self) -> F0AI_W {
         F0AI_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Rx FIFO 0 Acknowledge\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rxf0a](index.html) module"]
+///Rx FIFO 0 Acknowledge
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [rxf0a](index.html) module
 pub struct RXF0A_SPEC;
 impl crate::RegisterSpec for RXF0A_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [rxf0a::R](R) reader structure"]
+///`read()` method returns [rxf0a::R](R) reader structure
 impl crate::Readable for RXF0A_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [rxf0a::W](W) writer structure"]
+///`write(|w| ..)` method takes [rxf0a::W](W) writer structure
 impl crate::Writable for RXF0A_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets RXF0A to value 0"]
+///`reset()` method sets RXF0A to value 0
 impl crate::Resettable for RXF0A_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

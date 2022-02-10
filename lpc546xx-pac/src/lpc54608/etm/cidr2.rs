@@ -1,4 +1,4 @@
-#[doc = "Register `CIDR2` reader"]
+///Register `CIDR2` reader
 pub struct R(crate::R<CIDR2_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<CIDR2_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<CIDR2_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `Preamble` reader - Preamble"]
+///Field `Preamble` reader - Preamble
 pub struct PREAMBLE_R(crate::FieldReader<u8, u8>);
 impl PREAMBLE_R {
     #[inline(always)]
@@ -29,22 +29,26 @@ impl core::ops::Deref for PREAMBLE_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - Preamble"]
+    ///Bits 0:7 - Preamble
     #[inline(always)]
     pub fn preamble(&self) -> PREAMBLE_R {
         PREAMBLE_R::new((self.bits & 0xff) as u8)
     }
 }
-#[doc = "Component Identification Register 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cidr2](index.html) module"]
+///Component Identification Register 2
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [cidr2](index.html) module
 pub struct CIDR2_SPEC;
 impl crate::RegisterSpec for CIDR2_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cidr2::R](R) reader structure"]
+///`read()` method returns [cidr2::R](R) reader structure
 impl crate::Readable for CIDR2_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets CIDR2 to value 0x05"]
+///`reset()` method sets CIDR2 to value 0x05
 impl crate::Resettable for CIDR2_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

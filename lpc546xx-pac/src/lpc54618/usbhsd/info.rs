@@ -1,4 +1,4 @@
-#[doc = "Register `INFO` reader"]
+///Register `INFO` reader
 pub struct R(crate::R<INFO_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<INFO_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<INFO_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `FRAME_NR` reader - Frame number."]
+///Field `FRAME_NR` reader - Frame number.
 pub struct FRAME_NR_R(crate::FieldReader<u16, u16>);
 impl FRAME_NR_R {
     #[inline(always)]
@@ -28,7 +28,7 @@ impl core::ops::Deref for FRAME_NR_R {
         &self.0
     }
 }
-#[doc = "Field `ERR_CODE` reader - The error code which last occurred:."]
+///Field `ERR_CODE` reader - The error code which last occurred:.
 pub struct ERR_CODE_R(crate::FieldReader<u8, u8>);
 impl ERR_CODE_R {
     #[inline(always)]
@@ -43,7 +43,7 @@ impl core::ops::Deref for ERR_CODE_R {
         &self.0
     }
 }
-#[doc = "Field `Minrev` reader - Minor revision."]
+///Field `Minrev` reader - Minor revision.
 pub struct MINREV_R(crate::FieldReader<u8, u8>);
 impl MINREV_R {
     #[inline(always)]
@@ -58,7 +58,7 @@ impl core::ops::Deref for MINREV_R {
         &self.0
     }
 }
-#[doc = "Field `Majrev` reader - Major revision."]
+///Field `Majrev` reader - Major revision.
 pub struct MAJREV_R(crate::FieldReader<u8, u8>);
 impl MAJREV_R {
     #[inline(always)]
@@ -74,37 +74,41 @@ impl core::ops::Deref for MAJREV_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:10 - Frame number."]
+    ///Bits 0:10 - Frame number.
     #[inline(always)]
     pub fn frame_nr(&self) -> FRAME_NR_R {
         FRAME_NR_R::new((self.bits & 0x07ff) as u16)
     }
-    #[doc = "Bits 11:14 - The error code which last occurred:."]
+    ///Bits 11:14 - The error code which last occurred:.
     #[inline(always)]
     pub fn err_code(&self) -> ERR_CODE_R {
         ERR_CODE_R::new(((self.bits >> 11) & 0x0f) as u8)
     }
-    #[doc = "Bits 16:23 - Minor revision."]
+    ///Bits 16:23 - Minor revision.
     #[inline(always)]
     pub fn minrev(&self) -> MINREV_R {
         MINREV_R::new(((self.bits >> 16) & 0xff) as u8)
     }
-    #[doc = "Bits 24:31 - Major revision."]
+    ///Bits 24:31 - Major revision.
     #[inline(always)]
     pub fn majrev(&self) -> MAJREV_R {
         MAJREV_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
-#[doc = "USB Info register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [info](index.html) module"]
+///USB Info register
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [info](index.html) module
 pub struct INFO_SPEC;
 impl crate::RegisterSpec for INFO_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [info::R](R) reader structure"]
+///`read()` method returns [info::R](R) reader structure
 impl crate::Readable for INFO_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets INFO to value 0x0200_0000"]
+///`reset()` method sets INFO to value 0x0200_0000
 impl crate::Resettable for INFO_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

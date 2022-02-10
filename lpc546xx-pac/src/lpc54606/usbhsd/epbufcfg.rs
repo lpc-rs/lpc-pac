@@ -1,4 +1,4 @@
-#[doc = "Register `EPBUFCFG` reader"]
+///Register `EPBUFCFG` reader
 pub struct R(crate::R<EPBUFCFG_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<EPBUFCFG_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<EPBUFCFG_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `EPBUFCFG` writer"]
+///Register `EPBUFCFG` writer
 pub struct W(crate::W<EPBUFCFG_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<EPBUFCFG_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<EPBUFCFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `BUF_SB` reader - Buffer usage: This register has one bit per physical endpoint."]
+///Field `BUF_SB` reader - Buffer usage: This register has one bit per physical endpoint.
 pub struct BUF_SB_R(crate::FieldReader<u16, u16>);
 impl BUF_SB_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for BUF_SB_R {
         &self.0
     }
 }
-#[doc = "Field `BUF_SB` writer - Buffer usage: This register has one bit per physical endpoint."]
+///Field `BUF_SB` writer - Buffer usage: This register has one bit per physical endpoint.
 pub struct BUF_SB_W<'a> {
     w: &'a mut W,
 }
 impl<'a> BUF_SB_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x03ff << 2)) | ((value as u32 & 0x03ff) << 2);
@@ -62,39 +62,43 @@ impl<'a> BUF_SB_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 2:11 - Buffer usage: This register has one bit per physical endpoint."]
+    ///Bits 2:11 - Buffer usage: This register has one bit per physical endpoint.
     #[inline(always)]
     pub fn buf_sb(&self) -> BUF_SB_R {
         BUF_SB_R::new(((self.bits >> 2) & 0x03ff) as u16)
     }
 }
 impl W {
-    #[doc = "Bits 2:11 - Buffer usage: This register has one bit per physical endpoint."]
+    ///Bits 2:11 - Buffer usage: This register has one bit per physical endpoint.
     #[inline(always)]
     pub fn buf_sb(&mut self) -> BUF_SB_W {
         BUF_SB_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "USB Endpoint Buffer Configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [epbufcfg](index.html) module"]
+///USB Endpoint Buffer Configuration register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [epbufcfg](index.html) module
 pub struct EPBUFCFG_SPEC;
 impl crate::RegisterSpec for EPBUFCFG_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [epbufcfg::R](R) reader structure"]
+///`read()` method returns [epbufcfg::R](R) reader structure
 impl crate::Readable for EPBUFCFG_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [epbufcfg::W](W) writer structure"]
+///`write(|w| ..)` method takes [epbufcfg::W](W) writer structure
 impl crate::Writable for EPBUFCFG_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets EPBUFCFG to value 0"]
+///`reset()` method sets EPBUFCFG to value 0
 impl crate::Resettable for EPBUFCFG_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

@@ -1,4 +1,4 @@
-#[doc = "Register `IOCFG` reader"]
+///Register `IOCFG` reader
 pub struct R(crate::R<IOCFG_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<IOCFG_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<IOCFG_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `IOCFG` writer"]
+///Register `IOCFG` writer
 pub struct W(crate::W<IOCFG_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<IOCFG_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<IOCFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CLK_BYPASS0` reader - Bypass CLK0. When 1, PDM_DATA1 becomes the clock for PDM channel 0. This provides for the possibility of an external codec taking over the PDM bus."]
+///Field `CLK_BYPASS0` reader - Bypass CLK0. When 1, PDM_DATA1 becomes the clock for PDM channel 0. This provides for the possibility of an external codec taking over the PDM bus.
 pub struct CLK_BYPASS0_R(crate::FieldReader<bool, bool>);
 impl CLK_BYPASS0_R {
     #[inline(always)]
@@ -49,29 +49,29 @@ impl core::ops::Deref for CLK_BYPASS0_R {
         &self.0
     }
 }
-#[doc = "Field `CLK_BYPASS0` writer - Bypass CLK0. When 1, PDM_DATA1 becomes the clock for PDM channel 0. This provides for the possibility of an external codec taking over the PDM bus."]
+///Field `CLK_BYPASS0` writer - Bypass CLK0. When 1, PDM_DATA1 becomes the clock for PDM channel 0. This provides for the possibility of an external codec taking over the PDM bus.
 pub struct CLK_BYPASS0_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CLK_BYPASS0_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Field `CLK_BYPASS1` reader - Bypass CLK1. When 1, PDM_DATA1 becomes the clock for PDM channel 1. This provides for the possibility of an external codec taking over the PDM bus."]
+///Field `CLK_BYPASS1` reader - Bypass CLK1. When 1, PDM_DATA1 becomes the clock for PDM channel 1. This provides for the possibility of an external codec taking over the PDM bus.
 pub struct CLK_BYPASS1_R(crate::FieldReader<bool, bool>);
 impl CLK_BYPASS1_R {
     #[inline(always)]
@@ -86,29 +86,29 @@ impl core::ops::Deref for CLK_BYPASS1_R {
         &self.0
     }
 }
-#[doc = "Field `CLK_BYPASS1` writer - Bypass CLK1. When 1, PDM_DATA1 becomes the clock for PDM channel 1. This provides for the possibility of an external codec taking over the PDM bus."]
+///Field `CLK_BYPASS1` writer - Bypass CLK1. When 1, PDM_DATA1 becomes the clock for PDM channel 1. This provides for the possibility of an external codec taking over the PDM bus.
 pub struct CLK_BYPASS1_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CLK_BYPASS1_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Field `STEREO_DATA0` reader - Stereo PDM select. When 1, PDM_DATA0 is routed to both PDM channels in a configuration that supports a single stereo digital microphone."]
+///Field `STEREO_DATA0` reader - Stereo PDM select. When 1, PDM_DATA0 is routed to both PDM channels in a configuration that supports a single stereo digital microphone.
 pub struct STEREO_DATA0_R(crate::FieldReader<bool, bool>);
 impl STEREO_DATA0_R {
     #[inline(always)]
@@ -123,22 +123,22 @@ impl core::ops::Deref for STEREO_DATA0_R {
         &self.0
     }
 }
-#[doc = "Field `STEREO_DATA0` writer - Stereo PDM select. When 1, PDM_DATA0 is routed to both PDM channels in a configuration that supports a single stereo digital microphone."]
+///Field `STEREO_DATA0` writer - Stereo PDM select. When 1, PDM_DATA0 is routed to both PDM channels in a configuration that supports a single stereo digital microphone.
 pub struct STEREO_DATA0_W<'a> {
     w: &'a mut W,
 }
 impl<'a> STEREO_DATA0_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
@@ -146,59 +146,63 @@ impl<'a> STEREO_DATA0_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Bypass CLK0. When 1, PDM_DATA1 becomes the clock for PDM channel 0. This provides for the possibility of an external codec taking over the PDM bus."]
+    ///Bit 0 - Bypass CLK0. When 1, PDM_DATA1 becomes the clock for PDM channel 0. This provides for the possibility of an external codec taking over the PDM bus.
     #[inline(always)]
     pub fn clk_bypass0(&self) -> CLK_BYPASS0_R {
         CLK_BYPASS0_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 1 - Bypass CLK1. When 1, PDM_DATA1 becomes the clock for PDM channel 1. This provides for the possibility of an external codec taking over the PDM bus."]
+    ///Bit 1 - Bypass CLK1. When 1, PDM_DATA1 becomes the clock for PDM channel 1. This provides for the possibility of an external codec taking over the PDM bus.
     #[inline(always)]
     pub fn clk_bypass1(&self) -> CLK_BYPASS1_R {
         CLK_BYPASS1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - Stereo PDM select. When 1, PDM_DATA0 is routed to both PDM channels in a configuration that supports a single stereo digital microphone."]
+    ///Bit 2 - Stereo PDM select. When 1, PDM_DATA0 is routed to both PDM channels in a configuration that supports a single stereo digital microphone.
     #[inline(always)]
     pub fn stereo_data0(&self) -> STEREO_DATA0_R {
         STEREO_DATA0_R::new(((self.bits >> 2) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Bypass CLK0. When 1, PDM_DATA1 becomes the clock for PDM channel 0. This provides for the possibility of an external codec taking over the PDM bus."]
+    ///Bit 0 - Bypass CLK0. When 1, PDM_DATA1 becomes the clock for PDM channel 0. This provides for the possibility of an external codec taking over the PDM bus.
     #[inline(always)]
     pub fn clk_bypass0(&mut self) -> CLK_BYPASS0_W {
         CLK_BYPASS0_W { w: self }
     }
-    #[doc = "Bit 1 - Bypass CLK1. When 1, PDM_DATA1 becomes the clock for PDM channel 1. This provides for the possibility of an external codec taking over the PDM bus."]
+    ///Bit 1 - Bypass CLK1. When 1, PDM_DATA1 becomes the clock for PDM channel 1. This provides for the possibility of an external codec taking over the PDM bus.
     #[inline(always)]
     pub fn clk_bypass1(&mut self) -> CLK_BYPASS1_W {
         CLK_BYPASS1_W { w: self }
     }
-    #[doc = "Bit 2 - Stereo PDM select. When 1, PDM_DATA0 is routed to both PDM channels in a configuration that supports a single stereo digital microphone."]
+    ///Bit 2 - Stereo PDM select. When 1, PDM_DATA0 is routed to both PDM channels in a configuration that supports a single stereo digital microphone.
     #[inline(always)]
     pub fn stereo_data0(&mut self) -> STEREO_DATA0_W {
         STEREO_DATA0_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "I/O Configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [iocfg](index.html) module"]
+///I/O Configuration register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [iocfg](index.html) module
 pub struct IOCFG_SPEC;
 impl crate::RegisterSpec for IOCFG_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [iocfg::R](R) reader structure"]
+///`read()` method returns [iocfg::R](R) reader structure
 impl crate::Readable for IOCFG_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [iocfg::W](W) writer structure"]
+///`write(|w| ..)` method takes [iocfg::W](W) writer structure
 impl crate::Writable for IOCFG_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets IOCFG to value 0"]
+///`reset()` method sets IOCFG to value 0
 impl crate::Resettable for IOCFG_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

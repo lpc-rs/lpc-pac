@@ -1,4 +1,4 @@
-#[doc = "Register `SYSPLLNDEC` reader"]
+///Register `SYSPLLNDEC` reader
 pub struct R(crate::R<SYSPLLNDEC_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<SYSPLLNDEC_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<SYSPLLNDEC_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `SYSPLLNDEC` writer"]
+///Register `SYSPLLNDEC` writer
 pub struct W(crate::W<SYSPLLNDEC_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<SYSPLLNDEC_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<SYSPLLNDEC_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `NDEC` reader - Decoded N-divider coefficient value."]
+///Field `NDEC` reader - Decoded N-divider coefficient value.
 pub struct NDEC_R(crate::FieldReader<u16, u16>);
 impl NDEC_R {
     #[inline(always)]
@@ -49,19 +49,19 @@ impl core::ops::Deref for NDEC_R {
         &self.0
     }
 }
-#[doc = "Field `NDEC` writer - Decoded N-divider coefficient value."]
+///Field `NDEC` writer - Decoded N-divider coefficient value.
 pub struct NDEC_W<'a> {
     w: &'a mut W,
 }
 impl<'a> NDEC_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x03ff) | (value as u32 & 0x03ff);
         self.w
     }
 }
-#[doc = "Field `NREQ` reader - NDEC reload request."]
+///Field `NREQ` reader - NDEC reload request.
 pub struct NREQ_R(crate::FieldReader<bool, bool>);
 impl NREQ_R {
     #[inline(always)]
@@ -76,22 +76,22 @@ impl core::ops::Deref for NREQ_R {
         &self.0
     }
 }
-#[doc = "Field `NREQ` writer - NDEC reload request."]
+///Field `NREQ` writer - NDEC reload request.
 pub struct NREQ_W<'a> {
     w: &'a mut W,
 }
 impl<'a> NREQ_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
@@ -99,49 +99,53 @@ impl<'a> NREQ_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:9 - Decoded N-divider coefficient value."]
+    ///Bits 0:9 - Decoded N-divider coefficient value.
     #[inline(always)]
     pub fn ndec(&self) -> NDEC_R {
         NDEC_R::new((self.bits & 0x03ff) as u16)
     }
-    #[doc = "Bit 10 - NDEC reload request."]
+    ///Bit 10 - NDEC reload request.
     #[inline(always)]
     pub fn nreq(&self) -> NREQ_R {
         NREQ_R::new(((self.bits >> 10) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bits 0:9 - Decoded N-divider coefficient value."]
+    ///Bits 0:9 - Decoded N-divider coefficient value.
     #[inline(always)]
     pub fn ndec(&mut self) -> NDEC_W {
         NDEC_W { w: self }
     }
-    #[doc = "Bit 10 - NDEC reload request."]
+    ///Bit 10 - NDEC reload request.
     #[inline(always)]
     pub fn nreq(&mut self) -> NREQ_W {
         NREQ_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "PLL N divider\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [syspllndec](index.html) module"]
+///PLL N divider
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [syspllndec](index.html) module
 pub struct SYSPLLNDEC_SPEC;
 impl crate::RegisterSpec for SYSPLLNDEC_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [syspllndec::R](R) reader structure"]
+///`read()` method returns [syspllndec::R](R) reader structure
 impl crate::Readable for SYSPLLNDEC_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [syspllndec::W](W) writer structure"]
+///`write(|w| ..)` method takes [syspllndec::W](W) writer structure
 impl crate::Writable for SYSPLLNDEC_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets SYSPLLNDEC to value 0"]
+///`reset()` method sets SYSPLLNDEC to value 0
 impl crate::Resettable for SYSPLLNDEC_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

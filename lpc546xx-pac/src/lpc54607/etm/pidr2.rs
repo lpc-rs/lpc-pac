@@ -1,4 +1,4 @@
-#[doc = "Register `PIDR2` reader"]
+///Register `PIDR2` reader
 pub struct R(crate::R<PIDR2_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<PIDR2_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<PIDR2_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `JEP106_identity_code` reader - JEP106 identity code \\[6:4\\]"]
+///Field `JEP106_identity_code` reader - JEP106 identity code \[6:4\]
 pub struct JEP106_IDENTITY_CODE_R(crate::FieldReader<u8, u8>);
 impl JEP106_IDENTITY_CODE_R {
     #[inline(always)]
@@ -28,7 +28,7 @@ impl core::ops::Deref for JEP106_IDENTITY_CODE_R {
         &self.0
     }
 }
-#[doc = "Field `Revision` reader - Revision"]
+///Field `Revision` reader - Revision
 pub struct REVISION_R(crate::FieldReader<u8, u8>);
 impl REVISION_R {
     #[inline(always)]
@@ -44,27 +44,31 @@ impl core::ops::Deref for REVISION_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:2 - JEP106 identity code \\[6:4\\]"]
+    ///Bits 0:2 - JEP106 identity code \[6:4\]
     #[inline(always)]
     pub fn jep106_identity_code(&self) -> JEP106_IDENTITY_CODE_R {
         JEP106_IDENTITY_CODE_R::new((self.bits & 0x07) as u8)
     }
-    #[doc = "Bits 4:7 - Revision"]
+    ///Bits 4:7 - Revision
     #[inline(always)]
     pub fn revision(&self) -> REVISION_R {
         REVISION_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
 }
-#[doc = "Peripheral Identification Register 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pidr2](index.html) module"]
+///Peripheral Identification Register 2
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [pidr2](index.html) module
 pub struct PIDR2_SPEC;
 impl crate::RegisterSpec for PIDR2_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [pidr2::R](R) reader structure"]
+///`read()` method returns [pidr2::R](R) reader structure
 impl crate::Readable for PIDR2_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets PIDR2 to value 0x0b"]
+///`reset()` method sets PIDR2 to value 0x0b
 impl crate::Resettable for PIDR2_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

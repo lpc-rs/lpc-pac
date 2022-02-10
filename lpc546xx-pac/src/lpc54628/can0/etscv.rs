@@ -1,4 +1,4 @@
-#[doc = "Register `ETSCV` reader"]
+///Register `ETSCV` reader
 pub struct R(crate::R<ETSCV_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<ETSCV_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<ETSCV_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `ETSCV` writer"]
+///Register `ETSCV` writer
 pub struct W(crate::W<ETSCV_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<ETSCV_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<ETSCV_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `ETSC` reader - External timestamp counter."]
+///Field `ETSC` reader - External timestamp counter.
 pub struct ETSC_R(crate::FieldReader<u16, u16>);
 impl ETSC_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for ETSC_R {
         &self.0
     }
 }
-#[doc = "Field `ETSC` writer - External timestamp counter."]
+///Field `ETSC` writer - External timestamp counter.
 pub struct ETSC_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ETSC_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !0xffff) | (value as u32 & 0xffff);
@@ -62,39 +62,43 @@ impl<'a> ETSC_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:15 - External timestamp counter."]
+    ///Bits 0:15 - External timestamp counter.
     #[inline(always)]
     pub fn etsc(&self) -> ETSC_R {
         ETSC_R::new((self.bits & 0xffff) as u16)
     }
 }
 impl W {
-    #[doc = "Bits 0:15 - External timestamp counter."]
+    ///Bits 0:15 - External timestamp counter.
     #[inline(always)]
     pub fn etsc(&mut self) -> ETSC_W {
         ETSC_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "External Timestamp Counter Value\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [etscv](index.html) module"]
+///External Timestamp Counter Value
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [etscv](index.html) module
 pub struct ETSCV_SPEC;
 impl crate::RegisterSpec for ETSCV_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [etscv::R](R) reader structure"]
+///`read()` method returns [etscv::R](R) reader structure
 impl crate::Readable for ETSCV_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [etscv::W](W) writer structure"]
+///`write(|w| ..)` method takes [etscv::W](W) writer structure
 impl crate::Writable for ETSCV_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets ETSCV to value 0"]
+///`reset()` method sets ETSCV to value 0
 impl crate::Resettable for ETSCV_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

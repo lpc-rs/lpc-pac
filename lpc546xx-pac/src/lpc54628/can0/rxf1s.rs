@@ -1,4 +1,4 @@
-#[doc = "Register `RXF1S` reader"]
+///Register `RXF1S` reader
 pub struct R(crate::R<RXF1S_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<RXF1S_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<RXF1S_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `F1FL` reader - Rx FIFO 1 fill level."]
+///Field `F1FL` reader - Rx FIFO 1 fill level.
 pub struct F1FL_R(crate::FieldReader<u8, u8>);
 impl F1FL_R {
     #[inline(always)]
@@ -28,7 +28,7 @@ impl core::ops::Deref for F1FL_R {
         &self.0
     }
 }
-#[doc = "Field `F1GI` reader - Rx FIFO 1 get index."]
+///Field `F1GI` reader - Rx FIFO 1 get index.
 pub struct F1GI_R(crate::FieldReader<u8, u8>);
 impl F1GI_R {
     #[inline(always)]
@@ -43,7 +43,7 @@ impl core::ops::Deref for F1GI_R {
         &self.0
     }
 }
-#[doc = "Field `F1PI` reader - Rx FIFO 1 put index."]
+///Field `F1PI` reader - Rx FIFO 1 put index.
 pub struct F1PI_R(crate::FieldReader<u8, u8>);
 impl F1PI_R {
     #[inline(always)]
@@ -58,7 +58,7 @@ impl core::ops::Deref for F1PI_R {
         &self.0
     }
 }
-#[doc = "Field `F1F` reader - Rx FIFO 1 full."]
+///Field `F1F` reader - Rx FIFO 1 full.
 pub struct F1F_R(crate::FieldReader<bool, bool>);
 impl F1F_R {
     #[inline(always)]
@@ -73,7 +73,7 @@ impl core::ops::Deref for F1F_R {
         &self.0
     }
 }
-#[doc = "Field `RF1L` reader - Rx FIFO 1 message lost."]
+///Field `RF1L` reader - Rx FIFO 1 message lost.
 pub struct RF1L_R(crate::FieldReader<bool, bool>);
 impl RF1L_R {
     #[inline(always)]
@@ -89,42 +89,46 @@ impl core::ops::Deref for RF1L_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:6 - Rx FIFO 1 fill level."]
+    ///Bits 0:6 - Rx FIFO 1 fill level.
     #[inline(always)]
     pub fn f1fl(&self) -> F1FL_R {
         F1FL_R::new((self.bits & 0x7f) as u8)
     }
-    #[doc = "Bits 8:13 - Rx FIFO 1 get index."]
+    ///Bits 8:13 - Rx FIFO 1 get index.
     #[inline(always)]
     pub fn f1gi(&self) -> F1GI_R {
         F1GI_R::new(((self.bits >> 8) & 0x3f) as u8)
     }
-    #[doc = "Bits 16:21 - Rx FIFO 1 put index."]
+    ///Bits 16:21 - Rx FIFO 1 put index.
     #[inline(always)]
     pub fn f1pi(&self) -> F1PI_R {
         F1PI_R::new(((self.bits >> 16) & 0x3f) as u8)
     }
-    #[doc = "Bit 24 - Rx FIFO 1 full."]
+    ///Bit 24 - Rx FIFO 1 full.
     #[inline(always)]
     pub fn f1f(&self) -> F1F_R {
         F1F_R::new(((self.bits >> 24) & 0x01) != 0)
     }
-    #[doc = "Bit 25 - Rx FIFO 1 message lost."]
+    ///Bit 25 - Rx FIFO 1 message lost.
     #[inline(always)]
     pub fn rf1l(&self) -> RF1L_R {
         RF1L_R::new(((self.bits >> 25) & 0x01) != 0)
     }
 }
-#[doc = "Rx FIFO 1 Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rxf1s](index.html) module"]
+///Rx FIFO 1 Status
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [rxf1s](index.html) module
 pub struct RXF1S_SPEC;
 impl crate::RegisterSpec for RXF1S_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [rxf1s::R](R) reader structure"]
+///`read()` method returns [rxf1s::R](R) reader structure
 impl crate::Readable for RXF1S_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets RXF1S to value 0"]
+///`reset()` method sets RXF1S to value 0
 impl crate::Resettable for RXF1S_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

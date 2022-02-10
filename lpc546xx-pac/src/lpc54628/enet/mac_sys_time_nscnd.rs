@@ -1,4 +1,4 @@
-#[doc = "Register `MAC_SYS_TIME_NSCND` reader"]
+///Register `MAC_SYS_TIME_NSCND` reader
 pub struct R(crate::R<MAC_SYS_TIME_NSCND_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<MAC_SYS_TIME_NSCND_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<MAC_SYS_TIME_NSCND_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `TSSS` reader - Time stamp sub seconds The value in this field has the sub second representation of time, with an accuracy of 0."]
+///Field `TSSS` reader - Time stamp sub seconds The value in this field has the sub second representation of time, with an accuracy of 0.
 pub struct TSSS_R(crate::FieldReader<u32, u32>);
 impl TSSS_R {
     #[inline(always)]
@@ -29,22 +29,26 @@ impl core::ops::Deref for TSSS_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:30 - Time stamp sub seconds The value in this field has the sub second representation of time, with an accuracy of 0."]
+    ///Bits 0:30 - Time stamp sub seconds The value in this field has the sub second representation of time, with an accuracy of 0.
     #[inline(always)]
     pub fn tsss(&self) -> TSSS_R {
         TSSS_R::new((self.bits & 0x7fff_ffff) as u32)
     }
 }
-#[doc = "System time nanoseconds register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mac_sys_time_nscnd](index.html) module"]
+///System time nanoseconds register
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [mac_sys_time_nscnd](index.html) module
 pub struct MAC_SYS_TIME_NSCND_SPEC;
 impl crate::RegisterSpec for MAC_SYS_TIME_NSCND_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [mac_sys_time_nscnd::R](R) reader structure"]
+///`read()` method returns [mac_sys_time_nscnd::R](R) reader structure
 impl crate::Readable for MAC_SYS_TIME_NSCND_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets MAC_SYS_TIME_NSCND to value 0"]
+///`reset()` method sets MAC_SYS_TIME_NSCND to value 0
 impl crate::Resettable for MAC_SYS_TIME_NSCND_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

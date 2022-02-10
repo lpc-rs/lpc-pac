@@ -1,4 +1,4 @@
-#[doc = "Register `DEVTYPE` reader"]
+///Register `DEVTYPE` reader
 pub struct R(crate::R<DEVTYPE_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<DEVTYPE_SPEC>;
@@ -13,11 +13,13 @@ impl From<crate::R<DEVTYPE_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Major Type and Class\n\nValue on reset: 3"]
+///Major Type and Class
+///
+///Value on reset: 3
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[repr(u8)]
 pub enum MAJORTYPE_A {
-    #[doc = "3: Trace source"]
+    ///3: Trace source
     MAJORTYPE_3 = 3,
 }
 impl From<MAJORTYPE_A> for u8 {
@@ -26,14 +28,14 @@ impl From<MAJORTYPE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `MajorType` reader - Major Type and Class"]
+///Field `MajorType` reader - Major Type and Class
 pub struct MAJORTYPE_R(crate::FieldReader<u8, MAJORTYPE_A>);
 impl MAJORTYPE_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         MAJORTYPE_R(crate::FieldReader::new(bits))
     }
-    #[doc = r"Get enumerated values variant"]
+    ///Get enumerated values variant
     #[inline(always)]
     pub fn variant(&self) -> Option<MAJORTYPE_A> {
         match self.bits {
@@ -41,7 +43,7 @@ impl MAJORTYPE_R {
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `MAJORTYPE_3`"]
+    ///Checks if the value of the field is `MAJORTYPE_3`
     #[inline(always)]
     pub fn is_major_type_3(&self) -> bool {
         **self == MAJORTYPE_A::MAJORTYPE_3
@@ -54,11 +56,13 @@ impl core::ops::Deref for MAJORTYPE_R {
         &self.0
     }
 }
-#[doc = "Sub Type\n\nValue on reset: 1"]
+///Sub Type
+///
+///Value on reset: 1
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[repr(u8)]
 pub enum SUBTYPE_A {
-    #[doc = "1: Processor trace"]
+    ///1: Processor trace
     SUBTYPE_1 = 1,
 }
 impl From<SUBTYPE_A> for u8 {
@@ -67,14 +71,14 @@ impl From<SUBTYPE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `SubType` reader - Sub Type"]
+///Field `SubType` reader - Sub Type
 pub struct SUBTYPE_R(crate::FieldReader<u8, SUBTYPE_A>);
 impl SUBTYPE_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SUBTYPE_R(crate::FieldReader::new(bits))
     }
-    #[doc = r"Get enumerated values variant"]
+    ///Get enumerated values variant
     #[inline(always)]
     pub fn variant(&self) -> Option<SUBTYPE_A> {
         match self.bits {
@@ -82,7 +86,7 @@ impl SUBTYPE_R {
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `SUBTYPE_1`"]
+    ///Checks if the value of the field is `SUBTYPE_1`
     #[inline(always)]
     pub fn is_sub_type_1(&self) -> bool {
         **self == SUBTYPE_A::SUBTYPE_1
@@ -96,27 +100,31 @@ impl core::ops::Deref for SUBTYPE_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:3 - Major Type and Class"]
+    ///Bits 0:3 - Major Type and Class
     #[inline(always)]
     pub fn major_type(&self) -> MAJORTYPE_R {
         MAJORTYPE_R::new((self.bits & 0x0f) as u8)
     }
-    #[doc = "Bits 4:7 - Sub Type"]
+    ///Bits 4:7 - Sub Type
     #[inline(always)]
     pub fn sub_type(&self) -> SUBTYPE_R {
         SUBTYPE_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
 }
-#[doc = "CoreSight Device Type Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [devtype](index.html) module"]
+///CoreSight Device Type Register
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [devtype](index.html) module
 pub struct DEVTYPE_SPEC;
 impl crate::RegisterSpec for DEVTYPE_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [devtype::R](R) reader structure"]
+///`read()` method returns [devtype::R](R) reader structure
 impl crate::Readable for DEVTYPE_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets DEVTYPE to value 0x13"]
+///`reset()` method sets DEVTYPE to value 0x13
 impl crate::Resettable for DEVTYPE_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

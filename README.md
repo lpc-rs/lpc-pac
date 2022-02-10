@@ -35,23 +35,42 @@ Refer to `svd2rust` [documentation](https://docs.rs/svd2rust) for further usage.
 
 Replace `lpc54606_pac` with your own device; see the individual crate READMEs for the complete list of supported devices.
 
-## Generating Device Crates / Building Locally
+## Generating PACs:
+
+
+* Install svd2rust: `cargo install --version 0.21.0 svd2rust`
+* Install form: `cargo install form`
+* Install rustfmt: `rustup component add rustfmt`
+* Install svdtools: `pip install --user svdtools`
+* Unzip bundled SVD zip files: `cd svd; ./extract.sh; cd ..`
+* Generate patched SVD files: `make patch -j8`
+* Generate svd2rust device crates: `make svd2rust -j8`
+* Optional: Format device crates: `make form -j8`
+* Rename crates to fit the lpcXXX-pac format: `make rename-crates` (no multithread here)
+
+
+## Generating lpc11uxx, lpc845 and lpc82x:
 
 * Install `svd2rust`: `cargo install --version 0.21.0 svd2rust`
 * Install `form`: `cargo install --version 0.8.0`
 * Install `rustfmt`: `rustup component add rustfmt`
 * Generate the PACs: `./generate.sh`
 
-## Generating super pacs
+
 
 ## Adding New Devices
 
-* Create a new directory.
-* Copy the extracted SVD in this directory.
-* Patch it if need be.
-* Create the `Cargo.toml` of your PAC.
-* Create the `README.md` of your PAC.
-* Add your pac in the list in `generate.sh`.
-* Generate the PACs: `./generate.sh`
-* Test that yout new pac compiles using `cargo build`
+* Update SVD zips in `svd/vendor` to include new SVD.
+* Run `svd/extract.sh` to extract the zips into `svd` (ignored in git).
+* Add new YAML file in `devices/` with the new SVD path and include any
+  required SVD patches for this device, such as renaming or merging fields.
+* Re-run `scripts/makecrates.py devices/` to update the crates with the new devices.
+* Run `make` to rebuild, which will make a patched SVD and then run `svd2rust`
+  on it to generate the final library.
 
+## Updating Existing Devices/Peripherals
+
+* You'll need to run `svd/extract.sh` at least once to pull the SVDs out.
+* Edit the device or peripheral YAML (see below for format).
+* Run `make` to rebuild all the crates using `svd patch` and `svd2rust`.
+* Test your new stuff compiles: `cd lpc546xx-pac; cargo build --features lpc54628`

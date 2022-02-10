@@ -1,4 +1,4 @@
-#[doc = "Register `RWSTATE` reader"]
+///Register `RWSTATE` reader
 pub struct R(crate::R<RWSTATE_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<RWSTATE_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<RWSTATE_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `RWSTATE` writer"]
+///Register `RWSTATE` writer
 pub struct W(crate::W<RWSTATE_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<RWSTATE_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<RWSTATE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `RPHASE2` reader - Wait states 2 (minus 1 encoded)."]
+///Field `RPHASE2` reader - Wait states 2 (minus 1 encoded).
 pub struct RPHASE2_R(crate::FieldReader<u8, u8>);
 impl RPHASE2_R {
     #[inline(always)]
@@ -49,19 +49,19 @@ impl core::ops::Deref for RPHASE2_R {
         &self.0
     }
 }
-#[doc = "Field `RPHASE2` writer - Wait states 2 (minus 1 encoded)."]
+///Field `RPHASE2` writer - Wait states 2 (minus 1 encoded).
 pub struct RPHASE2_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RPHASE2_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
-#[doc = "Field `RPHASE1` reader - Wait states 1 (minus 1 encoded)."]
+///Field `RPHASE1` reader - Wait states 1 (minus 1 encoded).
 pub struct RPHASE1_R(crate::FieldReader<u8, u8>);
 impl RPHASE1_R {
     #[inline(always)]
@@ -76,12 +76,12 @@ impl core::ops::Deref for RPHASE1_R {
         &self.0
     }
 }
-#[doc = "Field `RPHASE1` writer - Wait states 1 (minus 1 encoded)."]
+///Field `RPHASE1` writer - Wait states 1 (minus 1 encoded).
 pub struct RPHASE1_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RPHASE1_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0xff << 8)) | ((value as u32 & 0xff) << 8);
@@ -89,49 +89,53 @@ impl<'a> RPHASE1_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:7 - Wait states 2 (minus 1 encoded)."]
+    ///Bits 0:7 - Wait states 2 (minus 1 encoded).
     #[inline(always)]
     pub fn rphase2(&self) -> RPHASE2_R {
         RPHASE2_R::new((self.bits & 0xff) as u8)
     }
-    #[doc = "Bits 8:15 - Wait states 1 (minus 1 encoded)."]
+    ///Bits 8:15 - Wait states 1 (minus 1 encoded).
     #[inline(always)]
     pub fn rphase1(&self) -> RPHASE1_R {
         RPHASE1_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - Wait states 2 (minus 1 encoded)."]
+    ///Bits 0:7 - Wait states 2 (minus 1 encoded).
     #[inline(always)]
     pub fn rphase2(&mut self) -> RPHASE2_W {
         RPHASE2_W { w: self }
     }
-    #[doc = "Bits 8:15 - Wait states 1 (minus 1 encoded)."]
+    ///Bits 8:15 - Wait states 1 (minus 1 encoded).
     #[inline(always)]
     pub fn rphase1(&mut self) -> RPHASE1_W {
         RPHASE1_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "EEPROM read wait state register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rwstate](index.html) module"]
+///EEPROM read wait state register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [rwstate](index.html) module
 pub struct RWSTATE_SPEC;
 impl crate::RegisterSpec for RWSTATE_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [rwstate::R](R) reader structure"]
+///`read()` method returns [rwstate::R](R) reader structure
 impl crate::Readable for RWSTATE_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [rwstate::W](W) writer structure"]
+///`write(|w| ..)` method takes [rwstate::W](W) writer structure
 impl crate::Writable for RWSTATE_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets RWSTATE to value 0x0e07"]
+///`reset()` method sets RWSTATE to value 0x0e07
 impl crate::Resettable for RWSTATE_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

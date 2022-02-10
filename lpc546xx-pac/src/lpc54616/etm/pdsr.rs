@@ -1,4 +1,4 @@
-#[doc = "Register `PDSR` reader"]
+///Register `PDSR` reader
 pub struct R(crate::R<PDSR_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<PDSR_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<PDSR_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `ETMpoweredup` reader - The value of this bit indicates whether you can access the ETM Trace Registers. The value of this bit is always 1, indicating that the ETM Trace Registers can be accessed."]
+///Field `ETMpoweredup` reader - The value of this bit indicates whether you can access the ETM Trace Registers. The value of this bit is always 1, indicating that the ETM Trace Registers can be accessed.
 pub struct ETMPOWEREDUP_R(crate::FieldReader<bool, bool>);
 impl ETMPOWEREDUP_R {
     #[inline(always)]
@@ -29,22 +29,26 @@ impl core::ops::Deref for ETMPOWEREDUP_R {
     }
 }
 impl R {
-    #[doc = "Bit 0 - The value of this bit indicates whether you can access the ETM Trace Registers. The value of this bit is always 1, indicating that the ETM Trace Registers can be accessed."]
+    ///Bit 0 - The value of this bit indicates whether you can access the ETM Trace Registers. The value of this bit is always 1, indicating that the ETM Trace Registers can be accessed.
     #[inline(always)]
     pub fn etmpoweredup(&self) -> ETMPOWEREDUP_R {
         ETMPOWEREDUP_R::new((self.bits & 0x01) != 0)
     }
 }
-#[doc = "Device Power-Down Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pdsr](index.html) module"]
+///Device Power-Down Status Register
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [pdsr](index.html) module
 pub struct PDSR_SPEC;
 impl crate::RegisterSpec for PDSR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [pdsr::R](R) reader structure"]
+///`read()` method returns [pdsr::R](R) reader structure
 impl crate::Readable for PDSR_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets PDSR to value 0x01"]
+///`reset()` method sets PDSR to value 0x01
 impl crate::Resettable for PDSR_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

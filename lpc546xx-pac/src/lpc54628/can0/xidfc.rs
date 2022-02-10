@@ -1,4 +1,4 @@
-#[doc = "Register `XIDFC` reader"]
+///Register `XIDFC` reader
 pub struct R(crate::R<XIDFC_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<XIDFC_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<XIDFC_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `XIDFC` writer"]
+///Register `XIDFC` writer
 pub struct W(crate::W<XIDFC_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<XIDFC_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<XIDFC_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `FLESA` reader - Filter list extended start address."]
+///Field `FLESA` reader - Filter list extended start address.
 pub struct FLESA_R(crate::FieldReader<u16, u16>);
 impl FLESA_R {
     #[inline(always)]
@@ -49,19 +49,19 @@ impl core::ops::Deref for FLESA_R {
         &self.0
     }
 }
-#[doc = "Field `FLESA` writer - Filter list extended start address."]
+///Field `FLESA` writer - Filter list extended start address.
 pub struct FLESA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> FLESA_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x3fff << 2)) | ((value as u32 & 0x3fff) << 2);
         self.w
     }
 }
-#[doc = "Field `LSE` reader - List size extended 0 = No extended message ID filter."]
+///Field `LSE` reader - List size extended 0 = No extended message ID filter.
 pub struct LSE_R(crate::FieldReader<u8, u8>);
 impl LSE_R {
     #[inline(always)]
@@ -76,12 +76,12 @@ impl core::ops::Deref for LSE_R {
         &self.0
     }
 }
-#[doc = "Field `LSE` writer - List size extended 0 = No extended message ID filter."]
+///Field `LSE` writer - List size extended 0 = No extended message ID filter.
 pub struct LSE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> LSE_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0xff << 16)) | ((value as u32 & 0xff) << 16);
@@ -89,49 +89,53 @@ impl<'a> LSE_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 2:15 - Filter list extended start address."]
+    ///Bits 2:15 - Filter list extended start address.
     #[inline(always)]
     pub fn flesa(&self) -> FLESA_R {
         FLESA_R::new(((self.bits >> 2) & 0x3fff) as u16)
     }
-    #[doc = "Bits 16:23 - List size extended 0 = No extended message ID filter."]
+    ///Bits 16:23 - List size extended 0 = No extended message ID filter.
     #[inline(always)]
     pub fn lse(&self) -> LSE_R {
         LSE_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 2:15 - Filter list extended start address."]
+    ///Bits 2:15 - Filter list extended start address.
     #[inline(always)]
     pub fn flesa(&mut self) -> FLESA_W {
         FLESA_W { w: self }
     }
-    #[doc = "Bits 16:23 - List size extended 0 = No extended message ID filter."]
+    ///Bits 16:23 - List size extended 0 = No extended message ID filter.
     #[inline(always)]
     pub fn lse(&mut self) -> LSE_W {
         LSE_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Extended ID Filter Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [xidfc](index.html) module"]
+///Extended ID Filter Configuration
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [xidfc](index.html) module
 pub struct XIDFC_SPEC;
 impl crate::RegisterSpec for XIDFC_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [xidfc::R](R) reader structure"]
+///`read()` method returns [xidfc::R](R) reader structure
 impl crate::Readable for XIDFC_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [xidfc::W](W) writer structure"]
+///`write(|w| ..)` method takes [xidfc::W](W) writer structure
 impl crate::Writable for XIDFC_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets XIDFC to value 0"]
+///`reset()` method sets XIDFC to value 0
 impl crate::Resettable for XIDFC_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

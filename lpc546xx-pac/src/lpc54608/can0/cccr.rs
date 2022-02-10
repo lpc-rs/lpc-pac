@@ -1,4 +1,4 @@
-#[doc = "Register `CCCR` reader"]
+///Register `CCCR` reader
 pub struct R(crate::R<CCCR_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<CCCR_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<CCCR_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `CCCR` writer"]
+///Register `CCCR` writer
 pub struct W(crate::W<CCCR_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<CCCR_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<CCCR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `INIT` reader - Initialization."]
+///Field `INIT` reader - Initialization.
 pub struct INIT_R(crate::FieldReader<bool, bool>);
 impl INIT_R {
     #[inline(always)]
@@ -49,29 +49,29 @@ impl core::ops::Deref for INIT_R {
         &self.0
     }
 }
-#[doc = "Field `INIT` writer - Initialization."]
+///Field `INIT` writer - Initialization.
 pub struct INIT_W<'a> {
     w: &'a mut W,
 }
 impl<'a> INIT_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
-#[doc = "Field `CCE` reader - Configuration change enable."]
+///Field `CCE` reader - Configuration change enable.
 pub struct CCE_R(crate::FieldReader<bool, bool>);
 impl CCE_R {
     #[inline(always)]
@@ -86,29 +86,29 @@ impl core::ops::Deref for CCE_R {
         &self.0
     }
 }
-#[doc = "Field `CCE` writer - Configuration change enable."]
+///Field `CCE` writer - Configuration change enable.
 pub struct CCE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CCE_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
-#[doc = "Field `ASM` reader - Restricted operational mode."]
+///Field `ASM` reader - Restricted operational mode.
 pub struct ASM_R(crate::FieldReader<bool, bool>);
 impl ASM_R {
     #[inline(always)]
@@ -123,29 +123,29 @@ impl core::ops::Deref for ASM_R {
         &self.0
     }
 }
-#[doc = "Field `ASM` writer - Restricted operational mode."]
+///Field `ASM` writer - Restricted operational mode.
 pub struct ASM_W<'a> {
     w: &'a mut W,
 }
 impl<'a> ASM_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
-#[doc = "Field `CSA` reader - Clock Stop Acknowledge."]
+///Field `CSA` reader - Clock Stop Acknowledge.
 pub struct CSA_R(crate::FieldReader<bool, bool>);
 impl CSA_R {
     #[inline(always)]
@@ -160,29 +160,29 @@ impl core::ops::Deref for CSA_R {
         &self.0
     }
 }
-#[doc = "Field `CSA` writer - Clock Stop Acknowledge."]
+///Field `CSA` writer - Clock Stop Acknowledge.
 pub struct CSA_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CSA_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
-#[doc = "Field `CSR` reader - Clock Stop Request."]
+///Field `CSR` reader - Clock Stop Request.
 pub struct CSR_R(crate::FieldReader<bool, bool>);
 impl CSR_R {
     #[inline(always)]
@@ -197,29 +197,29 @@ impl core::ops::Deref for CSR_R {
         &self.0
     }
 }
-#[doc = "Field `CSR` writer - Clock Stop Request."]
+///Field `CSR` writer - Clock Stop Request.
 pub struct CSR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CSR_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
-#[doc = "Field `MON` reader - Bus monitoring mode."]
+///Field `MON` reader - Bus monitoring mode.
 pub struct MON_R(crate::FieldReader<bool, bool>);
 impl MON_R {
     #[inline(always)]
@@ -234,29 +234,29 @@ impl core::ops::Deref for MON_R {
         &self.0
     }
 }
-#[doc = "Field `MON` writer - Bus monitoring mode."]
+///Field `MON` writer - Bus monitoring mode.
 pub struct MON_W<'a> {
     w: &'a mut W,
 }
 impl<'a> MON_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Field `DAR` reader - Disable automatic retransmission."]
+///Field `DAR` reader - Disable automatic retransmission.
 pub struct DAR_R(crate::FieldReader<bool, bool>);
 impl DAR_R {
     #[inline(always)]
@@ -271,29 +271,29 @@ impl core::ops::Deref for DAR_R {
         &self.0
     }
 }
-#[doc = "Field `DAR` writer - Disable automatic retransmission."]
+///Field `DAR` writer - Disable automatic retransmission.
 pub struct DAR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> DAR_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Field `TEST` reader - Test mode enable."]
+///Field `TEST` reader - Test mode enable.
 pub struct TEST_R(crate::FieldReader<bool, bool>);
 impl TEST_R {
     #[inline(always)]
@@ -308,29 +308,29 @@ impl core::ops::Deref for TEST_R {
         &self.0
     }
 }
-#[doc = "Field `TEST` writer - Test mode enable."]
+///Field `TEST` writer - Test mode enable.
 pub struct TEST_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TEST_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Field `PXHD` reader - Protocol exception handling disable."]
+///Field `PXHD` reader - Protocol exception handling disable.
 pub struct PXHD_R(crate::FieldReader<bool, bool>);
 impl PXHD_R {
     #[inline(always)]
@@ -345,29 +345,29 @@ impl core::ops::Deref for PXHD_R {
         &self.0
     }
 }
-#[doc = "Field `PXHD` writer - Protocol exception handling disable."]
+///Field `PXHD` writer - Protocol exception handling disable.
 pub struct PXHD_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PXHD_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
-#[doc = "Field `EFBI` reader - Edge filtering during bus integration."]
+///Field `EFBI` reader - Edge filtering during bus integration.
 pub struct EFBI_R(crate::FieldReader<bool, bool>);
 impl EFBI_R {
     #[inline(always)]
@@ -382,29 +382,29 @@ impl core::ops::Deref for EFBI_R {
         &self.0
     }
 }
-#[doc = "Field `EFBI` writer - Edge filtering during bus integration."]
+///Field `EFBI` writer - Edge filtering during bus integration.
 pub struct EFBI_W<'a> {
     w: &'a mut W,
 }
 impl<'a> EFBI_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
-#[doc = "Field `TXP` reader - Transmit pause."]
+///Field `TXP` reader - Transmit pause.
 pub struct TXP_R(crate::FieldReader<bool, bool>);
 impl TXP_R {
     #[inline(always)]
@@ -419,22 +419,22 @@ impl core::ops::Deref for TXP_R {
         &self.0
     }
 }
-#[doc = "Field `TXP` writer - Transmit pause."]
+///Field `TXP` writer - Transmit pause.
 pub struct TXP_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TXP_W<'a> {
-    #[doc = r"Sets the field bit"]
+    ///Sets the field bit
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r"Clears the field bit"]
+    ///Clears the field bit
     #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
@@ -442,139 +442,143 @@ impl<'a> TXP_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Initialization."]
+    ///Bit 0 - Initialization.
     #[inline(always)]
     pub fn init(&self) -> INIT_R {
         INIT_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 1 - Configuration change enable."]
+    ///Bit 1 - Configuration change enable.
     #[inline(always)]
     pub fn cce(&self) -> CCE_R {
         CCE_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - Restricted operational mode."]
+    ///Bit 2 - Restricted operational mode.
     #[inline(always)]
     pub fn asm(&self) -> ASM_R {
         ASM_R::new(((self.bits >> 2) & 0x01) != 0)
     }
-    #[doc = "Bit 3 - Clock Stop Acknowledge."]
+    ///Bit 3 - Clock Stop Acknowledge.
     #[inline(always)]
     pub fn csa(&self) -> CSA_R {
         CSA_R::new(((self.bits >> 3) & 0x01) != 0)
     }
-    #[doc = "Bit 4 - Clock Stop Request."]
+    ///Bit 4 - Clock Stop Request.
     #[inline(always)]
     pub fn csr(&self) -> CSR_R {
         CSR_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bit 5 - Bus monitoring mode."]
+    ///Bit 5 - Bus monitoring mode.
     #[inline(always)]
     pub fn mon(&self) -> MON_R {
         MON_R::new(((self.bits >> 5) & 0x01) != 0)
     }
-    #[doc = "Bit 6 - Disable automatic retransmission."]
+    ///Bit 6 - Disable automatic retransmission.
     #[inline(always)]
     pub fn dar(&self) -> DAR_R {
         DAR_R::new(((self.bits >> 6) & 0x01) != 0)
     }
-    #[doc = "Bit 7 - Test mode enable."]
+    ///Bit 7 - Test mode enable.
     #[inline(always)]
     pub fn test(&self) -> TEST_R {
         TEST_R::new(((self.bits >> 7) & 0x01) != 0)
     }
-    #[doc = "Bit 12 - Protocol exception handling disable."]
+    ///Bit 12 - Protocol exception handling disable.
     #[inline(always)]
     pub fn pxhd(&self) -> PXHD_R {
         PXHD_R::new(((self.bits >> 12) & 0x01) != 0)
     }
-    #[doc = "Bit 13 - Edge filtering during bus integration."]
+    ///Bit 13 - Edge filtering during bus integration.
     #[inline(always)]
     pub fn efbi(&self) -> EFBI_R {
         EFBI_R::new(((self.bits >> 13) & 0x01) != 0)
     }
-    #[doc = "Bit 14 - Transmit pause."]
+    ///Bit 14 - Transmit pause.
     #[inline(always)]
     pub fn txp(&self) -> TXP_R {
         TXP_R::new(((self.bits >> 14) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Initialization."]
+    ///Bit 0 - Initialization.
     #[inline(always)]
     pub fn init(&mut self) -> INIT_W {
         INIT_W { w: self }
     }
-    #[doc = "Bit 1 - Configuration change enable."]
+    ///Bit 1 - Configuration change enable.
     #[inline(always)]
     pub fn cce(&mut self) -> CCE_W {
         CCE_W { w: self }
     }
-    #[doc = "Bit 2 - Restricted operational mode."]
+    ///Bit 2 - Restricted operational mode.
     #[inline(always)]
     pub fn asm(&mut self) -> ASM_W {
         ASM_W { w: self }
     }
-    #[doc = "Bit 3 - Clock Stop Acknowledge."]
+    ///Bit 3 - Clock Stop Acknowledge.
     #[inline(always)]
     pub fn csa(&mut self) -> CSA_W {
         CSA_W { w: self }
     }
-    #[doc = "Bit 4 - Clock Stop Request."]
+    ///Bit 4 - Clock Stop Request.
     #[inline(always)]
     pub fn csr(&mut self) -> CSR_W {
         CSR_W { w: self }
     }
-    #[doc = "Bit 5 - Bus monitoring mode."]
+    ///Bit 5 - Bus monitoring mode.
     #[inline(always)]
     pub fn mon(&mut self) -> MON_W {
         MON_W { w: self }
     }
-    #[doc = "Bit 6 - Disable automatic retransmission."]
+    ///Bit 6 - Disable automatic retransmission.
     #[inline(always)]
     pub fn dar(&mut self) -> DAR_W {
         DAR_W { w: self }
     }
-    #[doc = "Bit 7 - Test mode enable."]
+    ///Bit 7 - Test mode enable.
     #[inline(always)]
     pub fn test(&mut self) -> TEST_W {
         TEST_W { w: self }
     }
-    #[doc = "Bit 12 - Protocol exception handling disable."]
+    ///Bit 12 - Protocol exception handling disable.
     #[inline(always)]
     pub fn pxhd(&mut self) -> PXHD_W {
         PXHD_W { w: self }
     }
-    #[doc = "Bit 13 - Edge filtering during bus integration."]
+    ///Bit 13 - Edge filtering during bus integration.
     #[inline(always)]
     pub fn efbi(&mut self) -> EFBI_W {
         EFBI_W { w: self }
     }
-    #[doc = "Bit 14 - Transmit pause."]
+    ///Bit 14 - Transmit pause.
     #[inline(always)]
     pub fn txp(&mut self) -> TXP_W {
         TXP_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "CC Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cccr](index.html) module"]
+///CC Control Register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [cccr](index.html) module
 pub struct CCCR_SPEC;
 impl crate::RegisterSpec for CCCR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cccr::R](R) reader structure"]
+///`read()` method returns [cccr::R](R) reader structure
 impl crate::Readable for CCCR_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [cccr::W](W) writer structure"]
+///`write(|w| ..)` method takes [cccr::W](W) writer structure
 impl crate::Writable for CCCR_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets CCCR to value 0x01"]
+///`reset()` method sets CCCR to value 0x01
 impl crate::Resettable for CCCR_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

@@ -1,4 +1,4 @@
-#[doc = "Register `MAC_SYS_TIMESTMP_STAT` reader"]
+///Register `MAC_SYS_TIMESTMP_STAT` reader
 pub struct R(crate::R<MAC_SYS_TIMESTMP_STAT_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<MAC_SYS_TIMESTMP_STAT_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<MAC_SYS_TIMESTMP_STAT_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `TSSOVF` reader - Time stamp seconds overflow When set, indicates that the seconds value of the Time stamp has overflowed beyond 0xFFFF_FFFF."]
+///Field `TSSOVF` reader - Time stamp seconds overflow When set, indicates that the seconds value of the Time stamp has overflowed beyond 0xFFFF_FFFF.
 pub struct TSSOVF_R(crate::FieldReader<bool, bool>);
 impl TSSOVF_R {
     #[inline(always)]
@@ -29,22 +29,26 @@ impl core::ops::Deref for TSSOVF_R {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Time stamp seconds overflow When set, indicates that the seconds value of the Time stamp has overflowed beyond 0xFFFF_FFFF."]
+    ///Bit 0 - Time stamp seconds overflow When set, indicates that the seconds value of the Time stamp has overflowed beyond 0xFFFF_FFFF.
     #[inline(always)]
     pub fn tssovf(&self) -> TSSOVF_R {
         TSSOVF_R::new((self.bits & 0x01) != 0)
     }
 }
-#[doc = "Time stamp status register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mac_sys_timestmp_stat](index.html) module"]
+///Time stamp status register
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [mac_sys_timestmp_stat](index.html) module
 pub struct MAC_SYS_TIMESTMP_STAT_SPEC;
 impl crate::RegisterSpec for MAC_SYS_TIMESTMP_STAT_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [mac_sys_timestmp_stat::R](R) reader structure"]
+///`read()` method returns [mac_sys_timestmp_stat::R](R) reader structure
 impl crate::Readable for MAC_SYS_TIMESTMP_STAT_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets MAC_SYS_TIMESTMP_STAT to value 0"]
+///`reset()` method sets MAC_SYS_TIMESTMP_STAT to value 0
 impl crate::Resettable for MAC_SYS_TIMESTMP_STAT_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

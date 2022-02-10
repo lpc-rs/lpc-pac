@@ -1,4 +1,4 @@
-#[doc = "Register `TXEFS` reader"]
+///Register `TXEFS` reader
 pub struct R(crate::R<TXEFS_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<TXEFS_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<TXEFS_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `EFFL` reader - Event FIFO fill level."]
+///Field `EFFL` reader - Event FIFO fill level.
 pub struct EFFL_R(crate::FieldReader<u8, u8>);
 impl EFFL_R {
     #[inline(always)]
@@ -28,7 +28,7 @@ impl core::ops::Deref for EFFL_R {
         &self.0
     }
 }
-#[doc = "Field `EFGI` reader - Event FIFO get index."]
+///Field `EFGI` reader - Event FIFO get index.
 pub struct EFGI_R(crate::FieldReader<u8, u8>);
 impl EFGI_R {
     #[inline(always)]
@@ -43,7 +43,7 @@ impl core::ops::Deref for EFGI_R {
         &self.0
     }
 }
-#[doc = "Field `EFPI` reader - Event FIFO put index."]
+///Field `EFPI` reader - Event FIFO put index.
 pub struct EFPI_R(crate::FieldReader<u8, u8>);
 impl EFPI_R {
     #[inline(always)]
@@ -58,7 +58,7 @@ impl core::ops::Deref for EFPI_R {
         &self.0
     }
 }
-#[doc = "Field `EFF` reader - Event FIFO full."]
+///Field `EFF` reader - Event FIFO full.
 pub struct EFF_R(crate::FieldReader<bool, bool>);
 impl EFF_R {
     #[inline(always)]
@@ -73,7 +73,7 @@ impl core::ops::Deref for EFF_R {
         &self.0
     }
 }
-#[doc = "Field `TEFL` reader - Tx event FIFO element lost."]
+///Field `TEFL` reader - Tx event FIFO element lost.
 pub struct TEFL_R(crate::FieldReader<bool, bool>);
 impl TEFL_R {
     #[inline(always)]
@@ -89,42 +89,46 @@ impl core::ops::Deref for TEFL_R {
     }
 }
 impl R {
-    #[doc = "Bits 0:5 - Event FIFO fill level."]
+    ///Bits 0:5 - Event FIFO fill level.
     #[inline(always)]
     pub fn effl(&self) -> EFFL_R {
         EFFL_R::new((self.bits & 0x3f) as u8)
     }
-    #[doc = "Bits 8:12 - Event FIFO get index."]
+    ///Bits 8:12 - Event FIFO get index.
     #[inline(always)]
     pub fn efgi(&self) -> EFGI_R {
         EFGI_R::new(((self.bits >> 8) & 0x1f) as u8)
     }
-    #[doc = "Bits 16:21 - Event FIFO put index."]
+    ///Bits 16:21 - Event FIFO put index.
     #[inline(always)]
     pub fn efpi(&self) -> EFPI_R {
         EFPI_R::new(((self.bits >> 16) & 0x3f) as u8)
     }
-    #[doc = "Bit 24 - Event FIFO full."]
+    ///Bit 24 - Event FIFO full.
     #[inline(always)]
     pub fn eff(&self) -> EFF_R {
         EFF_R::new(((self.bits >> 24) & 0x01) != 0)
     }
-    #[doc = "Bit 25 - Tx event FIFO element lost."]
+    ///Bit 25 - Tx event FIFO element lost.
     #[inline(always)]
     pub fn tefl(&self) -> TEFL_R {
         TEFL_R::new(((self.bits >> 25) & 0x01) != 0)
     }
 }
-#[doc = "Tx Event FIFO Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [txefs](index.html) module"]
+///Tx Event FIFO Status
+///
+///This register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [txefs](index.html) module
 pub struct TXEFS_SPEC;
 impl crate::RegisterSpec for TXEFS_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [txefs::R](R) reader structure"]
+///`read()` method returns [txefs::R](R) reader structure
 impl crate::Readable for TXEFS_SPEC {
     type Reader = R;
 }
-#[doc = "`reset()` method sets TXEFS to value 0"]
+///`reset()` method sets TXEFS to value 0
 impl crate::Resettable for TXEFS_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

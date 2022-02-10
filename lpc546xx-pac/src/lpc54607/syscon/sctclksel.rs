@@ -1,4 +1,4 @@
-#[doc = "Register `SCTCLKSEL` reader"]
+///Register `SCTCLKSEL` reader
 pub struct R(crate::R<SCTCLKSEL_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<SCTCLKSEL_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<SCTCLKSEL_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `SCTCLKSEL` writer"]
+///Register `SCTCLKSEL` writer
 pub struct W(crate::W<SCTCLKSEL_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<SCTCLKSEL_SPEC>;
@@ -34,19 +34,21 @@ impl From<crate::W<SCTCLKSEL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "SCT clock source select.\n\nValue on reset: 7"]
+///SCT clock source select.
+///
+///Value on reset: 7
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[repr(u8)]
 pub enum SEL_A {
-    #[doc = "0: Main clock (main_clk)"]
+    ///0: Main clock (main_clk)
     MAIN_CLOCK = 0,
-    #[doc = "1: System PLL output (pll_clk)"]
+    ///1: System PLL output (pll_clk)
     SYSTEM_PLL_OUTPUT = 1,
-    #[doc = "2: FRO 96 or 48 MHz (fro_hf)"]
+    ///2: FRO 96 or 48 MHz (fro_hf)
     FRO_HF = 2,
-    #[doc = "3: Audio PLL clock (audio_pll_clk)"]
+    ///3: Audio PLL clock (audio_pll_clk)
     AUDIO_PLL_OUTPUT = 3,
-    #[doc = "7: None, this may be selected in order to reduce power when no output is needed."]
+    ///7: None, this may be selected in order to reduce power when no output is needed.
     NONE = 7,
 }
 impl From<SEL_A> for u8 {
@@ -55,14 +57,14 @@ impl From<SEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Field `SEL` reader - SCT clock source select."]
+///Field `SEL` reader - SCT clock source select.
 pub struct SEL_R(crate::FieldReader<u8, SEL_A>);
 impl SEL_R {
     #[inline(always)]
     pub(crate) fn new(bits: u8) -> Self {
         SEL_R(crate::FieldReader::new(bits))
     }
-    #[doc = r"Get enumerated values variant"]
+    ///Get enumerated values variant
     #[inline(always)]
     pub fn variant(&self) -> Option<SEL_A> {
         match self.bits {
@@ -74,27 +76,27 @@ impl SEL_R {
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `MAIN_CLOCK`"]
+    ///Checks if the value of the field is `MAIN_CLOCK`
     #[inline(always)]
     pub fn is_main_clock(&self) -> bool {
         **self == SEL_A::MAIN_CLOCK
     }
-    #[doc = "Checks if the value of the field is `SYSTEM_PLL_OUTPUT`"]
+    ///Checks if the value of the field is `SYSTEM_PLL_OUTPUT`
     #[inline(always)]
     pub fn is_system_pll_output(&self) -> bool {
         **self == SEL_A::SYSTEM_PLL_OUTPUT
     }
-    #[doc = "Checks if the value of the field is `FRO_HF`"]
+    ///Checks if the value of the field is `FRO_HF`
     #[inline(always)]
     pub fn is_fro_hf(&self) -> bool {
         **self == SEL_A::FRO_HF
     }
-    #[doc = "Checks if the value of the field is `AUDIO_PLL_OUTPUT`"]
+    ///Checks if the value of the field is `AUDIO_PLL_OUTPUT`
     #[inline(always)]
     pub fn is_audio_pll_output(&self) -> bool {
         **self == SEL_A::AUDIO_PLL_OUTPUT
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    ///Checks if the value of the field is `NONE`
     #[inline(always)]
     pub fn is_none(&self) -> bool {
         **self == SEL_A::NONE
@@ -107,42 +109,42 @@ impl core::ops::Deref for SEL_R {
         &self.0
     }
 }
-#[doc = "Field `SEL` writer - SCT clock source select."]
+///Field `SEL` writer - SCT clock source select.
 pub struct SEL_W<'a> {
     w: &'a mut W,
 }
 impl<'a> SEL_W<'a> {
-    #[doc = r"Writes `variant` to the field"]
+    ///Writes `variant` to the field
     #[inline(always)]
     pub fn variant(self, variant: SEL_A) -> &'a mut W {
         unsafe { self.bits(variant.into()) }
     }
-    #[doc = "Main clock (main_clk)"]
+    ///Main clock (main_clk)
     #[inline(always)]
     pub fn main_clock(self) -> &'a mut W {
         self.variant(SEL_A::MAIN_CLOCK)
     }
-    #[doc = "System PLL output (pll_clk)"]
+    ///System PLL output (pll_clk)
     #[inline(always)]
     pub fn system_pll_output(self) -> &'a mut W {
         self.variant(SEL_A::SYSTEM_PLL_OUTPUT)
     }
-    #[doc = "FRO 96 or 48 MHz (fro_hf)"]
+    ///FRO 96 or 48 MHz (fro_hf)
     #[inline(always)]
     pub fn fro_hf(self) -> &'a mut W {
         self.variant(SEL_A::FRO_HF)
     }
-    #[doc = "Audio PLL clock (audio_pll_clk)"]
+    ///Audio PLL clock (audio_pll_clk)
     #[inline(always)]
     pub fn audio_pll_output(self) -> &'a mut W {
         self.variant(SEL_A::AUDIO_PLL_OUTPUT)
     }
-    #[doc = "None, this may be selected in order to reduce power when no output is needed."]
+    ///None, this may be selected in order to reduce power when no output is needed.
     #[inline(always)]
     pub fn none(self) -> &'a mut W {
         self.variant(SEL_A::NONE)
     }
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x07) | (value as u32 & 0x07);
@@ -150,39 +152,43 @@ impl<'a> SEL_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:2 - SCT clock source select."]
+    ///Bits 0:2 - SCT clock source select.
     #[inline(always)]
     pub fn sel(&self) -> SEL_R {
         SEL_R::new((self.bits & 0x07) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:2 - SCT clock source select."]
+    ///Bits 0:2 - SCT clock source select.
     #[inline(always)]
     pub fn sel(&mut self) -> SEL_W {
         SEL_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "SCTimer/PWM clock source select\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sctclksel](index.html) module"]
+///SCTimer/PWM clock source select
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [sctclksel](index.html) module
 pub struct SCTCLKSEL_SPEC;
 impl crate::RegisterSpec for SCTCLKSEL_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [sctclksel::R](R) reader structure"]
+///`read()` method returns [sctclksel::R](R) reader structure
 impl crate::Readable for SCTCLKSEL_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [sctclksel::W](W) writer structure"]
+///`write(|w| ..)` method takes [sctclksel::W](W) writer structure
 impl crate::Writable for SCTCLKSEL_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets SCTCLKSEL to value 0x07"]
+///`reset()` method sets SCTCLKSEL to value 0x07
 impl crate::Resettable for SCTCLKSEL_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

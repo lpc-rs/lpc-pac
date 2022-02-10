@@ -1,4 +1,4 @@
-#[doc = "Register `PR` reader"]
+///Register `PR` reader
 pub struct R(crate::R<PR_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<PR_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<PR_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `PR` writer"]
+///Register `PR` writer
 pub struct W(crate::W<PR_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<PR_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<PR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `PRVAL` reader - Prescale counter value."]
+///Field `PRVAL` reader - Prescale counter value.
 pub struct PRVAL_R(crate::FieldReader<u32, u32>);
 impl PRVAL_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for PRVAL_R {
         &self.0
     }
 }
-#[doc = "Field `PRVAL` writer - Prescale counter value."]
+///Field `PRVAL` writer - Prescale counter value.
 pub struct PRVAL_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PRVAL_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,39 +62,43 @@ impl<'a> PRVAL_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Prescale counter value."]
+    ///Bits 0:31 - Prescale counter value.
     #[inline(always)]
     pub fn prval(&self) -> PRVAL_R {
         PRVAL_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Prescale counter value."]
+    ///Bits 0:31 - Prescale counter value.
     #[inline(always)]
     pub fn prval(&mut self) -> PRVAL_W {
         PRVAL_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Prescale Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pr](index.html) module"]
+///Prescale Register
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [pr](index.html) module
 pub struct PR_SPEC;
 impl crate::RegisterSpec for PR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [pr::R](R) reader structure"]
+///`read()` method returns [pr::R](R) reader structure
 impl crate::Readable for PR_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [pr::W](W) writer structure"]
+///`write(|w| ..)` method takes [pr::W](W) writer structure
 impl crate::Writable for PR_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets PR to value 0"]
+///`reset()` method sets PR to value 0
 impl crate::Resettable for PR_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

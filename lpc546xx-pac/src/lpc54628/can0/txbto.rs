@@ -1,4 +1,4 @@
-#[doc = "Register `TXBTO` reader"]
+///Register `TXBTO` reader
 pub struct R(crate::R<TXBTO_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<TXBTO_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<TXBTO_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `TXBTO` writer"]
+///Register `TXBTO` writer
 pub struct W(crate::W<TXBTO_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<TXBTO_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<TXBTO_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TO` reader - Transmission occurred."]
+///Field `TO` reader - Transmission occurred.
 pub struct TO_R(crate::FieldReader<u32, u32>);
 impl TO_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for TO_R {
         &self.0
     }
 }
-#[doc = "Field `TO` writer - Transmission occurred."]
+///Field `TO` writer - Transmission occurred.
 pub struct TO_W<'a> {
     w: &'a mut W,
 }
 impl<'a> TO_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
         self.w.bits = value;
@@ -62,39 +62,43 @@ impl<'a> TO_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:31 - Transmission occurred."]
+    ///Bits 0:31 - Transmission occurred.
     #[inline(always)]
     pub fn to(&self) -> TO_R {
         TO_R::new(self.bits)
     }
 }
 impl W {
-    #[doc = "Bits 0:31 - Transmission occurred."]
+    ///Bits 0:31 - Transmission occurred.
     #[inline(always)]
     pub fn to(&mut self) -> TO_W {
         TO_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Tx Buffer Transmission Occurred\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [txbto](index.html) module"]
+///Tx Buffer Transmission Occurred
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [txbto](index.html) module
 pub struct TXBTO_SPEC;
 impl crate::RegisterSpec for TXBTO_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [txbto::R](R) reader structure"]
+///`read()` method returns [txbto::R](R) reader structure
 impl crate::Readable for TXBTO_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [txbto::W](W) writer structure"]
+///`write(|w| ..)` method takes [txbto::W](W) writer structure
 impl crate::Writable for TXBTO_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets TXBTO to value 0"]
+///`reset()` method sets TXBTO to value 0
 impl crate::Resettable for TXBTO_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

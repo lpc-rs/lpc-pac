@@ -1,4 +1,4 @@
-#[doc = "Register `STATICWAITOEN` reader"]
+///Register `STATICWAITOEN` reader
 pub struct R(crate::R<STATICWAITOEN_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<STATICWAITOEN_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<STATICWAITOEN_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `STATICWAITOEN` writer"]
+///Register `STATICWAITOEN` writer
 pub struct W(crate::W<STATICWAITOEN_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<STATICWAITOEN_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<STATICWAITOEN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `WAITOEN` reader - Wait output enable."]
+///Field `WAITOEN` reader - Wait output enable.
 pub struct WAITOEN_R(crate::FieldReader<u8, u8>);
 impl WAITOEN_R {
     #[inline(always)]
@@ -49,12 +49,12 @@ impl core::ops::Deref for WAITOEN_R {
         &self.0
     }
 }
-#[doc = "Field `WAITOEN` writer - Wait output enable."]
+///Field `WAITOEN` writer - Wait output enable.
 pub struct WAITOEN_W<'a> {
     w: &'a mut W,
 }
 impl<'a> WAITOEN_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x0f) | (value as u32 & 0x0f);
@@ -62,39 +62,43 @@ impl<'a> WAITOEN_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:3 - Wait output enable."]
+    ///Bits 0:3 - Wait output enable.
     #[inline(always)]
     pub fn waitoen(&self) -> WAITOEN_R {
         WAITOEN_R::new((self.bits & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:3 - Wait output enable."]
+    ///Bits 0:3 - Wait output enable.
     #[inline(always)]
     pub fn waitoen(&mut self) -> WAITOEN_W {
         WAITOEN_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "Delay from EMC_CSx or address change, whichever is later, to output enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [staticwaitoen](index.html) module"]
+///Delay from EMC_CSx or address change, whichever is later, to output enable
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [staticwaitoen](index.html) module
 pub struct STATICWAITOEN_SPEC;
 impl crate::RegisterSpec for STATICWAITOEN_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [staticwaitoen::R](R) reader structure"]
+///`read()` method returns [staticwaitoen::R](R) reader structure
 impl crate::Readable for STATICWAITOEN_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [staticwaitoen::W](W) writer structure"]
+///`write(|w| ..)` method takes [staticwaitoen::W](W) writer structure
 impl crate::Writable for STATICWAITOEN_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets STATICWAITOEN to value 0"]
+///`reset()` method sets STATICWAITOEN to value 0
 impl crate::Resettable for STATICWAITOEN_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {

@@ -1,4 +1,4 @@
-#[doc = "Register `EMCDLYCTRL` reader"]
+///Register `EMCDLYCTRL` reader
 pub struct R(crate::R<EMCDLYCTRL_SPEC>);
 impl core::ops::Deref for R {
     type Target = crate::R<EMCDLYCTRL_SPEC>;
@@ -13,7 +13,7 @@ impl From<crate::R<EMCDLYCTRL_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Register `EMCDLYCTRL` writer"]
+///Register `EMCDLYCTRL` writer
 pub struct W(crate::W<EMCDLYCTRL_SPEC>);
 impl core::ops::Deref for W {
     type Target = crate::W<EMCDLYCTRL_SPEC>;
@@ -34,7 +34,7 @@ impl From<crate::W<EMCDLYCTRL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CMD_DELAY` reader - Programmable delay value for EMC outputs in command delayed mode."]
+///Field `CMD_DELAY` reader - Programmable delay value for EMC outputs in command delayed mode.
 pub struct CMD_DELAY_R(crate::FieldReader<u8, u8>);
 impl CMD_DELAY_R {
     #[inline(always)]
@@ -49,19 +49,19 @@ impl core::ops::Deref for CMD_DELAY_R {
         &self.0
     }
 }
-#[doc = "Field `CMD_DELAY` writer - Programmable delay value for EMC outputs in command delayed mode."]
+///Field `CMD_DELAY` writer - Programmable delay value for EMC outputs in command delayed mode.
 pub struct CMD_DELAY_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CMD_DELAY_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x1f) | (value as u32 & 0x1f);
         self.w
     }
 }
-#[doc = "Field `FBCLK_DELAY` reader - Programmable delay value for the feedback clock that controls input data sampling."]
+///Field `FBCLK_DELAY` reader - Programmable delay value for the feedback clock that controls input data sampling.
 pub struct FBCLK_DELAY_R(crate::FieldReader<u8, u8>);
 impl FBCLK_DELAY_R {
     #[inline(always)]
@@ -76,12 +76,12 @@ impl core::ops::Deref for FBCLK_DELAY_R {
         &self.0
     }
 }
-#[doc = "Field `FBCLK_DELAY` writer - Programmable delay value for the feedback clock that controls input data sampling."]
+///Field `FBCLK_DELAY` writer - Programmable delay value for the feedback clock that controls input data sampling.
 pub struct FBCLK_DELAY_W<'a> {
     w: &'a mut W,
 }
 impl<'a> FBCLK_DELAY_W<'a> {
-    #[doc = r"Writes raw bits to the field"]
+    ///Writes raw bits to the field
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x1f << 8)) | ((value as u32 & 0x1f) << 8);
@@ -89,49 +89,53 @@ impl<'a> FBCLK_DELAY_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bits 0:4 - Programmable delay value for EMC outputs in command delayed mode."]
+    ///Bits 0:4 - Programmable delay value for EMC outputs in command delayed mode.
     #[inline(always)]
     pub fn cmd_delay(&self) -> CMD_DELAY_R {
         CMD_DELAY_R::new((self.bits & 0x1f) as u8)
     }
-    #[doc = "Bits 8:12 - Programmable delay value for the feedback clock that controls input data sampling."]
+    ///Bits 8:12 - Programmable delay value for the feedback clock that controls input data sampling.
     #[inline(always)]
     pub fn fbclk_delay(&self) -> FBCLK_DELAY_R {
         FBCLK_DELAY_R::new(((self.bits >> 8) & 0x1f) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 0:4 - Programmable delay value for EMC outputs in command delayed mode."]
+    ///Bits 0:4 - Programmable delay value for EMC outputs in command delayed mode.
     #[inline(always)]
     pub fn cmd_delay(&mut self) -> CMD_DELAY_W {
         CMD_DELAY_W { w: self }
     }
-    #[doc = "Bits 8:12 - Programmable delay value for the feedback clock that controls input data sampling."]
+    ///Bits 8:12 - Programmable delay value for the feedback clock that controls input data sampling.
     #[inline(always)]
     pub fn fbclk_delay(&mut self) -> FBCLK_DELAY_W {
         FBCLK_DELAY_W { w: self }
     }
-    #[doc = "Writes raw bits to the register."]
+    ///Writes raw bits to the register.
     #[inline(always)]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.0.bits(bits);
         self
     }
 }
-#[doc = "EMC clock delay control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [emcdlyctrl](index.html) module"]
+///EMC clock delay control
+///
+///This register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+///
+///For information about available fields see [emcdlyctrl](index.html) module
 pub struct EMCDLYCTRL_SPEC;
 impl crate::RegisterSpec for EMCDLYCTRL_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [emcdlyctrl::R](R) reader structure"]
+///`read()` method returns [emcdlyctrl::R](R) reader structure
 impl crate::Readable for EMCDLYCTRL_SPEC {
     type Reader = R;
 }
-#[doc = "`write(|w| ..)` method takes [emcdlyctrl::W](W) writer structure"]
+///`write(|w| ..)` method takes [emcdlyctrl::W](W) writer structure
 impl crate::Writable for EMCDLYCTRL_SPEC {
     type Writer = W;
 }
-#[doc = "`reset()` method sets EMCDLYCTRL to value 0x0210"]
+///`reset()` method sets EMCDLYCTRL to value 0x0210
 impl crate::Resettable for EMCDLYCTRL_SPEC {
     #[inline(always)]
     fn reset_value() -> Self::Ux {
