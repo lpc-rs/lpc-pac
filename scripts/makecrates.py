@@ -173,9 +173,9 @@ def main(devices_path, yes, families):
 
     for path in glob.glob(os.path.join(devices_path, "*.yaml")):
         yamlfile = os.path.basename(path)
-        families = CRATE_DOC_FEATURES.keys()
+        all_families = CRATE_DOC_FEATURES.keys()
         possible_families = [
-            fam for fam in families if yamlfile.startswith(re.sub('x*-pac', '', fam))]
+            fam for fam in all_families if yamlfile.startswith(re.sub('x*-pac', '', fam))]
         family = sorted(possible_families, key=len, reverse=True)[0] 
         device = os.path.splitext(yamlfile)[0].lower()
         if len(families) == 0 or family in families:
