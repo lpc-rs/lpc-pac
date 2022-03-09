@@ -26,9 +26,10 @@ jobs:
       matrix:
         crate:
           - lpc546xx-pac
+          - lpc81x-pac
 
     env:
-      CRATES: ${{ matrix.crate }}
+      PACS: ${{ matrix.crate }}
       CARGO_INCREMENTAL: 0
       SVDTOOLS: svdtools
 

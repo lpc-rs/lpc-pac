@@ -19,15 +19,17 @@ SVD2RUST_VERSION = "0.21.0"
 
 CRATE_DOC_FEATURES = {
     "lpc546xx-pac": ["rt", "lpc54605", "lpc54606", "lpc54607", "lpc54608", "lpc54616", "lpc54618", "lpc54628"],
+    "lpc81x-pac":   ["rt", "lpc810", "lpc811", "lpc812"]
 }
 
 CRATE_DOC_TARGETS = {
     "lpc546xx-pac": "thumbv7em-none-eabihf",
+    "lpc81x-pac":   "thumbv6m-none-eabi",
 }
 
 CARGO_TOML_TPL = """\
 [package]
-edition = "2018"
+edition = "2021"
 name = "{crate}"
 version = "{version}"
 authors = ["lpc-rs Contributors"]
@@ -140,9 +142,8 @@ def read_device_table():
 
 
 def make_device_rows(table, family):
-    print(f"table = {table}, family = {family}")
     rows = []
-    for device, dt in table[re.sub('x*-pac', '', family)].items():
+    for device, dt in table[family].items():
         links = "[{}]({}), [nxp.com]({})".format(
             dt['um'], dt['um_url'], dt['url'])
         members = ", ".join(m for m in dt['members'])

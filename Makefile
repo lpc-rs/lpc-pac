@@ -12,7 +12,7 @@ SVDTOOLS ?= svdtools
 
 # formated end name 
 
-PACS ?= lpc546xx-pac
+PACS ?= lpc546xx-pac lpc81x-pac
 # remove useless xx-pacs
 FAMILIES := $(foreach pac, $(PACS), $(shell echo $(pac) | sed -r 's/x*-pac//' ))
 
