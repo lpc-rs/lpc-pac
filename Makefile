@@ -6,17 +6,22 @@ all: patch svd2rust form
 SHELL := /usr/bin/env bash
 
 # Path to `svd`/`svdtools`
-SVDTOOLS ?= svd
+SVDTOOLS ?= svdtools
 
 # largest common denominator for family of mcu
-CRATES ?= lpc546 
 
 # formated end name 
-CRATE_PACS ?= lpc546xx-pac
+
+PACS ?= lpc546xx-pac
+# remove useless xx-pacs
+FAMILIES := $(foreach pac, $(PACS), $(shell echo $(pac) | sed -r 's/x*-pac//' ))
+
+define denominator
+$(shell (echo $(1) | sed -r "s/x*-pac//"))
+endef
 
 # All yaml files in devices/ will be used to patch an SVD
-YAMLS := $(foreach crate, $(CRATES), \
-	       $(wildcard devices/$(crate)*.yaml))
+YAMLS := $(foreach crate, $(FAMILIES), $(wildcard devices/$(crate)*.yaml))
 
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
@@ -26,22 +31,34 @@ FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(YAMLS))
 MMAPS := $(patsubst devices/%.yaml, mmaps/%.mmap, $(YAMLS))
 
 # Each device will lead to a crate/src/device/mod.rs file
-RUST_SRCS := $(foreach crate, $(CRATES), \
-               $(patsubst devices/$(crate)%.yaml, \
-                          $(crate)/src/$(crate)%/mod.rs, \
-                          $(wildcard devices/$(crate)*.yaml)))
-RUST_DIRS := $(foreach crate, $(CRATES), \
-               $(patsubst devices/$(crate)%.yaml, \
-                          $(crate)/src/$(crate)%/, \
-                          $(wildcard devices/$(crate)*.yaml)))
-FORM_SRCS := $(foreach crate, $(CRATES), \
-               $(patsubst devices/$(crate)%.yaml, \
-                          $(crate)/src/$(crate)%/.form, \
-                          $(wildcard devices/$(crate)*.yaml)))
-CHECK_SRCS := $(foreach crate, $(CRATES), \
-               $(patsubst devices/$(crate)%.yaml, \
-                          $(crate)/src/$(crate)%/.check, \
-                          $(wildcard devices/$(crate)*.yaml)))
+
+RUST_SRCS := 	$(foreach pac, ${PACS}, \
+					$(patsubst devices/$(call denominator,$(pac))%.yaml, \
+						$(pac)/src/$(call denominator,$(pac))%/mod.rs, \
+						$(wildcard devices/$(call denominator,$(pac))*.yaml) \
+					) \
+				)
+
+RUST_DIRS := $(foreach pac, ${PACS}, \
+					$(patsubst devices/$(call denominator,$(pac))%.yaml, \
+						$(pac)/src/$(call denominator,$(pac))%/, \
+						$(wildcard devices/$(call denominator,$(pac))*.yaml) \
+					) \
+				)
+FORM_SRCS := $(foreach pac, ${PACS}, \
+					$(patsubst devices/$(call denominator,$(pac))%.yaml, \
+						$(pac)/src/$(call denominator,$(pac))%/.form, \
+						$(wildcard devices/$(call denominator,$(pac))*.yaml) \
+					) \
+				)
+CHECK_SRCS := $(foreach pac, ${PACS}, \
+					$(patsubst devices/$(call denominator,$(pac))%.yaml, \
+						$(pac)/src/$(call denominator,$(pac))%/.check, \
+						$(wildcard devices/$(call denominator,$(pac))*.yaml) \
+					) \
+				)
+
+
 
 # Turn a devices/device.yaml and svd/device.svd into svd/device.svd.patched
 svd/%.svd.patched: devices/%.yaml svd/%.svd .deps/%.d
@@ -57,10 +74,7 @@ mmaps/%.mmap: svd/%.svd.patched
 
 # Generates the common crate files: Cargo.toml, build.rs, src/lib.rs, README.md
 crates:
-	python3 scripts/makecrates.py devices/ -y --families $(CRATES)
-
-rename-crates:
-	python3 scripts/renamecrates.py -y --families $(CRATES)
+	python3 scripts/makecrates.py devices/ -y --families $(PACS)
 
 
 define crate_template
@@ -86,7 +100,7 @@ $(1)/Cargo.toml: crates
 
 endef
 
-$(foreach crate,$(CRATES),$(eval $(call crate_template, $(crate))))
+$(foreach crate,$(PACS),$(eval $(call crate_template, $(crate))))
 
 svd/%.svd: svd/.extracted ;
 
@@ -129,8 +143,7 @@ clean-html:
 	rm -rf html
 
 clean-crates:
-	rm -rf $(CRATES)
-	rm -rf $(CRATE_PACS)
+	rm -rf $(PACS)
 
 clean-svd:
 	rm -f svd/*.svd

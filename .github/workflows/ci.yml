@@ -45,7 +45,10 @@ jobs:
           components: rustfmt
 
       - name: Install xmllint
-        run: sudo apt-get install libxml2-utils
+        run: sudo apt-get update -y && sudo apt-get install -y libxml2-utils python3-pip
+      
+      - name: Install python deps
+        run: pip3 install pyyaml
 
       - name: Create working crate
         run: make crates

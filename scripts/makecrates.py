@@ -18,11 +18,11 @@ VERSION = "0.2.0"
 SVD2RUST_VERSION = "0.21.0"
 
 CRATE_DOC_FEATURES = {
-    "lpc546": ["rt", "lpc54628"],
+    "lpc546xx-pac": ["rt", "lpc54605", "lpc54606", "lpc54607", "lpc54608", "lpc54616", "lpc54618", "lpc54628"],
 }
 
 CRATE_DOC_TARGETS = {
-    "lpc546": "thumbv7em-none-eabihf",
+    "lpc546xx-pac": "thumbv7em-none-eabihf",
 }
 
 CARGO_TOML_TPL = """\
@@ -100,7 +100,7 @@ The `rt` feature is enabled by default and brings in support for `cortex-m-rt`.
 To disable, specify `default-features = false` in `Cargo.toml`.
 In your code:
 ```rust
-use {crate}::{device};
+use {crate_in_rust}::{device};
 let mut peripherals = {device}::Peripherals::take().unwrap();
 let gpio = &peripherals.gpio;
 ```
@@ -140,13 +140,13 @@ def read_device_table():
 
 
 def make_device_rows(table, family):
-    #print(f"table = {table}, family = {family}")
+    print(f"table = {table}, family = {family}")
     rows = []
-    for device, dt in table[family].items():
+    for device, dt in table[re.sub('x*-pac', '', family)].items():
         links = "[{}]({}), [nxp.com]({})".format(
             dt['um'], dt['um_url'], dt['url'])
         members = ", ".join(m for m in dt['members'])
-        rows.append("| {} | {} | {} |".format(device, members, links))
+        rows.append("| {} | {} | {} |".format(family, members, links))
     return "\n".join(sorted(rows))
 
 
@@ -174,10 +174,8 @@ def main(devices_path, yes, families):
         yamlfile = os.path.basename(path)
         families = CRATE_DOC_FEATURES.keys()
         possible_families = [
-            fam for fam in families if yamlfile.startswith(fam)]
-        family = sorted(possible_families, key=len, reverse=True)[0]
-        #print(f"family = {family}")
-        #family = re.match(r'stm32[a-z]+[0-9]', yamlfile)[0]
+            fam for fam in families if yamlfile.startswith(re.sub('x*-pac', '', fam))]
+        family = sorted(possible_families, key=len, reverse=True)[0] 
         device = os.path.splitext(yamlfile)[0].lower()
         if len(families) == 0 or family in families:
             if family not in devices:
@@ -204,9 +202,9 @@ def main(devices_path, yes, families):
             docs_features=str(CRATE_DOC_FEATURES[crate]),
             doc_target=CRATE_DOC_TARGETS[crate])
         readme = README_TPL.format(
-            family=ufamily, crate=crate, device=devices[family][0],
+            family=ufamily, crate=crate, crate_in_rust=crate.replace("-", "_"), device=devices[family][0],
             version=VERSION, svd2rust_version=SVD2RUST_VERSION,
-            devices=make_device_rows(table, family))
+            devices=make_device_rows(table, crate))
         lib_rs = SRC_LIB_RS_TPL.format(family=ufamily, mods=mods, crate=crate,
                                        svd2rust_version=SVD2RUST_VERSION)
         build_rs = BUILD_TPL.format(device_clauses=clauses)
