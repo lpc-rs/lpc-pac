@@ -149,7 +149,7 @@ clean-svd:
 	rm -f svd/*.svd
 	rm -f svd/.extracted
 
-clean: clean-rs clean-patch clean-html clean-svd clean-crates
+clean: clean-rs clean-patch clean-html clean-svd
 	rm -rf .deps
 
 # As alternative to `pip install --user svdtools`:
