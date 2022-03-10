@@ -7,3 +7,6 @@ svd2rust-warnings.log
 **/*.rs.bk
 **/Cargo.lock
 .deps/
+
+
+/lpc*-pac/

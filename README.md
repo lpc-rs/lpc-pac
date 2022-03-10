@@ -4,7 +4,7 @@
 [![crates.io](https://img.shields.io/crates/v/lpc546xx-pac.svg?label=lpc546xx-pac)](https://crates.io/crates/lpc546xx-pac)
 [![crates.io](https://img.shields.io/crates/v/lpc82x-pac.svg?label=lpc82x-pac)](https://crates.io/crates/lpc82x-pac)
 [![crates.io](https://img.shields.io/crates/v/lpc845-pac.svg?label=lpc845-pac)](https://crates.io/crates/lpc845-pac)
- 
+
 This repository provides Rust device support crates for some LPC microcontrollers, providing an API to that device's peripherals using [svd2rust] and the SVD files from NXP. These crates are commonly known as peripheral access crates or "PACs".
 
 [svd2rust]: https://github.com/rust-embedded/svd2rust
@@ -46,7 +46,7 @@ Replace `lpc54606_pac` with your own device; see the individual crate READMEs fo
 * Generate patched SVD files: `make patch -j8`
 * Generate svd2rust device crates: `make svd2rust -j8`
 * Optional: Format device crates: `make form -j8`
-* Rename crates to fit the lpcXXX-pac format: `make rename-crates` (no multithread here)
+
 
 
 ## Generating lpc11uxx, lpc845 and lpc82x:
@@ -64,6 +64,9 @@ Replace `lpc54606_pac` with your own device; see the individual crate READMEs fo
 * Run `svd/extract.sh` to extract the zips into `svd` (ignored in git).
 * Add new YAML file in `devices/` with the new SVD path and include any
   required SVD patches for this device, such as renaming or merging fields.
+* Add device in `lpc_part_table`
+* Add family/device (if necessary) in `Makefile` > `PACS`
+* Add family/device (if necessary) in `scripts/makecrates.py` > 
 * Re-run `scripts/makecrates.py devices/` to update the crates with the new devices.
 * Run `make` to rebuild, which will make a patched SVD and then run `svd2rust`
   on it to generate the final library.
