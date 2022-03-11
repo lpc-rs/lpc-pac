@@ -1,0 +1,4 @@
+_svd: ../svd/lpc54618.svd
+
+_include:
+  - ./common_patches/fix_usart_access_STAT_accesses.yaml

@@ -1,0 +1,70 @@
+name: build nightlies
+
+env:
+  SVDTOOLS_VERSION: 0.2.1
+  SVD2RUST_VERSION: 0.21.0
+  FORM_VERSION: 0.8.0
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-18.04
+
+    env:
+      SVDTOOLS: svdtools
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          path: lpc-pac
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          components: rustfmt
+          override: true
+
+      - name: Add fictive crate
+        run: |
+          cargo init
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v1
+        with:
+          key: svdtools-${{ env.SVDTOOLS_VERSION }}-svd2tust-${{ env.SVD2RUST_VERSION }}-form-${{ env.FORM_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          cargo install svdtools --version $SVDTOOLS_VERSION --target-dir deps-target
+          cargo install svd2rust --version $SVD2RUST_VERSION --target-dir deps-target
+          cargo install form --version $FORM_VERSION --target-dir deps-target
+      - name: Deploy SSH key
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.NIGHTLIES_KEY }}" > ~/.ssh/id_rsa
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -t rsa github.com
+      - name: Build and publish
+        run: |
+          mkdir nightly
+          cd lpc-pac
+          COMMIT=$(git rev-parse HEAD)
+          make -j2 form
+          mv lpc*-pac ../nightly
+          cp .github/workflows/README-nightlies.md ../nightly/README.md
+          cd ../nightly
+          git init
+          git add .
+          git config user.name "lpc-pac builder"
+          git config user.email "action@github.com"
+          git commit -m "lpc-pac master $COMMIT"
+          git remote add origin git@github.com:lpc-rs/lpc-pac-nightlies
+          git push --force origin master

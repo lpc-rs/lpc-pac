@@ -1,0 +1,54 @@
+name: build mmaps
+
+env:
+  SVDTOOLS_VERSION: 0.2.1
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build mmaps
+    runs-on: ubuntu-18.04
+
+    env:
+      SVDTOOLS: svdtools
+
+    steps:
+      - name: Checkout lpc-pac
+        uses: actions/checkout@v2
+        with:
+          path: lpc-pac
+
+      - name: Checkout mmaps
+        uses: actions/checkout@v2
+        with:
+          repository: lpc-rs/lpc-pac-mmaps
+          ssh-key: ${{ secrets.MMAPS_KEY }}
+          path: lpc-pac-mmaps
+
+      - name: Add fictive crate
+        run: |
+          cargo init
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v1
+        with:
+          key: svdtools-${{ env.SVDTOOLS_VERSION }}
+
+      - name: Install svdtools
+        run: |
+          cargo install svdtools --version $SVDTOOLS_VERSION
+      - name: Build and publish
+        run: |
+          cd lpc-pac
+          COMMIT=$(git rev-parse HEAD)
+          make -j2 mmaps
+          mv mmaps/* ../lpc-pac-mmaps/
+          cd ../lpc-pac-mmaps
+          git config user.name "lpc-pac builder"
+          git config user.email "action@github.com"
+          git add .
+          git commit --allow-empty -m "lpc-pac master $COMMIT"
+          git push origin master

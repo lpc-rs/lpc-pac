@@ -18,9 +18,6 @@ PACS=(
     "lpc845"
 )
 
-SUPERPACS=(
-    "lpc546xx-pac"
-)
 
 # everything is relative to the generate script
 cd "$(dirname "$0")"
@@ -105,14 +102,5 @@ for PAC in ${PACS[*]}; do
     popd >/dev/null
 done
 
-for SUPERPAC in ${SUPERPACS[*]}; do
-    IFS=: read -ra parts <<< "$SUPERPAC"
-    crate=${parts[0]}
-    cecho "$BOLDGREEN" "\nEntering $crate/"
-    pushd "$crate" >/dev/null
-    ./generate-super-pac.sh
-    cecho "$BOLDGREEN" "Done"
-    popd >/dev/null
-done
 
 echo ""

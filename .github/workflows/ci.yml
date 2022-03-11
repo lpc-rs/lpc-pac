@@ -1,0 +1,78 @@
+name: CI
+
+env:
+  SVDTOOLS_VERSION: 0.2.1
+  SVD2RUST_VERSION: 0.21.0
+  FORM_VERSION: 0.8.0
+
+on:
+  push:
+    branches: [ staging, trying, master ]
+  pull_request:
+
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    needs: [check]
+    steps:
+      - name: Done
+        run: exit 0
+
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        crate:
+          - lpc546xx-pac
+          - lpc81x-pac
+
+    env:
+      PACS: ${{ matrix.crate }}
+      CARGO_INCREMENTAL: 0
+      SVDTOOLS: svdtools
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+          components: rustfmt
+
+      - name: Install xmllint
+        run: sudo apt-get update -y && sudo apt-get install -y libxml2-utils python3-pip
+      
+      - name: Install python deps
+        run: pip3 install pyyaml
+
+      - name: Create working crate
+        run: make crates
+
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v1
+        with:
+          working-directory: ${{ matrix.crate }}
+          key: svdtools-${{ env.SVDTOOLS_VERSION }}-svd2rust-${{ env.SVD2RUST_VERSION }}-form-${{ env.FORM_VERSION }}
+
+      - name: Install tools
+        run: |
+          cargo install svdtools --version $SVDTOOLS_VERSION --target-dir deps-target
+          cargo install svd2rust --version $SVD2RUST_VERSION --target-dir deps-target
+          cargo install form --version $FORM_VERSION --target-dir deps-target
+      - name: Patch SVDs
+        run: make -j2 patch
+
+      - name: Check SVDs
+        run: make lint
+
+      - name: Build PACs
+        run: make -j2 svd2rust
+
+      - name: Check PACs
+        run: make -j2 check

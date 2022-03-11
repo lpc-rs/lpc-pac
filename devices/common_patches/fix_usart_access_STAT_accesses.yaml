@@ -1,0 +1,19 @@
+# SVD has mislabeld access for bits that are WO when they should be R/W1C
+
+USART0:
+  STAT:
+    _modify:
+      DELTACTS:
+        access: read-write
+      DELTARXBRK:
+        access: read-write
+      START:
+        access: read-write
+      FRAMERRINT:
+        access: read-write
+      PARITYERRINT:
+        access: read-write
+      RXNOISEINT:
+        access: read-write
+      ABERR:
+        access: read-write
