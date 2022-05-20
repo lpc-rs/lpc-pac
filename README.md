@@ -38,7 +38,7 @@ Replace `lpc54606_pac` with your own device; see the individual crate READMEs fo
 ## Generating PACs:
 
 
-* Install svd2rust: `cargo install --version 0.21.0 svd2rust`
+* Install svd2rust: `cargo install --version 0.24.0 svd2rust`
 * Install form: `cargo install form`
 * Install rustfmt: `rustup component add rustfmt`
 * Install svdtools: `pip install --user svdtools`
@@ -51,7 +51,7 @@ Replace `lpc54606_pac` with your own device; see the individual crate READMEs fo
 
 ## Generating lpc11uxx, lpc845 and lpc82x:
 
-* Install `svd2rust`: `cargo install --version 0.21.0 svd2rust`
+* Install `svd2rust`: `cargo install --version 0.24.0 svd2rust`
 * Install `form`: `cargo install --version 0.8.0`
 * Install `rustfmt`: `rustup component add rustfmt`
 * Generate the PACs: `./generate.sh`
