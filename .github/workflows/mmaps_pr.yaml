@@ -54,8 +54,8 @@ jobs:
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
           # Use the PR's YAML files to rebuild mmaps
           cd ../master
-          rm -rf devices peripherals
-          mv ../pr/devices ../pr/peripherals .
+          rm -rf devices
+          mv ../pr/devices .
           make -j2 mmaps
           # Use the new mmaps to make a commit in the mmaps repo
           mv mmaps/* ../mmaps/
