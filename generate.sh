@@ -64,7 +64,7 @@ require_command() {
 
 ### Main
 
-require_command svd2rust 0.21.0
+require_command svd2rust 0.24.0
 require_command cargo-fmt
 require_command form  0.8.0
 
