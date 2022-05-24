@@ -65,7 +65,7 @@ SRC_LIB_RS_TPL = """\
 //! [svd2rust/#peripheral-api](https://docs.rs/svd2rust/{svd2rust_version}/svd2rust/#peripheral-api)
 //!
 //! For more details see the README here:
-//! [stm32-rs](https://github.com/lpc-rs/lpc-pac)
+//! [lpc-pac](https://github.com/lpc-rs/lpc-pac)
 //!
 //! This crate supports all {family} devices; for the complete list please
 //! see:
