@@ -1,0 +1,82 @@
+CRC_ENGINE:
+  _modify:
+    MODE:
+      description: "CRC mode"
+      addressOffset: 0x0
+      access: read-write
+      resetValue: 0x0
+      fields:
+        CRC_POLY: 
+          description: "CRC polynomial"
+          bitOffset: 0
+          bitWidth: 2
+          CRC_32: [0b10, CRC-32 polynomial]
+          CRC_16: [0b01, CRC-16 polynomial]
+          CRC_CCITT: [0b00, CRC-CCITT polynomial]
+
+        BIT_RVS_DATA:
+          description: "Data bit order"
+          bitOffset: 2
+          bitWidth: 1
+          REVERSE: [0b1, Reverse data bits per byte]
+          NORMAL: [0b0, no reverse for data]
+
+        CMPL_DATA:
+          description: "Data complement"
+          bitOffset: 3
+          bitWidth: 1
+          COMPLEMENT: [0b1, "1's complement for data bits"]
+          NORMAL: [0b0, "no complement for data bits"]
+
+        BIT_RVS_SUM:
+          description: "Sum bit order"
+          bitOffset: 4
+          bitWidth: 1
+          REVERSE: [0b1, Reverse sum bits per byte]
+          NORMAL: [0b0, no reverse for sum]
+
+        CMPL_SUM:
+          description: "Sum complement"
+          bitOffset: 5
+          bitWidth: 1
+          COMPLEMENT: [0b1, "1's complement for sum bits"]
+          NORMAL: [0b0, "no complement for sum bits"]
+
+    SEED:
+      description: "CRC seed"
+      addressOffset: 0x4
+      access: read-write
+      resetValue: 0x0000FFFF
+      fields:
+        CRC_SEED:
+          description: "A write access to this register will load CRC seed value to CRC_SUM register with selected bit order and 1’s complement pre-processes.. Remark: A write access to this register will overrule the CRC calculation in progresses."
+          bitOffset: 0
+          bitWidth: 32
+
+    SUM:
+      name: SUM
+      alternateGroup: ""
+      description: "The most recent CRC sum can be read through this register with selected bit order and 1’s complement post-processes."
+      addressOffset: 0x8
+      access: read-only
+      resetValue: 0x0000FFFF
+
+    WR_DATA:
+      name: DATA
+      alternateGroup: ""
+      description: "Data written to this register will be taken to perform CRC calculation with selected bit order and 1’s complement pre-process. Any write size 8, 16 or 32-bit are allowed and accept back-to-back transactions."
+      addressOffset: 0x8
+      access: write-only
+      fields:
+        DATA8:
+          description: "8 bit access"
+          bitOffset: 0
+          bitWidth: 8
+        DATA16:
+          description: "16 bit access"
+          bitOffset: 0
+          bitWidth: 16
+        DATA32:
+          description: "32 bit access"
+          bitOffset: 0
+          bitWidth: 32 
