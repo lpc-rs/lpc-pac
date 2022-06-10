@@ -67,16 +67,43 @@ CRC_ENGINE:
       description: "Data written to this register will be taken to perform CRC calculation with selected bit order and 1’s complement pre-process. Any write size 8, 16 or 32-bit are allowed and accept back-to-back transactions."
       addressOffset: 0x8
       access: write-only
+
+  _add:
+    DATA8:
+      description: Data register - byte sized
+      addressOffset: 0x08
+      size: 8
+      access: write-only
+      resetValue: 0x00
+      alternateRegister: DATA
       fields:
         DATA8:
-          description: "8 bit access"
+          description: Data register bits
           bitOffset: 0
           bitWidth: 8
+
+    DATA16:
+      description: Data register - half-word sized
+      addressOffset: 0x08
+      size: 16
+      access: write-only
+      resetValue: 0x0000
+      alternateRegister: DATA
+      fields:
         DATA16:
-          description: "16 bit access"
+          description: Data register bits
           bitOffset: 0
           bitWidth: 16
+
+    DATA32:
+      description: Data register - word sized
+      addressOffset: 0x08
+      size: 32
+      access: write-only
+      resetValue: 0x00000000
+      alternateRegister: DATA
+      fields:
         DATA32:
-          description: "32 bit access"
+          description: Data register bits
           bitOffset: 0
-          bitWidth: 32 
+          bitWidth: 32
