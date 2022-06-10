@@ -2,3 +2,4 @@ _svd: ../svd/lpc54606.svd
 
 _include:
   - ./common_patches/fix_usart_access_STAT_accesses.yaml
+  - ../peripherals/crc/crc_engine.yaml
