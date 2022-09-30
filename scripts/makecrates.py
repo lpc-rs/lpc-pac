@@ -15,7 +15,7 @@ import re
 import yaml
 
 VERSION = "0.2.1"
-SVD2RUST_VERSION = "0.24.0"
+SVD2RUST_VERSION = "0.25.0"
 
 CRATE_DOC_FEATURES = {
     "lpc546xx-pac": ["rt", "lpc54605", "lpc54606", "lpc54607", "lpc54608", "lpc54616", "lpc54618", "lpc54628"],
