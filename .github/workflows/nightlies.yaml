@@ -1,9 +1,9 @@
 name: build nightlies
 
 env:
-  SVDTOOLS_VERSION: 0.2.3
-  SVD2RUST_VERSION: 0.24.0
-  FORM_VERSION: 0.8.0
+  SVDTOOLS_VERSION: 0.2.6
+  SVD2RUST_VERSION: 0.25.0
+  FORM_VERSION: 0.10.0
 
 on:
   push:
