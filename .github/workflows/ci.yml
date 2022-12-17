@@ -25,8 +25,9 @@ jobs:
     strategy:
       matrix:
         crate:
-          - lpc546xx-pac
           - lpc81x-pac
+          - lpc13xx-pac
+          - lpc546xx-pac
 
     env:
       PACS: ${{ matrix.crate }}
@@ -69,6 +70,7 @@ jobs:
         run: make -j2 patch
 
       - name: Check SVDs
+        if: ${{ env.PACS != 'lpc13xx-pac' }}
         run: make lint
 
       - name: Build PACs
