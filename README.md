@@ -1,9 +1,10 @@
 # lpc-pac-rs
 
-[![crates.io](https://img.shields.io/crates/v/lpc11uxx.svg?label=lpc11uxx)](https://crates.io/crates/lpc11uxx)
-[![crates.io](https://img.shields.io/crates/v/lpc546xx-pac.svg?label=lpc546xx-pac)](https://crates.io/crates/lpc546xx-pac)
+[![crates.io](https://img.shields.io/crates/v/lpc546xx-pac.svg?label=lpc81x-pac)](https://crates.io/crates/lpc81x-pac)
 [![crates.io](https://img.shields.io/crates/v/lpc82x-pac.svg?label=lpc82x-pac)](https://crates.io/crates/lpc82x-pac)
 [![crates.io](https://img.shields.io/crates/v/lpc845-pac.svg?label=lpc845-pac)](https://crates.io/crates/lpc845-pac)
+[![crates.io](https://img.shields.io/crates/v/lpc11uxx.svg?label=lpc11uxx)](https://crates.io/crates/lpc11uxx)
+[![crates.io](https://img.shields.io/crates/v/lpc546xx-pac.svg?label=lpc546xx-pac)](https://crates.io/crates/lpc546xx-pac)
 
 This repository provides Rust device support crates for some LPC microcontrollers, providing an API to that device's peripherals using [svd2rust] and the SVD files from NXP. These crates are commonly known as peripheral access crates or "PACs".
 
