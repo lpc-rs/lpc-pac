@@ -18,13 +18,15 @@ VERSION = "0.2.1"
 SVD2RUST_VERSION = "0.25.0"
 
 CRATE_DOC_FEATURES = {
+    "lpc81x-pac":   ["rt", "lpc810", "lpc811", "lpc812"],
+    "lpc13xx-pac":   ["rt", "lpc1311", "lpc1313", "lpc1342", "lpc1343"],
     "lpc546xx-pac": ["rt", "lpc54605", "lpc54606", "lpc54607", "lpc54608", "lpc54616", "lpc54618", "lpc54628"],
-    "lpc81x-pac":   ["rt", "lpc810", "lpc811", "lpc812"]
 }
 
 CRATE_DOC_TARGETS = {
-    "lpc546xx-pac": "thumbv7em-none-eabihf",
     "lpc81x-pac":   "thumbv6m-none-eabi",
+    "lpc13xx-pac": "thumbv7m-none-eabi",
+    "lpc546xx-pac": "thumbv7em-none-eabihf",
 }
 
 CARGO_TOML_TPL = """\
