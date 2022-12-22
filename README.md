@@ -42,7 +42,7 @@ Replace `lpc54606_pac` with your own device; see the individual crate READMEs fo
 * Install svd2rust: `cargo install --version 0.25.0 svd2rust`
 * Install form: `cargo install form --version 0.10.0`
 * Install rustfmt: `rustup component add rustfmt`
-* Install svdtools: `cargo install svdtools --version 0.2.6`
+* Install svdtools: `cargo install svdtools --version 0.2.7`
 * Unzip bundled SVD zip files: `cd svd; ./extract.sh; cd ..`
 * Generate patched SVD files: `make patch -j8`
 * Generate svd2rust device crates: `make svd2rust -j8`
